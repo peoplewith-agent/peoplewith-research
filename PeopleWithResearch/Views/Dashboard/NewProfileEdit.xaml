@@ -1,0 +1,1278 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.NewProfileEdit"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:local="clr-namespace:PeopleWithResearch"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    xmlns:syncfusion11="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
+    xmlns:sys="clr-namespace:System;assembly=netstandard"
+    BackgroundColor="White">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="20,20,20,0" Spacing="15">
+
+                <Label
+                    x:Name="Titlelbl"
+                    FontAttributes="Bold"
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="22"
+                    TextColor="#031926" />
+
+                <StackLayout
+                    x:Name="NameEdit"
+                    IsVisible="false"
+                    VerticalOptions="Start">
+
+                    <Grid
+                        ColumnDefinitions="*,*"
+                        ColumnSpacing="10"
+                        RowDefinitions="Auto">
+
+                        <!--  First Name Field  -->
+                        <inputLayout:SfTextInputLayout
+                            x:Name="FirstNameLayout"
+                            Grid.Column="0"
+                            Margin="5,10,5,0"
+                            BackgroundColor="Transparent"
+                            ContainerBackground="Transparent"
+                            ContainerType="None"
+                            ErrorText="Please enter first name"
+                            InputViewPadding="10"
+                            IsHintAlwaysFloated="True"
+                            OutlineCornerRadius="5"
+                            ShowHint="False"
+                            Stroke="LightGray"
+                            UnfocusedStrokeThickness="1">
+                            <Entry
+                                x:Name="FirstNameTxt"
+                                FontFamily="OpenSansRegular"
+                                FontSize="14"
+                                IsTextPredictionEnabled="False"
+                                Keyboard="Text"
+                                Placeholder="First Name"
+                                PlaceholderColor="Gray"
+                                TextColor="#031926"
+                                VerticalOptions="Center" />
+                            <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                                <inputLayout:LabelStyle
+                                    FontAttributes="Bold"
+                                    FontFamily="OpenSansSemiBold"
+                                    FontSize="10"
+                                    TextColor="Red" />
+                            </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                        </inputLayout:SfTextInputLayout>
+
+                        <!--  Last Name Field  -->
+                        <inputLayout:SfTextInputLayout
+                            x:Name="LastNameLayout"
+                            Grid.Column="1"
+                            Margin="5,10,5,0"
+                            BackgroundColor="Transparent"
+                            ContainerBackground="Transparent"
+                            ContainerType="None"
+                            ErrorText="Please enter last name"
+                            InputViewPadding="10"
+                            IsHintAlwaysFloated="True"
+                            OutlineCornerRadius="5"
+                            ShowHint="False"
+                            Stroke="LightGray"
+                            UnfocusedStrokeThickness="1">
+                            <Entry
+                                x:Name="SurNameTxt"
+                                FontFamily="OpenSansRegular"
+                                FontSize="14"
+                                IsTextPredictionEnabled="False"
+                                Keyboard="Text"
+                                Placeholder="Last Name"
+                                PlaceholderColor="Gray"
+                                TextColor="#031926"
+                                VerticalOptions="Center" />
+                            <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                                <inputLayout:LabelStyle
+                                    FontAttributes="Bold"
+                                    FontFamily="OpenSansSemiBold"
+                                    FontSize="10"
+                                    TextColor="Red" />
+                            </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                        </inputLayout:SfTextInputLayout>
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout
+                    x:Name="emailstack"
+                    IsVisible="false"
+                    VerticalOptions="Start">
+
+                    <inputLayout:SfTextInputLayout
+                        x:Name="emailreghint"
+                        Grid.Column="0"
+                        Margin="5,10,5,0"
+                        BackgroundColor="Transparent"
+                        ContainerBackground="Transparent"
+                        ContainerType="None"
+                        ErrorText=""
+                        InputViewPadding="10"
+                        IsHintAlwaysFloated="True"
+                        OutlineCornerRadius="5"
+                        ShowHint="False"
+                        Stroke="LightGray"
+                        UnfocusedStrokeThickness="1">
+                        <Entry
+                            x:Name="emailregtxt"
+                            FontFamily="OpenSansRegular"
+                            FontSize="14"
+                            IsTextPredictionEnabled="False"
+                            Keyboard="Text"
+                            Placeholder="Email"
+                            PlaceholderColor="Gray"
+                            TextColor="#031926"
+                            VerticalOptions="Center" />
+                        <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                            <inputLayout:LabelStyle
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="10"
+                                TextColor="Red" />
+                        </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                    </inputLayout:SfTextInputLayout>
+
+                    <!--    -->
+
+
+
+                </StackLayout>
+
+                <StackLayout
+                    x:Name="dobstack"
+                    IsVisible="false"
+                    VerticalOptions="Start">
+
+                    <StackLayout
+                        x:Name="DayPickerStack"
+                        IsVisible="false"
+                        Spacing="10">
+
+                        <Border
+                            Margin="0,20,0,20"
+                            Padding="10"
+                            HorizontalOptions="Center"
+                            StrokeShape="RoundRectangle 15"
+                            StrokeThickness="0.5">
+
+                            <Border.Stroke>
+                                <LinearGradientBrush EndPoint="0,1">
+                                    <GradientStop Offset="0.1" Color="#E0E0E0" />
+                                    <GradientStop Offset="1.0" Color="#BDBDBD" />
+                                </LinearGradientBrush>
+                            </Border.Stroke>
+
+                            <Border.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity="0.1"
+                                    Radius="10"
+                                    Offset="5,5" />
+                            </Border.Shadow>
+
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="1,1">
+                                    <GradientStop Offset="0.1" Color="White" />
+                                    <GradientStop Offset="1.0" Color="#F8F9FA" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <syncfusion11:SfDatePicker
+                                x:Name="daypickernew"
+                                Padding="0"
+                                Background="Transparent"
+                                BackgroundColor="Transparent"
+                                ColumnDividerColor="#33dedede"
+                                Format="dd_MMM_yyyy"
+                                HeightRequest="200"
+                                IsOpen="false"
+                                ItemHeight="40">
+                                <syncfusion11:SfDatePicker.HeaderView>
+                                    <syncfusion11:PickerHeaderView Height="0" />
+                                </syncfusion11:SfDatePicker.HeaderView>
+                                <syncfusion11:SfDatePicker.ColumnHeaderView>
+                                    <syncfusion11:DatePickerColumnHeaderView Height="0" />
+                                </syncfusion11:SfDatePicker.ColumnHeaderView>
+                                <syncfusion11:SfDatePicker.SelectedTextStyle>
+                                    <syncfusion11:PickerTextStyle
+                                        FontAttributes="Bold"
+                                        FontFamily="OpenSansSemiBold"
+                                        FontSize="16"
+                                        TextColor="White" />
+                                </syncfusion11:SfDatePicker.SelectedTextStyle>
+                                <syncfusion11:SfDatePicker.TextStyle>
+                                    <syncfusion11:PickerTextStyle
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="15"
+                                        TextColor="Gray" />
+                                </syncfusion11:SfDatePicker.TextStyle>
+                                <syncfusion11:SfDatePicker.SelectionView>
+                                    <syncfusion11:PickerSelectionView
+                                        Background="#009fe3"
+                                        CornerRadius="15"
+                                        Stroke="Transparent" />
+                                </syncfusion11:SfDatePicker.SelectionView>
+                            </syncfusion11:SfDatePicker>
+                        </Border>
+
+                    </StackLayout>
+
+
+                </StackLayout>
+
+
+                <StackLayout
+                    x:Name="genderstack"
+                    IsVisible="false"
+                    VerticalOptions="Start">
+
+                    <syncfusion:SfListView
+                        x:Name="genderlist"
+                        Margin="0,10,0,0"
+                        AutoFitMode="Height"
+                        BackgroundColor="Transparent"
+                        ItemTapped="genderlist_ItemTapped"
+                        Orientation="Vertical"
+                        ScrollBarVisibility="Never"
+                        SelectionBackground="Transparent"
+                        SelectionGesture="Tap"
+                        SelectionMode="Single">
+
+                        <!--  Normal Item Template  -->
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Margin="0,2"
+                                    Padding="10"
+                                    BackgroundColor="Transparent"
+                                    Stroke="LightGray"
+                                    StrokeShape="RoundRectangle 10">
+                                    <Label
+                                        Padding="10"
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="14"
+                                        Text="{Binding .}"
+                                        TextColor="Gray"
+                                        VerticalOptions="Center" />
+                                </Border>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+
+                        <!--  Selected Item Template  -->
+                        <syncfusion:SfListView.SelectedItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Margin="0,2"
+                                    Padding="10"
+                                    BackgroundColor="#ebf4fc"
+                                    Stroke="#009fe3"
+                                    StrokeShape="RoundRectangle 10"
+                                    StrokeThickness="2">
+                                    <Label
+                                        Padding="10"
+                                        FontAttributes="Bold"
+                                        FontFamily="OpenSansSemiBold"
+                                        FontSize="14"
+                                        Text="{Binding .}"
+                                        TextColor="#031926"
+                                        VerticalOptions="Center" />
+                                </Border>
+                            </DataTemplate>
+                        </syncfusion:SfListView.SelectedItemTemplate>
+                    </syncfusion:SfListView>
+
+                    <StackLayout x:Name="OtherGen" IsVisible="False">
+                        <!--  Gender Label  -->
+                        <Label
+                            x:Name="genderentrylabel"
+                            Margin="10,20,0,2"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansRegular"
+                            FontSize="12"
+                            Text="Please State:"
+                            TextColor="#031926" />
+
+                        <inputLayout:SfTextInputLayout
+                            x:Name="GenderHelper"
+                            Grid.Column="1"
+                            Margin="0,5,0,0"
+                            BackgroundColor="Transparent"
+                            ContainerBackground="Transparent"
+                            ContainerType="Outlined"
+                            ErrorText="Please enter last name"
+                            FocusedStrokeThickness="2"
+                            InputViewPadding="20,10"
+                            IsHintAlwaysFloated="True"
+                            OutlineCornerRadius="10"
+                            ShowHint="False"
+                            Stroke="#009fe3"
+                            UnfocusedStrokeThickness="2">
+                            <Entry
+                                x:Name="GenderTxt"
+                                Margin="10"
+                                FontFamily="OpenSansRegular"
+                                FontSize="14"
+                                IsTextPredictionEnabled="False"
+                                Keyboard="Text"
+                                Placeholder="Enter Gender"
+                                PlaceholderColor="Gray"
+                                TextColor="#031926"
+                                VerticalOptions="Center" />
+                            <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                                <inputLayout:LabelStyle
+                                    FontAttributes="Bold"
+                                    FontFamily="OpenSansSemiBold"
+                                    FontSize="10"
+                                    TextColor="Red" />
+                            </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                        </inputLayout:SfTextInputLayout>
+                    </StackLayout>
+
+
+
+
+                </StackLayout>
+
+                <StackLayout
+                    x:Name="ethstack"
+                    IsVisible="false"
+                    VerticalOptions="Start">
+
+                    <syncfusion:SfListView
+                        x:Name="ethnlist"
+                        Margin="0,0,0,0"
+                        AutoFitMode="Height"
+                        BackgroundColor="Transparent"
+                        IsScrollingEnabled="False"
+                        ItemTapped="ethnlist_ItemTapped"
+                        Orientation="Vertical"
+                        ScrollBarVisibility="Never"
+                        SelectionBackground="Transparent"
+                        SelectionGesture="Tap"
+                        SelectionMode="Single">
+
+                        <!--  Normal Item Template  -->
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Margin="0,2"
+                                    Padding="10"
+                                    BackgroundColor="Transparent"
+                                    Stroke="LightGray"
+                                    StrokeShape="RoundRectangle 10">
+                                    <Label
+                                        Padding="10"
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="14"
+                                        Text="{Binding .}"
+                                        TextColor="Gray"
+                                        VerticalOptions="Center" />
+                                </Border>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+
+                        <!--  Selected Item Template  -->
+                        <syncfusion:SfListView.SelectedItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Margin="0,2"
+                                    Padding="10"
+                                    BackgroundColor="#ebf4fc"
+                                    Stroke="#009fe3"
+                                    StrokeShape="RoundRectangle 10"
+                                    StrokeThickness="2">
+                                    <Label
+                                        Padding="10"
+                                        FontAttributes="Bold"
+                                        FontFamily="OpenSansSemiBold"
+                                        FontSize="14"
+                                        Text="{Binding .}"
+                                        TextColor="#031926"
+                                        VerticalOptions="Center" />
+                                </Border>
+                            </DataTemplate>
+                        </syncfusion:SfListView.SelectedItemTemplate>
+                    </syncfusion:SfListView>
+
+                </StackLayout>
+
+
+                <StackLayout
+                    x:Name="phonestack"
+                    IsVisible="false"
+                    VerticalOptions="Start">
+
+                    <!--  Phone Number Field  -->
+                    <inputLayout:SfTextInputLayout
+                        x:Name="mobhint"
+                        Grid.Column="0"
+                        Margin="5,10,5,0"
+                        BackgroundColor="Transparent"
+                        ContainerBackground="Transparent"
+                        ContainerType="None"
+                        ErrorText="Please enter first name"
+                        InputViewPadding="10"
+                        IsHintAlwaysFloated="True"
+                        OutlineCornerRadius="5"
+                        ShowHint="False"
+                        Stroke="LightGray"
+                        UnfocusedStrokeThickness="1">
+                        <Entry
+                            x:Name="mobtxt"
+                            FontFamily="OpenSansRegular"
+                            FontSize="14"
+                            IsTextPredictionEnabled="False"
+                            Keyboard="Text"
+                            Placeholder="Phone Number"
+                            PlaceholderColor="Gray"
+                            TextChanged="mobtxt_TextChanged"
+                            TextColor="#031926"
+                            VerticalOptions="Center" />
+                        <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                            <inputLayout:LabelStyle
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="10"
+                                TextColor="Red" />
+                        </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                    </inputLayout:SfTextInputLayout>
+
+                </StackLayout>
+
+                <StackLayout
+                    x:Name="townstack"
+                    IsVisible="false"
+                    VerticalOptions="Start">
+
+                    <!--  Town Field  -->
+                    <inputLayout:SfTextInputLayout
+                        x:Name="townhint"
+                        Grid.Column="0"
+                        Margin="5,10,5,0"
+                        BackgroundColor="Transparent"
+                        ContainerBackground="Transparent"
+                        ContainerType="None"
+                        ErrorText="Please enter first name"
+                        InputViewPadding="10"
+                        IsHintAlwaysFloated="True"
+                        OutlineCornerRadius="5"
+                        ShowHint="False"
+                        Stroke="LightGray"
+                        UnfocusedStrokeThickness="1">
+                        <Entry
+                            x:Name="towntxt"
+                            FontFamily="OpenSansRegular"
+                            FontSize="14"
+                            IsTextPredictionEnabled="False"
+                            Keyboard="Text"
+                            Placeholder="Enter Town/City"
+                            PlaceholderColor="Gray"
+                            TextChanged="towntxt_TextChanged"
+                            TextColor="#031926"
+                            VerticalOptions="Center" />
+                        <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                            <inputLayout:LabelStyle
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="10"
+                                TextColor="Red" />
+                        </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                    </inputLayout:SfTextInputLayout>
+
+                </StackLayout>
+
+                <StackLayout
+                    x:Name="heightstack"
+                    IsVisible="false"
+                    VerticalOptions="Start">
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="26"
+                        HorizontalOptions="Center"
+                        Text="Height"
+                        TextColor="#031926" />
+
+                    <Label
+                        FontSize="15"
+                        HorizontalOptions="Center"
+                        Text="Please select your height"
+                        TextColor="Gray" />
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70*" />
+                            <ColumnDefinition Width="30*" />
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+
+                            <Label
+                                x:Name="heightlabel"
+                                FontSize="40"
+                                HorizontalOptions="Center"
+                                Text=" "
+                                TextColor="#031926" />
+
+
+                            <syncfusion:SfListView
+                                x:Name="segmentedcontrolheight"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Margin="20,120,0,0"
+                                AutoFitMode="Height"
+                                BackgroundColor="Transparent"
+                                HeightRequest="100"
+                                HorizontalOptions="Center"
+                                ItemTapped="segmentedcontrolheight_ItemTapped"
+                                Orientation="Horizontal"
+                                ScrollBarVisibility="Never"
+                                SelectionBackground="Transparent"
+                                SelectionMode="Single"
+                                VerticalOptions="End"
+                                WidthRequest="150">
+                                <!--<syncfusion:SfListView.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" Android="300" iOS="300"/>
+                                              </syncfusion:SfListView.HeightRequest>-->
+
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame
+                                                Margin="5,10,5,5"
+                                                Padding="10"
+                                                BackgroundColor="Transparent"
+                                                BorderColor="Transparent"
+                                                CornerRadius="10"
+                                                HasShadow="False">
+                                                <Grid HorizontalOptions="Fill">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                        Grid.Row="0"
+                                                        HeightRequest="20"
+                                                        HorizontalOptions="Center"
+                                                        Opacity="0"
+                                                        Source="downpick.png"
+                                                        VerticalOptions="Center"
+                                                        WidthRequest="20" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        Margin="0,0,0,0"
+                                                        FontAttributes="None"
+                                                        FontSize="14"
+                                                        Text="{Binding .}"
+                                                        TextColor="Gray"
+                                                        VerticalOptions="Center" />
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+                                <syncfusion:SfListView.SelectedItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame
+                                                Margin="5,10,5,5"
+                                                Padding="10"
+                                                BackgroundColor="Transparent"
+                                                BorderColor="Transparent"
+                                                CornerRadius="10"
+                                                HasShadow="False">
+                                                <Grid HorizontalOptions="Fill">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                        Grid.Row="0"
+                                                        HeightRequest="20"
+                                                        HorizontalOptions="Center"
+                                                        Source="downpick.png"
+                                                        VerticalOptions="Center"
+                                                        WidthRequest="20" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        Margin="0,0,0,0"
+                                                        FontAttributes="Bold"
+                                                        FontSize="14"
+                                                        Text="{Binding .}"
+                                                        TextColor="#031926"
+                                                        VerticalOptions="Center" />
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.SelectedItemTemplate>
+                            </syncfusion:SfListView>
+
+
+
+                        </StackLayout>
+
+
+                        <syncfusion:SfListView
+                            x:Name="heightlist"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="0,0,0,0"
+                            AutoFitMode="Height"
+                            BackgroundColor="Transparent"
+                            HeightRequest="500"
+                            ItemTapped="heightlist_ItemTapped"
+                            ItemsSourceChangeCachingStrategy="RecycleItems"
+                            Loaded="heightlist_Loaded"
+                            Orientation="Vertical"
+                            ScrollBarVisibility="Never"
+                            SelectionBackground="Transparent"
+                            SelectionMode="Single"
+                            VerticalOptions="Center">
+                            <!--<syncfusion:SfListView.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" Android="1500" iOS="1500"/>
+                                              </syncfusion:SfListView.HeightRequest>-->
+
+                            <syncfusion:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30*" />
+                                                <ColumnDefinition Width="50*" />
+                                                <ColumnDefinition Width="20*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <BoxView
+                                                Grid.Row="0"
+                                                Grid.Column="1"
+                                                HeightRequest="2"
+                                                HorizontalOptions="End"
+                                                IsVisible="{Binding Mainnumber}"
+                                                VerticalOptions="Center"
+                                                WidthRequest="40"
+                                                Color="#009fe3" />
+
+                                            <BoxView
+                                                Grid.Row="0"
+                                                Grid.Column="1"
+                                                HeightRequest="2"
+                                                HorizontalOptions="End"
+                                                IsVisible="{Binding Grayvisible}"
+                                                VerticalOptions="Center"
+                                                WidthRequest="20"
+                                                Color="LightGray" />
+
+
+
+                                            <Label
+                                                Grid.Row="0"
+                                                Grid.Column="0"
+                                                FontAttributes="Bold"
+                                                FontSize="12"
+                                                HorizontalOptions="End"
+                                                IsVisible="{Binding Mainnumber}"
+                                                Text="{Binding Valuenumber}"
+                                                TextColor="#031926" />
+
+                                            <Label
+                                                Grid.Row="0"
+                                                Grid.Column="0"
+                                                FontSize="12"
+                                                HorizontalOptions="End"
+                                                IsVisible="{Binding Grayvisible}"
+                                                Text="1"
+                                                TextColor="Transparent" />
+
+
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </syncfusion:SfListView.ItemTemplate>
+
+                            <syncfusion:SfListView.SelectedItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30*" />
+                                                <ColumnDefinition Width="50*" />
+                                                <ColumnDefinition Width="20*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <BoxView
+                                                Grid.Row="0"
+                                                Grid.Column="1"
+                                                HeightRequest="2"
+                                                HorizontalOptions="End"
+                                                IsVisible="{Binding Mainnumber}"
+                                                VerticalOptions="Center"
+                                                WidthRequest="40"
+                                                Color="#009fe3" />
+
+                                            <BoxView
+                                                Grid.Row="0"
+                                                Grid.Column="1"
+                                                HeightRequest="2"
+                                                HorizontalOptions="End"
+                                                IsVisible="{Binding Grayvisible}"
+                                                VerticalOptions="Center"
+                                                WidthRequest="20"
+                                                Color="LightGray" />
+
+
+
+                                            <Label
+                                                Grid.Row="0"
+                                                Grid.Column="0"
+                                                FontAttributes="Bold"
+                                                FontSize="12"
+                                                HorizontalOptions="End"
+                                                IsVisible="{Binding Mainnumber}"
+                                                Text="{Binding Valuenumber}"
+                                                TextColor="#031926" />
+
+                                            <Label
+                                                Grid.Row="0"
+                                                Grid.Column="0"
+                                                FontSize="12"
+                                                HorizontalOptions="End"
+                                                IsVisible="{Binding Grayvisible}"
+                                                Text="1"
+                                                TextColor="White" />
+
+                                            <Image
+                                                Grid.Row="0"
+                                                Grid.Column="2"
+                                                HeightRequest="15"
+                                                HorizontalOptions="Center"
+                                                Source="leftpick.png"
+                                                VerticalOptions="Center"
+                                                WidthRequest="15" />
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </syncfusion:SfListView.SelectedItemTemplate>
+                        </syncfusion:SfListView>
+
+
+
+
+                    </Grid>
+
+                </StackLayout>
+
+
+
+                <StackLayout
+                    x:Name="weightstack"
+                    IsVisible="false"
+                    VerticalOptions="Start">
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="26"
+                        HorizontalOptions="Center"
+                        Text="Weight"
+                        TextColor="#031926" />
+
+                    <Label
+                        FontSize="15"
+                        HorizontalOptions="Center"
+                        Text="Please select your weight"
+                        TextColor="Gray" />
+
+
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*" />
+
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+
+                            <Label
+                                x:Name="weightlabel"
+                                FontSize="40"
+                                HorizontalOptions="Center"
+                                Text=" "
+                                TextColor="#031926" />
+
+
+                            <syncfusion:SfListView
+                                x:Name="segmentedcontrolweight"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="1"
+                                Margin="0,50,0,0"
+                                AutoFitMode="Height"
+                                BackgroundColor="Transparent"
+                                HeightRequest="100"
+                                HorizontalOptions="Center"
+                                ItemTapped="segmentedcontrolweight_ItemTapped"
+                                Orientation="Horizontal"
+                                ScrollBarVisibility="Never"
+                                SelectionBackground="Transparent"
+                                SelectionMode="Single"
+                                VerticalOptions="End"
+                                WidthRequest="150">
+                                <!--<syncfusion:SfListView.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" Android="300" iOS="300"/>
+                                              </syncfusion:SfListView.HeightRequest>-->
+
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame
+                                                Margin="5,10,5,5"
+                                                Padding="10"
+                                                BackgroundColor="Transparent"
+                                                BorderColor="Transparent"
+                                                CornerRadius="10"
+                                                HasShadow="False">
+                                                <Grid HorizontalOptions="Fill">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                        Grid.Row="0"
+                                                        HeightRequest="20"
+                                                        HorizontalOptions="Center"
+                                                        Opacity="0"
+                                                        Source="downpick.png"
+                                                        VerticalOptions="Center"
+                                                        WidthRequest="20" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        Margin="0,0,0,0"
+                                                        FontAttributes="None"
+                                                        FontSize="14"
+                                                        Text="{Binding .}"
+                                                        TextColor="Gray"
+                                                        VerticalOptions="Center" />
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+                                <syncfusion:SfListView.SelectedItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame
+                                                Margin="5,10,5,5"
+                                                Padding="10"
+                                                BackgroundColor="Transparent"
+                                                BorderColor="Transparent"
+                                                CornerRadius="10"
+                                                HasShadow="False">
+                                                <Grid HorizontalOptions="Fill">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                        Grid.Row="0"
+                                                        HeightRequest="20"
+                                                        HorizontalOptions="Center"
+                                                        Source="downpick.png"
+                                                        VerticalOptions="Center"
+                                                        WidthRequest="20" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        Margin="0,0,0,0"
+                                                        FontAttributes="Bold"
+                                                        FontSize="14"
+                                                        Text="{Binding .}"
+                                                        TextColor="#031926"
+                                                        VerticalOptions="Center" />
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.SelectedItemTemplate>
+                            </syncfusion:SfListView>
+
+
+                        </StackLayout>
+
+
+                    </Grid>
+
+
+
+                    <syncfusion:SfListView
+                        x:Name="weightlist"
+                        Margin="0,0,0,0"
+                        AutoFitMode="Height"
+                        BackgroundColor="Transparent"
+                        ItemTapped="weightlist_ItemTapped"
+                        ItemsSourceChangeCachingStrategy="RecycleItems"
+                        Loaded="weightlist_Loaded"
+                        Orientation="Horizontal"
+                        ScrollBarVisibility="Never"
+                        SelectionBackground="Transparent"
+                        SelectionMode="Single"
+                        VerticalOptions="Center"
+                        WidthRequest="500">
+                        <!--<syncfusion:SfListView.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" Android="1500" iOS="1500"/>
+                                              </syncfusion:SfListView.HeightRequest>-->
+
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20*" />
+                                            <ColumnDefinition Width="80*" />
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            HeightRequest="15"
+                                            HorizontalOptions="Center"
+                                            Opacity="0"
+                                            Source="downpick.png"
+                                            VerticalOptions="Center"
+                                            WidthRequest="15" />
+
+                                        <BoxView
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            HeightRequest="40"
+                                            HorizontalOptions="Center"
+                                            IsVisible="{Binding Mainnumber}"
+                                            VerticalOptions="Fill"
+                                            WidthRequest="2"
+                                            Color="#009fe3" />
+
+                                        <BoxView
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            HeightRequest="20"
+                                            HorizontalOptions="Center"
+                                            IsVisible="{Binding Grayvisible}"
+                                            VerticalOptions="Fill"
+                                            WidthRequest="2"
+                                            Color="LightGray" />
+
+
+
+                                        <Label
+                                            Grid.Row="2"
+                                            Grid.Column="1"
+                                            FontSize="20"
+                                            HorizontalOptions="Center"
+                                            IsVisible="{Binding Mainnumber}"
+                                            Text="{Binding Valuenumber}"
+                                            TextColor="#031926" />
+
+
+
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+                        <syncfusion:SfListView.SelectedItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20*" />
+                                            <ColumnDefinition Width="80*" />
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            HeightRequest="15"
+                                            HorizontalOptions="Center"
+                                            Source="downpick.png"
+                                            VerticalOptions="Center"
+                                            WidthRequest="15" />
+
+                                        <BoxView
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            HeightRequest="40"
+                                            HorizontalOptions="Center"
+                                            IsVisible="{Binding Mainnumber}"
+                                            VerticalOptions="Fill"
+                                            WidthRequest="2"
+                                            Color="#009fe3" />
+
+                                        <BoxView
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            HeightRequest="20"
+                                            HorizontalOptions="Center"
+                                            IsVisible="{Binding Grayvisible}"
+                                            VerticalOptions="Fill"
+                                            WidthRequest="2"
+                                            Color="LightGray" />
+
+
+
+                                        <Label
+                                            Grid.Row="2"
+                                            Grid.Column="1"
+                                            FontSize="20"
+                                            HorizontalOptions="Center"
+                                            IsVisible="{Binding Mainnumber}"
+                                            Text="{Binding Valuenumber}"
+                                            TextColor="#031926" />
+
+
+
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </syncfusion:SfListView.SelectedItemTemplate>
+
+                    </syncfusion:SfListView>
+
+
+
+
+
+                </StackLayout>
+
+                <StackLayout
+                    x:Name="notificationstack"
+                    IsVisible="false"
+                    VerticalOptions="Start">
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="26"
+                        HorizontalOptions="Center"
+                        Text="Notifications"
+                        TextColor="#031926" />
+
+
+                    <Frame
+                        Margin="0,0,0,20"
+                        Padding="0"
+                        BackgroundColor="White"
+                        BorderColor="White"
+                        CornerRadius="10"
+                        HasShadow="False">
+
+                        <Grid BackgroundColor="Transparent" HeightRequest="40">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80*" />
+                                <ColumnDefinition Width="20*" />
+
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="10,10,0,0"
+                                FontAttributes="None"
+                                HorizontalOptions="Start"
+                                Text="Allow Notifications"
+                                TextColor="#031926"
+                                VerticalOptions="Center" />
+                            <Switch
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="0,5,0,0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center" />
+                        </Grid>
+
+                    </Frame>
+
+
+                </StackLayout>
+
+
+
+                <StackLayout
+                    x:Name="epidstack"
+                    IsVisible="false"
+                    VerticalOptions="Start">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="26"
+                        HorizontalOptions="Center"
+                        Text="Your National Health Identifier"
+                        TextColor="#031926" />
+                    <Label
+                        FontAttributes="None"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="Please update your National Health Identifier. Tap on the box below to update your NHS Number if you live in England or Wales, your CHI Number if you live in Scotland or your Health and Social Care Number if you live in Northern Ireland."
+                        TextColor="#031926" />
+                    <inputLayout:SfTextInputLayout
+                        x:Name="epidhint"
+                        Margin="0,10,0,0"
+                        BackgroundColor="Transparent"
+                        ContainerBackground="Transparent"
+                        ContainerType="Filled"
+                        Hint="National Health Identifier"
+                        OutlineCornerRadius="10">
+                        <Entry
+                            x:Name="epidtxt"
+                            Margin="0,0,0,0"
+                            FontSize="Small"
+                            Keyboard="Default"
+                            Placeholder="EPID"
+                            PlaceholderColor="Gray"
+                            TextColor="#143541" />
+                    </inputLayout:SfTextInputLayout>
+                </StackLayout>
+
+
+
+
+
+                <StackLayout
+                    x:Name="passwordreset"
+                    IsVisible="false"
+                    VerticalOptions="Start">
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="26"
+                        HorizontalOptions="Center"
+                        Text="Password Reset"
+                        TextColor="#031926" />
+
+
+                    <inputLayout:SfTextInputLayout
+                        Margin="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        ContainerBackground="Transparent"
+                        ContainerType="Filled"
+                        Hint="Current Password"
+                        OutlineCornerRadius="10">
+                        <Entry
+                            x:Name="passwordold"
+                            Margin="0,0,0,0"
+                            FontSize="Small"
+                            IsPassword="True"
+                            Placeholder="Current Password"
+                            PlaceholderColor="Gray"
+                            TextColor="#234983" />
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout
+                        Margin="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        ContainerBackground="Transparent"
+                        ContainerType="Filled"
+                        Hint="New Password"
+                        OutlineCornerRadius="10">
+                        <Entry
+                            x:Name="passwordnew"
+                            Margin="0,0,0,0"
+                            FontSize="Small"
+                            IsPassword="True"
+                            Placeholder="New Password"
+                            PlaceholderColor="Gray"
+                            TextColor="#234983" />
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout
+                        Margin="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        ContainerBackground="Transparent"
+                        ContainerType="Filled"
+                        Hint="Confirm Password"
+                        OutlineCornerRadius="10">
+                        <Entry
+                            x:Name="newpasswordcheck"
+                            Margin="0,0,0,0"
+                            FontSize="Small"
+                            IsPassword="True"
+                            Placeholder="Confirm Password"
+                            PlaceholderColor="Gray"
+                            TextColor="#234983" />
+                    </inputLayout:SfTextInputLayout>
+
+                    <Label
+                        x:Name="passworderror"
+                        Margin="10,0,10,0"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        TextColor="Red" />
+
+                </StackLayout>
+
+
+                <!--  bottom stack  -->
+
+                <StackLayout x:Name="bottomstack" VerticalOptions="End">
+
+                    <Button
+                        x:Name="btnmain"
+                        Margin="10,20,10,20"
+                        BackgroundColor="#009fe3"
+                        Clicked="btnmain_Clicked"
+                        CornerRadius="10"
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        HorizontalOptions="Fill"
+                        Text="Save"
+                        TextColor="White" />
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

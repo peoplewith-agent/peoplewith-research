@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopup:PopupPage
+    x:Class="PeopleWithResearch.SelectNotificationTime"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+    xmlns:mopup="clr-namespace:Mopups.Pages;assembly=Mopups"
+    xmlns:sflistview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BackgroundColor="#66000000"
+    CloseWhenBackgroundIsClicked="False"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False">
+
+    <mopup:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="100"
+            DurationOut="100"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center" />
+    </mopup:PopupPage.Animation>
+
+    <Grid
+        Margin="20"
+        HorizontalOptions="Fill"
+        RowDefinitions="*"
+        VerticalOptions="Fill">
+
+        <Border
+            Grid.Row="0"
+            BackgroundColor="#F8F9FB"
+            HorizontalOptions="Fill"
+            Stroke="Transparent"
+            StrokeShape="RoundRectangle 16"
+            VerticalOptions="Fill">
+
+            <ScrollView>
+                <VerticalStackLayout
+                    Padding="20"
+                    Spacing="0"
+                    VerticalOptions="Center">
+
+                    <VerticalStackLayout
+                        x:Name="TimeStack"
+                        Margin="0,20"
+                        Spacing="0">
+
+                        <Image
+                            x:Name="LoadImage"
+                            Aspect="AspectFit"
+                            HeightRequest="75"
+                            HorizontalOptions="Center"
+                            IsAnimationPlaying="true"
+                            Source="alertring.gif" />
+
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemi"
+                            FontSize="24"
+                            HorizontalOptions="Center"
+                            Text="Notification reminder time"
+                            TextColor="Black" />
+
+                        <Label
+                            x:Name="detailslbl"
+                            Margin="0,10,0,0"
+                            FontAttributes="None"
+                            FontFamily="OpenSansRegular"
+                            FontSize="14"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="Gray"
+                            VerticalTextAlignment="Center" />
+
+
+
+                        <sflistview:SfListView
+                            x:Name="listView"
+                            Margin="0,40"
+                            AutoFitMode="Height"
+                            BackgroundColor="Transparent"
+                            IsScrollingEnabled="False"
+                            ItemTapped="listView_ItemTapped"
+                            Orientation="Vertical"
+                            ScrollBarVisibility="Never"
+                            SelectionBackground="Transparent"
+                            SelectionMode="Single"
+                            VerticalOptions="Center">
+                            <sflistview:SfListView.ItemsLayout>
+                                <sflistview:GridLayout SpanCount="4" />
+                            </sflistview:SfListView.ItemsLayout>
+                            <sflistview:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Margin="5"
+                                        Padding="0"
+                                        BackgroundColor="Transparent"
+                                        InputTransparent="True"
+                                        Stroke="LightGray"
+                                        StrokeShape="RoundRectangle 10">
+                                        <Label
+                                            Padding="5"
+                                            FontFamily="OpenSansRegular"
+                                            FontSize="14"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding .}"
+                                            TextColor="gray"
+                                            VerticalOptions="Center" />
+                                    </Border>
+                                </DataTemplate>
+                            </sflistview:SfListView.ItemTemplate>
+                            <sflistview:SfListView.SelectedItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Margin="5"
+                                        Padding="0"
+                                        BackgroundColor="#ccebf9"
+                                        InputTransparent="True"
+                                        Stroke="#009fe3"
+                                        StrokeShape="RoundRectangle 10">
+                                        <Label
+                                            Padding="5"
+                                            FontAttributes="Bold"
+                                            FontFamily="OpenSansSemi"
+                                            FontSize="14"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding .}"
+                                            TextColor="Black"
+                                            VerticalOptions="Center" />
+                                    </Border>
+                                </DataTemplate>
+                            </sflistview:SfListView.SelectedItemTemplate>
+                        </sflistview:SfListView>
+
+                        <Label
+                            x:Name="Errorlbl"
+                            Margin="0,-20,0,10"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemi"
+                            FontSize="14"
+                            HorizontalOptions="Start"
+                            HorizontalTextAlignment="Center"
+                            IsVisible="False"
+                            Text="Please select a notification time"
+                            TextColor="Red"
+                            VerticalOptions="Start"
+                            VerticalTextAlignment="Center" />
+
+                        <Button
+                            x:Name="btnsubmit"
+                            BackgroundColor="#009FE3"
+                            Clicked="btnsubmit_Clicked"
+                            CornerRadius="12"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemi"
+                            FontSize="14"
+                            Text="Choose Time"
+                            TextColor="White"
+                            VerticalOptions="End" />
+
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout
+                        x:Name="CompletedStack"
+                        Padding="10"
+                        HorizontalOptions="Center"
+                        IsVisible="False"
+                        Spacing="24"
+                        VerticalOptions="Center">
+
+
+                        <Image
+                            HeightRequest="70"
+                            HorizontalOptions="Center"
+                            Source="greentick.png"
+                            VerticalOptions="Center"
+                            WidthRequest="70" />
+
+
+                        <!--  Heading  -->
+                        <VerticalStackLayout HorizontalOptions="Center" Spacing="6">
+
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemi"
+                                FontSize="24"
+                                HorizontalTextAlignment="Center"
+                                Text="Notification Time Saved!"
+                                TextColor="#111827" />
+
+                            <Label
+                                FontFamily="OpenSansRegular"
+                                FontSize="15"
+                                HorizontalTextAlignment="Center"
+                                Text="We'll remind you every day at"
+                                TextColor="#6B7280" />
+
+                        </VerticalStackLayout>
+
+                        <!--  Time  -->
+                        <Border
+                            Margin="50,0"
+                            Padding="18,14"
+                            BackgroundColor="#F0F9FF"
+                            Stroke="#B9E6FA"
+                            StrokeShape="RoundRectangle 18">
+
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
+
+                                <Image
+                                    HeightRequest="28"
+                                    Source="clock.png"
+                                    WidthRequest="28">
+
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="#009FE3" />
+                                    </Image.Behaviors>
+
+                                </Image>
+
+                                <Label
+                                    x:Name="Timelbl"
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    FontFamily="OpenSansSemi"
+                                    FontSize="34"
+                                    TextColor="Black"
+                                    VerticalOptions="Center" />
+
+                            </Grid>
+
+                        </Border>
+
+                        <Label
+                            FontFamily="OpenSansRegular"
+                            FontSize="14"
+                            HorizontalTextAlignment="Center"
+                            Text="You can change this reminder at any time from your notification settings"
+                            TextColor="#6B7280" />
+
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </ScrollView>
+        </Border>
+    </Grid>
+</mopup:PopupPage>

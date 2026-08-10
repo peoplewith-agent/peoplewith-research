@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Mopups:PopupPage
+    x:Class="PeopleWithResearch.Loadingpopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+    xmlns:Mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+    BackgroundColor="#F2dedede"
+    BackgroundInputTransparent="False"
+    CloseWhenBackgroundIsClicked="False">
+    <!--  BackgroundColor="#40000000"  -->
+
+    <Mopups:PopupPage.Animation>
+        <Animations:ScaleAnimation
+            DurationIn="250"
+            DurationOut="200"
+            EasingIn="CubicOut"
+            EasingOut="CubicIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center" />
+    </Mopups:PopupPage.Animation>
+
+    <!--<Border
+        BackgroundColor="White"
+        HeightRequest="140"
+        HorizontalOptions="Center"
+        Opacity="0.8"
+        StrokeShape="RoundRectangle 12"
+        StrokeThickness="0"
+        VerticalOptions="Center"
+        WidthRequest="140">
+
+        <Border.Shadow>
+            <Shadow
+                Brush="#000000"
+                Opacity="0.1"
+                Radius="10"
+                Offset="0,4" />
+        </Border.Shadow>-->
+
+    <VerticalStackLayout
+        HorizontalOptions="Center"
+        Spacing="15"
+        VerticalOptions="Center">
+
+        <ActivityIndicator
+            IsRunning="True"
+            IsVisible="True"
+            Scale="1.1"
+            Color="#031926" />
+
+        <Label
+            FontFamily="OpenSansSemibold"
+            FontSize="18"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            Text="Loading..."
+            TextColor="#031926" />
+
+    </VerticalStackLayout>
+    <!--</Border>-->
+</Mopups:PopupPage>

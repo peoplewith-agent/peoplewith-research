@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.PrivacyPolicyPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:PeopleWithResearch"
+    BackgroundColor="#F1F2F6">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="HeadingTemplate">
+                <Label
+                    Margin="{Binding Style.Margin}"
+                    FontAttributes="{Binding Style.FontAttributes}"
+                    FontSize="{Binding Style.FontSize}"
+                    Text="{Binding Text}"
+                    TextColor="#031926" />
+            </DataTemplate>
+
+            <DataTemplate x:Key="SubheadingTemplate">
+                <Label
+                    Margin="{Binding Style.Margin}"
+                    FontAttributes="{Binding Style.FontAttributes}"
+                    FontSize="{Binding Style.FontSize}"
+                    Text="{Binding Text}"
+                    TextColor="#031926" />
+            </DataTemplate>
+
+            <DataTemplate x:Key="ParagraphTemplate">
+                <Label
+                    Margin="{Binding Style.Margin}"
+                    FontAttributes="{Binding Style.FontAttributes}"
+                    FontSize="{Binding Style.FontSize}"
+                    Text="{Binding Text}"
+                    TextColor="#333333" />
+            </DataTemplate>
+
+            <DataTemplate x:Key="CalloutTemplate">
+                <Border
+                    Margin="{Binding Style.Margin}"
+                    Padding="12"
+                    BackgroundColor="#EBF3FA"
+                    Stroke="#BFDBF7"
+                    StrokeShape="RoundRectangle 8"
+                    StrokeThickness="1">
+                    <VerticalStackLayout Spacing="4">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            IsVisible="{Binding Title}"
+                            Text="{Binding Title}"
+                            TextColor="#031926" />
+                        <Label
+                            FontSize="{Binding Style.FontSize}"
+                            Text="{Binding Text}"
+                            TextColor="#031926" />
+                    </VerticalStackLayout>
+                </Border>
+            </DataTemplate>
+
+            <!--  Bullet List Template  -->
+            <DataTemplate x:Key="BulletListTemplate">
+                <VerticalStackLayout
+                    Margin="{Binding Style.Margin}"
+                    BindableLayout.ItemsSource="{Binding Items}"
+                    Spacing="6">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <Grid ColumnDefinitions="20, *">
+                                <Label
+                                    Grid.Column="0"
+                                    FontAttributes="Bold"
+                                    Text="•"
+                                    TextColor="#031926"
+                                    VerticalOptions="Start" />
+                                <Label
+                                    Grid.Column="1"
+                                    FontSize="14"
+                                    Text="{Binding .}"
+                                    TextColor="#333333" />
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+            </DataTemplate>
+
+            <!--  Key-Value List Template  -->
+            <DataTemplate x:Key="KeyValueListTemplate">
+                <VerticalStackLayout
+                    Margin="{Binding Style.Margin}"
+                    BindableLayout.ItemsSource="{Binding KeyValueItems}"
+                    Spacing="8">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout Spacing="2">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="14"
+                                    Text="{Binding Key}"
+                                    TextColor="#031926" />
+                                <Label
+                                    FontSize="14"
+                                    Text="{Binding Value}"
+                                    TextColor="#333333" />
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+            </DataTemplate>
+
+            <!--  Template Selector  -->
+            <local:PolicySectionTemplateSelector
+                x:Key="PolicySectionSelector"
+                BulletListTemplate="{StaticResource BulletListTemplate}"
+                CalloutTemplate="{StaticResource CalloutTemplate}"
+                HeadingTemplate="{StaticResource HeadingTemplate}"
+                KeyValueListTemplate="{StaticResource KeyValueListTemplate}"
+                ParagraphTemplate="{StaticResource ParagraphTemplate}"
+                SubheadingTemplate="{StaticResource SubheadingTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <CollectionView
+        x:Name="PrivacyCollection"
+        Margin="20,0"
+        ItemTemplate="{StaticResource PolicySectionSelector}"
+        ItemsSource="{Binding Sections}">
+        <CollectionView.Header>
+            <VerticalStackLayout Padding="0,20,0,10" Spacing="6">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    Text="{Binding Document.Title}"
+                    TextColor="#031926" />
+                <Label
+                    FontAttributes="Italic"
+                    FontSize="16"
+                    Text="{Binding Document.Subtitle}"
+                    TextColor="#555555" />
+                <Label
+                    Margin="0,4,0,10"
+                    FontSize="12"
+                    Text="{Binding Document.Version}"
+                    TextColor="#888888" />
+                <BoxView
+                    HeightRequest="1"
+                    HorizontalOptions="Fill"
+                    Color="#D0D0D0" />
+            </VerticalStackLayout>
+        </CollectionView.Header>
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout ItemSpacing="0" Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.Footer>
+            <BoxView HeightRequest="30" Color="Transparent" />
+        </CollectionView.Footer>
+    </CollectionView>
+
+</ContentPage>

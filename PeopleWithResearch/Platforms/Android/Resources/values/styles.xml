@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Resources xmlns:android="http://schemas.android.com/apk/res/android">
+	<!--<Style name="Maui.SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+		<Item name="android:windowBackground">@drawable/maui_splash</Item>
+		<Item name="android:windowNoTitle">true</Item>
+		<Item name="android:windowIsTranslucent">false</Item>
+	</Style>-->
+</Resources>

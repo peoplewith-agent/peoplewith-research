@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.NewMainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="*,Auto">
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="25,40" Spacing="25">
+
+                <!--  Logo  -->
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    Source="peoplewithresearchlogowhite.png" />
+
+                <!--  Title  -->
+                <Label
+                    FontAttributes="Bold"
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="32"
+                    HorizontalOptions="Center"
+                    Text="Your Research Code"
+                    TextColor="Black" />
+
+                <!--  Description  -->
+                <Label
+                    Margin="15,0"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="WordWrap">
+
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                FontFamily="OpenSansRegular"
+                                FontSize="16"
+                                Text="Thanks for your interest in taking part! "
+                                TextColor="#555555" />
+                            <Span
+                                FontFamily="OpenSansRegular"
+                                FontSize="16"
+                                Text="If you already have a code, tap "
+                                TextColor="#555555" />
+                            <Span
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="16"
+                                Text="'Paste Research Code'"
+                                TextColor="#009FE3" />
+                            <Span
+                                FontFamily="OpenSansRegular"
+                                FontSize="16"
+                                Text=" and follow the on-screen prompt to continue."
+                                TextColor="#555555" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <!--  Research Code Section  -->
+                <Border
+                    Margin="0,0"
+                    Padding="20"
+                    BackgroundColor="#F7F8FA"
+                    InputTransparent="False"
+                    Stroke="#E0E0E0"
+                    StrokeShape="RoundRectangle 15">
+                    <VerticalStackLayout Padding="0">
+
+                        <Grid
+                            Padding="0"
+                            RowDefinitions="*, Auto, Auto"
+                            RowSpacing="20">
+
+                            <Editor
+                                x:Name="pasteentry"
+                                Grid.Row="0"
+                                Background="Transparent"
+                                FontFamily="OpenSansRegular"
+                                FontSize="16"
+                                HorizontalOptions="Fill"
+                                HorizontalTextAlignment="Center"
+                                IsTextPredictionEnabled="False"
+                                Placeholder=""
+                                PlaceholderColor="#555555"
+                                TextChanged="pasteentry_TextChanged"
+                                TextColor="Black"
+                                TextTransform="Uppercase"
+                                VerticalOptions="Fill"
+                                VerticalTextAlignment="Center" />
+
+                            <BoxView
+                                Grid.Row="1"
+                                HeightRequest="1"
+                                Color="#009FE3" />
+                            <Button
+                                x:Name="pastebtn"
+                                Grid.Row="2"
+                                BackgroundColor="#009FE3"
+                                Clicked="pastebtn_Clicked"
+                                CornerRadius="10"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="16"
+                                HeightRequest="45"
+                                Text="Paste Research Code"
+                                TextColor="White" />
+
+                        </Grid>
+
+                        <StackLayout
+                            x:Name="checkingstack"
+                            Margin="0,10,0,0"
+                            Padding="10"
+                            BackgroundColor="Transparent"
+                            IsVisible="False">
+
+
+                            <Image
+                                x:Name="tickloader"
+                                Margin="0,0,0,0"
+                                BackgroundColor="Transparent"
+                                HeightRequest="40"
+                                HorizontalOptions="Center"
+                                IsVisible="False"
+                                Source="tick.png"
+                                VerticalOptions="Start"
+                                WidthRequest="40" />
+                            <ActivityIndicator
+                                x:Name="loader"
+                                HorizontalOptions="CenterAndExpand"
+                                IsRunning="True"
+                                VerticalOptions="StartAndExpand"
+                                Color="#009fe3" />
+                            <Label
+                                x:Name="loaderlabel"
+                                Margin="10,10,10,0"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="14"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="Checking code..."
+                                TextColor="Black" />
+
+                            <!--<Button Background="#009fe3" IsVisible="False" x:Name="tryagainbutton" Clicked="tryagainbutton_Clicked" Padding="25,0,25,0" CornerRadius="5" HeightRequest="35" HorizontalOptions="Center" VerticalOptions="Center" Text="Try Again" TextColor="White" FontAttributes="Bold"></Button>-->
+
+
+
+                        </StackLayout>
+
+
+                        <StackLayout
+                            x:Name="resultstack"
+                            Margin="0,10,0,0"
+                            Padding="10"
+                            BackgroundColor="Transparent"
+                            IsVisible="False">
+
+
+                            <Image
+                                x:Name="resultimg"
+                                Margin="0,0,0,0"
+                                BackgroundColor="Transparent"
+                                HeightRequest="40"
+                                HorizontalOptions="Center"
+                                IsVisible="True"
+                                VerticalOptions="Start"
+                                WidthRequest="40" />
+
+                            <Label
+                                x:Name="resultlbl"
+                                Margin="10,10,10,0"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="14"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                TextColor="Black" />
+
+                            <Label
+                                x:Name="resultsublbl"
+                                Margin="10,10,10,0"
+                                FontFamily="OpenSansSemiRegular"
+                                FontSize="12"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                TextColor="Black" />
+
+
+                            <!--<Button Background="#009fe3" IsVisible="False" x:Name="tryagainbutton" Clicked="tryagainbutton_Clicked" Padding="25,0,25,0" CornerRadius="5" HeightRequest="35" HorizontalOptions="Center" VerticalOptions="Center" Text="Try Again" TextColor="White" FontAttributes="Bold"></Button>-->
+
+
+
+                        </StackLayout>
+
+
+
+                        <Button
+                            x:Name="clearbtn"
+                            Margin="0,10,0,0"
+                            BackgroundColor="Transparent"
+                            BorderColor="#DDDDDD"
+                            BorderWidth="1"
+                            Clicked="clearbtn_Clicked"
+                            CornerRadius="10"
+                            FontFamily="OpenSansRegular"
+                            FontSize="14"
+                            HeightRequest="40"
+                            IsVisible="False"
+                            Text="Clear"
+                            TextColor="#777777" />
+
+                        <Border
+                            x:Name="Successshow"
+                            Margin="0,10,0,0"
+                            Background="#2ECC71"
+                            HeightRequest="40"
+                            HorizontalOptions="Center"
+                            InputTransparent="True"
+                            IsVisible="False"
+                            Stroke="#802ECC71"
+                            StrokeShape="RoundRectangle 10"
+                            StrokeThickness="1"
+                            VerticalOptions="Center">
+
+
+                            <HorizontalStackLayout
+                                Padding="20,0"
+                                HorizontalOptions="Center"
+                                Spacing="8"
+                                VerticalOptions="Center">
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    Text="✓"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="OpenSansSemibold"
+                                    FontSize="16"
+                                    Text="Success"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </Border>
+                    </VerticalStackLayout>
+                </Border>
+
+
+
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!--  Registration & Login Section  -->
+        <VerticalStackLayout
+            Grid.Row="1"
+            Margin="20,0,20,20"
+            Spacing="20"
+            VerticalOptions="End">
+
+            <!--  Combined Prompt  -->
+            <Label
+                Margin="10,0,10,0"
+                FontFamily="OpenSansRegular"
+                FontSize="14"
+                HorizontalTextAlignment="Center"
+                LineBreakMode="WordWrap"
+                Text="If you have your details for a research project, you can register to participate. If you’ve already registered for a project before, you can log in to access your account and continue."
+                TextColor="#666666" />
+
+            <!--  Buttons side by side using Grid  -->
+            <Grid
+                Margin="20,0,20,0"
+                ColumnDefinitions="*"
+                ColumnSpacing="10">
+
+
+                <!--<Button
+                    x:Name="regbtn"
+                    Grid.Column="0"
+                    BackgroundColor="#0D4A87"
+                    Clicked="regbtn_Clicked"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="16"
+                    HeightRequest="45"
+                    Text="Register"
+                    TextColor="White" />-->
+
+                <Button
+                    x:Name="loginbtn"
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    BorderColor="#009FE3"
+                    BorderWidth="1"
+                    Clicked="loginbtn_Clicked"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="16"
+                    HeightRequest="45"
+                    Text="Log In"
+                    TextColor="#009FE3" />
+            </Grid>
+
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

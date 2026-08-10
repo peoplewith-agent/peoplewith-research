@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.T1Questionnaire"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:PeopleWithResearch"
+    xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+    BackgroundColor="#f5f5f5"
+    HideSoftInputOnTapped="True"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <Style x:Key="CardBorder" TargetType="Border">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="Stroke" Value="#E8ECF0" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 12" />
+            <Setter Property="StrokeThickness" Value="1" />
+            <Setter Property="Margin" Value="0,0,0,12" />
+        </Style>
+        <Style x:Key="PrimaryBtn" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#009FE3" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="FontFamily" Value="OpenSansSemiBold" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="HeightRequest" Value="48" />
+        </Style>
+        <Style x:Key="SecondaryBtn" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="#031926" />
+            <Setter Property="BorderColor" Value="#D0D5DD" />
+            <Setter Property="BorderWidth" Value="1" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="FontFamily" Value="OpenSansSemiBold" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="HeightRequest" Value="48" />
+        </Style>
+    </ContentPage.Resources>
+
+    <!--  Root grid: fixed header row + scrollable content row  -->
+    <Grid RowDefinitions="Auto,*">
+
+        <!--  == FIXED HEADER (always visible, never scrolls) ==============  -->
+        <StackLayout
+            Grid.Row="0"
+            BackgroundColor="#E8F4FD"
+            Spacing="0">
+
+            <!--  Loading header placeholder (keeps layout stable while loading)  -->
+            <BoxView
+                x:Name="HeaderPlaceholder"
+                HeightRequest="0"
+                IsVisible="False" />
+
+            <!--  Top nav: back + progress + title (hidden until loaded)  -->
+            <StackLayout
+                x:Name="HeaderView"
+                IsVisible="False"
+                Spacing="0">
+
+                <!--  Questionnaire title at the very top of the header  -->
+                <Label
+                    x:Name="QuestionnaireTitleLabel"
+                    Margin="16,12,16,0"
+                    FontAttributes="Bold"
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="18"
+                    LineBreakMode="TailTruncation"
+                    TextColor="#031926" />
+
+                <!--  Back button + 5-segment progress bar  -->
+                <Grid
+                    Margin="10,8,15,10"
+                    BackgroundColor="Transparent"
+                    VerticalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.4*" />
+                        <ColumnDefinition Width="0.6*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  Back button  -->
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Padding="5"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="Start"
+                        Stroke="Transparent"
+                        StrokeShape="RoundRectangle 8"
+                        VerticalOptions="Center">
+                        <HorizontalStackLayout
+                            x:Name="backbuttonstack"
+                            Spacing="4"
+                            VerticalOptions="Center">
+                            <Image
+                                Margin="0,0,-2,0"
+                                Aspect="AspectFit"
+                                HeightRequest="12"
+                                Source="back.png"
+                                VerticalOptions="Center"
+                                WidthRequest="15" />
+                            <Label
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="18"
+                                Text="Back"
+                                TextColor="#009fe3"
+                                VerticalOptions="Center" />
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BackButtonTapped_Tapped" />
+                            </HorizontalStackLayout.GestureRecognizers>
+                        </HorizontalStackLayout>
+                    </Border>
+
+                    <!--  5-segment progress bar  -->
+                    <Grid
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="10,0,10,0"
+                        ColumnDefinitions="*,4,*,4,*,4,*,4,*"
+                        HeightRequest="8"
+                        VerticalOptions="Center">
+                        <progressBar:SfLinearProgressBar
+                            x:Name="Seg1"
+                            Grid.Column="0"
+                            AnimationEasing="{x:Static Easing.CubicInOut}"
+                            BackgroundColor="Transparent"
+                            Progress="0"
+                            ProgressCornerRadius="4"
+                            ProgressFill="#031926"
+                            ProgressHeight="8"
+                            TrackCornerRadius="4"
+                            TrackFill="#BFDBF7"
+                            TrackHeight="8" />
+                        <progressBar:SfLinearProgressBar
+                            x:Name="Seg2"
+                            Grid.Column="2"
+                            AnimationEasing="{x:Static Easing.CubicInOut}"
+                            BackgroundColor="Transparent"
+                            Progress="0"
+                            ProgressCornerRadius="4"
+                            ProgressFill="#031926"
+                            ProgressHeight="8"
+                            TrackCornerRadius="4"
+                            TrackFill="#BFDBF7"
+                            TrackHeight="8" />
+                        <progressBar:SfLinearProgressBar
+                            x:Name="Seg3"
+                            Grid.Column="4"
+                            AnimationEasing="{x:Static Easing.CubicInOut}"
+                            BackgroundColor="Transparent"
+                            Progress="0"
+                            ProgressCornerRadius="4"
+                            ProgressFill="#031926"
+                            ProgressHeight="8"
+                            TrackCornerRadius="4"
+                            TrackFill="#BFDBF7"
+                            TrackHeight="8" />
+                        <progressBar:SfLinearProgressBar
+                            x:Name="Seg4"
+                            Grid.Column="6"
+                            AnimationEasing="{x:Static Easing.CubicInOut}"
+                            BackgroundColor="Transparent"
+                            Progress="0"
+                            ProgressCornerRadius="4"
+                            ProgressFill="#031926"
+                            ProgressHeight="8"
+                            TrackCornerRadius="4"
+                            TrackFill="#BFDBF7"
+                            TrackHeight="8" />
+                        <progressBar:SfLinearProgressBar
+                            x:Name="Seg5"
+                            Grid.Column="8"
+                            AnimationEasing="{x:Static Easing.CubicInOut}"
+                            BackgroundColor="Transparent"
+                            Progress="0"
+                            ProgressCornerRadius="4"
+                            ProgressFill="#031926"
+                            ProgressHeight="8"
+                            TrackCornerRadius="4"
+                            TrackFill="#BFDBF7"
+                            TrackHeight="8" />
+                    </Grid>
+                </Grid>
+
+            </StackLayout>
+        </StackLayout>
+
+        <!--  == SCROLLABLE CONTENT ========================================  -->
+        <ScrollView
+            x:Name="MainScroll"
+            Grid.Row="1"
+            BackgroundColor="#f5f5f5">
+            <StackLayout BackgroundColor="#f5f5f5" Spacing="0">
+
+                <!--  Loading  -->
+                <StackLayout
+                    x:Name="LoadingView"
+                    Padding="40"
+                    VerticalOptions="Center">
+                    <ActivityIndicator
+                        HeightRequest="40"
+                        IsRunning="True"
+                        Color="#009FE3" />
+                    <Label
+                        Margin="0,12,0,0"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Text="Loading questionnaire..."
+                        TextColor="#62727B" />
+                </StackLayout>
+
+                <!--  Failed to load  -->
+                <Border
+                    x:Name="FailedView"
+                    Margin="20"
+                    IsVisible="False"
+                    Style="{StaticResource CardBorder}">
+                    <StackLayout Padding="30" Spacing="12">
+                        <Label
+                            FontSize="36"
+                            HorizontalOptions="Center"
+                            Text="(!)" />
+                        <Label
+                            x:Name="FailedTitle"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="15"
+                            HorizontalTextAlignment="Center"
+                            Text="We couldn't load your questionnaire"
+                            TextColor="#031926" />
+                        <Label
+                            x:Name="FailedBody"
+                            FontSize="13"
+                            HorizontalTextAlignment="Center"
+                            LineBreakMode="WordWrap"
+                            Text="Please try again. If the problem persists contact support."
+                            TextColor="#62727B" />
+                        <Button
+                            Margin="0,8,0,0"
+                            Clicked="OnTryAgainClicked"
+                            Style="{StaticResource SecondaryBtn}"
+                            Text="Try Again" />
+                    </StackLayout>
+                </Border>
+
+                <!--  Initial landing page  -->
+                <Grid
+                    x:Name="InitialPage"
+                    IsVisible="False"
+                    VerticalOptions="CenterAndExpand">
+                    <StackLayout VerticalOptions="Center">
+                        <Border
+                            Margin="10,0,10,0"
+                            Padding="0"
+                            Background="#FDFCFB"
+                            Stroke="#009fe3"
+                            StrokeShape="RoundRectangle 24"
+                            StrokeThickness="2"
+                            VerticalOptions="Center">
+                            <Border.Shadow>
+                                <Shadow
+                                    Brush="#A1C4FD"
+                                    Opacity="0.3"
+                                    Radius="40"
+                                    Offset="0,10" />
+                            </Border.Shadow>
+                            <VerticalStackLayout
+                                Padding="40"
+                                HorizontalOptions="Fill"
+                                Spacing="15">
+                                <Image
+                                    Aspect="Fill"
+                                    HeightRequest="40"
+                                    Source="questionnaireicon.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="40" />
+                                <Label
+                                    x:Name="Questiontitle"
+                                    FontAttributes="Bold"
+                                    FontFamily="OpenSansSemiBold"
+                                    FontSize="22"
+                                    HorizontalTextAlignment="Center"
+                                    Text=""
+                                    TextColor="#031926" />
+                                <Label
+                                    x:Name="QuestionDescription"
+                                    FontFamily="OpenSansRegular"
+                                    FontSize="13"
+                                    HorizontalTextAlignment="Center"
+                                    LineBreakMode="WordWrap"
+                                    Text=""
+                                    TextColor="#031926" />
+                                <Button
+                                    Margin="0,20,0,0"
+                                    Background="#009FE3"
+                                    Clicked="Button_Clicked"
+                                    CornerRadius="15"
+                                    FontAttributes="Bold"
+                                    FontFamily="OpenSansSemiBold"
+                                    FontSize="16"
+                                    HeightRequest="55"
+                                    HorizontalOptions="Fill"
+                                    Text="Start Questionnaire"
+                                    TextColor="White">
+                                    <Button.Shadow>
+                                        <Shadow
+                                            Brush="#0D4A87"
+                                            Opacity="0.4"
+                                            Radius="15"
+                                            Offset="0,5" />
+                                    </Button.Shadow>
+                                </Button>
+                            </VerticalStackLayout>
+                        </Border>
+                    </StackLayout>
+                </Grid>
+
+                <!--  Main content  -->
+                <StackLayout
+                    x:Name="ContentView"
+                    IsVisible="False"
+                    Spacing="0">
+
+                    <!--  Section 1  -->
+                    <StackLayout
+                        x:Name="Sec1View"
+                        Padding="16,10,16,0"
+                        IsVisible="False"
+                        Spacing="0">
+                        <StackLayout x:Name="Sec1Container" Spacing="0" />
+                    </StackLayout>
+
+                    <!--  Section 2  -->
+                    <StackLayout
+                        x:Name="Sec2View"
+                        Padding="16,10,16,0"
+                        IsVisible="False"
+                        Spacing="0">
+                        <StackLayout x:Name="Sec2Container" Spacing="0" />
+                    </StackLayout>
+
+                    <!--  Section 3  -->
+                    <StackLayout
+                        x:Name="Sec3View"
+                        Padding="16,10,16,0"
+                        IsVisible="False"
+                        Spacing="0">
+                        <StackLayout x:Name="Sec3Container" Spacing="0" />
+                    </StackLayout>
+
+                    <!--  Section 4 - Symptoms by Day  -->
+                    <StackLayout
+                        x:Name="Sec4View"
+                        IsVisible="False"
+                        Spacing="0">
+
+                        <!--  Day-tab strip  -->
+                        <ScrollView
+                            Padding="14,10"
+                            BackgroundColor="White"
+                            HorizontalScrollBarVisibility="Never"
+                            Orientation="Horizontal">
+                            <StackLayout
+                                x:Name="DayTabStrip"
+                                Orientation="Horizontal"
+                                Spacing="8" />
+                        </ScrollView>
+
+                        <!--  Active day heading  -->
+                        <Grid
+                            Padding="16,10,16,4"
+                            BackgroundColor="White"
+                            ColumnDefinitions="*,Auto">
+                            <Label
+                                x:Name="ActiveDayLabel"
+                                Grid.Column="0"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="16"
+                                TextColor="#031926" />
+                            <Label
+                                x:Name="DayProgressLabel"
+                                Grid.Column="1"
+                                FontSize="12"
+                                TextColor="#62727B"
+                                VerticalOptions="Center" />
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="#E8ECF0" />
+
+                        <!--  Day intro info card  -->
+                        <Border
+                            x:Name="DayIntroCard"
+                            Margin="16,10,16,0"
+                            Padding="14,12"
+                            BackgroundColor="#EBF5FB"
+                            IsVisible="False"
+                            Stroke="#85B7EB"
+                            StrokeShape="RoundRectangle 10"
+                            StrokeThickness="1">
+                            <Label
+                                x:Name="DayIntroLabel"
+                                FontSize="13"
+                                LineBreakMode="WordWrap"
+                                TextColor="#2C6FAC" />
+                        </Border>
+
+                        <!--  Severity legend  -->
+                        <StackLayout
+                            x:Name="SeverityLegend"
+                            Padding="16,8"
+                            BackgroundColor="White"
+                            Orientation="Horizontal"
+                            Spacing="14" />
+                        <BoxView HeightRequest="1" Color="#E8ECF0" />
+
+                        <!--  Symptom groups  -->
+                        <StackLayout
+                            x:Name="SymptomGroupsContainer"
+                            Padding="16,4,16,0"
+                            Spacing="0" />
+
+                        <!--  Daily impact questions  -->
+                        <Border Margin="16,12,16,0" Style="{StaticResource CardBorder}">
+                            <StackLayout Padding="14" Spacing="0">
+                                <StackLayout x:Name="ImpactContainer" Spacing="10" />
+                            </StackLayout>
+                        </Border>
+
+                        <!--  Day navigation + validation  -->
+                        <Grid
+                            Padding="16,12,16,32"
+                            ColumnDefinitions="Auto,*,Auto"
+                            ColumnSpacing="10"
+                            RowDefinitions="Auto,Auto"
+                            RowSpacing="10">
+                            <Border
+                                x:Name="DayValidationBanner"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="3"
+                                Padding="12,9"
+                                BackgroundColor="#FDECEA"
+                                IsVisible="False"
+                                Stroke="#F5C6C6"
+                                StrokeShape="RoundRectangle 8"
+                                StrokeThickness="1">
+                                <Label
+                                    x:Name="DayValidationText"
+                                    FontSize="13"
+                                    TextColor="#B71C1C" />
+                            </Border>
+                            <Button
+                                x:Name="PrevDayBtn"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                BackgroundColor="#BFDBF7"
+                                Clicked="OnPrevDayClicked"
+                                CornerRadius="10"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="15"
+                                HeightRequest="48"
+                                TextColor="#031926"
+                                WidthRequest="120" />
+                            <Button
+                                x:Name="NextDayBtn"
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Clicked="OnNextDayClicked"
+                                HorizontalOptions="End"
+                                Style="{StaticResource PrimaryBtn}"
+                                WidthRequest="120" />
+                        </Grid>
+
+                    </StackLayout>
+
+                    <!--  Section 5  -->
+                    <StackLayout
+                        x:Name="Sec5View"
+                        Padding="16,10,16,0"
+                        IsVisible="False"
+                        Spacing="0">
+                        <StackLayout x:Name="Sec5Container" Spacing="0" />
+                    </StackLayout>
+
+                    <!--  Section nav buttons + validation banner  -->
+                    <Grid
+                        x:Name="SectionNavBar"
+                        Padding="16,14,16,32"
+                        ColumnDefinitions="*,Auto"
+                        ColumnSpacing="10"
+                        RowDefinitions="Auto,Auto"
+                        RowSpacing="10">
+
+                        <!--  Validation banner above the buttons, spans full width  -->
+                        <Border
+                            x:Name="ValidationBanner"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Padding="12,9"
+                            BackgroundColor="#FDECEA"
+                            IsVisible="False"
+                            Stroke="#F5C6C6"
+                            StrokeShape="RoundRectangle 8"
+                            StrokeThickness="1">
+                            <Label
+                                x:Name="ValidationText"
+                                FontSize="13"
+                                TextColor="#B71C1C" />
+                        </Border>
+
+                        <Button
+                            x:Name="NextSectionBtn"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Clicked="OnNextSectionClicked"
+                            HorizontalOptions="End"
+                            Style="{StaticResource PrimaryBtn}"
+                            WidthRequest="120" />
+                        <Button
+                            x:Name="SubmitBtn"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="#009FE3"
+                            Clicked="OnSubmitClicked"
+                            CornerRadius="10"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="15"
+                            HeightRequest="52"
+                            IsVisible="False"
+                            TextColor="White" />
+                    </Grid>
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

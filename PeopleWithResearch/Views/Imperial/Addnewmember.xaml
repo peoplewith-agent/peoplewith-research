@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.Addnewmember"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    BackgroundColor="White"
+    NavigationPage.HasBackButton="True"
+    NavigationPage.HasNavigationBar="True"
+    NavigationPage.IconColor="#031926">
+    <ScrollView>
+        <VerticalStackLayout Margin="20,20,20,0">
+
+
+
+            <Label
+                Margin="0,20,0,0"
+                FontAttributes="Bold"
+                FontFamily="OpenSansSemiBold"
+                FontSize="26"
+                HorizontalOptions="Start"
+                HorizontalTextAlignment="Start"
+                LineBreakMode="WordWrap"
+                Text="Add New Member"
+                TextColor="#031926" />
+
+
+            <Label
+                Margin="0,5,0,0"
+                FontFamily="OpenSansSemiBold"
+                FontSize="14"
+                HorizontalOptions="Start"
+                HorizontalTextAlignment="Start"
+                LineBreakMode="WordWrap"
+                Text="Add details about your family member to add them to the study"
+                TextColor="#777777" />
+
+
+            <Grid Margin="10,0,10,0" Padding="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid
+                    Margin="0,10,0,0"
+                    Grid.ColumnDefinitions="10*, 80*"
+                    Grid.RowDefinitions="Auto,Auto,Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto">
+
+
+
+
+
+                    <Grid
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*" />
+                            <ColumnDefinition Width="50*" />
+                        </Grid.ColumnDefinitions>
+
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,20,0,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="15"
+                            HorizontalOptions="Start"
+                            Text="Household member's name"
+                            TextColor="#031926" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Margin="0,2,0,0"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12"
+                            HorizontalOptions="Start"
+                            Text="Enter their first and last name"
+                            TextColor="#777777" />
+
+
+
+                        <inputLayout:SfTextInputLayout
+                            x:Name="firstfamhelper"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Margin="0,0,10,0"
+                            BackgroundColor="Transparent"
+                            ContainerBackground="Transparent"
+                            ContainerType="None"
+                            ErrorText="Please complete"
+                            InputViewPadding="10"
+                            IsHintAlwaysFloated="True"
+                            OutlineCornerRadius="5"
+                            ShowHint="False"
+                            Stroke="LightGray"
+                            UnfocusedStrokeThickness="1">
+                            <Entry
+                                x:Name="firstfamentry"
+                                FontFamily="OpenSansRegular"
+                                FontSize="14"
+                                IsTextPredictionEnabled="False"
+                                Keyboard="Text"
+                                Placeholder="First Name"
+                                PlaceholderColor="Gray"
+                                TextChanged="firstfamentry_TextChanged"
+                                TextColor="#031926"
+                                VerticalOptions="CenterAndExpand" />
+                            <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                                <inputLayout:LabelStyle
+                                    FontFamily="OpenSansSemiBold"
+                                    FontSize="10"
+                                    TextColor="Red" />
+                            </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                        </inputLayout:SfTextInputLayout>
+
+
+                        <Label
+                            Margin="0,20,0,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="15"
+                            HorizontalOptions="Start"
+                            IsVisible="False"
+                            Text="Last Name"
+                            TextColor="#031926" />
+
+                        <inputLayout:SfTextInputLayout
+                            x:Name="firstsurnamehelper"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="10,0,0,0"
+                            BackgroundColor="Transparent"
+                            ContainerBackground="Transparent"
+                            ContainerType="None"
+                            ErrorText="Please complete"
+                            InputViewPadding="10"
+                            IsHintAlwaysFloated="True"
+                            OutlineCornerRadius="5"
+                            ShowHint="False"
+                            Stroke="LightGray"
+                            UnfocusedStrokeThickness="1">
+                            <Entry
+                                x:Name="firstsurnameentry"
+                                FontFamily="OpenSansRegular"
+                                FontSize="14"
+                                IsTextPredictionEnabled="False"
+                                Keyboard="Text"
+                                Placeholder="Surname"
+                                PlaceholderColor="Gray"
+                                TextChanged="firstsurnameentry_TextChanged"
+                                TextColor="#031926"
+                                VerticalOptions="CenterAndExpand" />
+                            <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                                <inputLayout:LabelStyle
+                                    FontFamily="OpenSansSemiBold"
+                                    FontSize="10"
+                                    TextColor="Red" />
+                            </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                        </inputLayout:SfTextInputLayout>
+
+
+                        <!--<inputLayout:SfTextInputLayout InputViewPadding="10" Hint="Email address" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="telhelper" IsHintAlwaysFloated="True" BackgroundColor="Transparent" ShowHint="False" Margin="0,0,10,0" UnfocusedStrokeThickness="1" Stroke="LightGray" ContainerBackground="Transparent" ContainerType="None" OutlineCornerRadius="5" >
+                                <Entry FontSize="14" PlaceholderColor="Gray" x:Name="telentry" IsTextPredictionEnabled="False" Keyboard="Numeric" FontFamily="OpenSansRegular" VerticalOptions="CenterAndExpand" Placeholder="Telephone Number" TextColor="#031926"/>
+                                <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                                    <inputLayout:LabelStyle TextColor="Red"  FontSize="10"  FontFamily="OpenSansSemiBold" />
+                                </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                            </inputLayout:SfTextInputLayout>-->
+
+
+
+                    </Grid>
+
+                    <!--  Access to own phone question  -->
+                    <Grid
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,10,0,0"
+                        RowSpacing="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="15"
+                            HorizontalOptions="Start"
+                            LineBreakMode="WordWrap"
+                            Text="Will they use their own phone for the study?"
+                            TextColor="#031926" />
+                        <Label
+                            Grid.Row="1"
+                            Margin="0,2,0,0"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12"
+                            HorizontalOptions="Start"
+                            LineBreakMode="WordWrap"
+                            Text="This helps us set up the right kind of profile for them"
+                            TextColor="#777777" />
+                        <VerticalStackLayout
+                            Grid.Row="2"
+                            Margin="0,10,0,0"
+                            Spacing="2">
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="13"
+                                LineBreakMode="WordWrap"
+                                Text="If yes — they set up their own account"
+                                TextColor="#009FE3" />
+                            <Label
+                                FontFamily="OpenSansRegular"
+                                FontSize="11"
+                                LineBreakMode="WordWrap"
+                                LineHeight="1.3"
+                                Text="We'll need an email address so they can download the app, verify their identity, and complete their own daily questionnaires and samples."
+                                TextColor="#031926" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout
+                            Grid.Row="3"
+                            Margin="0,10,0,0"
+                            Spacing="2">
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="13"
+                                LineBreakMode="WordWrap"
+                                Text="If no — you manage this profile for them"
+                                TextColor="#009FE3" />
+                            <Label
+                                FontFamily="OpenSansRegular"
+                                FontSize="11"
+                                LineBreakMode="WordWrap"
+                                LineHeight="1.3"
+                                Text="You'll complete their daily questionnaires and update their details on their behalf. No email address is needed — you can switch to their profile at any time."
+                                TextColor="#031926" />
+                        </VerticalStackLayout>
+                        <syncfusion:SfListView
+                            x:Name="usingphone1"
+                            Grid.Row="4"
+                            Margin="0,10,0,0"
+                            AutoFitMode="Height"
+                            BackgroundColor="Transparent"
+                            ItemTapped="usingphone1_ItemTapped"
+                            Orientation="Vertical"
+                            ScrollBarVisibility="Never"
+                            SelectionBackground="Transparent"
+                            SelectionGesture="Tap"
+                            SelectionMode="Single">
+                            <syncfusion:SfListView.ItemsLayout>
+                                <syncfusion:GridLayout SpanCount="2" />
+                            </syncfusion:SfListView.ItemsLayout>
+                            <syncfusion:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Border
+                                            Margin="0,5,5,5"
+                                            Padding="10"
+                                            BackgroundColor="Transparent"
+                                            Stroke="LightGray"
+                                            StrokeShape="RoundRectangle 10">
+                                            <Label
+                                                FontFamily="OpenSansRegular"
+                                                FontSize="14"
+                                                HorizontalOptions="Start"
+                                                InputTransparent="True"
+                                                Text="{Binding .}"
+                                                TextColor="Gray"
+                                                VerticalOptions="Center" />
+                                        </Border>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </syncfusion:SfListView.ItemTemplate>
+                            <syncfusion:SfListView.SelectedItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Border
+                                            Margin="0,5,5,5"
+                                            Padding="10"
+                                            BackgroundColor="#ebf4fc"
+                                            Stroke="#009fe3"
+                                            StrokeShape="RoundRectangle 10"
+                                            StrokeThickness="2">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontFamily="OpenSansSemiBold"
+                                                FontSize="14"
+                                                HorizontalOptions="Start"
+                                                InputTransparent="True"
+                                                Text="{Binding .}"
+                                                TextColor="#031926"
+                                                VerticalOptions="Center" />
+                                        </Border>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </syncfusion:SfListView.SelectedItemTemplate>
+                        </syncfusion:SfListView>
+
+                        <Label
+                            x:Name="usingphone1error1"
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,0,10,10"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="10"
+                            HorizontalOptions="End"
+                            IsVisible="False"
+                            Text="Select an option"
+                            TextColor="Red" />
+                    </Grid>
+
+
+                    <Label
+                        x:Name="email1lbl"
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,20,0,0"
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        IsVisible="False"
+                        LineBreakMode="WordWrap"
+                        Text="Email address"
+                        TextColor="#031926" />
+                    <Label
+                        x:Name="email2lbl"
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,2,0,0"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="12"
+                        HorizontalOptions="Start"
+                        IsVisible="False"
+                        LineBreakMode="WordWrap"
+                        Text="Used to set up their own account and send communications"
+                        TextColor="#777777" />
+
+
+                    <inputLayout:SfTextInputLayout
+                        x:Name="firstemailhelper"
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        ContainerBackground="Transparent"
+                        ContainerType="None"
+                        ErrorText="Please complete"
+                        Hint="Email Address"
+                        InputViewPadding="10"
+                        IsHintAlwaysFloated="True"
+                        IsVisible="False"
+                        OutlineCornerRadius="5"
+                        ShowHint="False"
+                        Stroke="LightGray">
+                        <Entry
+                            x:Name="firstemailentry"
+                            FontFamily="OpenSansRegular"
+                            FontSize="14"
+                            Placeholder="Email Address"
+                            PlaceholderColor="Gray"
+                            TextChanged="firstemailentry_TextChanged"
+                            TextColor="#031926"
+                            VerticalOptions="CenterAndExpand" />
+                        <inputLayout:SfTextInputLayout.HintLabelStyle>
+                            <inputLayout:LabelStyle
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="12"
+                                TextColor="#031926" />
+                        </inputLayout:SfTextInputLayout.HintLabelStyle>
+                        <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                            <inputLayout:LabelStyle
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="10"
+                                TextColor="Red" />
+                        </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                    </inputLayout:SfTextInputLayout>
+
+
+                    <Label
+                        Grid.Row="7"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,20,0,0"
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        LineBreakMode="WordWrap"
+                        Text="Age of member"
+                        TextColor="#031926" />
+
+                    <Label
+                        Grid.Row="8"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,2,0,0"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="12"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        LineBreakMode="WordWrap"
+                        Text="Please select age of member"
+                        TextColor="#777777" />
+
+
+                    <syncfusion:SfListView
+                        x:Name="familyagelist"
+                        Grid.Row="9"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,10,0,0"
+                        AutoFitMode="Height"
+                        BackgroundColor="Transparent"
+                        ItemTapped="familyagelist_ItemTapped"
+                        Orientation="Vertical"
+                        ScrollBarVisibility="Never"
+                        SelectionBackground="Transparent"
+                        SelectionGesture="Tap"
+                        SelectionMode="Single">
+                        <syncfusion:SfListView.ItemsLayout>
+                            <syncfusion:GridLayout SpanCount="3" />
+                        </syncfusion:SfListView.ItemsLayout>
+
+
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Border
+                                        Margin="0,5,5,5"
+                                        Padding="10"
+                                        BackgroundColor="Transparent"
+                                        Opacity="1"
+                                        Stroke="LightGray"
+                                        StrokeShape="RoundRectangle 10">
+                                        <Grid
+                                            Margin="0"
+                                            Padding="0"
+                                            HorizontalOptions="FillAndExpand"
+                                            InputTransparent="True">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100*" />
+
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label
+                                                Grid.Row="0"
+                                                Grid.Column="0"
+                                                Margin="0,0,0,0"
+                                                FontFamily="OpenSansRegular"
+                                                FontSize="14"
+                                                InputTransparent="True"
+                                                Text="{Binding .}"
+                                                TextColor="Gray"
+                                                VerticalOptions="Center" />
+
+
+
+                                        </Grid>
+                                    </Border>
+                                </ViewCell>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+                        <syncfusion:SfListView.SelectedItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Border
+                                        Margin="0,5,5,5"
+                                        Padding="10"
+                                        BackgroundColor="#ebf4fc"
+                                        Stroke="#009fe3"
+                                        StrokeShape="RoundRectangle 10"
+                                        StrokeThickness="2">
+                                        <Grid HorizontalOptions="FillAndExpand" InputTransparent="True">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100*" />
+
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                Grid.Row="0"
+                                                Grid.Column="0"
+                                                Margin="0,0,0,0"
+                                                FontAttributes="Bold"
+                                                FontFamily="OpenSansSemiBold"
+                                                FontSize="14"
+                                                InputTransparent="True"
+                                                Text="{Binding .}"
+                                                TextColor="#031926"
+                                                VerticalOptions="CenterAndExpand" />
+
+                                        </Grid>
+                                    </Border>
+                                </ViewCell>
+                            </DataTemplate>
+                        </syncfusion:SfListView.SelectedItemTemplate>
+                    </syncfusion:SfListView>
+
+                    <Label
+                        x:Name="agemember1error"
+                        Grid.Row="10"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,0,10,10"
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="10"
+                        HorizontalOptions="End"
+                        IsVisible="False"
+                        Text="Select an option"
+                        TextColor="Red" />
+
+
+                    <Label
+                        Grid.Row="11"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,10,0,0"
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="15"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        LineBreakMode="WordWrap"
+                        Text="Relation of member"
+                        TextColor="#031926" />
+
+                    <Label
+                        Grid.Row="12"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,2,0,0"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="12"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        LineBreakMode="WordWrap"
+                        Text="Please select relation of member"
+                        TextColor="#777777" />
+
+                    <syncfusion:SfListView
+                        x:Name="familymember1list"
+                        Grid.Row="13"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,20,0,0"
+                        AutoFitMode="Height"
+                        BackgroundColor="Transparent"
+                        ItemTapped="familymember1list_ItemTapped"
+                        Orientation="Vertical"
+                        ScrollBarVisibility="Never"
+                        SelectionBackground="Transparent"
+                        SelectionMode="Single">
+                        <syncfusion:SfListView.ItemsLayout>
+                            <syncfusion:GridLayout SpanCount="2" />
+                        </syncfusion:SfListView.ItemsLayout>
+
+
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Border
+                                        Margin="0,5,5,5"
+                                        Padding="10"
+                                        BackgroundColor="Transparent"
+                                        InputTransparent="True"
+                                        Opacity="1"
+                                        Stroke="LightGray"
+                                        StrokeShape="RoundRectangle 10">
+                                        <Grid
+                                            Margin="0"
+                                            Padding="0"
+                                            HorizontalOptions="FillAndExpand">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100*" />
+
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label
+                                                Grid.Row="0"
+                                                Grid.Column="0"
+                                                Margin="0,0,0,0"
+                                                FontFamily="OpenSansRegular"
+                                                FontSize="12"
+                                                Text="{Binding .}"
+                                                TextColor="Gray"
+                                                VerticalOptions="Center" />
+
+
+
+                                        </Grid>
+                                    </Border>
+                                </ViewCell>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+                        <syncfusion:SfListView.SelectedItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Border
+                                        Margin="0,5,5,5"
+                                        Padding="10"
+                                        BackgroundColor="#ebf4fc"
+                                        InputTransparent="True"
+                                        Stroke="#009fe3"
+                                        StrokeShape="RoundRectangle 10"
+                                        StrokeThickness="2">
+                                        <Grid HorizontalOptions="FillAndExpand">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100*" />
+
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                Grid.Row="0"
+                                                Grid.Column="0"
+                                                Margin="0,0,0,0"
+                                                FontAttributes="Bold"
+                                                FontFamily="OpenSansSemiBold"
+                                                FontSize="12"
+                                                LineBreakMode="WordWrap"
+                                                Text="{Binding .}"
+                                                TextColor="#031926"
+                                                VerticalOptions="CenterAndExpand" />
+
+                                        </Grid>
+                                    </Border>
+                                </ViewCell>
+                            </DataTemplate>
+                        </syncfusion:SfListView.SelectedItemTemplate>
+                    </syncfusion:SfListView>
+
+
+                    <Label
+                        x:Name="typemember1error"
+                        Grid.Row="14"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,0,10,10"
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="10"
+                        HorizontalOptions="End"
+                        IsVisible="False"
+                        Text="Select an option"
+                        TextColor="Red" />
+
+
+
+                    <Border
+                        x:Name="commborder1"
+                        Grid.Row="15"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,20,0,0"
+                        Padding="10,4"
+                        Background="Transparent"
+                        IsVisible="False"
+                        Stroke="#D1E8FF"
+                        StrokeThickness="1">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <Grid
+                            Padding="0,8"
+                            ColumnDefinitions="0.9*, 0.1*"
+                            ColumnSpacing="10">
+                            <CheckBox
+                                x:Name="firsthouselholdcb"
+                                Grid.Column="1"
+                                CheckedChanged="firsthouselholdcb_CheckedChanged"
+                                IsChecked="False"
+                                VerticalOptions="Center"
+                                Color="#031926" />
+                            <Label
+                                Grid.Column="0"
+                                FontSize="12"
+                                HorizontalOptions="Start"
+                                InputTransparent="True"
+                                LineBreakMode="WordWrap"
+                                VerticalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                            FontFamily="OpenSansRegular"
+                                            FontSize="12"
+                                            Text="Please check the box to confirm you have permission to provide communication details for this member of your household"
+                                            TextColor="#031926" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </Border>
+                    <Label
+                        x:Name="firstcheckboxerror"
+                        Grid.Row="16"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,0,10,10"
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="10"
+                        HorizontalOptions="End"
+                        IsVisible="False"
+                        Text="Please agree to terms"
+                        TextColor="Red" />
+
+                </Grid>
+
+
+            </Grid>
+
+            <Button
+                Margin="0,20,0,50"
+                Padding="10"
+                BackgroundColor="#031926"
+                BorderColor="#031926"
+                BorderWidth="2"
+                Clicked="Button_Clicked"
+                FontAttributes="Bold"
+                FontFamily="OpenSansSemiBold"
+                FontSize="14"
+                HorizontalOptions="FillAndExpand"
+                Text="Add New Member"
+                TextColor="White"
+                VerticalOptions="Fill" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

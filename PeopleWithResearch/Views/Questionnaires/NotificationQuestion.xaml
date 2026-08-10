@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopup:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PeopleWithResearch.NotificationQuestion"
+                 BackgroundColor="#F1F2F6"
+                             xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+                  xmlns:mopup="clr-namespace:Mopups.Pages;assembly=Mopups" Shell.NavBarIsVisible="False" NavigationPage.HasNavigationBar="False">
+
+    <mopup:PopupPage.Animation>
+        <animations:ScaleAnimation
+               PositionIn="Center"
+        PositionOut="Center"
+        DurationIn="100"
+        DurationOut="100"
+        HasBackgroundAnimation="True"/>
+    </mopup:PopupPage.Animation>
+
+    <StackLayout Margin="10,20,10,20"
+       VerticalOptions="CenterAndExpand" 
+       HorizontalOptions="FillAndExpand" 
+      >
+
+        <Image Source="closenot.png" VerticalOptions="Start" x:Name="closeimg" IsVisible="false" HorizontalOptions="End" HeightRequest="40" WidthRequest="40">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Frame CornerRadius="10" BackgroundColor="White" BorderColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasShadow="False" >
+            <ScrollView>
+                <StackLayout>
+
+
+
+                    <StackLayout Margin="0,0,0,0" x:Name="questionstack" IsVisible="true">
+
+
+                        <Image Source="questionnaireicon.png" Margin="0,10,0,5"  VerticalOptions="CenterAndExpand" HeightRequest="50" WidthRequest="50"  HorizontalOptions="CenterAndExpand" />
+
+
+
+
+                        <Label Text="IID3 Weekly Follow-Up" HorizontalOptions="Center"  TextColor="Black" FontSize="24" FontAttributes="Bold" VerticalTextAlignment="Center" >
+
+                        </Label>
+
+
+
+                        <Label x:Name="questioninfolbl" HorizontalOptions="Start" Margin="0,10,0,0"  TextColor="Black" FontSize="14" FontAttributes="None" VerticalTextAlignment="Center" />
+
+
+                        <syncfusion:SfListView x:Name="answerlist"                                                                                             
+                              AutoFitMode="Height"
+                         Margin="0,0,0,0"
+                                                  ItemTapped="answerlist_ItemTapped"  
+                                               BackgroundColor="Transparent"
+                                      
+                                       SelectionMode="Single"
+                                          VerticalOptions="CenterAndExpand"
+                                        ScrollBarVisibility="Never"
+                              SelectionBackground="Transparent"
+                              Orientation="Vertical"                                                                                                                       
+                              >
+                            <syncfusion:SfListView.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="Android" Value="270" />
+                                    <On Platform="iOS" Value="270" />
+                                </OnPlatform>
+                            </syncfusion:SfListView.HeightRequest>
+
+                            <syncfusion:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Border StrokeShape="RoundRectangle 10" Padding="15" Margin="5,5,5,5" BackgroundColor="Transparent"
+                 Stroke="Gray">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Text="{Binding Label}" Margin="0,0,0,0"  VerticalOptions="CenterAndExpand" Grid.Row="0" FontAttributes="Bold" TextColor="Black" FontSize="Small" />
+                                            </Grid>
+                                        </Border>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </syncfusion:SfListView.ItemTemplate>
+                            <syncfusion:SfListView.SelectedItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Border StrokeShape="RoundRectangle 10"  Margin="5,5,5,5" Padding="15"  BackgroundColor="#ccebf9" 
+                 Stroke="#009fe3">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Text="{Binding Label}" Margin="0,0,0,0"  VerticalOptions="CenterAndExpand" Grid.Row="0" FontAttributes="Bold" TextColor="Black" FontSize="Small" />
+                                            </Grid>
+                                        </Border>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </syncfusion:SfListView.SelectedItemTemplate>
+                        </syncfusion:SfListView>
+
+
+
+                        <Button BackgroundColor="#009fe3" Grid.Row="0" Text="Submit" Clicked="btnnotclicked_Clicked" x:Name="btnnotclicked" TextColor="White" FontAttributes="Bold" CornerRadius="10"  HeightRequest="40" HorizontalOptions="FillAndExpand" Margin="20,0,20,0" IsVisible="true" />
+
+
+
+
+
+                    </StackLayout>
+
+                    <StackLayout Margin="0,0,0,0" x:Name="thanksstack" IsVisible="false">
+
+                        <Image Source="successtick.png" Margin="0,10,0,5"  VerticalOptions="CenterAndExpand" HeightRequest="50" WidthRequest="50"  HorizontalOptions="CenterAndExpand" />
+
+
+
+                        <Label Text="Weekly Follow-up - Next Step:"  HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black" FontSize="24" FontAttributes="Bold" VerticalTextAlignment="Center" >
+
+                        </Label>
+
+                        <Label x:Name="questiondirectionslbl" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,10,0,0"  TextColor="Black" FontSize="14" FontAttributes="None" VerticalTextAlignment="Center" />
+
+
+
+
+                        <Label x:Name="completetext" IsVisible="false"  HorizontalOptions="Center" Margin="0,0,0,0" TextColor="Black" FontSize="22" FontAttributes="Bold"></Label>
+
+                        <Image x:Name="completeimg" IsVisible="false" Source="successtick.png" Grid.Row="0" Margin="0,30,0,0" HeightRequest="50" WidthRequest="50"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+
+
+
+                        <Button BackgroundColor="#009fe3" Text="Next" Clicked="btnthanksclicked_Clicked"  x:Name="btnthanksclicked" TextColor="White" FontAttributes="Bold" CornerRadius="10"  HeightRequest="40" HorizontalOptions="FillAndExpand" Margin="20,20,20,0" IsVisible="true" />
+
+
+
+
+
+
+
+
+                    </StackLayout>
+
+
+                    <StackLayout Margin="0,0,0,0" x:Name="thanksstackNoIncident" IsVisible="false">
+
+                        <Image Source="successtick.png" Margin="0,10,0,5"  VerticalOptions="CenterAndExpand" HeightRequest="50" WidthRequest="50"  HorizontalOptions="CenterAndExpand" />
+
+                        <Label Text="Weekly Follow-up Complete"  HorizontalOptions="Center"  TextColor="Black" FontSize="24" FontAttributes="Bold" VerticalTextAlignment="Center" />
+
+                        <Label Text="Thank you for completing the symptom questionnaire and for taking part in the IID3 Study." HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,10,0,0"  TextColor="Black" FontSize="14" FontAttributes="None" VerticalTextAlignment="Center" />
+
+                        <Label Text="We will follow-up with you again in 7 Days." HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="0,10,0,0"  TextColor="Black" FontSize="14" FontAttributes="None" VerticalTextAlignment="Center" />
+
+                        <Button BackgroundColor="#009fe3" Text="OK" TextColor="White" Clicked="btnthanksNoIncident_Clicked"  x:Name="btnthanksNoIncident"  FontAttributes="Bold" CornerRadius="10"  HeightRequest="40" WidthRequest="80" HorizontalOptions="FillAndExpand" Margin="20,20,20,0" IsVisible="true" />
+
+                    </StackLayout>
+
+
+
+
+                    <StackLayout Margin="0,20,0,20" x:Name="loadingstack" IsVisible="false">
+
+
+
+                        <ActivityIndicator IsRunning="True" Color="Black"/>
+                        <Label Text="Loading Questionnaire..." HorizontalOptions="Center" Margin="0,0,0,0" TextColor="Black" FontSize="Small" FontAttributes="Bold"></Label>
+
+
+
+                    </StackLayout>
+
+
+                    <StackLayout Margin="0,20,0,20" x:Name="somethingwrong" IsVisible="false">
+
+
+
+                        <Image Source="error.png" Margin="0,10,0,5"  VerticalOptions="CenterAndExpand" HeightRequest="50" WidthRequest="50"  HorizontalOptions="CenterAndExpand" />
+
+
+                        <Label Text="Whoops! Something went wrong" HorizontalOptions="Center" Margin="0,0,0,0" TextColor="Black" FontSize="Small" FontAttributes="Bold"></Label>
+
+                        <Label Text="Seems like something has gone wrong. Try restarting the PeopleWithResearch app or contact support@peoplewith.com" HorizontalOptions="Center" Margin="0,0,0,0" TextColor="Black" FontSize="Small" FontAttributes="None"></Label>
+
+
+                        <Button BackgroundColor="#009fe3" Text="Ok" Clicked="btnwrong_Clicked"  x:Name="btnwrong" TextColor="White" FontAttributes="Bold" CornerRadius="10"  HeightRequest="40" WidthRequest="80" HorizontalOptions="FillAndExpand" Margin="20,20,20,0" IsVisible="true" />
+
+
+
+                    </StackLayout>
+
+
+                </StackLayout>
+
+
+
+
+            </ScrollView>
+        </Frame>
+
+
+    </StackLayout>
+
+
+</mopup:PopupPage>

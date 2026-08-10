@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PeopleWithResearch.RegisterWithDetailsPage"
+             xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:local="clr-namespace:PeopleWithResearch"
+             Shell.NavBarIsVisible="False" NavigationPage.HasNavigationBar="False"  HideSoftInputOnTapped="True"
+             BackgroundColor="White"
+             >
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="topgrid" BackgroundColor="Transparent" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="85*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Image
+            x:Name="backimg"
+                                                Grid.Column="0" 
+Grid.Row="0" HorizontalOptions="Center"
+            HeightRequest="40" WidthRequest="40"
+                     VerticalOptions="Center"                               Margin="10,0,10,0"
+            BackgroundColor="Transparent"
+            Source="bluebackbutton.png"
+            >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <progressBar:SfLinearProgressBar VerticalOptions="CenterAndExpand" x:Name="topprogress" Margin="0,0,20,0" Progress="0" Grid.Row="0" Grid.Column="1" ProgressFill="#009fe3" TrackHeight="5" ProgressCornerRadius="10" TrackCornerRadius="10">
+
+                </progressBar:SfLinearProgressBar>
+
+            </Grid>
+
+            <ScrollView x:Name="mainscroll" Grid.Row="1" BackgroundColor="Transparent">
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+
+
+
+
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="Transparent" BorderColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" x:Name="welcomeframe" IsVisible="false"
+     
+      >
+                        <StackLayout>
+
+
+
+                            <Image Source="PeopleWithResearchLogoWhite.png" BackgroundColor="Transparent" Margin="0,10,0,0" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Start" />
+
+
+
+
+
+                        </StackLayout>
+                    </Frame>
+
+                    <!--signup frame-->
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="Transparent" BorderColor="White"  HorizontalOptions="FillAndExpand" x:Name="signupframe" IsVisible="true">
+
+                        <StackLayout>
+
+                            <Label Text="Sign-Up Code" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black" FontSize="26" />
+
+                            <Label Text="Enter a sign-up code provided by a Healthcare Professional or GP below:" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Gray" FontSize="15"/>
+
+                            <inputLayout:SfTextInputLayout
+                Stroke="#009fe3"
+                  BackgroundColor="Transparent"
+                 
+                       ContainerBackground="Transparent"    
+                   
+                       OutlineCornerRadius="10"
+                
+                  
+                   Margin="0,0,0,0"
+                 HorizontalOptions="CenterAndExpand"
+                            x:Name="signupinput"
+    ContainerType="Filled">
+                                <Entry x:Name="signuptxt" Placeholder="Enter Code" TextChanged="signuptxt_TextChanged" HorizontalTextAlignment="Center"  HorizontalOptions="FillAndExpand" TextColor="Black" FontSize="26"  Margin="0,0,0,0" />
+                            </inputLayout:SfTextInputLayout>
+
+                         
+
+                        </StackLayout>
+                    </Frame>
+
+
+                    <!--patient number-->
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="Transparent" BorderColor="White"  HorizontalOptions="FillAndExpand" x:Name="epidframe" IsVisible="false">
+
+                        <StackLayout>
+
+                            <Label Text="Your NHS Number, CHI Number or Health and Care Number" HorizontalOptions="Center" HorizontalTextAlignment="Center"  FontAttributes="Bold" TextColor="Black" FontSize="26" />
+                            <Label Text="Please enter your NHS Number, CHI Number or Health and Care Number below and press ‘Next’ to continue. If you are registering on behalf of your child please enter your child’s NHS number."  HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Gray" FontSize="15" />
+
+                            <inputLayout:SfTextInputLayout
+    
+                  BackgroundColor="Transparent"
+         
+                            x:Name="epidinput"
+                   ContainerBackground="Transparent"
+                
+                   OutlineCornerRadius="10"
+                   Margin="0,0,0,0"
+                 HorizontalOptions="CenterAndExpand"
+                            
+    ContainerType="Filled">
+
+                                <Entry x:Name="epidentry" Placeholder="Enter NHS Number" TextChanged="epidentry_TextChanged_1" HorizontalTextAlignment="Center"  HorizontalOptions="FillAndExpand" TextColor="#234983" FontSize="26"  Margin="0,0,0,0" />
+                            </inputLayout:SfTextInputLayout>
+
+
+                            <Label  HorizontalOptions="Center" Margin="0,20,0,0" HorizontalTextAlignment="Center" TextColor="Gray" FontSize="12" >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="If you live in England or Wales and don’t know your NHS number, you can find it out from the link below:" TextColor="Gray"/>
+                                        <Span Text=" &#10;https://www.nhs.uk/nhs-services/online-services/find-nhs-number/" TextColor="#009fe3" />
+                                        <Span Text=" &#10;&#10;If you live in Scotland, you can find out CHI Number on any communication you may have received from your GP practice. This includes letters and prescriptions." TextColor="Gray" />
+                                        <Span Text=" &#10;&#10;If you live in Northern Ireland, you can find out your Health and Care Number on any communication you may have received from your GP practice. This includes letters and prescriptions." TextColor="Gray" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+
+                                </Label.GestureRecognizers>
+                            </Label>
+
+
+
+                        </StackLayout>
+                    </Frame>
+
+
+                    <!-- Emis Gp Location -->
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="White" BorderColor="White" HorizontalOptions="FillAndExpand" x:Name="gplocation" IsVisible="false"
+     
+      >
+                        <StackLayout>
+
+                            <Label Text="Select your GP Location" HorizontalOptions="Center" HorizontalTextAlignment="Center"   FontAttributes="Bold" TextColor="Black" FontSize="26" />
+                            <Label Text="Please enter your GP number and select your GP location and press 'Next' to continue."  HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Gray" FontSize="15" />
+                            <Frame Padding="0" Margin="0,20,0,0" BorderColor="#E6E6E6" BackgroundColor="#E6E6E6" CornerRadius="20" HasShadow="False">
+                                <SearchBar HeightRequest="60"  Placeholder="Search Location" BackgroundColor="Transparent" FontSize="16" SearchButtonPressed="searchbargp_SearchButtonPressed" x:Name="searchbargp" Margin="0,0,0,0" TextChanged="searchbargp_TextChanged" TextColor="Black" PlaceholderColor="Black"  />
+                            </Frame>
+
+                            <Label Text="No Locations found" x:Name="cantlbl1" IsVisible="false"  HorizontalOptions="Center" Margin="0,30,0,0" HorizontalTextAlignment="Center" TextColor="Black" FontAttributes="Bold"  FontSize="15" />
+                            <Label Text="Please try again" x:Name="cantlbl2" IsVisible="false"   HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Gray" FontSize="12" />
+
+
+
+                            <syncfusion:SfListView x:Name="gplist"                                                                                             
+                               AutoFitMode="Height"
+                          Margin="0,20,0,0"
+                                                   ScrollStateChanged="gplist_ScrollStateChanged"
+                                                     IsVisible="false"
+                                                BackgroundColor="Transparent"
+                                  ItemTapped="gplist_ItemTapped"
+                                        SelectionMode="Single"
+                                           VerticalOptions="CenterAndExpand"
+                                                   ScrollBarVisibility="Never"
+                                         SelectionBackground="Transparent"
+                            
+                               Orientation="Vertical"                                                                                                                       
+                               >
+                                <!--<syncfusion:SfListView.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" Android="300" iOS="300"/>
+                                              </syncfusion:SfListView.HeightRequest>-->
+
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Border StrokeShape="RoundRectangle 10" Padding="20" Stroke="LightGray" Margin="5,5,5,5"  BackgroundColor="Transparent" 
+>
+                                                <Grid HorizontalOptions="FillAndExpand" Margin="0" Padding="0"  >
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="90*"/>
+                                                        <ColumnDefinition Width="10*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Text="{Binding Practicename}" Margin="0,0,0,0"  Grid.Row="0" Grid.Column="0" VerticalOptions="StartAndExpand"  FontAttributes="Bold"  TextColor="Black" FontSize="14" />
+                                                    <Label Text="{Binding Address1}" Margin="0,0,0,0"  Grid.Row="1" Grid.Column="0" VerticalOptions="StartAndExpand"   TextColor="Gray" FontSize="10" />
+
+                                                    <Label Text="{Binding Postcode}" Margin="0,0,0,0"  Grid.Row="2" Grid.Column="0" VerticalOptions="StartAndExpand"   TextColor="Gray" FontSize="10" />
+
+                                                    <!--<Image Source="nextdarker.png" Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" />-->
+
+                                                </Grid>
+                                            </Border>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+                                <syncfusion:SfListView.SelectedItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Border StrokeShape="RoundRectangle 10" Padding="20" Stroke="#009fe3" Margin="5,5,5,5"  BackgroundColor="#ccebf9" 
+                  >
+                                                <Grid HorizontalOptions="FillAndExpand" Margin="0" Padding="0"  >
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="90*"/>
+                                                        <ColumnDefinition Width="10*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Text="{Binding Practicename}" Margin="0,0,0,0"  Grid.Row="0" Grid.Column="0" VerticalOptions="StartAndExpand"  FontAttributes="Bold"  TextColor="Black" FontSize="14" />
+                                                    <Label Text="{Binding Address1}" Margin="0,0,0,0"  Grid.Row="1" Grid.Column="0" VerticalOptions="StartAndExpand"   TextColor="Gray" FontSize="10" />
+
+                                                    <Label Text="{Binding Postcode}" Margin="0,0,0,0"  Grid.Row="2" Grid.Column="0" VerticalOptions="StartAndExpand"   TextColor="Gray" FontSize="10" />
+
+                                                    <!--<Image Source="nextdarker.png" Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" />-->
+
+                                                </Grid>
+                                            </Border>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.SelectedItemTemplate>
+                            </syncfusion:SfListView>
+
+
+
+
+
+
+                        </StackLayout>
+                    </Frame>
+
+
+                    <!--Confirm Details -->
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="White" BorderColor="White" HorizontalOptions="FillAndExpand" x:Name="confirmframe" IsVisible="false"
+     
+      >
+                        <StackLayout>
+
+                            <!--<Image Source="successtick.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="60" WidthRequest="60" />-->
+
+                            <Label Text="Confirm your details" HorizontalOptions="Center" HorizontalTextAlignment="Center"   FontAttributes="Bold" TextColor="Black" FontSize="26" />
+                            <Label Text="Please review your details and press 'Next' to continue."  HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Gray" FontSize="15" />
+
+
+                            <Label Text="Sign-Up Code"  HorizontalOptions="Center" Margin="0,30,0,0" HorizontalTextAlignment="Center" TextColor="Gray" FontSize="18" />
+                            <Label x:Name="confirmsignuplbl" FontAttributes="Bold"  HorizontalOptions="Center" Margin="0,0,0,0" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20" />
+
+                            <Label Text="NHS Number"  HorizontalOptions="Center" Margin="0,20,0,0" HorizontalTextAlignment="Center" TextColor="Gray" FontSize="18" />
+                            <Label x:Name="confirmnhsnumlbl" FontAttributes="Bold"  HorizontalOptions="Center" Margin="0,0,0,0" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20" />
+
+                            <Label Text="GP Location"  HorizontalOptions="Center" Margin="0,20,0,0" HorizontalTextAlignment="Center" TextColor="Gray" FontSize="18" />
+                            <Label x:Name="confirmgplocationlbl" FontAttributes="Bold"  HorizontalOptions="Center" Margin="0,0,0,0" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20" />
+
+                            <Label Text="GP Location Number/Identifier"  HorizontalOptions="Center" Margin="0,20,0,0" HorizontalTextAlignment="Center" TextColor="Gray" FontSize="18" />
+                            <Label x:Name="confirmgplocationnumlbl" FontAttributes="Bold"  HorizontalOptions="Center" Margin="0,0,0,0" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20" />
+
+                            <Button BackgroundColor="White" Text="Not Correct? Go back and change" BorderColor="#009fe3" BorderWidth="1" Clicked="confirmbackbutton_Clicked" x:Name="confirmbackbutton" TextColor="#009fe3" FontAttributes="Bold" CornerRadius="10"  HeightRequest="40"  HorizontalOptions="FillAndExpand" Margin="20,30,20,0" IsVisible="true" />
+
+
+
+                        </StackLayout>
+                    </Frame>
+
+
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout Grid.Row="1" BackgroundColor="White" x:Name="bottomstack" VerticalOptions="EndAndExpand" Margin="0,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Button BackgroundColor="#009fe3" Grid.Row="0" Text="NEXT"  Clicked="btnmain_Clicked" x:Name="btnmain" TextColor="White" FontAttributes="Bold" CornerRadius="10"  HeightRequest="40"  HorizontalOptions="FillAndExpand" Margin="20,0,20,20" IsVisible="true" />
+
+
+
+                </Grid>
+
+
+                <Label Text="Privacy Policy" TextColor="#009fe3" IsVisible="false" x:Name="privpollbl" FontSize="Small"  HorizontalOptions="Center" FontAttributes="Bold"  VerticalOptions="Center" >
+
+                </Label>
+
+
+            </StackLayout>
+
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

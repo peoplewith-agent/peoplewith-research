@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Mopups:PopupPage
+    x:Class="PeopleWithResearch.ShowImage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+    xmlns:Mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+    BackgroundColor="#66000000"
+    BackgroundInputTransparent="False"
+    CloseWhenBackgroundIsClicked="True">
+    <Mopups:PopupPage.Animation>
+        <Animations:ScaleAnimation
+            DurationIn="200"
+            DurationOut="200"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="False"
+            PositionIn="Center"
+            PositionOut="Center" />
+    </Mopups:PopupPage.Animation>
+    <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+        <Image
+            x:Name="UserImage"
+            Margin="20"
+            Aspect="AspectFit"
+            HorizontalOptions="Fill"
+            Source="{Binding ImageUrl}"
+            VerticalOptions="Fill" />
+
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="ClosePopup_Tapped" />
+        </Grid.GestureRecognizers>
+    </Grid>
+</Mopups:PopupPage>

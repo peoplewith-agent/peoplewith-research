@@ -1,0 +1,837 @@
+[
+    {
+        "id": "tform_welcome",
+        "label": "Welcome to today's daily questionnaire. There are 3 sections to complete:\n\n1 - Your Symptoms\n2 - Symptom Details\n3 - Your Samples from Today\n\nThe questionnaire typically takes less than 5 minutes to complete.",
+        "type": "info",
+        "required": false,
+        "options": [],
+        "order": 1,
+        "questionid": "tform_welcome",
+        "section": 1,
+        "section_label": "Daily Symptoms and Samples"
+    },
+    {
+        "id": "t11_symptoms_y_n",
+        "label": "Today, or within the past week, have you had any symptoms of an illness?",
+        "type": "yesno",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_symptoms_y_n_1",
+                "value": "1",
+                "text": "Yes"
+            },
+            {
+                "answerid": "t11_symptoms_y_n_0",
+                "value": "0",
+                "text": "No"
+            }
+        ],
+        "order": 2,
+        "questionid": "t11_symptoms_y_n",
+        "section": 1,
+        "section_label": "Section 1 - Your Symptoms",
+        "show_if": null
+    },
+    {
+        "id": "t11_activities_impact_y_n",
+        "label": "Because of your symptoms today, did you take any time off school or work, or skip your usual activities?",
+        "type": "yesno",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_activities_impact_y_n_1",
+                "value": "1",
+                "text": "Yes"
+            },
+            {
+                "answerid": "t11_activities_impact_y_n_0",
+                "value": "0",
+                "text": "No"
+            }
+        ],
+        "order": 3,
+        "questionid": "t11_activities_impact_y_n",
+        "section": 2,
+        "section_label": "Section 2 - Symptom Details",
+        "show_if": "t11_symptoms_y_n == '1'"
+    },
+    {
+        "id": "t11_care_impact_y_n",
+        "label": "Because of your symptoms today, did you seek any medical or healthcare support?",
+        "type": "yesno",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_care_impact_y_n_1",
+                "value": "1",
+                "text": "Yes"
+            },
+            {
+                "answerid": "t11_care_impact_y_n_0",
+                "value": "0",
+                "text": "No"
+            }
+        ],
+        "order": 4,
+        "questionid": "t11_care_impact_y_n",
+        "section": 2,
+        "section_label": "Section 2 - Symptom Details",
+        "show_if": "t11_symptoms_y_n == '1'"
+    },
+    {
+        "id": "t11_care_impact_type",
+        "label": "Which medical or healthcare support did you seek? Please select all that apply.",
+        "type": "checkbox",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_care_impact_type_1",
+                "value": "1",
+                "text": "Consulted a pharmacist"
+            },
+            {
+                "answerid": "t11_care_impact_type_2",
+                "value": "2",
+                "text": "Tried to book or booked a GP appointment, but did not see them that day"
+            },
+            {
+                "answerid": "t11_care_impact_type_3",
+                "value": "3",
+                "text": "Saw my GP (in person or via phone/video)"
+            },
+            {
+                "answerid": "t11_care_impact_type_4",
+                "value": "4",
+                "text": "Visited a Walk-in Centre / Minor Injuries Unit or out-of-hours GP service"
+            },
+            {
+                "answerid": "t11_care_impact_type_5",
+                "value": "5",
+                "text": "Called NHS 111"
+            },
+            {
+                "answerid": "t11_care_impact_type_6",
+                "value": "6",
+                "text": "Visited Accident & Emergency (A&E) / Urgent Care / Called 999"
+            }
+        ],
+        "order": 5,
+        "questionid": "t11_care_impact_type",
+        "section": 2,
+        "section_label": "Section 2 - Symptom Details",
+        "show_if": "t11_care_impact_y_n == '1'"
+    },
+    {
+        "id": "t11_otc_drugs_y_n",
+        "label": "Because of your symptoms today, did you take any over-the-counter medicines?\n\nOver-the-counter medicines are medicines you can buy from a pharmacy, supermarket, or shop without a prescription.",
+        "type": "yesno",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_otc_drugs_y_n_1",
+                "value": "1",
+                "text": "Yes"
+            },
+            {
+                "answerid": "t11_otc_drugs_y_n_0",
+                "value": "0",
+                "text": "No"
+            }
+        ],
+        "order": 6,
+        "questionid": "t11_otc_drugs_y_n",
+        "section": 2,
+        "section_label": "Section 2 - Symptom Details",
+        "show_if": "t11_symptoms_y_n == '1'"
+    },
+    {
+        "id": "t11_otc_drugs_list",
+        "label": "Which over-the-counter medicines did you take? Tick all that apply.",
+        "type": "checkbox",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_otc_drugs_list_1",
+                "value": "1",
+                "text": "Paracetamol tablets (e.g. Panadol, Paracetamol Extra)"
+            },
+            {
+                "answerid": "t11_otc_drugs_list_2",
+                "value": "2",
+                "text": "Ibuprofen (e.g. Nurofen)"
+            },
+            {
+                "answerid": "t11_otc_drugs_list_3",
+                "value": "3",
+                "text": "Aspirin (not if taken regularly as a prescribed medicine)"
+            },
+            {
+                "answerid": "t11_otc_drugs_list_4",
+                "value": "4",
+                "text": "Cold & flu hot drink (e.g. Lemsip, Lemsip Max)"
+            },
+            {
+                "answerid": "t11_otc_drugs_list_5",
+                "value": "5",
+                "text": "Nasal decongestants - sprays or drops (e.g. Otrivine, Sudafed nasal spray)"
+            },
+            {
+                "answerid": "t11_otc_drugs_list_6",
+                "value": "6",
+                "text": "Cough syrup - dry or chesty (e.g. Benylin, Covonia)"
+            },
+            {
+                "answerid": "t11_otc_drugs_list_7",
+                "value": "7",
+                "text": "Multi-symptom cold & flu tablets (e.g. Day & Night Nurse, Lemsip Max tablets, Beechams Flu, Panadol Cold & Flu)"
+            },
+            {
+                "answerid": "t11_otc_drugs_list_8",
+                "value": "8",
+                "text": "Medicated throat / cough lozenges or pastilles (e.g. Halls, Strepsils, Covonia lozenges)"
+            },
+            {
+                "answerid": "t11_otc_drugs_list_9",
+                "value": "9",
+                "text": "Levomenthol stick for headache / migraine relief (e.g. 4Head roll)"
+            },
+            {
+                "answerid": "t11_otc_drugs_list_10",
+                "value": "10",
+                "text": "Cooling headache & migraine pads (e.g. 4Head Quickstrip)"
+            },
+            {
+                "answerid": "t11_otc_drugs_list_11",
+                "value": "11",
+                "text": "Antihistamines (e.g. Loratadine, Cetirizine, Diphenhydramine / Benadryl)"
+            }
+        ],
+        "order": 7,
+        "questionid": "t11_otc_drugs_list",
+        "section": 2,
+        "section_label": "Section 2 - Symptom Details",
+        "show_if": "t11_otc_drugs_y_n == '1'"
+    },
+    {
+        "id": "t11_samples_y_n",
+        "label": "Did you collect samples from yourself today?",
+        "type": "yesno",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_samples_y_n_1",
+                "value": "1",
+                "text": "Yes"
+            },
+            {
+                "answerid": "t11_samples_y_n_0",
+                "value": "0",
+                "text": "No"
+            }
+        ],
+        "order": 8,
+        "questionid": "t11_samples_y_n",
+        "section": 3,
+        "section_label": "Section 3 - Your Samples from Today",
+        "show_if": null
+    },
+    {
+        "id": "t11_samples_list",
+        "label": "Please select the samples you collected from yourself today.",
+        "type": "checkbox",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_samples_list_1",
+                "value": "1",
+                "text": "Nose swab"
+            },
+            {
+                "answerid": "t11_samples_list_2",
+                "value": "2",
+                "text": "Hand swab"
+            },
+            {
+                "answerid": "t11_samples_list_3",
+                "value": "3",
+                "text": "Gum sponge"
+            },
+            {
+                "answerid": "t11_samples_list_4",
+                "value": "4",
+                "text": "Nose strip"
+            }
+        ],
+        "order": 9,
+        "questionid": "t11_samples_list",
+        "section": 3,
+        "section_label": "Section 3 - Your Samples from Today",
+        "show_if": "t11_samples_y_n == '1'"
+    },
+    {
+        "id": "t11_samples_enviro_y_n",
+        "label": "Did you collect samples from your home environment today?",
+        "type": "yesno",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_samples_enviro_y_n_1",
+                "value": "1",
+                "text": "Yes"
+            },
+            {
+                "answerid": "t11_samples_enviro_y_n_0",
+                "value": "0",
+                "text": "No"
+            }
+        ],
+        "order": 10,
+        "questionid": "t11_samples_enviro_y_n",
+        "section": 3,
+        "section_label": "Section 3 - Your Samples from Today",
+        "show_if": null
+    },
+    {
+        "id": "t11_samples_enviro_list",
+        "label": "Please select the samples you collected from your home.",
+        "type": "checkbox",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_samples_enviro_list_1",
+                "value": "1",
+                "text": "Swab of the kitchen tap"
+            },
+            {
+                "answerid": "t11_samples_enviro_list_2",
+                "value": "2",
+                "text": "Swab of the toilet flush handle"
+            },
+            {
+                "answerid": "t11_samples_enviro_list_3",
+                "value": "3",
+                "text": "Swab of the index case bedside table / bedframe"
+            }
+        ],
+        "order": 11,
+        "questionid": "t11_samples_enviro_list",
+        "section": 3,
+        "section_label": "Section 3 - Your Samples from Today",
+        "show_if": "t11_samples_enviro_y_n == '1'"
+    },
+    {
+        "id": "t11_lfd_y_n",
+        "label": "Did you carry out a lateral flow device (LFD) test today?",
+        "type": "yesno",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_lfd_y_n_1",
+                "value": "1",
+                "text": "Yes"
+            },
+            {
+                "answerid": "t11_lfd_y_n_0",
+                "value": "0",
+                "text": "No"
+            }
+        ],
+        "order": 12,
+        "questionid": "t11_lfd_y_n",
+        "section": 3,
+        "section_label": "Section 3 - Your Samples from Today",
+        "show_if": null
+    },
+    {
+        "id": "t11_lfd_pos_neg",
+        "label": "Do you think your LFD result is positive?",
+        "type": "yesno",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_lfd_pos_neg_1",
+                "value": "1",
+                "text": "Yes"
+            },
+            {
+                "answerid": "t11_lfd_pos_neg_0",
+                "value": "0",
+                "text": "No"
+            }
+        ],
+        "order": 13,
+        "questionid": "t11_lfd_pos_neg",
+        "section": 3,
+        "section_label": "Section 3 - Your Samples from Today",
+        "show_if": "t11_lfd_y_n == '1'"
+    },
+    {
+        "id": "t11_lfd_pos_virus",
+        "label": "What is your LFD positive for?",
+        "type": "checkbox",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_lfd_pos_virus_1",
+                "value": "1",
+                "text": "SARS-CoV-2 (COVID-19)"
+            },
+            {
+                "answerid": "t11_lfd_pos_virus_2",
+                "value": "2",
+                "text": "Influenza A"
+            },
+            {
+                "answerid": "t11_lfd_pos_virus_3",
+                "value": "3",
+                "text": "Influenza B"
+            },
+            {
+                "answerid": "t11_lfd_pos_virus_4",
+                "value": "4",
+                "text": "RSV (Respiratory Syncytial Virus)"
+            },
+            {
+                "answerid": "t11_lfd_pos_virus_5",
+                "value": "5",
+                "text": "ADV (Adenovirus)"
+            },
+            {
+                "answerid": "t11_lfd_pos_virus_6",
+                "value": "6",
+                "text": "hMPV (Human Metapneumovirus)"
+            },
+            {
+                "answerid": "t11_lfd_pos_virus_7",
+                "value": "7",
+                "text": "RhV (Rhinovirus)"
+            },
+            {
+                "answerid": "t11_lfd_pos_virus_8",
+                "value": "8",
+                "text": "PIV (Parainfluenza Virus)"
+            },
+            {
+                "answerid": "t11_lfd_pos_virus_9",
+                "value": "9",
+                "text": "Not sure"
+            }
+        ],
+        "order": 14,
+        "questionid": "t11_lfd_pos_virus",
+        "section": 3,
+        "section_label": "Section 3 - Your Samples from Today",
+        "show_if": "t11_lfd_y_n == '1'"
+    },
+    {
+        "id": "t11_lfd_pos_social",
+        "label": "Did you cancel or avoid any planned social activities after your positive result?",
+        "type": "radio",
+        "required": true,
+        "options": [
+            {
+                "answerid": "t11_lfd_pos_social_1",
+                "value": "1",
+                "text": "I cancelled all planned social activities"
+            },
+            {
+                "answerid": "t11_lfd_pos_social_2",
+                "value": "2",
+                "text": "I only avoided high-risk settings"
+            },
+            {
+                "answerid": "t11_lfd_pos_social_3",
+                "value": "3",
+                "text": "I did not cancel or avoid any social activities"
+            },
+            {
+                "answerid": "t11_lfd_pos_social_4",
+                "value": "4",
+                "text": "I had no social activities planned"
+            }
+        ],
+        "order": 15,
+        "questionid": "t11_lfd_pos_social",
+        "section": 3,
+        "section_label": "Section 3 - Your Samples from Today",
+        "show_if": "t11_lfd_y_n == '1'"
+    },
+    {
+        "id": "t11_lfd_picture",
+        "label": "Please upload an image of the lateral flow device you carried out.",
+        "type": "file_upload",
+        "required": false,
+        "options": [],
+        "order": 16,
+        "questionid": "t11_lfd_picture",
+        "section": 3,
+        "section_label": "Section 3 - Your Samples from Today",
+        "show_if": "t11_lfd_y_n == '1'"
+    },
+    {
+        "id": "symptom_grid",
+        "label": "Symptoms from Today",
+        "type": "symptom_grid",
+        "required": true,
+        "order": 17,
+        "questionid": "symptom_grid",
+        "section": 2,
+        "section_label": "Section 2 - Symptom Details",
+        "day_tabs": [
+            {
+                "id": "t11",
+                "label": "Today",
+                "show_if": "t11_symptoms_y_n == '1'"
+            }
+        ],
+        "severity_options": [
+            {
+                "value": "1",
+                "text": "None"
+            },
+            {
+                "value": "2",
+                "text": "Mild"
+            },
+            {
+                "value": "3",
+                "text": "Moderate"
+            },
+            {
+                "value": "4",
+                "text": "Severe"
+            }
+        ],
+        "symptom_groups": [
+            {
+                "group": "Respiratory",
+                "symptoms": [
+                    {
+                        "id": "dry_cough",
+                        "label": "Dry or hacking cough",
+                        "helpertext": "* Mild: You cough occasionally, but it doesn't really bother you.\n\n* Moderate: You cough fairly often during the day.\n\n* Severe: Frequent coughing fits that are hard to control."
+                    },
+                    {
+                        "id": "productive_cough",
+                        "label": "Productive cough (coughing up phlegm or mucus)",
+                        "helpertext": "* Mild: A small amount of phlegm, easy to clear.\n\n* Moderate: Phlegm comes up regularly.\n\n* Severe: Large amounts or difficult to clear."
+                    },
+                    {
+                        "id": "blood_cough",
+                        "label": "Coughing blood",
+                        "helpertext": "* Mild: Tiny streaks or specks of blood.\n\n* Moderate: Small but clearly visible amounts.\n\n* Severe: Blood appears several times or in larger amounts."
+                    },
+                    {
+                        "id": "breathless",
+                        "label": "Shortness of breath or trouble breathing",
+                        "helpertext": "* Mild: Short of breath during physical activity.\n\n* Moderate: Short of breath during light activity or talking.\n\n* Severe: Short of breath even at rest."
+                    },
+                    {
+                        "id": "wheeze",
+                        "label": "Wheezing",
+                        "helpertext": "* Mild: Occasional wheezing.\n\n* Moderate: Wheeze occurs most of the time.\n\n* Severe: Loud or persistent wheezing."
+                    }
+                ]
+            },
+            {
+                "group": "Fever & Temperature",
+                "symptoms": [
+                    {
+                        "id": "fever",
+                        "label": "Fever or high temperature",
+                        "helpertext": "* Mild: Slightly warmer than usual (37.5-38.0 C).\n\n* Moderate: Clearly feverish (38.1-39.0 C).\n\n* Severe: Very hot or persistent fever (above 39.0 C)."
+                    },
+                    {
+                        "id": "chills",
+                        "label": "Chills or shivers",
+                        "helpertext": "* Mild: Feeling a bit colder than usual.\n\n* Moderate: Feeling cold with some shivering.\n\n* Severe: Strong or repeated shivering."
+                    },
+                    {
+                        "id": "sweats",
+                        "label": "Sweats, including night sweats",
+                        "helpertext": "* Mild: Sweating a little more than usual.\n\n* Moderate: Sweating enough to dampen clothes or bedding.\n\n* Severe: Heavy or constant sweating."
+                    }
+                ]
+            },
+            {
+                "group": "Head & Face",
+                "symptoms": [
+                    {
+                        "id": "headache",
+                        "label": "Headache",
+                        "helpertext": "* Mild: Mild or occasional headache.\n\n* Moderate: Persistent headache needing pain relief.\n\n* Severe: Strong headache interfering with daily activities."
+                    },
+                    {
+                        "id": "dizzy",
+                        "label": "Dizziness or light-headedness",
+                        "helpertext": "* Mild: Feeling a little light-headed.\n\n* Moderate: Feeling unsteady when standing or walking.\n\n* Severe: Very dizzy, needing to sit or lie down."
+                    },
+                    {
+                        "id": "sore_throat",
+                        "label": "Sore or scratchy throat",
+                        "helpertext": "* Mild: Scratchy or slightly sore throat.\n\n* Moderate: Pain when swallowing.\n\n* Severe: Very sore making it hard to eat or drink."
+                    },
+                    {
+                        "id": "hoarseness",
+                        "label": "Hoarse voice",
+                        "helpertext": "* Mild: Slightly croaky voice.\n\n* Moderate: Weak or strained voice.\n\n* Severe: Very hoarse or nearly unable to speak normally."
+                    },
+                    {
+                        "id": "rhinitis",
+                        "label": "Runny or blocked nose",
+                        "helpertext": "* Mild: Slightly runny or stuffy nose.\n\n* Moderate: Frequent congestion affecting day-to-day.\n\n* Severe: Very runny or blocked nose all the time."
+                    },
+                    {
+                        "id": "sneeze",
+                        "label": "Sneezing",
+                        "helpertext": "* Mild: Sneezing now and then.\n\n* Moderate: Sneezing fairly often.\n\n* Severe: Repeated or uncontrollable sneezing."
+                    },
+                    {
+                        "id": "anosmia",
+                        "label": "Loss or change of smell or taste",
+                        "helpertext": "* Mild: Slightly reduced sense of smell or taste.\n\n* Moderate: Only strong smells or tastes noticeable.\n\n* Severe: Unable to smell or taste anything."
+                    }
+                ]
+            },
+            {
+                "group": "General",
+                "symptoms": [
+                    {
+                        "id": "fatigue",
+                        "label": "Fatigue or weakness",
+                        "helpertext": "* Mild: Feeling more tired than usual.\n\n* Moderate: Need extra rest and cut down activities.\n\n* Severe: Very tired, spending most of the day resting."
+                    },
+                    {
+                        "id": "appetite_loss",
+                        "label": "Loss of appetite",
+                        "helpertext": "* Mild: Eating a little less than usual.\n\n* Moderate: Skipping a meal from feeling unwell.\n\n* Severe: Eating very little or nothing all day."
+                    }
+                ]
+            },
+            {
+                "group": "Digestion",
+                "symptoms": [
+                    {
+                        "id": "nausea",
+                        "label": "Nausea or vomiting",
+                        "helpertext": "* Mild: Slight queasiness.\n\n* Moderate: Feeling nauseous almost all day.\n\n* Severe: Struggling with daily activities due to nausea."
+                    },
+                    {
+                        "id": "diarrhoea",
+                        "label": "Diarrhoea",
+                        "helpertext": "* Mild: Slightly looser stools than normal.\n\n* Moderate: Several loose stools in a day.\n\n* Severe: Very frequent or urgent stools."
+                    },
+                    {
+                        "id": "constipation",
+                        "label": "Constipation",
+                        "helpertext": "* Mild: Fewer bowel movements than usual.\n\n* Moderate: Straining or discomfort.\n\n* Severe: Not passing stool for several days."
+                    },
+                    {
+                        "id": "abdominal_pain",
+                        "label": "Unusual tummy (abdominal) pains - excluding period pain",
+                        "helpertext": "* Mild: Mild stomach discomfort or cramps.\n\n* Moderate: Stomach pain affecting activities.\n\n* Severe: Strong or persistent pain."
+                    }
+                ]
+            },
+            {
+                "group": "Muscles & Heart",
+                "symptoms": [
+                    {
+                        "id": "myalgia",
+                        "label": "Unusual muscle pains or aches",
+                        "helpertext": "* Mild: Minor muscle aches.\n\n* Moderate: Aches making movement less comfortable.\n\n* Severe: Strong aches limiting normal movement."
+                    },
+                    {
+                        "id": "arthralgia",
+                        "label": "Unusual joint pains or aches",
+                        "helpertext": "* Mild: Slight stiffness or discomfort in joints.\n\n* Moderate: Pain when moving joints.\n\n* Severe: Very painful joints making movement difficult."
+                    },
+                    {
+                        "id": "chest_pain",
+                        "label": "Unusual chest pain or tightness",
+                        "helpertext": "* Mild: Mild or occasional chest discomfort.\n\n* Moderate: Pain when breathing deeply or coughing.\n\n* Severe: Ongoing discomfort difficult to ignore."
+                    },
+                    {
+                        "id": "palpitations",
+                        "label": "Unusually fast or irregular heartbeat (palpitations)",
+                        "helpertext": "* Mild: Occasionally noticing your heartbeat.\n\n* Moderate: Heart racing or pounding fairly often.\n\n* Severe: Noticeably fast or strong most of the time."
+                    }
+                ]
+            },
+            {
+                "group": "Neurological",
+                "symptoms": [
+                    {
+                        "id": "insomnia",
+                        "label": "Difficulty sleeping",
+                        "helpertext": "* Mild: Taking longer than usual to fall asleep.\n\n* Moderate: Waking frequently during the night.\n\n* Severe: Sleeping very little."
+                    },
+                    {
+                        "id": "confusion",
+                        "label": "Disorientation, confusion, or drowsiness",
+                        "helpertext": "* Mild: Feeling slightly slower to think.\n\n* Moderate: Trouble concentrating or following conversations.\n\n* Severe: Feeling very confused or disoriented."
+                    },
+                    {
+                        "id": "brain_fog",
+                        "label": "Difficulty concentrating on everyday tasks (brain fog)",
+                        "helpertext": "* Mild: Slight forgetfulness or difficulty concentrating.\n\n* Moderate: Noticeable difficulty focusing.\n\n* Severe: Very hard to think clearly."
+                    },
+                    {
+                        "id": "pins",
+                        "label": "Pins-and-needles, tingling, or numbness in skin",
+                        "helpertext": "* Mild: Occasional tingling.\n\n* Moderate: Tingling or numbness happening often.\n\n* Severe: Persistent or uncomfortable tingling."
+                    }
+                ]
+            },
+            {
+                "group": "Eyes & Ears",
+                "symptoms": [
+                    {
+                        "id": "conjunctivitis",
+                        "label": "Irritated, red, watery, or sticky eyes",
+                        "helpertext": "* Mild: Slight redness or mild irritation.\n\n* Moderate: Red eyes with some discharge.\n\n* Severe: Very red, sticky, or painful eyes."
+                    },
+                    {
+                        "id": "photophobia",
+                        "label": "Light sensitivity",
+                        "helpertext": "* Mild: Slight discomfort in bright light.\n\n* Moderate: Preferring dim light.\n\n* Severe: Bright light very uncomfortable."
+                    },
+                    {
+                        "id": "earache",
+                        "label": "Earache",
+                        "helpertext": "* Mild: Mild ear discomfort.\n\n* Moderate: Ongoing ear pain.\n\n* Severe: Strong or throbbing pain."
+                    },
+                    {
+                        "id": "tinnitus",
+                        "label": "Ringing in ears (tinnitus)",
+                        "helpertext": "* Mild: Occasional ringing.\n\n* Moderate: Ringing heard frequently.\n\n* Severe: Constant or very noticeable ringing."
+                    }
+                ]
+            },
+            {
+                "group": "Throat & Glands",
+                "symptoms": [
+                    {
+                        "id": "swollen_glands",
+                        "label": "Sore or swollen glands in neck",
+                        "helpertext": "* Mild: Slight tenderness or small lumps.\n\n* Moderate: Noticeably swollen or sore glands.\n\n* Severe: Very swollen glands that are painful."
+                    },
+                    {
+                        "id": "swollen_tonsils",
+                        "label": "Sore or swollen tonsils",
+                        "helpertext": "* Mild: Slightly swollen tonsils.\n\n* Moderate: Clearly swollen tonsils.\n\n* Severe: Very swollen, possibly with white or yellow patches."
+                    }
+                ]
+            },
+            {
+                "group": "Skin",
+                "symptoms": [
+                    {
+                        "id": "rash",
+                        "label": "Unusually itchy or had a rash",
+                        "helpertext": "* Mild: Faint rash with little discomfort.\n\n* Moderate: Rash noticeable and uncomfortable.\n\n* Severe: Very itchy or irritating rash."
+                    }
+                ]
+            }
+        ],
+        "rash_followup": {
+            "questions": [
+                {
+                    "id": "rash_location_y_n",
+                    "label": "Was your itch or rash in a specific region?",
+                    "type": "radio",
+                    "required": true,
+                    "options": [
+                        {
+                            "answerid": "rash_location_y_n_1",
+                            "value": "1",
+                            "text": "Yes"
+                        },
+                        {
+                            "answerid": "rash_location_y_n_2",
+                            "value": "2",
+                            "text": "No, it is all over"
+                        }
+                    ]
+                },
+                {
+                    "id": "rash_location_1",
+                    "label": "Where was your rash or itch? Tick all that apply.",
+                    "type": "checkbox",
+                    "required": true,
+                    "show_if": "rash_location_y_n == '1'",
+                    "options": [
+                        {
+                            "answerid": "rash_location_1_1",
+                            "value": "1",
+                            "text": "Face"
+                        },
+                        {
+                            "answerid": "rash_location_1_2",
+                            "value": "2",
+                            "text": "Scalp"
+                        },
+                        {
+                            "answerid": "rash_location_1_3",
+                            "value": "3",
+                            "text": "Neck"
+                        },
+                        {
+                            "answerid": "rash_location_1_4",
+                            "value": "4",
+                            "text": "Chest"
+                        },
+                        {
+                            "answerid": "rash_location_1_5",
+                            "value": "5",
+                            "text": "Back"
+                        },
+                        {
+                            "answerid": "rash_location_1_6",
+                            "value": "6",
+                            "text": "Stomach"
+                        },
+                        {
+                            "answerid": "rash_location_1_7",
+                            "value": "7",
+                            "text": "Arms"
+                        },
+                        {
+                            "answerid": "rash_location_1_8",
+                            "value": "8",
+                            "text": "Hands"
+                        },
+                        {
+                            "answerid": "rash_location_1_9",
+                            "value": "9",
+                            "text": "Legs"
+                        },
+                        {
+                            "answerid": "rash_location_1_10",
+                            "value": "10",
+                            "text": "Feet"
+                        },
+                        {
+                            "answerid": "rash_location_1_11",
+                            "value": "11",
+                            "text": "Groin / genital area"
+                        },
+                        {
+                            "answerid": "rash_location_1_12",
+                            "value": "12",
+                            "text": "Buttocks"
+                        }
+                    ]
+                }
+            ]
+        },
+        "daily_impact": {
+            "questions": []
+        },
+        "day_count_intros": {
+            "1": "Please rate each symptom for today.",
+            "default": "Please rate each symptom for today."
+        }
+    }
+]

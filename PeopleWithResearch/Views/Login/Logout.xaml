@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.Logout"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="White">
+    <ContentPage.Content>
+
+
+        <StackLayout
+            x:Name="withdrawnstack"
+            HorizontalOptions="CenterAndExpand"
+            IsVisible="false"
+            VerticalOptions="CenterAndExpand">
+
+            <Image
+                Margin="0,10,0,5"
+                HeightRequest="50"
+                HorizontalOptions="CenterAndExpand"
+                Source="leaveicon.png"
+                VerticalOptions="CenterAndExpand"
+                WidthRequest="50" />
+
+
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="Withdrawn from Study"
+                TextColor="Black"
+                VerticalTextAlignment="Center" />
+
+            <Label
+                Margin="0,10,0,0"
+                FontAttributes="None"
+                FontSize="14"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="You have successfully withdrawn from the study"
+                TextColor="Black"
+                VerticalTextAlignment="Center" />
+
+
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

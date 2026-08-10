@@ -1,0 +1,560 @@
+[
+  {
+    "Group": "Participation",
+    "Active": true,
+    "Title": "Why have I been invited to this study?",
+    "Description": "This study aims to better understand how respiratory viruses spread within households, how viruses change over time, and how infections affect individuals. You have been invited because we are approaching the winter season when respiratory viruses are more common and you live in a household with two or more members. We invited households like yours to join, so we can study how these infections spread and affect people in the community."
+  },
+  {
+    "Group": "Participation",
+    "Active": true,
+    "Title": "What if someone in my household lives between two homes, such as a child with shared custody? Can they still take part?",
+    "Description": "Yes, they may still be able to take part. To be eligible for the household study, they should usually sleep in the enrolled household for most of the week, at least 4 nights out of every 7. This helps make sure the study reflects what is happening within the participating household. If you're unsure whether someone is eligible, please contact the study team."
+  },
+  {
+    "Group": "Participation",
+    "Active": true,
+    "Title": "Why do you need samples from everyone, not just the sick person?",
+    "Description": "Even if you or others in your household do not have symptoms, you may still have been exposed to the virus through close contact. We are also interested in why some people do not develop symptoms despite being exposed to a respiratory virus. Your participation will help us better understand what protects people from these infections."
+
+  },
+  {
+    "Group": "Participation",
+    "Active": true,
+    "Title": "Someone new has joined our household and they are not enrolled– do they need to join?",
+    "Description": "[Pre-emptive] If you are in the waiting stage of the study, you can add someone new so long as they will be lining with you. They will need to sign up on the study app and fill out the baseline questionnaire to be added to you household. You cannot add someone new if you have activated the symptom trigger."
+
+  },
+  {
+    "Group": "Participation",
+    "Active": true,
+    "Title": "I or someone in my household only wants to do a couple of samples – is that a problem?",
+    "Description": "You should stick to the sampling schedule, which has been designed so we can do the best possible research we can. Participation is voluntary for each household member, and it is still useful if we can collect some samples from the beginning of their participation."
+
+  },
+  {
+    "Group": "Participation",
+    "Active": true,
+    "Title": "I know other people from different households who would be interested in joining the study. Could I invite them?",
+    "Description": "It’s great to hear that other people you know may be interested in taking part in the HOPPER study.  To be eligible to take part in our study, each household must have at least three members who are willing to provide consent to participate and must be located within our recruitment catchment area. If you know someone who may be interested, please contact the study team and we would be happy to provide further information about participation and eligibility."
+
+  },
+  {
+    "Group": "Participation",
+    "Active": true,
+    "Title": "We want to get even more involved in the HOPPER study. What more could we do?",
+    "Description": "We are delighted to hear that you would like to become more involved in the HOPPER study. In addition to taking part as a participant, there may be opportunities to join our Public Steering Committee. The Public Steering Committee works alongside the study team to provide advice on the governance and direction of the study, helping us improve the experience for participants and ensure that the research remains relevant and beneficial both now and in the future. The committee's input will also help shape how the study can be adapted and delivered in the event of a future pandemic or other public health emergency. If you are interested in finding out more or would like to get involved, please contact the study team, who would be happy to discuss the available opportunities with you"
+
+  },
+  {
+    "Group": "When to Start Sampling",
+    "Active": true,
+    "Title": "I’ve got a mild sore throat – does that count as symptoms?",
+    "Description": "Yes, a sore throat is often a sign of a new upper respiratory tract infection. If you experience a scratchy or sore feeling in throat, and/or pain when swallowing, you and your household should begin sampling."
+
+  },
+  {
+    "Group": "When to Start Sampling",
+    "Active": true,
+    "Title": "I have a chronic cough – how do I know if it’s a trigger?",
+    "Description": "It may be hard to differentiate between a chronic cough and cough caused by the onset of an infection. You should instead look for other accompanying symptoms, such as sore throat as multiple symptoms often occur simultaneously. Ask yourself, do you feel unwell in comparison to your normal day to day when experiencing chronic cough."
+
+  },
+  {
+    "Group": "When to Start Sampling",
+    "Active": true,
+    "Title": "I or someone else in my household is ill, but not with the symptoms required to start triggered sampling.",
+    "Description": "If neither you nor anyone in your household has the symptoms required to begin triggered sampling, please do not start it. If you or a household member later develops the relevant symptoms, you should begin triggered sampling at that time. You will have the opportunity to record any earlier symptoms in the app once you have started sampling"
+
+  },
+  {
+    "Group": "When to Start Sampling",
+    "Active": true,
+    "Title": "Two or more people in my household got symptoms to start triggered sampling at the same time. How do I identify who is the “index case”?",
+    "Description": "If two or more people in your household develop symptoms at the same time, you should mark neither of them as the index case but begin sampling together as a household. In some situations, there may not be a single true index case–for example, if multiple household members were exposed to the same source of infection outside the household at the same time."
+
+  },
+  {
+    "Group": "When to Start Sampling",
+    "Active": true,
+    "Title": "My symptoms or someone else’s symptoms within my household started a few days ago – is it too late to activate triggered sampling?",
+    "Description": "No, it is not too late. You should start sampling as a household as soon as possible, from when someone first experiences trigger symptoms. You will be asked to record in the study app when your symptoms started. This will be part of the daily symptom forms."
+
+  },
+  {
+    "Group": "When to Start Sampling",
+    "Active": true,
+    "Title": "Someone else in my house is ill with the symptoms to start triggered sampling but is not enrolled in the study – what do I do?",
+    "Description": "Please start triggered sampling. You will be asked in the questionnaire if you or someone else in the household was the first person to have started experiencing symptoms. You will need to mark that this individual was the first to start experiencing symptoms."
+
+  },
+  {
+    "Group": "When to Stop Sampling",
+    "Active": true,
+    "Title": "I feel better already – do I still need to do the 28 days?",
+    "Description": "It is important that you stick to the sampling schedule, as data from healthy or recovered individuals helps us better understand what protects people from infection. If you or anyone else in your household does not have a positive result on the lateral flow device between Day 1 and Day 3, you will not be required to take samples after day 3. However, you will all still be asked to report if you are experiencing any symptoms. If no one in your household has any symptoms for three consecutive days, then you will be asked to pause reporting your symptoms."
+
+  },
+  {
+    "Group": "Sampling with Children and Babies",
+    "Active": true,
+    "Title": "I’m worried about taking samples from my children – do I really have to collect samples from them?",
+    "Description": "Taking part is voluntary for all participants, including children. You can also choose to not take all sample types from your child and choose the samples that they will tolerate the most. For children under five years old, we only request for a swab on study day 3."
+
+  },
+  {
+    "Group": "Sampling with Children and Babies",
+    "Active": true,
+    "Title": "My child hates having samples collected from them – do I need to carry on doing this?",
+    "Description": "No. If your child is distressed or unwilling, you should stop collecting samples from them. Their comfort and wellbeing are the priority. You can pause or stop sampling at any time, either temporarily or permanently. Including all household members helps us better understand transmission within the home, but there is no obligation to continue if your child does not want to take part. If helpful, the study team can suggest ways to make sampling easier."
+
+  },
+  {
+    "Group": "Sampling with Children and Babies",
+    "Active": true,
+    "Title": "My baby developed symptoms but I'm not sure they count? What should I do?",
+    "Description": "If you’re unsure whether your baby’s symptoms meet the study criteria, please contact the study team for advice. If your baby’s symptoms become severe, please seek medical advice from your GP."
+
+  },
+  {
+    "Group": "Timetabling and Missed Samples",
+    "Active": true,
+    "Title": "Can different people do samples at different times of day?",
+    "Description": "Yes. Samples do not need to be collected at the same time for everyone. Everyone should aim to collect their own samples at a consistent time each day where possible. As a household, you must collect the samples on the same day, however."
+
+  },
+  {
+    "Group": "Timetabling and Missed Samples",
+    "Active": true,
+    "Title": "I missed a day of sampling – what should I do?",
+    "Description": "Please shift your remaining sampling schedule forward by one day and continue with your next sample accordingly. For example, if you miss a sample on Monday, take your next sample on Tuesday and continue the rest of the schedule one day later than originally planned."
+
+  },
+  {
+    "Group": "Timetabling and Missed Samples",
+    "Active": true,
+    "Title": "I forgot to fill in the daily form – can I go back and complete it?",
+    "Description": "Yes. Please complete it as soon as you remember, based on what you can recall. Even if some details are missing, the information is still helpful."
+
+  },
+  {
+    "Group": "Timetabling and Missed Samples",
+    "Active": true,
+    "Title": "What time of day should I collect samples?",
+    "Description": "Please collect all your samples at roughly the same time each day where possible. This helps us compare results over time. If this is not possible, just collect the sample when it is most convenient for you."
+
+  },
+  {
+    "Group": "Timetabling and Missed Samples",
+    "Active": true,
+    "Title": "I’m going on holiday – what should I do?",
+    "Description": "Please let the study team know as soon as possible so that we can advise you. This is a household study, so samples cannot be collected while travelling. You should not take sampling materials with you (e.g. through airports). Where possible, participants should only start the study if they do not expect to be away during the 28-day sampling period."
+
+  },
+  {
+    "Group": "Sample Handling and Storage",
+    "Active": true,
+    "Title": "How long can samples and sample packs stay in the fridge?",
+    "Description": "Before collecting your samples, the sample packs can stay at room temperature for up to 3 months. Once collected, samples can be safely stored in the fridge for up to 7 days before collection by our courier."
+
+  },
+  {
+    "Group": "Sample Handling and Storage",
+    "Active": true,
+    "Title": "Is it safe to keep my samples in the fridge?",
+    "Description": "Yes. The samples should be stored in double-sealed containers and do not pose a risk to you or others."
+
+  },
+  {
+    "Group": "Sample Handling and Storage",
+    "Active": true,
+    "Title": "Where should I store my samples in the fridge?",
+    "Description": "We recommend you store the samples on the lowest section of your fridge. You may also wish to store them in your own separate bag or container."
+
+  },
+  {
+    "Group": "Sample Handling and Storage",
+    "Active": true,
+    "Title": "I forgot to put samples in the fridge – are they still usable?",
+    "Description": "Yes, the samples are stable at room temperature up to two days. Please place them in the fridge as soon as possible to help preserve sample quality. Samples left out of the fridge for over two days will not be used by us."
+
+  },
+  {
+    "Group": "Sample Handling and Storage",
+    "Active": true,
+    "Title": "I spilled food on the sample pack – is it still usable?",
+    "Description": "Samples will be usable if no contaminants such as food or liquid have gone inside the tubes where the samples are stored."
+
+  },
+  {
+    "Group": "Data Protection",
+    "Active": true,
+    "Title": "Will my GP know I took part and will they see my results?",
+    "Description": "Your GP will be informed if you choose to sign up to this study. However, we will not inform your GP of any of your results unless there is something very concerning. Entering this study will not affect your standard medical care in any way."
+
+  },
+  {
+    "Group": "Data Protection",
+    "Active": true,
+    "Title": "How long will you have my samples for?",
+    "Description": "Your samples will be processed as soon as possible once they reach the laboratory. After processing, any remaining samples may be stored securely for an extended period (potentially several years) in a laboratory freezer to allow for future research related to this study or to verify research findings. All stored samples will be de-identified, meaning that your name and other direct personal information will be removed and replaced with a study code. Only authorised members will be able to link this code back to you, and this information will be kept securely and confidentially."
+
+  },
+  {
+    "Group": "Data Protection",
+    "Active": true,
+    "Title": "Will the study team see my name or address?",
+    "Description": "Yes, the study team will see your name and address in order to arrange courier deliveries to you. Once you are enrolled in the study, your personal information will only be accessible to authorised members of the study team who need it for study-related purposes. Your name will also be pseudonymised (replaced with a study ID number) so that your data can be managed and analysed without directly identifying you. You will not be identifiable from any results published as a result of this study."
+
+  },
+  {
+    "Group": "Gift Vouchers",
+    "Active": true,
+    "Title": "Where can I spend my gift vouchers?",
+    "Description": "The gift vouchers can be spent across multiple retailers including at restaurants like Nandos, Pizza Hut and Wagamama and across shops like Boots, B&Q, Currys and Argos."
+
+  },
+  {
+    "Group": "Gift Vouchers",
+    "Active": true,
+    "Title": "How will I receive my vouchers?",
+    "Description": "The gift vouchers will be posted to your address, usually alongside your sampling packs, or will be given to you by the research team during the house visit, if you are eligible and have opted in for these. For participants under 16 years of age, the vouchers will be provided to the parent or guardian. All gift vouchers will be clearly labelled for the intended recipient using their study number."
+
+  },
+  {
+    "Group": "Gift Vouchers",
+    "Active": true,
+    "Title": "Can I receive the money as cash rather than vouchers?",
+    "Description": "No. We cannot collect bank details or send cash directly as part of our ethics considerations."
+
+  },
+  {
+    "Group": "Gift Vouchers",
+    "Active": true,
+    "Title": "Why have I not received the full £100 worth of vouchers?",
+    "Description": "The amount you receive in gift vouchers is based on how many days of sampling you undertake and whether you choose to have the optional nurse visit. The full £100 is only sent for individuals who complete a full 28 days of sampling plus opting in for the nurse visit."
+
+  },
+  {
+    "Group": "App Issues",
+    "Active": true,
+    "Title": "What are the storage and data requirements of the app?",
+    "Description": "The app is lightweight and typically requires less than 100MB of storage on your device. The App needs an internet connection (Wi-Fi or mobile data) to sync your data securely. Daily participation in the study will required approximately 15mb of data."
+
+  },
+  {
+    "Group": "App Issues",
+    "Active": true,
+    "Title": "The app isn't working – what should I do?",
+    "Description": "First, try closing and reopening the app, or restarting your device. Make sure you're running the latest version from the Apple App Store or Google Play Store and check your internet connection. If the problem continues, please contact our support team with details of the issue (including your device type and what happened) so we can help resolve it quickly. The support team can be contacted directly via email on: hopper-study@peoplewith.com"
+
+  },
+  {
+    "Group": "App Issues",
+    "Active": true,
+    "Title": "I entered something incorrectly on one of my forms in the app – can I edit it?",
+    "Description": "Yes, you can go back in the relevant form and update your answers before submission. If you've already submitted the form and need to make a change, please get in touch with our support team on: hopper-study@peoplewith.com who can help correct the record"
+
+  },
+  {
+    "Group": "App Issues",
+    "Active": true,
+    "Title": "I forgot my login details – how do I reset them?",
+    "Description": "Tap \"Forgot password\" on the login screen and follow the steps to reset it via your registered email address. If you're still having trouble, contact our support team on: hopper-study@peoplewith.com and they will help you regain access to your account."
+
+  },
+  {
+    "Group": "App Issues",
+    "Active": true,
+    "Title": "Does the app need access to my Bluetooth or location to work?",
+    "Description": "No. The app does not require access to your Bluetooth or location services to work."
+
+  },
+  {
+    "Group": "App Issues",
+    "Active": true,
+    "Title": "Can I add multiple household members onto one device?",
+    "Description": "For participants under 16 years old, we do not expect them to have their own smartphone. In these cases, a parent or guardian should add the child or young person's profile to an adult's app, preferably the household representative's app. We encourage adults to support children and young people in completing the forms themselves wherever possible. For adults, we generally ask that each person uses their own smartphone and has their own account. If an adult needs help using the study app, another household member can support them by installing the app on the adult's phone and helping them complete the required tasks. If an adult does not have a smartphone or is unable to use one, please contact the study team at hopper-study@imperial.ac.uk before adding multiple adults to the same device so that we can advise on the best approach."
+
+  },
+  {
+    "Group": "App Issues",
+    "Active": true,
+    "Title": "I deleted my app – will my records be deleted too?",
+    "Description": "No. For your records to be deleted you need to withdraw from the study. If you need support to do this then please contact the study team."
+
+  },
+  {
+    "Group": "Kit Contents and Delivery",
+    "Active": true,
+    "Title": "My kit hasn’t arrived – what should I do?",
+    "Description": "Please contact the study team as soon as possible so we can check the delivery and arrange a replacement if needed."
+
+  },
+  {
+    "Group": "Kit Contents and Delivery",
+    "Active": true,
+    "Title": "I have a Latex allergy – is the kit safe for me to use?",
+    "Description": "Yes, there should be no items containing latex in the sample kits."
+
+  },
+  {
+    "Group": "Kit Contents and Delivery",
+    "Active": true,
+    "Title": "We did not have the sample kit with us when symptoms started. What should we do?",
+    "Description": "Please contact the study team direct for advice as to what to do."
+
+  },
+  {
+    "Group": "Kit Contents and Delivery",
+    "Active": true,
+    "Title": "I’ve run out of swabs/tests – can I get more?",
+    "Description": "You should however have been provided with spare sampling capacity in case you needed to retake some samples, so double check your kit first before requesting extra equipment. However, if you have run out of the tests, please contact the study team and we will arrange for additional supplies to be sent to you."
+
+  },
+  {
+    "Group": "Kit Contents and Delivery",
+    "Active": true,
+    "Title": "The courier didn’t show up – what now?",
+    "Description": "Please keep your samples stored as instructed and contact the study team as soon as you can. We will reschedule collection or provide alternative instructions. Rest assured that your samples when stored properly are stable for a few days."
+
+  },
+  {
+    "Group": "Kit Contents and Delivery",
+    "Active": true,
+    "Title": "I’m not home on collection day – can it be rearranged?",
+    "Description": "Yes. Please let the study team know in advance where possible so we can arrange an alternative collection time. You will have the option to leave with a neighbour or for the courier to collect from a safe space, if you are happy to do so."
+
+  },
+  {
+    "Group": "Kit Contents and Delivery",
+    "Active": true,
+    "Title": "Can I post samples myself instead?",
+    "Description": "You should not post these samples to us through regular postal methods. If you wish, you can also drop off the samples to us personally. Please contact the study team if you would prefer to do this."
+
+  },
+  {
+    "Group": "Kit Contents and Delivery",
+    "Active": true,
+    "Title": "My kit arrived damaged – what should I do?",
+    "Description": "Please contact the study team as soon as possible. We will arrange delivery of another sample pack for you."
+
+  },
+  {
+    "Group": "Nose samples",
+    "Active": true,
+    "Title": "Why do I have to do a nasal swab and a nasal strip? Can I just do one?",
+    "Description": "We use the nasal swab and nasal strip to answer different scientific questions. The nose swab lets us measure the type and amount of virus present. The nose strip lets us measure how your body’s immune system is responding to infection, through things like antibodies. Looking at both helps us build a more complete picture of how the body responds to infection."
+
+  },
+  {
+    "Group": "Nose samples",
+    "Active": true,
+    "Title": "How deep should the nose swab go?",
+    "Description": "Insert the swab gently inside the nostril until you feel slight resistance. It should not be inserted deeply or cause pain. If unclear, refer to the videos available on the study app for sampling with the nose swab."
+
+  },
+  {
+    "Group": "Nose samples",
+    "Active": true,
+    "Title": "How deep should the nose strip go?",
+    "Description": "The strip is designed to sit inside just the nasal channel. It should be positioned comfortably without forcing it further in, following the instructions provided. The bottom handle should remain at the entrance of the nostril. Once in place, try not to move it and hold in place for 60 seconds. If unclear, refer to the videos available on the study app for sampling with the nose strip."
+
+  },
+  {
+    "Group": "Nose samples",
+    "Active": true,
+    "Title": "What if the swab/strip makes my nose bleed?",
+    "Description": "Stop immediately if you notice bleeding or significant discomfort. A small amount of irritation can happen, but bleeding is uncommon. If it occurs, do not continue sampling and inform the study team."
+
+  },
+  {
+    "Group": "Nose samples",
+    "Active": true,
+    "Title": "I touched the nose swab or strip by mistake – do I need a new one?",
+    "Description": "Touching the top of the nose swab or nose strip should be avoided however is not harmful to you. If the swab/strip is not dirtied or damaged, you can still use the swab/strip. If you are concerned, contact the study team for additional packs."
+
+  },
+  {
+    "Group": "Lateral Flow Device",
+    "Active": true,
+    "Title": "I am not sure how to read my test",
+    "Description": "If you are unsure how to read your Lateral Flow Device, there are instructional videos available on your study app that you can follow. If you cannot understand what you are seeing after watching the video, you can send a picture to the study team via email or text, and we will help you interpret the result."
+
+  },
+  {
+    "Group": "Lateral Flow Device",
+    "Active": true,
+    "Title": "Should I contact my GP if I test positive on the Lateral Flow Device?",
+    "Description": "No, please do not contact your GP in event of a positive test. You should only reach out to your GP if feel seriously unwell."
+
+  },
+  {
+    "Group": "Lateral Flow Device",
+    "Active": true,
+    "Title": "I am the first person in my household with symptoms but tested negative on the Lateral Flow Device.  Do I still need to trigger sampling?",
+    "Description": "Yes, developing symptoms of a respiratory virus is enough of a trigger to being sampling. Symptoms can often precede a positive Lateral Flow Device test. Following the sampling schedule, you will test on Lateral Flow Devices for the next three days. If you do not have a positive Lateral Flow Device result by Day 3, then you will be asked to stop sampling, but to continue reporting symptoms in the Triggered Daily forms in the study app."
+
+  },
+  {
+    "Group": "Lateral Flow Device",
+    "Active": true,
+    "Title": "My Lateral Flow Device result is faint – is that positive?",
+    "Description": "Yes, if both the Control (C) and Test (T) lines are present even faintly, this signifies a positive result."
+
+  },
+  {
+    "Group": "Lateral Flow Device",
+    "Active": true,
+    "Title": "The Lateral Flow test didn’t work / no control line – what should I do?",
+    "Description": "This suggests that the device is faulty or was not done correctly. Please re-test with another LFD device in your sampling kit if available. If none are available, you will also be able to report that you do not know the result of your Lateral Flow Device in the study app."
+
+  },
+  {
+    "Group": "Lateral Flow Device",
+    "Active": true,
+    "Title": "Do I/my household need to self-isolate/stay at home if I/we test positive?",
+    "Description": "No. This study is for research purposes and does not replace national public health guidance. A positive result does not automatically require you or your household to self-isolate. You should follow current public health advice and use your judgement to reduce the risk of spreading infection (for example, avoiding close contact with vulnerable people and staying at home if unwell). If you are unsure, please seek advice from a healthcare professional or the study team."
+
+  },
+  {
+    "Group": "Gum Sponge Sample",
+    "Active": true,
+    "Title": "Why do you need a gum sponge sample?",
+    "Description": "The gum sponge sample lets us see how your body's immune system is responding to infection, through release of special protective molecules called antibodies. This is less invasive than other methods of testing antibodies."
+
+  },
+  {
+    "Group": "Gum Sponge Sample",
+    "Active": true,
+    "Title": "Can I eat or drink before giving a gum sponge sample?",
+    "Description": "Please avoid eating, drinking, smoking, or chewing gum for at least 30 minutes before providing the sample, as this can affect the results."
+
+  },
+  {
+    "Group": "Gum Sponge Sample",
+    "Active": true,
+    "Title": "I have a retainer or dentures/braces – should I still give the gum swab sample?",
+    "Description": "Yes, you can still take the gum sponge sample even with dentures, retainers, or braces. For braces, you can take the gum sponge as usual. For retainers and dentures, you may need to remove them first depending on how much they cover your gums."
+
+  },
+  {
+    "Group": "Surface/Hand Swabs",
+    "Active": true,
+    "Title": "Which surfaces exactly do I need to swab?",
+    "Description": "You should swab the a) kitchen tap handle, b) the toilet flush handle, and c) the bedside table OR bedframe from the room of the person who first developed symptoms or who tested positive for infection"
+
+  },
+  {
+    "Group": "Surface/Hand Swabs",
+    "Active": true,
+    "Title": "Can I clean the surfaces before swabbing?",
+    "Description": "No. Please do not clean or disinfect the surfaces immediately before swabbing, as this may remove the material needed for analysis. You should clean surfaces as frequently as you usually would, when the household is healthy. This helps to give us an idea about normal transmission risk with regular hygiene behaviours."
+
+  },
+  {
+    "Group": "Surface/Hand Swabs",
+    "Active": true,
+    "Title": "Should I wash my hands before doing a hand swab?",
+    "Description": "No. Please do not wash or sanitise your hands immediately before the hand swab, as we are interested in what is naturally present on the skin at the time of sampling."
+
+  },
+  {
+    "Group": "Surface/Hand Swabs",
+    "Active": true,
+    "Title": "Should I still do the surface swabs if I have pets?",
+    "Description": "Yes, you can and should still do the surface swabs even if you have pets. This will not interfere with your results."
+
+  },
+  {
+    "Group": "Injury or Adverse Reaction",
+    "Active": true,
+    "Title": "Will someone contact me if my results are concerning?",
+    "Description": "Yes. If any results suggest a need for follow-up, the study team will contact you directly. In some cases, we may advise you to contact your GP for further assessment."
+
+  },
+  {
+    "Group": "Injury or Adverse Reaction",
+    "Active": true,
+    "Title": "Is it safe to continue sampling if I feel very sick?",
+    "Description": "If you feel very unwell, please prioritise your health. You may pause sampling and contact the study team for guidance. If you feel up to it, you should continue sampling with the help of a member of your household."
+
+  },
+  {
+    "Group": "Withdrawal from Study",
+    "Active": true,
+    "Title": "How do I withdraw from the study?",
+    "Description": "You can withdraw from the study at any time without giving a reason. You can withdraw through the study app, or by contacting the study team via email."
+
+  },
+  {
+    "Group": "Withdrawal from Study",
+    "Active": true,
+    "Title": "How will withdrawing affect my medical care?",
+    "Description": "Taking part in this study is completely voluntary. If you choose not to participate, or if you decide to withdraw at any time, this will not affect your current or future care or treatment with your GP."
+
+  },
+  {
+    "Group": "Withdrawal from Study",
+    "Active": true,
+    "Title": "Everyone else in my household has decided to drop out – should I continue sampling myself even when I am the only person doing so?",
+    "Description": "We need at least three people within your household to be enrolled and collecting samples for us to collect meaningful data. If you are the only member of the household left sampling, you would also be withdrawn from the study."
+
+  },
+  {
+    "Group": "Withdrawal from Study",
+    "Active": true,
+    "Title": "What do I do with my sample kit if I withdraw?",
+    "Description": "Please contact the study team for further information on this."
+
+  },
+  {
+    "Group": "Withdrawal from Study",
+    "Active": true,
+    "Title": "Will the samples that I already sent be destroyed if I withdraw?",
+    "Description": "If you withdraw, any samples that have not yet been processed may be destroyed where possible. If samples have already been processed, it may not be possible to destroy them, but any information already generated from them will not directly identify you."
+
+  },
+  {
+    "Group": "Optional Nurse Home Visits",
+    "Active": true,
+    "Title": "Why do some people get an optional home visit?",
+    "Description": "Some participants are invited to take part in an additional blood sampling visit. This helps us study immune responses in more detail over time. Not all participants are selected for this part of the study. Invitation to the optional blood sampling visit depends on the study team staffing capacity, and whether there is a confirmed case of influenza/hMPV/RSV within the household."
+
+  },
+  {
+    "Group": "Optional Nurse Home Visits",
+    "Active": true,
+    "Title": "How will you contact me about the optional home visit?",
+    "Description": "If you agree to provide a blood sample and are selected, the study team will contact you directly using your preferred contact details to arrange a suitable time."
+
+  },
+  {
+    "Group": "Optional Nurse Home Visits",
+    "Active": true,
+    "Title": "What happens during the home visit?",
+    "Description": "One of our research nurses will visit your home to collect a small blood sample. They will explain the procedure, answer any questions, and ensure everything is done safely and comfortably."
+
+  },
+  {
+    "Group": "Optional Nurse Home Visits",
+    "Active": true,
+    "Title": "How long does the home visit take?",
+    "Description": "The home visit should take no more than 20 minutes in total, including set up and sample collection."
+
+  },
+  {
+    "Group": "Optional Nurse Home Visits",
+    "Active": true,
+    "Title": "What if I’m not available on day 5 or 28?",
+    "Description": "If you are selected for a visit and are not available on these specific days, the study team will try to arrange an alternative time as close as possible to the target date."
+
+  },
+  {
+    "Group": "Optional Nurse Home Visits",
+    "Active": true,
+    "Title": "Can I do the blood test if I am afraid of needles?",
+    "Description": "We may be able to offer a blood test using a TASSO device, which collects capillary blood in a needle-free manner. If you would like to only use the TASSO device, please arrange this with the study team prior to the home visit."
+
+  }
+]

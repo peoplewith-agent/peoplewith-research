@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+             x:Class="PeopleWithResearch.TestRegPage" Shell.NavBarIsVisible="False" BackgroundColor="White"
+             >
+    <Grid BackgroundColor="White">
+        <Image Source="background.png"
+               Aspect="AspectFill"
+               HeightRequest="200" 
+               VerticalOptions="Start"
+               Opacity="0.2" />
+
+
+        <!--<ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#f0faff" Offset="0.0" />
+            <GradientStop Color="#f3ebf8" Offset="0.5" />
+            <GradientStop Color="#fae0f5" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>-->
+        <VerticalStackLayout BackgroundColor="White" VerticalOptions="Fill">
+
+            <progressBar:SfLinearProgressBar
+ 
+        x:Name="topprogress"
+        TrackHeight="8"
+        ProgressHeight="8"
+        TrackCornerRadius="5"
+        ProgressCornerRadius="5"
+            SegmentCount="8" Progress="37"
+        TrackFill="#BFDBF7"
+        ProgressFill="#031926"
+        SecondaryProgressFill="#BFDBF7"
+        AnimationEasing="{x:Static Easing.CubicInOut}"
+        VerticalOptions="Center"
+        HorizontalOptions="Fill"
+        Margin="50,20,50,0"
+        BackgroundColor="Transparent" />
+
+            <!-- Logo -->
+            <Border HeightRequest="50"
+        WidthRequest="50"
+        HorizontalOptions="Start"
+        Margin="20,40,0,0"
+        Padding="0"
+        StrokeThickness="2">
+
+                <Border.Stroke>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#A18CD1" Offset="0.1" />
+                        <GradientStop Color="#84CEFF" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Stroke>
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="50" />
+                </Border.StrokeShape>
+
+                <Image Source="regtick.png"
+           HeightRequest="30"
+           WidthRequest="30"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           Aspect="AspectFit" />
+            </Border>
+            <!-- Title -->
+            <Label Text="Gender"
+     FontFamily="OpenSansSemiBold"
+     FontSize="26" FontAttributes="Bold"
+     TextColor="Black" Margin="20,10,0,0"
+     HorizontalOptions="Start" />
+
+            <Label   FontFamily="OpenSansSemiRegular" Text="Tesytvdyv dgvshg gvdshvs" HorizontalOptions="Start" HorizontalTextAlignment="Center"  TextColor="Black" FontSize="12"   Margin="20,5,10,0" ></Label>
+
+
+            <Entry Text="tftftf" BackgroundColor="White" Margin="20,10,20,0" HeightRequest="20" Placeholder="Test enttry text...." PlaceholderColor="Black" TextColor="Black" FontSize="12" FontFamily="OpenSansSemiRegular"/>
+
+
+
+            <Border
+    Grid.Row="0"
+    VerticalOptions="End"
+    HorizontalOptions="FillAndExpand"
+    Margin="20"
+    HeightRequest="40"
+    StrokeThickness="0"
+    StrokeShape="RoundRectangle 10">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#A18CD1" Offset="0.1" />
+                        <GradientStop Color="#84CEFF" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Button
+        x:Name="btnmain"
+        Text="NEXT"
+        BackgroundColor="Transparent"
+        TextColor="White"
+        FontAttributes="Bold"
+        CornerRadius="10"
+        HeightRequest="40"
+                 FontFamily="OpenSansSemiBold"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        IsVisible="true" />
+            </Border>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

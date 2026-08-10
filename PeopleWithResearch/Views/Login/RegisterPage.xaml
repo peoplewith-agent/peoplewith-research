@@ -1,0 +1,1295 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PeopleWithResearch.RegisterPage"
+                  xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+     xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:freakyControls="clr-namespace:Maui.FreakyControls;assembly=Maui.FreakyControls"
+             xmlns:syncfusion11="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"  
+               xmlns:data="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"
+              xmlns:syncfusion2="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+     xmlns:local="clr-namespace:PeopleWithResearch" NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False"
+             >
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="topgrid" BackgroundColor="Transparent" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="85*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Image
+            x:Name="backimg"
+                                                Grid.Column="0" 
+Grid.Row="0" HorizontalOptions="Center"
+            HeightRequest="40" WidthRequest="40"
+                     VerticalOptions="Center"                               Margin="10,0,10,0"
+            BackgroundColor="Transparent"
+            Source="bluebackbutton.png"
+            >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <progressBar:SfLinearProgressBar VerticalOptions="CenterAndExpand" x:Name="topprogress" Margin="0,0,20,0" Progress="0" Grid.Row="0" Grid.Column="1" ProgressFill="#009fe3" TrackHeight="5" TrackCornerRadius="10" ProgressCornerRadius="10">
+
+                </progressBar:SfLinearProgressBar>
+
+            </Grid>
+
+            <ScrollView x:Name="mainscroll" Grid.Row="1" BackgroundColor="Transparent">
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+
+
+
+
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="Transparent" BorderColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" x:Name="welcomeframe" IsVisible="false"
+     
+      >
+                        <StackLayout>
+
+
+
+                            <Image Source="PeopleWithResearchLogoWhite.png" BackgroundColor="Transparent" Margin="0,10,0,0" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Start" />
+
+
+
+
+
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="Transparent" BorderColor="White"  HorizontalOptions="FillAndExpand" x:Name="createframe" IsVisible="false"
+     
+      >
+                        <StackLayout>
+
+                            <Label Text="Create your account" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black" FontSize="26" />
+
+                            <Label Text="Firstly, lets create your login details"  HorizontalOptions="Center" TextColor="Gray" FontSize="15"/>
+
+                            <!--<Label Text="Firstly, lets create your login details:" Margin="0,10,0,0" TextColor="#234983" FontSize="Small" />-->
+
+                            <!--<Label Text="EMAIL ADDRESS" TextColor="#234983" Margin="0,20,0,0" FontSize="Small" FontAttributes="Bold"  />-->
+
+                            <inputLayout:SfTextInputLayout
+    
+                  BackgroundColor="Transparent"
+                    
+                   ContainerBackground="Transparent"
+                 Hint="Email"
+                   OutlineCornerRadius="10"
+                   Margin="0,0,0,0"
+                   x:Name="emailreghint"
+    ContainerType="Filled">
+                                <Entry x:Name="emailregtxt" Placeholder="Email" TextChanged="emailtxt_TextChanged"  TextColor="#234983" FontSize="Small" PlaceholderColor="Gray" Margin="0,0,0,0" />
+                            </inputLayout:SfTextInputLayout>
+
+                            <!--<Label Text="PASSWORD" TextColor="#234983" Margin="0,0,0,0" FontSize="Small" FontAttributes="Bold"  />-->
+
+                            <inputLayout:SfTextInputLayout
+    
+                  BackgroundColor="Transparent"
+                    
+                            
+                   ContainerBackground="Transparent"
+                  Hint="Password"
+                   OutlineCornerRadius="10"
+                   Margin="0,0,0,0"
+                   x:Name="passreghint"
+                            
+    ContainerType="Filled">
+                                <Entry x:Name="passregtxt" IsPassword="True" TextChanged="passtxt_TextChanged"  Placeholder="Password" FontSize="Small" TextColor="#234983" PlaceholderColor="Gray" Margin="0,0,0,0" />
+                            </inputLayout:SfTextInputLayout>
+
+                            <Label Text="Keep your account secure with a strong password. &#10;Passwords must be at least 8 characters long, with at least 1 symbol, one number and contain one capital letter." TextColor="Gray" FontSize="11" />
+
+                            <Frame HasShadow="False" Padding="0" Margin="0,20,0,0" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="10">
+
+
+                                <Grid Margin="0,0,0,0" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10*"/>
+                                        <ColumnDefinition Width="90*"/>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <CheckBox Grid.Column="0" Grid.Row="0" Color="#009fe3"  x:Name="tccheckbox" IsChecked="False" HorizontalOptions="Start" Margin="0,-5,0,0" VerticalOptions="Center" CheckedChanged="tccheckbox_CheckedChanged" >
+                                    </CheckBox>
+
+                                    <Label Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" VerticalOptions="Start" HorizontalOptions="Center" FontSize="Small" >
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="I have read and agree to " TextColor="Gray" FontSize="Small" />
+                                                <Span Text="PeopleWith's Terms and Conditions of Use and Data Policy" TextColor="#009fe3" FontSize="Small" FontAttributes="Bold" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+
+                                </Grid>
+
+                            </Frame>
+
+                            <Label x:Name="tcerror" FontSize="Micro" IsVisible="false" TextColor="Red" HorizontalOptions="Start" Margin="10,10,0,20" />
+
+
+
+
+                            <Frame HasShadow="False" Padding="0" Margin="0,0,0,0" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10*"/>
+                                        <ColumnDefinition Width="90*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <CheckBox Grid.Column="0" Grid.Row="0" Color="#009fe3" x:Name="notcheck" IsChecked="True" Margin="0,-5,0,0" HorizontalOptions="End" VerticalOptions="Center"/>
+
+                                    <Label Grid.Row="0" Grid.Column="1" Margin="0,5,0,0" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="I agree to allow " TextColor="Gray" FontSize="Small" />
+                                                <Span Text="PeopleWith-Research to send me Push Notifications" TextColor="#009fe3" FontSize="Small" FontAttributes="Bold" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                </Grid>
+                            </Frame>
+
+                            <Frame HasShadow="False" Padding="0" Margin="0,0,0,0" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10*"/>
+                                        <ColumnDefinition Width="90*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <CheckBox Grid.Column="0" Grid.Row="0" Color="#009fe3" x:Name="emailcheck" IsChecked="True" Margin="0,-5,0,0" HorizontalOptions="End" VerticalOptions="Center"/>
+
+                                    <Label Grid.Row="0" Grid.Column="1" Margin="0,5,0,0" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="I agree to allow " TextColor="Gray" FontSize="Small" />
+                                                <Span Text="PeopleWith-Research to send me Email Notifications related to the study" TextColor="#009fe3" FontSize="Small" FontAttributes="Bold" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                </Grid>
+                            </Frame>
+
+
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <!-- emis consent frame 1 -->
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="White" BorderColor="White" HorizontalOptions="FillAndExpand" x:Name="emisconsentframe" IsVisible="false"
+     
+      >
+                        <StackLayout>
+
+                            <Label Text="Consent Form"  HorizontalOptions="Center"  FontAttributes="Bold" TextColor="Black" FontSize="26" />
+
+                            <Label Text="Consent to participate in the study" HorizontalTextAlignment="Center"   HorizontalOptions="Center" TextColor="Gray" FontSize="15" />
+
+
+
+                            <Label Margin="0,20,0,0" x:Name="titlelbl" HorizontalTextAlignment="Center"   HorizontalOptions="Center" TextColor="Black" FontAttributes="Bold" FontSize="30" />
+
+                            <!--<Label Margin="0,20,0,0" Text="Consent Form" HorizontalTextAlignment="Center"   HorizontalOptions="Center" TextColor="Black" FontAttributes="None" FontSize="26" />-->
+
+
+
+                            <Button BackgroundColor="White" Clicked="Button_Clicked" BorderColor="#009fe3" BorderWidth="1" Text="Find Out More" Padding="5" TextColor="#009fe3" FontAttributes="None" CornerRadius="10"  HeightRequest="40"  HorizontalOptions="FillAndExpand" Margin="20,20,20,0"/>
+
+
+
+
+                        </StackLayout>
+
+
+
+
+
+
+                        <!--<Label Text="It's quick and easy to sign up to PeopleWith"  HorizontalOptions="Center" TextColor="Gray" FontSize="Small" />-->
+
+
+
+
+
+                    </Frame>
+
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="White" BorderColor="White" HorizontalOptions="FillAndExpand" x:Name="emisconsentframe2" IsVisible="false">
+
+                        <StackLayout>
+                            <Label Text="Consent Form" HorizontalOptions="Center"  FontAttributes="Bold" TextColor="Black" FontSize="26" />
+
+                            <Label Text="Consent to participate in the study" HorizontalTextAlignment="Center"   HorizontalOptions="Center" TextColor="Gray" FontSize="15" />
+
+                            <Label Text="I consent (agree) to take part in this Study, which means that:" x:Name="subtitle" HorizontalOptions="Center" HorizontalTextAlignment="Center"  FontAttributes="Bold" TextColor="Black" FontSize="12" />
+
+                            <!--<Label Text="Please check each box" HorizontalTextAlignment="Center"   HorizontalOptions="Center" TextColor="Gray" FontSize="15" />-->
+
+
+
+                            <syncfusion:SfListView x:Name="consentlist"                                                                                             
+                                  AutoFitMode="Height"
+                          Margin="0,0,0,50"
+                                        BackgroundColor="Transparent"
+                                                  ItemTapped="consentlist_ItemTapped"  
+                                               CachingStrategy="CreateNewTemplate"
+                                           HeightRequest="1000"
+                                        SelectionMode="Multiple"
+                                           VerticalOptions="CenterAndExpand"
+                                         ScrollBarVisibility="Never"
+                               SelectionBackground="Transparent"
+                               Orientation="Vertical"                                                                                                                           
+                               >
+                                <!--<syncfusion:SfListView.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" Android="220" iOS="200"/>
+                                              </syncfusion:SfListView.HeightRequest>-->
+
+
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Border StrokeShape="RoundRectangle 10" Padding="10" BackgroundColor="#f8f8f8" Stroke="#f8f8f8" Margin="0,5,0,5" Opacity="1">
+
+                                                <Grid HorizontalOptions="FillAndExpand" Margin="0" Padding="0"  >
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="85*"/>
+                                                        <ColumnDefinition Width="15*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Text="{Binding .}" Margin="0,0,0,0"  Grid.Row="0" Grid.Column="0" VerticalOptions="Start"  TextColor="Black" FontSize="Small" />
+                                                    <!--<Image Source="nextdarker.png" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" />-->
+                                                    <local:ExtendedSFCheckBox IsChecked="False" IsEnabled="False" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" FontSize="15" HeightRequest="40" CheckedColor="#0F9FE2" HorizontalOptions="Center" CornerRadius="5.0" />
+
+                                                </Grid>
+                                            </Border>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+                                <syncfusion:SfListView.SelectedItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Border StrokeShape="RoundRectangle 10" Padding="10" BackgroundColor="#f8f8f8" Stroke="#f8f8f8" Margin="0,5,0,5" >
+
+                                                <Grid HorizontalOptions="FillAndExpand" Margin="0" Padding="0"  >
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="85*"/>
+                                                        <ColumnDefinition Width="15*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Text="{Binding .}" Margin="0,0,0,0"  Grid.Row="0" Grid.Column="0" VerticalOptions="Start"  TextColor="Black" FontSize="Small" />
+                                                    <!--<Image Source="nextdarker.png" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" />-->
+                                                    <local:ExtendedSFCheckBox IsChecked="True" IsEnabled="False" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" FontSize="15" HeightRequest="40" CheckedColor="#0F9FE2" HorizontalOptions="Center" CornerRadius="5.0" />
+
+                                                </Grid>
+                                            </Border>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.SelectedItemTemplate>
+
+                            </syncfusion:SfListView>
+
+
+
+                            <!--<Grid VerticalOptions="FillAndExpand" HeightRequest="800"  x:Name="infotermsgrid">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="85*"/>
+                                                <ColumnDefinition Width="15*"/>
+
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+
+                                            </Grid.RowDefinitions>
+                                           
+                                             
+
+                                               <Label Margin="10,20,0,0" Grid.Row="0" Grid.Column="0" Text="I have read and understand the information pack (Date/Version) for this study and &#10;&#x2022; I have been given a copy to keep &#10;&#x2022; I have been able to ask questions &#10;&#x2022; These questions have been answered satisfactorily" HorizontalTextAlignment="Start"   HorizontalOptions="Start" TextColor="Black" FontSize="12" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_5"/>
+
+                                                </Label.GestureRecognizers>
+                                            </Label>
+
+                                             <local:ExtendedSFCheckBox x:Name="checkbox1" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" FontSize="15" CheckedColor="#0F9FE2" HorizontalOptions="Center" CornerRadius="5.0" />
+
+
+                                             <Label Margin="10,20,0,0" Grid.Row="1" Grid.Column="0" Text="I understand that taking part in this study is voluntary and that i can leave the study at any time" HorizontalTextAlignment="Start"   HorizontalOptions="Start" TextColor="Black" FontSize="12" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_6"/>
+
+                                                </Label.GestureRecognizers>
+                                            </Label>
+
+                                             <local:ExtendedSFCheckBox x:Name="checkbox2" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" FontSize="15" CheckedColor="#0F9FE2" HorizontalOptions="Center" CornerRadius="5.0" />
+
+
+
+                                            <Label Margin="10,20,0,0" Grid.Row="2" Grid.Column="0" Text="I give my permission for someone from the study team to look at my medical records to get relevant information about my medical history. I understand that all the information will be kept confidential." HorizontalTextAlignment="Start"   HorizontalOptions="Start" TextColor="Black" FontSize="12" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_7"/>
+
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                             <local:ExtendedSFCheckBox x:Name="checkbox3" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" FontSize="15" CheckedColor="#0F9FE2" HorizontalOptions="Center" CornerRadius="5.0" />
+
+
+
+
+                                            <Label Margin="10,20,0,0" Grid.Row="3" Grid.Column="0" Text="I give my permission for individuals from the sponsor, sponsor representatives and regulatory authorities to access my medical records and research data, where it is relevant to my participation in the study, for the purposes of meeting their audit/monitoring responsibilities." HorizontalTextAlignment="Start"   HorizontalOptions="Start" TextColor="Black" FontSize="12" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_8"/>
+
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                             <local:ExtendedSFCheckBox x:Name="checkbox4" Grid.Row="3" Grid.Column="1" VerticalOptions="Center" FontSize="15" CheckedColor="#0F9FE2" HorizontalOptions="Center" CornerRadius="5.0" />
+
+
+
+
+                                             <Label Margin="10,20,0,0" Grid.Row="4" Grid.Column="0" Text="I agree to give a faeces(poo) sample if i become ill with diarrhoea or vomiting &#10;&#x2022; I understand that giving a sample is voluntary &#10;&#x2022; I understand that my doctor will be given the results &#10;&#x2022; I understand that i am free to withdraw my agreement for the use of this sample without giving a reason and without my medical treatment or legal rights being affected." HorizontalTextAlignment="Start"   HorizontalOptions="Start" TextColor="Black" FontSize="12" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_9"/>
+
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                             <local:ExtendedSFCheckBox x:Name="checkbox5" Grid.Row="4" Grid.Column="1" VerticalOptions="Center" FontSize="15" CheckedColor="#0F9FE2" HorizontalOptions="Center" CornerRadius="5.0" />
+
+
+
+
+                                             <Label Margin="10,20,0,0" Grid.Row="5" Grid.Column="0" Text="I agree that the faeces sample i have given can be stored for a minimum of five years for possible future research projects. The sample will not be identifiable so it cannot be linked back to me. &#10;&#x2022; I understand that some of these projects may be carried out by researchers other than this study team." HorizontalTextAlignment="Start"   HorizontalOptions="Start" TextColor="Black" FontSize="12" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_10"/>
+
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                             <local:ExtendedSFCheckBox x:Name="checkbox6" Grid.Row="5" Grid.Column="1" VerticalOptions="Center" FontSize="15" CheckedColor="#0F9FE2" HorizontalOptions="Center" CornerRadius="5.0" />
+
+
+
+
+                                             <Label Margin="10,20,0,0" Grid.Row="6" Grid.Column="0" Text="I agree that the study team can contact me in the future to find out if I am interested in future research." HorizontalTextAlignment="Start"   HorizontalOptions="Start" TextColor="Black" FontSize="12" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_11"/>
+
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                             <local:ExtendedSFCheckBox x:Name="checkbox7" Grid.Row="6" Grid.Column="1" VerticalOptions="Center" FontSize="15" CheckedColor="#0F9FE2" HorizontalOptions="Center" CornerRadius="5.0" />
+
+                                                  
+       
+                                             
+
+                                        </Grid>-->
+
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="White" BorderColor="White" HorizontalOptions="FillAndExpand" x:Name="emisconsentframe3" IsVisible="false">
+                        <StackLayout>
+                            <Label Text="Consent Form" HorizontalOptions="Center"  FontAttributes="Bold" TextColor="Black" FontSize="26" />
+
+                            <Label Text="Consent to participate in the study" HorizontalTextAlignment="Center"   HorizontalOptions="Center" TextColor="Gray" FontSize="15" />
+
+
+                            <inputLayout:SfTextInputLayout
+    x:Name="childname"
+                  BackgroundColor="Transparent"
+                   
+                   ContainerBackground="Transparent"
+                
+                   OutlineCornerRadius="10"
+                   Margin="0,0,0,0"
+                   IsVisible="false"
+    ContainerType="Filled">
+                                <Entry x:Name="nameofchildentry" Placeholder="" TextColor="Black" FontSize="Small" PlaceholderColor="Gray" Margin="0,0,0,0" >
+                                    <Entry.Keyboard>
+                                        <Keyboard x:FactoryMethod="Create">
+                                            <x:Arguments>
+                                                <KeyboardFlags>Suggestions,CapitalizeCharacter</KeyboardFlags>
+                                            </x:Arguments>
+                                        </Keyboard>
+                                    </Entry.Keyboard>
+                                </Entry>
+
+                            </inputLayout:SfTextInputLayout>
+                            <Label Text="Name of Child (BLOCK CAPITALS)" x:Name="childlbl" IsVisible="false" Margin="0,0,0,0" FontSize="12"  FontAttributes="Bold" TextColor="Black"/>
+
+                            <inputLayout:SfTextInputLayout
+                    x:Name="parentname"
+                  BackgroundColor="Transparent"
+                   
+                   ContainerBackground="Transparent"
+                   
+                   OutlineCornerRadius="10"
+                   Margin="0,0,0,0"
+                   IsVisible="false"
+    ContainerType="Filled">
+                                <Entry x:Name="nameofparententry" TextColor="Black" FontSize="Small" PlaceholderColor="Gray" Margin="0,0,0,0" >
+                                    <Entry.Keyboard>
+                                        <Keyboard x:FactoryMethod="Create">
+                                            <x:Arguments>
+                                                <KeyboardFlags>Suggestions,CapitalizeCharacter</KeyboardFlags>
+                                            </x:Arguments>
+                                        </Keyboard>
+                                    </Entry.Keyboard>
+                                </Entry>
+
+                            </inputLayout:SfTextInputLayout>
+
+                            <Label Text="Name of Parent/Guardian/Carer (BLOCK CAPITALS)" x:Name="parentlbl" IsVisible="false" Margin="0,0,0,0" FontSize="12"  FontAttributes="Bold" TextColor="Black"/>
+
+
+
+                            <Label Text="Please sign your signature" Margin="0,20,0,0"  FontAttributes="Bold" TextColor="Black"/>
+                            <StackLayout >
+
+                                <!--<forms:SignaturePadView x:Name="signpad" BackgroundColor="White"  HeightRequest="250" StrokeColor="Black">
+
+
+                                </forms:SignaturePadView>-->
+
+
+                                <freakyControls:FreakySignaturePadView
+        x:Name="signpad"
+        BackgroundColor="White"
+        StrokeColor="Black"
+        StrokeWidth="2"
+        HeightRequest="250" />
+                                <!--<signature:SfSignaturePad HeightRequest="250"  x:Name="signpad">
+                                                <signature:SfSignaturePad.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_12"/>
+
+                                                </signature:SfSignaturePad.GestureRecognizers>
+                                                </signature:SfSignaturePad>-->
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
+
+
+
+
+                    <!--Gender frame-->
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="White" BorderColor="White" HorizontalOptions="FillAndExpand" x:Name="genframe" IsVisible="false"
+     
+      >
+                        <StackLayout>
+
+                            <Label Text="Gender" HorizontalOptions="Center"  FontAttributes="Bold" TextColor="Black" FontSize="26" />
+
+                            <Label Text="Please select your gender"  HorizontalOptions="Center" TextColor="Gray" FontSize="15" />
+
+
+                            <!--<Label Text="PeopleWith utilise your gender to help profile your anonymised, consolidated, non-personal health information for the purpose of research into conditions"  HorizontalOptions="Center" TextColor="Gray" FontSize="Small" />-->
+
+                            <!--<Label Text="It's quick and easy to sign up to PeopleWith"  HorizontalOptions="Center" TextColor="Gray" FontSize="Small" />-->
+
+
+                            <syncfusion:SfListView x:Name="genderlist"                                                                                             
+                               AutoFitMode="Height"
+                          Margin="0,0,0,0"
+                                                     ItemTapped="genderlist_ItemTapped"
+                                                BackgroundColor="Transparent"
+                                           
+                                        SelectionMode="Single"
+                                           VerticalOptions="CenterAndExpand"
+                                         ScrollBarVisibility="Never"
+                               SelectionBackground="Transparent"
+                               Orientation="Vertical"                                                                                                                       
+                               >
+                                <syncfusion:SfListView.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="Android" Value="220" />
+                                        <On Platform="iOS" Value="200" />
+                                    </OnPlatform>
+                                </syncfusion:SfListView.HeightRequest>
+
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame CornerRadius="10"  Margin="5,5,5,5" HasShadow="False" Opacity="1" BackgroundColor="Transparent"
+                  BorderColor="Gray">
+                                                <Grid HorizontalOptions="FillAndExpand" Margin="0" Padding="0"  >
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="90*"/>
+                                                        <ColumnDefinition Width="10*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Text="{Binding .}" Margin="0,0,0,0"  Grid.Row="0" Grid.Column="0" VerticalOptions="StartAndExpand"  TextColor="Black" FontSize="Small" />
+                                                    <!--<Image Source="nextdarker.png" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" />-->
+
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+                                <syncfusion:SfListView.SelectedItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame CornerRadius="10"  Margin="5,5,5,5" BackgroundColor="#ccebf9"  HasShadow="False" 
+                  BorderColor="#009fe3">
+                                                <Grid HorizontalOptions="FillAndExpand">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Text="{Binding .}" Margin="0,0,0,0"  VerticalOptions="CenterAndExpand" Grid.Row="0" FontAttributes="Bold"  TextColor="Black" FontSize="Small" />
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.SelectedItemTemplate>
+                            </syncfusion:SfListView>
+
+                            <StackLayout>
+                                <Label Text="Please select a gender to continue" x:Name="GenderVal" Margin="0,0,0,10"  TextColor="red" FontSize="10" HorizontalOptions="Center" IsVisible="false" VerticalOptions="Center" />
+
+                            </StackLayout>
+
+
+                        </StackLayout>
+                    </Frame>
+
+
+                    <!--Height frame-->
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="Transparent" BorderColor="White"  HorizontalOptions="FillAndExpand" x:Name="heightframe" IsVisible="false"
+     
+      >
+                        <StackLayout>
+
+                            <Label Text="Your Height" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black" FontSize="26" />
+
+                            <Label Text="Please select your height"  HorizontalOptions="Center" TextColor="Gray" FontSize="15"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70*"/>
+                                    <ColumnDefinition Width="30*"/>
+
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+
+                                <StackLayout Grid.Column="0" Grid.Row="0"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+
+                                    <Label Text=" " x:Name="heightlabel"  HorizontalOptions="Center" TextColor="Black" FontSize="40"/>
+
+
+                                    <syncfusion:SfListView x:Name="segmentedcontrolheight"                                                                                             
+                         HeightRequest="100"
+                         AutoFitMode="Height"
+                          
+                          ItemTapped="segmentedcontrolheight_ItemTapped"
+                          Orientation="Horizontal"
+                                            WidthRequest="150"
+                                           Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                        SelectionMode="Single"
+                                        BackgroundColor="Transparent"
+                                           VerticalOptions="End"
+                                           HorizontalOptions="CenterAndExpand"
+                                         ScrollBarVisibility="Never"
+                               SelectionBackground="Transparent"
+                                               Margin="20,120,0,0"                                                                                                    
+                               >
+                                        <!--<syncfusion:SfListView.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" Android="300" iOS="300"/>
+                                              </syncfusion:SfListView.HeightRequest>-->
+
+                                        <syncfusion:SfListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <Frame CornerRadius="10" Padding="10"  Margin="5,10,5,5" BackgroundColor="Transparent"  HasShadow="False" 
+                  BorderColor="Transparent">
+                                                        <Grid HorizontalOptions="FillAndExpand">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto"/>
+                                                                <RowDefinition Height="Auto"/>
+                                                            </Grid.RowDefinitions>
+                                                            <Image Source="downpick.png" Grid.Row="0" Opacity="0" HeightRequest="20" WidthRequest="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                            <Label Text="{Binding .}" Margin="0,0,0,0"  VerticalOptions="CenterAndExpand" Grid.Row="1" FontAttributes="None" TextColor="Gray" FontSize="14" />
+                                                        </Grid>
+                                                    </Frame>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </syncfusion:SfListView.ItemTemplate>
+                                        <syncfusion:SfListView.SelectedItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <Frame CornerRadius="10" Padding="10"  Margin="5,10,5,5" BackgroundColor="Transparent"  HasShadow="False" 
+                  BorderColor="Transparent">
+                                                        <Grid HorizontalOptions="FillAndExpand">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto"/>
+                                                                <RowDefinition Height="Auto"/>
+                                                            </Grid.RowDefinitions>
+                                                            <Image Source="downpick.png" Grid.Row="0" HeightRequest="20" WidthRequest="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                            <Label Text="{Binding .}" Margin="0,0,0,0"  VerticalOptions="CenterAndExpand" Grid.Row="1" FontAttributes="Bold" TextColor="Black" FontSize="14" />
+                                                        </Grid>
+                                                    </Frame>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </syncfusion:SfListView.SelectedItemTemplate>
+                                    </syncfusion:SfListView>
+
+
+                                </StackLayout>
+
+
+
+
+
+
+
+                                <syncfusion:SfListView x:Name="heightlist"                                                                                             
+                               AutoFitMode="Height"
+                          Margin="0,0,0,0"
+                         BackgroundColor="Transparent"
+                          ItemsSourceChangeCachingStrategy="RecycleItems"
+                                                    HeightRequest="500" 
+                                            Grid.Column="1"
+                                            Grid.Row="0"
+                                      ItemTapped="heightlist_ItemTapped"
+                                        SelectionMode="Single"
+                                           VerticalOptions="CenterAndExpand"
+                                         ScrollBarVisibility="Never"
+                               SelectionBackground="Transparent"
+                               Orientation="Vertical"                                                                                                                       
+                               >
+                                    <!--<syncfusion:SfListView.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" Android="1500" iOS="1500"/>
+                                              </syncfusion:SfListView.HeightRequest>-->
+
+                                    <syncfusion:SfListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="30*" />
+                                                        <ColumnDefinition Width="50*" />
+                                                        <ColumnDefinition Width="20*" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <BoxView Color="#009fe3" IsVisible="{Binding Mainnumber}" HeightRequest="2" WidthRequest="40" VerticalOptions="CenterAndExpand" HorizontalOptions="End" Grid.Row="0" Grid.Column="1"/>
+
+                                                    <BoxView Color="LightGray" IsVisible="{Binding Grayvisible}" HeightRequest="2" VerticalOptions="CenterAndExpand"  WidthRequest="20"  HorizontalOptions="End" Grid.Row="0" Grid.Column="1"/>
+
+
+
+                                                    <Label Text="{Binding Valuenumber}" IsVisible="{Binding Mainnumber}" Grid.Column="0" Grid.Row="0" TextColor="Black" FontAttributes="Bold" FontSize="12" HorizontalOptions="End"/>
+
+                                                    <Label Text="1" IsVisible="{Binding Grayvisible}" Grid.Column="0" Grid.Row="0" TextColor="White" FontSize="12" HorizontalOptions="End"/>
+
+
+                                                </Grid>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </syncfusion:SfListView.ItemTemplate>
+
+                                    <syncfusion:SfListView.SelectedItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="30*" />
+                                                        <ColumnDefinition Width="50*" />
+                                                        <ColumnDefinition Width="20*" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <BoxView Color="#009fe3" IsVisible="{Binding Mainnumber}" HeightRequest="2" WidthRequest="40" VerticalOptions="CenterAndExpand" HorizontalOptions="End" Grid.Row="0" Grid.Column="1"/>
+
+                                                    <BoxView Color="LightGray" IsVisible="{Binding Grayvisible}" HeightRequest="2" VerticalOptions="CenterAndExpand"  WidthRequest="20"  HorizontalOptions="End" Grid.Row="0" Grid.Column="1"/>
+
+
+
+                                                    <Label Text="{Binding Valuenumber}" IsVisible="{Binding Mainnumber}" Grid.Column="0" Grid.Row="0" TextColor="Black" FontAttributes="Bold" FontSize="12" HorizontalOptions="End"/>
+
+                                                    <Label Text="1" IsVisible="{Binding Grayvisible}" Grid.Column="0" Grid.Row="0" TextColor="White" FontSize="12" HorizontalOptions="End"/>
+
+                                                    <Image Source="leftpick.png" HeightRequest="15" WidthRequest="15" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                </Grid>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </syncfusion:SfListView.SelectedItemTemplate>
+                                </syncfusion:SfListView>
+
+
+
+
+                            </Grid>
+
+
+
+
+
+                        </StackLayout>
+                    </Frame>
+
+
+                    <!--weight frame-->
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="Transparent" BorderColor="White"  HorizontalOptions="FillAndExpand" x:Name="weightframe" IsVisible="false"
+     
+      >
+                        <StackLayout>
+
+                            <Label Text="Your Weight" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black" FontSize="26" />
+
+                            <Label Text="Please select your weight"  HorizontalOptions="Center" TextColor="Gray" FontSize="15"/>
+
+                            <Grid Margin="0,20,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100*"/>
+
+
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+
+                                <StackLayout Grid.Column="0" Grid.Row="0"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+
+                                    <Label Text=" " x:Name="weightlabel"  HorizontalOptions="Center" TextColor="Black" FontSize="40"/>
+
+
+                                    <syncfusion:SfListView x:Name="segmentedcontrolweight"                                                                                             
+                         HeightRequest="100"
+                         AutoFitMode="Height"
+                          BackgroundColor="Transparent"
+                        ItemTapped="segmentedcontrolweight_ItemTapped"
+                          Orientation="Horizontal"
+                                            WidthRequest="150"
+                                           Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1"
+                                        SelectionMode="Single"
+                                        
+                                           VerticalOptions="End"
+                                           HorizontalOptions="CenterAndExpand"
+                                         ScrollBarVisibility="Never"
+                               SelectionBackground="Transparent"
+                                               Margin="0,50,0,0"                                                                                                    
+                               >
+                                        <!--<syncfusion:SfListView.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" Android="300" iOS="300"/>
+                                              </syncfusion:SfListView.HeightRequest>-->
+
+                                        <syncfusion:SfListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <Frame CornerRadius="10" Padding="10"  Margin="5,10,5,5" BackgroundColor="Transparent"  HasShadow="False" 
+                  BorderColor="Transparent">
+                                                        <Grid HorizontalOptions="FillAndExpand">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto"/>
+                                                                <RowDefinition Height="Auto"/>
+                                                            </Grid.RowDefinitions>
+                                                            <Image Source="downpick.png" Grid.Row="0" Opacity="0" HeightRequest="20" WidthRequest="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                            <Label Text="{Binding .}" Margin="0,0,0,0"  VerticalOptions="CenterAndExpand" Grid.Row="1" FontAttributes="None" TextColor="Gray" FontSize="14" />
+                                                        </Grid>
+                                                    </Frame>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </syncfusion:SfListView.ItemTemplate>
+                                        <syncfusion:SfListView.SelectedItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <Frame CornerRadius="10" Padding="10"  Margin="5,10,5,5" BackgroundColor="Transparent"  HasShadow="False" 
+                  BorderColor="Transparent">
+                                                        <Grid HorizontalOptions="FillAndExpand">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto"/>
+                                                                <RowDefinition Height="Auto"/>
+                                                            </Grid.RowDefinitions>
+                                                            <Image Source="downpick.png" Grid.Row="0" HeightRequest="20" WidthRequest="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                            <Label Text="{Binding .}" Margin="0,0,0,0"  VerticalOptions="CenterAndExpand" Grid.Row="1" FontAttributes="Bold" TextColor="Black" FontSize="14" />
+                                                        </Grid>
+                                                    </Frame>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </syncfusion:SfListView.SelectedItemTemplate>
+                                    </syncfusion:SfListView>
+
+
+                                </StackLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+                            </Grid>
+
+
+
+
+                            <syncfusion:SfListView x:Name="weightlist"                                                                                             
+                               AutoFitMode="Height"
+                          Margin="0,0,0,0"
+                         
+                          ItemTapped="weightlist_ItemTapped"
+                          ItemsSourceChangeCachingStrategy="RecycleItems"
+                                                    WidthRequest="500" 
+                                                BackgroundColor="Transparent"
+                                      Orientation="Horizontal"
+                                        SelectionMode="Single"
+                                           VerticalOptions="CenterAndExpand"
+                                         ScrollBarVisibility="Never"
+                               SelectionBackground="Transparent"
+                                                                                                                                                  
+                               >
+                                <!--<syncfusion:SfListView.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" Android="1500" iOS="1500"/>
+                                              </syncfusion:SfListView.HeightRequest>-->
+
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20*" />
+                                                    <ColumnDefinition Width="80*" />
+
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image Source="downpick.png" HeightRequest="15" Opacity="0" WidthRequest="15" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                                                <BoxView Color="#009fe3" IsVisible="{Binding Mainnumber}" HeightRequest="40" WidthRequest="2" VerticalOptions="Fill" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1"/>
+
+                                                <BoxView Color="LightGray" IsVisible="{Binding Grayvisible}" HeightRequest="20" WidthRequest="2" VerticalOptions="Fill" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1"/>
+
+
+
+                                                <Label Text="{Binding Valuenumber}" IsVisible="{Binding Mainnumber}" Grid.Column="1" Grid.Row="2" TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
+
+
+
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+                                <syncfusion:SfListView.SelectedItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20*" />
+                                                    <ColumnDefinition Width="80*" />
+
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image Source="downpick.png" HeightRequest="15" WidthRequest="15" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                                                <BoxView Color="#009fe3" IsVisible="{Binding Mainnumber}" HeightRequest="40" WidthRequest="2" VerticalOptions="Fill" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1"/>
+
+                                                <BoxView Color="LightGray" IsVisible="{Binding Grayvisible}" HeightRequest="20" WidthRequest="2" VerticalOptions="Fill" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1"/>
+
+
+
+                                                <Label Text="{Binding Valuenumber}" IsVisible="{Binding Mainnumber}" Grid.Column="1" Grid.Row="2" TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
+
+
+
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.SelectedItemTemplate>
+
+                            </syncfusion:SfListView>
+                        </StackLayout>
+                    </Frame>
+
+
+                    <!--dob frame-->
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="White" BorderColor="White" HorizontalOptions="FillAndExpand" x:Name="dobframe" IsVisible="false"
+     
+      >
+                        <StackLayout>
+
+                            <Label Text="Date of Birth" HorizontalOptions="Center"  FontAttributes="Bold" TextColor="Black" FontSize="26" />
+                            <Label Text="Select your Date of Birth and click Next to Continue. If you are registering on behalf of your child please select your child’s date of birth."  HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="Gray" FontSize="15" />
+                        
+
+
+
+
+                            <syncfusion11:SfDatePicker HeightRequest="250"   IsOpen="True" x:Name="daypicker" Padding="0" ItemHeight="40"  BackgroundColor="Transparent"  Format="dd_MMM_yyyy" />
+
+                            <!--change this-->
+                            <!--<syncfusion11:SfDatePicker HeightRequest="250"   IsOpen="True" x:Name="daypicker" SelectedItemFontSize="25"  UnselectedItemFontSize="20" Padding="0" ItemHeight="40"    SelectedItemTextColor="Black" ShowHeader="False" ShowColumnHeader="False"  SelectionBackgroundColor="Transparent" BorderColor="Transparent" SelectedItemFontFamily="ariel" BackgroundColor="Transparent"  Format="dd_MMM_yyyy" ShowFooter="False"/>-->
+
+
+
+                        </StackLayout>
+                    </Frame>
+
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="White" BorderColor="White" HorizontalOptions="FillAndExpand" x:Name="ethframe" IsVisible="false"
+     
+      >
+                        <StackLayout>
+
+                            <Label Text="Ethnicity" HorizontalOptions="Center"  FontAttributes="Bold" TextColor="Black" FontSize="26" />
+                            <Label Text="Choose which Ethnicity you associate closest with"  HorizontalOptions="Center" TextColor="Gray" FontSize="15" />
+
+
+                            <syncfusion:SfListView x:Name="ethnlist"                                                                                             
+                               AutoFitMode="Height"
+                          Margin="0,0,0,0"
+                                                     
+                                                BackgroundColor="Transparent"
+                                           ItemTapped="ethnlist_ItemTapped"
+                                        SelectionMode="Single"
+                                           VerticalOptions="CenterAndExpand"
+                                         ScrollBarVisibility="Never"
+                               SelectionBackground="Transparent"
+                               Orientation="Vertical"                                                                                                                       
+                               >
+                                <syncfusion:SfListView.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="Android" Value="550" />
+                                        <On Platform="iOS" Value="550" />
+                                    </OnPlatform>
+                                </syncfusion:SfListView.HeightRequest>
+
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame CornerRadius="10"  Margin="5,5,5,5" HasShadow="False" Opacity="1" BackgroundColor="Transparent"
+                  BorderColor="Gray">
+                                                <Grid HorizontalOptions="FillAndExpand" Margin="0" Padding="0"  >
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="90*"/>
+                                                        <ColumnDefinition Width="10*"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Text="{Binding .}" Margin="0,0,0,0"  Grid.Row="0" Grid.Column="0" VerticalOptions="StartAndExpand"  TextColor="Black" FontSize="Small" />
+                                                    <!--<Image Source="nextdarker.png" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" />-->
+
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+                                <syncfusion:SfListView.SelectedItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame CornerRadius="10"  Margin="5,5,5,5"  HasShadow="False" BackgroundColor="#ccebf9" 
+                  BorderColor="#009fe3">
+                                                <Grid HorizontalOptions="FillAndExpand">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <Label Text="{Binding .}" Margin="0,0,0,0"  VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"  TextColor="Black" FontSize="Small" />
+
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.SelectedItemTemplate>
+                            </syncfusion:SfListView>
+
+
+                        </StackLayout>
+                    </Frame>
+
+                    <!--Additional Questions-->
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="White" BorderColor="White" HorizontalOptions="FillAndExpand" x:Name="questionsframe" IsVisible="false"
+     
+      >
+                        <StackLayout>
+
+                            <Label x:Name="questionnairelbl"  HorizontalOptions="Center" HorizontalTextAlignment="Center"   FontAttributes="Bold" TextColor="Black" FontSize="26" />
+                            <Label Text="We want to know how often people in the UK suffer from diarrhoea or vomiting and the germs that cause this. We need to collect some basic information at the start of the Study. The information that you give us will be treated in strict confidence."  HorizontalOptions="Center" Margin="20,0,20,0"  HorizontalTextAlignment="Center" TextColor="Gray" FontSize="15" />
+
+
+                            <!--Questions List -->
+
+
+                            <syncfusion:SfListView x:Name="questionnairelist"
+                                 Padding="0"
+                                 IsScrollingEnabled="False"
+                                 Margin="0,10,0,100"
+                        BackgroundColor="Transparent"
+                              
+                                 GroupHeaderSize="20"
+                                        CachingStrategy="RecycleTemplate"
+                                          ItemsSourceChangeCachingStrategy="RecycleItems"
+                                AutoFitMode="DynamicHeight"
+                                 VerticalOptions="StartAndExpand"
+                                 ScrollBarVisibility="Never"
+                                 SelectionBackground="Transparent"
+                            
+                                 HorizontalOptions="Center">
+                                <syncfusion:SfListView.DataSource>
+                                    <data:DataSource>
+                                        <data:DataSource.GroupDescriptors>
+                                            <data:GroupDescriptor PropertyName="Question"/>
+                                        </data:DataSource.GroupDescriptors>
+                                    </data:DataSource>
+                                </syncfusion:SfListView.DataSource>
+                                <syncfusion:SfListView.GroupHeaderTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+
+
+                                            <Frame CornerRadius="5"  Margin="5,5,5,0"
+        BackgroundColor="#f8f8f8" HasShadow="False" 
+                       BorderColor="#f8f8f8"
+       Padding="0">
+
+                                                <StackLayout Margin="10,0,10,0" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">
+
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="Auto"/>
+
+
+                                                        </Grid.RowDefinitions>
+
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="10*"/>
+                                                            <ColumnDefinition Width="55*"/>
+                                                            <ColumnDefinition Width="20*" />
+                                                            <ColumnDefinition Width="15*"/>
+
+
+                                                        </Grid.ColumnDefinitions>
+
+                                                        <Label Text="{Binding Key}" LineHeight="1.4"  FontSize="14" TextColor="Black"  Grid.Row="0" Margin="0,0,0,0" Grid.Column="0" Grid.ColumnSpan="4" FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start"/>
+
+                                                        <!--<Label Text="{Binding Rownum}" LineHeight="1.4"  FontSize="18" TextColor="Black"  Grid.Row="0" Margin="0,0,0,0" Grid.Column="0" Grid.ColumnSpan="1" FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start"/>-->
+
+                                                        <!--<BoxView HeightRequest="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Color="Gray"/>-->
+                                                    </Grid>
+                                                </StackLayout>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.GroupHeaderTemplate>
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+
+
+                                            <Frame   Margin="5,0,5,5"
+        BackgroundColor="#f8f8f8" HasShadow="False" CornerRadius="5"
+                       BorderColor="#f8f8f8" Opacity="{Binding Activeop}" IsEnabled="{Binding Isquestionactive}"
+       Padding="0">
+                                                <ScrollView>
+                                                    <StackLayout Margin="10,0,10,10">
+                                                        <Label Text="{Binding Directions}" FontSize="12" TextColor="Gray"  Grid.Row="1" Margin="0,0,0,5" Grid.Column="0" Grid.ColumnSpan="4" FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start"/>
+
+
+                                                        <!--Type Number entry-->
+                                                        <StackLayout IsVisible="{Binding TypeNumberEntry}">
+
+                                                            <local:ExtendedEntry IDValue="{Binding Id}" TextColor="Black" BackgroundColor="White" TextChanged="ExtendedEntry_TextChanged" PlaceholderColor="Gray" Placeholder="Enter Number" Keyboard="Numeric" Margin="0,0,10,0"/>
+
+                                                        </StackLayout>
+
+
+                                                        <!--Type Single Selection-->
+                                                        <StackLayout IsVisible="{Binding Typess}">
+
+                                                            <!---->
+                                                            <!--LineBreakMode="WordWrap" removed from this-->
+
+                                                            <syncfusion2:SfRadioGroup VerticalOptions="FillAndExpand" Orientation="Vertical">
+                                                                <local:ExtendedRadioButton  IDValue="{Binding Id}"  StateChanged="ExtendedRadioButton_StateChanged" FontSize="14" CheckedColor="#0F9FE2" TextColor="Black"  Margin="0,0,5,5"  Text="{Binding Value0}"  />
+                                                                <local:ExtendedRadioButton  IDValue="{Binding Id}"  StateChanged="ExtendedRadioButton_StateChanged_1"  FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"    Text="{Binding Value1}" />
+                                                                <local:ExtendedRadioButton  IDValue="{Binding Id}"  StateChanged="ExtendedRadioButton_StateChanged_2"  FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value2}" IsVisible="{Binding Hide3}" />
+                                                                <local:ExtendedRadioButton IDValue="{Binding Id}"  StateChanged="ExtendedRadioButton_StateChanged_3"  FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value3}"  IsVisible="{Binding Hide4}" />
+                                                                <local:ExtendedRadioButton IDValue="{Binding Id}"   StateChanged="ExtendedRadioButton_StateChanged_4" FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value4}" IsVisible="{Binding Hide5}" />
+                                                                <local:ExtendedRadioButton IDValue="{Binding Id}"   StateChanged="ExtendedRadioButton_StateChanged_5"   FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value5}" IsVisible="{Binding Hide6}" />
+                                                                <local:ExtendedRadioButton IDValue="{Binding Id}"  StateChanged="ExtendedRadioButton_StateChanged_6"  FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value6}" IsVisible="{Binding Hide7}" />
+                                                                <local:ExtendedRadioButton IDValue="{Binding Id}"  StateChanged="ExtendedRadioButton_StateChanged_7"  FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value7}" IsVisible="{Binding Hide8}"  />
+                                                                <local:ExtendedRadioButton IDValue="{Binding Id}"  StateChanged="ExtendedRadioButton_StateChanged_7"  FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value8}" IsVisible="{Binding Hide9}"  />
+                                                                <local:ExtendedRadioButton IDValue="{Binding Id}"  StateChanged="ExtendedRadioButton_StateChanged_7"  FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value9}" IsVisible="{Binding Hide10}"  />
+                                                                <local:ExtendedRadioButton IDValue="{Binding Id}" StateChanged="ExtendedRadioButton_StateChanged_7"  FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value10}" IsVisible="{Binding Hide11}"  />
+                                                                <local:ExtendedRadioButton IDValue="{Binding Id}"  StateChanged="ExtendedRadioButton_StateChanged_7"  FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value11}" IsVisible="{Binding Hide12}"  />
+                                                                <local:ExtendedRadioButton IDValue="{Binding Id}"  StateChanged="ExtendedRadioButton_StateChanged_7"  FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value12}" IsVisible="{Binding Hide13}"  />
+                                                                <local:ExtendedRadioButton IDValue="{Binding Id}"  StateChanged="ExtendedRadioButton_StateChanged_7"  FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value13}" IsVisible="{Binding Hide14}"  />
+                                                                <local:ExtendedRadioButton IDValue="{Binding Id}"  StateChanged="ExtendedRadioButton_StateChanged_7"  FontSize="14" CheckedColor="#0F9FE2" TextColor="Black" Margin="0,0,5,5"  Text="{Binding Value14}" IsVisible="{Binding Hide15}"  />
+                                                            </syncfusion2:SfRadioGroup>
+
+
+
+                                                            <Label Text="Please State:" FontSize="12" TextColor="Black" IsVisible="{Binding Showadditionalgenderdropdown}"  Margin="0,0,0,5" FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start"/>
+
+                                                            <local:ExtendedEntry IDValue="{Binding Id}" TextColor="Black" IsVisible="{Binding Showadditionalgenderdropdown}" x:Name="genderentry" TextChanged="genderentry_TextChanged" BackgroundColor="White" PlaceholderColor="Gray" Placeholder="Enter Gender" Keyboard="Text" Margin="0,0,0,0"/>
+
+
+                                                        </StackLayout>
+
+
+
+
+                                                        <!--Type Entry-->
+                                                        <StackLayout IsVisible="{Binding TypeEntry}">
+
+                                                            <local:ExtendedEntry IDValue="{Binding Id}" TextColor="Black" BackgroundColor="White" PlaceholderColor="Gray" Placeholder="Enter Answer" TextChanged="ExtendedEntry_TextChanged_1"   Keyboard="Text"  Margin="0,0,10,0"/>
+
+                                                        </StackLayout>
+
+                                                        <!--<BoxView HeightRequest="2" Color="#009fe3" Margin="25,20,25,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" />-->
+
+                                                        <!--<Label Text="{Binding Rownum}" LineHeight="1.4"  FontSize="18" TextColor="Black"  Margin="0,0,0,0" FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="Start"/>-->
+
+
+                                                        <!--<BoxView HeightRequest="2" Color="LightGray" Margin="50,30,50,30" />-->
+
+
+                                                    </StackLayout>
+                                                </ScrollView>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+
+
+                            </syncfusion:SfListView>
+
+
+
+
+                        </StackLayout>
+                    </Frame>
+
+
+                    <Frame CornerRadius="10" Margin="0,0,0,0" HasShadow="False" BackgroundColor="White" BorderColor="White" VerticalOptions="Center" HorizontalOptions="FillAndExpand" x:Name="loadingquestionsframe" IsVisible="false"
+     
+      >
+                        <StackLayout VerticalOptions="Center" Margin="0,100,0,0">
+
+                            <ActivityIndicator x:Name="activityIndicator" VerticalOptions="Center" Margin="0,0,0,0"
+                           IsRunning="True"
+                           IsVisible="True" />
+
+                            <Label Text="Loading Questions..." x:Name="loadinglbl" HorizontalOptions="Center" Margin="0,20,0,0" TextColor="Black" FontSize="15" FontAttributes="None"></Label>
+
+
+                        </StackLayout>
+
+                    </Frame>
+
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout Grid.Row="1" BackgroundColor="White" x:Name="bottomstack" VerticalOptions="EndAndExpand" Margin="0,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Button BackgroundColor="#009fe3" Grid.Row="0" Text="NEXT" Clicked="btnmain_Clicked" x:Name="btnmain" TextColor="White" FontAttributes="Bold" CornerRadius="10"  HeightRequest="40"  HorizontalOptions="FillAndExpand" Margin="20,0,20,20" IsVisible="true" />
+
+                    <Button BackgroundColor="White" IsVisible="false" Grid.Row="1"  Text="Skip for now" Clicked="btnskip_Clicked" x:Name="btnskip" TextColor="Black" FontAttributes="Bold" CornerRadius="10"  HeightRequest="40"  HorizontalOptions="FillAndExpand" Margin="20,0,20,0"/>
+
+
+                </Grid>
+
+
+                <Label Text="Privacy Policy" TextColor="#009fe3" IsVisible="false" x:Name="privpollbl" FontSize="Small"  HorizontalOptions="Center" FontAttributes="Bold"  VerticalOptions="Center" >
+
+                </Label>
+
+
+            </StackLayout>
+
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

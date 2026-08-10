@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Mopups:PopupPage
+    x:Class="PeopleWithResearch.Infopopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+    xmlns:Mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+    BackgroundColor="#66000000"
+    BackgroundInputTransparent="False"
+    CloseWhenBackgroundIsClicked="True">
+    <Mopups:PopupPage.Animation>
+        <Animations:ScaleAnimation
+            DurationIn="200"
+            DurationOut="200"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="False"
+            PositionIn="Center"
+            PositionOut="Center" />
+    </Mopups:PopupPage.Animation>
+    <VerticalStackLayout
+        x:Name="Overlay"
+        Margin="0"
+        BackgroundColor="Transparent"
+        Opacity="1"
+        VerticalOptions="Center">
+        <Border
+            x:Name="BorderInfo"
+            Margin="20,0,20,0"
+            Padding="10"
+            BackgroundColor="White"
+            IsVisible="False"
+            Opacity="1"
+            Stroke="#009fe3"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="2">
+            <StackLayout Margin="10,0,10,30">
+
+                <Image
+                    Margin="0,10,0,0"
+                    HeightRequest="30"
+                    HorizontalOptions="Start"
+                    Source="infoicon.png"
+                    VerticalOptions="Start"
+                    WidthRequest="30" />
+
+
+                <Label
+                    x:Name="studylbltitle"
+                    Margin="0,10,0,0"
+                    FontAttributes="Bold"
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="15"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="WordWrap"
+                    TextColor="#031926" />
+
+                <Label
+                    x:Name="studylbl"
+                    Margin="0,10,0,0"
+                    FontFamily="OpenSansRegular"
+                    FontSize="14"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="WordWrap"
+                    TextColor="#031926" />
+            </StackLayout>
+        </Border>
+        <Border
+            x:Name="Borderloading"
+            Margin="20,50,20,50"
+            Padding="10"
+            BackgroundColor="White"
+            IsVisible="False"
+            Opacity="1"
+            Stroke="#009fe3"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="2">
+            <StackLayout Margin="10,50,10,50">
+
+                <ActivityIndicator
+                    Margin="0,10,0,0"
+                    HorizontalOptions="Center"
+                    IsRunning="True"
+                    VerticalOptions="Center"
+                    Color="#031926" />
+
+
+
+
+
+                <Label
+                    x:Name="loadinglbl"
+                    Margin="0,20,0,10"
+                    FontAttributes="None"
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="WordWrap"
+                    TextColor="#031926" />
+
+                <Label
+                    x:Name="loadingrelationlbl"
+                    Margin="0,20,0,10"
+                    FontAttributes="Bold"
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="WordWrap"
+                    TextColor="#031926" />
+            </StackLayout>
+        </Border>
+    </VerticalStackLayout>
+</Mopups:PopupPage>

@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.ManageProfile"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="White">
+    <ContentPage.Resources>
+
+        <DataTemplate x:Key="Default">
+            <ViewCell>
+                <Border
+                    Margin="0,5,5,5"
+                    Padding="10"
+                    BackgroundColor="Transparent"
+                    Opacity="1"
+                    Stroke="LightGray"
+                    StrokeShape="RoundRectangle 10">
+                    <Grid
+                        Margin="0"
+                        Padding="0"
+                        ColumnDefinitions="*"
+                        HorizontalOptions="Fill"
+                        InputTransparent="True"
+                        RowDefinitions="Auto">
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="0"
+                            FontFamily="OpenSansRegular"
+                            FontSize="14"
+                            HorizontalOptions="Start"
+                            InputTransparent="True"
+                            Text="{Binding .}"
+                            TextColor="Gray"
+                            VerticalOptions="Center" />
+                    </Grid>
+
+                </Border>
+            </ViewCell>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DefaultSelected">
+            <ViewCell>
+                <Border
+                    Margin="0,5,5,5"
+                    Padding="10"
+                    BackgroundColor="#ebf4fc"
+                    Stroke="#009fe3"
+                    StrokeShape="RoundRectangle 10"
+                    StrokeThickness="2">
+                    <Grid
+                        Margin="0"
+                        Padding="0"
+                        ColumnDefinitions="*"
+                        HorizontalOptions="Fill"
+                        InputTransparent="True"
+                        RowDefinitions="Auto">
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="0,0,0,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="14"
+                            HorizontalOptions="Start"
+                            InputTransparent="True"
+                            Text="{Binding .}"
+                            TextColor="#031926"
+                            VerticalOptions="Center" />
+
+                    </Grid>
+                </Border>
+            </ViewCell>
+        </DataTemplate>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView VerticalScrollBarVisibility="Never">
+
+            <VerticalStackLayout
+                Grid.Row="0"
+                Padding="20,10"
+                Spacing="12">
+
+                <VerticalStackLayout Spacing="4">
+                    <Label
+                        x:Name="Titlelbl"
+                        FontSize="26"
+                        Style="{StaticResource TitleStyle}"
+                        Text="Manage Profile" />
+                    <Label
+                        x:Name="SubTitlelbl"
+                        Style="{StaticResource SubTitleStyle}"
+                        Text="Select any editable field to update your profile details. Some fields are read-only." />
+                </VerticalStackLayout>
+
+                <Border
+                    Margin="0,10,0,0"
+                    Background="White"
+                    Style="{StaticResource DefaultBorder}">
+
+                    <VerticalStackLayout>
+
+                        <HorizontalStackLayout Spacing="20">
+
+                            <Image HeightRequest="20" Source="profileactive.png" />
+
+                            <Label
+                                Style="{StaticResource TitleStyle}"
+                                Text="Personal Information"
+                                TextColor="#009fe3" />
+
+                        </HorizontalStackLayout>
+
+
+
+                        <Label
+                            Margin="0,20,0,5"
+                            Style="{StaticResource SubHeadStyle}"
+                            Text="User Id" />
+
+                        <Grid>
+                            <inputLayout:SfTextInputLayout
+                                x:Name="UserIDHelper"
+                                Hint="User ID"
+                                Style="{StaticResource InputLayoutstyle}">
+                                <Entry
+                                    x:Name="UserIDEntry"
+                                    IsReadOnly="True"
+                                    Style="{StaticResource EntryStyle}"
+                                    Text="{Binding household_individual_userid}" />
+                            </inputLayout:SfTextInputLayout>
+
+                            <Image
+                                Margin="0,0,15,20"
+                                HeightRequest="25"
+                                HorizontalOptions="End"
+                                Source="copyicon.png"
+                                VerticalOptions="Center">
+                                <Image.Behaviors>
+                                    <toolkit:IconTintColorBehavior TintColor="#99031926" />
+                                </Image.Behaviors>
+                            </Image>
+                            <BoxView BackgroundColor="Transparent">
+                                <BoxView.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                                </BoxView.GestureRecognizers>
+                            </BoxView>
+
+                        </Grid>
+
+                        <Grid
+                            ColumnDefinitions="*,*"
+                            ColumnSpacing="8"
+                            RowDefinitions="Auto,Auto">
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="0,0,0,5"
+                                Style="{StaticResource SubHeadStyle}"
+                                Text="First name" />
+                            <inputLayout:SfTextInputLayout
+                                x:Name="NameHelper"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Hint="First name"
+                                Style="{StaticResource InputLayoutstyle}">
+                                <Entry
+                                    x:Name="NameEntry"
+                                    IsReadOnly="True"
+                                    Placeholder="Enter first name"
+                                    Style="{StaticResource EntryStyle}" />
+                            </inputLayout:SfTextInputLayout>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="0,0,0,5"
+                                Style="{StaticResource SubHeadStyle}"
+                                Text="Surname" />
+                            <inputLayout:SfTextInputLayout
+                                x:Name="SurnameHelper"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Hint="Surname"
+                                Style="{StaticResource InputLayoutstyle}">
+                                <Entry
+                                    x:Name="SurnameEntry"
+                                    IsReadOnly="True"
+                                    Placeholder="Enter surname"
+                                    Style="{StaticResource EntryStyle}" />
+                            </inputLayout:SfTextInputLayout>
+                        </Grid>
+
+                        <Label
+                            Margin="0,0,0,5"
+                            Style="{StaticResource SubHeadStyle}"
+                            Text="Email" />
+                        <inputLayout:SfTextInputLayout
+                            x:Name="EmailHelper"
+                            Hint="Email"
+                            Style="{StaticResource InputLayoutstyle}">
+                            <Entry
+                                x:Name="EmailEntry"
+                                IsReadOnly="True"
+                                Keyboard="Email"
+                                Placeholder="Enter your email address"
+                                Style="{StaticResource EntryStyle}"
+                                Text="{Binding household_individual_email}" />
+                        </inputLayout:SfTextInputLayout>
+
+                        <!--  Hidden Consent Box  -->
+
+                        <Label
+                            IsVisible="False"
+                            Style="{StaticResource SubbodyStyle}"
+                            Text="Permission granted at account creation" />
+
+                        <Border
+                            Margin="0,4"
+                            Padding="10,4"
+                            Background="Transparent"
+                            IsVisible="False"
+                            Stroke="#D1E8FF"
+                            StrokeShape="RoundRectangle 8"
+                            StrokeThickness="1">
+
+
+                            <Grid
+                                Padding="0,8"
+                                ColumnDefinitions="0.9*, 0.1*"
+                                ColumnSpacing="10">
+
+                                <CheckBox
+                                    Grid.Column="1"
+                                    InputTransparent="True"
+                                    IsChecked="True"
+                                    VerticalOptions="Center"
+                                    Color="#031926" />
+
+                                <Label
+                                    Grid.Column="0"
+                                    FontSize="12"
+                                    HorizontalOptions="Start"
+                                    InputTransparent="True"
+                                    LineBreakMode="WordWrap"
+                                    VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                FontFamily="OpenSansRegular"
+                                                FontSize="12"
+                                                Text="Please check the box to confirm you have permission to provide communication details for this member of your household"
+                                                TextColor="#031926" />
+
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Grid>
+                        </Border>
+
+                    </VerticalStackLayout>
+
+
+
+                </Border>
+
+                <Border Background="White" Style="{StaticResource DefaultBorder}">
+                    <VerticalStackLayout Spacing="0">
+
+                        <HorizontalStackLayout Spacing="20">
+
+                            <Image HeightRequest="20" Source="home.png">
+                                <Image.Behaviors>
+                                    <toolkit:IconTintColorBehavior TintColor="#009fe3" />
+                                </Image.Behaviors>
+                            </Image>
+
+                            <Label
+                                Style="{StaticResource TitleStyle}"
+                                Text="Household Details"
+                                TextColor="#009fe3" />
+
+                        </HorizontalStackLayout>
+
+                        <Grid
+                            Margin="0,20,0,0"
+                            ColumnDefinitions="*,*"
+                            ColumnSpacing="12"
+                            RowDefinitions="Auto,Auto">
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="0,0,0,5"
+                                Style="{StaticResource SubHeadStyle}"
+                                Text="Status" />
+
+
+                            <inputLayout:SfTextInputLayout
+                                x:Name="StatusHelper"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                ContainerBackground="Transparent"
+                                Hint="Status"
+                                IsEnabled="False"
+                                Stroke="#2D6A53"
+                                Style="{StaticResource StatusLayoutstyle}"
+                                UnfocusedStrokeThickness="1">
+
+                                <HorizontalStackLayout
+                                    Padding="0,0"
+                                    HorizontalOptions="Start"
+                                    Spacing="8">
+                                    <Ellipse
+                                        x:Name="ActiveDot"
+                                        Fill="#2D6A53"
+                                        HeightRequest="12"
+                                        VerticalOptions="Center"
+                                        WidthRequest="12" />
+                                    <Label
+                                        x:Name="StatusEntry"
+                                        Padding="0"
+                                        FontAttributes="Bold"
+                                        FontFamily="OpenSansSemiBold"
+                                        FontSize="14"
+                                        Text="{Binding household_individual_status}"
+                                        TextColor="#1F7A4C"
+                                        TextTransform="Uppercase"
+                                        VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </inputLayout:SfTextInputLayout>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="0,0,0,5"
+                                Style="{StaticResource SubHeadStyle}"
+                                Text="Group Id" />
+
+                            <inputLayout:SfTextInputLayout
+                                x:Name="GroupIDHelper"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Hint="Group ID"
+                                Style="{StaticResource InputLayoutstyle}">
+                                <Entry
+                                    x:Name="GroupIDEntry"
+                                    IsReadOnly="True"
+                                    Style="{StaticResource EntryStyle}"
+                                    Text="{Binding household_group_id}" />
+                            </inputLayout:SfTextInputLayout>
+                        </Grid>
+
+                        <Label Style="{StaticResource SubHeadStyle}" Text="Age of member" />
+                        <Label Style="{StaticResource SubbodyStyle}" Text="Please select age of member" />
+                        <syncfusion:SfListView
+                            x:Name="Agelistview"
+                            Margin="0,10"
+                            AutoFitMode="Height"
+                            BackgroundColor="Transparent"
+                            IsEnabled="False"
+                            ItemTapped="ItemTappedEvent"
+                            ItemTemplate="{StaticResource Default}"
+                            Orientation="Vertical"
+                            ScrollBarVisibility="Never"
+                            SelectedItemTemplate="{StaticResource DefaultSelected}"
+                            SelectionBackground="Transparent"
+                            SelectionGesture="Tap"
+                            SelectionMode="Single">
+                            <syncfusion:SfListView.ItemsLayout>
+                                <syncfusion:GridLayout SpanCount="3" />
+                            </syncfusion:SfListView.ItemsLayout>
+                        </syncfusion:SfListView>
+
+                        <Label
+                            x:Name="AgeError"
+                            IsVisible="False"
+                            Style="{StaticResource ErrorStyle}" />
+
+                        <Label Style="{StaticResource SubHeadStyle}" Text="Relation of member" />
+                        <Label Style="{StaticResource SubbodyStyle}" Text="Please select relation of member" />
+
+
+                        <syncfusion:SfListView
+                            x:Name="RelationListview"
+                            Margin="0,10"
+                            AutoFitMode="Height"
+                            BackgroundColor="Transparent"
+                            IsEnabled="False"
+                            ItemTapped="ItemTappedEvent"
+                            ItemTemplate="{StaticResource Default}"
+                            Orientation="Vertical"
+                            ScrollBarVisibility="Never"
+                            SelectedItemTemplate="{StaticResource DefaultSelected}"
+                            SelectionBackground="Transparent"
+                            SelectionGesture="Tap"
+                            SelectionMode="Single">
+                            <syncfusion:SfListView.ItemsLayout>
+                                <syncfusion:GridLayout SpanCount="2" />
+                            </syncfusion:SfListView.ItemsLayout>
+                        </syncfusion:SfListView>
+
+                        <Label
+                            x:Name="RelationError"
+                            IsVisible="False"
+                            Style="{StaticResource ErrorStyle}" />
+
+
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+        <Border
+            x:Name="ButtonStack"
+            Grid.Row="1"
+            Margin="0,10,0,0"
+            Padding="20,0,20,20"
+            Background="Transparent"
+            IsVisible="True"
+            Stroke="Transparent">
+            <VerticalStackLayout Background="Transparent">
+                <Label
+                    x:Name="Instructionlbl"
+                    Margin="0,0,0,5"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource SubHeadStyle}"
+                    Text="Select 'Enable Edit' to be able to edit certain fields" />
+                <Button
+                    x:Name="Editbtn"
+                    Background="#009fe3"
+                    Clicked="Button_Clicked"
+                    FontAttributes="Bold"
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="16"
+                    Text="Enable Edit"
+                    TextColor="White" />
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+
+
+
+</ContentPage>

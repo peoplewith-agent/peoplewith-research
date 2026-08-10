@@ -1,0 +1,1558 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.QuestionnairePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:data="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"
+    xmlns:local="clr-namespace:PeopleWithResearch"
+    xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    xmlns:syncfusion1="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+    BackgroundColor="#Eff0f7"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <syncfusion1:SfRadioGroupKey x:Key="keyone" />
+        <syncfusion1:SfRadioGroupKey x:Key="keytwo" />
+        <syncfusion1:SfRadioGroupKey x:Key="keythree" />
+        <syncfusion1:SfRadioGroupKey x:Key="keyfour" />
+        <syncfusion1:SfRadioGroupKey x:Key="keyfive" />
+        <syncfusion1:SfRadioGroupKey x:Key="optionkey" />
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            x:Name="toolbar"
+            Clicked="ToolbarItem_Clicked"
+            Text="" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+        <Grid>
+
+            <StackLayout x:Name="noconnection" IsVisible="false">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <Image
+                        x:Name="nodatahomeimg"
+                        Grid.Row="0"
+                        Margin="10,250,10,0"
+                        HeightRequest="80"
+                        HorizontalOptions="Center"
+                        Source="networkerror.png"
+                        WidthRequest="80" />
+
+                    <Label
+                        Grid.Row="1"
+                        Margin="0,-5,0,0"
+                        FontAttributes="None"
+                        FontSize="Micro"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="You seem to have lost connection"
+                        TextColor="Gray" />
+
+                    <Label
+                        Grid.Row="2"
+                        Margin="0,-5,0,0"
+                        FontAttributes="None"
+                        FontSize="Micro"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="Please check your connection and try again"
+                        TextColor="Gray" />
+
+                </Grid>
+            </StackLayout>
+
+            <StackLayout x:Name="mainstack">
+                <Label
+                    x:Name="progresslbl"
+                    Margin="0,10,0,0"
+                    FontAttributes="Bold"
+                    FontSize="12"
+                    HorizontalOptions="Center"
+                    IsVisible="false"
+                    Text="Questionnaire Progress"
+                    TextColor="Black"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center" />
+                <progressBar:SfLinearProgressBar
+                    x:Name="questionnaireprogressbar"
+                    Margin="10,0,10,10"
+                    HeightRequest="10"
+                    IsVisible="false"
+                    Maximum="100"
+                    Minimum="0"
+                    Progress="0"
+                    ProgressCornerRadius="5"
+                    ProgressFill="#009fe3"
+                    TrackCornerRadius="5"
+                    TrackHeight="10" />
+                <ScrollView x:Name="scroll" VerticalOptions="StartAndExpand">
+                    <!--<ScrollView.Behaviors>
+                        <anim:ScrollViewScrollBehavior x:Name="Scroll" />
+                    </ScrollView.Behaviors>-->
+
+
+                    <StackLayout VerticalOptions="FillAndExpand">
+
+                        <StackLayout
+                            x:Name="loadingstack"
+                            IsVisible="false"
+                            VerticalOptions="CenterAndExpand">
+                            <ActivityIndicator IsRunning="True" />
+                            <Label
+                                Margin="0,0,0,0"
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                HorizontalOptions="Center"
+                                Text="Loading Questionnaire..."
+                                TextColor="Black" />
+
+                        </StackLayout>
+
+                        <StackLayout x:Name="neitherstack" IsVisible="false">
+                            <Image
+                                Margin="0,20,0,5"
+                                HeightRequest="50"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="questionnaireicon.png"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="50" />
+
+
+                            <Label
+                                Margin="20,0,20,0"
+                                FontAttributes="Bold"
+                                FontSize="22"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="Weekly Follow-Up Response"
+                                TextColor="Black" />
+
+                            <Label
+                                Margin="20,10,0,0"
+                                FontSize="10"
+                                Text="Weekly Follow Up Question"
+                                TextColor="Black" />
+
+                            <Frame
+                                Margin="10,0,10,0"
+                                Padding="0"
+                                BackgroundColor="White"
+                                BorderColor="White"
+                                CornerRadius="10"
+                                HasShadow="False"
+                                IsVisible="true">
+
+                                <StackLayout BackgroundColor="Transparent" HeightRequest="40">
+                                    <Label
+                                        Margin="20,10,0,0"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Neither"
+                                        TextColor="Black"
+                                        VerticalOptions="Center" />
+                                </StackLayout>
+
+                            </Frame>
+
+
+                            <Label
+                                Margin="20,10,0,0"
+                                FontSize="10"
+                                Text="Date Completed"
+                                TextColor="Black" />
+
+                            <Frame
+                                Margin="10,0,10,0"
+                                Padding="0"
+                                BackgroundColor="White"
+                                BorderColor="White"
+                                CornerRadius="10"
+                                HasShadow="False"
+                                IsVisible="true">
+
+                                <StackLayout BackgroundColor="Transparent" HeightRequest="40">
+                                    <Label
+                                        x:Name="neitherdate"
+                                        Margin="20,10,0,0"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="StartAndExpand"
+                                        TextColor="Black"
+                                        VerticalOptions="Center" />
+                                </StackLayout>
+
+                            </Frame>
+
+
+                            <Label
+                                Margin="0,20,0,0"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                HorizontalOptions="Center"
+                                Text="Thank you for taking part in the IID3 Study"
+                                TextColor="Black" />
+
+
+                        </StackLayout>
+
+
+
+                        <StackLayout x:Name="liststack" IsVisible="false">
+
+                            <Image
+                                Margin="0,20,0,5"
+                                HeightRequest="50"
+                                HorizontalOptions="CenterAndExpand"
+                                Source="questionnaireicon.png"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="50" />
+
+
+                            <Label
+                                x:Name="titlelbl"
+                                Margin="20,0,20,0"
+                                FontAttributes="Bold"
+                                FontSize="22"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                TextColor="Black" />
+
+                            <Label
+                                x:Name="infolbl"
+                                Margin="20,-5,20,0"
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                TextColor="Gray" />
+
+
+                            <Label
+                                x:Name="incidentlbl"
+                                Margin="20,10,0,0"
+                                FontSize="10"
+                                IsVisible="false"
+                                Text="Weekly Follow Up Question"
+                                TextColor="Black" />
+
+                            <Frame
+                                x:Name="incidentframe"
+                                Margin="10,0,10,0"
+                                Padding="0"
+                                BackgroundColor="White"
+                                BorderColor="White"
+                                CornerRadius="10"
+                                HasShadow="False"
+                                IsVisible="false">
+
+                                <StackLayout BackgroundColor="Transparent" HeightRequest="40">
+                                    <Label
+                                        x:Name="incidenttextlbl"
+                                        Margin="20,10,0,0"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="StartAndExpand"
+                                        TextColor="Black"
+                                        VerticalOptions="Center" />
+                                </StackLayout>
+
+                            </Frame>
+
+
+
+
+
+                            <!--<Label Text="Get started below" Margin="20,0,0,0" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#0F9FE2" FontSize="16" />-->
+
+                            <syncfusion:SfListView
+                                x:Name="questionnairelist"
+                                Margin="5,20,5,0"
+                                Padding="0"
+                                AutoFitMode="DynamicHeight"
+                                BackgroundColor="Transparent"
+                                CachingStrategy="RecycleTemplate"
+                                GroupHeaderSize="20"
+                                HorizontalOptions="Center"
+                                IsScrollingEnabled="False"
+                                ItemsSourceChangeCachingStrategy="RecycleItems"
+                                ScrollBarVisibility="Never"
+                                SelectionBackground="Transparent"
+                                VerticalOptions="StartAndExpand">
+                                <syncfusion:SfListView.DataSource>
+                                    <data:DataSource>
+                                        <data:DataSource.GroupDescriptors>
+                                            <data:GroupDescriptor PropertyName="QuestionName" />
+                                        </data:DataSource.GroupDescriptors>
+                                    </data:DataSource>
+                                </syncfusion:SfListView.DataSource>
+                                <syncfusion:SfListView.GroupHeaderTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+
+
+                                            <Frame
+                                                Margin="5,0,5,0"
+                                                Padding="0"
+                                                BackgroundColor="White"
+                                                BorderColor="White"
+                                                CornerRadius="5"
+                                                HasShadow="False">
+
+                                                <StackLayout
+                                                    Margin="10,0,10,0"
+                                                    BackgroundColor="Transparent"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    VerticalOptions="FillAndExpand">
+
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="Auto" />
+                                                            <RowDefinition Height="Auto" />
+
+
+                                                        </Grid.RowDefinitions>
+
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="10*" />
+                                                            <ColumnDefinition Width="55*" />
+                                                            <ColumnDefinition Width="20*" />
+                                                            <ColumnDefinition Width="15*" />
+
+
+                                                        </Grid.ColumnDefinitions>
+
+                                                        <Label
+                                                            Grid.Row="0"
+                                                            Grid.Column="0"
+                                                            Grid.ColumnSpan="4"
+                                                            Margin="5,0,0,0"
+                                                            FontAttributes="Bold"
+                                                            FontSize="14"
+                                                            HorizontalOptions="Start"
+                                                            LineHeight="1.4"
+                                                            Text="{Binding Key}"
+                                                            TextColor="Black"
+                                                            VerticalOptions="Start" />
+
+                                                        <!--<BoxView HeightRequest="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Color="Gray"/>-->
+                                                    </Grid>
+                                                </StackLayout>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.GroupHeaderTemplate>
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+
+
+
+                                            <Border
+                                                Margin="{Binding BottomMarginNum}"
+                                                Padding="0"
+                                                BackgroundColor="{Binding Backgroundcolourchange}"
+                                                Stroke="{Binding Backgroundcolourchange}">
+
+                                                <StackLayout Margin="10,0,10,10">
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        Grid.Column="0"
+                                                        Grid.ColumnSpan="4"
+                                                        Margin="10,0,0,5"
+                                                        FontAttributes="Bold"
+                                                        FontSize="12"
+                                                        HorizontalOptions="Start"
+                                                        Text="{Binding Directions}"
+                                                        TextColor="Gray"
+                                                        VerticalOptions="Start" />
+
+
+
+
+                                                    <!--  Type 0-3  -->
+                                                    <!--
+                                                    <StackLayout IsVisible="{Binding Type03}">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="25*"/>
+                                                                <ColumnDefinition Width="25*"/>
+                                                                <ColumnDefinition Width="25*"/>
+                                                                <ColumnDefinition Width="25*"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto"/>
+                                                                <RowDefinition Height="Auto"/>
+                                                            </Grid.RowDefinitions>
+
+
+                                                            <Label Text="{Binding Label0}" Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="12" />
+                                                            <local:ExtendedButton WidthRequest="50" CornerRadius="25" BackgroundColor="{Binding Buttonbackground}" IDRecord="{Binding Id}"  IDValue="{Binding Answerid}" Stroke="{Binding Buttonborder}" StrokeThickness="2"  Clicked="ExtendedButton_Clicked"  Text="{Binding Value0}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="18"/>
+
+
+                                                            <Label Text="{Binding Label1}" Margin="0,0,0,0" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="12" />
+                                                            <local:ExtendedButton WidthRequest="50" CornerRadius="25" BackgroundColor="{Binding Buttonbackground}" IDRecord="{Binding Id}"  IDValue="{Binding Answerid}" Stroke="{Binding Buttonborder1}" StrokeThickness="2" Clicked="ExtendedButton_Clicked_1"  Text="{Binding Value1}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="18"/>
+
+
+
+                                                            <Label Text="{Binding Label2}" Margin="0,0,0,0" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="12" />
+                                                            <local:ExtendedButton WidthRequest="50" CornerRadius="25" BackgroundColor="{Binding Buttonbackground}" IDRecord="{Binding Id}"  IDValue="{Binding Answerid}" Stroke="{Binding Buttonborder2}" StrokeThickness="2" Clicked="ExtendedButton_Clicked_2"  Text="{Binding Value2}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="18"/>
+
+
+                                                            <Label Text="{Binding Label3}" Margin="0,0,0,0" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="12" />
+                                                            <local:ExtendedButton WidthRequest="50" CornerRadius="25" BackgroundColor="{Binding Buttonbackground}" IDRecord="{Binding Id}"  IDValue="{Binding Answerid}" Stroke="{Binding Buttonborder3}" StrokeThickness="2"  Clicked="ExtendedButton_Clicked_3"  Text="{Binding Value3}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="18"/>
+
+
+
+
+                                                        </Grid>
+
+                                                    </StackLayout>
+
+                                                    -->
+                                                    <!--  Type 1-5  -->
+                                                    <!--
+                                                    <StackLayout IsVisible="{Binding Type15}">
+
+
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="20*"/>
+                                                                <ColumnDefinition Width="20*"/>
+                                                                <ColumnDefinition Width="20*"/>
+                                                                <ColumnDefinition Width="20*"/>
+                                                                <ColumnDefinition Width="20*"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto"/>
+                                                                <RowDefinition Height="Auto"/>
+                                                            </Grid.RowDefinitions>
+
+                                                            <Label Text="{Binding Label0}" Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="12" />
+                                                            <local:ExtendedButton WidthRequest="50" CornerRadius="25" BackgroundColor="{Binding Buttonbackground}" IDRecord="{Binding Id}"  IDValue="{Binding Answerid}" Stroke="{Binding Buttonborder}" StrokeThickness="2"  Clicked="ExtendedButton_Clicked"  Text="{Binding Value0}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="18"/>
+
+
+                                                            <Label Text="{Binding Label1}" Margin="0,0,0,0" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="12" />
+                                                            <local:ExtendedButton WidthRequest="50" CornerRadius="25" BackgroundColor="{Binding Buttonbackground}" IDRecord="{Binding Id}"  IDValue="{Binding Answerid}" Stroke="{Binding Buttonborder1}" StrokeThickness="2" Clicked="ExtendedButton_Clicked_1"  Text="{Binding Value1}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="18"/>
+
+
+                                                            <Label Text="{Binding Label2}" Margin="0,0,0,0" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="12" />
+                                                            <local:ExtendedButton WidthRequest="50" CornerRadius="25" BackgroundColor="{Binding Buttonbackground}" IDRecord="{Binding Id}"  IDValue="{Binding Answerid}" Stroke="{Binding Buttonborder2}" StrokeThickness="2" Clicked="ExtendedButton_Clicked_2"  Text="{Binding Value2}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="18"/>
+
+                                                            <Label Text="{Binding Label3}" Margin="0,0,0,0" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="12" />
+                                                            <local:ExtendedButton WidthRequest="50" CornerRadius="25" BackgroundColor="{Binding Buttonbackground}" IDRecord="{Binding Id}"  IDValue="{Binding Answerid}" Stroke="{Binding Buttonborder3}" StrokeThickness="2"  Clicked="ExtendedButton_Clicked_3"  Text="{Binding Value3}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="18"/>
+
+                                                            <Label Text="{Binding Label4}" Margin="0,0,0,0" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="12" />
+                                                            <local:ExtendedButton WidthRequest="50" CornerRadius="25" BackgroundColor="{Binding Buttonbackground}" IDRecord="{Binding Id}"  IDValue="{Binding Answerid}" Stroke="{Binding Buttonborder4}" StrokeThickness="2" Clicked="ExtendedButton_Clicked_4"   Text="{Binding Value4}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="18"/>
+
+
+
+                                                        </Grid>
+
+                                                    </StackLayout>
+
+                                                    -->
+                                                    <!--  Type 0-10  -->
+                                                    <!--
+                                                    <StackLayout IsVisible="{Binding Type110}">
+                               <Grid>
+                                     <Grid.ColumnDefinitions>
+                             <ColumnDefinition Width="20*"/>
+                              <ColumnDefinition Width="20*"/>
+                              <ColumnDefinition Width="20*"/>
+                              <ColumnDefinition Width="20*"/>
+                               <ColumnDefinition Width="20*"/>
+                         </Grid.ColumnDefinitions>
+                         <Grid.RowDefinitions>
+                             <RowDefinition Height="80"/>
+                            <RowDefinition Height="Auto"/>
+                         </Grid.RowDefinitions>
+
+                                   <local:ExtendedRangeSlider Value="{Binding Slidervalue}" IDValue="{Binding Id}" ValueChanging="rangeslider_ValueChanging" TrackColor="Gray" Margin="0" TrackSelectionColor="#0F9FE2" KnobColor="White" ToolTipBackgroundColor="Transparent" ToolTipTextColor="Transparent"  BackgroundColor="Transparent" ShowValueLabel="True" TickPlacement="TopLeft" TickFrequency="1" VerticalOptions="StartAndExpand" x:Name="rangeslider" SnapsTo="StepValues" Orientation="Horizontal" StepFrequency="1" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" HorizontalOptions="FillAndExpand" LabelPlacement="TopLeft" ShowRange="False" ShowCustomLabel="False" ValuePlacement="TopLeft" LabelColor="Gray" TickColor="LightGray" Minimum="0" Maximum="10"/>
+
+                                   <Label VerticalOptions="Start" Text="{Binding Label0}" Margin="0,-25,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" FontAttributes="Bold" HorizontalOptions="Start" TextColor="Gray" FontSize="10" />
+                                   <Label VerticalOptions="Start" Text="{Binding Label9}" Margin="0,-25,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" FontAttributes="Bold" HorizontalOptions="End" TextColor="Gray" FontSize="10" />
+
+                                    <Label Text="{Binding Label0}" Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" FontAttributes="Bold" HorizontalOptions="Start" TextColor="Black" FontSize="12" />
+
+                                    <Label Text="{Binding Value0}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="18" />
+                                    <Label Text="{Binding Value1}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="18" />
+                                    <Label Text="{Binding Value2}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="18" />
+                                     <Label Text="{Binding Value3}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="18" />
+                                       <Label Text="{Binding Value4}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="18" />
+
+
+                                    <Label Text="{Binding Value5}" Margin="0,0,0,0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="18" />
+                                    <Label Text="{Binding Value6}" Margin="0,0,0,0" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="18" />
+                                    <Label Text="{Binding Value7}" Margin="0,0,0,0" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="18" />
+                                     <Label Text="{Binding Value8}" Margin="0,0,0,0" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="18" />
+                                       <Label Text="{Binding Value9}" Margin="0,0,0,0" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" FontSize="18" />
+
+                                   <Label Text="{Binding Label9}" Margin="0,0,0,0" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" FontAttributes="Bold" HorizontalOptions="End" TextColor="Black" FontSize="12" />
+
+
+
+                                   </Grid>
+
+                 </StackLayout>
+
+                                                    -->
+                                                    <!--  Type Single Selection  -->
+                                                    <!--
+                                                    <StackLayout IsVisible="{Binding Typess}">
+
+                                                        <FlexLayout Wrap="Wrap" AlignItems="Start" AlignContent="Start" Margin="10,0,10,0" >
+                                                            <syncfusion1:SfRadioGroup>
+                                                                <local:ExtendedRadioButton IsChecked="{Binding Ischecked0}" IDValue="{Binding Id}"  FontSize="12" CheckedColor="#0F9FE2" TextColor="Gray"  Margin="0,0,5,0" StateChanged="SfRadioButton_StateChanged" Text="{Binding Value0}"  />
+                                                                <local:ExtendedRadioButton IsChecked="{Binding Ischecked1}" IDValue="{Binding Id}"  FontSize="12" CheckedColor="#0F9FE2" TextColor="Gray" Margin="0,0,5,0" StateChanged="SfRadioButton_StateChanged1"   Text="{Binding Value1}" />
+                                                                <local:ExtendedRadioButton IsChecked="{Binding Ischecked2}" IDValue="{Binding Id}"  FontSize="12" CheckedColor="#0F9FE2" TextColor="Gray" Margin="0,0,5,0"  StateChanged="SfRadioButton_StateChanged2"  IsVisible="{Binding Checkboxthree}" Text="{Binding Value2}" />
+                                                                <local:ExtendedRadioButton IsChecked="{Binding Ischecked3}" IDValue="{Binding Id}"  FontSize="12" CheckedColor="#0F9FE2" TextColor="Gray" Margin="0,0,5,0" StateChanged="SfRadioButton_StateChanged3"  IsVisible="{Binding Checkboxfour}" Text="{Binding Value3}"  />
+                                                                <local:ExtendedRadioButton IsChecked="{Binding Ischecked4}"  IDValue="{Binding Id}" FontSize="12" CheckedColor="#0F9FE2" TextColor="Gray" Margin="0,0,5,0" StateChanged="SfRadioButton_StateChanged4"  IsVisible="{Binding Checkboxfive}" Text="{Binding Value4}" />
+                                                                <local:ExtendedRadioButton IsChecked="{Binding Ischecked5}" IDValue="{Binding Id}"  FontSize="12" CheckedColor="#0F9FE2" TextColor="Gray" Margin="0,0,5,0" StateChanged="SfRadioButton_StateChanged5"   IsVisible="{Binding Checkboxsix}" Text="{Binding Value5}" />
+                                                                <local:ExtendedRadioButton IsChecked="{Binding Ischecked6}" IDValue="{Binding Id}" FontSize="12" CheckedColor="#0F9FE2" TextColor="Gray" Margin="0,0,5,0" StateChanged="SfRadioButton_StateChanged6"  IsVisible="{Binding Checkboxseven}" Text="{Binding Value6}"/>
+                                                                <local:ExtendedRadioButton IsChecked="{Binding Ischecked7}" IDValue="{Binding Id}"  FontSize="12" CheckedColor="#0F9FE2" TextColor="Gray" Margin="0,0,5,0" StateChanged="SfRadioButton_StateChanged7"  IsVisible="{Binding Checkboxeight}" Text="{Binding Value7}"/>
+                                                                <local:ExtendedRadioButton IsChecked="{Binding Ischecked8}" IDValue="{Binding Id}"  FontSize="12" CheckedColor="#0F9FE2" TextColor="Gray" Margin="0,0,5,0" StateChanged="SfRadioButton_StateChanged8"   IsVisible="{Binding Checkboxnine}" Text="{Binding Value8}"/>
+                                                                <local:ExtendedRadioButton IsChecked="{Binding Ischecked9}" IDValue="{Binding Id}"  FontSize="12" CheckedColor="#0F9FE2" TextColor="Gray" Margin="0,0,5,0" StateChanged="SfRadioButton_StateChanged9"  IsVisible="{Binding Checkboxten}" Text="{Binding Value9}"/>
+                                                            </syncfusion1:SfRadioGroup>
+                                                        </FlexLayout>
+
+                                                        <local:ExtendedEntry IDValue="{Binding Id}" Margin="5,0,5,0" HorizontalOptions="FillAndExpand" Text="{Binding Notes}"  IsVisible="{Binding Entryvis}" TextChanged="ExtendedEntry_TextChanged_2" VerticalOptions="Start" Placeholder="Enter Answer..." FontSize="12"/>
+
+
+                                                    </StackLayout>
+
+                                                    -->
+                                                    <!--  Type Multiple Selection  -->
+                                                    <!--
+                                                    <StackLayout IsVisible="{Binding Typems}">
+
+                                                        <local:ExtendedSFCheckBox IsChecked="{Binding UsingChecked0}" IDValue="{Binding Id}"  FontSize="12" CheckedColor="#0F9FE2" StateChanged="SfCheckBox_StateChanged"     Text="{Binding Value0}" CornerRadius="5.0" />
+                                                        <local:ExtendedSFCheckBox IsChecked="{Binding UsingChecked1}" IDValue="{Binding Id}" FontSize="12" CheckedColor="#0F9FE2"  StateChanged="SfCheckBox_StateChanged_1"  Text="{Binding Value1}" CornerRadius="5.0" />
+                                                        <local:ExtendedSFCheckBox IsChecked="{Binding UsingChecked2}" IDValue="{Binding Id}" FontSize="12" CheckedColor="#0F9FE2" StateChanged="SfCheckBox_StateChanged_2"  IsVisible="{Binding Checkboxthree}"   Text="{Binding Value2}" CornerRadius="5.0" />
+                                                        <local:ExtendedSFCheckBox IsChecked="{Binding UsingChecked3}" IDValue="{Binding Id}" FontSize="12" CheckedColor="#0F9FE2" StateChanged="SfCheckBox_StateChanged_3"  IsVisible="{Binding Checkboxfour}"   Text="{Binding Value3}" CornerRadius="5.0" />
+                                                        <local:ExtendedSFCheckBox IsChecked="{Binding UsingChecked4}" IDValue="{Binding Id}" FontSize="12" CheckedColor="#0F9FE2" StateChanged="SfCheckBox_StateChanged_4"  IsVisible="{Binding Checkboxfive}"   Text="{Binding Value4}" CornerRadius="5.0" />
+                                                        <local:ExtendedSFCheckBox IsChecked="{Binding UsingChecked5}" IDValue="{Binding Id}" FontSize="12" CheckedColor="#0F9FE2" StateChanged="SfCheckBox_StateChanged_5"  IsVisible="{Binding Checkboxsix}"   Text="{Binding Value5}" CornerRadius="5.0" />
+                                                        <local:ExtendedSFCheckBox IsChecked="{Binding UsingChecked6}" IDValue="{Binding Id}" FontSize="12" CheckedColor="#0F9FE2" StateChanged="SfCheckBox_StateChanged_6"  IsVisible="{Binding Checkboxseven}"   Text="{Binding Value6}" CornerRadius="5.0" />
+                                                        <local:ExtendedSFCheckBox IsChecked="{Binding UsingChecked7}" IDValue="{Binding Id}" FontSize="12" CheckedColor="#0F9FE2" StateChanged="SfCheckBox_StateChanged_7"  IsVisible="{Binding Checkboxeight}"   Text="{Binding Value7}" CornerRadius="5.0" />
+                                                        <local:ExtendedSFCheckBox IsChecked="{Binding UsingChecked8}" IDValue="{Binding Id}"  FontSize="12" CheckedColor="#0F9FE2" StateChanged="SfCheckBox_StateChanged_8"  IsVisible="{Binding Checkboxnine}"   Text="{Binding Value8}" CornerRadius="5.0" />
+                                                        <local:ExtendedSFCheckBox IsChecked="{Binding UsingChecked9}" IDValue="{Binding Id}" FontSize="12" CheckedColor="#0F9FE2" StateChanged="SfCheckBox_StateChanged_9"  IsVisible="{Binding Checkboxten}"   Text="{Binding Value9}" CornerRadius="5.0" />
+
+
+                                                        <local:ExtendedEntry IDValue="{Binding Id}" Margin="5,0,5,0" HorizontalOptions="FillAndExpand" Text="{Binding Notes}" IsVisible="{Binding Entryvisms}" TextChanged="ExtendedEntry_TextChanged_3" VerticalOptions="Start" Placeholder="Enter Answer..." FontSize="12"/>
+
+                                                    </StackLayout>-->
+
+                                                    <!--  Type entrt text only  -->
+
+
+                                                    <StackLayout IsVisible="{Binding TypeEntryOnly}">
+
+                                                        <local:ExtendedEntry
+                                                            Margin="10,0,10,0"
+                                                            BackgroundColor="#EFF0F7"
+                                                            Completed="ExtendedEntry_Completed"
+                                                            IDValue="{Binding Id}"
+                                                            Keyboard="Text"
+                                                            Placeholder="{Binding Value0}"
+                                                            Text="{Binding Entryanswer}"
+                                                            TextChanged="Entry_TextChanged"
+                                                            TextColor="Black" />
+
+                                                    </StackLayout>
+
+
+                                                    <!--  Type Entry  -->
+                                                    <StackLayout IsVisible="{Binding TypeEntry}">
+
+                                                        <local:ExtendedEntry
+                                                            Margin="10,0,10,0"
+                                                            BackgroundColor="#EFF0F7"
+                                                            Completed="ExtendedEntry_Completed"
+                                                            IDValue="{Binding Id}"
+                                                            Keyboard="Numeric"
+                                                            Placeholder="{Binding Value0}"
+                                                            Text="{Binding Entryanswer}"
+                                                            TextChanged="Entry_TextChanged"
+                                                            TextColor="Black" />
+
+                                                    </StackLayout>
+
+
+                                                    <!--  Type date only Entry  -->
+
+                                                    <StackLayout IsVisible="{Binding TypeDate}">
+
+
+                                                        <local:ExtendedSFListview
+                                                            Margin="0,0,0,0"
+                                                            AutoFitMode="Height"
+                                                            BackgroundColor="Transparent"
+                                                            HeightRequest="60"
+                                                            HorizontalOptions="CenterAndExpand"
+                                                            ItemTapped="ExtendedSFListview_ItemTapped"
+                                                            ItemsSource="{Binding Datelist}"
+                                                            Orientation="Horizontal"
+                                                            ScrollBarVisibility="Never"
+                                                            SelectedItem="{Binding Singledateselecteditem}"
+                                                            SelectionBackground="Transparent"
+                                                            SelectionMode="Single"
+                                                            VerticalOptions="StartAndExpand">
+
+                                                            <syncfusion:SfListView.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <ViewCell>
+                                                                        <Border
+                                                                            Margin="10,5,10,5"
+                                                                            Padding="10"
+                                                                            BackgroundColor="Transparent"
+                                                                            Stroke="LightGray"
+                                                                            StrokeShape="RoundRectangle 10">
+                                                                            <Grid HorizontalOptions="FillAndExpand">
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                </Grid.RowDefinitions>
+                                                                                <Label
+                                                                                    Grid.Row="0"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="None"
+                                                                                    FontSize="10"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Datemonth}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+                                                                                <Label
+                                                                                    Grid.Row="1"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="None"
+                                                                                    FontSize="18"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Dateday}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+                                                                            </Grid>
+                                                                        </Border>
+                                                                    </ViewCell>
+                                                                </DataTemplate>
+                                                            </syncfusion:SfListView.ItemTemplate>
+
+                                                            <syncfusion:SfListView.SelectedItemTemplate>
+                                                                <DataTemplate>
+                                                                    <ViewCell>
+                                                                        <Border
+                                                                            Margin="10,5,10,5"
+                                                                            Padding="10"
+                                                                            BackgroundColor="#ccebf9"
+                                                                            Stroke="#009fe3"
+                                                                            StrokeShape="RoundRectangle 10">
+                                                                            <Grid HorizontalOptions="FillAndExpand">
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                </Grid.RowDefinitions>
+                                                                                <Label
+                                                                                    Grid.Row="0"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="Bold"
+                                                                                    FontSize="10"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Datemonth}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+                                                                                <Label
+                                                                                    Grid.Row="1"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="Bold"
+                                                                                    FontSize="18"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Dateday}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+                                                                            </Grid>
+                                                                        </Border>
+                                                                    </ViewCell>
+                                                                </DataTemplate>
+                                                            </syncfusion:SfListView.SelectedItemTemplate>
+                                                        </local:ExtendedSFListview>
+
+
+
+
+                                                        <!--<local:ExtendedSFDatePicker SelectedDate="{Binding DateAnswer}" HeightRequest="100" IDValue="{Binding Id}" SelectionChanged="daypicker_DateSelected"  IsOpen="True" x:Name="daypickeronly" Padding="0" ItemHeight="30" BackgroundColor="Transparent"  Format="dd_MMM_yyyy"/>-->
+
+
+
+                                                        <!--<local:ExtendedSFDatePicker IsVisible="false" SelectedDate="{Binding DateAnswer}" HeightRequest="100" IDValue="{Binding Id}" SelectionChanged="daypicker_DateSelected"  IsOpen="True" x:Name="daypickeronly" SelectedItemFontSize="20"  UnselectedItemFontSize="15" Padding="0" ItemHeight="30"    SelectedItemTextColor="Black" ShowHeader="False" ShowColumnHeader="False"  SelectionBackgroundColor="Transparent" BorderColor="Transparent" SelectedItemFontFamily="ariel" BackgroundColor="Transparent"  Format="dd_MMM_yyyy" ShowFooter="False"/>-->
+                                                    </StackLayout>
+
+                                                    <!--  Type double date  -->
+
+                                                    <StackLayout IsVisible="{Binding TypeDoubleDate}" />
+
+
+                                                    <!--  Type Single Selection Additional  -->
+                                                    <StackLayout IsVisible="{Binding TypeSSAdd}">
+
+
+                                                        <syncfusion1:SfRadioGroup HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                                            <local:ExtendedRadioButton
+                                                                Margin="0,0,5,0"
+                                                                CheckedColor="#0F9FE2"
+                                                                FontSize="12"
+                                                                IDValue="{Binding Id}"
+                                                                IsChecked="{Binding Ischecked0}"
+                                                                StateChanged="ExtendedRadioButton_StateChanged"
+                                                                Text="{Binding Value0}"
+                                                                TextColor="Gray" />
+                                                            <local:ExtendedRadioButton
+                                                                Margin="0,0,5,0"
+                                                                CheckedColor="#0F9FE2"
+                                                                FontSize="12"
+                                                                IDValue="{Binding Id}"
+                                                                IsChecked="{Binding Ischecked1}"
+                                                                StateChanged="SfRadioButton_StateChanged1"
+                                                                Text="{Binding Value1}"
+                                                                TextColor="Gray" />
+                                                            <local:ExtendedRadioButton
+                                                                Margin="0,0,5,0"
+                                                                CheckedColor="#0F9FE2"
+                                                                FontSize="12"
+                                                                IDValue="{Binding Id}"
+                                                                IsChecked="{Binding Ischecked2}"
+                                                                StateChanged="SfRadioButton_StateChanged2"
+                                                                Text="{Binding Value2}"
+                                                                TextColor="Gray" />
+                                                        </syncfusion1:SfRadioGroup>
+
+
+
+                                                        <Label
+                                                            Margin="10,10,0,0"
+                                                            FontAttributes="Bold"
+                                                            FontSize="14"
+                                                            HorizontalOptions="Start"
+                                                            IsVisible="{Binding AddVisible}"
+                                                            Text="{Binding Addquestion}"
+                                                            TextColor="Black"
+                                                            VerticalOptions="Start" />
+
+                                                        <local:ExtendedSFListview
+                                                            Margin="0,0,0,0"
+                                                            AutoFitMode="Height"
+                                                            BackgroundColor="Transparent"
+                                                            HeightRequest="60"
+                                                            HorizontalOptions="CenterAndExpand"
+                                                            IDValue="{Binding Id}"
+                                                            IsVisible="{Binding AddVisible}"
+                                                            ItemTapped="ExtendedSFListview_ItemTapped_1"
+                                                            ItemsSource="{Binding Datelist}"
+                                                            Orientation="Horizontal"
+                                                            ScrollBarVisibility="Never"
+                                                            SelectedItem="{Binding Singledateselecteditem}"
+                                                            SelectionBackground="Transparent"
+                                                            SelectionMode="Single"
+                                                            VerticalOptions="StartAndExpand">
+                                                            <!--<syncfusion:SfListView.HeightRequest>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="Android">300</On>
+                                                                    <On Platform="iOS">300</On>
+                                                            -->
+                                                            <!--  Add other platforms as needed  -->
+                                                            <!--
+                                                                </OnPlatform>
+                                                            </syncfusion:SfListView.HeightRequest>-->
+
+                                                            <syncfusion:SfListView.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <ViewCell>
+                                                                        <Border
+                                                                            Margin="10,5,10,5"
+                                                                            Padding="10"
+                                                                            BackgroundColor="Transparent"
+                                                                            Stroke="LightGray"
+                                                                            StrokeShape="RoundRectangle 10">
+                                                                            <Grid HorizontalOptions="FillAndExpand">
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                </Grid.RowDefinitions>
+
+
+
+                                                                                <Label
+                                                                                    Grid.Row="0"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="None"
+                                                                                    FontSize="10"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Datemonth}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+
+                                                                                <Label
+                                                                                    Grid.Row="1"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="None"
+                                                                                    FontSize="18"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Dateday}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+                                                                            </Grid>
+                                                                        </Border>
+                                                                    </ViewCell>
+                                                                </DataTemplate>
+                                                            </syncfusion:SfListView.ItemTemplate>
+                                                            <syncfusion:SfListView.SelectedItemTemplate>
+                                                                <DataTemplate>
+                                                                    <ViewCell>
+                                                                        <Border
+                                                                            Margin="10,5,10,5"
+                                                                            Padding="10"
+                                                                            BackgroundColor="#ccebf9"
+                                                                            Stroke="#009fe3"
+                                                                            StrokeShape="RoundRectangle 10">
+                                                                            <Grid HorizontalOptions="FillAndExpand">
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                </Grid.RowDefinitions>
+
+
+
+                                                                                <Label
+                                                                                    Grid.Row="0"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="Bold"
+                                                                                    FontSize="10"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Datemonth}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+
+                                                                                <Label
+                                                                                    Grid.Row="1"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="Bold"
+                                                                                    FontSize="18"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Dateday}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+                                                                            </Grid>
+                                                                        </Border>
+                                                                    </ViewCell>
+                                                                </DataTemplate>
+                                                            </syncfusion:SfListView.SelectedItemTemplate>
+                                                        </local:ExtendedSFListview>
+
+                                                        <!--Change this
+                                                        <local:ExtendedSFDatePicker SelectedDate="{Binding DateAnswer}" HeightRequest="100" IDValue="{Binding Id}" SelectionChanged="daypicker_DateSelected"  IsVisible="false" IsOpen="True" x:Name="daypicker" SelectedItemFontSize="20"  UnselectedItemFontSize="15" Padding="0" ItemHeight="30"    SelectedItemTextColor="Black" ShowHeader="False" ShowColumnHeader="False"  SelectionBackgroundColor="Transparent" BorderColor="Transparent" SelectedItemFontFamily="ariel" BackgroundColor="Transparent"  Format="dd_MMM_yyyy" ShowFooter="False"/>
+                                                        <local:ExtendedSFDatePicker SelectedDate="{Binding DateAnswer}" HeightRequest="100" IDValue="{Binding Id}" SelectionChanged="daypicker_DateSelected"  IsVisible="false" IsOpen="True" x:Name="daypicker" Padding="0" ItemHeight="30"  BackgroundColor="Transparent"  Format="dd_MMM_yyyy"/>-->
+
+                                                        <Label
+                                                            Margin="10,10,0,0"
+                                                            FontAttributes="Bold"
+                                                            FontSize="14"
+                                                            HorizontalOptions="Start"
+                                                            IsVisible="{Binding AddVisible2}"
+                                                            Text="{Binding Addquestion2}"
+                                                            TextColor="Black"
+                                                            VerticalOptions="Start" />
+
+                                                        <local:ExtendedEntry
+                                                            Margin="10,0,10,0"
+                                                            BackgroundColor="#EFF0F7"
+                                                            Completed="ExtendedEntry_Completed"
+                                                            IDValue="{Binding Id}"
+                                                            IsVisible="{Binding AddVisible2}"
+                                                            Keyboard="Numeric"
+                                                            Placeholder="Enter Value"
+                                                            Text="{Binding Aqentry}"
+                                                            TextChanged="ExtendedEntry_TextChanged_1"
+                                                            TextColor="Black" />
+
+
+
+                                                    </StackLayout>
+
+                                                    <!--  Type Single Selection 1  -->
+                                                    <StackLayout IsVisible="{Binding TypeSS1}">
+
+
+                                                        <syncfusion1:SfRadioGroup HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                                            <local:ExtendedRadioButton
+                                                                Margin="0,0,5,0"
+                                                                CheckedColor="#0F9FE2"
+                                                                FontSize="12"
+                                                                IDValue="{Binding Id}"
+                                                                IsChecked="{Binding Ischecked0}"
+                                                                StateChanged="ExtendedRadioButton_StateChanged_1"
+                                                                Text="{Binding Value0}"
+                                                                TextColor="Gray" />
+                                                            <local:ExtendedRadioButton
+                                                                Margin="0,0,5,0"
+                                                                CheckedColor="#0F9FE2"
+                                                                FontSize="12"
+                                                                IDValue="{Binding Id}"
+                                                                IsChecked="{Binding Ischecked1}"
+                                                                StateChanged="ExtendedRadioButton_StateChanged_5"
+                                                                Text="{Binding Value1}"
+                                                                TextColor="Gray" />
+                                                            <local:ExtendedRadioButton
+                                                                Margin="0,0,5,0"
+                                                                CheckedColor="#0F9FE2"
+                                                                FontSize="12"
+                                                                IDValue="{Binding Id}"
+                                                                IsChecked="{Binding Ischecked2}"
+                                                                IsVisible="{Binding Checkboxthree}"
+                                                                StateChanged="ExtendedRadioButton_StateChanged_6"
+                                                                Text="{Binding Value2}"
+                                                                TextColor="Gray" />
+                                                        </syncfusion1:SfRadioGroup>
+
+                                                        <!--  Only visible id yes is selected  -->
+                                                        <StackLayout IsVisible="{Binding SSVis}">
+                                                            <Label
+                                                                Margin="10,10,0,0"
+                                                                FontAttributes="Bold"
+                                                                FontSize="12"
+                                                                HorizontalOptions="Start"
+                                                                Text="Number of Days:"
+                                                                TextColor="Black"
+                                                                VerticalOptions="Start" />
+
+                                                            <local:ExtendedEntry
+                                                                Margin="10,0,10,0"
+                                                                BackgroundColor="#EFF0F7"
+                                                                Completed="ExtendedEntry_Completed"
+                                                                IDValue="{Binding Id}"
+                                                                Keyboard="Numeric"
+                                                                Placeholder="Enter Value"
+                                                                Text="{Binding Aqentry}"
+                                                                TextChanged="ExtendedEntry_TextChanged"
+                                                                TextColor="Black" />
+
+
+                                                            <Label
+                                                                Margin="10,10,0,0"
+                                                                FontAttributes="Bold"
+                                                                FontSize="12"
+                                                                HorizontalOptions="Start"
+                                                                Text="Still Present"
+                                                                TextColor="Black"
+                                                                VerticalOptions="Start" />
+
+                                                            <syncfusion1:SfRadioGroup HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                                                <local:ExtendedRadioButton
+                                                                    Margin="0,0,5,0"
+                                                                    CheckedColor="#0F9FE2"
+                                                                    FontSize="12"
+                                                                    IDValue="{Binding Id}"
+                                                                    IsChecked="{Binding UsingCheckedss0}"
+                                                                    StateChanged="ExtendedRadioButton_StateChanged_2"
+                                                                    Text="{Binding Value0}"
+                                                                    TextColor="Gray" />
+                                                                <local:ExtendedRadioButton
+                                                                    Margin="0,0,5,0"
+                                                                    CheckedColor="#0F9FE2"
+                                                                    FontSize="12"
+                                                                    IDValue="{Binding Id}"
+                                                                    IsChecked="{Binding UsingCheckedss1}"
+                                                                    StateChanged="ExtendedRadioButton_StateChanged_3"
+                                                                    Text="{Binding Value1}"
+                                                                    TextColor="Gray" />
+                                                                <local:ExtendedRadioButton
+                                                                    Margin="0,0,5,0"
+                                                                    CheckedColor="#0F9FE2"
+                                                                    FontSize="12"
+                                                                    IDValue="{Binding Id}"
+                                                                    IsChecked="{Binding UsingCheckedss2}"
+                                                                    StateChanged="ExtendedRadioButton_StateChanged_4"
+                                                                    Text="{Binding Value2}"
+                                                                    TextColor="Gray" />
+                                                            </syncfusion1:SfRadioGroup>
+
+                                                        </StackLayout>
+
+
+
+                                                    </StackLayout>
+
+                                                    <StackLayout IsVisible="{Binding TypeSS3}">
+
+
+                                                        <syncfusion1:SfRadioGroup HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                                            <local:ExtendedRadioButton
+                                                                Margin="0,0,5,0"
+                                                                CheckedColor="#0F9FE2"
+                                                                FontSize="12"
+                                                                IDValue="{Binding Id}"
+                                                                IsChecked="{Binding Ischecked0}"
+                                                                StateChanged="ExtendedRadioButton_StateChanged"
+                                                                Text="{Binding Value0}"
+                                                                TextColor="Gray" />
+                                                            <local:ExtendedRadioButton
+                                                                Margin="0,0,5,0"
+                                                                CheckedColor="#0F9FE2"
+                                                                FontSize="12"
+                                                                IDValue="{Binding Id}"
+                                                                IsChecked="{Binding Ischecked1}"
+                                                                StateChanged="SfRadioButton_StateChanged1"
+                                                                Text="{Binding Value1}"
+                                                                TextColor="Gray" />
+                                                            <local:ExtendedRadioButton
+                                                                Margin="0,0,5,0"
+                                                                CheckedColor="#0F9FE2"
+                                                                FontSize="12"
+                                                                IDValue="{Binding Id}"
+                                                                IsChecked="{Binding Ischecked2}"
+                                                                StateChanged="SfRadioButton_StateChanged2"
+                                                                Text="{Binding Value2}"
+                                                                TextColor="Gray" />
+                                                        </syncfusion1:SfRadioGroup>
+
+
+
+                                                        <Label
+                                                            Margin="10,10,0,0"
+                                                            FontAttributes="Bold"
+                                                            FontSize="14"
+                                                            HorizontalOptions="Start"
+                                                            IsVisible="{Binding AddVisible}"
+                                                            Text="{Binding Addquestion}"
+                                                            TextColor="Black"
+                                                            VerticalOptions="Start" />
+
+                                                        <Label
+                                                            Margin="10,10,0,0"
+                                                            FontAttributes="Bold"
+                                                            FontSize="12"
+                                                            HorizontalOptions="Start"
+                                                            IsVisible="{Binding AddVisible}"
+                                                            Text="From:"
+                                                            TextColor="Black" />
+                                                        <!--<local:ExtendedSFDatePicker IsVisible="{Binding AddVisible}" DateSelected="daypickerstart_DateSelected" Date="{Binding DateAnswer}" HeightRequest="100" IDValue="{Binding Id}"  IsOpen="True" x:Name="daypickerstart" SelectedItemFontSize="20"  UnselectedItemFontSize="15" Padding="0" ItemHeight="30"    SelectedItemTextColor="Black" ShowHeader="False" ShowColumnHeader="False"  SelectionBackgroundColor="Transparent" BorderColor="Transparent" SelectedItemFontFamily="ariel" BackgroundColor="Transparent"  Format="dd_MMM_yyyy" ShowFooter="False"/>-->
+
+                                                        <local:ExtendedSFListview
+                                                            Margin="0,0,0,0"
+                                                            AutoFitMode="Height"
+                                                            BackgroundColor="Transparent"
+                                                            HeightRequest="60"
+                                                            HorizontalOptions="CenterAndExpand"
+                                                            IDValue="{Binding Id}"
+                                                            IsVisible="{Binding AddVisible}"
+                                                            ItemTapped="ExtendedSFListview_ItemTapped_2"
+                                                            ItemsSource="{Binding Datelist}"
+                                                            Orientation="Horizontal"
+                                                            ScrollBarVisibility="Never"
+                                                            SelectionBackground="Transparent"
+                                                            SelectionMode="Single"
+                                                            VerticalOptions="StartAndExpand">
+                                                            <!--<syncfusion:SfListView.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" Android="300" iOS="300"/>
+                                              </syncfusion:SfListView.HeightRequest>-->
+
+                                                            <syncfusion:SfListView.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <ViewCell>
+                                                                        <Border
+                                                                            Margin="10,5,10,5"
+                                                                            Padding="10"
+                                                                            BackgroundColor="Transparent"
+                                                                            Stroke="LightGray"
+                                                                            StrokeShape="RoundRectangle 10">
+                                                                            <Grid HorizontalOptions="FillAndExpand">
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                </Grid.RowDefinitions>
+
+
+
+                                                                                <Label
+                                                                                    Grid.Row="0"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="None"
+                                                                                    FontSize="10"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Datemonth}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+
+                                                                                <Label
+                                                                                    Grid.Row="1"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="None"
+                                                                                    FontSize="18"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Dateday}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+                                                                            </Grid>
+                                                                        </Border>
+                                                                    </ViewCell>
+                                                                </DataTemplate>
+                                                            </syncfusion:SfListView.ItemTemplate>
+                                                            <syncfusion:SfListView.SelectedItemTemplate>
+                                                                <DataTemplate>
+                                                                    <ViewCell>
+                                                                        <Border
+                                                                            Margin="10,5,10,5"
+                                                                            Padding="10"
+                                                                            BackgroundColor="#ccebf9"
+                                                                            Stroke="#009fe3"
+                                                                            StrokeShape="RoundRectangle 10">
+                                                                            <Grid HorizontalOptions="FillAndExpand">
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                </Grid.RowDefinitions>
+
+
+
+                                                                                <Label
+                                                                                    Grid.Row="0"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="Bold"
+                                                                                    FontSize="10"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Datemonth}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+
+                                                                                <Label
+                                                                                    Grid.Row="1"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="Bold"
+                                                                                    FontSize="18"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Dateday}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+                                                                            </Grid>
+                                                                        </Border>
+                                                                    </ViewCell>
+                                                                </DataTemplate>
+                                                            </syncfusion:SfListView.SelectedItemTemplate>
+                                                        </local:ExtendedSFListview>
+
+
+
+
+                                                        <Label
+                                                            Margin="10,5,0,0"
+                                                            FontAttributes="Bold"
+                                                            FontSize="12"
+                                                            HorizontalOptions="Start"
+                                                            IsVisible="{Binding AddVisible}"
+                                                            Text="To:"
+                                                            TextColor="Black" />
+                                                        <!--<local:ExtendedSFDatePicker Date="{Binding DateAnswer}" DateSelected="daypickerend_DateSelected" IsVisible="{Binding AddVisible}" HeightRequest="100" IDValue="{Binding Id}"   IsOpen="True" x:Name="daypickerend" SelectedItemFontSize="20"  UnselectedItemFontSize="15" Padding="0" ItemHeight="30"    SelectedItemTextColor="Black" ShowHeader="False" ShowColumnHeader="False"  SelectionBackgroundColor="Transparent" BorderColor="Transparent" SelectedItemFontFamily="ariel" BackgroundColor="Transparent"  Format="dd_MMM_yyyy" ShowFooter="False"/>-->
+
+
+                                                        <local:ExtendedSFListview
+                                                            Margin="0,0,0,0"
+                                                            AutoFitMode="Height"
+                                                            BackgroundColor="Transparent"
+                                                            HeightRequest="60"
+                                                            HorizontalOptions="CenterAndExpand"
+                                                            IDValue="{Binding Id}"
+                                                            IsVisible="{Binding AddVisible}"
+                                                            ItemTapped="ExtendedSFListview_ItemTapped_3"
+                                                            ItemsSource="{Binding Datelist}"
+                                                            Orientation="Horizontal"
+                                                            ScrollBarVisibility="Never"
+                                                            SelectionBackground="Transparent"
+                                                            SelectionMode="Single"
+                                                            VerticalOptions="StartAndExpand">
+                                                            <!--<syncfusion:SfListView.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" Android="300" iOS="300"/>
+                                              </syncfusion:SfListView.HeightRequest>-->
+
+                                                            <syncfusion:SfListView.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <ViewCell>
+                                                                        <Border
+                                                                            Margin="10,5,10,5"
+                                                                            Padding="10"
+                                                                            BackgroundColor="Transparent"
+                                                                            Stroke="LightGray"
+                                                                            StrokeShape="RoundRectangle 10">
+                                                                            <Grid HorizontalOptions="FillAndExpand">
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                </Grid.RowDefinitions>
+
+
+
+                                                                                <Label
+                                                                                    Grid.Row="0"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="None"
+                                                                                    FontSize="10"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Datemonth}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+
+                                                                                <Label
+                                                                                    Grid.Row="1"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="None"
+                                                                                    FontSize="18"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Dateday}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+                                                                            </Grid>
+                                                                        </Border>
+                                                                    </ViewCell>
+                                                                </DataTemplate>
+                                                            </syncfusion:SfListView.ItemTemplate>
+                                                            <syncfusion:SfListView.SelectedItemTemplate>
+                                                                <DataTemplate>
+                                                                    <ViewCell>
+                                                                        <Border
+                                                                            Margin="10,5,10,5"
+                                                                            Padding="10"
+                                                                            BackgroundColor="#ccebf9"
+                                                                            Stroke="#009fe3"
+                                                                            StrokeShape="RoundRectangle 10">
+                                                                            <Grid HorizontalOptions="FillAndExpand">
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                    <RowDefinition Height="Auto" />
+                                                                                </Grid.RowDefinitions>
+
+
+
+                                                                                <Label
+                                                                                    Grid.Row="0"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="Bold"
+                                                                                    FontSize="10"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Datemonth}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+
+                                                                                <Label
+                                                                                    Grid.Row="1"
+                                                                                    Margin="0,-5,0,0"
+                                                                                    FontAttributes="Bold"
+                                                                                    FontSize="18"
+                                                                                    HorizontalOptions="Center"
+                                                                                    Text="{Binding Dateday}"
+                                                                                    TextColor="Black"
+                                                                                    VerticalOptions="Start" />
+                                                                            </Grid>
+                                                                        </Border>
+                                                                    </ViewCell>
+                                                                </DataTemplate>
+                                                            </syncfusion:SfListView.SelectedItemTemplate>
+                                                        </local:ExtendedSFListview>
+
+
+
+                                                        <Label
+                                                            Margin="10,10,0,0"
+                                                            FontAttributes="Bold"
+                                                            FontSize="14"
+                                                            HorizontalOptions="Start"
+                                                            IsVisible="{Binding AddVisible2}"
+                                                            Text="{Binding Addquestion2}"
+                                                            TextColor="Black"
+                                                            VerticalOptions="Start" />
+
+                                                        <local:ExtendedEntry
+                                                            Margin="10,0,10,0"
+                                                            BackgroundColor="#EFF0F7"
+                                                            Completed="ExtendedEntry_Completed"
+                                                            IDValue="{Binding Id}"
+                                                            IsVisible="{Binding AddVisible2}"
+                                                            Keyboard="Text"
+                                                            Placeholder="Enter Countries"
+                                                            Text="{Binding Aqentry}"
+                                                            TextChanged="ExtendedEntry_TextChanged_1"
+                                                            TextColor="Black" />
+
+
+
+
+
+                                                    </StackLayout>
+
+                                                    <StackLayout IsVisible="{Binding TypeSSNumeric}">
+
+
+                                                        <syncfusion1:SfRadioGroup HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                                            <local:ExtendedRadioButton
+                                                                Margin="0,0,5,0"
+                                                                CheckedColor="#0F9FE2"
+                                                                FontSize="12"
+                                                                IDValue="{Binding Id}"
+                                                                IsChecked="{Binding Ischecked0}"
+                                                                StateChanged="ExtendedRadioButton_StateChanged"
+                                                                Text="{Binding Value0}"
+                                                                TextColor="Gray" />
+                                                            <local:ExtendedRadioButton
+                                                                Margin="0,0,5,0"
+                                                                CheckedColor="#0F9FE2"
+                                                                FontSize="12"
+                                                                IDValue="{Binding Id}"
+                                                                IsChecked="{Binding Ischecked1}"
+                                                                StateChanged="SfRadioButton_StateChanged1"
+                                                                Text="{Binding Value1}"
+                                                                TextColor="Gray" />
+                                                            <local:ExtendedRadioButton
+                                                                Margin="0,0,5,0"
+                                                                CheckedColor="#0F9FE2"
+                                                                FontSize="12"
+                                                                IDValue="{Binding Id}"
+                                                                IsChecked="{Binding Ischecked2}"
+                                                                StateChanged="SfRadioButton_StateChanged2"
+                                                                Text="{Binding Value2}"
+                                                                TextColor="Gray" />
+                                                        </syncfusion1:SfRadioGroup>
+
+
+
+                                                        <Label
+                                                            Margin="10,10,0,0"
+                                                            FontAttributes="Bold"
+                                                            FontSize="14"
+                                                            HorizontalOptions="Start"
+                                                            IsVisible="{Binding AddVisible}"
+                                                            Text="{Binding Addquestion}"
+                                                            TextColor="Black"
+                                                            VerticalOptions="Start" />
+
+
+                                                        <local:ExtendedEntry
+                                                            Margin="10,0,10,0"
+                                                            BackgroundColor="#EFF0F7"
+                                                            Completed="ExtendedEntry_Completed"
+                                                            IDValue="{Binding Id}"
+                                                            IsVisible="{Binding AddVisible}"
+                                                            Keyboard="Numeric"
+                                                            Placeholder="Enter Days"
+                                                            Text="{Binding Aqentry}"
+                                                            TextColor="Black" />
+
+
+
+
+
+                                                    </StackLayout>
+
+
+
+                                                    <!--  Type Header Info  -->
+                                                    <StackLayout IsVisible="{Binding Headerinfo}">
+
+                                                        <Label
+                                                            Margin="10,0,10,0"
+                                                            FontAttributes="Bold"
+                                                            FontSize="14"
+                                                            Text="{Binding Headertext}"
+                                                            TextColor="Black" />
+
+                                                        <BoxView
+                                                            Margin="10,0,10,0"
+                                                            HeightRequest="2"
+                                                            HorizontalOptions="FillAndExpand"
+                                                            Color="#009fe3" />
+
+                                                    </StackLayout>
+
+                                                    <!--<BoxView HeightRequest="2" Color="LightGray" Margin="50,30,50,30" />-->
+
+
+                                                </StackLayout>
+                                            </Border>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+
+
+                            </syncfusion:SfListView>
+
+                            <Button
+                                x:Name="savebutton"
+                                Margin="20,20,20,20"
+                                BackgroundColor="#0F9FE2"
+                                Clicked="Button_Clicked_1"
+                                FontAttributes="Bold"
+                                Text="Submit"
+                                TextColor="White" />
+
+
+
+
+                        </StackLayout>
+
+
+                        <StackLayout
+                            x:Name="successstack"
+                            BackgroundColor="White"
+                            IsVisible="false"
+                            VerticalOptions="FillAndExpand">
+
+
+                            <Image
+                                Margin="0,0,0,0"
+                                BackgroundColor="White"
+                                HorizontalOptions="FillAndExpand"
+                                Source="confettiebackground.png"
+                                VerticalOptions="StartAndExpand" />
+
+                            <Image
+                                x:Name="completeimg"
+                                Margin="0,30,0,0"
+                                HeightRequest="100"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="100" />
+                            <Label
+                                x:Name="completetext"
+                                Margin="0,0,0,0"
+                                FontAttributes="Bold"
+                                FontSize="22"
+                                HorizontalOptions="Center"
+                                TextColor="Black" />
+
+                            <Label
+                                Margin="20,0,20,0"
+                                FontAttributes="None"
+                                FontSize="14"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="If you have had a positive incident, your GP will review the report and invite you to collect a sample kit. You will receive a notification and email. If you have already sent a poo (stool) sample within the last 3 weeks (21 days) please do not send another sample. &#10;Thank you if you have already provided a sample. &#10;Thank you for taking part in the IID3 Study. "
+                                TextColor="Black" />
+
+
+                            <!--<Label Text="Questionnaire Complete"   HorizontalOptions="Center" Margin="0,0,0,0" TextColor="Black" FontSize="24" FontAttributes="Bold"></Label>-->
+
+
+                            <BoxView
+                                Margin="0,10,0,10"
+                                HeightRequest="1"
+                                HorizontalOptions="CenterAndExpand"
+                                IsVisible="false"
+                                Color="LightGray" />
+
+                            <Label
+                                x:Name="scorelbl"
+                                Margin="0,0,0,0"
+                                FontAttributes="None"
+                                FontSize="18"
+                                HorizontalOptions="Center"
+                                IsVisible="false"
+                                Text="Your Score"
+                                TextColor="Black" />
+
+                            <Button
+                                x:Name="scorebtn"
+                                BackgroundColor="Transparent"
+                                BorderColor="#0F9FE2"
+                                BorderWidth="2"
+                                CornerRadius="35"
+                                FontAttributes="Bold"
+                                FontSize="26"
+                                HeightRequest="70"
+                                HorizontalOptions="Center"
+                                IsVisible="false"
+                                Text="18"
+                                TextColor="Black"
+                                WidthRequest="70" />
+
+                            <BoxView
+                                x:Name="scoreline"
+                                Margin="0,10,0,10"
+                                HeightRequest="1"
+                                HorizontalOptions="CenterAndExpand"
+                                IsVisible="false"
+                                Color="LightGray" />
+
+
+                            <Grid Margin="0,20,0,0" IsVisible="false">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70*" />
+                                    <ColumnDefinition Width="30*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Margin="0,0,0,20"
+                                    FontAttributes="None"
+                                    FontSize="18"
+                                    HorizontalOptions="End"
+                                    Text="Completed Questions"
+                                    TextColor="Black" />
+
+                                <Label
+                                    x:Name="completedquestioncount"
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Margin="0,0,0,0"
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    HorizontalOptions="Start"
+                                    TextColor="Black" />
+
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Margin="0,20,0,20"
+                                    FontAttributes="None"
+                                    FontSize="18"
+                                    HorizontalOptions="End"
+                                    Text="Missed Questions"
+                                    TextColor="Black" />
+
+                                <Label
+                                    x:Name="notcompletedquestioncount"
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Margin="0,20,0,0"
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    HorizontalOptions="Start"
+                                    TextColor="Black" />
+
+
+                            </Grid>
+
+
+                            <Button
+                                Margin="20,50,20,0"
+                                BackgroundColor="#0F9FE2"
+                                Clicked="Button_Clicked"
+                                FontAttributes="Bold"
+                                Text="Got it!"
+                                TextColor="White"
+                                VerticalOptions="End" />
+
+
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

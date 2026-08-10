@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.NoInternetPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Background="White"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="*, Auto">
+
+        <Image
+            Grid.RowSpan="2"
+            Aspect="AspectFill"
+            Source="pwregbackgroundlight.png" />
+
+
+        <VerticalStackLayout
+            Grid.Row="0"
+            Padding="30,0"
+            Spacing="16"
+            VerticalOptions="Center">
+
+
+            <Border
+                BackgroundColor="#10031926"
+                HeightRequest="120"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 60"
+                StrokeThickness="0"
+                WidthRequest="120">
+                <Image
+                    HeightRequest="64"
+                    HorizontalOptions="Center"
+                    Source="nowifi.png"
+                    VerticalOptions="Center"
+                    WidthRequest="64" />
+            </Border>
+
+
+            <Label
+                Margin="0,12,0,0"
+                FontAttributes="Bold"
+                FontFamily="OpenSansSemiBold"
+                FontSize="26"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="No Internet Connection"
+                TextColor="#031926" />
+
+
+            <Label
+                FontFamily="OpenSamsRegular"
+                FontSize="15"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                LineBreakMode="WordWrap"
+                Opacity="0.75"
+                Text="Looks like there is a problem with your connection. Please check your Wi-Fi or cellular network and try again."
+                TextColor="#031926" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout
+            Grid.Row="1"
+            Padding="24,0,24,32"
+            Spacing="12">
+
+            <Button
+                BackgroundColor="#009fe3"
+                CornerRadius="18"
+                FontAttributes="Bold"
+                FontFamily="OpenSansSemiBold"
+                FontSize="16"
+                HeightRequest="52"
+                HorizontalOptions="Fill"
+                Text="Try Again"
+                TextColor="White" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

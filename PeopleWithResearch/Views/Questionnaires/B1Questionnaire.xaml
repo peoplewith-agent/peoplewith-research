@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.B1Questionnaire"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:PeopleWithResearch"
+    BackgroundColor="#f5f5f5"
+    HideSoftInputOnTapped="True">
+
+    <ContentPage.Resources>
+
+        <DataTemplate x:Key="DropdownTemplate">
+            <Border
+                Margin="0,10,0,0"
+                BackgroundColor="White"
+                HorizontalOptions="Fill"
+                Stroke="{Binding ColourBorder}"
+                StrokeShape="RoundRectangle 10"
+                StrokeThickness="2">
+                <StackLayout Margin="10" Spacing="2">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="10"
+                        Text="{Binding questionnum}"
+                        TextColor="#009fe3" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="14"
+                        Text="{Binding label}"
+                        TextColor="#031926" />
+                    <Label
+                        FontSize="12"
+                        Text="{Binding placeholder}"
+                        TextColor="Gray" />
+
+                    <StackLayout Margin="0,10,0,0" BindableLayout.ItemsSource="{Binding options}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Margin="0,5"
+                                    Stroke="#f1f1f1"
+                                    StrokeShape="RoundRectangle 10"
+                                    StrokeThickness="1">
+                                    <local:MauiRadioButton
+                                        Margin="5,5,10,5"
+                                        Background="Transparent"
+                                        CheckedColor="#009fe3"
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="12"
+                                        IDValue="{Binding answerid}"
+                                        IsChecked="{Binding selected, Mode=TwoWay}"
+                                        MinimumHeightRequest="42"
+                                        StateChanged="MauiRadio_StateChanged"
+                                        Text="{Binding text}"
+                                        TextColor="#031926" />
+                                </Border>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </StackLayout>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="MultiTemplate">
+            <Border
+                Margin="0,10,0,0"
+                BackgroundColor="White"
+                HorizontalOptions="Fill"
+                Stroke="{Binding ColourBorder}"
+                StrokeShape="RoundRectangle 10"
+                StrokeThickness="2">
+                <StackLayout Margin="10" Spacing="2">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="10"
+                        Text="{Binding questionnum}"
+                        TextColor="#009fe3" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="14"
+                        Text="{Binding label}"
+                        TextColor="#031926" />
+                    <Label
+                        FontSize="12"
+                        Text="{Binding placeholder}"
+                        TextColor="Gray" />
+
+                    <VerticalStackLayout Margin="0,10,0,0" BindableLayout.ItemsSource="{Binding options}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <local:ExtendedCheckbox
+                                    Margin="0,5"
+                                    Background="#F8F9FA"
+                                    CheckedColor="#009FE3"
+                                    FontAttributes="Bold"
+                                    FontFamily="OpenSansSemi"
+                                    FontSize="12"
+                                    HeightRequest="42"
+                                    HorizontalOptions="Fill"
+                                    IDValue="{Binding answerid}"
+                                    IsChecked="{Binding selected, Mode=TwoWay}"
+                                    StateChanged="ExtendedCheckbox_StateChanged"
+                                    Text="{Binding text}"
+                                    TextColor="#031926"
+                                    TickColor="#009FE3">
+                                    <local:ExtendedCheckbox.Triggers>
+                                        <DataTrigger
+                                            Binding="{Binding selected}"
+                                            TargetType="local:ExtendedCheckbox"
+                                            Value="True">
+                                            <Setter Property="Background" Value="#E6F1FB" />
+                                        </DataTrigger>
+                                    </local:ExtendedCheckbox.Triggers>
+                                </local:ExtendedCheckbox>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                </StackLayout>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PictureTemplate">
+            <Border
+                Margin="0,10,0,0"
+                BackgroundColor="White"
+                HorizontalOptions="Fill"
+                Stroke="{Binding ColourBorder}"
+                StrokeShape="RoundRectangle 10"
+                StrokeThickness="2">
+                <StackLayout Margin="10" Spacing="10">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="10"
+                        Text="{Binding questionnum}"
+                        TextColor="#009fe3" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="14"
+                        Text="{Binding label}"
+                        TextColor="#031926" />
+
+                    <Image
+                        Aspect="AspectFit"
+                        HeightRequest="350"
+                        IsVisible="{Binding HasImage}"
+                        Source="{Binding LocalImagePath}" />
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <Button
+                            Grid.Column="0"
+                            BackgroundColor="#e5f5fc"
+                            BorderColor="#009fe3"
+                            BorderWidth="2"
+                            Clicked="TakePhoto_Clicked"
+                            CornerRadius="8"
+                            Text="Take Photo"
+                            TextColor="#009fe3" />
+                        <Button
+                            Grid.Column="1"
+                            BackgroundColor="#e5e9ed"
+                            BorderColor="#002a54"
+                            BorderWidth="2"
+                            Clicked="ChooseFromGallery_Clicked"
+                            CornerRadius="8"
+                            Text="Choose From Gallery"
+                            TextColor="#002a54" />
+                    </Grid>
+                </StackLayout>
+            </Border>
+        </DataTemplate>
+
+        <local:B1TemplateSelector
+            x:Key="B1Selector"
+            DropdownTemplate="{StaticResource DropdownTemplate}"
+            MultiTemplate="{StaticResource MultiTemplate}"
+            PictureTemplate="{StaticResource PictureTemplate}" />
+
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*">
+
+        <Grid x:Name="loadingstack" IsVisible="False">
+            <StackLayout VerticalOptions="Center">
+                <ActivityIndicator IsRunning="True" Color="LightBlue" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="12"
+                    HorizontalOptions="Center"
+                    Text="Loading Questionnaire..."
+                    TextColor="Black" />
+            </StackLayout>
+        </Grid>
+
+        <Grid
+            x:Name="datastack"
+            IsVisible="False"
+            RowDefinitions="*,Auto">
+
+            <ScrollView Grid.Row="0" Margin="10,10,10,0">
+                <ContentPresenter x:Name="ActiveQuestionPresenter" HorizontalOptions="Fill" />
+            </ScrollView>
+
+            <StackLayout
+                Grid.Row="1"
+                Padding="10,10,10,40"
+                Spacing="15">
+                <Label
+                    x:Name="FooterRequiredLabel"
+                    FontAttributes="Bold"
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="12"
+                    HorizontalOptions="End"
+                    IsVisible="False"
+                    Text="* Required"
+                    TextColor="Red" />
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <Button
+                        x:Name="FooterBackBtn"
+                        Grid.Column="0"
+                        BackgroundColor="#009FE3"
+                        Clicked="Backbtn_Clicked"
+                        CornerRadius="8"
+                        HeightRequest="44"
+                        Text="Back"
+                        TextColor="White" />
+                    <Button
+                        x:Name="FooterNextBtn"
+                        Grid.Column="1"
+                        BackgroundColor="#009FE3"
+                        Clicked="Nextbtn_Clicked"
+                        CornerRadius="8"
+                        HeightRequest="44"
+                        Text="Next"
+                        TextColor="White" />
+                </Grid>
+                <Button
+                    x:Name="FooterSubmitBtn"
+                    BackgroundColor="#0D4A87"
+                    Clicked="Submitbtn_Clicked"
+                    CornerRadius="8"
+                    HeightRequest="50"
+                    Text="Submit Questionnaire"
+                    TextColor="White" />
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

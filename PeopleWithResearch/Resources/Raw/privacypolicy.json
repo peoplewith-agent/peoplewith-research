@@ -1,0 +1,1281 @@
+{
+  "document": {
+    "id": "hopper-terms-privacy-v2",
+    "version": "v2.0 - August 2026",
+    "title": "Household Observation for Pandemic Preparedness and Emerging Respiratory Viruses Study - The 'HOPPER' Study",
+    "subtitle": "Terms and Conditions of Use, Privacy and Data Policy"
+  },
+  "sections": [
+    {
+      "id": "intro_hopper",
+      "type": "heading",
+      "text": "INTRODUCTION TO THE HOPPER STUDY",
+      "style": {
+        "fontSize": 20,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "q1",
+      "type": "subheading",
+      "text": "Why have I been invited?",
+      "style": {
+        "fontSize": 16,
+        "fontAttributes": "Bold",
+        "margin": "0,12,0,4"
+      }
+    },
+    {
+      "id": "sec_q1_p1",
+      "type": "paragraph",
+      "text": "You have been invited to take part in this research study because seasonal respiratory viruses such as flu (influenza), Respiratory Syncytial Virus (RSV), and human metapneumovirus (hMPV) and many others commonly circulate during the winter season.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q1_p2",
+      "type": "paragraph",
+      "text": "This study aims to improve understanding of respiratory viruses, including how they spread within households and how infections affect individuals. To do this, we are inviting households in advance so we can collect information both before any illness occurs and also begin sampling quickly if an infection develops.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q1_p3",
+      "type": "paragraph",
+      "text": "We will ask you to provide a number of different samples and some basic information about you and your household including whether or not you are experiencing any symptoms. Regardless of whether you become unwell during this study, your participation will help improve understanding of seasonal respiratory viruses, how the human immune system responds to infection, and support public health responses during an outbreak.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q1_p4",
+      "type": "paragraph",
+      "text": "Before you decide whether you want to participate, it is important that you understand why the research is being done and what the study will involve. Please take your time to read this information carefully and discuss it with others if you wish.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "callout_pis",
+      "type": "callout",
+      "text": "The full participant information sheet is available at: https://hopper.peoplewith.com/assets/HOPPER-PIS-Adult-CTPE-v.1.1.pdf or via the PeopleWith Research App.",
+      "style": {
+        "fontSize": 13,
+        "fontAttributes": "None",
+        "margin": "0,8,0,12",
+        "isAccentColor": false
+      }
+    },
+    {
+      "id": "q2",
+      "type": "subheading",
+      "text": "Who is organising and funding the research?",
+      "style": {
+        "fontSize": 16,
+        "fontAttributes": "Bold",
+        "margin": "0,12,0,4"
+      }
+    },
+    {
+      "id": "sec_q2_p1",
+      "type": "paragraph",
+      "text": "The research is funded by the National Institute of Health and Care Research (NIHR) Health Protection Research Unit (HPRU) in Respiratory Infections, a partnership between Imperial College London and the UK Health Security Agency (UKHSA). The study is being sponsored by Imperial College London.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q2_p2",
+      "type": "paragraph",
+      "text": "Your GP will receive monetary support for the additional costs associated with informing you about the study.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "q3",
+      "type": "subheading",
+      "text": "Who has reviewed the study?",
+      "style": {
+        "fontSize": 16,
+        "fontAttributes": "Bold",
+        "margin": "0,12,0,4"
+      }
+    },
+    {
+      "id": "sec_q3_p1",
+      "type": "paragraph",
+      "text": "The study has been reviewed by the study sponsor (Imperial College London). It has been approved by an independent research ethics committee (REC) and has also been approved by the NHS Research Governance and Integrity Team.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "q4",
+      "type": "subheading",
+      "text": "Do I have to take part?",
+      "style": {
+        "fontSize": 16,
+        "fontAttributes": "Bold",
+        "margin": "0,12,0,4"
+      }
+    },
+    {
+      "id": "sec_q4_p1",
+      "type": "paragraph",
+      "text": "No. Taking part in this study is entirely voluntary.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "Bold",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q4_p2",
+      "type": "paragraph",
+      "text": "If you decide to take part, you will be asked to sign a consent form. You can also access this information sheet online at any time from your study app, or from the study website homepage.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q4_p3",
+      "type": "paragraph",
+      "text": "Even after you agree to take part, you are free to withdraw at any time without giving a reason via the study app or, by contacting the study team by email at hopper-study@imperial.ac.uk. Choosing not to take part, or choosing to withdraw later, will not affect the standard of care you receive now or in the future.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "q5",
+      "type": "subheading",
+      "text": "What is the purpose of the study?",
+      "style": {
+        "fontSize": 16,
+        "fontAttributes": "Bold",
+        "margin": "0,12,0,4"
+      }
+    },
+    {
+      "id": "sec_q5_p1",
+      "type": "paragraph",
+      "text": "The purpose of this study is to improve our understanding of how seasonal respiratory viruses spread within households and how they affect people living together.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q5_p2",
+      "type": "paragraph",
+      "text": "Households are helpful for this research because infections can pass easily between people in close contact, allowing us to follow how illness develops over time.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q5_p3",
+      "type": "paragraph",
+      "text": "Although much is already known about these viruses, like flu (influenza), RSV, and hMPV, they change over time. By collecting biological and environmental samples, along with some basic health information from you and your household, we aim to monitor currently circulating strains and update what is known about symptoms, how long people may be infectious, how easily infection spreads, and what factors affect the chance of becoming infected. The samples we collect will also allow us to better understand how the human immune system broadly responds to infection.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "medical_disclaimer",
+      "type": "callout",
+      "text": "Before making any medical decisions, ALWAYS seek treatment advice or medical diagnosis directly from your Doctor or Health Care Professional.",
+      "style": {
+        "fontSize": 13,
+        "fontAttributes": "None",
+        "margin": "0,12,0,12",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "q6",
+      "type": "subheading",
+      "text": "Why have I been chosen?",
+      "style": {
+        "fontSize": 16,
+        "fontAttributes": "Bold",
+        "margin": "0,12,0,4"
+      }
+    },
+    {
+      "id": "sec_q6_p1",
+      "type": "paragraph",
+      "text": "You have been invited because we are approaching the winter season when seasonal respiratory viruses are most common. We are inviting people who live in households of three or more members so we can study how these infections spread and affect people in the community.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "q7",
+      "type": "subheading",
+      "text": "What will happen to me if I agree to take part?",
+      "style": {
+        "fontSize": 16,
+        "fontAttributes": "Bold",
+        "margin": "0,12,0,4"
+      }
+    },
+    {
+      "id": "sec_q7_p1",
+      "type": "paragraph",
+      "text": "This is an observational study, which means we will collect health-related information, samples and symptom information from you. We will not give you any treatment or alter your usual medical care.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q7_p2",
+      "type": "paragraph",
+      "text": "You will not need to visit a clinic. The study will take place entirely at your home, and you will be asked to collect some samples yourself. Everything you need to collect samples will be sent directly to your home. A courier will collect your samples and return them to the UK Health Security Agency (UKHSA) or Imperial College London facilities.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q7_p3",
+      "type": "paragraph",
+      "text": "More specific details of the enrolment process, and which samples to collect and when are given in the participant information sheet.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "q8",
+      "type": "subheading",
+      "text": "What do I have to do?",
+      "style": {
+        "fontSize": 16,
+        "fontAttributes": "Bold",
+        "margin": "0,12,0,4"
+      }
+    },
+    {
+      "id": "sec_q8_p1",
+      "type": "paragraph",
+      "text": "To take part in this study, you will need to follow the study procedures each day during the sampling period.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q8_p2",
+      "type": "paragraph",
+      "text": "You should carefully read the study materials provided in your sampling pack, including the instruction booklet and online video guidance, and follow these alongside prompts from the study app. It is important to complete each step as instructed to ensure your participation in the study is successful.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q8_p3",
+      "type": "paragraph",
+      "text": "You should continue to take any regular medications as prescribed and receive your usual medical care from your GP or healthcare team. If you have health concerns at any time, you should seek medical advice in the usual way. Nurses may check-in via text or call during the study to ensure you have the necessary support to enable you to engage with the study if you choose to take part.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q8_p4",
+      "type": "paragraph",
+      "text": "If you are taking part in another research study, please inform the study team, as this may affect your eligibility.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "q9",
+      "type": "subheading",
+      "text": "What are the possible disadvantages and risks of taking part?",
+      "style": {
+        "fontSize": 16,
+        "fontAttributes": "Bold",
+        "margin": "0,12,0,4"
+      }
+    },
+    {
+      "id": "sec_q9_p1",
+      "type": "paragraph",
+      "text": "Taking part in this study involves minimal risk.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q9_p2",
+      "type": "paragraph",
+      "text": "With your consent, we will access relevant information from your GP records using your NHS number. This information will be handled securely and pseudonymised (labelled with a code rather than your personal details), so the risk to your privacy is low. Further details are provided in the ‘Keeping Your Data Safe’ section.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q9_p3",
+      "type": "paragraph",
+      "text": "If you agree to self-collecting samples for this research study, there is a risk of some pain or discomfort during the sample collection procedure.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "q10",
+      "type": "subheading",
+      "text": "What are the possible benefits of taking part?",
+      "style": {
+        "fontSize": 16,
+        "fontAttributes": "Bold",
+        "margin": "0,12,0,4"
+      }
+    },
+    {
+      "id": "sec_q10_p1",
+      "type": "paragraph",
+      "text": "There is no direct benefit to your health from taking part in the study.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q10_p2",
+      "type": "paragraph",
+      "text": "The main benefit of taking part is indirect. The information collected in this study will help improve understanding of how respiratory infections spread, how they affect people, and how the body responds.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q10_p3",
+      "type": "paragraph",
+      "text": "This knowledge will support better public health responses to seasonal respiratory virus outbreaks and help improve preparedness for future outbreaks.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_q10_p4",
+      "type": "paragraph",
+      "text": "Taking part may also help with the early detection of a respiratory infection, which could support timely monitoring and appropriate care if needed.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "intro_peoplewith",
+      "type": "heading",
+      "text": "INTRODUCTION TO PEOPLEWITH RESEARCH",
+      "style": {
+        "fontSize": 20,
+        "fontAttributes": "Bold",
+        "margin": "0,20,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_pw_intro_p1",
+      "type": "paragraph",
+      "text": "Website and Application is owned and operated by PeopleWith. PeopleWith is a brand name of People With Limited, a company registered in Northern Ireland with company number NI648791 with registered offices at 18 Knocknamoe Park, Omagh, Co Tyrone, Northern Ireland, BT79 7LD.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_pw_intro_p2",
+      "type": "paragraph",
+      "text": "People With Limited (\"We\" or \"PeopleWith\") are committed to protecting and respecting your privacy.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "policy_summary",
+      "type": "heading",
+      "text": "POLICY SUMMARY",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_summary_p1",
+      "type": "paragraph",
+      "text": "The personal information you supply within the PeopleWith App remains within the PeopleWith App and is utilised for the purpose of personalisation within the App.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_summary_p2",
+      "type": "paragraph",
+      "text": "Personal information is securely stored and will not be sold or distributed.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "Bold",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_summary_p3",
+      "type": "paragraph",
+      "text": "PeopleWith Limited is a company incorporated in Northern Ireland (the Company).",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_summary_p4",
+      "type": "paragraph",
+      "text": "The following terms and conditions form part of the agreement between you the “User” of the PeopleWith application (“Application”) and the Company. This agreement also summarises how you may use the Application and how the Company may collect, receive, protect and utilise your information.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_summary_p5",
+      "type": "paragraph",
+      "text": "The Application is available to download via the Apple App Store and the Google Play Store. After downloading the Application, you will be required to create a user account which is specific to the Application. You will be sent confirmation of the registration process by email.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "right_to_use",
+      "type": "heading",
+      "text": "YOUR RIGHT TO USE THE PEOPLEWITH APPLICATION",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_rtu_p1",
+      "type": "paragraph",
+      "text": "By agreeing to these Terms and Conditions, the Company hereby grants you a non-exclusive, non-transferable right to use the Application, solely for your own personal purposes, subject to the terms and conditions of this Agreement. All rights not expressly granted to you are reserved by the Company.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_rtu_p2",
+      "type": "paragraph",
+      "text": "You may not access the Application if you are a direct competitor of the Company, except with the Company’s prior written consent. In addition, you may not access the Application for purposes of monitoring its availability, performance or functionality, or for any other benchmarking or competitive purposes.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_rtu_p3",
+      "type": "paragraph",
+      "text": "You shall not:",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,4"
+      }
+    },
+    {
+      "id": "sec_rtu_list1",
+      "type": "bullet_list",
+      "text": "license, sublicense, sell, resell, transfer, assign, distribute or otherwise commercially exploit or make available to any third party the Application or the content in any way;\nmodify or make derivative works based upon the Application or the content;\ncreate Internet 'links' to the Application or 'frame' or 'mirror' any Application content on any other server or wireless or Internet-based device; or\nreverse engineer or access the Application in order to (a) build a competitive product or service, (b) build a product using similar ideas, features, functions or graphics of the Application, or (c) copy any ideas, features, functions or graphics of the Application.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "12,0,0,8"
+      }
+    },
+    {
+      "id": "sec_rtu_p4",
+      "type": "paragraph",
+      "text": "You may use the Application only for your own personal purposes and shall not:",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,4,0,4"
+      }
+    },
+    {
+      "id": "sec_rtu_list2",
+      "type": "bullet_list",
+      "text": "send spam or otherwise duplicative or unsolicited messages in violation of applicable laws;\nsend or store infringing, obscene, threatening, libellous, or otherwise unlawful material, including material or in violation of third party privacy rights;\nsend or store material containing software viruses, worms, Trojan horses or other harmful computer code, files, scripts, agents or programs;\ninterfere with or disrupt the integrity or performance of the Application or the data contained there in; or\nattempt to gain unauthorised access to the Service or its related systems or networks.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "12,0,0,8"
+      }
+    },
+    {
+      "id": "responsibilities",
+      "type": "heading",
+      "text": "YOUR RESPONSIBILITIES",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_resp_p1",
+      "type": "paragraph",
+      "text": "You are responsible for all activity occurring under your User account and shall abide by all applicable local, state, national and foreign laws, treaties and regulations in connection with your use of the Application, including those related to data privacy, international communications and the transmission of technical or personal data. You shall:",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,4"
+      }
+    },
+    {
+      "id": "sec_resp_list",
+      "type": "bullet_list",
+      "text": "notify Company immediately of any unauthorised use of any password or account or any other known or suspected breach of security;\nreport to Company immediately and use reasonable efforts to stop immediately any copying or distribution of Content that is known or suspected by you; and\nnot impersonate another User or provide false identity information to gain access to or use the Application.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "12,0,0,8"
+      }
+    },
+    {
+      "id": "ip_ownership",
+      "type": "heading",
+      "text": "INTELLECTUAL PROPERTY OWNERSHIP",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_ip_p1",
+      "type": "paragraph",
+      "text": "The Company alone shall own all right, title and interest, including all related Intellectual Property Rights, in and to the Company technology, content and the Application and any suggestions, ideas, enhancement requests, feedback, recommendations or other information provided by you or any other party relating to the Application. This Agreement is not a sale and does not convey to you any rights of ownership in or related to the Application, the or the Intellectual Property Rights owned by the Company. The Company name, the Company logo, and the product names associated with the Application are trademarks of the Company, and no right or license is granted to use them.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "account_info_data",
+      "type": "heading",
+      "text": "ACCOUNT INFORMATION AND DATA",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_aid_p1",
+      "type": "paragraph",
+      "text": "The Company respects the privacy and confidentiality of all users who engage with the Application, Organisation, Marketing or Projects.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_aid_p2",
+      "type": "paragraph",
+      "text": "For the purposes of applicable data protection laws, The Company is the Data processor for the purposes described in this policy. You, the user, remain the Data Controller.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_aid_p3",
+      "type": "paragraph",
+      "text": "The Company adheres to the seven key principles that underpin Data Protection legislation:",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,4"
+      }
+    },
+    {
+      "id": "sec_aid_list",
+      "type": "bullet_list",
+      "text": "Lawfulness, fairness and transparency\nPurpose limitation\nData minimisation\nAccuracy\nStorage limitation\nIntegrity and confidentiality (security)\nAccountability",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "12,0,0,8"
+      }
+    },
+    {
+      "id": "sec_aid_p4",
+      "type": "paragraph",
+      "text": "These principles are central to how the Company, manage, store and process data.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,4,0,8"
+      }
+    },
+    {
+      "id": "sec_aid_p5",
+      "type": "paragraph",
+      "text": "The Company strives to ensure that all data that is shared with us or within the Application is treated with respect for personal, and client, privacy and protected in line with all our legal responsibilities and recognised best practice standards and processes.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_aid_p6",
+      "type": "paragraph",
+      "text": "The Company will only collect the minimum levels of personal data necessary to support operational processes and functionality within the Application and will only use your personal data as described within this policy or applicable consent provided as part of a project where a sign-up code is entered within the Application.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_aid_p7",
+      "type": "paragraph",
+      "text": "Protecting your privacy important to us. For that reason, any of your personal data will only be collected, stored and processed by the Application in compliance with the General Data Protection Regulation 2016/679 (“GDPR”) and Data (Use and Access) Act 2025 (DUAA).",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "info_provided_hopper",
+      "type": "heading",
+      "text": "INFORMATION YOU PROVIDE FOR THE HOPPER STUDY",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_iph_p1",
+      "type": "paragraph",
+      "text": "You may give the Study Sponsor information about yourself by when you register for an account in respect of the Application. The information you give the Study Sponsor may include:",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,4"
+      }
+    },
+    {
+      "id": "sec_iph_list",
+      "type": "bullet_list",
+      "text": "Email Address (Required)\nPassword (Required)\nGender (Required)\nNHS Number (Required)\nAge/Date of Birth (or age-range) (Required)\nFull Name (Required)\nAddress, Town or City, Postcode (Required)\nRace/Ethnicity (Required)\nPhone number (Required)\nCommunication Preferences (Optional)\nFeedback on your medical history (Optional)",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "12,0,0,8"
+      }
+    },
+    {
+      "id": "sec_iph_p2",
+      "type": "paragraph",
+      "text": "The minimum level of data required to register for the study on the PeopleWith Research App includes, email address, password, date of birth and gender. We need your date of birth to ensure you are of legal age to use the service in your jurisdiction, and your gender to tailor your experience and access to resources.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,4,0,8"
+      }
+    },
+    {
+      "id": "sec_iph_p3",
+      "type": "paragraph",
+      "text": "Should the purpose of data collection change, you will be informed and opt-in consent re-obtained.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_iph_p4",
+      "type": "paragraph",
+      "text": "Personally Identifiable Information is never accessed by the Company and is utilised for the purposes of personalisation within the Application. In certain circumstances and dependant on Application functionality, consent is required for you to share your information outside of the Application. Consent will be requested and recorded for information governance, auditing and validation.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_iph_p5",
+      "type": "paragraph",
+      "text": "Contact and personal information will not be utilised by the Company for any other reason than explicitly outlined and will not be shared with any Third Parties.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_iph_p6",
+      "type": "paragraph",
+      "text": "Visiting the Application, sending us emails, and completing in-app registration constitutes electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically, via email and on the Application, satisfy any legal requirement that such communication be in writing (See: Marketing Activities).",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_iph_p7",
+      "type": "paragraph",
+      "text": "All information you supply remains anonymous, safe and secure. The only information that will be used by the Company will be the anonymised information based on your health profile and treatment outcomes.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_iph_p8",
+      "type": "paragraph",
+      "text": "You acknowledge and accept that the Company owns all right, title and interest in and to any data derived by the Company from the Application from such anonymised data.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_iph_p9",
+      "type": "paragraph",
+      "text": "Users have rights to their data which the Company must respect and comply with to the best of our ability. The Company must ensure individuals can exercise their rights in the following ways in accordance with GDPR:",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,4"
+      }
+    },
+    {
+      "id": "sec_iph_kv_rights",
+      "type": "paragraph",
+      "text": "Right to be informed: Keeping a record of how the Company uses personal data to demonstrate compliance with the need for accountability and transparency.\n\nRight of access: Enabling Users to access their personal data and supplementary information. Allowing individuals to be aware of and verify the lawfulness of the processing activities.\n\nRight to rectification: The Company must rectify or amend the personal data of the individual if requested because it is inaccurate or incomplete. This must be done without delay, and no later than one month.\n\nRight to erasure: Individuals have a right to have their data erased and for processing to cease. The User has the right to delete or remove individual personal data any time. The User can remove their data by deleting their profile in the Application.\n\nRight to restrict processing: The Company must comply with any User request to restrict, block, or otherwise suppress the processing of personal. The Company is permitted to store personal data if it has been restricted, but not process it further.\n\nRight to object: The Company respects the right of an individual to object to data processing based on legitimate interest or the performance of a public interest task. The Company respects the right of an individual to object to direct marketing, including profiling.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "8,0,0,8"
+      }
+    },
+    {
+      "id": "callout_dpo",
+      "type": "callout",
+      "text": "Data Access Requests: You (the User) have the right to request access to your data please place your request in an email to dpo@peoplewith.com quoting “Right of Access” in the email subject line. The Company will endeavour to respond to your request within 7 working days.",
+      "style": {
+        "fontSize": 13,
+        "fontAttributes": "None",
+        "margin": "0,8,0,8",
+        "isAccentColor": false
+      }
+    },
+    {
+      "id": "sec_iph_p10",
+      "type": "paragraph",
+      "text": "We do not knowingly collect Personal Data online from individuals under 18. If you become aware that a child has provided us with Personal Data without parental consent, please contact us at: support@peoplewith.com. If we become aware that an individual under 18 has provided us with Personal Data without parental consent, we will take steps to remove the data and cancel that individual’s account.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "more_info_usage",
+      "type": "heading",
+      "text": "WHERE CAN I FIND OUT MORE ABOUT HOW YOUR INFORMATION IS USED?",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_miu_p1",
+      "type": "paragraph",
+      "text": "You can find out more about how we use your information, including the specific mechanism used by us when transferring your personal data out of the UK:",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,4"
+      }
+    },
+    {
+      "id": "sec_miu_list",
+      "type": "bullet_list",
+      "text": "at www.hra.nhs.uk/information-about-patients/\nby asking one of the research team\nby sending an email to the principal investigator: a.lalvani@imperial.ac.uk\nby going to our website: https://www.imperial.ac.uk/medicine/nihr-hpru-respiratoryinfections/research-themes/pandemic-preparedness/",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "12,0,0,8"
+      }
+    },
+    {
+      "id": "automatically_shared_data",
+      "type": "heading",
+      "text": "AUTOMATICALLY SHARED DATA",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_asd_p1",
+      "type": "paragraph",
+      "text": "Data automatically captured by the Company’s Web and Application is anonymised and utilised for the purposes outlined below:",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,4"
+      }
+    },
+    {
+      "id": "sec_asd_list",
+      "type": "bullet_list",
+      "text": "Usage data from use of the web and application including information about your device, information about your visit and how you use the web or application.\nAnalytics including bug reporting and problem identification.\nService improvements and product development.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "12,0,0,8"
+      }
+    },
+    {
+      "id": "sec_asd_p2",
+      "type": "paragraph",
+      "text": "You (the User) are not able to opt out of automatically shared data because data collected is anonymised and aggregated for service improvements. Individual data cannot be identified and therefore cannot be removed from aggregated service improvement analytics.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,4,0,8"
+      }
+    },
+    {
+      "id": "marketing",
+      "type": "heading",
+      "text": "MARKETING ACTIVITIES",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_mkt_p1",
+      "type": "paragraph",
+      "text": "The Company do not utilise or share any information you supply to inform marketing activities by Third Parties. The Company may from time to time communicate with you via email for the purposes outlined below:",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,4"
+      }
+    },
+    {
+      "id": "sec_mkt_list",
+      "type": "bullet_list",
+      "text": "Health related research.\nNotifications on changes to the Terms and Conditions of Use, Privacy and Data Policy.\nNewsletter containing New Features and Product Development Announcements.\nCompany Specific Events related to your profile.\nOther products or services supplied by the Company.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "12,0,0,8"
+      }
+    },
+    {
+      "id": "sec_mkt_p2",
+      "type": "paragraph",
+      "text": "You (the User) have the ability to opt out of all marketing activities above, apart from “Notifications on changes to the Terms and Conditions of Use and Data Policy” because changes must be agreed to in order to continue the use of the service.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,4,0,8"
+      }
+    },
+    {
+      "id": "sec_mkt_p3",
+      "type": "paragraph",
+      "text": "To opt out, please email: info@peoplewith.com with “Unsubscribe” in the subject line. Please contact us at: support@peoplewith.com if you require any assistance with unsubscribing. The Company will endeavour to respond to your request within 7 working days.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "data_retention_security",
+      "type": "heading",
+      "text": "DATA RETENTION, SECURITY AND STORAGE",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_drs_p1",
+      "type": "paragraph",
+      "text": "The Company retains the data you the user input into the Application for the term and duration of use of the Application in order to ensure normal Application functionality. Upon termination of Application usage the Company will retain data for a period of two years unless specifically requested to erase the data under data protection laws.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_drs_p2",
+      "type": "paragraph",
+      "text": "On the event that you the user decide to delete your Account via the Application, systematic processes will permanently delete all data within forty eight hours. Deletion process cannot be reverse once implemented.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_drs_p3",
+      "type": "paragraph",
+      "text": "The Company utilise ISO27001 certified cloud computing platform Microsoft Azure as its cloud storage provide. Adequate organisational and technical safeguards are implemented to ensure data security.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_drs_p4",
+      "type": "paragraph",
+      "text": "Data is encrypted at all stages within the PeopleWith Platform, in-flight and at rest. Data encryption is implemented in the following ways:",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,4"
+      }
+    },
+    {
+      "id": "sec_drs_kv_encryption",
+      "type": "paragraph",
+      "text": "Transparent Data Encryption: Data moving through PeopleWith’s Platform, from Azure Storage and Databases to the front end of the User Interface, is encrypted utilizing Azure’s Transparent Data Encryption protocols. When data arrives at is destination, it is unencrypted and presented accordingly.\n\nDatabase Encryption: Data stored in a rest state in PeopleWith’s databases are encrypted with Database Encryption Keys implemented, dynamically rotated & updated on a period basis to ensure maximum defence against data breach.\n\nIn-Flight Encryption: Data is encrypted in-flight utilising Organisation Level Domain Verification Secure Socket Layer (SSL) for maximum verification and security to facilitate the processing of data through the internet.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "8,0,0,8"
+      }
+    },
+    {
+      "id": "sec_drs_p5",
+      "type": "paragraph",
+      "text": "We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorised way, altered or disclosed. In addition, we limit access to your data to those designated employees and contractors who have a business need to know. They will only process your data on instruction, and they are subject to a duty of confidentiality.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,4,0,8"
+      }
+    },
+    {
+      "id": "sec_drs_p6",
+      "type": "paragraph",
+      "text": "We have put in place procedures to deal with any suspected personal data breach and will notify you and The Information Commissioner’s Office of a breach where we are legally required to do so. Additionally, if you have the right to complain to the Information Commissioner’s Office whose details can be found at: https://ico.org.uk.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "termination",
+      "type": "heading",
+      "text": "TERMINATION",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_term_p1",
+      "type": "paragraph",
+      "text": "You, the User, are entitled to stop using the Application and to terminate this agreement at any time. To do this you must deactivate your account via the Application. This can be done by access the “Delete Account” option from “Profile”.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_term_p2",
+      "type": "paragraph",
+      "text": "In the event that you feel that you can no longer agree to the present Terms and Conditions you must stop using the Application immediately.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_term_p3",
+      "type": "paragraph",
+      "text": "The Company has the right to terminate this agreement by providing you with two weeks’ notice by email.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_term_p4",
+      "type": "paragraph",
+      "text": "Either party’s right to terminate the agreement for cause remain unaffected. Cause that entitles the Company to terminate the agreement may be, in particular but not exclusively, User violation under terms outlined in paragraph 2.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_term_p5",
+      "type": "paragraph",
+      "text": "If you the User or Company deactivates your User account or withdraws your right to access the Application, the Company will delete any personal data stored about you in accordance with our Privacy Policy.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_term_p6",
+      "type": "paragraph",
+      "text": "If we become aware that an individual under 18 has provided us with Personal Data without parental consent, we will take steps to remove the data and cancel that individual’s account.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "indemnification",
+      "type": "heading",
+      "text": "MUTUAL INDEMNIFICATION",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "callout_indem_warning",
+      "type": "callout",
+      "text": "The Application is not a medical diagnosis tool, nor does the Company claim that the Application be used as a diagnostic tool. If you have concerns regarding your health or are worried about the progression of symptoms you should seek professional medical advice.",
+      "style": {
+        "fontSize": 13,
+        "fontAttributes": "None",
+        "margin": "0,4,0,8",
+        "isAccentColor": false
+      }
+    },
+    {
+      "id": "sec_indem_p1",
+      "type": "paragraph",
+      "text": "You shall indemnify and hold the Company, its officers, directors, employees, attorneys and agents harmless from and against any and all claims, costs, damages, losses, liabilities and expenses (including attorneys' fees and costs) arising out of or in connection with: (i) a claim alleging that use of the your data infringes the rights of, or has caused harm to, a third party; (ii) a claim, which if true, would constitute a violation by you of your representations and warranties.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_indem_p2",
+      "type": "paragraph",
+      "text": "The Company shall indemnify and hold you harmless from and against any and all claims, costs, damages, losses, liabilities and expenses (including attorneys' fees and costs) arising out of or in connection with: (i) a claim alleging that the Application directly infringes copyright or trademark of a third party; (ii) a claim, which if true, would constitute a violation by the Company of its representations or warranties.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "modification",
+      "type": "heading",
+      "text": "MODIFICATION TO TERMS",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_mod_p1",
+      "type": "paragraph",
+      "text": "The Company reserves the right to modify the terms and conditions of this Agreement or its policies relating to the Application at any time, effective upon posting of an updated version of this Agreement on the Web or Application. You are responsible for regularly reviewing this Agreement. Continued use of the Application after any such changes shall constitute your consent to such changes.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_mod_p2",
+      "type": "paragraph",
+      "text": "Where the purpose of data collection or processing activities change, you will be informed via email and opt-in consent reobtained.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "general",
+      "type": "heading",
+      "text": "GENERAL",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_gen_p1",
+      "type": "paragraph",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of England.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "contact",
+      "type": "heading",
+      "text": "CONTACT",
+      "style": {
+        "fontSize": 18,
+        "fontAttributes": "Bold",
+        "margin": "0,16,0,8",
+        "isAccentColor": true
+      }
+    },
+    {
+      "id": "sec_cnt_p1",
+      "type": "paragraph",
+      "text": "If you have any questions about this Policy, please contact info@peoplewith.com. We will endeavour to respond to all requests within 7 working days.",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_cnt_p2",
+      "type": "paragraph",
+      "text": "The Company can be contacted by post at the registered address:\nPeopleWith Limited\n18 Knocknamoe Park,\nOmagh, Co. Tyrone,\nNorthern Ireland,\nBT79 7LD",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    },
+    {
+      "id": "sec_cnt_p3",
+      "type": "paragraph",
+      "text": "The Company Data Protection Officer can be contacted at the above address or:\nRobert Breslin\nData Protection Officer (DPO)\ndpo@peoplewith.com",
+      "style": {
+        "fontSize": 14,
+        "fontAttributes": "None",
+        "margin": "0,0,0,8"
+      }
+    }
+  ]
+}

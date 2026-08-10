@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.WithdrawVideoPopUp"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+
+        <!--<RelativeLayout>
+            <video:VideoPlayer PropertyChanged="videoPlayer_PropertyChanged" PlayError="videoPlayer_PlayError" PlayCompletion="videoPlayer_PlayCompletion" x:Name="videoPlayer" BackgroundColor="Black"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Status="{Binding Status, Mode=OneWay}" />
+
+            <ActivityIndicator RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5}"
+                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5}"
+                      HorizontalOptions="Center"
+                      VerticalOptions="Center"
+                      Color="White"
+                       x:Name="videoloader"
+                      BackgroundColor="Transparent"
+                      IsVisible="False">
+                <ActivityIndicator.Triggers>
+                    <DataTrigger TargetType="ActivityIndicator"
+                         Binding="{Binding Source={x:Reference videoPlayer}, Path=Status}"
+                         Value="{x:Static video:VideoStatus.NotReady}">
+                        <Setter Property="IsVisible" Value="True" />
+                        <Setter Property="IsRunning" Value="True" />
+                    </DataTrigger>
+
+                    <DataTrigger TargetType="ActivityIndicator"
+                         Binding="{Binding Source={x:Reference videoPlayer}, Path=IsBuffering}"
+                         Value="true">
+                        <Setter Property="IsVisible" Value="True" />
+                        <Setter Property="IsRunning" Value="True" />
+                    </DataTrigger>
+                </ActivityIndicator.Triggers>
+            </ActivityIndicator>
+
+
+        -->
+        <!--  StackLayout for Error Message  -->
+        <!--
+            <StackLayout Margin="0,20,0,20" x:Name="somethingwrong" IsVisible="false">
+
+                <Image Source="error.png" Margin="0,10,0,5"  VerticalOptions="CenterAndExpand" HeightRequest="50" WidthRequest="50"  HorizontalOptions="CenterAndExpand" />
+
+
+                <Label Text="Whoops! Something went wrong" HorizontalOptions="Center" Margin="0,0,0,0" TextColor="Black" FontSize="Small" FontAttributes="Bold"></Label>
+
+                <Label Text="Seems like something has gone wrong. Try restarting the PeopleWithResearch app or contact support@peoplewith.com" HorizontalOptions="Center" Margin="0,0,0,0" TextColor="Black" FontSize="Small" FontAttributes="None"></Label>
+
+
+                <Button BackgroundColor="#009fe3" Text="Ok" Clicked="btnwrong_Clicked"  x:Name="btnwrong" TextColor="White" FontAttributes="Bold" CornerRadius="10"  HeightRequest="40" WidthRequest="80" HorizontalOptions="FillAndExpand" Margin="20,20,20,0" IsVisible="true" />
+
+
+
+            </StackLayout>
+
+            <Button BackgroundColor="#009fe3"
+            Text="Close Video"
+            Clicked="Button_Clicked"
+            x:Name="closebutton"
+            IsVisible="false"
+            TextColor="White"
+            FontAttributes="Bold"
+            CornerRadius="5"
+            Margin="20,0,20,0"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=0}"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.79, Constant=25}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Center" />
+
+            <Button BackgroundColor="White"
+            Text="Proceed with Withdrawal"
+            Clicked="proceedbtn_Clicked"
+            x:Name="proceedbtn"
+            IsVisible="false"
+            TextColor="#009fe3"
+            FontAttributes="Bold"
+            CornerRadius="5"
+            Margin="20,0,20,0"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=0}"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85, Constant=25}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Center" />
+        </RelativeLayout>-->
+    </ContentPage.Content>
+</ContentPage>
+

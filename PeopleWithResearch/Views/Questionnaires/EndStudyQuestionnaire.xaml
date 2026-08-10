@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.EndStudyQuestionnaire"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BackgroundColor="#f8f9fb"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!--  Header  -->
+        <Grid
+            x:Name="HeaderView"
+            Grid.Row="0"
+            Padding="20,20,20,14"
+            BackgroundColor="White"
+            IsVisible="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--  Back button  -->
+            <StackLayout
+                x:Name="backbuttonstack"
+                Grid.Column="0"
+                IsVisible="False"
+                Orientation="Horizontal"
+                Spacing="6"
+                VerticalOptions="Center">
+                <Image
+                    HeightRequest="12"
+                    Source="back.png"
+                    VerticalOptions="Center"
+                    WidthRequest="15">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="#031926" />
+                    </Image.Behaviors>
+                </Image>
+                <Label
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="18"
+                    Text="Back"
+                    TextColor="#031926"
+                    VerticalOptions="Center" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BackButtonTapped_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <!--  Progress segments  -->
+            <StackLayout
+                Grid.Column="1"
+                HorizontalOptions="End"
+                Orientation="Horizontal"
+                Spacing="4"
+                VerticalOptions="Center">
+                <progressBar:SfLinearProgressBar
+                    x:Name="Seg1"
+                    HeightRequest="6"
+                    Maximum="100"
+                    Progress="0"
+                    ProgressCornerRadius="3"
+                    ProgressFill="#0D9488"
+                    ProgressHeight="6"
+                    TrackCornerRadius="3"
+                    TrackFill="#E2E8F0"
+                    TrackHeight="6"
+                    WidthRequest="55" />
+                <progressBar:SfLinearProgressBar
+                    x:Name="Seg2"
+                    HeightRequest="6"
+                    Maximum="100"
+                    Progress="0"
+                    ProgressCornerRadius="3"
+                    ProgressFill="#0D9488"
+                    ProgressHeight="6"
+                    TrackCornerRadius="3"
+                    TrackFill="#E2E8F0"
+                    TrackHeight="6"
+                    WidthRequest="55" />
+                <progressBar:SfLinearProgressBar
+                    x:Name="Seg3"
+                    HeightRequest="6"
+                    Maximum="100"
+                    Progress="0"
+                    ProgressCornerRadius="3"
+                    ProgressFill="#0D9488"
+                    ProgressHeight="6"
+                    TrackCornerRadius="3"
+                    TrackFill="#E2E8F0"
+                    TrackHeight="6"
+                    WidthRequest="55" />
+                <progressBar:SfLinearProgressBar
+                    x:Name="Seg4"
+                    HeightRequest="6"
+                    Maximum="100"
+                    Progress="0"
+                    ProgressCornerRadius="3"
+                    ProgressFill="#0D9488"
+                    ProgressHeight="6"
+                    TrackCornerRadius="3"
+                    TrackFill="#E2E8F0"
+                    TrackHeight="6"
+                    WidthRequest="55" />
+            </StackLayout>
+        </Grid>
+
+        <ScrollView x:Name="MainScroll" Grid.Row="1">
+            <StackLayout Spacing="0">
+
+                <!--  Loading  -->
+                <StackLayout
+                    x:Name="LoadingView"
+                    Padding="40"
+                    HorizontalOptions="Center"
+                    IsVisible="False"
+                    VerticalOptions="Center">
+                    <ActivityIndicator IsRunning="True" Color="#0D9488" />
+                    <Label
+                        Margin="0,12,0,0"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Text="Loading questionnaire..."
+                        TextColor="#62727B" />
+                </StackLayout>
+
+                <!--  Failed  -->
+                <StackLayout
+                    x:Name="FailedView"
+                    Padding="40"
+                    IsVisible="False"
+                    Spacing="14">
+                    <Label
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="Unable to load questionnaire"
+                        TextColor="#031926" />
+                    <Label
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Text="Please check your connection and try again."
+                        TextColor="#62727B" />
+                    <Button
+                        BackgroundColor="#0D9488"
+                        Clicked="OnTryAgainClicked"
+                        CornerRadius="10"
+                        FontFamily="OpenSansSemiBold"
+                        Text="Try Again"
+                        TextColor="White" />
+                </StackLayout>
+
+                <!--  Initial / Welcome page  -->
+                <StackLayout
+                    x:Name="InitialPage"
+                    Padding="20,60,20,30"
+                    IsVisible="False"
+                    Spacing="0">
+
+                    <Border
+                        Padding="20"
+                        BackgroundColor="#F0FDF9"
+                        Stroke="#0D9488"
+                        StrokeShape="RoundRectangle 16"
+                        StrokeThickness="2">
+                        <StackLayout Spacing="12">
+                            <Image
+                                HeightRequest="48"
+                                HorizontalOptions="Start"
+                                Source="endstudy.png"
+                                WidthRequest="48">
+                                <Image.Behaviors>
+                                    <toolkit:IconTintColorBehavior TintColor="#0D9488" />
+                                </Image.Behaviors>
+                            </Image>
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="12"
+                                Text="END OF STUDY"
+                                TextColor="#0D9488" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="24"
+                                LineBreakMode="WordWrap"
+                                Text="End of Study Questionnaire"
+                                TextColor="#042F2E" />
+                            <Label
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="14"
+                                LineBreakMode="WordWrap"
+                                Text="Thank you for taking part in the HOPPER Study. Before you finish, we would really appreciate it if you could complete this short questionnaire about your experience."
+                                TextColor="#134E4A" />
+                            <Label
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="13"
+                                LineBreakMode="WordWrap"
+                                Text="This should take no more than 5 minutes to complete. There are 4 sections."
+                                TextColor="#134E4A" />
+                        </StackLayout>
+                    </Border>
+
+                    <Button
+                        Margin="0,24,0,0"
+                        BackgroundColor="#0D9488"
+                        Clicked="Button_Clicked"
+                        CornerRadius="12"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="16"
+                        HeightRequest="52"
+                        Text="Start Questionnaire"
+                        TextColor="White" />
+                </StackLayout>
+
+                <!--  Content  -->
+                <StackLayout
+                    x:Name="ContentView"
+                    Padding="20,16,20,0"
+                    IsVisible="False"
+                    Spacing="0">
+
+                    <!--  Section label  -->
+                    <Label
+                        x:Name="QuestionnaireTitleLabel"
+                        Margin="0,0,0,16"
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="20"
+                        LineBreakMode="WordWrap"
+                        TextColor="#031926" />
+
+                    <!--  Validation banner  -->
+                    <Border
+                        x:Name="ValidationBanner"
+                        Margin="0,0,0,12"
+                        Padding="14,10"
+                        BackgroundColor="#FEF2F2"
+                        IsVisible="False"
+                        Stroke="#FCA5A5"
+                        StrokeShape="RoundRectangle 8"
+                        StrokeThickness="1">
+                        <Label
+                            x:Name="ValidationText"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="13"
+                            LineBreakMode="WordWrap"
+                            TextColor="#B91C1C" />
+                    </Border>
+
+                    <!--  Section 1  -->
+                    <StackLayout
+                        x:Name="Sec1View"
+                        IsVisible="False"
+                        Spacing="0">
+                        <Label
+                            Margin="0,0,0,12"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="13"
+                            Text="Section 1 — Study Experience"
+                            TextColor="#0D9488" />
+                        <StackLayout x:Name="Sec1Container" Spacing="0" />
+                    </StackLayout>
+
+                    <!--  Section 2  -->
+                    <StackLayout
+                        x:Name="Sec2View"
+                        IsVisible="False"
+                        Spacing="0">
+                        <Label
+                            Margin="0,0,0,12"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="13"
+                            Text="Section 2 — Sampling Experience"
+                            TextColor="#0D9488" />
+                        <StackLayout x:Name="Sec2Container" Spacing="0" />
+                    </StackLayout>
+
+                    <!--  Section 3  -->
+                    <StackLayout
+                        x:Name="Sec3View"
+                        IsVisible="False"
+                        Spacing="0">
+                        <Label
+                            Margin="0,0,0,12"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="13"
+                            Text="Section 3 — Your Health Today"
+                            TextColor="#0D9488" />
+                        <StackLayout x:Name="Sec3Container" Spacing="0" />
+                    </StackLayout>
+
+                    <!--  Section 4  -->
+                    <StackLayout
+                        x:Name="Sec4View"
+                        IsVisible="False"
+                        Spacing="0">
+                        <Label
+                            Margin="0,0,0,12"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="13"
+                            Text="Section 4 — Final Comments"
+                            TextColor="#0D9488" />
+                        <StackLayout x:Name="Sec4Container" Spacing="0" />
+                    </StackLayout>
+
+                    <!--  Nav buttons  -->
+                    <StackLayout
+                        x:Name="SectionNavBar"
+                        Margin="0,16,0,30"
+                        Spacing="10">
+                        <Button
+                            x:Name="NextSectionBtn"
+                            BackgroundColor="#0D9488"
+                            Clicked="OnNextSectionClicked"
+                            CornerRadius="12"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="16"
+                            HeightRequest="52"
+                            IsVisible="True"
+                            Text="Continue"
+                            TextColor="White" />
+                        <Button
+                            x:Name="SubmitBtn"
+                            BackgroundColor="#0D9488"
+                            Clicked="OnSubmitClicked"
+                            CornerRadius="12"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="16"
+                            HeightRequest="52"
+                            IsVisible="False"
+                            Text="Submit Questionnaire"
+                            TextColor="White" />
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

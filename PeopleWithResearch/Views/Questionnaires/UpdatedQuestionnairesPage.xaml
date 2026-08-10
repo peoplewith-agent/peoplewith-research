@@ -1,0 +1,1005 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.UpdatedQuestionnairesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+    xmlns:data="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"
+    xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:local="clr-namespace:PeopleWithResearch"
+    xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    BackgroundColor="#f5f5f5"
+    HideSoftInputOnTapped="True">
+
+    <!--<ContentPage.Resources>
+
+        <DataTemplate x:Key="RadioTemplate">
+            <VerticalStackLayout Margin="0,10,0,0">
+                <Border
+                    BackgroundColor="White"
+                    HorizontalOptions="Fill"
+                    Stroke="White"
+                    StrokeShape="RoundRectangle 10"
+                    StrokeThickness="2">
+                    <VerticalStackLayout Margin="10" Spacing="2">
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="14"
+                            Text="{Binding label}"
+                            TextColor="#031926" />
+                        <VerticalStackLayout Margin="0,10,0,0" BindableLayout.ItemsSource="{Binding options}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Margin="0,5"
+                                        Background="#E6F1FB"
+                                        Stroke="#009FE3"
+                                        StrokeShape="RoundRectangle 10"
+                                        StrokeThickness="1.5">
+                                        <Grid Padding="20,0">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontFamily="OpenSansSemiBold"
+                                                FontSize="12"
+                                                LineBreakMode="WordWrap"
+                                                MinimumHeightRequest="40"
+                                                Text="{Binding text}"
+                                                TextColor="#031926"
+                                                VerticalOptions="Center"
+                                                VerticalTextAlignment="Center" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CheckTemplate">
+            <VerticalStackLayout Margin="0,10,0,0">
+                <Border
+                    BackgroundColor="White"
+                    HorizontalOptions="Fill"
+                    Stroke="White"
+                    StrokeShape="RoundRectangle 10"
+                    StrokeThickness="2"
+                    VerticalOptions="Fill">
+                    <Grid
+                        Margin="10"
+                        BackgroundColor="White"
+                        RowDefinitions="Auto, Auto">
+                        <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
+                            <Label
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="14"
+                                LineBreakMode="WordWrap"
+                                Text="{Binding label}"
+                                TextColor="#031926"
+                                VerticalOptions="Center" />
+                        </Grid>
+                        <VerticalStackLayout
+                            Grid.Row="1"
+                            Margin="0,10,0,0"
+                            BindableLayout.ItemsSource="{Binding options}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <local:ExtendedCheckbox
+                                        Margin="5,5,10,5"
+                                        Background="#E6F1FB"
+                                        CheckedColor="#009FE3"
+                                        FontAttributes="Bold"
+                                        FontAutoScalingEnabled="True"
+                                        FontFamily="OpenSansSemi"
+                                        FontSize="12"
+                                        HeightRequest="42"
+                                        HorizontalOptions="Fill"
+                                        IDValue="{Binding answerid}"
+                                        IsChecked="{Binding selectedms, Mode=TwoWay}"
+                                        LineBreakMode="WordWrap"
+                                        StateChanged="ExtendedCheckbox_StateChanged"
+                                        Text="{Binding text}"
+                                        TextColor="#031926"
+                                        TickColor="#009FE3" />
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SymptomTemplate">
+            <VerticalStackLayout Margin="0,12,0,0">
+                <Border
+                    BackgroundColor="#F8F9FA"
+                    HorizontalOptions="Fill"
+                    Stroke="{Binding ColourBorder}"
+                    StrokeShape="RoundRectangle 12"
+                    StrokeThickness="1">
+                    <VerticalStackLayout Padding="14,4,14,14" BindableLayout.ItemsSource="{Binding symptom_groups}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="local:SymptomGroup">
+                                <VerticalStackLayout Margin="0,12,0,0">
+                                    <Label
+                                        Margin="4,0,0,8"
+                                        CharacterSpacing="1"
+                                        FontAttributes="Bold"
+                                        FontFamily="OpenSansSemiBold"
+                                        FontSize="13"
+                                        Text="{Binding group}"
+                                        TextColor="#5A6A85" />
+                                    <VerticalStackLayout BindableLayout.ItemsSource="{Binding symptoms}" Spacing="0">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate x:DataType="local:Symptom">
+                                                <VerticalStackLayout Margin="0,2">
+                                                    <Border
+                                                        BackgroundColor="White"
+                                                        Stroke="#EAEFF4"
+                                                        StrokeShape="RoundRectangle 8"
+                                                        StrokeThickness="1">
+                                                        <Grid
+                                                            Padding="10,12"
+                                                            RowDefinitions="Auto, Auto"
+                                                            RowSpacing="10">
+                                                            <Label
+                                                                Grid.Row="0"
+                                                                FontAttributes="Bold"
+                                                                FontFamily="OpenSansSemiBold"
+                                                                FontSize="15"
+                                                                Text="{Binding label}"
+                                                                TextColor="#031926" />
+                                                            <FlexLayout
+                                                                Grid.Row="1"
+                                                                AlignContent="Start"
+                                                                AlignItems="Center"
+                                                                BindableLayout.ItemsSource="{Binding SymptomData}"
+                                                                Direction="Row"
+                                                                JustifyContent="Start"
+                                                                Wrap="Wrap">
+                                                                <BindableLayout.ItemTemplate>
+                                                                    <DataTemplate x:DataType="local:symptomdata">
+                                                                        <Border
+                                                                            Margin="0,0,8,6"
+                                                                            Padding="10,5"
+                                                                            BackgroundColor="{Binding colour}"
+                                                                            Stroke="{Binding colour}"
+                                                                            StrokeShape="RoundRectangle 20"
+                                                                            StrokeThickness="1">
+                                                                            <HorizontalStackLayout Spacing="5">
+                                                                                <Label
+                                                                                    FontFamily="OpenSansRegular"
+                                                                                    FontSize="11"
+                                                                                    Text="{Binding label}"
+                                                                                    TextColor="#2D3748"
+                                                                                    VerticalOptions="Center" />
+                                                                                <Label
+                                                                                    FontSize="11"
+                                                                                    Text="•"
+                                                                                    TextColor="#718096"
+                                                                                    VerticalOptions="Center" />
+                                                                                <Label
+                                                                                    FontAttributes="Bold"
+                                                                                    FontFamily="OpenSansSemiBold"
+                                                                                    FontSize="11"
+                                                                                    Text="{Binding text}"
+                                                                                    TextColor="#1A202C"
+                                                                                    VerticalOptions="Center" />
+                                                                            </HorizontalStackLayout>
+                                                                        </Border>
+                                                                    </DataTemplate>
+                                                                </BindableLayout.ItemTemplate>
+                                                            </FlexLayout>
+                                                        </Grid>
+                                                    </Border>
+                                                </VerticalStackLayout>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </VerticalStackLayout>
+                                </VerticalStackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border
+                    Margin="0,12,0,0"
+                    BackgroundColor="White"
+                    HorizontalOptions="Fill"
+                    Stroke="{Binding ColourBorder}"
+                    StrokeShape="RoundRectangle 10"
+                    StrokeThickness="2">
+                    <VerticalStackLayout
+                        Margin="10,10,10,0"
+                        BindableLayout.ItemsSource="{Binding rash_followup.questions}"
+                        Spacing="2">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,10,0,0">
+                                    <VerticalStackLayout IsVisible="False">
+                                        <VerticalStackLayout.Triggers>
+                                            <DataTrigger
+                                                Binding="{Binding type}"
+                                                TargetType="VerticalStackLayout"
+                                                Value="radio">
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                        </VerticalStackLayout.Triggers>
+                                        <Label
+                                            Margin="0,0,0,10"
+                                            FontAttributes="Bold"
+                                            FontFamily="OpenSansSemiBold"
+                                            FontSize="14"
+                                            Text="{Binding label}"
+                                            TextColor="#031926" />
+                                        <VerticalStackLayout BindableLayout.ItemsSource="{Binding options}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border
+                                                        Margin="0,5"
+                                                        BackgroundColor="#E6F1FB"
+                                                        Stroke="#009FE3"
+                                                        StrokeShape="RoundRectangle 10"
+                                                        StrokeThickness="1.5">
+                                                        <Grid Padding="10,0,10,8">
+                                                            <Label
+                                                                Margin="10,0,10,0"
+                                                                FontAttributes="Bold"
+                                                                FontFamily="OpenSansSemiBold"
+                                                                FontSize="12"
+                                                                LineBreakMode="WordWrap"
+                                                                MinimumHeightRequest="40"
+                                                                Text="{Binding text}"
+                                                                TextColor="#031926"
+                                                                VerticalOptions="Center"
+                                                                VerticalTextAlignment="Center" />
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </VerticalStackLayout>
+
+                                    <Grid IsVisible="False" RowDefinitions="Auto, Auto">
+                                        <Grid.Triggers>
+                                            <DataTrigger
+                                                Binding="{Binding type}"
+                                                TargetType="Grid"
+                                                Value="checkbox">
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                        </Grid.Triggers>
+                                        <Label
+                                            Grid.Row="0"
+                                            Margin="0,10,0,0"
+                                            FontAttributes="Bold"
+                                            FontFamily="OpenSansSemiBold"
+                                            FontSize="14"
+                                            LineBreakMode="WordWrap"
+                                            Text="{Binding label}"
+                                            TextColor="#031926" />
+                                        <VerticalStackLayout
+                                            Grid.Row="1"
+                                            Margin="0,10,0,0"
+                                            BindableLayout.ItemsSource="{Binding options}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <local:ExtendedCheckbox
+                                                        Margin="5,5,10,5"
+                                                        Background="#E6F1FB"
+                                                        CheckedColor="#009FE3"
+                                                        FontAttributes="Bold"
+                                                        FontAutoScalingEnabled="True"
+                                                        FontFamily="OpenSansSemi"
+                                                        FontSize="12"
+                                                        HeightRequest="42"
+                                                        HorizontalOptions="Fill"
+                                                        IDValue="{Binding answerid}"
+                                                        IsChecked="{Binding selectedms, Mode=TwoWay}"
+                                                        LineBreakMode="WordWrap"
+                                                        StateChanged="ExtendedCheckbox_StateChanged"
+                                                        Text="{Binding text}"
+                                                        TextColor="#031926"
+                                                        TickColor="#009FE3" />
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border
+                    Margin="0,12,0,0"
+                    BackgroundColor="White"
+                    HorizontalOptions="Fill"
+                    Stroke="{Binding ColourBorder}"
+                    StrokeShape="RoundRectangle 10"
+                    StrokeThickness="2">
+                    <VerticalStackLayout
+                        Margin="10,0,10,0"
+                        BindableLayout.ItemsSource="{Binding daily_impact.questions}"
+                        Spacing="2">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <VerticalStackLayout IsVisible="False">
+                                        <VerticalStackLayout.Triggers>
+                                            <DataTrigger
+                                                Binding="{Binding type}"
+                                                TargetType="VerticalStackLayout"
+                                                Value="radio">
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                        </VerticalStackLayout.Triggers>
+                                        <Label
+                                            Margin="0,0,0,10"
+                                            FontAttributes="Bold"
+                                            FontFamily="OpenSansSemiBold"
+                                            FontSize="14"
+                                            Text="{Binding label}"
+                                            TextColor="#031926" />
+                                        <VerticalStackLayout BindableLayout.ItemsSource="{Binding options}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border
+                                                        Margin="0,5"
+                                                        BackgroundColor="#E6F1FB"
+                                                        Stroke="#009FE3"
+                                                        StrokeShape="RoundRectangle 10"
+                                                        StrokeThickness="1.5">
+                                                        <Grid Padding="10,0,10,8">
+                                                            <Label
+                                                                Margin="10,0,10,0"
+                                                                FontAttributes="Bold"
+                                                                FontFamily="OpenSansSemiBold"
+                                                                FontSize="12"
+                                                                LineBreakMode="WordWrap"
+                                                                MinimumHeightRequest="40"
+                                                                Text="{Binding text}"
+                                                                TextColor="#031926"
+                                                                VerticalOptions="Center"
+                                                                VerticalTextAlignment="Center" />
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </VerticalStackLayout>
+
+                                    <Grid IsVisible="False" RowDefinitions="Auto, Auto">
+                                        <Grid.Triggers>
+                                            <DataTrigger
+                                                Binding="{Binding type}"
+                                                TargetType="Grid"
+                                                Value="checkbox">
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger>
+                                        </Grid.Triggers>
+                                        <Label
+                                            Grid.Row="0"
+                                            Margin="0,10,0,0"
+                                            FontAttributes="Bold"
+                                            FontFamily="OpenSansSemiBold"
+                                            FontSize="14"
+                                            LineBreakMode="WordWrap"
+                                            Text="{Binding label}"
+                                            TextColor="#031926" />
+                                        <VerticalStackLayout
+                                            Grid.Row="1"
+                                            Margin="0,10,0,10"
+                                            BindableLayout.ItemsSource="{Binding options}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <local:ExtendedCheckbox
+                                                        Margin="5,5,10,5"
+                                                        Background="#E6F1FB"
+                                                        CheckedColor="#009FE3"
+                                                        FontAttributes="Bold"
+                                                        FontAutoScalingEnabled="True"
+                                                        FontFamily="OpenSansSemi"
+                                                        FontSize="12"
+                                                        HeightRequest="42"
+                                                        HorizontalOptions="Fill"
+                                                        IDValue="{Binding answerid}"
+                                                        IsChecked="{Binding selectedms, Mode=TwoWay}"
+                                                        LineBreakMode="WordWrap"
+                                                        StateChanged="ExtendedCheckbox_StateChanged"
+                                                        Text="{Binding text}"
+                                                        TextColor="#031926"
+                                                        TickColor="#009FE3" />
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SingleTemplate">
+            <StackLayout Margin="0,10,0,0">
+                <Border
+                    BackgroundColor="White"
+                    HorizontalOptions="Fill"
+                    Stroke="{Binding ColourBorder}"
+                    StrokeShape="RoundRectangle 10"
+                    StrokeThickness="2">
+                    <StackLayout Margin="10" Spacing="2">
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="10"
+                            Text="{Binding questionnum}"
+                            TextColor="#009fe3" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="14"
+                            Text="{Binding label}"
+                            TextColor="#031926" />
+                        <Label
+                            FontSize="12"
+                            IsVisible="{Binding notcomplete}"
+                            Text="{Binding placeholder}"
+                            TextColor="Gray" />
+                        <Image
+                            HeightRequest="15"
+                            IsVisible="{Binding showimage}"
+                            WidthRequest="15">
+                            <Image.Source>
+                                <UriImageSource CacheValidity="1" Uri="{Binding imageURI}" />
+                            </Image.Source>
+                        </Image>
+
+                        <StackLayout
+                            Margin="0,10,0,0"
+                            BindableLayout.ItemsSource="{Binding options}"
+                            Orientation="Vertical"
+                            RadioButtonGroup.GroupName="{Binding questionid}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Margin="0,5"
+                                        Stroke="#f1f1f1"
+                                        StrokeShape="RoundRectangle 10"
+                                        StrokeThickness="1">
+                                        <Grid>
+                                            <local:MauiRadioButton
+                                                x:Name="MauiRadio"
+                                                Margin="5,5,10,5"
+                                                Background="Transparent"
+                                                CheckedColor="#031926"
+                                                FontFamily="OpenSansRegular"
+                                                FontSize="12"
+                                                GroupKey="{Binding questionid}"
+                                                IDValue="{Binding answerid}"
+                                                IsChecked="{Binding selectedss, Mode=TwoWay}"
+                                                LineBreakMode="WordWrap"
+                                                MinimumHeightRequest="30"
+                                                StateChanged="MauiRadio_StateChanged"
+                                                Text="{Binding text}"
+                                                TextColor="#031926"
+                                                questionid="{Binding Source={RelativeSource AncestorType={x:Type local:QuestionAnswerJson}}, Path=questionid}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </StackLayout>
+                </Border>
+            </StackLayout>
+        </DataTemplate>
+
+        <DataTemplate x:Key="MultiTemplate">
+            <VerticalStackLayout Margin="0,10,0,0">
+                <Border
+                    BackgroundColor="White"
+                    HorizontalOptions="Fill"
+                    Stroke="{Binding ColourBorder}"
+                    StrokeShape="RoundRectangle 10"
+                    StrokeThickness="2"
+                    VerticalOptions="Fill">
+
+                    <Grid
+                        Margin="10"
+                        BackgroundColor="White"
+                        RowDefinitions="Auto, Auto">
+
+                        <Grid
+                            Grid.Row="0"
+                            ColumnDefinitions="*,Auto"
+                            RowDefinitions="Auto,Auto,Auto">
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="10"
+                                Text="{Binding questionnum}"
+                                TextColor="#009fe3" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="14"
+                                LineBreakMode="WordWrap"
+                                Text="{Binding label}"
+                                TextColor="#031926" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                FontFamily="OpenSansRegular"
+                                FontSize="12"
+                                IsVisible="{Binding notcomplete}"
+                                LineBreakMode="WordWrap"
+                                Text="{Binding placeholder}"
+                                TextColor="Gray" />
+
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="3"
+                                Grid.Column="1"
+                                HorizontalOptions="End"
+                                IsVisible="{Binding showimage}"
+                                Stroke="Transparent"
+                                StrokeShape="RoundRectangle 10"
+                                StrokeThickness="0"
+                                VerticalOptions="Center">
+                                <Image Aspect="AspectFit" HeightRequest="120">
+                                    <Image.Source>
+                                        <UriImageSource CacheValidity="1" Uri="{Binding imageURI}" />
+                                    </Image.Source>
+                                </Image>
+                            </Border>
+                        </Grid>
+
+                        <VerticalStackLayout
+                            Grid.Row="1"
+                            Margin="0,10,0,0"
+                            BindableLayout.ItemsSource="{Binding options}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Margin="0,5"
+                                        Stroke="#f1f1f1"
+                                        StrokeShape="RoundRectangle 10"
+                                        WidthRequest="{Binding Width, Source={RelativeSource AncestorType={x:Type Grid}}}">
+
+                                        <local:ExtendedCheckbox
+                                            Margin="5,5,10,5"
+                                            CheckedColor="#031926"
+                                            FontAutoScalingEnabled="True"
+                                            FontFamily="OpenSansRegular"
+                                            FontSize="12"
+                                            HeightRequest="42"
+                                            HorizontalOptions="Fill"
+                                            IDValue="{Binding answerid}"
+                                            IsChecked="{Binding selectedms, Mode=TwoWay}"
+                                            LineBreakMode="WordWrap"
+                                            StateChanged="ExtendedCheckbox_StateChanged"
+                                            Text="{Binding text}"
+                                            TextColor="#031926" />
+                                    </Border>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </VerticalStackLayout>
+
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TextTemplate">
+            <StackLayout Margin="0,10,0,0">
+                <Border
+                    BackgroundColor="White"
+                    HorizontalOptions="Fill"
+                    Stroke="{Binding ColourBorder}"
+                    StrokeShape="RoundRectangle 10"
+                    StrokeThickness="2">
+                    <StackLayout Margin="10" Spacing="2">
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="10"
+                            Text="{Binding questionnum}"
+                            TextColor="#009fe3" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="14"
+                            Text="{Binding label}"
+                            TextColor="#031926" />
+                        <Label
+                            FontSize="12"
+                            IsVisible="{Binding notcomplete}"
+                            Text="{Binding placeholder}"
+                            TextColor="Gray" />
+                        <Image
+                            HeightRequest="15"
+                            IsVisible="{Binding showimage}"
+                            WidthRequest="15">
+                            <Image.Source>
+                                <UriImageSource CacheValidity="1" Uri="{Binding imageURI}" />
+                            </Image.Source>
+                        </Image>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <inputLayout:SfTextInputLayout
+                                Margin="5,0,5,0"
+                                BackgroundColor="Transparent"
+                                ContainerBackground="Transparent"
+                                ContainerType="None"
+                                FocusedStrokeThickness="2"
+                                Hint=""
+                                HorizontalOptions="Center"
+                                InputViewPadding="10"
+                                IsHintAlwaysFloated="True"
+                                OutlineCornerRadius="5"
+                                ShowHint="True"
+                                Stroke="#f5f5f5"
+                                UnfocusedStrokeThickness="2">
+                                <Entry
+                                    x:Name="DateEntry"
+                                    FontFamily="HankenGroteskBold"
+                                    FontSize="14"
+                                    Keyboard="Default"
+                                    Placeholder="{Binding options[0].text}"
+                                    PlaceholderColor="Gray"
+                                    ReturnType="Default"
+                                    Text="{Binding options[0].value, Mode=TwoWay}"
+                                    TextChanged="DateEntry_TextChanged"
+                                    TextColor="#031926"
+                                    VerticalOptions="Center" />
+                                <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                    <inputLayout:LabelStyle TextColor="#031926" />
+                                </inputLayout:SfTextInputLayout.HintLabelStyle>
+                                <inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                                    <inputLayout:LabelStyle FontFamily="HankenGroteskBold" TextColor="Red" />
+                                </inputLayout:SfTextInputLayout.ErrorLabelStyle>
+                            </inputLayout:SfTextInputLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Border>
+            </StackLayout>
+        </DataTemplate>
+
+        <local:QuestionnaireTemplateSelector
+            x:Key="QuestionnaireSelector"
+            CheckTemplate="{StaticResource CheckTemplate}"
+            DropdownTemplate="{StaticResource SingleTemplate}"
+            MultiTemplate="{StaticResource MultiTemplate}"
+            RadioTemplate="{StaticResource RadioTemplate}"
+            SymptomTemplate="{StaticResource SymptomTemplate}"
+            TextTemplate="{StaticResource TextTemplate}" />
+
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid
+            x:Name="maintack"
+            BackgroundColor="Transparent"
+            Grid.RowDefinitions="*"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill">
+
+            <Grid x:Name="loadingstack" IsVisible="false">
+                <StackLayout VerticalOptions="Center">
+                    <ActivityIndicator
+                        x:Name="LoadInd"
+                        IsRunning="True"
+                        Color="LightBlue" />
+                    <Label
+                        Margin="0,0,0,0"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="Loading Questionnaire..."
+                        TextColor="Black" />
+                </StackLayout>
+            </Grid>
+
+            <Grid x:Name="InitialPage" IsVisible="False">
+                <StackLayout VerticalOptions="Center">
+                    <Border
+                        Margin="10,0,10,0"
+                        Padding="0"
+                        Background="#FDFCFB"
+                        Stroke="#E2EBF0"
+                        StrokeShape="RoundRectangle 24"
+                        StrokeThickness="1"
+                        VerticalOptions="Center">
+                        <Border.Shadow>
+                            <Shadow
+                                Brush="#A1C4FD"
+                                Opacity="0.3"
+                                Radius="40"
+                                Offset="0,10" />
+                        </Border.Shadow>
+                        <VerticalStackLayout
+                            Padding="40"
+                            HorizontalOptions="Fill"
+                            Spacing="15">
+                            <Label
+                                x:Name="Questiontitle"
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="22"
+                                HorizontalTextAlignment="Center"
+                                Text="Ready to Begin?"
+                                TextColor="#2C3E50" />
+                            <Label
+                                x:Name="QuestionDescription"
+                                FontFamily="OpenSansRegular"
+                                FontSize="15"
+                                HorizontalTextAlignment="Center"
+                                LineBreakMode="WordWrap"
+                                Text="This questionnaire helps us understand your needs. Please ensure you have a quiet environment."
+                                TextColor="#5D6D7E" />
+                            <Button
+                                Margin="0,20,0,0"
+                                Background="#009FE3"
+                                Clicked="Button_Clicked"
+                                CornerRadius="15"
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="16"
+                                HeightRequest="55"
+                                HorizontalOptions="Fill"
+                                Text="Start Questionnaire"
+                                TextColor="White">
+                                <Button.Shadow>
+                                    <Shadow
+                                        Brush="#0D4A87"
+                                        Opacity="0.4"
+                                        Radius="15"
+                                        Offset="0,5" />
+                                </Button.Shadow>
+                            </Button>
+                        </VerticalStackLayout>
+                    </Border>
+                </StackLayout>
+            </Grid>
+
+            <StackLayout
+                x:Name="datastack"
+                IsVisible="False"
+                VerticalOptions="Fill">
+
+                <Grid x:Name="LoadFailed" IsVisible="False">
+                    <StackLayout VerticalOptions="Center">
+                        <Border
+                            Margin="20,0,20,20"
+                            Padding="0"
+                            Background="White"
+                            IsVisible="False"
+                            Stroke="#E0E0E0"
+                            StrokeShape="RoundRectangle 10"
+                            VerticalOptions="Center">
+                            <Border.Shadow>
+                                <Shadow
+                                    Brush="Black"
+                                    Opacity="0.05"
+                                    Radius="10"
+                                    Offset="0,2" />
+                            </Border.Shadow>
+                            <VerticalStackLayout
+                                Padding="30"
+                                Background="Transparent"
+                                HorizontalOptions="Fill"
+                                Spacing="10"
+                                VerticalOptions="Fill">
+                                <Image
+                                    HeightRequest="40"
+                                    HorizontalOptions="Center"
+                                    Opacity="0.6"
+                                    WidthRequest="40">
+                                    <Image.Source>
+                                        <FontImageSource
+                                            FontFamily="OpenSansSemiBold"
+                                            Glyph="📝"
+                                            Size="40"
+                                            Color="#62727B" />
+                                    </Image.Source>
+                                </Image>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="OpenSansSemiBold"
+                                    FontSize="18"
+                                    HorizontalTextAlignment="Center"
+                                    Text="We couldn't load your questionnaire"
+                                    TextColor="#031926" />
+                                <Label
+                                    FontFamily="OpenSansRegular"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="Center"
+                                    LineBreakMode="WordWrap"
+                                    TextColor="#62727B">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Please try refreshing the page. If the problem persists, try contacting our team for support: " TextColor="Gray" />
+                                            <Span
+                                                FontAttributes="Bold"
+                                                Text="Support@PeopleWith.com"
+                                                TextColor="DodgerBlue" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Button
+                                    Margin="0,10,0,0"
+                                    Padding="20,0"
+                                    BackgroundColor="#F7FAFC"
+                                    BorderColor="#E2E8F0"
+                                    BorderWidth="1"
+                                    CornerRadius="8"
+                                    HorizontalOptions="Center"
+                                    IsVisible="False"
+                                    Text="Try Again"
+                                    TextColor="#2D3748" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </StackLayout>
+                </Grid>
+
+                <StackLayout
+                    x:Name="MainCollectionview"
+                    IsVisible="False"
+                    VerticalOptions="Fill">
+                    <Label
+                        x:Name="HeaderTitle"
+                        Padding="20,30,20,0"
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="16"
+                        TextColor="#031926"
+                        VerticalOptions="Center" />
+
+                    <ScrollView Margin="10,0,10,0" VerticalOptions="Fill">
+                        <Grid ColumnDefinitions="*">
+                            <ContentPresenter x:Name="ActiveQuestionPresenter" HorizontalOptions="Fill" />
+                        </Grid>
+                    </ScrollView>
+
+                    <StackLayout
+                        Padding="10,10,10,40"
+                        BackgroundColor="Transparent"
+                        Spacing="15">
+                        <Label
+                            x:Name="FooterRequiredLabel"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12"
+                            HorizontalOptions="End"
+                            IsVisible="False"
+                            Text="* Required"
+                            TextColor="Red"
+                            VerticalOptions="Start" />
+                        <Grid
+                            Margin="0,10,0,0"
+                            ColumnDefinitions="*, *"
+                            ColumnSpacing="10">
+                            <Button
+                                x:Name="FooterBackBtn"
+                                Grid.Column="0"
+                                Margin="10,0,0,0"
+                                BackgroundColor="#009FE3"
+                                Clicked="backbtn_Clicked"
+                                CornerRadius="8"
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                HeightRequest="44"
+                                HorizontalOptions="Start"
+                                Text="Back"
+                                TextColor="White"
+                                WidthRequest="100" />
+                            <Button
+                                x:Name="FooterNextBtn"
+                                Grid.Column="1"
+                                Margin="0,0,10,0"
+                                BackgroundColor="#009FE3"
+                                Clicked="Nextbtn_Clicked"
+                                CornerRadius="8"
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                HeightRequest="44"
+                                HorizontalOptions="End"
+                                Text="Next"
+                                TextColor="White"
+                                WidthRequest="100" />
+                        </Grid>
+                        <Button
+                            x:Name="FooterSubmitBtn"
+                            Margin="0,10,0,0"
+                            BackgroundColor="#0D4A87"
+                            Clicked="submitbtn_Clicked"
+                            CornerRadius="8"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            HeightRequest="50"
+                            Text="Submit Questionnaire"
+                            TextColor="White" />
+                    </StackLayout>
+                </StackLayout>
+
+                <Label
+                    x:Name="completedquestionnairetitlelbl"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="10,10,10,0"
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="18"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    IsVisible="False"
+                    Text="Questionnaire Title"
+                    TextColor="#031926" />
+                <ScrollView
+                    x:Name="CompletedScrollView"
+                    Margin="10,0,10,10"
+                    IsVisible="False">
+                    <VerticalStackLayout
+                        x:Name="CompletedQuestionsLayout"
+                        BindableLayout.ItemTemplateSelector="{StaticResource QuestionnaireSelector}"
+                        Spacing="15" />
+                </ScrollView>
+
+                <Border
+                    x:Name="Showimage"
+                    Margin="10,10,10,20"
+                    BackgroundColor="White"
+                    HorizontalOptions="Fill"
+                    IsVisible="False"
+                    Stroke="White"
+                    StrokeShape="RoundRectangle 10"
+                    StrokeThickness="2">
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                    </Border.GestureRecognizers>
+
+                    <Grid
+                        Padding="10"
+                        ColumnSpacing="10"
+                        RowDefinitions="Auto,Auto"
+                        RowSpacing="10">
+                        <Label
+                            x:Name="lblImageName"
+                            Grid.Row="0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="14"
+                            HorizontalOptions="Center"
+                            LineBreakMode="WordWrap"
+                            TextColor="#031926"
+                            VerticalOptions="Start" />
+
+                        <Image
+                            x:Name="userimage"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Aspect="AspectFit"
+                            Background="Transparent"
+                            HeightRequest="200"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+
+            </StackLayout>
+        </Grid>
+    </ScrollView>-->
+</ContentPage>
+

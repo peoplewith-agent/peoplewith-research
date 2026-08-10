@@ -1,0 +1,252 @@
+[
+  {
+    "id": "b1_samples_list",
+    "label": "Please select the samples you collected from yourself.",
+    "type": "multiselection",
+    "required": true,
+    "options": [
+      {
+        "answerid": "b1_samples_list_1",
+        "value": "1",
+        "text": "Nose swab"
+      },
+      {
+        "answerid": "b1_samples_list_2",
+        "value": "2",
+        "text": "Hand swab"
+      },
+      {
+        "answerid": "b1_samples_list_3",
+        "value": "3",
+        "text": "Gum sponge"
+      },
+      {
+        "answerid": "b1_samples_list_4",
+        "value": "4",
+        "text": "Nose strip"
+      }
+    ],
+    "default": null,
+    "placeholder": "Please choose all that apply.",
+    "order": 1,
+    "questionid": "b1_samples_list",
+    "image": null,
+    "branchinglogic": "",
+    "usertype": "all"
+  },
+  {
+    "id": "b1_samples_enviro_y_n",
+    "label": "Did you collect samples from your home environment today?",
+    "type": "dropdown",
+    "required": true,
+    "options": [
+      {
+        "answerid": "b1_samples_enviro_y_n_y",
+        "value": "1",
+        "text": "Yes"
+      },
+      {
+        "answerid": "b1_samples_enviro_y_n_n",
+        "value": "0",
+        "text": "No"
+      }
+    ],
+    "a": null,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 2,
+    "questionid": "b1_samples_enviro_y_n",
+    "image": null,
+    "branchinglogic": "",
+    "usertype": "primaryuser"
+  },
+  {
+    "id": "b1_samples_enviro_list",
+    "label": "Please select the samples you collected from your home.",
+    "type": "multiselection",
+    "required": true,
+    "options": [
+      {
+        "answerid": "b1_samples_enviro_list_1",
+        "value": "1",
+        "text": "Swab of the kitchen tap"
+      },
+      {
+        "answerid": "b1_samples_enviro_list_2",
+        "value": "2",
+        "text": "Swab of the toilet flush handle"
+      },
+      {
+        "answerid": "b1_samples_enviro_list_3",
+        "value": "3",
+        "text": "Swab of the index case bedside table\/bedframe"
+      }
+    ],
+    "default": null,
+    "placeholder": "Please choose all that apply.",
+    "order": 3,
+    "questionid": "b1_samples_enviro_list",
+    "image": null,
+    "branchinglogic": "b1_samples_enviro_y_n_y",
+    "usertype": "primaryuser"
+  },
+  {
+    "id": "b1_lfd_y_n",
+    "label": "Did you carry out a lateral flow device?",
+    "type": "dropdown",
+    "required": true,
+    "options": [
+      {
+        "answerid": "b1_lfd_y_n_y",
+        "value": "1",
+        "text": "Yes"
+      },
+      {
+        "answerid": "b1_lfd_y_n_n",
+        "value": "0",
+        "text": "No"
+      }
+    ],
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 4,
+    "questionid": "b1_lfd_y_n",
+    "image": null,
+    "branchinglogic": "",
+    "usertype": "all"
+  },
+  {
+    "id": "b1_lfd_pos_neg",
+    "label": "Do you think your LFD result is positive?",
+    "type": "dropdown",
+    "required": true,
+    "options": [
+      {
+        "answerid": "b1_lfd_pos_neg_y",
+        "value": "1",
+        "text": "Yes"
+      },
+      {
+        "answerid": "b1_lfd_pos_neg_n",
+        "value": "0",
+        "text": "No"
+      }
+    ],
+    "default": null,
+    "placeholder": "Please select an option. Please note at the end of this questionnaire you will be prompted to upload or take a photograph of the lateral flow device.",
+    "order": 5,
+    "questionid": "b1_lfd_pos_neg",
+    "image": null,
+    "branchinglogic": "b1_lfd_y_n_y",
+    "usertype": "all"
+  },
+  {
+    "id": "b1_lfd_pos_virus",
+    "label": "What is your LFD positive for?",
+    "type": "multiselection",
+    "required": true,
+    "options": [
+      {
+        "answerid": "b1_lfd_pos_virus_1",
+        "value": "1",
+        "text": "SARS-CoV-2 (COVID-19)"
+      },
+      {
+        "answerid": "b1_lfd_pos_virus_2",
+        "value": "2",
+        "text": "Influenza A"
+      },
+      {
+        "answerid": "b1_lfd_pos_virus_3",
+        "value": "3",
+        "text": "Influenza B"
+      },
+      {
+        "answerid": "b1_lfd_pos_virus_4",
+        "value": "4",
+        "text": "RSV (Respiratory Syncytial Virus)"
+      },
+      {
+        "answerid": "b1_lfd_pos_virus_5",
+        "value": "5",
+        "text": "ADV (Adenovirus)"
+      },
+      {
+        "answerid": "b1_lfd_pos_virus_6",
+        "value": "6",
+        "text": "hMPV (Human Metapneumovirus)"
+      },
+      {
+        "answerid": "b1_lfd_pos_virus_7",
+        "value": "7",
+        "text": "RhV (Rhinovirus)"
+      },
+      {
+        "answerid": "b1_lfd_pos_virus_8",
+        "value": "8",
+        "text": "PIV (Parainfluenza Virus)"
+      },
+      {
+        "answerid": "b1_lfd_pos_virus_9",
+        "value": "9",
+        "text": "Not sure"
+      }
+    ],
+    "default": null,
+    "placeholder": "Please choose all that apply.",
+    "order": 6,
+    "questionid": "b1_lfd_pos_virus",
+    "image": "ExampleTestingKit.png",
+    "branchinglogic": "b1_lfd_y_n_y",
+    "usertype": "all"
+  },
+    {
+        "id": "b1_lfd_pos_social",
+        "label": "Did you cancel or avoid any planned social activities after your positive result?",
+        "type": "dropdown",
+        "required": true,
+        "options": [
+            {
+                "answerid": "b1_lfd_pos_social_1",
+                "value": "1",
+                "text": "I cancelled all planned social activities"
+            },
+            {
+                "answerid": "b1_lfd_pos_social_2",
+                "value": "2",
+                "text": "I only avoided high-risk settings"
+            },
+            {
+                "answerid": "b1_lfd_pos_social_3",
+                "value": "3",
+                "text": "I did not cancel or avoid any social activities"
+            },
+            {
+                "answerid": "b1_lfd_pos_social_4",
+                "value": "4",
+                "text": "I had no social activities planned"
+            }
+        ],
+        "default": null,
+        "placeholder": "Select an option",
+        "order": 7,
+        "questionid": "b1_lfd_pos_social",
+        "image": null,
+        "branchinglogic": "b1_lfd_y_n_y",
+        "usertype": "all"
+    },
+    {
+        "id": "b1_lfd_picture",
+        "label": "Please upload an image of the lateral flow device you carried out",
+        "type": "picture",
+        "required": true,
+        "options": [],
+        "default": null,
+        "placeholder": "Select an option",
+        "order": 8,
+        "questionid": "b1_lfd_picture",
+        "image": null,
+        "branchinglogic": "b1_lfd_y_n_y",
+        "usertype": "all"
+    }
+]

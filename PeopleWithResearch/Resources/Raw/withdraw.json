@@ -1,0 +1,1191 @@
+[
+  {
+    "id": "w_withdrawal_reason",
+    "questionid": "w_withdrawal_reason",
+    "label": "Why are you withdrawing from the study? Please tick all that apply to you.",
+    "sublabel": "Please tick all that apply to you.",
+    "type": "multiselection",
+    "required": true,
+    "default": null,
+    "placeholder": "Please choose all that apply",
+    "order": 1,
+    "options": [
+      {
+        "answerid": "w_withdrawal_reason_1",
+        "value": "1",
+        "text": "Change in personal circumstances, for example, home changes, travel, or health changes"
+      },
+      {
+        "answerid": "w_withdrawal_reason_2",
+        "value": "2",
+        "text": "I found the sampling process unpleasant"
+      },
+      {
+        "answerid": "w_withdrawal_reason_3",
+        "value": "3",
+        "text": "I found the study instructions unclear or difficult to follow"
+      },
+      {
+        "answerid": "w_withdrawal_reason_4",
+        "value": "4",
+        "text": "The study took too much of my time"
+      },
+      {
+        "answerid": "w_withdrawal_reason_5",
+        "value": "5",
+        "text": "I had problems using the app or online forms"
+      },
+      {
+        "answerid": "w_withdrawal_reason_6",
+        "value": "6",
+        "text": "I felt there was not enough encouragement for me to stay involved"
+      },
+      {
+        "answerid": "w_withdrawal_reason_7",
+        "value": "7",
+        "text": "I did not understand the purpose or value this research"
+      },
+      {
+        "answerid": "w_withdrawal_reason_8",
+        "value": "8",
+        "text": "There was a lack of feedback or updates from researchers"
+      },
+      {
+        "answerid": "w_withdrawal_reason_9",
+        "value": "9",
+        "text": "Someone else in my household withdrew"
+      },
+      {
+        "answerid": "w_withdrawal_reason_10",
+        "value": "10",
+        "text": "I had concerns about privacy or how my data or samples would be used"
+      },
+      {
+        "answerid": "w_withdrawal_reason_11",
+        "value": "11",
+        "text": "I was advised from family or friends to withdraw"
+      },
+      {
+        "answerid": "w_withdrawal_reason_12",
+        "value": "12",
+        "text": "I was advised by a healthcare professional to withdraw"
+      }
+    ]
+  },
+  {
+    "id": "w_contact_y_n",
+    "questionid": "w_contact_y_n",
+    "label": "Did you, or someone else in your household try to contact the study team at any point for help?",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 2,
+    "options": [
+      {
+        "answerid": "w_contact_y_n_1",
+        "value": "1",
+        "text": "Yes, and they responded to me promptly"
+      },
+      {
+        "answerid": "w_contact_y_n_2",
+        "value": "2",
+        "text": "Yes, but they took too long to respond to me"
+      },
+      {
+        "answerid": "w_contact_y_n_3",
+        "value": "3",
+        "text": "Yes, but they did not respond to me"
+      },
+      {
+        "answerid": "w_contact_y_n_4",
+        "value": "4",
+        "text": "No"
+      }
+    ]
+  },
+  {
+    "id": "w_contact_support",
+    "questionid": "w_contact_support",
+    "label": "When you did get a response, how satisfied were you with the support you received?",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 3,
+    "branchinglogic": "w_contact_y_n_1,w_contact_y_n_2",
+    "options": [
+      {
+        "answerid": "w_contact_support_4",
+        "value": "4",
+        "text": "Very satisfied"
+      },
+      {
+        "answerid": "w_contact_support_3",
+        "value": "3",
+        "text": "Satisfied"
+      },
+      {
+        "answerid": "w_contact_support_2",
+        "value": "2",
+        "text": "Neither satisfied nor dissatisfied"
+      },
+      {
+        "answerid": "w_contact_support_1",
+        "value": "1",
+        "text": "Dissatisfied"
+      },
+      {
+        "answerid": "w_contact_support_0",
+        "value": "0",
+        "text": "Very dissatisfied"
+      }
+    ]
+  },
+  {
+    "id": "w_support_details",
+    "questionid": "w_support_details",
+    "label": "Please provide more information.",
+    "type": "text",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 4,
+    "branchinglogic": "w_contact_support_0,w_contact_support_1,w_contact_support_2,w_contact_support_3,w_contact_support_4"
+  },
+  {
+    "id": "w_contact_statement_1",
+    "questionid": "w_contact_statement_1",
+    "label": "How much do you agree with the following statement: I understood what I was being asked to do in the study.",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Please choose all that apply.",
+    "order": 5,
+    "options": [
+      {
+        "answerid": "w_contact_statement_1_4",
+        "value": "4",
+        "text": "Strongly agree"
+      },
+      {
+        "answerid": "w_contact_statement_1_3",
+        "value": "3",
+        "text": "Agree"
+      },
+      {
+        "answerid": "w_contact_statement_1_2",
+        "value": "2",
+        "text": "Neither agree nor disagree"
+      },
+      {
+        "answerid": "w_contact_statement_1_1",
+        "value": "1",
+        "text": "Disagree"
+      },
+      {
+        "answerid": "w_contact_statement_1_0",
+        "value": "0",
+        "text": "Strongly disagree"
+      }
+    ]
+  },
+  {
+    "id": "w_contact_statement_2",
+    "questionid": "w_contact_statement_2",
+    "label": "How much do you agree with the following statement: The sampling was manageable for me.",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 6,
+    "options": [
+      {
+        "answerid": "w_contact_statement_2_4",
+        "value": "4",
+        "text": "Strongly agree"
+      },
+      {
+        "answerid": "w_contact_statement_2_3",
+        "value": "3",
+        "text": "Agree"
+      },
+      {
+        "answerid": "w_contact_statement_2_2",
+        "value": "2",
+        "text": "Neither agree nor disagree"
+      },
+      {
+        "answerid": "w_contact_statement_2_1",
+        "value": "1",
+        "text": "Disagree"
+      },
+      {
+        "answerid": "w_contact_statement_2_0",
+        "value": "0",
+        "text": "Strongly disagree"
+      }
+    ]
+  },
+  {
+    "id": "w_contact_statement_3",
+    "questionid": "w_contact_statement_3",
+    "label": "How much do you agree with the following statement: The app was easy to use.",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 7,
+    "options": [
+      {
+        "answerid": "w_contact_statement_3_4",
+        "value": "4",
+        "text": "Strongly agree"
+      },
+      {
+        "answerid": "w_contact_statement_3_3",
+        "value": "3",
+        "text": "Agree"
+      },
+      {
+        "answerid": "w_contact_statement_3_2",
+        "value": "2",
+        "text": "Neither agree nor disagree"
+      },
+      {
+        "answerid": "w_contact_statement_3_1",
+        "value": "1",
+        "text": "Disagree"
+      },
+      {
+        "answerid": "w_contact_statement_3_0",
+        "value": "0",
+        "text": "Strongly disagree"
+      }
+    ]
+  },
+  {
+    "id": "w_contact_statement_4",
+    "questionid": "w_contact_statement_4",
+    "label": "How much do you agree with the following statement: The reminders were helpful.",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 8,
+    "options": [
+      {
+        "answerid": "w_contact_statement_4_4",
+        "value": "4",
+        "text": "Strongly agree"
+      },
+      {
+        "answerid": "w_contact_statement_4_3",
+        "value": "3",
+        "text": "Agree"
+      },
+      {
+        "answerid": "w_contact_statement_4_2",
+        "value": "2",
+        "text": "Neither agree nor disagree"
+      },
+      {
+        "answerid": "w_contact_statement_4_1",
+        "value": "1",
+        "text": "Disagree"
+      },
+      {
+        "answerid": "w_contact_statement_4_0",
+        "value": "0",
+        "text": "Strongly disagree"
+      }
+    ]
+  },
+  {
+    "id": "w_contact_statement_5",
+    "questionid": "w_contact_statement_5",
+    "label": "How much do you agree with the following statement: Taking part in this study helped me learn more about health or infection.",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 9,
+    "options": [
+      {
+        "answerid": "w_contact_statement_5_4",
+        "value": "4",
+        "text": "Strongly agree"
+      },
+      {
+        "answerid": "w_contact_statement_5_3",
+        "value": "3",
+        "text": "Agree"
+      },
+      {
+        "answerid": "w_contact_statement_5_2",
+        "value": "2",
+        "text": "Neither agree nor disagree"
+      },
+      {
+        "answerid": "w_contact_statement_5_1",
+        "value": "1",
+        "text": "Disagree"
+      },
+      {
+        "answerid": "w_contact_statement_5_0",
+        "value": "0",
+        "text": "Strongly disagree"
+      }
+    ]
+  },
+  {
+    "id": "w_contact_statement_6",
+    "questionid": "w_contact_statement_6",
+    "label": "How much do you agree with the following statement: I felt like I made a real contribution to science or the UK Pandemic Preparedness response.",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 10,
+    "options": [
+      {
+        "answerid": "w_contact_statement_6_4",
+        "value": "4",
+        "text": "Strongly agree"
+      },
+      {
+        "answerid": "w_contact_statement_6_3",
+        "value": "3",
+        "text": "Agree"
+      },
+      {
+        "answerid": "w_contact_statement_6_2",
+        "value": "2",
+        "text": "Neither agree nor disagree"
+      },
+      {
+        "answerid": "w_contact_statement_6_1",
+        "value": "1",
+        "text": "Disagree"
+      },
+      {
+        "answerid": "w_contact_statement_6_0",
+        "value": "0",
+        "text": "Strongly disagree"
+      }
+    ]
+  },
+  {
+    "id": "w_contact_statement_7",
+    "questionid": "w_contact_statement_7",
+    "label": "How much do you agree with the following statement: I felt supported by the study team.",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 11,
+    "options": [
+      {
+        "answerid": "w_contact_statement_7_4",
+        "value": "4",
+        "text": "Strongly agree"
+      },
+      {
+        "answerid": "w_contact_statement_7_3",
+        "value": "3",
+        "text": "Agree"
+      },
+      {
+        "answerid": "w_contact_statement_7_2",
+        "value": "2",
+        "text": "Neither agree nor disagree"
+      },
+      {
+        "answerid": "w_contact_statement_7_1",
+        "value": "1",
+        "text": "Disagree"
+      },
+      {
+        "answerid": "w_contact_statement_7_0",
+        "value": "0",
+        "text": "Strongly disagree"
+      }
+    ]
+  },
+  {
+    "id": "w_sample_types",
+    "questionid": "w_sample_types",
+    "label": "Please tick which sample types you found difficult to carry out in the study if applicable. You may not have performed all of these samples in the study. Please only tick the ones you did that you found difficult.",
+    "type": "multiselection",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 12,
+    "options": [
+      {
+        "answerid": "w_sample_types_1",
+        "value": "1",
+        "text": "Nose swab"
+      },
+      {
+        "answerid": "w_sample_types_2",
+        "value": "2",
+        "text": "Hand swab"
+      },
+      {
+        "answerid": "w_sample_types_3",
+        "value": "3",
+        "text": "Oral fluid"
+      },
+      {
+        "answerid": "w_sample_types_4",
+        "value": "4",
+        "text": "Nose fluid"
+      },
+      {
+        "answerid": "w_sample_types_5",
+        "value": "5",
+        "text": "Lateral flow device test"
+      }
+    ]
+  },
+  {
+    "id": "w_noseswab",
+    "questionid": "w_noseswab",
+    "label": "What made carrying out nose swabs sampling difficult? Please tick all that apply.",
+    "type": "multiselection",
+    "required": true,
+    "default": null,
+    "sublabel": "Please tick all that apply to you.",
+    "placeholder": "Please choose all that apply",
+    "order": 13,
+    "branchinglogic": "w_sample_types_1",
+    "options": [
+      {
+        "answerid": "w_noseswab_1",
+        "value": "1",
+        "text": "The instructions were unclear or difficult to follow"
+      },
+      {
+        "answerid": "w_noseswab_2",
+        "value": "2",
+        "text": "It was physically uncomfortable"
+      },
+      {
+        "answerid": "w_noseswab_3",
+        "value": "3",
+        "text": "I had concerns about hygiene or contamination"
+      },
+      {
+        "answerid": "w_noseswab_4",
+        "value": "4",
+        "text": "It took too much time to perform a single sample"
+      },
+      {
+        "answerid": "w_noseswab_5",
+        "value": "5",
+        "text": "I had to do too many of these samples"
+      },
+      {
+        "answerid": "w_noseswab_6",
+        "value": "6",
+        "text": "I forgot or found it hard to keep to the schedule"
+      },
+      {
+        "answerid": "w_noseswab_7",
+        "value": "7",
+        "text": "Other (you'll be asked to specify)"
+      }
+    ]
+  },
+  {
+    "id": "w_noseswab_7",
+    "questionid": "w_noseswab_7",
+    "label": "What made carrying out nose swabs sampling difficult?.",
+    "type": "text",
+    "required": true,
+    "default": null,
+    "placeholder": "Please provide detail in the box below",
+    "order": 14,
+    "branchinglogic": "w_noseswab_7"
+  },
+  {
+    "id": "w_handswab",
+    "questionid": "w_handswab",
+    "label": "What made carrying out hand swabs sampling difficult? Please tick all that apply.",
+    "type": "multiselection",
+    "required": true,
+    "default": null,
+    "branchinglogic": "w_sample_types_2",
+    "placeholder": "Please choose all that apply",
+    "order": 15,
+    "options": [
+      {
+        "answerid": "w_handswab_1",
+        "value": "1",
+        "text": "The instructions were unclear or difficult to follow"
+      },
+      {
+        "answerid": "w_handswab_2",
+        "value": "2",
+        "text": "It was physically uncomfortable"
+      },
+      {
+        "answerid": "w_handswab_3",
+        "value": "3",
+        "text": "I had concerns about hygiene or contamination"
+      },
+      {
+        "answerid": "w_handswab_4",
+        "value": "4",
+        "text": "It took too much time to perform a single sample"
+      },
+      {
+        "answerid": "w_handswab_5",
+        "value": "5",
+        "text": "I had to do too many of these samples"
+      },
+      {
+        "answerid": "w_handswab_6",
+        "value": "6",
+        "text": "I forgot or found it hard to keep to the schedule"
+      },
+      {
+        "answerid": "w_handswab_7",
+        "value": "7",
+        "text": "Other (you'll be asked to specify)"
+      }
+    ]
+  },
+  {
+    "id": "w_handswab_2",
+    "questionid": "w_handswab_2",
+    "label": "What made carrying out hand swabs sampling difficult?.",
+    "type": "text",
+    "required": true,
+    "default": null,
+    "placeholder": "Please provide detail in the box below",
+    "order": 16,
+    "branchinglogic": "w_handswab_7"
+  },
+  {
+    "id": "w_oralfluid",
+    "questionid": "w_oralfluid",
+    "label": "What made carrying out oral fluid sampling difficult? Please tick all that apply.",
+    "type": "multiselection",
+    "required": true,
+    "default": null,
+    "branchinglogic": "w_sample_types_3",
+    "placeholder": "Please choose all that apply",
+    "order": 17,
+    "options": [
+      {
+        "answerid": "w_oralfluid_1",
+        "value": "1",
+        "text": "The instructions were unclear or difficult to follow"
+      },
+      {
+        "answerid": "w_oralfluid_2",
+        "value": "2",
+        "text": "It was physically uncomfortable"
+      },
+      {
+        "answerid": "w_oralfluid_3",
+        "value": "3",
+        "text": "I had concerns about hygiene or contamination"
+      },
+      {
+        "answerid": "w_oralfluid_4",
+        "value": "4",
+        "text": "It took too much time to perform a single sample"
+      },
+      {
+        "answerid": "w_oralfluid_5",
+        "value": "5",
+        "text": "I had to do too many of these samples"
+      },
+      {
+        "answerid": "w_oralfluid_6",
+        "value": "6",
+        "text": "I forgot or found it hard to keep to the schedule"
+      },
+      {
+        "answerid": "w_oralfluid_7",
+        "value": "7",
+        "text": "Other (you'll be asked to specify)"
+      }
+    ]
+  },
+  {
+    "id": "w_oralfluid_2",
+    "questionid": "w_oralfluid_2",
+    "label": "What made carrying out oral fluid sampling difficult?.",
+    "type": "text",
+    "required": true,
+    "default": null,
+    "placeholder": "Please provide detail in the box below",
+    "order": 18,
+    "branchinglogic": "w_oralfluid_7"
+  },
+  {
+    "id": "w_nosefluid",
+    "questionid": "w_nosefluid",
+    "label": "What made carrying out nose fluid sampling difficult? Please tick all that apply.",
+    "type": "multiselection",
+    "required": true,
+    "default": null,
+    "placeholder": "Please choose all that apply",
+    "order": 19,
+    "options": [
+      {
+        "answerid": "w_nosefluid_1",
+        "value": "1",
+        "text": "The instructions were unclear or difficult to follow"
+      },
+      {
+        "answerid": "w_nosefluid_2",
+        "value": "2",
+        "text": "It was physically uncomfortable"
+      },
+      {
+        "answerid": "w_nosefluid_3",
+        "value": "3",
+        "text": "I had concerns about hygiene or contamination"
+      },
+      {
+        "answerid": "w_nosefluid_4",
+        "value": "4",
+        "text": "It took too much time to perform a single sample"
+      },
+      {
+        "answerid": "w_nosefluid_5",
+        "value": "5",
+        "text": "I had to do too many of these samples"
+      },
+      {
+        "answerid": "w_nosefluid_6",
+        "value": "6",
+        "text": "I forgot or found it hard to keep to the schedule"
+      },
+      {
+        "answerid": "w_nosefluid_7",
+        "value": "7",
+        "text": "Other (you'll be asked to specify)"
+      }
+    ]
+  },
+  {
+    "id": "w_nosefluid_2",
+    "questionid": "w_nosefluid_2",
+    "label": "What made carrying out nose fluid sampling difficult?.",
+    "type": "text",
+    "required": true,
+    "default": null,
+    "placeholder": "Please provide detail in the box below",
+    "order": 20,
+    "branchinglogic": "w_nosefluid_7"
+  },
+  {
+    "id": "w_lfd",
+    "questionid": "w_lfd",
+    "label": "What made carrying out lateral flow device tests difficult? Please tick all that apply.",
+    "type": "multiselection",
+    "required": true,
+    "default": null,
+    "placeholder": "Please choose all that apply",
+    "order": 21,
+    "options": [
+      {
+        "answerid": "w_lfd_1",
+        "value": "1",
+        "text": "The instructions were unclear or difficult to follow"
+      },
+      {
+        "answerid": "w_lfd_2",
+        "value": "2",
+        "text": "It was physically uncomfortable"
+      },
+      {
+        "answerid": "w_lfd_3",
+        "value": "3",
+        "text": "I had concerns about hygiene or contamination"
+      },
+      {
+        "answerid": "w_lfd_4",
+        "value": "4",
+        "text": "It took too much time to perform a single sample"
+      },
+      {
+        "answerid": "w_lfd_5",
+        "value": "5",
+        "text": "I had to do too many of these samples"
+      },
+      {
+        "answerid": "w_lfd_6",
+        "value": "6",
+        "text": "I forgot or found it hard to keep to the schedule"
+      },
+      {
+        "answerid": "w_lfd_7",
+        "value": "7",
+        "text": "Other (you'll be asked to specify)"
+      }
+    ]
+  },
+  {
+    "id": "w_lfd_7",
+    "questionid": "w_lfd_7",
+    "label": "What made carrying out lateral flow device tests difficult?.",
+    "type": "text",
+    "required": true,
+    "default": null,
+    "placeholder": "Please provide detail in the box below",
+    "order": 22,
+    "branchinglogic": "w_lfd_7"
+  },
+  {
+    "id": "w_visit_y_n",
+    "questionid": "w_visit_y_n",
+    "label": "Did a member of the study team visit your household as part of your participation?",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 23,
+    "options": [
+      {
+        "answerid": "w_visit_y_n_1",
+        "value": "1",
+        "text": "Yes"
+      },
+      {
+        "answerid": "w_visit_y_n_0",
+        "value": "0",
+        "text": "No"
+      }
+    ]
+  },
+  {
+    "id": "w_visit_want",
+    "questionid": "w_visit_want",
+    "label": "Compared with self-sampling, would you have preferred a study team member to visit your household during your participation?",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "branchinglogic": "w_visit_y_n_0",
+    "placeholder": "Select an option",
+    "order": 24,
+    "options": [
+      {
+        "answerid": "w_visit_want_1",
+        "value": "1",
+        "text": "Yes"
+      },
+      {
+        "answerid": "w_visit_want_2",
+        "value": "2",
+        "text": "No"
+      },
+      {
+        "answerid": "w_visit_want_xx",
+        "value": "xx",
+        "text": "Not sure"
+      }
+
+    ]
+  },
+  {
+    "id": "w_visit_want_y",
+    "questionid": "w_visit_want_y",
+    "label": "Why would you have preferred a household visit? (Select all that apply)",
+    "type": "multiselection",
+    "required": true,
+    "default": null,
+    "branchinglogic": "w_visit_want_1",
+    "placeholder": "Select an option",
+    "order": 25,
+    "options": [
+      {
+        "answerid": "w_visit_want_y_1",
+        "value": "1",
+        "text": "More confidence in correct sample collection"
+      },
+      {
+        "answerid": "w_visit_want_y_2",
+        "value": "2",
+        "text": "Less effort required from me"
+      },
+      {
+        "answerid": "w_visit_want_y_3",
+        "value": "3",
+        "text": "Less risk of making mistakes"
+      },
+      {
+        "answerid": "w_visit_want_y_4",
+        "value": "4",
+        "text": "More reassurance/support from trained staff"
+      },
+      {
+        "answerid": "w_visit_want_y_5",
+        "value": "5",
+        "text": "Prefer face-to-face interaction"
+      }
+    ]
+  },
+  {
+    "id": "w_visit_want_y_n",
+    "questionid": "w_visit_want_y_n",
+    "label": "Why would you prefer self-sampling instead of a household visit? (Select all that apply)",
+    "type": "multiselection",
+    "required": true,
+    "default": null,
+    "branchinglogic": "w_visit_want_2",
+    "placeholder": "Select an option",
+    "order": 26,
+    "options": [
+      {
+        "answerid": "w_visit_want_y_n_1",
+        "value": "1",
+        "text": "More convenient"
+      },
+      {
+        "answerid": "w_visit_want_y_n_2",
+        "value": "2",
+        "text": "More privacy"
+      },
+      {
+        "answerid": "w_visit_want_y_n_3",
+        "value": "3",
+        "text": "Avoids having visitors in the home"
+      },
+      {
+        "answerid": "w_visit_want_y_n_4",
+        "value": "4",
+        "text": "Saves time"
+      },
+      {
+        "answerid": "w_visit_want_y_n_5",
+        "value": "5",
+        "text": "Prefer to do it myself"
+      },
+      {
+        "answerid": "w_visit_want_y_n_6",
+        "value": "6",
+        "text": "Less disruption to my schedule"
+      }
+    ]
+  },
+  {
+    "id": "w_visit_blood_y_n",
+    "questionid": "w_visit_blood_y_n",
+    "label": "During your study visit, did you donate a blood sample?",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "branchinglogic": "w_visit_y_n_1",
+    "placeholder": "Select an option",
+    "order": 27,
+    "options": [
+      {
+        "answerid": "w_visit_blood_y_n_1",
+        "value": "1",
+        "text": "Yes, I donated needle (venous) blood and finger prick blood"
+      },
+      {
+        "answerid": "w_visit_blood_y_n_2",
+        "value": "2",
+        "text": "Yes, I donated needle (venous) blood, but not finger prick blood"
+      },
+      {
+        "answerid": "w_visit_blood_y_n_3",
+        "value": "3",
+        "text": "Yes, I donated finger prick blood, but not needle (venous) blood"
+      },
+      {
+        "answerid": "w_visit_blood_y_n_4",
+        "value": "4",
+        "text": "No"
+      }
+    ]
+  },
+  {
+    "id": "w_blood_prefer",
+    "questionid": "w_blood_prefer",
+    "label": "Which form of blood donation was easier for you?",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "branchinglogic": "w_visit_blood_y_n_1",
+    "placeholder": "Select an option",
+    "order": 28,
+    "options": [
+      {
+        "answerid": "w_blood_prefer_1",
+        "value": "1",
+        "text": "Needle (venous) blood"
+      },
+      {
+        "answerid": "w_blood_prefer_2",
+        "value": "2",
+        "text": "Finger prick blood"
+      }
+    ]
+  },
+  {
+    "id": "w_lfd_or_symp_y_n",
+    "questionid": "w_lfd_or_symp_y_n",
+    "label": "During the study, at any point did you test positive on your lateral flow device (LFD) test for a virus, or feel ill likely related to a cold or flu-like infection?",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 29,
+    "options": [
+      {
+        "answerid": "w_lfd_or_symp_y_n_1",
+        "value": "1",
+        "text": "Yes"
+      },
+      {
+        "answerid": "w_lfd_or_symp_y_n_0",
+        "value": "0",
+        "text": "No"
+      }
+    ]
+  },
+  {
+    "id": "w_symptom_worst_date",
+    "questionid": "w_symptom_worst_date",
+    "label": "On which date did you feel your worst because of your symptoms within the past 30 days?",
+    "type": "date",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 30
+  },
+  {
+    "id": "w_eq_5d_5l_1",
+    "questionid": "w_eq_5d_5l_1",
+    "label": "The next questions ask about your health specifically about the day you felt your worst because of your symptoms: Mobility",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 31,
+    "options": [
+      {
+        "answerid": "w_eq_5d_5l_1_1",
+        "value": "1",
+        "text": "I had no problems in walking about"
+      },
+      {
+        "answerid": "w_eq_5d_5l_1_2",
+        "value": "2",
+        "text": "I had slight problems in walking about"
+      },
+      {
+        "answerid": "w_eq_5d_5l_1_3",
+        "value": "3",
+        "text": "I had moderate problems in walking about"
+      },
+      {
+        "answerid": "w_eq_5d_5l_1_4",
+        "value": "4",
+        "text": "I had severe problems in walking about"
+      },
+      {
+        "answerid": "w_eq_5d_5l_1_5",
+        "value": "5",
+        "text": "I was unable to walk about"
+      }
+    ]
+  },
+  {
+    "id": "w_eq_5d_5l_2",
+    "questionid": "w_eq_5d_5l_2",
+    "label": "Self care",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 32,
+    "options": [
+      {
+        "answerid": "w_eq_5d_5l_2_1",
+        "value": "1",
+        "text": "I had no problems washing or dressing myself"
+      },
+      {
+        "answerid": "w_eq_5d_5l_2_2",
+        "value": "2",
+        "text": "I had slight problems washing or dressing myself"
+      },
+      {
+        "answerid": "w_eq_5d_5l_2_3",
+        "value": "3",
+        "text": "I had moderate problems washing or dressing myself"
+      },
+      {
+        "answerid": "w_eq_5d_5l_2_4",
+        "value": "4",
+        "text": "I had severe problems washing or dressing myself"
+      },
+      {
+        "answerid": "w_eq_5d_5l_2_5",
+        "value": "5",
+        "text": "I was unable to wash or dress myself"
+      }
+    ]
+  },
+  {
+    "id": "w_eq_5d_5l_3",
+    "questionid": "w_eq_5d_5l_3",
+    "label": "Usual activities (e.g. work, study, housework, family or leisure activities)",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 33,
+    "options": [
+      {
+        "answerid": "w_eq_5d_5l_3_1",
+        "value": "1",
+        "text": "I had no problems doing my usual activities"
+      },
+      {
+        "answerid": "w_eq_5d_5l_3_2",
+        "value": "2",
+        "text": "I had slight problems doing my usual activities"
+      },
+      {
+        "answerid": "w_eq_5d_5l_3_3",
+        "value": "3",
+        "text": "I had moderate problems doing my usual activities"
+      },
+      {
+        "answerid": "w_eq_5d_5l_3_4",
+        "value": "4",
+        "text": "I had severe problems doing my usual activities"
+      },
+      {
+        "answerid": "w_eq_5d_5l_3_5",
+        "value": "5",
+        "text": "I was unable to do my usual activities"
+      }
+    ]
+  },
+  {
+    "id": "w_eq_5d_5l_4",
+    "questionid": "w_eq_5d_5l_4",
+    "label": "Pain / discomfort",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 34,
+    "options": [
+      {
+        "answerid": "w_eq_5d_5l_4_1",
+        "value": "1",
+        "text": "I had no pain or discomfort"
+      },
+      {
+        "answerid": "w_eq_5d_5l_4_2",
+        "value": "2",
+        "text": "I had slight pain or discomfort"
+      },
+      {
+        "answerid": "w_eq_5d_5l_4_3",
+        "value": "3",
+        "text": "I had moderate pain or discomfort"
+      },
+      {
+        "answerid": "w_eq_5d_5l_4_4",
+        "value": "4",
+        "text": "I had severe pain or discomfort"
+      },
+      {
+        "answerid": "w_eq_5d_5l_4_5",
+        "value": "5",
+        "text": "I had extreme pain or discomfort"
+      }
+    ]
+  },
+  {
+    "id": "w_eq_5d_5l_5",
+    "questionid": "w_eq_5d_5l_5",
+    "label": "Anxiety / Depression",
+    "type": "dropdown",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 35,
+    "options": [
+      {
+        "answerid": "w_eq_5d_5l_5_1",
+        "value": "1",
+        "text": "I was not anxious or depressed"
+      },
+      {
+        "answerid": "w_eq_5d_5l_5_2",
+        "value": "2",
+        "text": "I was slightly anxious or depressed"
+      },
+      {
+        "answerid": "w_eq_5d_5l_5_3",
+        "value": "3",
+        "text": "I was moderately anxious or depressed"
+      },
+      {
+        "answerid": "w_eq_5d_5l_5_4",
+        "value": "4",
+        "text": "I was severely anxious or depressed"
+      },
+      {
+        "answerid": "w_eq_5d_5l_5_5",
+        "value": "5",
+        "text": "I was extremely anxious or depressed"
+      }
+    ]
+  },
+  {
+    "id": "w_eq_5d_5l_scale",
+    "questionid": "w_eq_5d_5l_scale",
+    "label": "We would like to know how good or bad your health was at your worst from this recent illness. This scale is numbered from 0 to 100.",
+    "type": "slider",
+    "required": true,
+    "default": null,
+    "placeholder": "100 means the best health you can imagine. 0 means the worst health you can imagine. Please move the slider to the number that best represents your health today.",
+    "order": 36
+  },
+  {
+    "id": "w_best_freetext",
+    "questionid": "w_best_freetext",
+    "label": "What did you find most helpful about taking part in the study?",
+    "type": "text",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 37
+  },
+  {
+    "id": "w_future_freetext",
+    "questionid": "w_future_freetext",
+    "label": "What could we have done differently to improve for future participants?",
+    "type": "text",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 38
+  },
+  {
+    "id": "w_freetext",
+    "questionid": "w_freetext",
+    "label": "Is there anything else you would like to tell us about your experience of the study?",
+    "type": "text",
+    "required": true,
+    "default": null,
+    "placeholder": "Select an option",
+    "order": 39
+  }
+]

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.NewAllQuestionnaires"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+    xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BackgroundColor="White">
+
+    <ContentPage.Resources>
+
+        <DataTemplate x:Key="Missedtemplate">
+            <Border
+                Margin="10,2"
+                Padding="10"
+                BackgroundColor="Transparent"
+                Stroke="#FED7D7"
+                StrokeShape="RoundRectangle 12"
+                StrokeThickness="1">
+
+                <Grid
+                    Margin="0"
+                    Padding="10"
+                    ColumnDefinitions="Auto,*,Auto"
+                    ColumnSpacing="12"
+                    VerticalOptions="Center">
+
+                    <Border
+                        Grid.Column="0"
+                        Padding="8"
+                        BackgroundColor="Transparent"
+                        StrokeShape="RoundRectangle 8"
+                        StrokeThickness="0"
+                        VerticalOptions="Center">
+                        <Image
+                            HeightRequest="30"
+                            HorizontalOptions="Center"
+                            Source="folder.png"
+                            VerticalOptions="Center"
+                            WidthRequest="30">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#E53E3E" />
+                            </Image.Behaviors>
+                        </Image>
+                    </Border>
+
+                    <VerticalStackLayout
+                        Grid.Column="1"
+                        Spacing="1"
+                        VerticalOptions="Center">
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="15"
+                            LineBreakMode="TailTruncation"
+                            Text="{Binding .}"
+                            TextColor="#1A202C" />
+                        <Label
+                            FontFamily="OpenSansRegular"
+                            FontSize="12"
+                            Text="Not completed"
+                            TextColor="#718096" />
+                    </VerticalStackLayout>
+
+                    <Border
+                        Grid.Column="2"
+                        Padding="8,4"
+                        BackgroundColor="#FED7D7"
+                        StrokeShape="RoundRectangle 100"
+                        StrokeThickness="0"
+                        VerticalOptions="Center">
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="10"
+                            Text="MISSED"
+                            TextColor="#9B2C2C"
+                            VerticalOptions="Center" />
+                    </Border>
+
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="QuestionnaireItemTemplate">
+            <Border
+                Margin="4"
+                Padding="16"
+                BackgroundColor="#F8F9FB"
+                Stroke="#E5E7EB"
+                StrokeShape="RoundRectangle 12"
+                StrokeThickness="1">
+
+                <Border.Shadow>
+                    <Shadow
+                        Brush="#000000"
+                        Opacity="0.04"
+                        Radius="6"
+                        Offset="0,2" />
+                </Border.Shadow>
+
+                <Grid
+                    ColumnDefinitions="Auto, *, Auto"
+                    ColumnSpacing="5"
+                    RowDefinitions="Auto, Auto"
+                    RowSpacing="1">
+
+                    <Image
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        HeightRequest="30"
+                        Source="questionnaireicon.png"
+                        VerticalOptions="Center"
+                        WidthRequest="30" />
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="14"
+                        LineBreakMode="TailTruncation"
+                        Text="{Binding DisplayTitle}"
+                        TextColor="#031926"
+                        VerticalOptions="Center" />
+
+                    <HorizontalStackLayout
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="Start"
+                        Spacing="2"
+                        VerticalOptions="Center">
+
+                        <Border
+                            Padding="8,4"
+                            BackgroundColor="#F9FAFB"
+                            Stroke="Transparent"
+                            StrokeShape="RoundRectangle 6"
+                            StrokeThickness="1">
+                            <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
+                                <Image
+                                    HeightRequest="10"
+                                    Source="clock.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="10">
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="#009fe3" />
+                                    </Image.Behaviors>
+                                </Image>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="OpenSansRegular"
+                                    FontSize="12"
+                                    Text="{Binding FormattedDateTime}"
+                                    TextColor="Gray"
+                                    VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </Border>
+
+                        <Border
+                            Padding="8,4"
+                            BackgroundColor="#F9FAFB"
+                            IsVisible="{Binding ShowCompletedBy}"
+                            Stroke="Transparent"
+                            StrokeShape="RoundRectangle 6"
+                            StrokeThickness="1">
+                            <HorizontalStackLayout Spacing="6" VerticalOptions="Center">
+                                <Image
+                                    HeightRequest="10"
+                                    Source="profileactive.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="10">
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="#031926" />
+                                    </Image.Behaviors>
+                                </Image>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontFamily="OpenSansSemiBold"
+                                    FontSize="12"
+                                    Text="{Binding CompletedBy}"
+                                    TextColor="Gray"
+                                    VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </Border>
+
+                    </HorizontalStackLayout>
+
+                    <Image
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="2"
+                        HeightRequest="14"
+                        HorizontalOptions="End"
+                        Opacity="0.4"
+                        Source="chevron_right.png"
+                        VerticalOptions="Center"
+                        WidthRequest="14" />
+
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid
+            HorizontalOptions="Fill"
+            RowDefinitions="Auto,*"
+            VerticalOptions="Fill">
+
+            <Label
+                x:Name="AllTitle"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="20,10,20,0"
+                FontAttributes="Bold"
+                FontFamily="OpenSansSemiBold"
+                FontSize="18"
+                HorizontalOptions="Start"
+                Text="Completed Forms"
+                TextColor="#031926"
+                VerticalOptions="Center" />
+
+
+            <StackLayout
+                x:Name="loadingstack"
+                Grid.Row="1"
+                VerticalOptions="Center">
+                <ActivityIndicator
+                    x:Name="LoadInd"
+                    IsRunning="True"
+                    Color="LightBlue" />
+                <Label
+                    Margin="0,0,0,0"
+                    FontAttributes="Bold"
+                    FontSize="12"
+                    HorizontalOptions="Center"
+                    Text="Loading Questionnaire..."
+                    TextColor="Black" />
+            </StackLayout>
+
+            <StackLayout
+                x:Name="LoadFailed"
+                Grid.Row="1"
+                IsVisible="False"
+                VerticalOptions="Center">
+                <Border
+                    Margin="20,0,20,20"
+                    Padding="0"
+                    Background="White"
+                    Stroke="#E0E0E0"
+                    StrokeShape="RoundRectangle 10"
+                    VerticalOptions="Center">
+                    <Border.Shadow>
+                        <Shadow
+                            Brush="Black"
+                            Opacity="0.05"
+                            Radius="10"
+                            Offset="0,2" />
+                    </Border.Shadow>
+                    <VerticalStackLayout
+                        Padding="30"
+                        Background="Transparent"
+                        HorizontalOptions="Fill"
+                        Spacing="10"
+                        VerticalOptions="Fill">
+                        <Image
+                            HeightRequest="40"
+                            HorizontalOptions="Center"
+                            Opacity="0.6"
+                            WidthRequest="40">
+                            <Image.Source>
+                                <FontImageSource
+                                    FontFamily="OpenSansSemiBold"
+                                    Glyph="📝"
+                                    Size="40"
+                                    Color="#62727B" />
+                            </Image.Source>
+                        </Image>
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="18"
+                            HorizontalTextAlignment="Center"
+                            Text="We couldn't load your questionnaires"
+                            TextColor="#031926" />
+                        <Label
+                            FontFamily="OpenSansRegular"
+                            FontSize="14"
+                            HorizontalTextAlignment="Center"
+                            LineBreakMode="WordWrap"
+                            TextColor="#62727B">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Please try refreshing the page. If the problem persists, try contacting our team for support: " TextColor="Gray" />
+                                    <Span
+                                        FontAttributes="Bold"
+                                        Text="Support@PeopleWith.com"
+                                        TextColor="DodgerBlue" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Button
+                            Margin="0,10,0,0"
+                            Padding="20,0"
+                            BackgroundColor="#F7FAFC"
+                            BorderColor="#E2E8F0"
+                            BorderWidth="1"
+                            CornerRadius="8"
+                            HorizontalOptions="Center"
+                            IsVisible="False"
+                            Text="Try Again"
+                            TextColor="#2D3748" />
+                    </VerticalStackLayout>
+                </Border>
+            </StackLayout>
+
+            <syncfusion:SfListView
+                x:Name="CompletedQuestionList"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="10,20,10,20"
+                AutoFitMode="Height"
+                Background="Transparent"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Fill"
+                IsScrollingEnabled="False"
+                IsVisible="False"
+                ItemTapped="CompletedQuestionList_ItemTapped"
+                ItemTemplate="{StaticResource QuestionnaireItemTemplate}"
+                ScrollBarVisibility="Never"
+                SelectionBackground="Transparent"
+                SelectionMode="Single"
+                VerticalOptions="Fill" />
+
+            <syncfusion:SfListView
+                x:Name="MissedQuestionsList"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="10,20,10,20"
+                AutoFitMode="Height"
+                Background="Transparent"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Fill"
+                IsScrollingEnabled="False"
+                IsVisible="False"
+                ItemTapped="MissedQuestionsList_ItemTapped"
+                ItemTemplate="{StaticResource Missedtemplate}"
+                ScrollBarVisibility="Never"
+                SelectionBackground="Transparent"
+                SelectionMode="Single"
+                VerticalOptions="Fill" />
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
