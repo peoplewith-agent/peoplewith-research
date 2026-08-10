@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PeopleWithResearch.Views.New.RegisterLogin.SignUpCodes.BodyMetricsStepView">
+    <Grid Padding="20,16,20,16">
+        <VerticalStackLayout Spacing="12">
+            <Border IsVisible="{Binding BodyMetricsStackError}" BackgroundColor="#FEE2E2"
+                    StrokeThickness="0" StrokeShape="RoundRectangle 8" Padding="12,8">
+                <Label Text="{Binding BodyMetricsStackErrorMessage}" TextColor="#991B1B"
+                       FontFamily="HankenGroteskRegular" FontSize="13"/>
+            </Border>
+            <Label Text="Height" FontFamily="HankenGroteskRegular" FontSize="14" TextColor="#374151"/>
+            <Entry x:Name="HeightEntry" Placeholder="e.g. 5ft 8in or 172cm"
+                   FontFamily="HankenGroteskRegular" FontSize="15" BackgroundColor="#F9FAFB"/>
+            <Label Text="Weight" FontFamily="HankenGroteskRegular" FontSize="14" TextColor="#374151"/>
+            <Entry x:Name="WeightEntry" Placeholder="e.g. 70kg or 11st 4lb"
+                   FontFamily="HankenGroteskRegular" FontSize="15" BackgroundColor="#F9FAFB"/>
+            <Label Text="Waist circumference (optional)" FontFamily="HankenGroteskRegular"
+                   FontSize="14" TextColor="#374151"/>
+            <Entry x:Name="WaistEntry" Placeholder="e.g. 32in or 81cm"
+                   FontFamily="HankenGroteskRegular" FontSize="15" BackgroundColor="#F9FAFB"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>

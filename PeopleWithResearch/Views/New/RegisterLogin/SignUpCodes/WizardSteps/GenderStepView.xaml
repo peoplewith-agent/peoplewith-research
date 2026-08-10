@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PeopleWithResearch.Views.New.RegisterLogin.SignUpCodes.GenderStepView">
+    <Grid Padding="20,16,20,16">
+        <VerticalStackLayout Spacing="12">
+            <Border IsVisible="{Binding GenderStackError}"
+                    BackgroundColor="#FEE2E2" StrokeThickness="0"
+                    StrokeShape="RoundRectangle 8" Padding="12,8">
+                <Label Text="{Binding GenderStackErrorMessage}"
+                       TextColor="#991B1B" FontFamily="HankenGroteskRegular" FontSize="13"/>
+            </Border>
+            <Label Text="Date of birth (dd/MM/yyyy)"
+                   FontFamily="HankenGroteskRegular" FontSize="14" TextColor="#374151"/>
+            <Entry x:Name="DateEntry"
+                   Text="{Binding newuser.dateofbirth}"
+                   Placeholder="DD/MM/YYYY"
+                   Keyboard="Numeric"
+                   FontFamily="HankenGroteskRegular" FontSize="15" BackgroundColor="#F9FAFB"/>
+            <Label Text="Sex at birth"
+                   FontFamily="HankenGroteskRegular" FontSize="14" TextColor="#374151"/>
+            <Picker x:Name="GenderPicker"
+                    Title="Select..."
+                    FontFamily="HankenGroteskRegular" FontSize="15"
+                    BackgroundColor="#F9FAFB"
+                    SelectedIndexChanged="GenderPicker_SelectedIndexChanged"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>

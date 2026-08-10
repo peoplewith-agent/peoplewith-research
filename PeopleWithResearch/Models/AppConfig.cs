@@ -48,6 +48,9 @@ namespace PeopleWithResearch.Models
 
         public List<RegField> subFields { get; set; }
 
+        // Aliases used by ImperialViewModel step header binding and unit tests
+        public string FieldTitle { get => Label; set => Label = value; }
+        public string FieldSubtitle { get => Placeholder; set => Placeholder = value; }
     }
 
     public class OptionDetails   

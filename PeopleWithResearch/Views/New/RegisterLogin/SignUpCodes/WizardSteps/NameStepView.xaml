@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PeopleWithResearch.Views.New.RegisterLogin.SignUpCodes.NameStepView">
+    <Grid Padding="20,16,20,16" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+
+        <!-- Error banner -->
+        <Border Grid.Row="0"
+                IsVisible="{Binding NameStackError}"
+                BackgroundColor="#FEE2E2" StrokeThickness="0"
+                StrokeShape="RoundRectangle 8" Padding="12,8" Margin="0,0,0,12">
+            <Label Text="{Binding NameStackErrorMessage}"
+                   TextColor="#991B1B" FontFamily="HankenGroteskRegular" FontSize="13"/>
+        </Border>
+
+        <!-- First name -->
+        <Entry Grid.Row="1"
+               Text="{Binding newuser.firstname}"
+               IsEnabled="{Binding FirstNameEntryEnabled}"
+               Placeholder="First name"
+               FontFamily="HankenGroteskRegular" FontSize="15"
+               BackgroundColor="#F9FAFB"
+               Margin="0,0,0,12"/>
+
+        <!-- Surname -->
+        <Entry Grid.Row="2"
+               Text="{Binding newuser.surname}"
+               IsEnabled="{Binding SurnameEntryEnabled}"
+               Placeholder="Surname"
+               FontFamily="HankenGroteskRegular" FontSize="15"
+               BackgroundColor="#F9FAFB"
+               Margin="0,0,0,12"/>
+
+        <!-- Email (hidden when noemailuserreg) -->
+        <Entry Grid.Row="3"
+               Text="{Binding newuser.email}"
+               IsEnabled="{Binding EmailEntryEnabled}"
+               Placeholder="Email address"
+               Keyboard="Email"
+               FontFamily="HankenGroteskRegular" FontSize="15"
+               BackgroundColor="#F9FAFB"
+               IsVisible="{Binding noemailuserreg, Converter={StaticResource InverseBoolConverter}}"
+               Margin="0,0,0,12"/>
+
+        <!-- Telephone -->
+        <Entry Grid.Row="4"
+               Text="{Binding newuser.telephone}"
+               Placeholder="Phone number"
+               Keyboard="Telephone"
+               FontFamily="HankenGroteskRegular" FontSize="15"
+               BackgroundColor="#F9FAFB"
+               Margin="0,0,0,12"/>
+
+        <!-- Password -->
+        <Entry Grid.Row="5"
+               Text="{Binding newuser.password}"
+               Placeholder="Password"
+               IsPassword="True"
+               FontFamily="HankenGroteskRegular" FontSize="15"
+               BackgroundColor="#F9FAFB"
+               IsVisible="{Binding noemailuserreg, Converter={StaticResource InverseBoolConverter}}"
+               Margin="0,0,0,12"/>
+
+        <!-- Confirm password -->
+        <Entry Grid.Row="6"
+               x:Name="ConfirmPassEntry"
+               Placeholder="Confirm password"
+               IsPassword="True"
+               FontFamily="HankenGroteskRegular" FontSize="15"
+               BackgroundColor="#F9FAFB"
+               IsVisible="{Binding noemailuserreg, Converter={StaticResource InverseBoolConverter}}"
+               Margin="0,0,0,0"/>
+
+    </Grid>
+</ContentView>

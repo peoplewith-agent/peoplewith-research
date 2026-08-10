@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    x:Class="PeopleWithResearch.Views.New.RegisterLogin.SignUpCodes.MedicationsStepView">
+    <Grid Padding="20,10,20,16">
+        <VerticalStackLayout Spacing="0">
+
+            <Label
+                Text="{Binding StepTitle}"
+                FontFamily="HankenGroteskBold"
+                FontSize="18"
+                TextColor="#031926"
+                HorizontalOptions="Start"
+                Margin="0,10,0,0" />
+
+            <Label
+                Text="{Binding StepSubtitle}"
+                FontFamily="HankenGroteskRegular"
+                FontSize="13"
+                TextColor="#031926"
+                HorizontalOptions="Start"
+                LineBreakMode="WordWrap"
+                Margin="0,10,0,0" />
+
+            <!-- Yes/No first -->
+            <syncfusion:SfListView
+                x:Name="medsfirstlist"
+                Margin="0,10,0,0"
+                AutoFitMode="Height"
+                BackgroundColor="Transparent"
+                IsScrollingEnabled="False"
+                Orientation="Vertical"
+                ScrollBarVisibility="Never"
+                SelectionBackground="Transparent"
+                SelectionGesture="Tap"
+                SelectionMode="Single"
+                ItemsSource="{Binding MedicationsYnOptions}"
+                SelectedItem="{Binding SelectedMedicationsYnOption, Mode=TwoWay}">
+                <syncfusion:SfListView.ItemsLayout>
+                    <syncfusion:GridLayout SpanCount="2" />
+                </syncfusion:SfListView.ItemsLayout>
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Border Margin="5,5,5,5" Padding="20" BackgroundColor="Transparent"
+                                    Stroke="LightGray" StrokeShape="RoundRectangle 10">
+                                <Label FontFamily="HankenGroteskRegular" FontSize="12"
+                                       Text="{Binding .}" TextColor="Gray"
+                                       InputTransparent="True" VerticalOptions="Center" />
+                            </Border>
+                        </ViewCell>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+                <syncfusion:SfListView.SelectedItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Border Margin="5,5,5,5" Padding="20" BackgroundColor="#d8e9fa"
+                                    Stroke="#009fe3" StrokeShape="RoundRectangle 10" StrokeThickness="2">
+                                <Label FontAttributes="Bold" FontFamily="HankenGroteskBold" FontSize="12"
+                                       Text="{Binding .}" TextColor="#031926"
+                                       InputTransparent="True" VerticalOptions="Center" />
+                            </Border>
+                        </ViewCell>
+                    </DataTemplate>
+                </syncfusion:SfListView.SelectedItemTemplate>
+            </syncfusion:SfListView>
+
+            <!-- Autocomplete search for medications -->
+            <editors:SfAutocomplete
+                x:Name="medautocomplete"
+                Margin="0,20,0,0"
+                Padding="0"
+                DisplayMemberPath="Text"
+                DropDownBackground="White"
+                DropDownItemFontFamily="HankenGroteskBold"
+                DropDownItemFontSize="14"
+                DropDownPlacement="Top"
+                DropDownStroke="LightGray"
+                DropDownStrokeThickness="2"
+                EnableAutoSize="True"
+                FontFamily="HankenGroteskRegular"
+                FontSize="14"
+                HorizontalOptions="Fill"
+                ItemPadding="10"
+                MinimumHeightRequest="50"
+                Placeholder="Add medications..."
+                PlaceholderColor="#9E9E9E"
+                SelectionMode="Multiple"
+                SelectionTextHighlightColor="#d8e9fa"
+                ShowBorder="True"
+                ShowSuggestionsOnFocus="False"
+                Stroke="#031926"
+                TextMemberPath="Text"
+                TextSearchMode="Contains"
+                TokensWrapMode="Wrap"
+                VerticalOptions="Start"
+                ItemsSource="{Binding AllMedicationsSource}"
+                SelectedItems="{Binding SelectedMedications, Mode=TwoWay}"
+                IsVisible="{Binding ShowMedicationsSearch}" />
+
+            <inputLayout:SfChipGroup
+                x:Name="medicationschips"
+                Margin="0,10,0,10"
+                BackgroundColor="Transparent"
+                ChipBackground="#d8e9fa"
+                ChipPadding="4,4,0,0"
+                ChipStroke="#009fe3"
+                ChipStrokeThickness="4"
+                ChipTextColor="#031926"
+                ChipType="Input"
+                DisplayMemberPath="Text"
+                SelectedChipBackground="Transparent"
+                SelectedChipTextColor="Gray"
+                SelectionIndicatorColor="Transparent"
+                ShowIcon="False"
+                VerticalOptions="Center"
+                ItemsSource="{Binding SelectedMedications}"
+                IsVisible="{Binding ShowMedicationsSearch}" />
+
+            <Label
+                Text="{Binding MedicationsStackErrorMessage}"
+                IsVisible="{Binding MedicationsStackError}"
+                FontFamily="HankenGroteskBold"
+                FontSize="10"
+                TextColor="Red"
+                HorizontalOptions="End"
+                Margin="0,4,0,0" />
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>

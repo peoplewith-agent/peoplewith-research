@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PeopleWithResearch.Views.New.RegisterLogin.SignUpCodes.HouseholdStructureStepView">
+    <Grid Padding="20,16,20,16">
+        <VerticalStackLayout Spacing="12">
+            <Border IsVisible="{Binding HouseholdStructureStackError}" BackgroundColor="#FEE2E2"
+                    StrokeThickness="0" StrokeShape="RoundRectangle 8" Padding="12,8">
+                <Label Text="{Binding HouseholdStructureStackErrorMessage}" TextColor="#991B1B"
+                       FontFamily="HankenGroteskRegular" FontSize="13"/>
+            </Border>
+            <Label Text="Who do you live with?" FontFamily="HankenGroteskRegular" FontSize="14" TextColor="#374151"/>
+            <Picker x:Name="LiveWithPicker" Title="Select..."
+                    FontFamily="HankenGroteskRegular" FontSize="15" BackgroundColor="#F9FAFB"/>
+            <Label Text="Housing type" FontFamily="HankenGroteskRegular" FontSize="14" TextColor="#374151"/>
+            <Picker x:Name="HousingTypePicker" Title="Select..."
+                    FontFamily="HankenGroteskRegular" FontSize="15" BackgroundColor="#F9FAFB"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>
