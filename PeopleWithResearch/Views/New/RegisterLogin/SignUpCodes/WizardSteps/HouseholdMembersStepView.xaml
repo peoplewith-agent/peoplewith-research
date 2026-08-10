@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="PeopleWithResearch.HouseholdMembersStepView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView">
+    <Grid>
+        <StackLayout Padding="20,10" Spacing="12">
+            <Label
+                FontFamily="HankenGroteskBold"
+                FontSize="22"
+                Text="Household Members"
+                TextColor="#031926" />
+            <Label
+                FontFamily="HankenGroteskRegular"
+                FontSize="14"
+                Text="Add or update members of your household who will participate in the study."
+                TextColor="#031926" />
+            <syncfusion:SfListView
+                x:Name="householdmemberlist"
+                AutoFitMode="Height"
+                IsScrollingEnabled="False"
+                ItemsSource="{Binding HouseholdMembers}"
+                ScrollBarVisibility="Never"
+                SelectionMode="None">
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            Margin="0,4"
+                            Padding="16,12"
+                            BackgroundColor="#F8F9FB"
+                            Stroke="#E5E7EB"
+                            StrokeShape="RoundRectangle 8">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label FontFamily="HankenGroteskRegular" FontSize="14" Text="{Binding household_individual_name}" TextColor="#031926" VerticalOptions="Center" />
+                                <Label Grid.Column="1" FontFamily="HankenGroteskRegular" FontSize="12" Text="{Binding household_individual_status}" TextColor="#666" VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+            <Button
+                BackgroundColor="#009fe3"
+                Command="{Binding AddHouseholdMemberCommand}"
+                CornerRadius="8"
+                FontFamily="HankenGroteskBold"
+                FontSize="14"
+                Text="Add Member"
+                TextColor="White" />
+            <Label x:Name="hhmemberserrlbl" FontFamily="HankenGroteskRegular" FontSize="12" IsVisible="{Binding HouseholdMembersHasError}" Text="{Binding HouseholdMembersErrorMessage}" TextColor="Red" />
+        </StackLayout>
+    </Grid>
+</ContentView>

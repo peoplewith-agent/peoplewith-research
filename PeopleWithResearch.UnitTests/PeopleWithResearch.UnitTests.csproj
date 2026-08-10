@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <!-- Use the same root namespace as the production project so linked source compiles without changes -->
+    <RootNamespace>PeopleWithResearch</RootNamespace>
+    <!-- Suppress warnings: duplicate assembly-level attributes, nullable warnings in linked source -->
+    <NoWarn>$(NoWarn);CS0436;CS0108;CS8600;CS8602;CS8603;CS8604;CS8618;CS8625;CS0246;CS0234</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="FluentAssertions" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <!-- Link production source files directly – avoids MAUI TFM incompatibility -->
+  <ItemGroup>
+    <Compile Include="..\PeopleWithResearch\ViewModels\ImperialViewModel.cs"
+             Link="LinkedSource\ImperialViewModel.cs" />
+    <Compile Include="..\PeopleWithResearch\Models\AppConfig.cs"
+             Link="LinkedSource\Models\AppConfig.cs" />
+    <Compile Include="..\PeopleWithResearch\Models\signupcode.cs"
+             Link="LinkedSource\Models\signupcode.cs" />
+    <Compile Include="..\PeopleWithResearch\Models\newuser.cs"
+             Link="LinkedSource\Models\newuser.cs" />
+    <Compile Include="..\PeopleWithResearch\Models\QuestionnaireResult.cs"
+             Link="LinkedSource\Models\QuestionnaireResult.cs" />
+    <Compile Include="..\PeopleWithResearch\Models\QuestionModel.cs"
+             Link="LinkedSource\Models\QuestionModel.cs" />
+    <Compile Include="..\PeopleWithResearch\Models\householdgroup.cs"
+             Link="LinkedSource\Models\householdgroup.cs" />
+    <Compile Include="..\PeopleWithResearch\Models\householdgroupjsondetails.cs"
+             Link="LinkedSource\Models\householdgroupjsondetails.cs" />
+    <Compile Include="..\PeopleWithResearch\Models\householdstudyrecord.cs"
+             Link="LinkedSource\Models\householdstudyrecord.cs" />
+    <Compile Include="..\PeopleWithResearch\Models\user.cs"
+             Link="LinkedSource\Models\user.cs" />
+    <Compile Include="..\PeopleWithResearch\Models\Questionnaire.cs"
+             Link="LinkedSource\Models\Questionnaire.cs" />
+    <Compile Include="..\PeopleWithResearch\Models\advert.cs"
+             Link="LinkedSource\Models\advert.cs" />
+    <Compile Include="..\PeopleWithResearch\Models\newuserquestionnaire.cs"
+             Link="LinkedSource\Models\newuserquestionnaire.cs" />
+    <Compile Include="..\PeopleWithResearch\Helpers\CrashDetected.cs"
+             Link="LinkedSource\Helpers\CrashDetected.cs" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PeopleWithResearch.Views.New.RegisterLogin.SignUpCodes.AddressStepView">
+    <Grid Padding="20,16,20,16">
+        <VerticalStackLayout Spacing="12">
+            <Border IsVisible="{Binding AddressStackError}"
+                    BackgroundColor="#FEE2E2" StrokeThickness="0"
+                    StrokeShape="RoundRectangle 8" Padding="12,8">
+                <Label Text="{Binding AddressStackErrorMessage}"
+                       TextColor="#991B1B" FontFamily="HankenGroteskRegular" FontSize="13"/>
+            </Border>
+            <Entry Text="{Binding newuser.postcode}"
+                   Placeholder="Postcode"
+                   FontFamily="HankenGroteskRegular" FontSize="15" BackgroundColor="#F9FAFB"/>
+            <Entry x:Name="AddressOneEntry" Placeholder="Address line 1"
+                   FontFamily="HankenGroteskRegular" FontSize="15" BackgroundColor="#F9FAFB"/>
+            <Entry x:Name="TownEntry" Placeholder="Town / City"
+                   FontFamily="HankenGroteskRegular" FontSize="15" BackgroundColor="#F9FAFB"/>
+            <Entry x:Name="CountyEntry" Placeholder="County"
+                   FontFamily="HankenGroteskRegular" FontSize="15" BackgroundColor="#F9FAFB"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>
