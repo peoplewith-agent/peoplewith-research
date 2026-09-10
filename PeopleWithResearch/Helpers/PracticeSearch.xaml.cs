@@ -1,6 +1,6 @@
 using Mopups.Pages;
 using Mopups.Services;
-using PeopleWithResearch.Models;
+using PeopleWithResearch;
 using System.Globalization;
 using System.Text.RegularExpressions;
 

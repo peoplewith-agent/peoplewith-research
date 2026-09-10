@@ -1,7 +1,3 @@
-using CommunityToolkit.Maui.Behaviors;
-using CommunityToolkit.Mvvm.Messaging;
-using Microsoft.Maui.Controls.Shapes;
-using Mopups.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.Globalization;
@@ -9,6 +5,11 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using CommunityToolkit.Maui.Behaviors;
+using CommunityToolkit.Mvvm.Messaging;
+using FreakyKit.Utils;
+using Microsoft.Maui.Controls.Shapes;
+using Mopups.Services;
 using Path = System.IO.Path;
 
 namespace PeopleWithResearch;
@@ -44,7 +45,8 @@ public partial class T1Questionnaire : ContentPage
     public T1Questionnaire(ObservableCollection<newuserquestionnaire> questionnairesPassed, householdgroup housegroupinfopassed, int dayNumber)
     {
         InitializeComponent();
-        dayform = true;
+        //dayform = true;
+        dayform = dayNumber != 1;
         _dayNumber = dayNumber;
         alluserquestionnaires = questionnairesPassed;
         allhouseholdgroup = housegroupinfopassed;
@@ -56,7 +58,8 @@ public partial class T1Questionnaire : ContentPage
     public T1Questionnaire(ObservableCollection<newuserquestionnaire> questionnairesPassed, householdgroup housegroupinfopassed, int dayNumber, bool missedq)
     {
         InitializeComponent();
-        dayform = true;
+        //dayform = true;
+        dayform = dayNumber != 1;
         _dayNumber = dayNumber;
         alluserquestionnaires = questionnairesPassed;
         allhouseholdgroup = housegroupinfopassed;
@@ -2082,8 +2085,24 @@ public partial class T1Questionnaire : ContentPage
 
             WeakReferenceMessenger.Default.Send(new UpdateDashCompelted(alluserquestionnaires.ToList()));
 
-            //Handle Daily Notification Logic 
-            await UpdateNotification.ScheduleDailyNotification(true); 
+
+            //find out if the user needs notifications
+
+            var options = new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            var list = System.Text.Json.JsonSerializer.Deserialize<List<householdgroupjsondetails>>(allhouseholdgroup.groupuserdetails, options);
+            var usertype = allhouseholdgroup.userdetailslist?.FirstOrDefault(x => x.household_individual_userid == Helpers.Settings.UsersID);
+
+
+            if (usertype.household_individual_email?.StartsWith("N/A", StringComparison.OrdinalIgnoreCase) == true)
+            {
+                //dont send any notification
+            }
+            else
+            {
+
+                //Handle Daily Notification Logic 
+                await UpdateNotification.ScheduleDailyNotification(true);
+            }
 
             await MopupService.Instance.PushAsync(new PopupPageHelper("Questionnaire Submitted"));
             await Task.Delay(2500);
@@ -2111,6 +2130,12 @@ public partial class T1Questionnaire : ContentPage
         // Scenario A: any member had a Scenario A pathogen positive LFD on T1/T2/T3
         // We use lfd_scenario_a flag which was set at submission time
         bool anyScenarioA = allTriggerQuestionnaires.Any(q => q.lfd_result);
+
+
+        if(Helpers.Settings.SignUp == "HOPPERCR")
+        {
+            anyScenarioA = true;
+        }
 
         if (anyScenarioA && activeEvent.scenario != "A")
             activeEvent.scenario = "A";

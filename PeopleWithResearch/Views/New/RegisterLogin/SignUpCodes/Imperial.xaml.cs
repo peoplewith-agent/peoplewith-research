@@ -1,31 +1,17 @@
 
 
 using Azure.Storage.Blobs;
-using CommunityToolkit.Maui;
 using FreakyKit.Utils;
-using Microsoft.Azure.NotificationHubs;
-using Microsoft.Maui.ApplicationModel;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Platform;
-using Mopups.Animations;
-using Mopups.PreBaked.Interfaces;
 using Mopups.Services;
 using Newtonsoft.Json;
-using PeopleWithResearch;
-using PeopleWithResearch.Models;
 using Syncfusion.Maui.Core;
 using Syncfusion.Maui.Core.Internals;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Diagnostics.Metrics;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 
 namespace PeopleWithResearch;
@@ -45,19 +31,19 @@ public partial class Imperial : ContentPage
     private int currentFieldIndexquestionnaire = 0;
     bool SignPadhaddata = false;
 
-    public List<SectionConsent> Groupeddata = new(); 
+    public List<SectionConsent> Groupeddata = new();
     public List<RegField> Over16regfields = new List<RegField>();
     public List<RegField> Over16regfieldsmain = new List<RegField>();
     public List<RegField> Nonrequiredfields = new List<RegField>();
     public List<OptionDetails> GPPracticeLsit = new();
-    public OptionDetails SelectedGp = new(); 
+    public OptionDetails SelectedGp = new();
     bool isEditing;
     bool validdob;
     bool validnhsnum;
     public QuestionManager questionamanager;
     public ObservableCollection<OptionDetails> SelectedConditons = new ObservableCollection<OptionDetails>();
     public ObservableCollection<OptionDetails> SelectedMedications = new ObservableCollection<OptionDetails>();
-    public string TandCNonReqired = string.Empty; 
+    public string TandCNonReqired = string.Empty;
 
     public ObservableCollection<RegQuestionAnswerJson> UserSelectedQuestionnaire = new ObservableCollection<RegQuestionAnswerJson>();
     string genderatbirth;
@@ -153,7 +139,7 @@ public partial class Imperial : ContentPage
         firstnameentry.Text = splitname[0];
         surnameentry.Text = splitname[1];
 
-        if(userinfoforbaseline.household_individual_age.Contains("10"))
+        if (userinfoforbaseline.household_individual_age.Contains("10"))
         {
             under10entry.Text = userinfopassed.household_individual_name;
             under10entry.IsEnabled = false;
@@ -163,9 +149,9 @@ public partial class Imperial : ContentPage
             over16nameentry.Text = userinfopassed.household_individual_name;
             over16nameentry.IsEnabled = false;
         }
-           
 
-        if(userinfoforbaseline.household_individual_email == "N/A")
+
+        if (userinfoforbaseline.household_individual_email == "N/A")
         {
             noemailuserreg = true;
             emailhelper.IsVisible = false;
@@ -175,14 +161,14 @@ public partial class Imperial : ContentPage
             passgrid.IsVisible = false;
             telhelper.IsVisible = false;
         }
-       
+
 
         emailentry.IsEnabled = false;
 
         firstnameentry.IsEnabled = false;
         surnameentry.IsEnabled = false;
-       
-   
+
+
     }
 
     private async Task LoadRegistrationConfigAsync()
@@ -212,9 +198,9 @@ public partial class Imperial : ContentPage
 
                 foreach (var item in Allregfields)
                 {
-                    foreach(var it in item.subFields)
+                    foreach (var it in item.subFields)
                     {
-                        if(it.Required)
+                        if (it.Required)
                         {
                             it.Label = it.Label + " *";
                         }
@@ -224,7 +210,7 @@ public partial class Imperial : ContentPage
 
 
                 //remove any items that are not needed if they are not the house rep
-                if(householdrepFROMREG == false)
+                if (householdrepFROMREG == false)
                 {
                     mainuserstacksave = Allregfields.Where(x => x.XamlNameArea == "mainuserstack").FirstOrDefault();
                     Allregfields.RemoveAll(x => x.XamlNameArea == "mainuserstack");
@@ -263,7 +249,7 @@ public partial class Imperial : ContentPage
 
 
 
-                 welcometoplbl.Text = "Welcome to the " + config.OverallSettings.StudyName;
+                welcometoplbl.Text = "Welcome to the " + config.OverallSettings.StudyName;
 
                 studytitlelbl.Text = config.OverallSettings.StudyTitle;
 
@@ -275,7 +261,7 @@ public partial class Imperial : ContentPage
                 nextbtn.Text = "Get Started";
 
 
-                
+
 
             }
 
@@ -283,7 +269,7 @@ public partial class Imperial : ContentPage
             var stringlistyn = new List<string>();
             stringlistyn.Add("Yes");
             stringlistyn.Add("No");
-          
+
 
             hcfirstlist.ItemsSource = stringlistyn;
             medsfirstlist.ItemsSource = stringlistyn;
@@ -305,14 +291,14 @@ public partial class Imperial : ContentPage
 
             usingphone1.ItemsSource = stringlistphone;
             usingphone2.ItemsSource = stringlistphone;
-         
+
 
             if (userdetails.Primaryuser == false)
             {
                 var removenotprimaryuser = Allregfields.Where(x => x.XamlNameArea == "mainuserstack").FirstOrDefault();
                 if (removenotprimaryuser != null)
                 {
-                   // menstrualquestion = getmenstrual;
+                    // menstrualquestion = getmenstrual;
                     Allregfields.Remove(removenotprimaryuser);
                 }
 
@@ -437,7 +423,7 @@ public partial class Imperial : ContentPage
                 subFields = new List<RegField>()
             };
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "ConvertQuestionFieldToSubField");
             return null;
@@ -489,7 +475,7 @@ public partial class Imperial : ContentPage
                 .OrderBy(x => int.TryParse(x.Order, out var orderVal) ? orderVal : int.MaxValue)
                 .ToList();
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "ConvertQuestionGroupsToRegFields");
             return null;
@@ -751,7 +737,8 @@ public partial class Imperial : ContentPage
             //APICalls database = new APICalls();
             await APICalls.Instance.PostUserConsentAsync(UpdateUserConsent);
 
-            await MopupService.Instance.PushAsync(new PopupPageHelper(true, householdrepFROMREG));
+            //Needs to be changed to mirror the same one in NewImperial if this page is used again
+            await MopupService.Instance.PushAsync(new PopupPageHelper(true, true));
 
             if (householdrepFROMREG)
             {
@@ -779,18 +766,18 @@ public partial class Imperial : ContentPage
                 Preferences.Default.Set("devicemodel", DeviceInfo.Model);
                 Preferences.Default.Set("deviceversion", DeviceInfo.VersionString);
 
-                if(newuser.primaryuser)
+                if (newuser.primaryuser)
                 {
                     Preferences.Default.Set("primaryuserid", newuser.userid);
                 }
 
             }
 
-                //Create weekly Notification 
-                //await AddNotification.ScheduleWeeklyNotification(DateTime.Now);  
+            //Create weekly Notification 
+            //await AddNotification.ScheduleWeeklyNotification(DateTime.Now);  
 
-                //await App.SetMainPage(new NavigationPage(new MainDashboard()));
-                await App.SetMainPage(new ImperialDashboard());
+            //await App.SetMainPage(new NavigationPage(new MainDashboard()));
+            await App.SetMainPage(new ImperialDashboard());
         }
         catch (Exception Ex)
         {
@@ -842,69 +829,69 @@ public partial class Imperial : ContentPage
                     return;
             }
 
-         
-                if (currentFieldIndex >= Allregfields.Count)
+
+            if (currentFieldIndex >= Allregfields.Count)
+            {
+                nextbtn.Text = "Finish";
+                nextbtnloader.IsRunning = false;
+                nextbtnloader.IsVisible = false;
+                await Nextloader(false);
+                return;
+            }
+
+
+            var currentField = Allregfields[currentFieldIndex];
+            bool canProceed = true;
+
+            if (currentField.Type == "Questionnaire")
+            {
+                topprogress2.IsVisible = true;
+                // **A. Validate the current sub-question**
+                //  canProceed = ValidateQuestionnaireStack(currentField); // Implement this method to check current sub-field
+
+                //  if (canProceed)
+                //{
+                // **B. Advance the sub-index**
+                //currentFieldIndexquestionnaire++;
+
+                //// **C. Check if there are more sub-questions in this group**
+                //if (currentFieldIndexquestionnaire < currentField.subFields.Count)
+                //{
+                //    // Move to the next sub-question (stay on the same parent stack)
+                //    // We're done; don't execute the main field advancement logic below.
+                //    ShowCurrentStack();
+                //    updateprogress();
+                //    return; // *** EXIT HERE TO STAY ON THE SAME MAIN STACK ***
+                //}
+                //else
+                //{
+                //    topprogress2.IsVisible = false;
+                //    // All sub-questions in this group are complete! 
+                //    // Fall through to the main field advancement logic (currentFieldIndex++)
+
+                //    // Reset the sub-index for the next group
+                //   // currentFieldIndexquestionnaire = 0;
+
+                //    // Add the data from the group
+                //   // AddQuestionnaireGroupInfo(currentField); // Implement this method
+                //}
+                // }
+
+                // return;
+            }
+
+
+            if (currentField.XamlNameArea == "namestack" && currentField.Required)
+            {
+                canProceed = await ValidateNameStack();
+
+                if (canProceed)
                 {
-                    nextbtn.Text = "Finish";
-                    nextbtnloader.IsRunning = false;
-                    nextbtnloader.IsVisible = false;
-                    await Nextloader(false);
-                    return;
+                    AddParticiantInfo();
                 }
-
-
-                var currentField = Allregfields[currentFieldIndex];
-                bool canProceed = true;
-
-                if (currentField.Type == "Questionnaire")
-                {
-                    topprogress2.IsVisible = true;
-                    // **A. Validate the current sub-question**
-                    //  canProceed = ValidateQuestionnaireStack(currentField); // Implement this method to check current sub-field
-
-                    //  if (canProceed)
-                    //{
-                    // **B. Advance the sub-index**
-                    //currentFieldIndexquestionnaire++;
-
-                    //// **C. Check if there are more sub-questions in this group**
-                    //if (currentFieldIndexquestionnaire < currentField.subFields.Count)
-                    //{
-                    //    // Move to the next sub-question (stay on the same parent stack)
-                    //    // We're done; don't execute the main field advancement logic below.
-                    //    ShowCurrentStack();
-                    //    updateprogress();
-                    //    return; // *** EXIT HERE TO STAY ON THE SAME MAIN STACK ***
-                    //}
-                    //else
-                    //{
-                    //    topprogress2.IsVisible = false;
-                    //    // All sub-questions in this group are complete! 
-                    //    // Fall through to the main field advancement logic (currentFieldIndex++)
-
-                    //    // Reset the sub-index for the next group
-                    //   // currentFieldIndexquestionnaire = 0;
-
-                    //    // Add the data from the group
-                    //   // AddQuestionnaireGroupInfo(currentField); // Implement this method
-                    //}
-                    // }
-
-                    // return;
-                }
-
-
-                if (currentField.XamlNameArea == "namestack" && currentField.Required)
-                {
-                    canProceed = await ValidateNameStack();
-
-                    if (canProceed)
-                    {
-                        AddParticiantInfo();
-                    }
-                }
-                else if (currentField.XamlNameArea == "mainuserstack" && currentField.Required)
-                {
+            }
+            else if (currentField.XamlNameArea == "mainuserstack" && currentField.Required)
+            {
                 canProceed = ValidateFormStack();
 
                 if (canProceed)
@@ -913,8 +900,8 @@ public partial class Imperial : ContentPage
                     //Addhouseholdmembers();
                 }
             }
-                else if (currentField.XamlNameArea == "addressstack" && currentField.Required)
-                {
+            else if (currentField.XamlNameArea == "addressstack" && currentField.Required)
+            {
                 canProceed = await ValidateaddressStack();
 
                 if (canProceed)
@@ -922,8 +909,8 @@ public partial class Imperial : ContentPage
                     AddAddressInfo();
                 }
             }
-                else if (currentField.XamlNameArea == "genderstack" && currentField.Required)
-                {
+            else if (currentField.XamlNameArea == "genderstack" && currentField.Required)
+            {
                 canProceed = ValidateGenderStack();
 
                 if (canProceed)
@@ -931,8 +918,8 @@ public partial class Imperial : ContentPage
                     AddGenderInfo();
                 }
             }
-                else if (currentField.XamlNameArea == "ethnicitystack" && currentField.Required)
-                {
+            else if (currentField.XamlNameArea == "ethnicitystack" && currentField.Required)
+            {
                 canProceed = ValidateEthnicityStack();
 
                 if (canProceed)
@@ -940,8 +927,8 @@ public partial class Imperial : ContentPage
                     AddEthnicityInfo();
                 }
             }
-                else if (currentField.XamlNameArea == "bodymetricsstack" && currentField.Required)
-                {
+            else if (currentField.XamlNameArea == "bodymetricsstack" && currentField.Required)
+            {
                 canProceed = ValidatebodymetricsStack();
 
                 if (canProceed)
@@ -949,8 +936,8 @@ public partial class Imperial : ContentPage
                     AddBodyMetricsInfo();
                 }
             }
-                else if (currentField.XamlNameArea == "educationworkstack" && currentField.Required)
-                {
+            else if (currentField.XamlNameArea == "educationworkstack" && currentField.Required)
+            {
                 canProceed = ValidateeducationStack();
 
                 if (canProceed)
@@ -958,8 +945,8 @@ public partial class Imperial : ContentPage
                     AddEducationWorkInfo();
                 }
             }
-                else if (currentField.XamlNameArea == "householdstructurestack" && currentField.Required)
-                {
+            else if (currentField.XamlNameArea == "householdstructurestack" && currentField.Required)
+            {
                 canProceed = ValidateHouseholdstructureStack();
 
                 if (canProceed)
@@ -967,157 +954,157 @@ public partial class Imperial : ContentPage
                     AddHouseHoldStructureInfo();
                 }
             }
-                else if (currentField.XamlNameArea == "nhsnumstack" && currentField.Required)
-                {
-                    canProceed = ValidatenhsnumStack();
+            else if (currentField.XamlNameArea == "nhsnumstack" && currentField.Required)
+            {
+                canProceed = ValidatenhsnumStack();
 
-                    if (canProceed)
-                    {
-                        AddNHSInfo();
-                    }
+                if (canProceed)
+                {
+                    AddNHSInfo();
                 }
-                else if (currentField.XamlNameArea == "ristack" && currentField.Required)
-                {
-                    canProceed = ValidateRIStack();
+            }
+            else if (currentField.XamlNameArea == "ristack" && currentField.Required)
+            {
+                canProceed = ValidateRIStack();
 
-                    if (canProceed)
-                    {
-                        AddRIInfo();
-                    }
+                if (canProceed)
+                {
+                    AddRIInfo();
                 }
-                else if (currentField.XamlNameArea == "hcstack" && currentField.Required)
-                {
-                    canProceed = ValidateHealthConditionsStack();
+            }
+            else if (currentField.XamlNameArea == "hcstack" && currentField.Required)
+            {
+                canProceed = ValidateHealthConditionsStack();
 
-                    if (canProceed)
-                    {
-                        AddHealthConditionsInfo();
-                    }
+                if (canProceed)
+                {
+                    AddHealthConditionsInfo();
                 }
-                else if (currentField.XamlNameArea == "addhcstack")
-                {
-                    canProceed = ValidateAddHealthConditionsStack();
+            }
+            else if (currentField.XamlNameArea == "addhcstack")
+            {
+                canProceed = ValidateAddHealthConditionsStack();
 
-                    if (canProceed)
-                    {
-                        AddHealthConditionsADD();
-                    }
+                if (canProceed)
+                {
+                    AddHealthConditionsADD();
                 }
-                else if (currentField.XamlNameArea == "medynstack" && currentField.Required)
-                {
-                    canProceed = ValidateMedicationsStack();
+            }
+            else if (currentField.XamlNameArea == "medynstack" && currentField.Required)
+            {
+                canProceed = ValidateMedicationsStack();
 
-                    if (canProceed)
-                    {
-                        AddMedicationsInfo();
-                    }
+                if (canProceed)
+                {
+                    AddMedicationsInfo();
                 }
-                else if (currentField.XamlNameArea == "medicationsstack")
-                {
-                    canProceed = ValidateMedicationsADDStack();
+            }
+            else if (currentField.XamlNameArea == "medicationsstack")
+            {
+                canProceed = ValidateMedicationsADDStack();
 
-                    if (canProceed)
-                    {
-                        AddMedicationsADD();
-                    }
+                if (canProceed)
+                {
+                    AddMedicationsADD();
                 }
-                else if (currentField.XamlNameArea == "rvstack" && currentField.Required)
-                {
-                    canProceed = ValidateRVStack();
+            }
+            else if (currentField.XamlNameArea == "rvstack" && currentField.Required)
+            {
+                canProceed = ValidateRVStack();
 
-                    if (canProceed)
-                    {
-                        AddRVInfo();
-                    }
+                if (canProceed)
+                {
+                    AddRVInfo();
                 }
-                else if (currentField.XamlNameArea == "dietstack" && currentField.Required)
+            }
+            else if (currentField.XamlNameArea == "dietstack" && currentField.Required)
+            {
+
+                canProceed = ValidateDietStack();
+
+                if (canProceed)
                 {
-
-                    canProceed = ValidateDietStack();
-
-                    if (canProceed)
-                    {
-                        AddDietInfo();
-                    }
+                    AddDietInfo();
                 }
-                else if (currentField.XamlNameArea == "menstrualstack")
-                {
-                    canProceed = ValidateMenstrualInfo();
+            }
+            else if (currentField.XamlNameArea == "menstrualstack")
+            {
+                canProceed = ValidateMenstrualInfo();
 
-                    if (canProceed)
-                    {
-                        AddMenstrualInfo();
-                    }
+                if (canProceed)
+                {
+                    AddMenstrualInfo();
                 }
-                else if (currentField.XamlNameArea == "htstack" && currentField.Required)
-                {
-                    canProceed = ValidateHtInfo();
+            }
+            else if (currentField.XamlNameArea == "htstack" && currentField.Required)
+            {
+                canProceed = ValidateHtInfo();
 
-                    if (canProceed)
-                    {
-                        AddHtInfo();
-                    }
+                if (canProceed)
+                {
+                    AddHtInfo();
                 }
-                else if (currentField.XamlNameArea == "additionalqstack" && currentField.Required)
-                {
-                    canProceed = validateAQ();
+            }
+            else if (currentField.XamlNameArea == "additionalqstack" && currentField.Required)
+            {
+                canProceed = validateAQ();
 
-                    if (canProceed)
-                    {
-                        AddAddqInfo();
-                    }
+                if (canProceed)
+                {
+                    AddAddqInfo();
                 }
-                else if (currentField.XamlNameArea == "antiviralstack")
-                {
-                    canProceed = ValidateAntiViralInfo();
+            }
+            else if (currentField.XamlNameArea == "antiviralstack")
+            {
+                canProceed = ValidateAntiViralInfo();
 
-                    if (canProceed)
-                    {
-                        AddAntiViralInfo();
-                    }
+                if (canProceed)
+                {
+                    AddAntiViralInfo();
                 }
+            }
 
-                else if (currentField.XamlNameArea == "tobaccostack")
+            else if (currentField.XamlNameArea == "tobaccostack")
+            {
+                canProceed = ValidateTobaccoInfo();
+
+                if (canProceed)
                 {
-                    canProceed = ValidateTobaccoInfo();
-
-                    if (canProceed)
-                    {
-                        AddTobaccoInfo();
-                    }
+                    AddTobaccoInfo();
                 }
+            }
 
-                else if (currentField.XamlNameArea == "alcoholstack")
+            else if (currentField.XamlNameArea == "alcoholstack")
+            {
+                canProceed = ValidateAlcoholInfo();
+
+                if (canProceed)
                 {
-                    canProceed = ValidateAlcoholInfo();
-
-                    if (canProceed)
-                    {
-                        AddAlcoholInfo();
-                    }
+                    AddAlcoholInfo();
                 }
+            }
 
-                else if (currentField.XamlNameArea == "drugstack")
+            else if (currentField.XamlNameArea == "drugstack")
+            {
+                canProceed = ValidateDrugInfo();
+
+                if (canProceed)
                 {
-                    canProceed = ValidateDrugInfo();
-
-                    if (canProceed)
-                    {
-                        AddDrugInfo();
-                    }
+                    AddDrugInfo();
                 }
+            }
 
-                else if (currentField.XamlNameArea == "sleepstack")
+            else if (currentField.XamlNameArea == "sleepstack")
+            {
+                canProceed = ValidateSleepInfo();
+
+                if (canProceed)
                 {
-                    canProceed = ValidateSleepInfo();
-
-                    if (canProceed)
-                    {
-                        AddSleepInfo();
-                    }
+                    AddSleepInfo();
                 }
-                else if (currentField.XamlNameArea == "termsstack" && currentField.Required)
-                {
+            }
+            else if (currentField.XamlNameArea == "termsstack" && currentField.Required)
+            {
                 canProceed = CheckTermsandConditions();
 
                 if (canProceed)
@@ -1129,70 +1116,70 @@ public partial class Imperial : ContentPage
 
 
 
-                if (!canProceed)
+            if (!canProceed)
+            {
+                Vibration.Vibrate();
+                await Nextloader(false);
+                return;
+            }
+
+
+            if (topprogress2.IsVisible)
+            {
+                if (currentFieldIndexquestionnaire < Allquesfields.Count)
                 {
-                    Vibration.Vibrate();
-                    await Nextloader(false);
-                    return;
+                    SetStackVisibility(Allquesfields[currentFieldIndexquestionnaire].XamlNameArea, false);
                 }
 
+                currentFieldIndexquestionnaire++;
 
-                if (topprogress2.IsVisible)
+                if (currentFieldIndexquestionnaire < Allquesfields.Count)
                 {
-                    if (currentFieldIndexquestionnaire < Allquesfields.Count)
-                    {
-                        SetStackVisibility(Allquesfields[currentFieldIndexquestionnaire].XamlNameArea, false);
-                    }
+                    ShowCurrentStack();
+                    updateprogress();
+                }
+                else if (currentFieldIndexquestionnaire == Allquesfields.Count)
+                {
+                    //hide progress bar and reset 
 
-                    currentFieldIndexquestionnaire++;
+                    topprogress2.IsVisible = false;
+                    currentFieldIndexquestionnaire = Allquesfields.Count - 1;
 
-                    if (currentFieldIndexquestionnaire < Allquesfields.Count)
-                    {
-                        ShowCurrentStack();
-                        updateprogress();
-                    }
-                    else if (currentFieldIndexquestionnaire == Allquesfields.Count)
-                    {
-                        //hide progress bar and reset 
+                    currentFieldIndex++;
 
-                        topprogress2.IsVisible = false;
-                        currentFieldIndexquestionnaire = Allquesfields.Count - 1;
+                    ShowCurrentStack();
+                    updateprogress();
+                }
+            }
+            else
+            {
+                // hide previous stack
+                if (currentFieldIndex < Allregfields.Count)
+                {
+                    SetStackVisibility(Allregfields[currentFieldIndex].XamlNameArea, false);
+                }
 
-                        currentFieldIndex++;
+                // move to next field
+                currentFieldIndex++;
 
-                        ShowCurrentStack();
-                        updateprogress();
-                    }
+                if (currentFieldIndex < Allregfields.Count)
+                {
+                    ShowCurrentStack();
+                    updateprogress();
                 }
                 else
                 {
-                    // hide previous stack
-                    if (currentFieldIndex < Allregfields.Count)
-                    {
-                        SetStackVisibility(Allregfields[currentFieldIndex].XamlNameArea, false);
-                    }
-
-                    // move to next field
-                    currentFieldIndex++;
-
-                    if (currentFieldIndex < Allregfields.Count)
-                    {
-                        ShowCurrentStack();
-                        updateprogress();
-                    }
-                    else
-                    {
-                        nextbtn.Text = "Finish";
-                    }
+                    nextbtn.Text = "Finish";
                 }
+            }
 
 
-                if (mainscrollview.ScrollY > 0)
-                {
-                    await mainscrollview.ScrollToAsync(0, 0, true);
-                }
+            if (mainscrollview.ScrollY > 0)
+            {
+                await mainscrollview.ScrollToAsync(0, 0, true);
+            }
 
-                await Nextloader(false);
+            await Nextloader(false);
         }
         catch (Exception Ex)
         {
@@ -1235,7 +1222,7 @@ public partial class Imperial : ContentPage
                 nextbtn.Text = "Finish";
             }
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "HandleQuestionnaireCompletion");
         }
@@ -1246,7 +1233,7 @@ public partial class Imperial : ContentPage
     {
         try
         {
-          
+
 
 
             newuser.firstname = firstnameentry.Text.Trim();
@@ -1259,7 +1246,7 @@ public partial class Imperial : ContentPage
 
 
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "AddParticiantInfo");
         }
@@ -1312,7 +1299,7 @@ public partial class Imperial : ContentPage
 
 
             newuser.postcode = postcodeentry.Text.Trim();
-            UserDetails.Clear(); 
+            UserDetails.Clear();
             AddDetail("addresslineone", addressoneentry.Text.Trim());
             AddDetail("town", townentry.Text.Trim());
             AddDetail("County", countyentry.Text.Trim());
@@ -1472,14 +1459,14 @@ public partial class Imperial : ContentPage
                 var initalname = $"{firstfamentry.Text?.Trim() ?? string.Empty} {firstsurnameentry.Text?.Trim() ?? string.Empty}".Trim();
                 if (!string.IsNullOrEmpty(initalname))
                 {
-                    UpdateUser.household_individual_name = initalname; 
+                    UpdateUser.household_individual_name = initalname;
                 }
                 else
                 {
                     UpdateUser.household_individual_name =
                      $"{firstnameentry.Text?.Trim() ?? string.Empty} {surnameentry.Text?.Trim() ?? string.Empty}".Trim();
                 }
-            
+
             }
 
             var houseRepToRemove = allgroupdetailspassed?
@@ -1552,7 +1539,7 @@ public partial class Imperial : ContentPage
                 }
             }
 
-            if(genidlbl.IsVisible)
+            if (genidlbl.IsVisible)
             {
                 var selectedOption = genidlist.SelectedItem as OptionDetails;
 
@@ -1581,7 +1568,7 @@ public partial class Imperial : ContentPage
             if (age >= 15 && age <= 55 && newuser.gender == "Female")
             {
                 var getmenstrual = AllregfieldsNotRequired.Where(x => x.XamlNameArea == "menstrualstack").FirstOrDefault();
-                 
+
 
 
                 if (getmenstrual != null && !Allregfields.Any(x => x.XamlNameArea == "menstrualstack"))
@@ -1609,18 +1596,18 @@ public partial class Imperial : ContentPage
 
             //check if the user is under 16
 
-            if(age < 16)
+            if (age < 16)
             {
 
-              //  var getover16items = Allregfields.Where(x => x.Type == "over16").ToList();
+                //  var getover16items = Allregfields.Where(x => x.Type == "over16").ToList();
 
-              //  Over16regfields = getover16items;
+                //  Over16regfields = getover16items;
 
 
-              //foreach(var item in Over16regfields)
-              //  {
-              //      Allregfields.Remove(item);
-              //  }
+                //foreach(var item in Over16regfields)
+                //  {
+                //      Allregfields.Remove(item);
+                //  }
 
                 var getover16itemsmain = Allregfields.Where(x => x.Type == "over16main").ToList();
 
@@ -1659,7 +1646,7 @@ public partial class Imperial : ContentPage
                     }
                 }
 
-            
+
             }
 
             //    // Store old values before changing the question list
@@ -1720,9 +1707,9 @@ public partial class Imperial : ContentPage
             {
                 newuser.ethnicity = ethnicity.Text;
             }
-            
 
-            if(!string.IsNullOrEmpty(ownwordsethentry.Text))
+
+            if (!string.IsNullOrEmpty(ownwordsethentry.Text))
             {
 
                 var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "ethnicityInOwnWords");
@@ -1749,7 +1736,7 @@ public partial class Imperial : ContentPage
                 }
             }
 
-            if(movelbl.IsVisible)
+            if (movelbl.IsVisible)
             {
                 var selectedOption2 = movelist.SelectedItem as OptionDetails;
 
@@ -1794,7 +1781,7 @@ public partial class Imperial : ContentPage
     {
         try
         {
-                  
+
 
             var selectedOption = weightinputlist.SelectedItem as OptionDetails;
 
@@ -1809,38 +1796,38 @@ public partial class Imperial : ContentPage
                     record.AnswerId = selectedOption.AnswerId;
 
 
-                    if(weighthelper.IsVisible)
+                    if (weighthelper.IsVisible)
                     {
                         record.AnswerValue = weightEntry.Text.Trim();
                     }
                 }
             }
 
-            
+
             //TODO: Add record.Quesitonid = to redcap id for weight and height 
-                var selectedOption2 = heightinputlist.SelectedItem as OptionDetails;
+            var selectedOption2 = heightinputlist.SelectedItem as OptionDetails;
 
-                if (selectedOption2 != null)
+            if (selectedOption2 != null)
+            {
+                // Find the specific answer record by its friendly name
+                var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "heightUnit");
+
+                if (record != null)
                 {
-                    // Find the specific answer record by its friendly name
-                    var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "heightUnit");
-
-                    if (record != null)
-                    {
-                        // Update the record with the chosen AnswerId GUID
-                        record.AnswerId = selectedOption2.AnswerId;
+                    // Update the record with the chosen AnswerId GUID
+                    record.AnswerId = selectedOption2.AnswerId;
 
                     if (heightHelper.IsVisible)
                     {
                         record.AnswerValue = feetEntry.Text.Trim() + inchesEntry.Text.Trim();
                     }
-                    else if(heightcmhelper.IsVisible)
+                    else if (heightcmhelper.IsVisible)
                     {
                         record.AnswerValue = heightcmentry.Text.Trim();
                     }
                 }
-                }
-            
+            }
+
 
             if (stepslbl.IsVisible)
             {
@@ -1888,7 +1875,7 @@ public partial class Imperial : ContentPage
         try
         {
 
-      
+
 
             var selectedOption = higheducationlist.SelectedItem as OptionDetails;
 
@@ -1939,7 +1926,7 @@ public partial class Imperial : ContentPage
                 }
             }
 
-         
+
 
         }
         catch (Exception Ex)
@@ -1955,16 +1942,16 @@ public partial class Imperial : ContentPage
 
 
 
-         
-                // Find the specific answer record by its friendly name
-                var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "peopleinhome");
 
-                if (record != null)
-                {
-                    // Update the record with the chosen AnswerId GUID
-                    record.AnswerValue = peopleentry.Text.Trim();
+            // Find the specific answer record by its friendly name
+            var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "peopleinhome");
 
-                }
+            if (record != null)
+            {
+                // Update the record with the chosen AnswerId GUID
+                record.AnswerValue = peopleentry.Text.Trim();
+
+            }
 
             var record2 = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "rooms");
 
@@ -2002,21 +1989,21 @@ public partial class Imperial : ContentPage
             }
 
 
-          
-                var selectedOption3 = damplist.SelectedItem as OptionDetails;
 
-                if (selectedOption3 != null)
+            var selectedOption3 = damplist.SelectedItem as OptionDetails;
+
+            if (selectedOption3 != null)
+            {
+                // Find the specific answer record by its friendly name
+                var record5 = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "mould");
+
+                if (record5 != null)
                 {
-                    // Find the specific answer record by its friendly name
-                    var record5 = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "mould");
-
-                    if (record5 != null)
-                    {
-                        // Update the record with the chosen AnswerId GUID
-                        record5.AnswerId = selectedOption3.AnswerId;
-                    }
+                    // Update the record with the chosen AnswerId GUID
+                    record5.AnswerId = selectedOption3.AnswerId;
                 }
-            
+            }
+
 
 
 
@@ -2078,7 +2065,7 @@ public partial class Imperial : ContentPage
                     }
                 }
 
-         
+
             }
 
 
@@ -2168,10 +2155,10 @@ public partial class Imperial : ContentPage
     {
         try
         {
-            if(hcfirstlist.SelectedItem.ToString() == "Yes")
+            if (hcfirstlist.SelectedItem.ToString() == "Yes")
             {
-              
-                   // var additionalconditions = Allregfields.Where(x => x.Type == "otherhc").ToList();
+
+                // var additionalconditions = Allregfields.Where(x => x.Type == "otherhc").ToList();
 
                 var additionalconditions = AllregfieldsNotRequired.Where(x => x.Type == "otherhc").FirstOrDefault();
 
@@ -2189,7 +2176,7 @@ public partial class Imperial : ContentPage
                 }
 
                 //Over16regfieldsmain = getover16itemsmain;
-                foreach(var item in Allregfields)
+                foreach (var item in Allregfields)
                 {
 
                 }
@@ -2223,7 +2210,7 @@ public partial class Imperial : ContentPage
 
                 if (record1 != null)
                 {
-                    if(selectedOption == "Yes")
+                    if (selectedOption == "Yes")
                     {
                         var answerid = record1.QuestionId + "_1";
                         record1.AnswerId = answerid;
@@ -2235,7 +2222,7 @@ public partial class Imperial : ContentPage
                     }
 
                     // Update the record with the chosen AnswerId GUID
-                  //  record1.AnswerId = selectedOption.AnswerId;
+                    //  record1.AnswerId = selectedOption.AnswerId;
 
                 }
             }
@@ -2265,16 +2252,16 @@ public partial class Imperial : ContentPage
         try
         {
 
-         
-                // Find the specific answer record by its friendly name
-                var record1 = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "diaaddstack");
 
-                if (record1 != null)
-                {
-                    // Update the record with the chosen AnswerId GUID
-                    record1.AnswerId = string.Join(", ", SelectedConditons.Select(x => x.AnswerId));
+            // Find the specific answer record by its friendly name
+            var record1 = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "diaaddstack");
 
-                }
+            if (record1 != null)
+            {
+                // Update the record with the chosen AnswerId GUID
+                record1.AnswerId = string.Join(", ", SelectedConditons.Select(x => x.AnswerId));
+
+            }
 
 
             var selectedOption = otherhclist.SelectedItem as OptionDetails;
@@ -2292,7 +2279,7 @@ public partial class Imperial : ContentPage
                 }
             }
 
-            if(typeotherhclbl.IsVisible)
+            if (typeotherhclbl.IsVisible)
             {
 
                 var selectedOption2 = typeotherhclist.SelectedItem as OptionDetails;
@@ -2320,11 +2307,11 @@ public partial class Imperial : ContentPage
 
                 }
 
-                
+
             }
 
 
-            if(cancerlbl.IsVisible)
+            if (cancerlbl.IsVisible)
             {
                 var selectedOption2 = cancerlist.SelectedItem as OptionDetails;
 
@@ -2454,7 +2441,7 @@ public partial class Imperial : ContentPage
 
                 }
             }
-            
+
 
 
 
@@ -2501,7 +2488,7 @@ public partial class Imperial : ContentPage
             if (othermeddetailslbl.IsVisible)
             {
 
-             
+
 
                 var record3 = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "othermedications");
 
@@ -2516,7 +2503,7 @@ public partial class Imperial : ContentPage
             }
 
 
-           
+
 
 
         }
@@ -2546,7 +2533,7 @@ public partial class Imperial : ContentPage
                 }
             }
 
-            if(fluhelper.IsVisible)
+            if (fluhelper.IsVisible)
             {
 
                 var record2 = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "fludatefield");
@@ -2598,7 +2585,7 @@ public partial class Imperial : ContentPage
             //    }
             //}
 
-            if(coviddatelbl.IsVisible)
+            if (coviddatelbl.IsVisible)
             {
                 var record2 = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "coviddatefield");
 
@@ -2626,7 +2613,7 @@ public partial class Imperial : ContentPage
             //}
 
 
-            if(rsvdatelbl.IsVisible)
+            if (rsvdatelbl.IsVisible)
             {
                 var record2 = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "rsvdatefield");
 
@@ -2775,7 +2762,7 @@ public partial class Imperial : ContentPage
                 var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "pregnancyweeksfield");
                 if (record != null)
                 {
-                
+
                     record.AnswerValue = pregweeksentry?.Text?.Trim() ?? "";
                 }
             }
@@ -2786,7 +2773,7 @@ public partial class Imperial : ContentPage
                 var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "deliverydatefield");
                 if (record != null)
                 {
-                 
+
                     record.AnswerValue = pregdateentry?.Text?.Trim() ?? "";
                 }
             }
@@ -2875,12 +2862,12 @@ public partial class Imperial : ContentPage
         try
         {
 
-            var itemq = addqlist.SelectedItem as OptionDetails; 
+            var itemq = addqlist.SelectedItem as OptionDetails;
 
 
             if (itemq.Text.Contains("Yes"))
             {
-                    var getover16 = AllregfieldsNotRequired.Where(x => x.Type == "over16").OrderBy(x => Convert.ToInt32(x.Order)).ToList();
+                var getover16 = AllregfieldsNotRequired.Where(x => x.Type == "over16").OrderBy(x => Convert.ToInt32(x.Order)).ToList();
 
 
                 int targetIndex = Convert.ToInt32(getover16[0].Order);
@@ -2896,7 +2883,7 @@ public partial class Imperial : ContentPage
                     {
                         index++;
                         Allregfields.Insert(index, item);
-                      
+
                     }
                 }
 
@@ -3041,26 +3028,26 @@ public partial class Imperial : ContentPage
                 }
             }
 
-          
 
-         
-                var selectedCurrent = futureavlist.SelectedItem as OptionDetails;
-                if (selectedCurrent != null)
-                {
-                    var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "antiviralhospitalfield");
-                    if (record != null) record.AnswerId = selectedCurrent.AnswerId;
-                }
-            
 
-         
 
-         
-                var selectedFreq = futureavlist2.SelectedItem as OptionDetails;
-                if (selectedFreq != null)
-                {
-                    var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "antiviraldurationfield");
-                    if (record != null) record.AnswerId = selectedFreq.AnswerId;
-                }
+            var selectedCurrent = futureavlist.SelectedItem as OptionDetails;
+            if (selectedCurrent != null)
+            {
+                var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "antiviralhospitalfield");
+                if (record != null) record.AnswerId = selectedCurrent.AnswerId;
+            }
+
+
+
+
+
+            var selectedFreq = futureavlist2.SelectedItem as OptionDetails;
+            if (selectedFreq != null)
+            {
+                var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "antiviraldurationfield");
+                if (record != null) record.AnswerId = selectedFreq.AnswerId;
+            }
 
 
 
@@ -3323,11 +3310,11 @@ public partial class Imperial : ContentPage
               .Select(item => item.consentitemid)
               .ToList();
 
-            if(selectedConsentIds != null)
+            if (selectedConsentIds != null)
             {
-                TandCNonReqired = string.Join("|", selectedConsentIds); 
+                TandCNonReqired = string.Join("|", selectedConsentIds);
             }
-      
+
         }
         catch (Exception Ex)
         {
@@ -3367,7 +3354,7 @@ public partial class Imperial : ContentPage
                     existing.value = value;
             }
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
 
         }
@@ -3637,10 +3624,10 @@ public partial class Imperial : ContentPage
         try
         {
 
-      
+
 
             var field = Allregfields[currentFieldIndex];
-           // var questionfield = Allquesfields[currentFieldIndexquestionnaire];
+            // var questionfield = Allquesfields[currentFieldIndexquestionnaire];
 
             if (topprogress2.IsVisible)
             {
@@ -3699,15 +3686,15 @@ public partial class Imperial : ContentPage
                 if (field.XamlNameArea == "mainuserstack")
                 {
 
-                    if(userdetails.Primaryuser == true)
+                    if (userdetails.Primaryuser == true)
                     {
 
                         var fillingForField = field.subFields.FirstOrDefault(f => f.Id == "familyrelationship");
 
                         if (fillingForField != null)
                         {
-                           // usinglbl.Text = fillingForField.Label;
-                          //  firstmemeberchips.ItemsSource = fillingForField.Options;
+                            // usinglbl.Text = fillingForField.Label;
+                            //  firstmemeberchips.ItemsSource = fillingForField.Options;
                             familymember1list.ItemsSource = fillingForField.Options;
                             familymember1list2.ItemsSource = fillingForField.Options;
                         }
@@ -3793,7 +3780,7 @@ public partial class Imperial : ContentPage
                             {
                                 InternalName = "genderMatch",
                                 QuestionId = gendermatch.questionid,
-                                AnswerId = "" 
+                                AnswerId = ""
                             });
                         }
                     }
@@ -3970,7 +3957,7 @@ public partial class Imperial : ContentPage
                         if (DateTime.Now.Date < date.AddYears(age)) // birthday not yet reached this year
                             age--;
 
-                        if(age >= 16)
+                        if (age >= 16)
                         {
                             stepslbl.Text = stepsfield.Label;
                             stepslist.ItemsSource = stepsfield.Options;
@@ -4051,7 +4038,7 @@ public partial class Imperial : ContentPage
                     if (highesteducationfield != null)
                     {
                         highesteducationlbl.Text = highesteducationfield.Label;
-                        infohighedulbl.Text = highesteducationfield.HelpText; 
+                        infohighedulbl.Text = highesteducationfield.HelpText;
                         higheducationlist.ItemsSource = highesteducationfield.Options;
 
                         if (!QuestionnaireResults.Any(a => a.InternalName == "highestEducation"))
@@ -4236,7 +4223,7 @@ public partial class Imperial : ContentPage
 
                     }
 
-            
+
                     var gpfield = field.subFields.FirstOrDefault(f => f.Id == "gpRegistered");
 
                     if (gpfield != null)
@@ -4262,7 +4249,7 @@ public partial class Imperial : ContentPage
                     if (gpinfofield != null)
                     {
                         gpinfolbl.Text = gpinfofield.Label;
-                        gpsublbl.Text = gpinfofield.SubLabel; 
+                        gpsublbl.Text = gpinfofield.SubLabel;
                         GPPracticeLsit = gpinfofield.Options;
                         gpautocomplete.ItemsSource = gpinfofield.Options;
 
@@ -4293,7 +4280,7 @@ public partial class Imperial : ContentPage
                     //    var getmenstrual = Allquesfields.Where(x => x.XamlNameArea == "menstrualstack").FirstOrDefault();
                     //    if (getmenstrual == null)
                     //    {
-                            
+
                     //        Allquesfields.Add(menstrualquestion);
 
                     //        topprogress2.SegmentCount = Allquesfields.Count;
@@ -4373,7 +4360,7 @@ public partial class Imperial : ContentPage
                     {
 
                         infectionlbl.Text = infectionfield.Label;
-                        infectionsub.Text = infectionfield.SubLabel; 
+                        infectionsub.Text = infectionfield.SubLabel;
 
                         if (!QuestionnaireResults.Any(a => a.InternalName == "infectionfield"))
                         {
@@ -4413,9 +4400,9 @@ public partial class Imperial : ContentPage
 
                 if (field.XamlNameArea == "hcstack")
                 {
-                  
 
-                        var diafield = field.subFields.FirstOrDefault(f => f.Id == "diastack");
+
+                    var diafield = field.subFields.FirstOrDefault(f => f.Id == "diastack");
 
                     if (diafield != null)
                     {
@@ -4449,9 +4436,9 @@ public partial class Imperial : ContentPage
 
                     if (hcfirstlist.SelectedItem.ToString() == "No")
                     {
-                      //  currentFieldIndex++;
-                      //  ShowCurrentStack();
-                       // updateprogress();
+                        //  currentFieldIndex++;
+                        //  ShowCurrentStack();
+                        // updateprogress();
                     }
                     else
                     {
@@ -4770,7 +4757,7 @@ public partial class Imperial : ContentPage
                     //    }
                     //}
 
-            
+
 
                     var fludatefield = field.subFields.FirstOrDefault(f => f.Id == "fludatefield");
 
@@ -4930,7 +4917,7 @@ public partial class Imperial : ContentPage
                     //}
 
 
-          
+
 
                 }
 
@@ -5209,7 +5196,7 @@ public partial class Imperial : ContentPage
                         slider0lbl.Text = answer0?.Text;
                         slider100lbl.Text = answer100?.Text;
 
-                        slidernumlbl.Text = "50"; 
+                        slidernumlbl.Text = "50";
 
                         if (!QuestionnaireResults.Any(a => a.InternalName == "healthvasfield"))
                         {
@@ -5230,7 +5217,7 @@ public partial class Imperial : ContentPage
                     if (depfield != null)
                     {
 
-                        validpostcodelist = validpostcodelist = depfield.Options[0].validpostcodesvalues;
+                         validpostcodelist = depfield.Options[0].validpostcodesvalues;
 
 
                     }
@@ -5243,22 +5230,22 @@ public partial class Imperial : ContentPage
                         if (item.Text == "No")
                         {
 
-                          //  addressonehelper.IsVisible = false;
-                          //  townhelper.IsVisible = false;
-                          //  countyhelper.IsVisible = false;
+                            //  addressonehelper.IsVisible = false;
+                            //  townhelper.IsVisible = false;
+                            //  countyhelper.IsVisible = false;
                         }
                         else
                         {
-                           // addressonehelper.IsVisible = true;
-                           // townhelper.IsVisible = true;
-                          //  countyhelper.IsVisible = true;
+                            // addressonehelper.IsVisible = true;
+                            // townhelper.IsVisible = true;
+                            //  countyhelper.IsVisible = true;
                         }
                     }
                     else
                     {
-                      //  addressonehelper.IsVisible = false;
-                       // townhelper.IsVisible = false;
-                       // countyhelper.IsVisible = false;
+                        //  addressonehelper.IsVisible = false;
+                        // townhelper.IsVisible = false;
+                        // countyhelper.IsVisible = false;
                     }
 
                 }
@@ -5327,7 +5314,7 @@ public partial class Imperial : ContentPage
 
                 if (field.XamlNameArea == "additionalqstack")
                 {
-                   
+
                     var tobfield = field.subFields.FirstOrDefault(f => f.Id == "addqlifestyle");
                     if (tobfield != null)
                     {
@@ -5346,7 +5333,7 @@ public partial class Imperial : ContentPage
                         }
                     }
 
-              
+
                 }
 
                 if (field.XamlNameArea == "antiviralstack")
@@ -5672,7 +5659,7 @@ public partial class Imperial : ContentPage
                     }
 
                     // --- drugsbreathingfield ---
-                    
+
                     var brefield = field.subFields.FirstOrDefault(f => f.Id == "drugssymptomsfield");
                     if (brefield != null)
                     {
@@ -5851,47 +5838,47 @@ public partial class Imperial : ContentPage
 
                 }
 
-                    //Grouped Data Version
-                    //var config = JsonConvert.DeserializeObject<ObservableCollection<ConsentDetails>>(signupcodedetails.consent);
+                //Grouped Data Version
+                //var config = JsonConvert.DeserializeObject<ObservableCollection<ConsentDetails>>(signupcodedetails.consent);
 
-                    //if (householdrepFROMREG)
-                    //{
-                    //    allconsentdetails = config.FirstOrDefault(x => x.age == "16+");
-                    //}
-                    //else
-                    //{
-                    //    // Add other age logic here
-                    //}
+                //if (householdrepFROMREG)
+                //{
+                //    allconsentdetails = config.FirstOrDefault(x => x.age == "16+");
+                //}
+                //else
+                //{
+                //    // Add other age logic here
+                //}
 
-                    //if (allconsentdetails != null)
-                    //{
-                    //    foreach (var section in allconsentdetails.consentcontent)
-                    //    {
-                    //        foreach (var item in section.sectioncontent)
-                    //        {
-                    //            if (item.required)
-                    //            {
-                    //                item.requiredlbl = "Required";
-                    //            }
-                    //        }
-                    //    }
+                //if (allconsentdetails != null)
+                //{
+                //    foreach (var section in allconsentdetails.consentcontent)
+                //    {
+                //        foreach (var item in section.sectioncontent)
+                //        {
+                //            if (item.required)
+                //            {
+                //                item.requiredlbl = "Required";
+                //            }
+                //        }
+                //    }
 
-                    //    Groupeddata = allconsentdetails.consentcontent.Select(s =>
-                    //        new SectionConsent(s.section, s.sectioncontent)).ToList();
+                //    Groupeddata = allconsentdetails.consentcontent.Select(s =>
+                //        new SectionConsent(s.section, s.sectioncontent)).ToList();
 
-                    //    MainConsentCollection.ItemsSource = null;
-                    //    MainConsentCollection.ItemsSource = Groupeddata;
+                //    MainConsentCollection.ItemsSource = null;
+                //    MainConsentCollection.ItemsSource = Groupeddata;
 
-                    //    //MainConsentCollection.InvalidateMeasure();
+                //    //MainConsentCollection.InvalidateMeasure();
 
-                    //    //if (MainConsentCollection.Parent is Layout parentLayout)
-                    //    //{
-                    //    //    parentLayout.InvalidateMeasure();
-                    //    //}
+                //    //if (MainConsentCollection.Parent is Layout parentLayout)
+                //    //{
+                //    //    parentLayout.InvalidateMeasure();
+                //    //}
 
-                    //}
+                //}
 
-                    //}
+                //}
                 //}
 
                 if (field.XamlNameArea == "finishstack")
@@ -5996,7 +5983,7 @@ public partial class Imperial : ContentPage
                     }
                 }
             }
-            
+
         }
         catch (Exception Ex)
         {
@@ -6016,113 +6003,113 @@ public partial class Imperial : ContentPage
             if (stackField?.GetValue(this) is StackLayout stack)
                 stack.IsVisible = isVisible;
 
-                if (stackName == "namestack")
-                {
-                    ClearErrors(NameHelpers);
-                }
-                else if (stackName == "mainuserstack")
-                {
-                    ClearErrors(MainUserHelpers);
-                    agemember1error.IsVisible = false;
-                    typemember1error.IsVisible = false;
-                    agemember1error2.IsVisible = false;
-                    typemember1error2.IsVisible = false;
-                }
-                else if (stackName == "addressstack")
-                {
-                     ClearErrors(AddressHelpers); 
-                }
-                else if (stackName == "genderstack")
-                {
-                    ClearErrors(GenderHelpers);
-                    genderlisterror.IsVisible = false;
-                    gendermatchlisterror.IsVisible = false;
-                    sexiderror.IsVisible = false;
-                }
-                else if (stackName == "ethnicitystack")
-                {
-                    ukerror.IsVisible = false;
-                    moveerror.IsVisible = false;
-                    countyerror.IsVisible = false;
-                    etherror.IsVisible = false;            
-                }
-                else if (stackName == "bodymetricsstack")
-                {
-                    ClearErrors(BodyMetricsHelpers);
-                    weighterror.IsVisible = false;
-                    heighterror.IsVisible = false;
-                    stepserror.IsVisible = false;
-                    gymerror.IsVisible = false; 
-                }
-                else if (stackName == "educationworkstack")
-                {
-                    educationerror.IsVisible = false;
-                    sitiuationerror.IsVisible = false;
-                    workerror.IsVisible = false;
-                }
-                else if (stackName == "householdstructurestack")
-                {
-                    ClearErrors(HouseHoldHelpers);
-                    venterrorlbl.IsVisible = false;
-                    damperrorlbl.IsVisible = false;
-                }
-                else if (stackName == "nhsnumstack")
-                {
-                    gperrorlbl.IsVisible = false;
-                    gpaddresserrorlbl.IsVisible = false;
-                }
-                else if (stackName == "ristack")
-                {
-                    cougherrorlbl.IsVisible = false;
-                    hospitalerrorlbl.IsVisible = false;
-                    venhoserrorlbl.IsVisible = false;
-                }
-                else if (stackName == "hcstack")
-                {
+            if (stackName == "namestack")
+            {
+                ClearErrors(NameHelpers);
+            }
+            else if (stackName == "mainuserstack")
+            {
+                ClearErrors(MainUserHelpers);
+                agemember1error.IsVisible = false;
+                typemember1error.IsVisible = false;
+                agemember1error2.IsVisible = false;
+                typemember1error2.IsVisible = false;
+            }
+            else if (stackName == "addressstack")
+            {
+                ClearErrors(AddressHelpers);
+            }
+            else if (stackName == "genderstack")
+            {
+                ClearErrors(GenderHelpers);
+                genderlisterror.IsVisible = false;
+                gendermatchlisterror.IsVisible = false;
+                sexiderror.IsVisible = false;
+            }
+            else if (stackName == "ethnicitystack")
+            {
+                ukerror.IsVisible = false;
+                moveerror.IsVisible = false;
+                countyerror.IsVisible = false;
+                etherror.IsVisible = false;
+            }
+            else if (stackName == "bodymetricsstack")
+            {
+                ClearErrors(BodyMetricsHelpers);
+                weighterror.IsVisible = false;
+                heighterror.IsVisible = false;
+                stepserror.IsVisible = false;
+                gymerror.IsVisible = false;
+            }
+            else if (stackName == "educationworkstack")
+            {
+                educationerror.IsVisible = false;
+                sitiuationerror.IsVisible = false;
+                workerror.IsVisible = false;
+            }
+            else if (stackName == "householdstructurestack")
+            {
+                ClearErrors(HouseHoldHelpers);
+                venterrorlbl.IsVisible = false;
+                damperrorlbl.IsVisible = false;
+            }
+            else if (stackName == "nhsnumstack")
+            {
+                gperrorlbl.IsVisible = false;
+                gpaddresserrorlbl.IsVisible = false;
+            }
+            else if (stackName == "ristack")
+            {
+                cougherrorlbl.IsVisible = false;
+                hospitalerrorlbl.IsVisible = false;
+                venhoserrorlbl.IsVisible = false;
+            }
+            else if (stackName == "hcstack")
+            {
 
-                }
-                else if (stackName == "medicationsstack")
-                {
+            }
+            else if (stackName == "medicationsstack")
+            {
 
-                }
-                else if (stackName == "rvstack")
-                {
+            }
+            else if (stackName == "rvstack")
+            {
 
-                }
-                else if (stackName == "dietstack")
-                {
+            }
+            else if (stackName == "dietstack")
+            {
 
-                }
-                else if (stackName == "menstrualstack")
-                {
+            }
+            else if (stackName == "menstrualstack")
+            {
 
-                }
-                else if (stackName == "htstack")
-                {
+            }
+            else if (stackName == "htstack")
+            {
 
-                }
+            }
 
-                else if (stackName == "tobaccostack")
-                {
+            else if (stackName == "tobaccostack")
+            {
 
-                }
+            }
 
-                else if (stackName == "alcoholstack")
-                {
+            else if (stackName == "alcoholstack")
+            {
 
-                }
+            }
 
-                else if (stackName == "drugstack")
-                {
+            else if (stackName == "drugstack")
+            {
 
 
-                }
+            }
 
-                else if (stackName == "sleepstack")
-                {
+            else if (stackName == "sleepstack")
+            {
 
-                }
-                
+            }
+
         }
         catch (Exception Ex)
         {
@@ -6135,12 +6122,12 @@ public partial class Imperial : ContentPage
         layout.HasError = true;
         layout.ErrorText = message;
         Vibration.Vibrate();
-      //  entry.Focus();
+        //  entry.Focus();
         return false;
     }
 
 
-    private async Task<bool>  ValidateNameStack() // Changed to async Task<bool>
+    private async Task<bool> ValidateNameStack() // Changed to async Task<bool>
     {
         try
         {
@@ -6256,7 +6243,7 @@ public partial class Imperial : ContentPage
         }
         catch (Exception Ex)
         {
-           // Debug.WriteLine($"Validation Error: {ex.Message}");
+            // Debug.WriteLine($"Validation Error: {ex.Message}");
             return false;
         }
     }
@@ -6277,7 +6264,7 @@ public partial class Imperial : ContentPage
                 isValid = false;
             }
 
-            if(string.IsNullOrEmpty(firstsurnameentry.Text))
+            if (string.IsNullOrEmpty(firstsurnameentry.Text))
             {
                 firstsurnamehelper.HasError = true;
                 isValid = false;
@@ -6475,7 +6462,7 @@ public partial class Imperial : ContentPage
                 else if (dob > DateTime.Today) // <-- check if date is in the future
                 {
                     isValid = false;
-                  //  dobhelper.ErrorText = "Date cannot be in the future";
+                    //  dobhelper.ErrorText = "Date cannot be in the future";
                     dobhelper.HasError = true;
                 }
                 else
@@ -6485,7 +6472,7 @@ public partial class Imperial : ContentPage
                 }
             }
 
-         
+
             if (genderlist.SelectedItems.Count == 0)
             {
                 genderlisterror.IsVisible = true;
@@ -6515,9 +6502,9 @@ public partial class Imperial : ContentPage
                 }
             }
 
-            if(genidlbl.IsVisible)
+            if (genidlbl.IsVisible)
             {
-                if(genidlist.SelectedItems.Count == 0)
+                if (genidlist.SelectedItems.Count == 0)
                 {
                     sexiderror.IsVisible = true;
                     isValid = false;
@@ -6544,22 +6531,22 @@ public partial class Imperial : ContentPage
                 isValid = false;
             }
 
-            if(movelbl.IsVisible)
+            if (movelbl.IsVisible)
             {
-                if(movelist.SelectedItems.Count == 0)
+                if (movelist.SelectedItems.Count == 0)
                 {
                     moveerror.IsVisible = true;
                     isValid = false;
                 }
 
-                if(autocompletecounty.SelectedItem == null)
+                if (autocompletecounty.SelectedItem == null)
                 {
                     countyerror.IsVisible = true;
                     isValid = false;
                 }
             }
 
-            if(ethnicitylist.SelectedItems.Count == 0)
+            if (ethnicitylist.SelectedItems.Count == 0)
             {
                 etherror.IsVisible = true;
                 isValid = false;
@@ -6615,9 +6602,9 @@ public partial class Imperial : ContentPage
                 isValid = false;
             }
 
-            if(weighthelper.IsVisible)
+            if (weighthelper.IsVisible)
             {
-                if(string.IsNullOrEmpty(weightEntry.Text))
+                if (string.IsNullOrEmpty(weightEntry.Text))
                 {
                     weighthelper.HasError = true;
                     isValid = false;
@@ -6645,7 +6632,7 @@ public partial class Imperial : ContentPage
                 }
             }
 
-            if(heightcmhelper.IsVisible)
+            if (heightcmhelper.IsVisible)
             {
                 if (string.IsNullOrEmpty(heightcmentry.Text))
                 {
@@ -6696,8 +6683,8 @@ public partial class Imperial : ContentPage
                 isValid = false;
             }
 
-            
-            
+
+
 
             if (currentsituationlist.SelectedItems.Count == 0)
             {
@@ -6716,7 +6703,7 @@ public partial class Imperial : ContentPage
 
             }
 
-       
+
 
             return isValid;
 
@@ -6775,7 +6762,7 @@ public partial class Imperial : ContentPage
             return false;
         }
     }
-    private bool  ValidatenhsnumStack()
+    private bool ValidatenhsnumStack()
     {
         try
         {
@@ -6788,7 +6775,7 @@ public partial class Imperial : ContentPage
                 nhshelper.HasError = true;
                 nhshelper.ErrorText = "Please enter a valid NHS number";
             }
-            else if(string.IsNullOrEmpty(nhsentry.Text))
+            else if (string.IsNullOrEmpty(nhsentry.Text))
             {
                 isValid = false;
                 nhshelper.HasError = true;
@@ -6809,7 +6796,7 @@ public partial class Imperial : ContentPage
             }
 
 
-            if(gpinfolbl.IsVisible)
+            if (gpinfolbl.IsVisible)
             {
                 if (gpautocomplete.SelectedItem == null)
                 {
@@ -6834,7 +6821,7 @@ public partial class Imperial : ContentPage
             bool isValid = true;
 
 
-        
+
 
             if (coughlist.SelectedItems.Count == 0)
             {
@@ -6895,7 +6882,7 @@ public partial class Imperial : ContentPage
             bool isValid = true;
 
 
-            if(hcfirstlist.SelectedItems.Count == 0)
+            if (hcfirstlist.SelectedItems.Count == 0)
             {
                 hashcerrorlbl.IsVisible = true;
                 isValid = false;
@@ -6926,38 +6913,38 @@ public partial class Imperial : ContentPage
 
 
 
-            if(otherhclist.SelectedItems.Count == 0)
+            if (otherhclist.SelectedItems.Count == 0)
             {
                 hcnotinlisterrorlbl.IsVisible = true;
                 isValid = false;
             }
 
 
-            if(typeotherhclbl.IsVisible)
+            if (typeotherhclbl.IsVisible)
             {
-                if(typeotherhclist.SelectedItems.Count == 0)
+                if (typeotherhclist.SelectedItems.Count == 0)
                 {
                     bodyparterrorlbl.IsVisible = true;
                     isValid = false;
                 }
 
 
-                if(string.IsNullOrEmpty(otherhcentrytext.Text))
+                if (string.IsNullOrEmpty(otherhcentrytext.Text))
                 {
                     otherentryconerrorlbl.IsVisible = true;
                     isValid = false;
                 }
             }
 
-            if(cancerlbl.IsVisible)
+            if (cancerlbl.IsVisible)
             {
-                if(cancerlist.SelectedItems.Count == 0)
+                if (cancerlist.SelectedItems.Count == 0)
                 {
                     cancererrorlbl.IsVisible = true;
                     isValid = false;
                 }
 
-                if(cancernowlist.SelectedItems.Count == 0)
+                if (cancernowlist.SelectedItems.Count == 0)
                 {
                     pastcancererrorlbl.IsVisible = true;
                     isValid = false;
@@ -6981,7 +6968,7 @@ public partial class Imperial : ContentPage
             if (medsfirstlist.SelectedItems.Count == 0)
             {
                 medadderrorlbl.IsVisible = true;
-                isValid =  false;
+                isValid = false;
             }
 
             return isValid;
@@ -7005,7 +6992,7 @@ public partial class Imperial : ContentPage
             //    isValid = false;
             //}
 
-            if(othermedlist.SelectedItems.Count == 0)
+            if (othermedlist.SelectedItems.Count == 0)
             {
                 othermederrorlbl.IsVisible = true;
                 isValid = false;
@@ -7070,7 +7057,7 @@ public partial class Imperial : ContentPage
             }
 
 
-            if(dateEntryCovidJab.IsVisible)
+            if (dateEntryCovidJab.IsVisible)
             {
                 var text = coviddateentry.Text;
 
@@ -7097,7 +7084,7 @@ public partial class Imperial : ContentPage
             }
 
 
-            if(dateEntryrsv.IsVisible)
+            if (dateEntryrsv.IsVisible)
             {
                 var text = rsvdateentry.Text;
 
@@ -7212,7 +7199,7 @@ public partial class Imperial : ContentPage
             }
             else
             {
-               // dieterrorlbl.IsVisible = false;
+                // dieterrorlbl.IsVisible = false;
             }
 
             // 2. Validate Diet Length (if visible)
@@ -7237,7 +7224,7 @@ public partial class Imperial : ContentPage
             }
             else
             {
-               // anysuppserrorlbl.IsVisible = false;
+                // anysuppserrorlbl.IsVisible = false;
             }
 
             // 4. Validate "Take" list (if visible)
@@ -7250,7 +7237,7 @@ public partial class Imperial : ContentPage
                 }
                 else
                 {
-                   // takesuppserrorlbl.IsVisible = false;
+                    // takesuppserrorlbl.IsVisible = false;
                 }
             }
 
@@ -7282,22 +7269,22 @@ public partial class Imperial : ContentPage
         bool isValid = true;
 
         // 1. Validate Main Menstrual List
-     
-            if (mensturallist.SelectedItem == null)
-            {
-                menstrualerrorlbl.IsVisible = true;
-                isValid = false;
-            }
-            else
-            {
-                menstrualerrorlbl.IsVisible = false;
-            }
-        
+
+        if (mensturallist.SelectedItem == null)
+        {
+            menstrualerrorlbl.IsVisible = true;
+            isValid = false;
+        }
+        else
+        {
+            menstrualerrorlbl.IsVisible = false;
+        }
+
 
         // 2. Validate Pregnancy Weeks (if visible)
         if (preghelper.IsVisible)
         {
-            
+
             if (string.IsNullOrWhiteSpace(pregweeksentry?.Text))
             {
                 preghelper.HasError = true;
@@ -7322,7 +7309,7 @@ public partial class Imperial : ContentPage
         // 3. Validate Delivery Date (if visible)
         if (ddhelper.IsVisible)
         {
-          
+
             if (string.IsNullOrWhiteSpace(pregdateentry?.Text) || pregdateentry.Text.Length < 10)
             {
                 ddhelper.HasError = true;
@@ -7397,7 +7384,7 @@ public partial class Imperial : ContentPage
             ht5errorlbl.IsVisible = false;
         }
 
-        if(string.IsNullOrEmpty(slidernumlbl.Text))
+        if (string.IsNullOrEmpty(slidernumlbl.Text))
         {
             ht6errorlbl.IsVisible = true;
         }
@@ -7415,7 +7402,7 @@ public partial class Imperial : ContentPage
             aqerrorlbl.IsVisible = true;
             isValid = false;
         }
-     
+
 
         return isValid;
     }
@@ -7692,7 +7679,7 @@ public partial class Imperial : ContentPage
     {
         bool isValid = true;
 
-       
+
         if (sleeplist.SelectedItem == null)
         {
             sleeperrorlbl.IsVisible = true;
@@ -7703,39 +7690,39 @@ public partial class Imperial : ContentPage
             sleeperrorlbl.IsVisible = false;
         }
 
-       
-            if (wakelist.SelectedItem == null)
-            {
+
+        if (wakelist.SelectedItem == null)
+        {
             wakeerrorlbl.IsVisible = true;
-                isValid = false;
-            }
-            else
-            {
+            isValid = false;
+        }
+        else
+        {
             wakeerrorlbl.IsVisible = false;
-            }
-        
+        }
 
-     
-            if (nightslist.SelectedItem == null)
-            {
+
+
+        if (nightslist.SelectedItem == null)
+        {
             nightserrorlbl.IsVisible = true;
-                isValid = false;
-            }
-            else
-            {
+            isValid = false;
+        }
+        else
+        {
             nightserrorlbl.IsVisible = false;
-            }
-        
+        }
 
-            if (qualitylist.SelectedItem == null)
-            {
+
+        if (qualitylist.SelectedItem == null)
+        {
             qualityerrorlbl.IsVisible = true;
-                isValid = false;
-            }
-            else
-            {
+            isValid = false;
+        }
+        else
+        {
             qualityerrorlbl.IsVisible = false;
-            }
+        }
 
         if (moodlist.SelectedItem == null)
         {
@@ -7796,37 +7783,37 @@ public partial class Imperial : ContentPage
                     if (item.required && !item.ChckedState)
                     {
 
-                       // tcerrorlbl.IsVisible = true;
+                        // tcerrorlbl.IsVisible = true;
                         isValid = false;
                     }
                 }
             }
 
 
-            if(!tccheckbox.IsChecked)
+            if (!tccheckbox.IsChecked)
             {
                 tcpwborder.Stroke = Colors.Red;
                 tcpwlabel.TextColor = Colors.Red;
                 isValid = false;
             }
 
-            if(under10stack.IsVisible)
+            if (under10stack.IsVisible)
             {
-                if(string.IsNullOrEmpty(under10entry.Text))
+                if (string.IsNullOrEmpty(under10entry.Text))
                 {
                     under10helper.HasError = true;
                     isValid = false;
                 }
 
-                if(under10rolelist.SelectedItems.Count == 0)
+                if (under10rolelist.SelectedItems.Count == 0)
                 {
                     under10roleerrorlbl.IsVisible = true;
                     isValid = false;
                 }
 
-                if(under10otherrolehelper.IsVisible)
+                if (under10otherrolehelper.IsVisible)
                 {
-                    if(string.IsNullOrEmpty(under10otherroleentry.Text))
+                    if (string.IsNullOrEmpty(under10otherroleentry.Text))
                     {
                         under10otherrolehelper.HasError = true;
                         isValid = false;
@@ -7835,13 +7822,13 @@ public partial class Imperial : ContentPage
             }
 
 
-            if(string.IsNullOrEmpty(over16nameentry.Text))
+            if (string.IsNullOrEmpty(over16nameentry.Text))
             {
                 over16namehelper.HasError = true;
                 isValid = false;
             }
 
-            if(!SignPadhaddata)
+            if (!SignPadhaddata)
             {
                 IOSSign.Stroke = Colors.Red;
                 AndroidSign.Stroke = Colors.Red;
@@ -7888,6 +7875,15 @@ public partial class Imperial : ContentPage
             }
             if (isValid)
             {
+
+                if (addressoneentry.Text.IsNullOrEmpty())
+                {
+                    addressonehelper.HasError = true;
+                    addressonehelper.ErrorText = "Please add a house number";
+                    return false;
+                }
+
+
                 if (postcodelist.SelectedItem is IdealAddress selected)
                 {
                     var checkPostcode = await APICalls.Instance.Getuserspostcodes(rawPostcode);
@@ -8012,7 +8008,7 @@ public partial class Imperial : ContentPage
             }
             othergenderhelper.HasError = false;
             genderlisterror.IsVisible = false;
-            sexiderror.IsVisible = false; 
+            sexiderror.IsVisible = false;
 
         }
         catch (Exception Ex)
@@ -8073,7 +8069,7 @@ public partial class Imperial : ContentPage
                     currentFieldIndexquestionnaire = 0;
 
 
-          
+
                 // Show previous field
                 //  ShowCurrentStack();
                 //  updateprogress();
@@ -8092,15 +8088,15 @@ public partial class Imperial : ContentPage
                 currentFieldIndex--;
             }
 
-                // Show the previous stack
-                ShowCurrentStack();
+            // Show the previous stack
+            ShowCurrentStack();
 
-                // Update progress
-                updatebackprogress();
+            // Update progress
+            updatebackprogress();
 
-                // Update button text
-                nextbtn.Text = "Next";
-            
+            // Update button text
+            nextbtn.Text = "Next";
+
 
 
 
@@ -8213,11 +8209,11 @@ public partial class Imperial : ContentPage
                 // Show the label if over 13
                 gendermatchlist.IsVisible = age > 13;
                 sexmatchlbl.IsVisible = age > 13;
-                if(age > 13)
+                if (age > 13)
                 {
                     gendermatchlist.RefreshView();
-                }           
-              //  genidlbl.IsVisible = age > 13;
+                }
+                //  genidlbl.IsVisible = age > 13;
                 //infogenidlbl.IsVisible = age > 13;
 
                 //genidlist.IsVisible = age > 13;
@@ -8511,6 +8507,9 @@ public partial class Imperial : ContentPage
     {
         try
         {
+
+            if (ClearAddressbtn.IsVisible) ClearAddressbtn.IsVisible = false;
+
             var entry = sender as Entry;
             if (entry == null || e.NewTextValue == null) return;
 #if ANDROID
@@ -8778,7 +8777,7 @@ public partial class Imperial : ContentPage
 
 
 
-            if(item.Text.Contains("Other"))
+            if (item.Text.Contains("Other"))
             {
                 otherrelationhelper.IsVisible = true;
             }
@@ -8817,7 +8816,7 @@ public partial class Imperial : ContentPage
         try
         {
 
-            var item = e.DataItem as OptionDetails;;
+            var item = e.DataItem as OptionDetails; ;
 
             ukerror.IsVisible = false;
             countyerror.IsVisible = false;
@@ -8830,7 +8829,7 @@ public partial class Imperial : ContentPage
                 countrylbl.IsVisible = true;
                 autocompletecounty.IsVisible = true;
 
-                movelist.RefreshView(); 
+                movelist.RefreshView();
             }
             else
             {
@@ -8842,7 +8841,7 @@ public partial class Imperial : ContentPage
                 countrylbl.IsVisible = false;
                 autocompletecounty.IsVisible = false;
                 autocompletecounty.SelectedItem = null;
-        
+
             }
 
         }
@@ -8872,7 +8871,7 @@ public partial class Imperial : ContentPage
         try
         {
 
-            var item = e.DataItem as OptionDetails;;
+            var item = e.DataItem as OptionDetails; ;
 
 
             if (item.Text.Contains("kg"))
@@ -8889,7 +8888,7 @@ public partial class Imperial : ContentPage
             {
                 weighthelper.IsVisible = false;
             }
-            weighthelper.HasError = false; 
+            weighthelper.HasError = false;
             weighterror.IsVisible = false;
 
         }
@@ -8904,7 +8903,7 @@ public partial class Imperial : ContentPage
         try
         {
 
-            var item = e.DataItem as OptionDetails;;
+            var item = e.DataItem as OptionDetails; ;
 
 
             if (item.Text.Contains("cm"))
@@ -8925,7 +8924,7 @@ public partial class Imperial : ContentPage
                 heightcmhelper.IsVisible = false;
             }
             heightHelper.HasError = false;
-            heightcmhelper.HasError = false; 
+            heightcmhelper.HasError = false;
             heighterror.IsVisible = false;
 
         }
@@ -8940,9 +8939,9 @@ public partial class Imperial : ContentPage
         try
         {
 
-            var item = e.DataItem as OptionDetails;;
+            var item = e.DataItem as OptionDetails; ;
 
-          
+
             if (item.Text.Contains("Full-time employed")
         || item.Text.Contains("Part-time employed")
         || item.Text.Contains("Doing unpaid or voluntary work")
@@ -9009,7 +9008,7 @@ public partial class Imperial : ContentPage
                 gpautocomplete.IsVisible = true;
                 gpsublbl.IsVisible = true;
 
-               // infogbpostcodelbl.IsVisible = true;
+                // infogbpostcodelbl.IsVisible = true;
             }
             else
             {
@@ -9046,7 +9045,7 @@ public partial class Imperial : ContentPage
 
 
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "TapGestureRecognizer_Tapped");
         }
@@ -9067,9 +9066,9 @@ public partial class Imperial : ContentPage
                     SelectedConditons.Add(item);
                     hcadderrorlbl.IsVisible = false;
                 }
-              //  conditionslist.ItemsSource = SelectedConditons;
+                //  conditionslist.ItemsSource = SelectedConditons;
 
-                
+
             }
 
             conditionschips.ItemsSource = SelectedConditons;
@@ -9087,7 +9086,7 @@ public partial class Imperial : ContentPage
             if (hasCancer)
             {
                 cancerlist.RefreshView();
-                cancernowlist.RefreshView(); 
+                cancernowlist.RefreshView();
             }
 
             await Task.Delay(100);
@@ -9097,12 +9096,12 @@ public partial class Imperial : ContentPage
             disautocomplete.Clear();
             disautocomplete.Unfocus();
             // clears text
-              
+
             //});
 
 
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "disautocomplete_SelectionChanged");
         }
@@ -9166,7 +9165,7 @@ public partial class Imperial : ContentPage
                 slidernumlbl.Text = value.ToString();
 
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "healthSlider_ValueChanged");
         }
@@ -9178,7 +9177,7 @@ public partial class Imperial : ContentPage
         {
 
             var item = e.DataItem as OptionDetails;
-         //   othergenderhelper.HasError = false;
+            //   othergenderhelper.HasError = false;
 
 
             if (item.Text == "No")
@@ -9196,7 +9195,7 @@ public partial class Imperial : ContentPage
             }
 
             sexiderror.IsVisible = false;
-            gendermatchlisterror.IsVisible = false; 
+            gendermatchlisterror.IsVisible = false;
         }
         catch (Exception Ex)
         {
@@ -9208,11 +9207,11 @@ public partial class Imperial : ContentPage
     {
         try
         {
-            var item = e.DataItem as OptionDetails; 
+            var item = e.DataItem as OptionDetails;
             moveerror.IsVisible = false;
 
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "movelist_ItemTapped");
         }
@@ -9222,12 +9221,12 @@ public partial class Imperial : ContentPage
     {
         try
         {
-            var item = e.DataItem as OptionDetails; 
+            var item = e.DataItem as OptionDetails;
 
             etherror.IsVisible = false;
 
 
-            if(item != null)
+            if (item != null)
             {
                 userdetails.Ethnicity = item.Text;
             }
@@ -9256,7 +9255,7 @@ public partial class Imperial : ContentPage
         {
             sexiderror.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "genidlist_ItemTapped");
         }
@@ -9285,7 +9284,7 @@ public partial class Imperial : ContentPage
             if (item.Text.Contains("Yes"))
             {
                 infectionlbl.IsVisible = true;
-                infectionsub.IsVisible = true; 
+                infectionsub.IsVisible = true;
                 infectionhelper.IsVisible = true;
                 venlbl.IsVisible = true;
                 venlist.IsVisible = true;
@@ -9321,7 +9320,7 @@ public partial class Imperial : ContentPage
                 SelectedConditons.Remove(item);
             }
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "OnRemoveChipTapped");
         }
@@ -9358,7 +9357,7 @@ public partial class Imperial : ContentPage
                 coviddatelbldirections.IsVisible = true;
                 dateEntryCovidJab.IsVisible = true;
 
-         
+
 
             }
             else
@@ -9566,11 +9565,11 @@ public partial class Imperial : ContentPage
                 preglbl.IsVisible = true;
                 preghelper.IsVisible = true;
 
-                ddlbl.IsVisible = false; 
+                ddlbl.IsVisible = false;
                 ddhelper.IsVisible = false;
 
             }
-            else if(index == 5) 
+            else if (index == 5)
             {
 
                 preglbl.IsVisible = false;
@@ -9604,7 +9603,7 @@ public partial class Imperial : ContentPage
         {
             otherrelationhelper.HasError = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "otherrelationentry_TextChanged");
         }
@@ -9648,8 +9647,8 @@ public partial class Imperial : ContentPage
 
     private void familymember1_ItemTapped(object sender, Syncfusion.Maui.ListView.ItemTappedEventArgs e)
     {
-        
-       try
+
+        try
         {
             agemember1error.IsVisible = false;
         }
@@ -9759,7 +9758,7 @@ public partial class Imperial : ContentPage
         {
             heightHelper.HasError = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "inchesEntry_TextChanged");
         }
@@ -9771,7 +9770,7 @@ public partial class Imperial : ContentPage
         {
             heightcmhelper.HasError = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "heightcmentry_TextChanged");
         }
@@ -9783,7 +9782,7 @@ public partial class Imperial : ContentPage
         {
             stepserror.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "stepslist_ItemTapped");
         }
@@ -9830,7 +9829,7 @@ public partial class Imperial : ContentPage
     {
         try
         {
-            weighthelper.HasError = false; 
+            weighthelper.HasError = false;
         }
         catch (Exception Ex)
         {
@@ -9841,7 +9840,7 @@ public partial class Imperial : ContentPage
     {
         try
         {
-           // tcerrorlbl.IsVisible = false;
+            // tcerrorlbl.IsVisible = false;
             //consent gird tapped
             var layout = (BindableObject)sender;
             var item = (ConsentItem)layout.BindingContext;
@@ -9852,7 +9851,7 @@ public partial class Imperial : ContentPage
             }
 
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "TapGestureRecognizer_Tapped_3");
         }
@@ -9956,7 +9955,7 @@ public partial class Imperial : ContentPage
         {
             over16namehelper.HasError = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "over16nameentry_TextChanged");
         }
@@ -9970,7 +9969,7 @@ public partial class Imperial : ContentPage
 
             var item = e.DataItem as string;
 
-            if(item == "Yes")
+            if (item == "Yes")
             {
                 //diahowtoaddlbl.IsVisible = true;
                 //disautocomplete.IsVisible = true;
@@ -9984,7 +9983,7 @@ public partial class Imperial : ContentPage
             }
 
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "hcfirstlist_ItemTapped");
         }
@@ -10021,7 +10020,7 @@ public partial class Imperial : ContentPage
                 cancererrorlbl.IsVisible = false;
                 pastcancererrorlbl.IsVisible = false;
             }
-           
+
 
         }
         catch (Exception Ex)
@@ -10092,7 +10091,7 @@ public partial class Imperial : ContentPage
             dateEntryrsv.HasError = false;
             fluerrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "flulist_SelectionChanged");
         }
@@ -10119,7 +10118,7 @@ public partial class Imperial : ContentPage
 
                 usesmokelist.RefreshView();
                 usesmokelistr.RefreshView();
-                smokefreqlistr.RefreshView(); 
+                smokefreqlistr.RefreshView();
             }
             else
             {
@@ -10207,7 +10206,7 @@ public partial class Imperial : ContentPage
         }
         catch (Exception Ex)
         {
-             CrashDetected.LogCrash(Ex, Navigation, "alochollist_ItemTapped");
+            CrashDetected.LogCrash(Ex, Navigation, "alochollist_ItemTapped");
         }
     }
 
@@ -10231,7 +10230,7 @@ public partial class Imperial : ContentPage
 
                 whatdrugslist.RefreshView();
                 drugoftenlist.RefreshView();
-                breathinglist.RefreshView(); 
+                breathinglist.RefreshView();
             }
             else
             {
@@ -10261,7 +10260,7 @@ public partial class Imperial : ContentPage
         {
             telhelper.HasError = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "telentry_TextChanged");
         }
@@ -10273,7 +10272,7 @@ public partial class Imperial : ContentPage
         {
             firstcheckboxerror.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "firsthouselholdcb_CheckedChanged");
         }
@@ -10281,7 +10280,7 @@ public partial class Imperial : ContentPage
 
     private void secondhouseholdcb_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        
+
         try
         {
             secondcheckboxerror.IsVisible = false;
@@ -10298,7 +10297,7 @@ public partial class Imperial : ContentPage
         {
             peoplenumhelper.HasError = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "peopleentry_TextChanged");
         }
@@ -10308,7 +10307,7 @@ public partial class Imperial : ContentPage
     {
         try
         {
-    
+
             roomnumhelper.HasError = false;
         }
         catch (Exception Ex)
@@ -10359,7 +10358,7 @@ public partial class Imperial : ContentPage
         {
             cougherrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "coughlist_ItemTapped");
         }
@@ -10371,7 +10370,7 @@ public partial class Imperial : ContentPage
         {
             infectionhelper.HasError = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "infectionyearentry_TextChanged");
         }
@@ -10383,7 +10382,7 @@ public partial class Imperial : ContentPage
         {
             venhoserrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "venlist_ItemTapped");
         }
@@ -10396,10 +10395,10 @@ public partial class Imperial : ContentPage
             if (e.PropertyName == nameof(disautocomplete.Text))
             {
                 hcadderrorlbl.IsVisible = false;
-                
+
             }
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "disautocomplete_PropertyChanged");
         }
@@ -10411,7 +10410,7 @@ public partial class Imperial : ContentPage
         {
             cancererrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "cancerlist_ItemTapped");
         }
@@ -10423,7 +10422,7 @@ public partial class Imperial : ContentPage
         {
             otherentryconerrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "otherhcentrytext_TextChanged");
         }
@@ -10447,7 +10446,7 @@ public partial class Imperial : ContentPage
         {
             medadderrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "medsfirstlist_ItemTapped");
         }
@@ -10475,7 +10474,7 @@ public partial class Imperial : ContentPage
         {
             othermedentryerrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "othermedtextentry_TextChanged");
         }
@@ -10500,7 +10499,7 @@ public partial class Imperial : ContentPage
         {
 
             dateEntryCovidJab.HasError = false;
-            sexiderror.IsVisible = false; 
+            sexiderror.IsVisible = false;
 
         }
         catch (Exception Ex)
@@ -10511,7 +10510,7 @@ public partial class Imperial : ContentPage
 
     private void rsvdateentry_TextChanged(object sender, TextChangedEventArgs e)
     {
-        
+
         try
         {
 
@@ -10529,7 +10528,7 @@ public partial class Imperial : ContentPage
         {
             dietlenghtlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "dietlengthlist_ItemTapped");
         }
@@ -10545,7 +10544,7 @@ public partial class Imperial : ContentPage
 
             // usingerrorlbl.IsVisible = false;
 
-          
+
         }
         catch (Exception Ex)
         {
@@ -10557,7 +10556,7 @@ public partial class Imperial : ContentPage
     {
         try
         {
-            
+
 
             // var item = e.DataItem as OptionDetails;
 
@@ -10604,7 +10603,7 @@ public partial class Imperial : ContentPage
         {
             ddhelper.HasError = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "pregdateentry_TextChanged");
         }
@@ -10616,7 +10615,7 @@ public partial class Imperial : ContentPage
         {
             ht1errorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "moblist_ItemTapped");
         }
@@ -10676,7 +10675,7 @@ public partial class Imperial : ContentPage
         {
             aqerrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "addqlist_ItemTapped");
         }
@@ -10688,7 +10687,7 @@ public partial class Imperial : ContentPage
         {
             usesmokeerrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "usesmokelist_ItemTapped");
         }
@@ -10700,7 +10699,7 @@ public partial class Imperial : ContentPage
         {
             agesmokehelper.HasError = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "agesmokeentry_TextChanged");
         }
@@ -10712,7 +10711,7 @@ public partial class Imperial : ContentPage
         {
             stopsmokehelper.HasError = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "stopsmokeentry_TextChanged");
         }
@@ -10724,7 +10723,7 @@ public partial class Imperial : ContentPage
         {
             smokingerrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "smokefreqlistr_ItemTapped");
         }
@@ -10736,7 +10735,7 @@ public partial class Imperial : ContentPage
         {
             usealcoholerrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "usealochollist_ItemTapped");
         }
@@ -10748,7 +10747,7 @@ public partial class Imperial : ContentPage
         {
             whatdrugserrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "whatdrugslist_ItemTapped");
         }
@@ -10784,7 +10783,7 @@ public partial class Imperial : ContentPage
         {
             sleeperrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "sleeplist_ItemTapped");
         }
@@ -10796,7 +10795,7 @@ public partial class Imperial : ContentPage
         {
             wakeerrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "wakelist_ItemTapped");
         }
@@ -10844,7 +10843,7 @@ public partial class Imperial : ContentPage
         {
             proderrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "prodlist_ItemTapped");
         }
@@ -10856,7 +10855,7 @@ public partial class Imperial : ContentPage
         {
             poorsleeperrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "poorsleeplist_ItemTapped");
         }
@@ -10868,7 +10867,7 @@ public partial class Imperial : ContentPage
         {
             sleepproderrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "sleepproblist_ItemTapped");
         }
@@ -10878,17 +10877,17 @@ public partial class Imperial : ContentPage
     {
         try
         {
-                if (DeviceInfo.Current.Platform == DevicePlatform.Android)
-                {
-                    signpad.Clear();
-                }
-                else if (DeviceInfo.Current.Platform == DevicePlatform.iOS)
-                {
-                    drawingpad.Clear();
-                }
+            if (DeviceInfo.Current.Platform == DevicePlatform.Android)
+            {
+                signpad.Clear();
+            }
+            else if (DeviceInfo.Current.Platform == DevicePlatform.iOS)
+            {
+                drawingpad.Clear();
+            }
 
-                //nextbtn.BackgroundColor = Colors.LightGray;
-                SignPadhaddata = false;
+            //nextbtn.BackgroundColor = Colors.LightGray;
+            SignPadhaddata = false;
         }
         catch (Exception Ex)
         {
@@ -10902,7 +10901,7 @@ public partial class Imperial : ContentPage
         {
             under10helper.HasError = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "under10entry_TextChanged");
         }
@@ -10938,7 +10937,7 @@ public partial class Imperial : ContentPage
                 under10otherrolehelper.IsVisible = false;
             }
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "under10rolelist_ItemTapped");
         }
@@ -10957,7 +10956,7 @@ public partial class Imperial : ContentPage
             {
                 usedavlbl.IsVisible = true;
                 usedavlist.IsVisible = true;
-                usedavlist.RefreshView(); 
+                usedavlist.RefreshView();
             }
             else
             {
@@ -10965,7 +10964,7 @@ public partial class Imperial : ContentPage
                 usedavlist.IsVisible = false;
             }
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "heardavlist_ItemTapped");
         }
@@ -10977,7 +10976,7 @@ public partial class Imperial : ContentPage
         {
             usedaverrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "usedavlist_ItemTapped");
         }
@@ -10987,10 +10986,10 @@ public partial class Imperial : ContentPage
     {
         try
         {
- 
+
             futureaverrorlbl.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "futureavlist_ItemTapped");
         }
@@ -11002,7 +11001,7 @@ public partial class Imperial : ContentPage
         {
             futureaverrorlbl2.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "futureavlist2_ItemTapped");
         }
@@ -11014,7 +11013,7 @@ public partial class Imperial : ContentPage
         {
             futureaverrorlbl3.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "futureavlist3_ItemTapped");
         }
@@ -11026,7 +11025,7 @@ public partial class Imperial : ContentPage
         {
             futureaverrorlbl4.IsVisible = false;
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "futureavlist4_ItemTapped");
         }
@@ -11041,11 +11040,11 @@ public partial class Imperial : ContentPage
             SelectedGp = null;
             GpSelectedView.IsVisible = false;
             gpautocomplete.IsVisible = true;
-            Task.Delay(100); 
+            Task.Delay(100);
             gpautocomplete.Clear();
-      
+
         }
-        catch(Exception Ex)
+        catch (Exception Ex)
         {
             gpautocomplete.IsEnabled = true;
             CrashDetected.LogCrash(Ex, Navigation, "ImageButton_Clicked");
@@ -11056,7 +11055,7 @@ public partial class Imperial : ContentPage
     {
         try
         {
-            bodyparterrorlbl.IsVisible = false; 
+            bodyparterrorlbl.IsVisible = false;
         }
         catch (Exception Ex)
         {
@@ -11074,7 +11073,7 @@ public partial class Imperial : ContentPage
             var item = e.DataItem as string;
 
 
-            if(item.Contains("Yes"))
+            if (item.Contains("Yes"))
             {
                 emailsectiongrid.IsVisible = true;
                 commborder1.IsVisible = true;
@@ -11085,7 +11084,7 @@ public partial class Imperial : ContentPage
                 commborder1.IsVisible = false;
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
 
         }

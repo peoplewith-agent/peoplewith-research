@@ -68,6 +68,7 @@ namespace PeopleWithResearch
 
         public static readonly List<string> AgeOptions = new List<string>
         {
+            "0 - 5",
             "5 - 10",
             "11 - 15",
             "16+",

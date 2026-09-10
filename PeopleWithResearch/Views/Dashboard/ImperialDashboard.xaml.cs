@@ -1,18 +1,20 @@
 
-using CommunityToolkit.Maui.Alerts;
-using CommunityToolkit.Mvvm.Messaging;
-using FreakyKit.Utils;
-using Microsoft.Azure.NotificationHubs;
-using Mopups.Services;
-using Newtonsoft.Json;
-using Plugin.LocalNotification;
-using Plugin.LocalNotification;
 using System.Collections.ObjectModel;
 using System.Net.Http.Json;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Mvvm.Messaging;
+using CommunityToolkit.Mvvm.Messaging.Messages;
+using FreakyKit.Utils;
+using Microsoft.Azure.NotificationHubs;
+using Mopups.Services;
+using Newtonsoft.Json;
+using Plugin.LocalNotification;
+using Plugin.LocalNotification;
+using Syncfusion.Maui.Inputs;
 
 namespace PeopleWithResearch;
 
@@ -61,13 +63,16 @@ public partial class ImperialDashboard : ContentPage
 
         BindingContext = this;
 
-       // Preferences.Default.Set("primaryuserid", Helpers.Settings.UsersID);
+        // Preferences.Default.Set("primaryuserid", Helpers.Settings.UsersID);
         //Preferences.Default.Set("firstname", "Mark Harry");
         //Preferences.Default.Set("signupcode", "HOPPERCR");
+
 
         studyidlbl.Text = Helpers.Settings.UsersID;
         welcomelbl.Text = "Hi, " + Helpers.Settings.FirstName + " " + Helpers.Settings.Surname;
         activeProfileChipName.Text = Helpers.Settings.FirstName + " " + Helpers.Settings.Surname;
+
+      //  checkifappisupdated();
 
         GetHouseholdData();
         GetInformationDetails();
@@ -135,6 +140,9 @@ public partial class ImperialDashboard : ContentPage
         {
             await GetProfileData(); 
         });
+
+ 
+
     }
 
     protected override async void OnAppearing()
@@ -149,6 +157,23 @@ public partial class ImperialDashboard : ContentPage
             //await RecentComeplted();
         }
     }
+
+    //async void checkifappisupdated()
+    //{
+    //    try
+    //    {
+    //        var versionCheckService = new VersionCheckService();
+    //        bool Check = await versionCheckService.CheckForUpdate();
+    //        if (Check)
+    //        {
+    //            await Navigation.PushAsync(new UpdatePage(), false);
+    //        }
+    //    }
+    //    catch(Exception ex)
+    //    {
+
+    //    }
+    //}
 
 
     async void ReloadDashfromSwitchProfile()
@@ -240,6 +265,7 @@ public partial class ImperialDashboard : ContentPage
                 {
                     mainUser.household_individual_name = $"{hhRepGot.FirstName} {hhRepGot.Surname}";
                     mainUser.household_individual_userid = hhRepGot.Userid;
+                mainUser.household_individual_email = hhRepGot.Email;
                     householdreplbl.Text = mainUser.household_individual_name;
                 }
             
@@ -247,7 +273,7 @@ public partial class ImperialDashboard : ContentPage
             mainUser.mainuser = true;
             mainUser.household_group_id = HouseHoldGroup.householdgroupid;
             mainUser.household_individual_status = "active";
-            mainUser.household_individual_age = "Over 18";
+            mainUser.household_individual_age = "16+";
             mainUser.household_individual_relationship = "Household Rep";
             mainUser.Studyactiveimage = "greentick.png";
             mainUser.ListOpacity = 1;
@@ -293,6 +319,12 @@ public partial class ImperialDashboard : ContentPage
                 bool isOnboarding = string.Equals(item.household_individual_status, "Onboarding", StringComparison.OrdinalIgnoreCase);
                 bool isActive = string.Equals(item.household_individual_status, "Active", StringComparison.OrdinalIgnoreCase);
 
+                // needs study team to activate — over 16 (age = "16+") with no real email on file
+                bool isOver16 = string.Equals(item.household_individual_age?.Trim(), "16+", StringComparison.OrdinalIgnoreCase);
+                bool hasNoEmail = string.IsNullOrWhiteSpace(item.household_individual_email)
+                    || item.household_individual_email.Trim().StartsWith("N/A", StringComparison.OrdinalIgnoreCase);
+                item.ShowContactStudyTeam = !isWithdrawn && isOver16 && hasNoEmail;
+
                 item.Studyactiveimage = isActive ? "greentick.png" : isOnboarding ? "error.png" : "logout.png";
                 item.Studyinfo = $"{item.household_individual_userid} | {item.household_individual_status} | {item.household_individual_age}";
 
@@ -310,6 +342,11 @@ public partial class ImperialDashboard : ContentPage
                 else
                 {
                     ActiveOrOnboardingStyle(item, AllUserQuestionnaires, isOnboarding, isActive, isRep);
+                }
+
+                if(item.household_individual_userid == Helpers.Settings.UsersID)
+                {
+
                 }
             }
 
@@ -389,7 +426,7 @@ public partial class ImperialDashboard : ContentPage
         item.BaselineButtonOpacity = 1;
         item.BaselineButtonEnabled = false;
         item.ManageButtonOpacity = 1;
-        item.ManageButtonEnabled = false;
+        item.ManageButtonEnabled = true;
         item.LastActiveDate = null;
         item.QuestionnairesCompleted = "-";
         ResetBaselineStatus(item);
@@ -426,6 +463,7 @@ public partial class ImperialDashboard : ContentPage
         var mainUserId = Allhouseholdgroupinfo?.FirstOrDefault()?.primaryuserid;
         if (string.IsNullOrEmpty(mainUserId)) return;
         ismainuser = (mainUserId == Helpers.Settings.PrimaryUserID) ? true : false;
+        bool isCurrentUser = item.household_individual_userid == Helpers.Settings.UsersID;
 
         if (!ismainuser)
         {
@@ -433,12 +471,15 @@ public partial class ImperialDashboard : ContentPage
             item.ShowDetails = false;
             item.ShowSwitchProfile = false;
             item.ShowActiveProfile = false;
+            if(isCurrentUser)
+            {
+                houserepaccessborder.IsVisible = item.household_rep_access == "pending";
+            }
         }
         else
         {
 
-
-            if(item.household_individual_userid == Helpers.Settings.UsersID)
+            if(isCurrentUser)
             {
                 item.ShowActiveProfile = true;
                 item.ShowSwitchProfile = false;
@@ -450,20 +491,42 @@ public partial class ImperialDashboard : ContentPage
             else
             {
                 item.ShowActiveProfile = false;
-                item.ShowSwitchProfile = true;
+
+                if (item.household_rep_access == "pending")
+                {
+
+                    item.ShowActions = false;
+                    item.ShowSwitchProfile = false;
+                    item.ShowAwaitingBaseline = false;
+                }
+                else
+                {
+                    item.ShowSwitchProfile = true;
+                    item.ShowActions = true;
+                }
             }
-
-
         }
 
 
+        if (Helpers.Settings.SignUp == "HOPPERCR")
+        {
+
+        }
 
 
             // ---- Baseline Form status ----
             bool baselineFormCompleted = !isOnboarding;
         item.BaselineFormStatusText = baselineFormCompleted ? "Completed" : "Pending";
         item.BaselineFormBorderColor = new SolidColorBrush(Color.FromArgb(baselineFormCompleted ? "#009fe3" : "#eeeeee"));
-        item.ShowAwaitingBaseline = !baselineFormCompleted;
+
+        if (ismainuser)
+        {
+            item.ShowAwaitingBaseline = false;
+        }
+        else
+        {
+            item.ShowAwaitingBaseline = baselineFormCompleted;
+        }
         item.BaselineFormTextColor = baselineFormCompleted ? "#009fe3" : "#031926";
 
         // ---- Baseline Samples status ----
@@ -805,6 +868,7 @@ public partial class ImperialDashboard : ContentPage
             //stage one - await baseline 
 
 
+
             if (DateTime.Now.Date >= new DateTime(2027, 4, 23))
             {
                 // T28 done - check if end of study form completed
@@ -835,94 +899,176 @@ public partial class ImperialDashboard : ContentPage
                 }
             }
 
+
+
+            if (Helpers.Settings.SignUp == "HOPPERCR")
+            {
+
+                //_allHouseholdGroup.groupuserdetails = JsonConvert.SerializeObject(_allGroupDetailsPassed);
+
+
+                // -- Study record update --
+                var studyDetails1 = Allhouseholdgroupinfo[0].studydetails;
+
+                if (studyDetails1 == null)
+                {
+                    studyDetails1 = new householdstudyrecord
+                    {
+                        household_id = Allhouseholdgroupinfo[0].householdgroupid,
+                        current_phase = "TPhase",
+                        t_events = new List<TEvent>()
+                    };
+
+
+
+                    studyDetails1.t_events ??= new List<TEvent>();
+
+                    var activeEvent1 = studyDetails1.t_events
+                        .FirstOrDefault(x => x.t_event_status == "active");
+
+                    if (activeEvent1 == null)
+                    {
+                        activeEvent1 = new TEvent
+                        {
+                            t_event_id = "TE-" + Guid.NewGuid().ToString("N")[..6].ToUpper(),
+                            t_event_status = "active",
+                            scenario = null,
+                            trigger_type = "HOPPERCR",
+                            t1_start_date = DateTime.UtcNow.ToString("g"),
+                            members = Allhouseholdgroupinfo[0].userdetailslist?
+                                .Select(m => new TEventMember
+                                {
+                                    user_id = m.household_individual_userid,
+                                    daily_forms_complete = false,
+                                    daily_forms_stopped_at = null,
+                                    questionnaires = new List<TQuestionnaire>()
+                                }).ToList() ?? new List<TEventMember>()
+                        };
+                        studyDetails1.t_events.Add(activeEvent1);
+                    }
+
+
+                    Allhouseholdgroupinfo[0].details = System.Text.Json.JsonSerializer.Serialize(studyDetails1);
+
+
+                    //insert into db
+
+
+                    var updateData = new { details = Allhouseholdgroupinfo[0].details };
+                    string updateJson = System.Text.Json.JsonSerializer.Serialize(updateData);
+
+
+                    string url = $"{APICalls.ApplicationURL}householdgroup/householdgroupid/{Allhouseholdgroupinfo[0].householdgroupid}";
+                    using var content = new StringContent(updateJson, Encoding.UTF8, "application/json");
+                    var response = await APICalls.Instance.GetClient().PatchAsync(url, content);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        _ = await response.Content.ReadAsStringAsync();
+                    }
+
+
+
+                }
+            }
+
+
+
+      
                 //check if less than 3 are active
 
 
                 var studyDetailscheck = Allhouseholdgroupinfo[0].studydetails;
-            if (studyDetailscheck == null)
+
+            if (Helpers.Settings.SignUp == "HOPPERCTPE")
             {
 
-                //has not started t forms so still at waiting stage
-
-
-
-
-                var activeCount = Allhouseholdgroupinfodetails.Where(x => x.household_individual_status.Equals("Active", StringComparison.OrdinalIgnoreCase)).ToList();
-
-                if (activeCount.Count < 3)
-                {
-                    stage1awaitingbaseline.IsVisible = true;
-                    return;
-                }
-
-
-
-                //stage 2 basline samples
-
-
-                //if (activeCount.Any(user => !allQuestionnairesOrdered.Any(q => q.userid == user.household_individual_userid && q.questionnaireid == "b1_samples")))
-                //{
-                //    stage2basleinesample2.IsVisible = true;
-                //    return;
-                //}
-
-                var usersMissingB1Samples = activeCount.Where(user => !AllUserQuestionnaires.Any(q => q.userid == user.household_individual_userid && q.questionnaireid == "b1_samples")).ToList();
-
-
-                if (usersMissingB1Samples.Any())
+                if (studyDetailscheck == null)
                 {
 
+                    //has not started t forms so still at waiting stage
 
-                    // Inspect the missing users here
 
-                    var names = string.Join(", ", usersMissingB1Samples.Select(u => u.household_individual_name));
 
-                    var formatted = new FormattedString();
 
-                    formatted.Spans.Add(new Span
+                    var activeCount = Allhouseholdgroupinfodetails.Where(x => x.household_individual_status.Equals("Active", StringComparison.OrdinalIgnoreCase)).ToList();
+
+                    if (activeCount.Count < 3)
                     {
-                        TextColor = Color.FromHex("#031926"),
-                        Text = "The following household members still need to complete baseline samples:\n\n"
-                    });
-
-                    for (int i = 0; i < usersMissingB1Samples.Count; i++)
-                    {
-                        var user = usersMissingB1Samples[i];
-
-                        formatted.Spans.Add(new Span
-                        {
-                            Text = "• ",
-                            TextColor = Color.FromHex("#031926")
-                        });
-
-                        formatted.Spans.Add(new Span
-                        {
-                            Text = user.household_individual_name,
-                            TextColor = Color.FromHex("#031926"),
-                            FontAttributes = FontAttributes.Bold
-                        });
-
-                        // only add newline if NOT last item
-                        if (i < usersMissingB1Samples.Count - 1)
-                        {
-                            formatted.Spans.Add(new Span
-                            {
-                                Text = "\n\n",
-                                TextColor = Color.FromHex("#031926")
-                            });
-                        }
+                        stage1awaitingbaseline.IsVisible = true;
+                        return;
                     }
 
-                    nameslist.FormattedText = formatted;
-                    // nameslist.Text = "The following household members still need to complete baseline samples " + names;
 
 
-                    stage2basleinesample2.IsVisible = true;
-                    stage2basleinesample2helper.IsVisible = true;
-                    return;
+                    //stage 2 basline samples
+
+
+                    //if (activeCount.Any(user => !allQuestionnairesOrdered.Any(q => q.userid == user.household_individual_userid && q.questionnaireid == "b1_samples")))
+                    //{
+                    //    stage2basleinesample2.IsVisible = true;
+                    //    return;
+                    //}
+
+                    var usersMissingB1Samples = activeCount.Where(user => !AllUserQuestionnaires.Any(q => q.userid == user.household_individual_userid && q.questionnaireid == "b1_samples")).ToList();
+
+
+                    if (usersMissingB1Samples.Any())
+                    {
+
+
+                        // Inspect the missing users here
+
+                        var names = string.Join(", ", usersMissingB1Samples.Select(u => u.household_individual_name));
+
+                        var formatted = new FormattedString();
+
+                        formatted.Spans.Add(new Span
+                        {
+                            TextColor = Color.FromHex("#031926"),
+                            Text = "The following household members still need to complete baseline samples:\n\n"
+                        });
+
+                        for (int i = 0; i < usersMissingB1Samples.Count; i++)
+                        {
+                            var user = usersMissingB1Samples[i];
+
+                            formatted.Spans.Add(new Span
+                            {
+                                Text = "• ",
+                                TextColor = Color.FromHex("#031926")
+                            });
+
+                            formatted.Spans.Add(new Span
+                            {
+                                Text = user.household_individual_name,
+                                TextColor = Color.FromHex("#031926"),
+                                FontAttributes = FontAttributes.Bold
+                            });
+
+                            // only add newline if NOT last item
+                            if (i < usersMissingB1Samples.Count - 1)
+                            {
+                                formatted.Spans.Add(new Span
+                                {
+                                    Text = "\n\n",
+                                    TextColor = Color.FromHex("#031926")
+                                });
+                            }
+                        }
+
+                        nameslist.FormattedText = formatted;
+                        // nameslist.Text = "The following household members still need to complete baseline samples " + names;
+
+
+                        stage2basleinesample2.IsVisible = true;
+                        stage2basleinesample2helper.IsVisible = true;
+                        return;
+                    }
                 }
             }
 
+
+       
 
 
             //tform stage
@@ -941,7 +1087,7 @@ public partial class ImperialDashboard : ContentPage
             var activeEvent = studyDetails.t_events?
       .FirstOrDefault(x => x.t_event_status == "active");
 
-            if (activeEvent == null)
+            if (activeEvent == null || Helpers.Settings.SignUp == "HOPPERCTPE")
             {
                 //has not started t forms so still at waiting stage
                 t1questionnairebordermain.IsVisible = true;
@@ -1613,11 +1759,13 @@ public partial class ImperialDashboard : ContentPage
     {
         try
         {
+            AllQuestionnaires = await APICalls.Instance.GetAllQuestionnaire();
+            if (AllQuestionnaires == null) return;
+
             if (AllUserQuestionnaires.Count > 0)
             {
 
-                AllQuestionnaires = await APICalls.Instance.GetAllQuestionnaire();
-                if (AllQuestionnaires == null) return; 
+
 
                 var rnd = new Random();
                 foreach (var item in AllUserQuestionnaires)
@@ -1830,7 +1978,9 @@ public partial class ImperialDashboard : ContentPage
 
             Initialslbl.Text = SetInitials(firstName, surname);
             emaillbl.Text = !string.IsNullOrEmpty(Helpers.Settings.Email) ? Helpers.Settings.Email : "Example@gmail.com";
-            Versionlbl.Text = $"(Release Version: {DeviceInfo.Version})";
+            var version = (DeviceInfo.Current.Platform == DevicePlatform.iOS) ?
+                  AppInfo.BuildString.ToString() : AppInfo.VersionString.ToString();
+            Versionlbl.Text = $"(Release Version: {version})";
             useridprofilelbl.Text = !string.IsNullOrEmpty(Helpers.Settings.UsersID) ? Helpers.Settings.UsersID : "Pending";
 
             if (settingItems != null)
@@ -2213,43 +2363,55 @@ public partial class ImperialDashboard : ContentPage
 
     private async void TapGestureRecognizer_Tapped_3(object sender, TappedEventArgs e)
     {
+        var border = sender as Border;
+        var item = border?.BindingContext as householdgroupjsondetails;
+        if (item == null || !item.BaselineButtonEnabled) return;
+
         try
         {
-            var border = sender as Border;
-            var item = border?.BindingContext as householdgroupjsondetails;
-            if (item == null || !item.BaselineButtonEnabled) return;
-
             await MopupService.Instance.PushAsync(new Infopopup("Loading", item));
 
-            var url = APICalls.CheckSignUpCode + "%27" + Helpers.Settings.SignUp + "%27";
+            var signUpCode = Uri.EscapeDataString(Helpers.Settings.SignUp ?? string.Empty);
+            var url = $"{APICalls.CheckSignUpCode}%27{signUpCode}%27";
+
             var configuredClient = APICalls.Instance.GetClient();
             HttpResponseMessage response = await configuredClient.GetAsync(url);
 
-            if (response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode) return;
+
+            string content = await response.Content.ReadAsStringAsync();
+            var userResponse = JsonConvert.DeserializeObject<ApiResponseSignUpCode>(content);
+            var users = userResponse?.Value;
+
+            if (users == null || users.Count == 0) return;
+
+            if (item.household_individual_age == "5 - 10" || item.household_individual_age == "0 - 5")
             {
-                string content = await response.Content.ReadAsStringAsync();
-                var userResponse = JsonConvert.DeserializeObject<ApiResponseSignUpCode>(content);
-                ObservableCollection<signupcode> users = userResponse.Value;
-
-                if (users.Count > 0)
-                {
-                    await MopupService.Instance.PopAsync(); // dismiss loading before showing PDF
-
-                    if (item.household_individual_age.Contains("5"))
-                    {
-                        var stream = await FileSystem.OpenAppPackageFileAsync("Infosheet510.pdf");
-
-
-                        await Navigation.PushModalAsync(new pdfpage(stream));
-                    }
-
-                    await Navigation.PushAsync(new Imperial(users[0], item, Allhouseholdgroupinfodetails, Allhouseholdgroupinfo[0]), false);
-                }
+                var stream = await FileSystem.OpenAppPackageFileAsync("Infosheet510.pdf");
+                await Navigation.PushModalAsync(new pdfpage(stream));
             }
+
+            if (Allhouseholdgroupinfo == null || Allhouseholdgroupinfo.Count == 0) return;
+
+            await Navigation.PushAsync(
+            new NewImperial(users[0], item, Allhouseholdgroupinfodetails, Allhouseholdgroupinfo[0], true),
+            false);
         }
-        catch (Exception Ex)
+        catch (Exception ex)
         {
-            CrashDetected.LogCrash(Ex, Navigation, "TapGestureRecognizer_Tapped_3");
+            CrashDetected.LogCrash(ex, Navigation, "TapGestureRecognizer_Tapped_3");
+        }
+        finally
+        {
+            try
+            {
+                if (MopupService.Instance.PopupStack.Count > 0)
+                    await Task.WhenAny(MopupService.Instance.PopAsync(), Task.Delay(5000));
+            }
+            catch (Exception popEx)
+            {
+                CrashDetected.LogCrash(popEx, Navigation, "TapGestureRecognizer_Tapped_3 - PopAsync");
+            }
         }
     }
 
@@ -2510,6 +2672,52 @@ public partial class ImperialDashboard : ContentPage
         catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "MissedQuestionnaires_Tapped");
+        }
+    }
+
+    private async void Button_Clicked_2(object sender, EventArgs e)
+    {
+        try
+        {
+            //grant access button clicked
+            bool confirm = await DisplayAlert("Confirm Access", "Are you sure you want to give access?", "Yes", "No");
+            if (!confirm)
+            {
+                return;
+            }
+
+            var itemUpdate = Allhouseholdgroupinfodetails.FirstOrDefault(f =>
+                f.household_individual_userid == Helpers.Settings.UsersID);
+            //Rest from Upper
+            itemUpdate.household_rep_access = "active";
+            bool isSuccessful = await APICalls.Instance.UpdateHouseholdFeedback(Allhouseholdgroupinfodetails);
+            if (!isSuccessful)
+            {
+                houserepaccessborder.IsVisible = true;
+            }
+            else
+            {
+                houserepaccessborder.IsVisible = false;
+                await DisplayAlert("Success", "Access has been granted.", "OK");
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+    private void TapGestureRecognizer_Tapped_9(object sender, TappedEventArgs e)
+    {
+        try
+        {
+            if (PhoneDialer.Default.IsSupported)
+            {
+                PhoneDialer.Default.Open("+447889952493");
+            }
+        }
+        catch (Exception Ex)
+        {
+            CrashDetected.LogCrash(Ex, Navigation, "TapGestureRecognizer_Tapped_9");
         }
     }
 }

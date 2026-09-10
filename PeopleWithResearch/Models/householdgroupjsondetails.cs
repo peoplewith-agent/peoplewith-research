@@ -55,6 +55,13 @@ namespace PeopleWithResearch
             get => _age;
             set { _age = value; OnPropertyChanged(); }
         }
+
+        private string _repaccess;
+        public string household_rep_access
+        {
+            get => _repaccess;
+            set { _repaccess = value; OnPropertyChanged(); }
+        }
         public string household_individual_baseline_samples { get; set; }
 
         // --- Computed UI properties ---
@@ -292,6 +299,14 @@ namespace PeopleWithResearch
         {
             get => _ShowActiveProfile;
             set { _ShowActiveProfile = value; OnPropertyChanged(); }
+        }
+
+        private bool _showContactStudyTeam;
+        [JsonIgnore]
+        public bool ShowContactStudyTeam
+        {
+            get => _showContactStudyTeam;
+            set { _showContactStudyTeam = value; OnPropertyChanged(); }
         }
 
     }

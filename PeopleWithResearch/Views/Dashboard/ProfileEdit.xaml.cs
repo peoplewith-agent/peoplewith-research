@@ -19,6 +19,8 @@ using Microsoft.Maui;
 using Microsoft.Maui.Devices;
 using Microsoft.Maui.ApplicationModel.Communication;
 using Microsoft.Maui.Networking;
+using CommunityToolkit.Mvvm.Messaging;
+using PeoplewithResearch;
 //using static Android.Net.Http.SslCertificate;
 
 
@@ -597,7 +599,8 @@ namespace PeopleWithResearch
 
                         ///update the name on the dash
 
-                        MessagingCenter.Send<object>(this, "refreshname");
+                        //MessagingCenter.Send<object>(this, "refreshname");
+                        WeakReferenceMessenger.Default.Send(new refreshname("refreshname"));
 
                     }
                     else if (emailstack.IsVisible == true)
@@ -921,7 +924,7 @@ namespace PeopleWithResearch
                     //}
 
                     //update the user details on dash page
-                    MessagingCenter.Send<object, object>(this, "updateuserdetails", getuser[0]);
+                    //MessagingCenter.Send<object, object>(this, "updateuserdetails", getuser[0]);
 
                     bool openprofile = true;
 

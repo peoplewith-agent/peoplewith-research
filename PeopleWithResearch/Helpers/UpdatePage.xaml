@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PeopleWithResearch.UpdatePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      NavigationPage.HasNavigationBar="False"
+    BackgroundColor="White">
+    <Grid Padding="20,20,24,16" RowDefinitions="Auto,*,Auto">
+
+
+
+        <!--  Main content  -->
+        <VerticalStackLayout
+            Grid.Row="1"
+            Spacing="10"
+            VerticalOptions="Center">
+
+            <!--  App icon (swap the inner Border for an <Image Source="app_icon.png"/> once you have the real logo)  -->
+            <Image
+                Margin="-20,0,0,20"
+                Aspect="Fill"
+                HeightRequest="100"
+                HorizontalOptions="Start"
+                Source="download.png"
+                VerticalOptions="Start"
+                WidthRequest="100" />
+
+            <!--  Title  -->
+            <Label
+                FontAttributes="Bold"
+                FontFamily="OpenSansSemiBold"
+                FontSize="32"
+                LineBreakMode="WordWrap"
+                Text="Update your application to the latest version"
+                TextColor="#031926" />
+
+            <!--  Description  -->
+            <Label
+                FontFamily="OpenSansSemiBold"
+                FontSize="16"
+                LineBreakMode="WordWrap"
+                Text="A new version of the PeopleWith app is now available in the App Store. Please update your app to get the latest version."
+                TextColor="#031926" />
+
+        </VerticalStackLayout>
+
+        <!--  Bottom area: button + home indicator  -->
+        <VerticalStackLayout Grid.Row="2" Spacing="10">
+
+            <Button
+                Margin="20,0,20,0"
+                BackgroundColor="#009fe3"
+                Clicked="Button_Clicked"
+                CornerRadius="20"
+                FontAttributes="Bold"
+                FontFamily="OpenSansSemiBold"
+                FontSize="16"
+                Text="Update now"
+                TextColor="White" />
+
+
+
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

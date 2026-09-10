@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PeopleWithResearch.Models
+namespace PeopleWithResearch
 {
     class AppConfig
     {
@@ -48,19 +48,32 @@ namespace PeopleWithResearch.Models
 
         public List<RegField> subFields { get; set; }
 
-        // Aliases used by ImperialViewModel step header binding and unit tests
-        public string FieldTitle { get => Label; set => Label = value; }
-        public string FieldSubtitle { get => Placeholder; set => Placeholder = value; }
     }
 
-    public class OptionDetails   
-    { 
-        public string AnswerId { get; set; } 
-        public string Value { get; set; } 
+    public class OptionDetails 
+    {
+        public string AnswerId { get; set; }
+        public string Value { get; set; }
         public string Text { get; set; }
-
         public List<string> validpostcodesvalues { get; set; }
+
+        //// Unique key: Prefer AnswerId; fall back to Value
+        //private string EqualityKey => !string.IsNullOrEmpty(AnswerId) ? AnswerId : Value;
+
+        //public bool Equals(OptionDetails other)
+        //{
+        //    if (other is null) return false;
+        //    if (ReferenceEquals(this, other)) return true;
+        //    return string.Equals(EqualityKey, other.EqualityKey, StringComparison.Ordinal);
+        //}
+
+        //public override bool Equals(object obj) => Equals(obj as OptionDetails);
+
+        //public override int GetHashCode() =>
+        //    EqualityKey != null ? StringComparer.Ordinal.GetHashCode(EqualityKey) : 0;
     }
+
+  
 
 
     public class RegQuestionAnswerJson

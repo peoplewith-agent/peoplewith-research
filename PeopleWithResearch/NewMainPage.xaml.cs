@@ -140,7 +140,18 @@ public partial class NewMainPage : ContentPage
 
                 checkingstack.IsVisible = false;
                 Successshow.IsVisible = true;
-                await Navigation.PushAsync(new Imperial(checkuser, users[0]), false);
+                if (DeviceInfo.Platform == DevicePlatform.Android)
+                {
+                    await Navigation.PushAsync(new NewImperial(checkuser, users[0]), false);
+                }
+                else
+                {
+                    await Navigation.PushAsync(new NewImperial(checkuser, users[0]), false);
+                   // await Navigation.PushAsync(new Imperial(checkuser, users[0]), false);
+                }
+                 
+                //var imperialPage = await LoadImperialPageAsync(users[0]);
+                //await Navigation.PushAsync(imperialPage, false);
             }
             else
             {
@@ -160,6 +171,11 @@ public partial class NewMainPage : ContentPage
             pasteentry.IsEnabled = true;
             isawait = false;
         }
+    }
+
+    private async Task<Imperial> LoadImperialPageAsync(signupcode users)
+    {
+        return await Task.Run(() => new Imperial(checkuser, users));
     }
 
     private void ShowInvalidCodeResult(string message)

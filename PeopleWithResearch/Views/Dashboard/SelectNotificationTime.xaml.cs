@@ -20,7 +20,7 @@ namespace PeopleWithResearch
         public SelectNotificationTime()
         {
             InitializeComponent();
-            detailslbl.Text = $"Hi {Helpers.Settings.FirstName}! We want to make sure our reminders fit perfectly into your schedule. Could you please let us know what time you'd prefer to receive your weekly reminder notification?";
+            detailslbl.Text = $"Hi {Helpers.Settings.FirstName}! Set your preferred notification time to receive a helpful daily reminder to complete your symptoms and samples questionnaire";
 
             HoursList = new ObservableCollection<string>();
             //Code to test 

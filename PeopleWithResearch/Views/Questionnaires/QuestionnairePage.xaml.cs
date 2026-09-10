@@ -19,6 +19,8 @@ using Microsoft.Maui.Networking;
 using Syncfusion.Maui.Sliders;
 using Syncfusion.Maui.Buttons;
 using Syncfusion.Maui.Picker;
+using CommunityToolkit.Mvvm.Messaging;
+using PeoplewithResearch;
 
 namespace PeopleWithResearch
 {
@@ -2086,7 +2088,8 @@ namespace PeopleWithResearch
 
                     //update the dash
 
-                    MessagingCenter.Send<object, object>(this, "refreshdashafterquestionnaire", userquestionnaires);
+                    //MessagingCenter.Send<object, object>(this, "refreshdashafterquestionnaire", userquestionnaires);
+                     WeakReferenceMessenger.Default.Send(new refreshdashafterquestionnaire(userquestionnaires));
 
 
                    Application.Current.MainPage = new NavigationPage(new MainDashboard());

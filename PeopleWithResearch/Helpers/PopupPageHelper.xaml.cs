@@ -73,12 +73,12 @@ public partial class PopupPageHelper : PopupPage
 
     private async void StartSetupSequence(bool HHRep)
     {
-        string pronoun = HHRep ? "your" : "their";
+        string pronoun = !HHRep ? "your" : "their";
 
-        if (!HHRep)
-        {
+        //if (!HHRep)
+        //{
             BottomStacklbl.Text = "Welcome to the community. This account is ready for use.";
-        }
+        //}
 
         await UpdateStep($"Creating {pronoun} profile...", 30, 3000);
         await UpdateStep($"Securing {pronoun} data...", 65, 2500);

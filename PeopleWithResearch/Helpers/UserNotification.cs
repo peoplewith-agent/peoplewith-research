@@ -1,4 +1,6 @@
 ﻿using Plugin.LocalNotification;
+using Plugin.LocalNotification.Core.Models;
+using Plugin.LocalNotification.Core.Models.AndroidOption;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -106,7 +108,9 @@ namespace PeopleWithResearch
                     dayNum = (currentDay + 1).ToString();
                 }
 
-                string description = $"Please tap here to complete the Day {dayNum} Symptom Questionnaire and Sampling.";
+
+                string description = $"Please tap here to complete the daily Symptom Questionnaire and Sampling.";
+                //string description = $"Please tap here to complete the Day {dayNum} Symptom Questionnaire and Sampling.";
                 var notification = CreateNotification(
                     NewDailyID,
                     DailyTitle,
@@ -150,9 +154,9 @@ namespace PeopleWithResearch
                 Description = description,
                 BadgeNumber = 0,
                 Sound = DeviceInfo.Platform == DevicePlatform.Android ? "pwjingo" : "pwjingo.aiff",
-                Android = new Plugin.LocalNotification.AndroidOption.AndroidOptions
+                Android = new AndroidOptions
                 {
-                    Priority = Plugin.LocalNotification.AndroidOption.AndroidPriority.Max,
+                    Priority = AndroidPriority.Max,
                     Ongoing = false,
                     ChannelId = "pwr_notifications",
                 },

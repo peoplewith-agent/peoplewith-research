@@ -1,3 +1,5 @@
+using CommunityToolkit.Mvvm.Messaging;
+using PeoplewithResearch;
 using Syncfusion.Maui.Buttons;
 using System.Collections.ObjectModel;
 
@@ -1654,7 +1656,8 @@ public partial class QuestionnairePageHardCoded : ContentPage
 
                 //update the dash
 
-                MessagingCenter.Send<object, object>(this, "refreshdashafterquestionnaire", userquestionnaires);
+                //MessagingCenter.Send<object, object>(this, "refreshdashafterquestionnaire", userquestionnaires);
+                WeakReferenceMessenger.Default.Send(new refreshdashafterquestionnaire(userquestionnaires));
 
 
                 Application.Current.MainPage = new NavigationPage(new MainDashboard());

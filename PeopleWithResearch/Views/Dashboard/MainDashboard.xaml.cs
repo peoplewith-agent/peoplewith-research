@@ -17,6 +17,10 @@ using Microsoft.Maui.ApplicationModel.Communication;
 using Syncfusion.Maui.TabView;
 //using CoreImage;
 using Plugin.LocalNotification;
+using Plugin.LocalNotification.Core.Models;
+using Plugin.LocalNotification.Core.Models.AndroidOption;
+using CommunityToolkit.Mvvm.Messaging;
+using PeoplewithResearch;
 
 namespace PeopleWithResearch
 {
@@ -100,7 +104,8 @@ namespace PeopleWithResearch
 
 
             // //refresh the queestionnaire and status
-            MessagingCenter.Subscribe<object, object>(this, "refreshdashafterquestionnaire", (sender, args) =>
+            //MessagingCenter.Subscribe<object, object>(this, "refreshdashafterquestionnaire", (sender, args) =>
+            WeakReferenceMessenger.Default.Register<refreshdashafterquestionnaire>(this, (sender, args) =>
             {
                 // Handle the received message
 
@@ -108,7 +113,7 @@ namespace PeopleWithResearch
                 {
 
 
-                    var newcollection = args as ObservableCollection<UserQuestionnaire>;
+                    var newcollection = args.Value;
 
                     if (newcollection != null)
                     {
@@ -175,7 +180,8 @@ namespace PeopleWithResearch
             });
 
 
-            MessagingCenter.Subscribe<object, object>(this, "updateuserdetails", (sender, args) =>
+            //MessagingCenter.Subscribe<object, object>(this, "updateuserdetails", (sender, args) =>
+            WeakReferenceMessenger.Default.Register<updateuserdetails>(this, (r, m) =>
             {
                 // Handle the received message
 
@@ -183,7 +189,7 @@ namespace PeopleWithResearch
                 {
                     //update the dash with the user new details
 
-                    var newcollection = args as user;
+                    var newcollection = m.Value as ObservableCollection<user>;
 
                     if (newcollection != null)
                     {
@@ -365,7 +371,8 @@ namespace PeopleWithResearch
 
 
             // Subscribe to the message sent from WithdrawVideoPopUp
-            MessagingCenter.Subscribe<WithdrawVideoPopUp>(this, "VideoPageLeft", (sender) =>
+            //MessagingCenter.Subscribe<WithdrawVideoPopUp>(this, "VideoPageLeft", (sender) =>
+            WeakReferenceMessenger.Default.Register<VideoPageLeft>(this, (r, m) =>
             {
                 // Handle the message (show the popup)
                 ShowPopup();
@@ -709,15 +716,15 @@ namespace PeopleWithResearch
             //profiletab.ImageSource = ImageSource.FromFile("profileactive.png");
 
             // //refresh the queestionnaire and status
-            MessagingCenter.Subscribe<object, object>(this, "refreshdashafterquestionnaire", (sender, args) =>
+            //MessagingCenter.Subscribe<object, object>(this, "refreshdashafterquestionnaire", (sender, args) =>
+            WeakReferenceMessenger.Default.Register<refreshdashafterquestionnaire>(this, (sender, args) =>
             {
                 // Handle the received message
 
                 try
                 {
 
-
-                    var newcollection = args as ObservableCollection<UserQuestionnaire>;
+                    var newcollection = args.Value;
 
                     if (newcollection != null)
                     {
@@ -784,7 +791,8 @@ namespace PeopleWithResearch
             });
 
 
-            MessagingCenter.Subscribe<object, object>(this, "updateuserdetails", (sender, args) =>
+            //MessagingCenter.Subscribe<object, object>(this, "updateuserdetails", (sender, args) =>
+            WeakReferenceMessenger.Default.Register<updateuserdetails>(this, (r, m) =>
             {
                 // Handle the received message
 
@@ -792,7 +800,8 @@ namespace PeopleWithResearch
                 {
                     //update the dash with the user new details
 
-                    var newcollection = args as user;
+                    //var newcollection = args as user;
+                    var newcollection = m.Value as ObservableCollection<user>;
 
                     if (newcollection != null)
                     {
@@ -1667,7 +1676,8 @@ namespace PeopleWithResearch
 
             // //refresh the queestionnaire and status
 
-            MessagingCenter.Subscribe<object>(this, "refreshdashafterquestionnaire", (sender) =>
+            //MessagingCenter.Subscribe<object>(this, "refreshdashafterquestionnaire", (sender) =>
+            WeakReferenceMessenger.Default.Register<refreshdashafterquestionnaire>(this, (sender, args) =>
             {
                 // Handle the received message
 

@@ -1,6 +1,8 @@
 using Azure.Storage.Blobs;
+using CommunityToolkit.Mvvm.Messaging;
 using Maui.FreakyControls;
 using Microsoft.Maui.Controls;
+using PeoplewithResearch;
 using Syncfusion.Maui.Buttons;
 using System.Collections.ObjectModel;
 
@@ -1936,7 +1938,8 @@ public partial class QuestionnairePageHardCoded32 : ContentPage
 
                 //update the dash
 
-                MessagingCenter.Send<object, object>(this, "refreshdashafterquestionnaire", userquestionnaires);
+                //MessagingCenter.Send<object, object>(this, "refreshdashafterquestionnaire", userquestionnaires);
+                WeakReferenceMessenger.Default.Send(new refreshdashafterquestionnaire(userquestionnaires));
 
 
                 Application.Current.MainPage = new NavigationPage(new MainDashboard());

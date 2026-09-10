@@ -2374,6 +2374,8 @@
                                                     </Border>
                                                 </Grid>
 
+
+
                                                 <VerticalStackLayout IsVisible="{Binding ShowDetails}" Spacing="12">
 
                                                     <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
@@ -2567,6 +2569,52 @@
                                                 </VerticalStackLayout>
 
 
+                                                <!--  Contact Study Team to Activate  -->
+                                                <Border
+                                                    Padding="12"
+                                                    BackgroundColor="#FFF7ED"
+                                                    IsVisible="{Binding ShowContactStudyTeam}"
+                                                    Stroke="#F97316"
+                                                    StrokeShape="RoundRectangle 8"
+                                                    StrokeThickness="1">
+                                                    <Grid ColumnDefinitions="Auto, *" ColumnSpacing="10">
+                                                        <Image
+                                                            Grid.Column="0"
+                                                            Margin="0,2,0,0"
+                                                            HeightRequest="20"
+                                                            Source="infoicon.png"
+                                                            VerticalOptions="Start"
+                                                            WidthRequest="20" />
+                                                        <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                                            <Label
+                                                                FontAttributes="Bold"
+                                                                FontFamily="OpenSansSemiBold"
+                                                                FontSize="14"
+                                                                Text="Profile not active"
+                                                                TextColor="#F97316" />
+                                                            <Label
+                                                                FontFamily="OpenSansRegular"
+                                                                FontSize="11"
+                                                                LineHeight="1.3"
+                                                                Text="Please contact your study team on the number below to activate this profile."
+                                                                TextColor="#031926" />
+                                                            <Label
+                                                                Margin="0,10,0,0"
+                                                                FontAttributes="Bold"
+                                                                FontFamily="OpenSansSemiBold"
+                                                                FontSize="16"
+                                                                HorizontalOptions="Start"
+                                                                Text="+44 7889 952493"
+                                                                TextColor="#F97316"
+                                                                TextDecorations="Underline">
+                                                                <Label.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_9" />
+                                                                </Label.GestureRecognizers>
+                                                            </Label>
+                                                        </VerticalStackLayout>
+                                                    </Grid>
+                                                </Border>
+
                                                 <!--  Switch to this profile  -->
                                                 <Border
                                                     Padding="10"
@@ -2641,12 +2689,12 @@
                                 x:Name="CompletedQuestions"
                                 Margin="20,10,20,0"
                                 ColumnDefinitions="*"
-                                IsVisible="True"
+                                IsVisible="False"
                                 RowDefinitions="Auto">
 
                                 <Border
                                     Grid.Row="0"
-                                    Margin="0,10,0,0"
+                                    Margin="5,10,5,0"
                                     Padding="20,12"
                                     BackgroundColor="White"
                                     Stroke="#C8E6C9"
@@ -2749,12 +2797,12 @@
                                 x:Name="MissedQuestions"
                                 Margin="20,0,20,0"
                                 ColumnDefinitions="*"
-                                IsVisible="True"
+                                IsVisible="False"
                                 RowDefinitions="Auto">
 
                                 <Border
                                     Grid.Row="0"
-                                    Margin="0,10,0,0"
+                                    Margin="5,10,5,0"
                                     Padding="20,12"
                                     BackgroundColor="white"
                                     Stroke="#FFCDD2"
@@ -2989,6 +3037,57 @@ VerticalOptions="Fill">
 
 
 
+                                </StackLayout>
+                            </Border>
+
+                            <Border
+                                x:Name="houserepaccessborder"
+                                Margin="25,20,25,0"
+                                Padding="15"
+                                BackgroundColor="#f8f9fb"
+                                IsVisible="False"
+                                Stroke="Transparent"
+                                StrokeShape="RoundRectangle 16"
+                                StrokeThickness="2">
+                                <StackLayout VerticalOptions="Start">
+                                    <Image
+                                        Margin="5,0,0,10"
+                                        HeightRequest="35"
+                                        HorizontalOptions="Start"
+                                        Source="adduserblue.png"
+                                        VerticalOptions="Start"
+                                        WidthRequest="35" />
+                                    <!--  Title  -->
+                                    <Label
+                                        Grid.Row="1"
+                                        Margin="0,5,0,0"
+                                        FontAttributes="Bold"
+                                        FontFamily="OpenSansSemiBold"
+                                        FontSize="22"
+                                        LineBreakMode="WordWrap"
+                                        Text="Give Access to Your Household Rep"
+                                        TextColor="#031926" />
+                                    <!--  Subtitle  -->
+                                    <Label
+                                        Grid.Row="2"
+                                        Margin="0,5,0,0"
+                                        FontSize="14"
+                                        Text="Allow your household representative to manage and access your account on your behalf from their own account"
+                                        TextColor="#6b7280" />
+                                    <Button
+                                        Margin="0,20,0,10"
+                                        Padding="10"
+                                        BackgroundColor="#031926"
+                                        BorderColor="#031926"
+                                        BorderWidth="2"
+                                        Clicked="Button_Clicked_2"
+                                        FontAttributes="Bold"
+                                        FontFamily="OpenSansSemiBold"
+                                        FontSize="14"
+                                        HorizontalOptions="Fill"
+                                        Text="Grant Access"
+                                        TextColor="White"
+                                        VerticalOptions="Fill" />
                                 </StackLayout>
                             </Border>
 
@@ -3279,7 +3378,7 @@ VerticalOptions="Fill">
                                                             Grid.Row="1"
                                                             FontAttributes="Bold"
                                                             FontFamily="OpenSansSemiBold"
-                                                            FontSize="14"
+                                                            FontSize="12"
                                                             HorizontalOptions="Center"
                                                             Text="{Binding title}"
                                                             TextColor="#009fe3" />
@@ -3287,7 +3386,7 @@ VerticalOptions="Fill">
                                                             Grid.Row="2"
                                                             FontAttributes="Bold"
                                                             FontFamily="OpenSansSemiBold"
-                                                            FontSize="10"
+                                                            FontSize="13"
                                                             HorizontalOptions="Center"
                                                             HorizontalTextAlignment="Center"
                                                             LineBreakMode="WordWrap"

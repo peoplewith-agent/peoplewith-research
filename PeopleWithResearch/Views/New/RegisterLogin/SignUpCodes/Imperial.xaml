@@ -466,6 +466,16 @@
                             </inputLayout:SfTextInputLayout.ErrorLabelStyle>
                         </inputLayout:SfTextInputLayout>
 
+                        <Label
+                            Margin="5,0,0,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="10"
+                            HorizontalOptions="Start"
+                            IsVisible="True"
+                            Text="Please do not use a work or academic email address"
+                            TextColor="#031926" />
+
                         <inputLayout:SfTextInputLayout
                             x:Name="passhelper"
                             Margin="0,0,0,0"
@@ -3985,7 +3995,7 @@
                                 x:Name="addressoneentry"
                                 FontFamily="OpenSansRegular"
                                 FontSize="14"
-                                IsEnabled="False"
+                                IsEnabled="True"
                                 Keyboard="Default"
                                 Placeholder="Address Line One"
                                 PlaceholderColor="Gray"

@@ -7,6 +7,8 @@ using Microsoft.Maui.Storage;
 using Mopups.Services;
 using PeopleWithResearch;
 using Plugin.LocalNotification;
+using Plugin.LocalNotification.Core.Models;
+using Plugin.LocalNotification.Core.Models.AndroidOption;
 using Plugin.LocalNotification.EventArgs;
 //using Sentry;
 using System;
@@ -87,8 +89,11 @@ namespace PeopleWithResearch
             {
                 base.OnStart();
                 IsRunning = true;
-                await Checkifappisupdated(); 
+
                 await CheckIfUserIsLoggedIn();
+                await Checkifappisupdated();
+               
+            
             }
             catch (Exception Ex)
             {
@@ -102,7 +107,11 @@ namespace PeopleWithResearch
             try
             {
                 var versionCheckService = new VersionCheckService();
-                await versionCheckService.CheckForUpdate();
+                bool Check = await versionCheckService.CheckForUpdate();
+                if (Check)
+                {
+                    await MainPage.Navigation.PushAsync(new UpdatePage(), false);
+                }
             }
             catch (Exception ex)
             {

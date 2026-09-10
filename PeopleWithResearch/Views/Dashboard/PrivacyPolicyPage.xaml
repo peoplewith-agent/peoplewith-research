@@ -4,110 +4,145 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:PeopleWithResearch"
-    BackgroundColor="#F1F2F6">
+    BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
+            <Color x:Key="Ink">#031926</Color>
+            <Color x:Key="Body">#3A4A55</Color>
+            <Color x:Key="Muted">#8A97A0</Color>
+            <Color x:Key="Accent">#009FE3</Color>
+
             <DataTemplate x:Key="HeadingTemplate">
-                <Label
-                    Margin="{Binding Style.Margin}"
-                    FontAttributes="{Binding Style.FontAttributes}"
-                    FontSize="{Binding Style.FontSize}"
-                    Text="{Binding Text}"
-                    TextColor="#031926" />
+                <VerticalStackLayout Margin="{Binding MarginThickness}" Spacing="6">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="{Binding Style.FontSize}"
+                        Text="{Binding Text}"
+                        TextColor="{StaticResource Accent}" />
+                    <BoxView
+                        HeightRequest="2"
+                        HorizontalOptions="Start"
+                        WidthRequest="44"
+                        Color="{StaticResource Accent}" />
+                </VerticalStackLayout>
             </DataTemplate>
 
             <DataTemplate x:Key="SubheadingTemplate">
                 <Label
-                    Margin="{Binding Style.Margin}"
-                    FontAttributes="{Binding Style.FontAttributes}"
+                    Margin="{Binding MarginThickness}"
+                    FontAttributes="Bold"
+                    FontFamily="OpenSansSemiBold"
                     FontSize="{Binding Style.FontSize}"
                     Text="{Binding Text}"
-                    TextColor="#031926" />
+                    TextColor="{StaticResource Ink}" />
             </DataTemplate>
 
             <DataTemplate x:Key="ParagraphTemplate">
                 <Label
-                    Margin="{Binding Style.Margin}"
-                    FontAttributes="{Binding Style.FontAttributes}"
+                    Margin="{Binding MarginThickness}"
+                    FontFamily="OpenSansRegular"
                     FontSize="{Binding Style.FontSize}"
+                    LineHeight="1.45"
                     Text="{Binding Text}"
-                    TextColor="#333333" />
+                    TextColor="{StaticResource Body}" />
             </DataTemplate>
 
             <DataTemplate x:Key="CalloutTemplate">
                 <Border
-                    Margin="{Binding Style.Margin}"
-                    Padding="12"
+                    Margin="{Binding MarginThickness}"
+                    Padding="14"
                     BackgroundColor="#EBF3FA"
                     Stroke="#BFDBF7"
-                    StrokeShape="RoundRectangle 8"
+                    StrokeShape="RoundRectangle 10"
                     StrokeThickness="1">
-                    <VerticalStackLayout Spacing="4">
-                        <Label
-                            FontAttributes="Bold"
-                            FontSize="14"
-                            IsVisible="{Binding Title}"
-                            Text="{Binding Title}"
-                            TextColor="#031926" />
-                        <Label
-                            FontSize="{Binding Style.FontSize}"
-                            Text="{Binding Text}"
-                            TextColor="#031926" />
-                    </VerticalStackLayout>
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                        <Image
+                            Grid.Column="0"
+                            HeightRequest="18"
+                            Source="info_icon.png"
+                            VerticalOptions="Start"
+                            WidthRequest="18" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="14"
+                                IsVisible="{Binding HasTitle}"
+                                Text="{Binding Title}"
+                                TextColor="{StaticResource Ink}" />
+                            <Label
+                                FontFamily="OpenSansRegular"
+                                FontSize="{Binding Style.FontSize}"
+                                LineHeight="1.4"
+                                Text="{Binding Text}"
+                                TextColor="#0C447C" />
+                        </VerticalStackLayout>
+                    </Grid>
                 </Border>
             </DataTemplate>
 
-            <!--  Bullet List Template  -->
             <DataTemplate x:Key="BulletListTemplate">
                 <VerticalStackLayout
-                    Margin="{Binding Style.Margin}"
+                    Margin="{Binding MarginThickness}"
                     BindableLayout.ItemsSource="{Binding Items}"
-                    Spacing="6">
+                    Spacing="8">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="x:String">
-                            <Grid ColumnDefinitions="20, *">
+                            <Grid ColumnDefinitions="18,*" ColumnSpacing="4">
                                 <Label
                                     Grid.Column="0"
-                                    FontAttributes="Bold"
+                                    FontSize="14"
                                     Text="•"
-                                    TextColor="#031926"
+                                    TextColor="{StaticResource Accent}"
                                     VerticalOptions="Start" />
                                 <Label
                                     Grid.Column="1"
+                                    FontFamily="OpenSansRegular"
                                     FontSize="14"
+                                    LineHeight="1.4"
                                     Text="{Binding .}"
-                                    TextColor="#333333" />
+                                    TextColor="{StaticResource Body}" />
                             </Grid>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </VerticalStackLayout>
             </DataTemplate>
 
-            <!--  Key-Value List Template  -->
             <DataTemplate x:Key="KeyValueListTemplate">
                 <VerticalStackLayout
-                    Margin="{Binding Style.Margin}"
+                    Margin="{Binding MarginThickness}"
                     BindableLayout.ItemsSource="{Binding KeyValueItems}"
-                    Spacing="8">
+                    Spacing="12">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <VerticalStackLayout Spacing="2">
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="14"
-                                    Text="{Binding Key}"
-                                    TextColor="#031926" />
-                                <Label
-                                    FontSize="14"
-                                    Text="{Binding Value}"
-                                    TextColor="#333333" />
-                            </VerticalStackLayout>
+                            <Grid ColumnDefinitions="3,*" ColumnSpacing="12">
+                                <BoxView
+                                    Grid.Column="0"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Fill"
+                                    WidthRequest="3"
+                                    Color="#BFDBF7" />
+                                <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontFamily="OpenSansSemiBold"
+                                        FontSize="14"
+                                        Text="{Binding Key}"
+                                        TextColor="{StaticResource Ink}" />
+                                    <Label
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="14"
+                                        LineHeight="1.4"
+                                        Text="{Binding Value}"
+                                        TextColor="{StaticResource Body}" />
+                                </VerticalStackLayout>
+                            </Grid>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </VerticalStackLayout>
             </DataTemplate>
 
-            <!--  Template Selector  -->
             <local:PolicySectionTemplateSelector
                 x:Key="PolicySectionSelector"
                 BulletListTemplate="{StaticResource BulletListTemplate}"
@@ -125,33 +160,52 @@
         ItemTemplate="{StaticResource PolicySectionSelector}"
         ItemsSource="{Binding Sections}">
         <CollectionView.Header>
-            <VerticalStackLayout Padding="0,20,0,10" Spacing="6">
+            <VerticalStackLayout Padding="0,24,0,8" Spacing="0">
                 <Label
                     FontAttributes="Bold"
+                    FontFamily="OpenSansSemiBold"
+                    FontSize="11"
+                    Text="TERMS · PRIVACY · DATA"
+                    TextColor="{StaticResource Accent}" />
+                <Label
+                    Margin="0,10,0,0"
+                    FontAttributes="Bold"
+                    FontFamily="OpenSansSemiBold"
                     FontSize="22"
                     Text="{Binding Document.Title}"
-                    TextColor="#031926" />
+                    TextColor="{StaticResource Ink}" />
                 <Label
+                    Margin="0,6,0,0"
                     FontAttributes="Italic"
-                    FontSize="16"
+                    FontFamily="OpenSansRegular"
+                    FontSize="15"
+                    LineHeight="1.35"
                     Text="{Binding Document.Subtitle}"
-                    TextColor="#555555" />
-                <Label
-                    Margin="0,4,0,10"
-                    FontSize="12"
-                    Text="{Binding Document.Version}"
-                    TextColor="#888888" />
+                    TextColor="{StaticResource Body}" />
+                <Border
+                    Margin="0,14,0,0"
+                    Padding="10,3"
+                    BackgroundColor="#E8EBEF"
+                    HorizontalOptions="Start"
+                    Stroke="Transparent"
+                    StrokeShape="RoundRectangle 20">
+                    <Label
+                        FontSize="12"
+                        Text="{Binding Document.Version}"
+                        TextColor="{StaticResource Muted}" />
+                </Border>
                 <BoxView
+                    Margin="0,18,0,10"
                     HeightRequest="1"
                     HorizontalOptions="Fill"
-                    Color="#D0D0D0" />
+                    Color="#DCE1E6" />
             </VerticalStackLayout>
         </CollectionView.Header>
         <CollectionView.ItemsLayout>
             <LinearItemsLayout ItemSpacing="0" Orientation="Vertical" />
         </CollectionView.ItemsLayout>
         <CollectionView.Footer>
-            <BoxView HeightRequest="30" Color="Transparent" />
+            <BoxView HeightRequest="40" Color="White" />
         </CollectionView.Footer>
     </CollectionView>
 

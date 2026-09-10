@@ -1,48 +1,39 @@
-using System.Collections.ObjectModel;
 using System.Text.Json;
 
 namespace PeopleWithResearch;
 
 public partial class PrivacyPolicyPage : ContentPage
 {
-
     public PrivacyPolicyPage()
     {
         InitializeComponent();
-        LoadData();
+        _ = LoadDataAsync();
     }
 
-    private async Task<string> FetchJsonAsync()
+    private static async Task<string> FetchJsonAsync()
     {
         using var stream = await FileSystem.OpenAppPackageFileAsync("privacypolicy.json");
         using var reader = new StreamReader(stream);
         return await reader.ReadToEndAsync();
     }
 
-    private async void LoadData()
+    private async Task LoadDataAsync()
     {
         try
         {
             var json = await FetchJsonAsync();
-            if (!string.IsNullOrWhiteSpace(json))
+            if (string.IsNullOrWhiteSpace(json)) return;
+
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            var policyData = JsonSerializer.Deserialize<PolicyDocumentRoot>(json, options);
+            if (policyData is not null)
             {
-                var options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
-
-                var policyData = JsonSerializer.Deserialize<PolicyDocumentRoot>(json, options);
-
-                if (policyData != null)
-                {
-                    BindingContext = policyData;            
-                    PrivacyCollection.ItemsSource = policyData.Sections;
-                }
+                BindingContext = policyData; 
             }
         }
-        catch (Exception Ex)
+        catch (Exception ex)
         {
-            CrashDetected.LogCrash(Ex, Navigation, "LoadPrivacyPolicy");
+            CrashDetected.LogCrash(ex, Navigation, "LoadPrivacyPolicy");
         }
     }
 }

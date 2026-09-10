@@ -119,6 +119,7 @@
                                 VerticalOptions="CenterAndExpand" />
                             <inputLayout:SfTextInputLayout.ErrorLabelStyle>
                                 <inputLayout:LabelStyle
+                                    FontAttributes="Bold"
                                     FontFamily="OpenSansSemiBold"
                                     FontSize="10"
                                     TextColor="Red" />
@@ -164,6 +165,7 @@
                                 VerticalOptions="CenterAndExpand" />
                             <inputLayout:SfTextInputLayout.ErrorLabelStyle>
                                 <inputLayout:LabelStyle
+                                    FontAttributes="Bold"
                                     FontFamily="OpenSansSemiBold"
                                     FontSize="10"
                                     TextColor="Red" />
@@ -444,7 +446,7 @@
                         SelectionGesture="Tap"
                         SelectionMode="Single">
                         <syncfusion:SfListView.ItemsLayout>
-                            <syncfusion:GridLayout SpanCount="3" />
+                            <syncfusion:GridLayout SpanCount="2" />
                         </syncfusion:SfListView.ItemsLayout>
 
 

@@ -116,6 +116,7 @@ namespace PeopleWithResearch
         //        Navigation.RemovePage(this);
         //        // Send a message to notify the first page
         //        MessagingCenter.Send(this, "VideoPageLeft");
+        // WeakReferenceMessenger.Default.Send(new VideoPageLeft("VideoPageLeft"));
 
 
         //    }

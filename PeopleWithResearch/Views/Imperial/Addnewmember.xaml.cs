@@ -9,6 +9,7 @@ namespace PeopleWithResearch;
 public partial class Addnewmember : ContentPage
 {
     householdgroup householdgroupdetailspassed = new householdgroup();
+    private bool _isSubmitting;
     public Addnewmember()
 	{
 		InitializeComponent();
@@ -22,6 +23,7 @@ public partial class Addnewmember : ContentPage
         householdgroupdetailspassed = householdgroupdetails;
 
         var stringlist = new List<string>();
+        stringlist.Add("0 - 5"); 
         stringlist.Add("5 - 10");
         stringlist.Add("11 - 15");
         stringlist.Add("16+");
@@ -66,32 +68,30 @@ public partial class Addnewmember : ContentPage
         return isValid;
     }
 
-    private async void Button_Clicked(object sender, EventArgs e)
+
+    async Task<bool> AddValidation()
     {
         try
         {
-
-            //add new member button 
-
-
-            //check validation on member
-
             if (string.IsNullOrEmpty(firstfamentry.Text))
             {
+                Vibration.Vibrate();
                 firstfamhelper.HasError = true;
-                return;
+                return false;
             }
 
             if (string.IsNullOrEmpty(firstsurnameentry.Text))
             {
+                Vibration.Vibrate();
                 firstsurnamehelper.HasError = true;
-                return;
+                return false;
             }
 
             if (usingphone1.SelectedItems.Count == 0)
             {
+                Vibration.Vibrate();
                 usingphone1error1.IsVisible = true;
-                return;
+                return false;
             }
 
             if (email1lbl.IsVisible)
@@ -99,50 +99,93 @@ public partial class Addnewmember : ContentPage
 
                 if (string.IsNullOrEmpty(firstemailentry.Text))
                 {
+                    Vibration.Vibrate();
                     firstemailhelper.HasError = true;
-                    return;
+                    return false;
                 }
                 // ---- Email invalid ----
                 else if (!EmailIsValid(firstemailentry.Text))
                 {
+                    Vibration.Vibrate();
                     firstemailhelper.HasError = true;
                     firstemailhelper.ErrorText = "Please enter a valid email address";
-                    return;
+                    return false;
                 }
 
                 //check if email isnt already added
 
                 if (householdgroupdetailspassed.userdetailslist.Any(x => x.household_individual_email == firstemailentry.Text))
                 {
+                    Vibration.Vibrate();
+                    firstemailhelper.HasError = true;
+                    firstemailhelper.ErrorText = "User in family with same email already exists";
+                    return false;
+                }
+
+
+                var checkuseremail = await APICalls.Instance.CheckEmailExists(firstemailentry.Text);
+
+
+                if (checkuseremail?.Count > 0)
+                {
+                    Vibration.Vibrate();
                     firstemailhelper.HasError = true;
                     firstemailhelper.ErrorText = "User with same email already exists";
-                    return;
+                    return false;
                 }
+
             }
 
             if (familyagelist.SelectedItems.Count == 0)
             {
+                Vibration.Vibrate();
                 agemember1error.IsVisible = true;
-                return;
+                return false;
             }
 
 
             if (familymember1list.SelectedItems.Count == 0)
             {
+                Vibration.Vibrate();
                 typemember1error.IsVisible = true;
-                return;
+                return false;
             }
 
-            if(email1lbl.IsVisible)
+            if (email1lbl.IsVisible)
             {
                 if (!firsthouselholdcb.IsChecked)
                 {
+                    Vibration.Vibrate();
                     firstcheckboxerror.IsVisible = true;
-                    return;
+                    return false;
                 }
             }
+            //All Pass 
+            return true; 
+        }
+        catch (Exception Ex)
+        {
+            CrashDetected.LogCrash(Ex, Navigation, "AddValidation");
+            return false; 
+        }
+    }
 
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        if (_isSubmitting) return;
+        _isSubmitting = true;
+        //add new member button 
 
+        //Stops Send Tap
+        var addButton = sender as Button;
+        if (addButton != null) addButton.IsEnabled = false;
+
+        try
+        {
+            //check validation on member
+            bool Vaidation = await AddValidation();
+            if (!Vaidation) return; 
+            
           //  var newmembers = new ObservableCollection<householdgroupjsondetails>();
 
             var newone = new householdgroupjsondetails();
@@ -162,7 +205,7 @@ public partial class Addnewmember : ContentPage
             string json = System.Text.Json.JsonSerializer.Serialize(uploadList);
             householdgroupdetailspassed.groupuserdetails = json;
 
-            householdgroupdetailspassed.userdetailslist.Add(newone);
+            //householdgroupdetailspassed.userdetailslist.Add(newone);
 
             // 1. Serialize with explicit "None" formatting to prevent line breaks
             //  string json = JsonConvert.SerializeObject(newmembers, Newtonsoft.Json.Formatting.None);
@@ -211,14 +254,15 @@ public partial class Addnewmember : ContentPage
 
             await MopupService.Instance.PopAllAsync(false);
             Navigation.RemovePage(this);
-
-         
-         
-
         }
         catch(Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "Button_Clicked");
+        }
+        finally
+        {
+            _isSubmitting = false;
+            if (addButton != null) addButton.IsEnabled = true;
         }
     }
 

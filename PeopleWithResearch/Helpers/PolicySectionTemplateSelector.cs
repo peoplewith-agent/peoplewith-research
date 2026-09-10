@@ -1,31 +1,25 @@
-﻿using Microsoft.Maui.Controls;
-
-namespace PeopleWithResearch;
+﻿namespace PeopleWithResearch;
 
 public class PolicySectionTemplateSelector : DataTemplateSelector
 {
-    public DataTemplate HeadingTemplate { get; set; }
-    public DataTemplate SubheadingTemplate { get; set; }
-    public DataTemplate ParagraphTemplate { get; set; }
-    public DataTemplate CalloutTemplate { get; set; }
-    public DataTemplate BulletListTemplate { get; set; }
-    public DataTemplate KeyValueListTemplate { get; set; }
+    public DataTemplate HeadingTemplate { get; set; } = null!;
+    public DataTemplate SubheadingTemplate { get; set; } = null!;
+    public DataTemplate ParagraphTemplate { get; set; } = null!;
+    public DataTemplate CalloutTemplate { get; set; } = null!;
+    public DataTemplate BulletListTemplate { get; set; } = null!;
+    public DataTemplate KeyValueListTemplate { get; set; } = null!;
 
     protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
     {
-        if (item is PolicySection section)
+        var type = (item as PolicySection)?.Type;
+        return type switch
         {
-            return section.Type switch
-            {
-                "heading" => HeadingTemplate,
-                "subheading" => SubheadingTemplate,
-                "paragraph" => ParagraphTemplate,
-                "callout" => CalloutTemplate,
-                "bullet_list" => BulletListTemplate,
-                "key_value_list" => KeyValueListTemplate,
-                _ => ParagraphTemplate
-            };
-        }
-        return ParagraphTemplate;
+            "heading" => HeadingTemplate,
+            "subheading" => SubheadingTemplate,
+            "callout" => CalloutTemplate,
+            "bullet_list" => BulletListTemplate,
+            "keyvalue" => KeyValueListTemplate,
+            _ => ParagraphTemplate,
+        };
     }
 }

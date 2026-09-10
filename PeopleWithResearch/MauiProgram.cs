@@ -2,6 +2,8 @@
 using Mopups.Hosting;
 using Syncfusion.Maui.Core.Hosting;
 using Plugin.LocalNotification;
+using Plugin.LocalNotification.Core.Models;
+using Plugin.LocalNotification.Core.Models.AndroidOption;
 using CommunityToolkit.Maui;
 using Maui.FreakyControls.Extensions;
 using System.Globalization;
@@ -15,6 +17,10 @@ using Microsoft.Maui.Controls;
 using Microsoft.Maui.Handlers;
 //using Sentry;
 using Microsoft.Maui.Controls.Compatibility.Hosting;
+
+#if MAUI_DEVFLOW
+using Microsoft.Maui.DevFlow.Agent;
+#endif
 
 #if ANDROID
 using Plugin.Firebase.CloudMessaging;
@@ -47,6 +53,9 @@ namespace PeopleWithResearch
             };
 
             var builder = MauiApp.CreateBuilder();
+#if MAUI_DEVFLOW
+            builder.AddMauiDevFlowAgent();
+#endif
             builder
                 .UseMauiApp<App>()
                 .ConfigureSyncfusionCore() 
@@ -59,7 +68,7 @@ namespace PeopleWithResearch
                  {
                      config.AddAndroid(android =>
                      {
-                         android.AddChannel(new NotificationChannelRequest
+                         android.AddChannel(new AndroidNotificationChannelRequest
                          {
                              Id = "pwr_notifications",
                              Name = "Research Notifications",
@@ -108,6 +117,13 @@ namespace PeopleWithResearch
                                          //options.EnableAndroidNativeNdk = true;
                                          //options.EnableXamarinSupport = true;
 
+                                         options.SetBeforeSend((sentryEvent, hint) =>
+                                         {
+                                             if (sentryEvent.Exception is TaskCanceledException or System.OperationCanceledException)
+                                                 return null; // drop expected debounce cancellations
+                                             return sentryEvent;
+                                         });
+
                                      })
                   .ConfigureLifecycleEvents(events =>
                   {
@@ -117,12 +133,16 @@ namespace PeopleWithResearch
           .OnCreate((activity, bundle) =>
           {
               MainActivity.CreateNotificationChannel(activity);
-              FirebaseCloudMessagingImplementation.SmallIconRef = PeopleWithResearch.Resource.Drawable.pwrappicon;
-
+              //FirebaseCloudMessagingImplementation.SmallIconRef = PeopleWithResearch.Resource.Drawable.pwrappicon;
+            var smallIconRef = activity.Resources?.GetIdentifier("pwicon", "drawable", activity.PackageName) ?? 0;
+            if (smallIconRef != 0)
+            {
+                FirebaseCloudMessagingImplementation.SmallIconRef = smallIconRef;
+            }
               // Match this to the ID in your CreateNotificationChannel method
               FirebaseCloudMessagingImplementation.ChannelId = "com.peoplewith.peoplewithresearch.general";
 
-              CrossFirebase.Initialize(activity);
+              CrossFirebase.Initialize(activity, () => activity);
           }));
 #endif
 
