@@ -499,6 +499,9 @@
                             </Border>
 
 
+<!-- Test Popup -->
+<Button Clicked="Button_Clicked1" Text="Test Popup" FontSize="16" TextColor="White" CornerRadius="8" Margin="20,10,20,10" BackgroundColor="#009FE3"/>
+
 
                             <!--  Enable Notifications  -->
                             <Border

@@ -12,6 +12,7 @@ using FreakyKit.Utils;
 using Microsoft.Azure.NotificationHubs;
 using Mopups.Services;
 using Newtonsoft.Json;
+using PeoplewithResearch;
 using Plugin.LocalNotification;
 using Plugin.LocalNotification;
 using Syncfusion.Maui.Inputs;
@@ -141,9 +142,30 @@ public partial class ImperialDashboard : ContentPage
             await GetProfileData(); 
         });
 
- 
+        // WeakReferenceMessenger.Default.Register<ReloadProfileMessage>(this, async (r, o) =>
+        // {
+        //     await GetProfileData();
+        // });
 
+
+        if (string.IsNullOrEmpty(Helpers.Settings.SelectedLanguage))
+        {
+            SelectedLangugage();
+        }
     }
+
+    private async Task SelectedLangugage()
+    {
+        try
+        {
+            await Task.Delay(5000); 
+            await MopupService.Instance.PushAsync(new SelectLanguagePopup());
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
 
     protected override async void OnAppearing()
     {
@@ -2182,6 +2204,12 @@ public partial class ImperialDashboard : ContentPage
                 return; 
             }
 
+            if (!String.IsNullOrEmpty(Item.Id) && Item.Id == "Select Language")
+            {
+                await MopupService.Instance.PushAsync(new SelectLanguagePopup(true));
+                return;
+            }
+
             if (Item.Title == "Sign-up Code")
             {
                 return;
@@ -2718,6 +2746,17 @@ public partial class ImperialDashboard : ContentPage
         catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "TapGestureRecognizer_Tapped_9");
+        }
+    }
+
+    private async void Button_Clicked1(object sender, EventArgs e)
+    {
+        try
+        {
+            await MopupService.Instance.PushAsync(new SelectLanguagePopup());
+        }
+        catch (Exception Ex)
+        {
         }
     }
 }

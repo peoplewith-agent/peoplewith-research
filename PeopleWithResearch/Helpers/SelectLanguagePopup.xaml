@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="PeopleWithResearch.SelectLanguagePopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Mopups.Pages;assembly=Mopups"
+    xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+    xmlns:local="clr-namespace:PeopleWithResearch"
+    BackgroundColor="#66000000"
+    CloseWhenBackgroundIsClicked="False"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False">
+
+    <pages:PopupPage.Resources>
+        <ResourceDictionary>
+            <local:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </pages:PopupPage.Resources>
+
+    <pages:PopupPage.Animation>
+        <animations:MoveAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+            DurationIn="300"
+            DurationOut="200" />
+    </pages:PopupPage.Animation>
+
+    <Border Margin="10,0"
+        BackgroundColor="#EFEFF2"
+        StrokeThickness="0"
+        VerticalOptions="Center">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="24" />
+        </Border.StrokeShape>
+
+        <Grid RowDefinitions="Auto,Auto,*" Padding="24,20,24,24" RowSpacing="10">
+            <Label
+                x:Name="LanguageTitleLabel"
+                Grid.Row="0"
+                FontFamily="OpenSansBold"
+                Text="Change language"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="#1C1C1E" />
+
+                <Label
+                x:Name="LanguageDescriptionLabel"
+                Grid.Row="1"
+                FontFamily="OpenSansRegular"
+                Text="Choose your preferred language - we'll update the whole app to match."
+                FontSize="16"
+                TextColor="gray" />
+
+            <CollectionView
+                Grid.Row="2" Margin="0,8,0,0"
+                x:Name="LanguagesCollectionView"
+                ItemsSource="{Binding Languages}"
+                SelectionMode="None"
+                VerticalScrollBarVisibility="Never">
+                <CollectionView.ItemsLayout>
+                    <!-- <LinearItemsLayout Orientation="Vertical" ItemSpacing="14" /> -->
+                       <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="14" HorizontalItemSpacing="14" Span="2" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:LanguageOption">
+                        <Border
+                            BackgroundColor="{Binding SelectedBackground}"
+                            Stroke="{Binding SelectedColour}"
+                            StrokeThickness="2"
+                            HeightRequest="64">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="8" />
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    CommandParameter="{Binding .}"
+                                    Tapped="OnLanguageTapped" />
+                            </Border.GestureRecognizers>
+
+                            <Grid ColumnDefinitions="48,*,32" Padding="8,0,16,0" ColumnSpacing="14">
+                                <Border
+                                    Grid.Column="0"
+                                    WidthRequest="40"
+                                    HeightRequest="40"
+                                    StrokeThickness="1"
+                                    Stroke="#E0E0E0"
+                                    Padding="0"
+                                    VerticalOptions="Center">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="20" />
+                                    </Border.StrokeShape>
+                                    <Border.Clip>
+                                        <RoundRectangleGeometry CornerRadius="20" Rect="0,0,40,40" />
+                                    </Border.Clip>
+                                    <Image Source="{Binding FlagImage}" Aspect="AspectFill" WidthRequest="40" HeightRequest="40" />
+                                </Border>
+
+                                <Label
+                                    Grid.Column="1" Grid.ColumnSpan="2"
+                                    Text="{Binding Name}"
+                                    FontSize="14"
+                                    TextColor="#1C1C1E"
+                                    VerticalOptions="Center" />
+
+                                <Grid Grid.Column="2" IsVisible="False" WidthRequest="28" HeightRequest="28" VerticalOptions="Center">
+                                    <Ellipse
+                                        WidthRequest="26"
+                                        HeightRequest="26"
+                                        Stroke="#C7C7CC"
+                                        StrokeThickness="1.5"
+                                        Fill="Transparent"
+                                        IsVisible="{Binding IsSelected, Converter={StaticResource InvertedBoolConverter}}" />
+
+                                    <Ellipse
+                                        WidthRequest="28"
+                                        HeightRequest="28"
+                                        Fill="#8BC34A"
+                                        IsVisible="{Binding IsSelected}" />
+                                    <Label
+                                        Text="&#10003;"
+                                        TextColor="White"
+                                        FontSize="15"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        IsVisible="{Binding IsSelected}" />
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Border>
+</pages:PopupPage>

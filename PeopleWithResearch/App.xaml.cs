@@ -37,7 +37,8 @@ namespace PeopleWithResearch
             InitializeComponent();
             _connectivityService = new ConnectivityService();
             SubscribeConnectivity();
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1JFaF5cXGRCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdmWH5cdnRRRWRfVENzWEFWYEg=");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1JAaF5cX2pCd1p/TH5YfUNzdUVEY1ZUTXxaS1ZhSXxVdkxiWX5acnNUTmdeU0R9XEY=");
+            // Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1JFaF5cXGRCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdmWH5cdnRRRWRfVENzWEFWYEg=");
             if (DeviceInfo.Platform == DevicePlatform.Android)
             {
                 LocalNotificationCenter.Current.NotificationReceived += OnNotificationReceived;

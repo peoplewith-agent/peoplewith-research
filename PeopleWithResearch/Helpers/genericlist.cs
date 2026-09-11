@@ -82,6 +82,18 @@ namespace PeopleWithResearch
             "Other"
         };
 
+        public static readonly Dictionary<string,string> getlanguage = new Dictionary<string,string>
+        {
+            // { "en", "Select language" },
+            // { "fr", "Sélectionner la langue" },
+            // { "es", "Seleccionar idioma" },
+            // { "de", "Sprache auswählen" }
+            { "en", "Change language" },
+            { "fr", "Changer de langue" },
+            { "es", "Cambiar idioma" },
+            { "de", "Sprache ändern" }
+        };
+
 
         public static List<string> EthnicityOptions()
         {
@@ -160,12 +172,21 @@ namespace PeopleWithResearch
 
             bool isEnabled = await LocalNotificationCenter.Current.AreNotificationsEnabled();
 
+
+            var newuser = new user
+            {
+                Title = !string.IsNullOrEmpty(Helpers.Settings.SelectedLanguage) ? Helpers.Settings.SelectedLanguage : "--",
+                Role = getlanguage.TryGetValue(Helpers.Settings.SelectedLanguage, out var languageTitle) ? languageTitle : "Change language", 
+                Image = "world.png",
+                Id = "Select Language"
+            };
+
             var items = new ObservableCollection<user>
             {
                 new user { Title = "Reset Password", Role = "**********", Image = "passwordicon.png"  },
                 new user { Title = "Notifications", Role = isEnabled ? "Enabled" : "Disabled" , Image = "bellicon.png" },
                 new user { Title = "Sign-up Code", Role = !string.IsNullOrEmpty(Helpers.Settings.SignUp) ? Helpers.Settings.SignUp : "--" , Image = "keyicon.png"},
-            
+                newuser,        
             };
             //var notificationTime = Preferences.Get("notificationtime", string.Empty);
             //if (!string.IsNullOrEmpty(notificationTime))

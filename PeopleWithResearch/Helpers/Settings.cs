@@ -10,6 +10,13 @@ namespace PeopleWithResearch.Helpers
     public static class Settings
     {
 
+
+        public static string SelectedLanguage
+        {
+            get => Preferences.Get(nameof(SelectedLanguage), string.Empty);
+            set => Preferences.Set(nameof(SelectedLanguage), value);
+        }
+
         public static bool FirstRun
         {
             get => Preferences.Get(nameof(FirstRun), true);
