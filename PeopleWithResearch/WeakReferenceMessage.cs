@@ -36,4 +36,11 @@ namespace PeoplewithResearch
         }
     }
 
+    public class ReloadProfileMessage : ValueChangedMessage<string>
+    {
+        public ReloadProfileMessage(string? value) : base(value)
+        {
+        }
+    }
+
 }

@@ -1,6 +1,7 @@
 
 
 using System.Collections.ObjectModel;
+using Mopups.Services;
 using Newtonsoft.Json;
 
 namespace PeopleWithResearch;
@@ -19,10 +20,12 @@ public partial class NewMainPage : ContentPage
     private const string PasteText = "Paste Research Code";
     private const string CheckText = "Check Research Code";
     private bool isawait = false;
+
+    Dictionary<string, string> languages = new Dictionary<string, string>(){ {"en", "Select language"}, {"fr", "Sélectionner la langue"}, {"es", "Seleccionar idioma"}, {"de", "Sprache auswählen"}};
+
     protected override void OnAppearing()
     {
         base.OnAppearing();
-
         Successshow.IsVisible = false;
         checkingstack.IsVisible = false;
         pastebtn.IsVisible = true;
@@ -31,6 +34,12 @@ public partial class NewMainPage : ContentPage
     public NewMainPage()
 	{
 		InitializeComponent();
+
+        if(!String.IsNullOrEmpty(Helpers.Settings.SelectedLanguage))
+        {
+           languageLabel.Text = languages.TryGetValue(Helpers.Settings.SelectedLanguage, out var lang) 
+           ? lang : Helpers.Settings.SelectedLanguage;
+        }
 
         //usermanager = UserManager.DefaultManager;
         //advertmanager = AdvertManager.DefaultManager;
@@ -511,6 +520,19 @@ public partial class NewMainPage : ContentPage
         catch( Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "pasteentry_TextChanged");
+        }
+    }
+
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+        try
+        {
+            TaskCompletionSource<string> languageCompletionSource = new TaskCompletionSource<string>();
+            await MopupService.Instance.PushAsync(new SelectLanguagePopup(languageCompletionSource));
+            languageLabel.Text = await languageCompletionSource.Task;
+        }
+        catch (Exception Ex)
+        {
         }
     }
 }

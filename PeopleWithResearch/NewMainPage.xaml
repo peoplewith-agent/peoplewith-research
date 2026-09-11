@@ -3,6 +3,7 @@
     x:Class="PeopleWithResearch.NewMainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     ios:Page.UseSafeArea="True"
     BackgroundColor="White"
@@ -263,7 +264,7 @@
         <!--  Registration & Login Section  -->
         <VerticalStackLayout
             Grid.Row="1"
-            Margin="20,0,20,20"
+            Margin="20,0,20,5"
             Spacing="20"
             VerticalOptions="End">
 
@@ -311,7 +312,26 @@
                     HeightRequest="45"
                     Text="Log In"
                     TextColor="#009FE3" />
+
+                    
             </Grid>
+
+       <Grid>
+    <!-- <Border HorizontalOptions="Center" StrokeShape="RoundRectangle 30" Stroke="#009fe3" Background="#E6F1FB"> -->
+        <Border HorizontalOptions="Center" StrokeShape="RoundRectangle 30" Stroke="transparent" Background="transparent">
+        <Grid HorizontalOptions="Center" ColumnDefinitions="Auto,Auto" Padding="0" ColumnSpacing="10">
+            <Image Grid.Column="0" HeightRequest="15" WidthRequest="15" Source="world.png">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="#009fe3" />
+                </Image.Behaviors>
+            </Image>
+            <Label x:Name="languageLabel" Grid.Column="1" FontSize="12" VerticalOptions="Center" FontAttributes="Bold" TextColor="#009fe3" Text="Change language" HorizontalOptions="Center" />
+        </Grid>
+        <Border.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
+        </Border.GestureRecognizers>
+    </Border>
+</Grid>
 
         </VerticalStackLayout>
 
