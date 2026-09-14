@@ -1,6 +1,10 @@
 ﻿
 using Microsoft.AppCenter.Analytics;
 using System.Collections.ObjectModel;
+using System.Globalization;
+using CommunityToolkit.Mvvm.Messaging;
+using Mopups.Services;
+using PeopleWithResearch.Resources.Strings;
 
 namespace PeopleWithResearch
 {
@@ -411,6 +415,63 @@ namespace PeopleWithResearch
             catch (Exception Ex)
             {
                 CrashDetected.LogCrash(Ex, Navigation, "clearbtn_Clicked");
+            }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            try
+            {
+                // Unregister first to guard against double-registration if OnAppearing fires multiple times
+                WeakReferenceMessenger.Default.Unregister<LanguageChangedMessage>(this);
+                WeakReferenceMessenger.Default.Register<LanguageChangedMessage>(this, (r, m) =>
+                {
+                    MainThread.BeginInvokeOnMainThread(() => RefreshLocalizedText());
+                });
+            }
+            catch (Exception Ex)
+            {
+                CrashDetected.LogCrash(Ex, Navigation, "MainPage_OnAppearing");
+            }
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            try
+            {
+                WeakReferenceMessenger.Default.Unregister<LanguageChangedMessage>(this);
+            }
+            catch (Exception Ex)
+            {
+                CrashDetected.LogCrash(Ex, Navigation, "MainPage_OnDisappearing");
+            }
+        }
+
+        void RefreshLocalizedText()
+        {
+            try
+            {
+                mainlbl.Text = AppResources.ResourceManager.GetString("MainPage_ResearchCode", CultureInfo.CurrentUICulture) ?? "Your Research Code";
+            }
+            catch (Exception Ex)
+            {
+                CrashDetected.LogCrash(Ex, Navigation, "MainPage_RefreshLocalizedText");
+            }
+        }
+
+        async void btnLanguage_Clicked(System.Object sender, System.EventArgs e)
+        {
+            try
+            {
+                var tcs = new TaskCompletionSource<string>();
+                await MopupService.Instance.PushAsync(new SelectLanguagePopup(tcs));
+                await tcs.Task;
+            }
+            catch (Exception Ex)
+            {
+                CrashDetected.LogCrash(Ex, Navigation, "MainPage_btnLanguage_Clicked");
             }
         }
 

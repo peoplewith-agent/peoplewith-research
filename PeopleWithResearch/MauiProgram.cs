@@ -189,6 +189,8 @@ namespace PeopleWithResearch
                 {
                     fonts.AddFont("HankenGrotesk-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("HankenGrotesk-Bold.ttf", "OpenSansSemibold");
+                    // NotoSansGujarati-Regular.ttf must be placed in PeopleWithResearch/Resources/Fonts/
+                    try { fonts.AddFont("NotoSansGujarati-Regular.ttf", "NotoSansGujarati"); } catch { /* font file not present at build time — Gujarati will fall back to system font */ }
                 });
 
 

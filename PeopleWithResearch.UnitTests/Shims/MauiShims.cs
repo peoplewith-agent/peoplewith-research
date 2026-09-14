@@ -78,24 +78,39 @@ namespace Microsoft.Maui.Devices
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 namespace Microsoft.Maui.Storage
 {
-    /// <summary>In-memory preferences stub.</summary>
-    public class Preferences
+    /// <summary>In-memory preferences stub supporting both patterns:
+    /// - Preferences.Get/Set (static pattern, used by most of Settings.cs)
+    /// - Preferences.Default.Get/Set (instance pattern, used by newer Settings properties)
+    /// Uses a DefaultAccessor inner class to avoid CS0111 (same-name static+instance members).
+    /// </summary>
+    public static class Preferences
     {
-        private static readonly Dictionary<string, object> _store = new();
-        public static Preferences Default { get; } = new Preferences();
+        internal static readonly Dictionary<string, object> _store = new();
 
-        public void Set<T>(string key, T value) => _store[key] = value!;
+        /// <summary>Accessor for Preferences.Default.Get/Set calls.</summary>
+        public static DefaultAccessor Default { get; } = new DefaultAccessor();
 
-        public T Get<T>(string key, T defaultValue)
+        public sealed class DefaultAccessor
         {
-            if (_store.TryGetValue(key, out var v) && v is T t) return t;
-            return defaultValue;
+            public T Get<T>(string key, T defaultValue)
+            {
+                if (_store.TryGetValue(key, out var v) && v is T t) return t;
+                return defaultValue;
+            }
+            public void Set<T>(string key, T value) => _store[key] = value!;
+            public bool ContainsKey(string key) => _store.ContainsKey(key);
+            public void Remove(string key) => _store.Remove(key);
+            public void Clear() => _store.Clear();
         }
 
-        public bool ContainsKey(string key) => _store.ContainsKey(key);
-        public void Remove(string key) => _store.Remove(key);
-        public void Clear() => _store.Clear();
+        // ── Static methods (Preferences.Get / Preferences.Set) ──────────────
+        public static T Get<T>(string key, T defaultValue) => Default.Get(key, defaultValue);
+        public static void Set<T>(string key, T value) => Default.Set(key, value);
+        public static bool ContainsKey(string key, string? sharedName = null) => Default.ContainsKey(key);
+        public static void Remove(string key, string? sharedName = null) => Default.Remove(key);
+        public static void Clear(string? sharedName = null) => Default.Clear();
     }
+    // Alias removed — PreferencesStaticShim no longer needed
 }
 
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -113,6 +128,7 @@ namespace Sentry
             Action<Scope>? scopeCallback = null) { }
 
         public static Task FlushAsync(TimeSpan timeout) => Task.CompletedTask;
+        public static void Flush(TimeSpan timeout) { }
     }
 
     public class Scope
@@ -172,19 +188,12 @@ namespace PeopleWithResearch
     // â”€â”€ ImperialDashboard stub â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     public class ImperialDashboard { }
 
-    // â”€â”€ Helpers.Settings stub â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    public static class Helpers
-    {
-        public static class Settings
-        {
-            public static string Postcode { get; set; } = string.Empty;
-        }
-    }
+    // NOTE: Helpers.Settings stub removed — real Settings.cs is now linked directly
+    // into the test project for PD2-29. The namespace PeopleWithResearch.Helpers
+    // and its Settings class are provided by the linked production file.
 
-    // â”€â”€ QuestionManager stub â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     public class QuestionManager { }
 
-    // â”€â”€ UserNotifications stub â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     public class UserNotifications { }
 }
 

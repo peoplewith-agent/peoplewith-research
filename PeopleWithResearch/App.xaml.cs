@@ -35,6 +35,9 @@ namespace PeopleWithResearch
         {
             // Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXlfdHRdRWFYVkVwXEU="); //NEW
             InitializeComponent();
+            // Apply saved (or device-default) language before any page is created
+            var language = LocalizationManager.GetDefaultLanguage();
+            LocalizationManager.SetLanguage(language);
             _connectivityService = new ConnectivityService();
             SubscribeConnectivity();
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1JAaF5cX2pCd1p/TH5YfUNzdUVEY1ZUTXxaS1ZhSXxVdkxiWX5acnNUTmdeU0R9XEY=");
