@@ -21,7 +21,13 @@ public partial class NewMainPage : ContentPage
     private string CheckText => LocalizationManager.Get("Main_CheckTextConst");
     private bool isawait = false;
 
-    Dictionary<string, string> languages = new Dictionary<string, string>(){ {"en", "Select language"}, {"fr", "Sélectionner la langue"}, {"es", "Seleccionar idioma"}, {"de", "Sprache auswählen"}};
+    private static readonly Dictionary<string, string> _languageNames = new()
+    {
+        { "en", "English" },
+        { "pl", "Polski" },
+        { "ro", "Română" },
+        { "gu", "ગુજરાતી" }
+    };
 
     protected override void OnAppearing()
     {
@@ -34,20 +40,24 @@ public partial class NewMainPage : ContentPage
     public NewMainPage()
 	{
 		InitializeComponent();
+        ApplyLocalization();
+    }
 
-        if(!String.IsNullOrEmpty(Helpers.Settings.SelectedLanguage))
-        {
-           languageLabel.Text = languages.TryGetValue(Helpers.Settings.SelectedLanguage, out var lang) 
-           ? lang : Helpers.Settings.SelectedLanguage;
-        }
-
-        //usermanager = UserManager.DefaultManager;
-        //advertmanager = AdvertManager.DefaultManager;
-        //questionnairemanager = QuestionnaireManager.DefaultManager;
-
-
-        //checkifuserisloggedin();
-
+    private void ApplyLocalization()
+    {
+        titleLabel.Text        = LocalizationManager.Get("MainPage_ResearchCode");
+        descSpan1.Text         = LocalizationManager.Get("Main_DescSpan1");
+        descSpan2.Text         = LocalizationManager.Get("Main_DescSpan2");
+        descSpan3.Text         = LocalizationManager.Get("Main_DescSpan3");
+        descSpan4.Text         = LocalizationManager.Get("Main_DescSpan4");
+        pastebtn.Text          = LocalizationManager.Get("Main_PasteTextConst");
+        loaderlabel.Text       = LocalizationManager.Get("Main_CheckingCode");
+        clearbtn.Text          = LocalizationManager.Get("Main_Clear");
+        successTickLabel.Text  = LocalizationManager.Get("Main_SuccessTick");
+        successLabel.Text      = LocalizationManager.Get("Main_SuccessLabel");
+        descriptionLabel.Text  = LocalizationManager.Get("Main_Description");
+        loginbtn.Text          = LocalizationManager.Get("Main_LogIn");
+        UpdateLanguageLabel();
     }
 
     private async void pastebtn_Clicked(object sender, EventArgs e)
@@ -523,16 +533,34 @@ public partial class NewMainPage : ContentPage
         }
     }
 
+    private void UpdateLanguageLabel()
+    {
+        var code = Helpers.Settings.SelectedLanguage;
+        languageLabel.Text = (!string.IsNullOrEmpty(code) && _languageNames.TryGetValue(code, out var name))
+            ? name
+            : LocalizationManager.Get("SelectLang_Title");
+    }
+
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
         try
         {
-            TaskCompletionSource<string> languageCompletionSource = new TaskCompletionSource<string>();
+            TaskCompletionSource<string> languageCompletionSource = new TaskCompletionSource<string>(TaskCreationOptions.RunContinuationsAsynchronously);
+            string previousCode = Helpers.Settings.SelectedLanguage ?? "en";
             await MopupService.Instance.PushAsync(new SelectLanguagePopup(languageCompletionSource));
-            languageLabel.Text = await languageCompletionSource.Task;
+            string selectedCode = await languageCompletionSource.Task;
+
+            // Only reload the page if the language actually changed
+            if (selectedCode != previousCode)
+            {
+                // Ensure culture is set on the UI thread immediately before page construction
+                LocalizationManager.SetLanguage(selectedCode);
+                await App.SetMainPage(new NavigationPage(new NewMainPage()));
+            }
         }
         catch (Exception Ex)
         {
+            CrashDetected.LogCrash(Ex, Navigation, "TapGestureRecognizer_Tapped");
         }
     }
 }

@@ -79,27 +79,37 @@ public partial class SelectLanguagePopup : PopupPage
             if (e.Parameter is not LanguageOption selected) return;
             foreach (var lang in Languages) lang.IsSelected = lang == selected;
 
-            // B4 fix: persist to Preferences BEFORE applying culture (avoid race if app killed mid-method)
             LocalizationManager.SetLanguage(selected.LanguageCode);
             WeakReferenceMessenger.Default.Send(new LanguageChangedMessage(selected.LanguageCode));
 
-            LanguageTitleLabel.Text = Languages.FirstOrDefault(l => l.IsSelected)?.LanguageTitle ?? "Select Language";
-            LanguageDescriptionLabel.Text = Languages.FirstOrDefault(l => l.IsSelected)?.LanguageDescription ?? "Choose your preferred language";
-            LanguageSelected?.Invoke(selected.LanguageCode);
-
-            await Task.Delay(150);
-
-            if (returnValue && returnlanguage != null)
-            {
-                // Return the language CODE (not the display title) for correct TCS semantics
-                returnlanguage.SetResult(selected.LanguageCode);
-            }
             if (reloadProfile)
-            {
                 WeakReferenceMessenger.Default.Send(new UpdateProfile("Reload"));
-            }
+
+            // Pop the popup FIRST so the close animation finishes before the TCS
+            // result triggers App.SetMainPage — otherwise the page replacement tears
+            // down the Mopups stack mid-animation and the popup never closes cleanly.
             await MopupService.Instance.PopAsync();
+
+            returnlanguage?.TrySetResult(selected.LanguageCode);
+            LanguageSelected?.Invoke(selected.LanguageCode);
         }
         catch (Exception Ex) { NotasyncMethod(Ex); }
+    }
+
+    private async void OnCancelTapped(object sender, EventArgs e)
+    {
+        try
+        {
+            await MopupService.Instance.PopAsync();
+            returnlanguage?.TrySetResult(Helpers.Settings.SelectedLanguage ?? "en");
+        }
+        catch (Exception Ex) { NotasyncMethod(Ex); }
+    }
+
+    // Called by Mopups when the user taps the dim background (CloseWhenBackgroundIsClicked="True")
+    protected override bool OnBackgroundClicked()
+    {
+        returnlanguage?.TrySetResult(Helpers.Settings.SelectedLanguage ?? "en");
+        return base.OnBackgroundClicked();
     }
 }

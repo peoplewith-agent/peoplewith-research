@@ -3,6 +3,7 @@
     x:Class="PeopleWithResearch.pdfpage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:loc="clr-namespace:PeopleWithResearch"
     xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     xmlns:syncfusionpdf="clr-namespace:Syncfusion.Maui.PdfViewer;assembly=Syncfusion.Maui.PdfViewer">
     <Grid>
@@ -18,7 +19,7 @@
             Clicked="Button_Clicked"
             CornerRadius="10"
             HorizontalOptions="Start"
-            Text="{x:Static strings:AppResources.Pdf_Close}"
+            Text="{loc:Localize Key=Pdf_Close}"
             TextColor="White"
             VerticalOptions="Start" />
 

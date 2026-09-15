@@ -31,13 +31,12 @@
                         FontFamily="OpenSansSemiBold"
                         FontSize="28"
                         HorizontalTextAlignment="Center"
-                        Text="{x:Static strings:AppResources.Login_WelcomeBack}"
                         TextColor="#031926" />
                     <Label
+                        x:Name="subtitleLbl"
                         FontFamily="OpenSansRegular"
                         FontSize="14"
                         HorizontalTextAlignment="Center"
-                        Text="{x:Static strings:AppResources.Login_SignInSubtitle}"
                         TextColor="Gray" />
                 </VerticalStackLayout>
 
@@ -47,11 +46,11 @@
                     <!--  Email Field  -->
                     <VerticalStackLayout Spacing="0">
                         <Label
+                            x:Name="emailLbl"
                             Margin="5,0,0,5"
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             FontSize="14"
-                            Text="{x:Static strings:AppResources.Login_EmailLabel}"
                             TextColor="#031926" />
                         <inputLayout:SfTextInputLayout
                             x:Name="emailhelper"
@@ -84,11 +83,11 @@
                     <!--  Password Field  -->
                     <VerticalStackLayout Spacing="0">
                         <Label
+                            x:Name="passwordLbl"
                             Margin="5,0,0,5"
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             FontSize="14"
-                            Text="{x:Static strings:AppResources.Login_PasswordLabel}"
                             TextColor="#031926" />
                         <inputLayout:SfTextInputLayout
                             x:Name="passhelper"
@@ -119,12 +118,12 @@
                         </inputLayout:SfTextInputLayout>
 
                         <Label
+                            x:Name="forgotPasswordLbl"
                             Margin="0,0,0,0"
                             FontAttributes="Bold"
                             FontFamily="OpenSansRegular"
                             FontSize="14"
                             HorizontalOptions="End"
-                            Text="{x:Static strings:AppResources.Login_ForgotPassword}"
                             TextColor="#009fe3">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ForgotPass_Tapped" />
@@ -147,7 +146,6 @@
                             FontSize="16"
                             HeightRequest="50"
                             HorizontalOptions="Fill"
-                            Text="{x:Static strings:AppResources.Login_SignInButton}"
                             TextColor="White" />
 
                         <Border
@@ -171,10 +169,10 @@
                     <Label FontSize="14" HorizontalOptions="Center">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="{x:Static strings:AppResources.Login_NoAccount} " TextColor="Gray" />
+                                <Span x:Name="noAccountSpan" TextColor="Gray" />
                                 <Span
+                                    x:Name="signUpSpan"
                                     FontAttributes="Bold"
-                                    Text="{x:Static strings:AppResources.Login_SignUpLink}"
                                     TextColor="#009fe3">
                                     <Span.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="SignupClicked" />
@@ -194,10 +192,10 @@
             Padding="20"
             VerticalOptions="End">
             <Label
+                x:Name="privacyPolicyLbl"
                 FontFamily="OpenSansRegular"
                 FontSize="14"
                 HorizontalOptions="Center"
-                Text="{x:Static strings:AppResources.Common_PrivacyPolicy}"
                 TextColor="#64748B"
                 TextDecorations="None">
                 <Label.GestureRecognizers>

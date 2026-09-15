@@ -24,11 +24,11 @@
 
                 <!--  Title  -->
                 <Label
+                    x:Name="titleLabel"
                     FontAttributes="Bold"
                     FontFamily="OpenSansSemiBold"
                     FontSize="32"
                     HorizontalOptions="Center"
-                    Text="{x:Static strings:AppResources.MainPage_ResearchCode}"
                     TextColor="Black" />
 
                 <!--  Description  -->
@@ -41,25 +41,25 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span
+                                x:Name="descSpan1"
                                 FontFamily="OpenSansRegular"
                                 FontSize="16"
-                                Text="{x:Static strings:AppResources.Main_DescSpan1}"
                                 TextColor="#555555" />
                             <Span
+                                x:Name="descSpan2"
                                 FontFamily="OpenSansRegular"
                                 FontSize="16"
-                                Text="{x:Static strings:AppResources.Main_DescSpan2}"
                                 TextColor="#555555" />
                             <Span
+                                x:Name="descSpan3"
                                 FontAttributes="Bold"
                                 FontFamily="OpenSansSemiBold"
                                 FontSize="16"
-                                Text="{x:Static strings:AppResources.Main_DescSpan3}"
                                 TextColor="#009FE3" />
                             <Span
+                                x:Name="descSpan4"
                                 FontFamily="OpenSansRegular"
                                 FontSize="16"
-                                Text="{x:Static strings:AppResources.Main_DescSpan4}"
                                 TextColor="#555555" />
                         </FormattedString>
                     </Label.FormattedText>
@@ -110,7 +110,6 @@
                                 FontFamily="OpenSansSemiBold"
                                 FontSize="16"
                                 HeightRequest="45"
-                                Text="{x:Static strings:AppResources.Main_PasteTextConst}"
                                 TextColor="White" />
 
                         </Grid>
@@ -146,7 +145,6 @@
                                 FontSize="14"
                                 HorizontalOptions="Center"
                                 HorizontalTextAlignment="Center"
-                                Text="{x:Static strings:AppResources.Main_CheckingCode}"
                                 TextColor="Black" />
 
                             <!--<Button Background="#009fe3" IsVisible="False" x:Name="tryagainbutton" Clicked="tryagainbutton_Clicked" Padding="25,0,25,0" CornerRadius="5" HeightRequest="35" HorizontalOptions="Center" VerticalOptions="Center" Text="Try Again" TextColor="White" FontAttributes="Bold"></Button>-->
@@ -213,7 +211,6 @@
                             FontSize="14"
                             HeightRequest="40"
                             IsVisible="False"
-                            Text="{x:Static strings:AppResources.Main_Clear}"
                             TextColor="#777777" />
 
                         <Border
@@ -237,17 +234,17 @@
                                 VerticalOptions="Center">
 
                                 <Label
+                                    x:Name="successTickLabel"
                                     FontAttributes="Bold"
                                     FontSize="16"
-                                    Text="{x:Static strings:AppResources.Main_SuccessTick}"
                                     TextColor="White"
                                     VerticalOptions="Center" />
 
                                 <Label
+                                    x:Name="successLabel"
                                     FontAttributes="Bold"
                                     FontFamily="OpenSansSemibold"
                                     FontSize="16"
-                                    Text="{x:Static strings:AppResources.Main_SuccessLabel}"
                                     TextColor="White"
                                     VerticalOptions="Center" />
                             </HorizontalStackLayout>
@@ -271,12 +268,12 @@
 
             <!--  Combined Prompt  -->
             <Label
+                x:Name="descriptionLabel"
                 Margin="10,0,10,0"
                 FontFamily="OpenSansRegular"
                 FontSize="14"
                 HorizontalTextAlignment="Center"
                 LineBreakMode="WordWrap"
-                Text="{x:Static strings:AppResources.Main_Description}"
                 TextColor="#666666" />
 
             <!--  Buttons side by side using Grid  -->
@@ -311,27 +308,28 @@
                     FontFamily="OpenSansSemiBold"
                     FontSize="16"
                     HeightRequest="45"
-                    Text="{x:Static strings:AppResources.Main_LogIn}"
                     TextColor="#009FE3" />
 
                     
             </Grid>
 
        <Grid>
-    <!-- <Border HorizontalOptions="Center" StrokeShape="RoundRectangle 30" Stroke="#009fe3" Background="#E6F1FB"> -->
-        <Border HorizontalOptions="Center" StrokeShape="RoundRectangle 30" Stroke="transparent" Background="transparent">
-        <Grid HorizontalOptions="Center" ColumnDefinitions="Auto,Auto" Padding="0" ColumnSpacing="10">
+        <Grid
+            HorizontalOptions="Center"
+            x:Name="languageGrid"
+            ColumnDefinitions="Auto,Auto"
+            Padding="8,6"
+            ColumnSpacing="10">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
+            </Grid.GestureRecognizers>
             <Image Grid.Column="0" HeightRequest="15" WidthRequest="15" Source="world.png">
                 <Image.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="#009fe3" />
                 </Image.Behaviors>
             </Image>
-            <Label x:Name="languageLabel" Grid.Column="1" FontSize="12" VerticalOptions="Center" FontAttributes="Bold" TextColor="#009fe3" Text="Change language" HorizontalOptions="Center" />
+            <Label x:Name="languageLabel" Grid.Column="1" FontSize="12" VerticalOptions="Center" FontAttributes="Bold" TextColor="#009fe3" HorizontalOptions="Center" />
         </Grid>
-        <Border.GestureRecognizers>
-            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
-        </Border.GestureRecognizers>
-    </Border>
 </Grid>
 
         </VerticalStackLayout>

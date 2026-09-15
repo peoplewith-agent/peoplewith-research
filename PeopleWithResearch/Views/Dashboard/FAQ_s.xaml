@@ -3,6 +3,7 @@
     x:Class="PeopleWithResearch.FAQ_s"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:loc="clr-namespace:PeopleWithResearch"
     xmlns:SyncExpand="clr-namespace:Syncfusion.Maui.Expander;assembly=Syncfusion.Maui.Expander"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
@@ -18,14 +19,14 @@
                 FontFamily="OpenSansSemiBold"
                 FontSize="24"
                 HorizontalOptions="Start"
-                Text="{x:Static strings:AppResources.Faq_Title}"
+                Text="{loc:Localize Key=Faq_Title}"
                 TextColor="#031926" />
 
             <Label
                 FontFamily="OpenSansRegular"
                 FontSize="14"
                 HorizontalOptions="Start"
-                Text="{x:Static strings:AppResources.Faq_Subtitle}"
+                Text="{loc:Localize Key=Faq_Subtitle}"
                 TextColor="#62727B" />
         </VerticalStackLayout>
 
@@ -96,7 +97,7 @@
                     FontAttributes="Bold"
                     FontSize="12"
                     HorizontalOptions="Center"
-                    Text="{x:Static strings:AppResources.Faq_Loading}"
+                    Text="{loc:Localize Key=Faq_Loading}"
                     TextColor="Black" />
             </StackLayout>
         </Grid>
@@ -111,7 +112,7 @@
                 CharacterSpacing="1"
                 FontFamily="OpenSansSemiBold"
                 FontSize="10"
-                Text="{x:Static strings:AppResources.Faq_FilterBy}"
+                Text="{loc:Localize Key=Faq_FilterBy}"
                 TextColor="#94A3B8" />
 
             <syncfusion:SfListView
@@ -203,14 +204,14 @@
                         FontFamily="OpenSansSemiBold"
                         FontSize="16"
                         HorizontalTextAlignment="Center"
-                        Text="{x:Static strings:AppResources.Faq_NoFaqsFound}"
+                        Text="{loc:Localize Key=Faq_NoFaqsFound}"
                         TextColor="#031926" />
                     <Label
                         FontFamily="OpenSansRegular"
                         FontSize="13"
                         HorizontalTextAlignment="Center"
                         LineBreakMode="WordWrap"
-                        Text="{x:Static strings:AppResources.Faq_NoFaqsMsg}"
+                        Text="{loc:Localize Key=Faq_NoFaqsMsg}"
                         TextColor="#62727B" />
                 </VerticalStackLayout>
             </Border>

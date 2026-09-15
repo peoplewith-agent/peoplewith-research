@@ -3,6 +3,7 @@
     x:Class="PeopleWithResearch.ImperialDashboard"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:loc="clr-namespace:PeopleWithResearch"
     xmlns:data="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
@@ -292,7 +293,7 @@
                                     FontFamily="OpenSansRegular"
                                     FontSize="14"
                                     HorizontalOptions="Start"
-                                    Text="{x:Static strings:AppResources.Dashboard_WelcomeBack}"
+                                    Text="{loc:Localize Key=Dashboard_WelcomeBack}"
                                     TextColor="Gray" />
 
 
@@ -385,7 +386,7 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="12"
-                                            Text="{x:Static strings:AppResources.Dashboard_StudyUserId}"
+                                            Text="{loc:Localize Key=Dashboard_StudyUserId}"
                                             TextColor="#707070" />
                                         <Label
                                             x:Name="studyidlbl"
@@ -417,7 +418,7 @@
                                             FontFamily="OpenSansRegular"
                                             FontSize="10"
                                             HorizontalTextAlignment="Center"
-                                            Text="{x:Static strings:AppResources.Dashboard_HouseRep}"
+                                            Text="{loc:Localize Key=Dashboard_HouseRep}"
                                             TextColor="#505050" />
                                     </VerticalStackLayout>
 
@@ -440,7 +441,7 @@
                                             FontFamily="OpenSansRegular"
                                             FontSize="10"
                                             HorizontalTextAlignment="Center"
-                                            Text="{x:Static strings:AppResources.Dashboard_ActiveNo}"
+                                            Text="{loc:Localize Key=Dashboard_ActiveNo}"
                                             TextColor="#505050" />
                                     </VerticalStackLayout>
 
@@ -483,7 +484,7 @@
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="12"
                                             HorizontalTextAlignment="Center"
-                                            Text="{x:Static strings:AppResources.Dashboard_HouseholdRep}"
+                                            Text="{loc:Localize Key=Dashboard_HouseholdRep}"
                                             TextColor="#707070" />
                                         <Label
                                             x:Name="householdreplbl"
@@ -563,7 +564,7 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemi"
                                         FontSize="18"
-                                        Text="{x:Static strings:AppResources.Dashboard_StayInLoop}"
+                                        Text="{loc:Localize Key=Dashboard_StayInLoop}"
                                         TextColor="#031926"
                                         VerticalOptions="End" />
 
@@ -580,7 +581,7 @@
                                         <Label
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="10"
-                                            Text="{x:Static strings:AppResources.Dashboard_Action}"
+                                            Text="{loc:Localize Key=Dashboard_Action}"
                                             TextColor="#009FE3" />
 
                                     </Border>
@@ -591,7 +592,7 @@
                                         Grid.ColumnSpan="2"
                                         FontFamily="OpenSansRegular"
                                         FontSize="12"
-                                        Text="{x:Static strings:AppResources.Dashboard_NeverMissUpdate}"
+                                        Text="{loc:Localize Key=Dashboard_NeverMissUpdate}"
                                         TextColor="#009FE3"
                                         VerticalOptions="Start" />
 
@@ -603,7 +604,7 @@
                                         FontFamily="OpenSansRegular"
                                         FontSize="14"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_NotificationsPrompt}"
+                                        Text="{loc:Localize Key=Dashboard_NotificationsPrompt}"
                                         TextColor="#475569" />
 
                                     <Grid
@@ -623,7 +624,7 @@
                                             CornerRadius="12"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="12"
-                                            Text="{x:Static strings:AppResources.Dashboard_NotNow}"
+                                            Text="{loc:Localize Key=Dashboard_NotNow}"
                                             TextColor="#CC64748B" />
 
                                         <Button
@@ -634,7 +635,7 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemi"
                                             FontSize="14"
-                                            Text="{x:Static strings:AppResources.Dashboard_Enable}"
+                                            Text="{loc:Localize Key=Dashboard_Enable}"
                                             TextColor="White" />
 
                                     </Grid>
@@ -673,7 +674,7 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{x:Static strings:AppResources.Dashboard_ProgressSoFar}"
+                                        Text="{loc:Localize Key=Dashboard_ProgressSoFar}"
                                         TextColor="#031926" />
 
                                     <!--  Title  -->
@@ -684,7 +685,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="22"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_AllTasksCompleted}"
+                                        Text="{loc:Localize Key=Dashboard_AllTasksCompleted}"
                                         TextColor="Green" />
 
                                     <!--  Subtitle  -->
@@ -693,7 +694,7 @@
                                         Margin="0,10,0,0"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="14"
-                                        Text="{x:Static strings:AppResources.Dashboard_QCompleted}"
+                                        Text="{loc:Localize Key=Dashboard_QCompleted}"
                                         TextColor="Green" />
 
 
@@ -738,7 +739,7 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{x:Static strings:AppResources.Dashboard_ProgressSoFar}"
+                                        Text="{loc:Localize Key=Dashboard_ProgressSoFar}"
                                         TextColor="#009fe3" />
 
 
@@ -750,7 +751,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="22"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_BaselineFormStage}"
+                                        Text="{loc:Localize Key=Dashboard_BaselineFormStage}"
                                         TextColor="#031926" />
 
                                     <!--  Subtitle  -->
@@ -759,7 +760,7 @@
                                         Margin="0,5,0,0"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="14"
-                                        Text="{x:Static strings:AppResources.Dashboard_BaselineFormRequirement}"
+                                        Text="{loc:Localize Key=Dashboard_BaselineFormRequirement}"
                                         TextColor="#031926" />
 
 
@@ -872,7 +873,7 @@
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
                                                     FontSize="11"
-                                                    Text="{x:Static strings:AppResources.Dashboard_Action}"
+                                                    Text="{loc:Localize Key=Dashboard_Action}"
                                                     TextColor="Red" />
 
                                                 <!--  Title  -->
@@ -880,13 +881,13 @@
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
                                                     FontSize="15"
-                                                    Text="{x:Static strings:AppResources.Dashboard_CompleteBaseline}"
+                                                    Text="{loc:Localize Key=Dashboard_CompleteBaseline}"
                                                     TextColor="#031926" />
 
                                                 <!--  Subtitle  -->
                                                 <Label
                                                     FontSize="13"
-                                                    Text="{x:Static strings:AppResources.Dashboard_BaselineFormRequirement}"
+                                                    Text="{loc:Localize Key=Dashboard_BaselineFormRequirement}"
                                                     TextColor="#6b7280" />
 
                                             </VerticalStackLayout>
@@ -928,7 +929,7 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{x:Static strings:AppResources.Dashboard_ProgressSoFar}"
+                                        Text="{loc:Localize Key=Dashboard_ProgressSoFar}"
                                         TextColor="White" />
 
                                     <!--  Title  -->
@@ -939,7 +940,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="22"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_BaselineSamplingStage}"
+                                        Text="{loc:Localize Key=Dashboard_BaselineSamplingStage}"
                                         TextColor="#009fe3" />
 
                                     <!--  Subtitle  -->
@@ -951,23 +952,23 @@
                                         TextColor="White">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="{x:Static strings:AppResources.Dashboard_SamplingKitsArrive}" />
+                                                <Span Text="{loc:Localize Key=Dashboard_SamplingKitsArrive}" />
                                                 <Span Text="&#10;&#10;" />
                                                 <Span
                                                     FontAttributes="Bold"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SamplingStep1}"
+                                                    Text="{loc:Localize Key=Dashboard_SamplingStep1}"
                                                     TextColor="#009fe3" />
-                                                <Span Text="{x:Static strings:AppResources.Dashboard_SamplingCollect}" />
+                                                <Span Text="{loc:Localize Key=Dashboard_SamplingCollect}" />
                                                 <Span Text="&#10;" />
                                                 <Span
                                                     FontAttributes="Bold"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SamplingStep2}"
+                                                    Text="{loc:Localize Key=Dashboard_SamplingStep2}"
                                                     TextColor="#009fe3" />
-                                                <Span Text="{x:Static strings:AppResources.Dashboard_SamplingCompleteForm}" />
+                                                <Span Text="{loc:Localize Key=Dashboard_SamplingCompleteForm}" />
                                                 <Span Text="&#10;&#10;" />
                                                 <Span
                                                     FontAttributes="None"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SamplingSameDay}"
+                                                    Text="{loc:Localize Key=Dashboard_SamplingSameDay}"
                                                     TextColor="White" />
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -1031,14 +1032,14 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="10"
-                                        Text="{x:Static strings:AppResources.Dashboard_Action}"
+                                        Text="{loc:Localize Key=Dashboard_Action}"
                                         TextColor="#f59e0b" />
                                     <Label
                                         Margin="0,5,0,0"
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="18"
-                                        Text="{x:Static strings:AppResources.Dashboard_BaselineSamples}"
+                                        Text="{loc:Localize Key=Dashboard_BaselineSamples}"
                                         TextColor="#031926" />
                                     <Label
                                         x:Name="nameslist"
@@ -1094,7 +1095,7 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{x:Static strings:AppResources.Dashboard_ProgressSoFar}"
+                                        Text="{loc:Localize Key=Dashboard_ProgressSoFar}"
                                         TextColor="#009fe3" />
 
                                     <!--  Title  -->
@@ -1105,7 +1106,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="22"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_BaselineSamplingStage}"
+                                        Text="{loc:Localize Key=Dashboard_BaselineSamplingStage}"
                                         TextColor="#031926" />
 
                                     <!--  Subtitle  -->
@@ -1119,19 +1120,19 @@
                                             <FormattedString>
                                                 <Span
                                                     FontFamily="OpenSansSemiBold"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SamplingKitsArrive}"
+                                                    Text="{loc:Localize Key=Dashboard_SamplingKitsArrive}"
                                                     TextColor="#031926" />
                                                 <Span Text="&#10;&#10;" />
                                                 <Span
                                                     FontAttributes="Bold"
                                                     FontSize="15"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SamplingStep1}"
+                                                    Text="{loc:Localize Key=Dashboard_SamplingStep1}"
                                                     TextColor="#009fe3" />
                                                 <Span
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
                                                     FontSize="15"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SamplingCollect}"
+                                                    Text="{loc:Localize Key=Dashboard_SamplingCollect}"
                                                     TextColor="#031926" />
                                                 <Span
                                                     FontSize="8"
@@ -1140,18 +1141,18 @@
                                                 <Span
                                                     FontAttributes="Bold"
                                                     FontSize="15"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SamplingStep2}"
+                                                    Text="{loc:Localize Key=Dashboard_SamplingStep2}"
                                                     TextColor="#009fe3" />
                                                 <Span
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
                                                     FontSize="15"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SamplingCompleteForm}"
+                                                    Text="{loc:Localize Key=Dashboard_SamplingCompleteForm}"
                                                     TextColor="#031926" />
                                                 <Span Text="&#10;&#10;" />
                                                 <Span
                                                     FontAttributes="None"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SamplingSameDay}"
+                                                    Text="{loc:Localize Key=Dashboard_SamplingSameDay}"
                                                     TextColor="#031926" />
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -1167,7 +1168,7 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="14"
-                                            Text="{x:Static strings:AppResources.Dashboard_CompleteBaseline}"
+                                            Text="{loc:Localize Key=Dashboard_CompleteBaseline}"
                                             TextColor="#009fe3"
                                             VerticalOptions="Center" />
                                         <Border
@@ -1243,7 +1244,7 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{x:Static strings:AppResources.Dashboard_ProgressSoFar}"
+                                        Text="{loc:Localize Key=Dashboard_ProgressSoFar}"
                                         TextColor="Red" />
 
                                     <!--  Title  -->
@@ -1253,7 +1254,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="22"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_WaitingStage}"
+                                        Text="{loc:Localize Key=Dashboard_WaitingStage}"
                                         TextColor="#031926" />
 
                                     <!--  Subtitle  -->
@@ -1263,7 +1264,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="14"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_SamplingSymptoms}"
+                                        Text="{loc:Localize Key=Dashboard_SamplingSymptoms}"
                                         TextColor="#031926" />
 
                                     <!--  Symptom list  -->
@@ -1285,7 +1286,7 @@
                               FontAttributes="Bold"
                               FontFamily="OpenSansSemiBold"
                               FontSize="13"
-                              Text="{x:Static strings:AppResources.Dashboard_SamplingSymptoms}"
+                              Text="{loc:Localize Key=Dashboard_SamplingSymptoms}"
                               TextColor="White"
                               VerticalOptions="Center" />
                       </HorizontalStackLayout>
@@ -1311,7 +1312,7 @@
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
                                                     FontSize="25"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SymptomCough}"
+                                                    Text="{loc:Localize Key=Dashboard_SymptomCough}"
                                                     TextColor="#031926"
                                                     VerticalOptions="Center" />
                                             </HorizontalStackLayout>
@@ -1333,7 +1334,7 @@
                               FontAttributes="Bold"
                               FontFamily="OpenSansSemiBold"
                               FontSize="13"
-                              Text="{x:Static strings:AppResources.Dashboard_SymptomTasteSmell}"
+                              Text="{loc:Localize Key=Dashboard_SymptomTasteSmell}"
                               TextColor="White"
                               VerticalOptions="Center" />
                       </HorizontalStackLayout>
@@ -1359,7 +1360,7 @@
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
                                                     FontSize="25"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SymptomSoreThroat}"
+                                                    Text="{loc:Localize Key=Dashboard_SymptomSoreThroat}"
                                                     TextColor="#031926"
                                                     VerticalOptions="Center" />
                                             </HorizontalStackLayout>
@@ -1385,7 +1386,7 @@
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
                                                     FontSize="25"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SymptomBreath}"
+                                                    Text="{loc:Localize Key=Dashboard_SymptomBreath}"
                                                     TextColor="#031926"
                                                     VerticalOptions="Center" />
                                             </HorizontalStackLayout>
@@ -1398,7 +1399,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_SamplingAndThinkSymptoms}"
+                                        Text="{loc:Localize Key=Dashboard_SamplingAndThinkSymptoms}"
                                         TextColor="#031926" />
 
                                     <!--  CTA row  -->
@@ -1412,7 +1413,7 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="14"
-                                            Text="{x:Static strings:AppResources.Dashboard_SamplingSymptoms}"
+                                            Text="{loc:Localize Key=Dashboard_SamplingSymptoms}"
                                             TextColor="Red"
                                             VerticalOptions="Center" />
                                         <Border
@@ -1456,7 +1457,7 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{x:Static strings:AppResources.Dashboard_ProgressSoFar}"
+                                        Text="{loc:Localize Key=Dashboard_ProgressSoFar}"
                                         TextColor="#009FE3" />
 
                             -->
@@ -1471,12 +1472,12 @@
                                                 <Span
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
-                                                    Text="{x:Static strings:AppResources.Dashboard_HouseholdIsOn}"
+                                                    Text="{loc:Localize Key=Dashboard_HouseholdIsOn}"
                                                     TextColor="White" />
                                                 <Span
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
-                                                    Text="{x:Static strings:AppResources.Dashboard_Day28}"
+                                                    Text="{loc:Localize Key=Dashboard_Day28}"
                                                     TextColor="#009fe3" />
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -1490,7 +1491,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="14"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_SamplingPeriodSuffix}"
+                                        Text="{loc:Localize Key=Dashboard_SamplingPeriodSuffix}"
                                         TextColor="White" />
 
                             -->
@@ -1513,7 +1514,7 @@
                                                 FontFamily="OpenSansSemiBold"
                                                 FontSize="13"
                                                 LineBreakMode="WordWrap"
-                                                Text="{x:Static strings:AppResources.Dashboard_SamplingStep1Collect}"
+                                                Text="{loc:Localize Key=Dashboard_SamplingStep1Collect}"
                                                 TextColor="White"
                                                 VerticalOptions="Start" />
                                         </Grid>
@@ -1533,7 +1534,7 @@
                                                 FontFamily="OpenSansSemiBold"
                                                 FontSize="13"
                                                 LineBreakMode="WordWrap"
-                                                Text="{x:Static strings:AppResources.Dashboard_SamplingStep2Complete}"
+                                                Text="{loc:Localize Key=Dashboard_SamplingStep2Complete}"
                                                 TextColor="White"
                                                 VerticalOptions="Start" />
                                         </Grid>
@@ -1578,7 +1579,7 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="14"
-                                            Text="{x:Static strings:AppResources.Dashboard_SamplingSymptoms}"
+                                            Text="{loc:Localize Key=Dashboard_SamplingSymptoms}"
                                             TextColor="#009fe3"
                                             VerticalOptions="Center" />
                                         <Border
@@ -1635,7 +1636,7 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{x:Static strings:AppResources.Dashboard_ProgressSoFar}"
+                                        Text="{loc:Localize Key=Dashboard_ProgressSoFar}"
                                         TextColor="#009FE3" />
 
                                     <!--  Title  -->
@@ -1648,7 +1649,7 @@
                                                 <Span
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
-                                                    Text="{x:Static strings:AppResources.Dashboard_HouseholdIsOn}"
+                                                    Text="{loc:Localize Key=Dashboard_HouseholdIsOn}"
                                                     TextColor="#031926" />
                                                 <Span
                                                     x:Name="daylbl"
@@ -1660,7 +1661,7 @@
                                                     x:Name="samplinglbl"
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
-                                                    Text="{x:Static strings:AppResources.Dashboard_SamplingPeriodSuffix}"
+                                                    Text="{loc:Localize Key=Dashboard_SamplingPeriodSuffix}"
                                                     TextColor="#031926" />
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -1713,7 +1714,7 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="14"
-                                            Text="{x:Static strings:AppResources.Dashboard_CompleteBaseline}"
+                                            Text="{loc:Localize Key=Dashboard_CompleteBaseline}"
                                             TextColor="#009fe3"
                                             VerticalOptions="Center" />
                                         <Border
@@ -1769,7 +1770,7 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{x:Static strings:AppResources.Dashboard_ProgressSoFar}"
+                                        Text="{loc:Localize Key=Dashboard_ProgressSoFar}"
                                         TextColor="#009FE3" />
 
 
@@ -1779,7 +1780,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="22"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_DailyRecordingComplete}"
+                                        Text="{loc:Localize Key=Dashboard_DailyRecordingComplete}"
                                         TextColor="#031926" />
 
 
@@ -1789,7 +1790,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="14"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_DailyRecordingCompleteMsg}"
+                                        Text="{loc:Localize Key=Dashboard_DailyRecordingCompleteMsg}"
                                         TextColor="#031926" />
 
 
@@ -1803,7 +1804,7 @@
                                                 <Span
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
-                                                    Text="{x:Static strings:AppResources.Dashboard_HouseholdIsOn}"
+                                                    Text="{loc:Localize Key=Dashboard_HouseholdIsOn}"
                                                     TextColor="#031926" />
                                                 <Span
                                                     x:Name="waitingdaylbl"
@@ -1882,7 +1883,7 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{x:Static strings:AppResources.Dashboard_ProgressSoFar}"
+                                        Text="{loc:Localize Key=Dashboard_ProgressSoFar}"
                                         TextColor="#009FE3" />
 
 
@@ -1892,7 +1893,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="22"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_EndStudyFeedbackTitle}"
+                                        Text="{loc:Localize Key=Dashboard_EndStudyFeedbackTitle}"
                                         TextColor="#031926" />
 
 
@@ -1902,7 +1903,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="14"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_EndStudyThankYou}"
+                                        Text="{loc:Localize Key=Dashboard_EndStudyThankYou}"
                                         TextColor="#031926" />
 
 
@@ -1916,7 +1917,7 @@
                                                 <Span
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
-                                                    Text="{x:Static strings:AppResources.Dashboard_EndStudyFinalQ}"
+                                                    Text="{loc:Localize Key=Dashboard_EndStudyFinalQ}"
                                                     TextColor="#031926" />
 
                                             </FormattedString>
@@ -1934,7 +1935,7 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="14"
-                                            Text="{x:Static strings:AppResources.Dashboard_CompleteBaseline}"
+                                            Text="{loc:Localize Key=Dashboard_CompleteBaseline}"
                                             TextColor="#009fe3"
                                             VerticalOptions="Center" />
                                         <Border
@@ -1986,7 +1987,7 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{x:Static strings:AppResources.Dashboard_StudyComplete}"
+                                        Text="{loc:Localize Key=Dashboard_StudyComplete}"
                                         TextColor="#0D9488" />
 
                                     <!--  Title  -->
@@ -1996,7 +1997,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="22"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_StudyCompleteTitle}"
+                                        Text="{loc:Localize Key=Dashboard_StudyCompleteTitle}"
                                         TextColor="#042F2E" />
 
                                     <!--  Subtitle  -->
@@ -2005,7 +2006,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="14"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_StudyCompleteMsg}"
+                                        Text="{loc:Localize Key=Dashboard_StudyCompleteMsg}"
                                         TextColor="#134E4A" />
 
                                     <!--  Divider  -->
@@ -2020,7 +2021,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="13"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_RestartStudyTitle}"
+                                        Text="{loc:Localize Key=Dashboard_RestartStudyTitle}"
                                         TextColor="#042F2E" />
 
                                     <Label
@@ -2028,7 +2029,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="13"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_RestartStudyMsg}"
+                                        Text="{loc:Localize Key=Dashboard_RestartStudyMsg}"
                                         TextColor="#134E4A" />
 
                                     <!--  Contact button  -->
@@ -2044,7 +2045,7 @@
                                                 FontAttributes="Bold"
                                                 FontFamily="OpenSansSemiBold"
                                                 FontSize="14"
-                                                Text="{x:Static strings:AppResources.Dashboard_ContactStudyTeam}"
+                                                Text="{loc:Localize Key=Dashboard_ContactStudyTeam}"
                                                 TextColor="White"
                                                 VerticalOptions="Center" />
                                             <Image
@@ -2077,7 +2078,7 @@
                                     FontFamily="OpenSansSemiBold"
                                     FontSize="12"
                                     HorizontalOptions="Start"
-                                    Text="{x:Static strings:AppResources.Dashboard_RecentQuestionnaires}"
+                                    Text="{loc:Localize Key=Dashboard_RecentQuestionnaires}"
                                     TextColor="#031926"
                                     VerticalOptions="Center" />
 
@@ -2125,7 +2126,7 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="14"
-                                            Text="{x:Static strings:AppResources.Dashboard_ViewFormsHistory}"
+                                            Text="{loc:Localize Key=Dashboard_ViewFormsHistory}"
                                             TextColor="#009fe3"
                                             VerticalOptions="Center" />
 
@@ -2181,7 +2182,7 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{x:Static strings:AppResources.Dashboard_ProgressSoFar}"
+                                        Text="{loc:Localize Key=Dashboard_ProgressSoFar}"
                                         TextColor="White" />
 
                                     <!--  Title  -->
@@ -2192,7 +2193,7 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="22"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_TodayDayThree}"
+                                        Text="{loc:Localize Key=Dashboard_TodayDayThree}"
                                         TextColor="Red" />
 
                                     <!--  Subtitle  -->
@@ -2200,7 +2201,7 @@
                                         Grid.Row="2"
                                         Margin="0,5,0,0"
                                         FontSize="14"
-                                        Text="{x:Static strings:AppResources.Dashboard_T1FormInstruction}"
+                                        Text="{loc:Localize Key=Dashboard_T1FormInstruction}"
                                         TextColor="White" />
 
 
@@ -2231,7 +2232,7 @@
                                 FontFamily="OpenSansSemiBold"
                                 FontSize="12"
                                 HorizontalOptions="Start"
-                                Text="{x:Static strings:AppResources.Dashboard_HouseholdParticipants}"
+                                Text="{loc:Localize Key=Dashboard_HouseholdParticipants}"
                                 TextColor="#031926" />
 
                             <syncfusion:SfListView
@@ -2317,7 +2318,7 @@
                                                                 <Label
                                                                     FontFamily="OpenSansSemiBold"
                                                                     FontSize="11"
-                                                                    Text="{x:Static strings:AppResources.Dashboard_BaselineForm}"
+                                                                    Text="{loc:Localize Key=Dashboard_BaselineForm}"
                                                                     TextColor="#6B7280"
                                                                     VerticalOptions="Center" />
                                                             </HorizontalStackLayout>
@@ -2356,7 +2357,7 @@
                                                                 <Label
                                                                     FontFamily="OpenSansSemiBold"
                                                                     FontSize="11"
-                                                                    Text="{x:Static strings:AppResources.Dashboard_BaselineSamplesLabel}"
+                                                                    Text="{loc:Localize Key=Dashboard_BaselineSamplesLabel}"
                                                                     TextColor="#6B7280"
                                                                     VerticalOptions="Center" />
                                                             </HorizontalStackLayout>
@@ -2400,7 +2401,7 @@
                                                                     <Label
                                                                         FontFamily="OpenSansSemiBold"
                                                                         FontSize="11"
-                                                                        Text="{x:Static strings:AppResources.Dashboard_LastActive}"
+                                                                        Text="{loc:Localize Key=Dashboard_LastActive}"
                                                                         TextColor="#6B7280"
                                                                         VerticalOptions="Center" />
                                                                 </HorizontalStackLayout>
@@ -2431,7 +2432,7 @@
                                                                     <Label
                                                                         FontFamily="OpenSansSemiBold"
                                                                         FontSize="11"
-                                                                        Text="{x:Static strings:AppResources.Dashboard_Questionnaires}"
+                                                                        Text="{loc:Localize Key=Dashboard_Questionnaires}"
                                                                         TextColor="#6B7280"
                                                                         VerticalOptions="Center" />
                                                                 </HorizontalStackLayout>
@@ -2467,13 +2468,13 @@
                                                                     FontAttributes="Bold"
                                                                     FontFamily="OpenSansSemiBold"
                                                                     FontSize="13"
-                                                                    Text="{x:Static strings:AppResources.Dashboard_AwaitingBaseline}"
+                                                                    Text="{loc:Localize Key=Dashboard_AwaitingBaseline}"
                                                                     TextColor="#009FE3" />
                                                                 <Label
                                                                     FontFamily="OpenSansRegular"
                                                                     FontSize="11"
                                                                     LineHeight="1.3"
-                                                                    Text="{x:Static strings:AppResources.Dashboard_CompleteOnBehalf}"
+                                                                    Text="{loc:Localize Key=Dashboard_CompleteOnBehalf}"
                                                                     TextColor="#031926" />
                                                             </VerticalStackLayout>
                                                         </Grid>
@@ -2504,7 +2505,7 @@
                                                                     FontFamily="OpenSansSemiBold"
                                                                     FontSize="11"
                                                                     HorizontalTextAlignment="Center"
-                                                                    Text="{x:Static strings:AppResources.Dashboard_CompleteBaseline}"
+                                                                    Text="{loc:Localize Key=Dashboard_CompleteBaseline}"
                                                                     TextColor="#009FE3" />
                                                             </VerticalStackLayout>
                                                             <Border.GestureRecognizers>
@@ -2561,7 +2562,7 @@
                                                                     FontFamily="OpenSansSemiBold"
                                                                     FontSize="11"
                                                                     HorizontalTextAlignment="Center"
-                                                                    Text="{x:Static strings:AppResources.Dashboard_ManageYourProfile}"
+                                                                    Text="{loc:Localize Key=Dashboard_ManageYourProfile}"
                                                                     TextColor="#031926" />
                                                             </VerticalStackLayout>
                                                             <Border.GestureRecognizers>
@@ -2594,13 +2595,13 @@
                                                                 FontAttributes="Bold"
                                                                 FontFamily="OpenSansSemiBold"
                                                                 FontSize="14"
-                                                                Text="{x:Static strings:AppResources.Dashboard_ProfileNotActive}"
+                                                                Text="{loc:Localize Key=Dashboard_ProfileNotActive}"
                                                                 TextColor="#F97316" />
                                                             <Label
                                                                 FontFamily="OpenSansRegular"
                                                                 FontSize="11"
                                                                 LineHeight="1.3"
-                                                                Text="{x:Static strings:AppResources.Dashboard_ProfileNotActiveMsg}"
+                                                                Text="{loc:Localize Key=Dashboard_ProfileNotActiveMsg}"
                                                                 TextColor="#031926" />
                                                             <Label
                                                                 Margin="0,10,0,0"
@@ -2670,7 +2671,7 @@
                                                             FontAttributes="Bold"
                                                             FontFamily="OpenSansSemiBold"
                                                             FontSize="13"
-                                                            Text="{x:Static strings:AppResources.Dashboard_ActiveProfile}"
+                                                            Text="{loc:Localize Key=Dashboard_ActiveProfile}"
                                                             TextColor="Green"
                                                             VerticalOptions="Center" />
                                                     </HorizontalStackLayout>
@@ -2733,14 +2734,14 @@
                                                 FontAttributes="Bold"
                                                 FontFamily="OpenSansSemiBold"
                                                 FontSize="12"
-                                                Text="{x:Static strings:AppResources.Dashboard_ProgressSoFar}"
+                                                Text="{loc:Localize Key=Dashboard_ProgressSoFar}"
                                                 TextColor="#2E7D32" />
 
                                             <Label
                                                 FontAttributes="Bold"
                                                 FontFamily="OpenSansSemiBold"
                                                 FontSize="22"
-                                                Text="{x:Static strings:AppResources.Dashboard_CompletedQuestionnaires}"
+                                                Text="{loc:Localize Key=Dashboard_CompletedQuestionnaires}"
                                                 TextColor="#031926" />
 
                                             <Label
@@ -2751,7 +2752,7 @@
                                                 FontSize="14"
                                                 HorizontalOptions="Start"
                                                 LineBreakMode="WordWrap"
-                                                Text="{x:Static strings:AppResources.Dashboard_ReviewQsSubmitted}"
+                                                Text="{loc:Localize Key=Dashboard_ReviewQsSubmitted}"
                                                 TextColor="#031926" />
 
                                         </VerticalStackLayout>
@@ -2762,7 +2763,7 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="14"
-                                            Text="{x:Static strings:AppResources.Dashboard_TapViewCompleted}"
+                                            Text="{loc:Localize Key=Dashboard_TapViewCompleted}"
                                             TextColor="#2E7D32"
                                             VerticalOptions="Center" />
 
@@ -2841,14 +2842,14 @@
                                                 FontAttributes="Bold"
                                                 FontFamily="OpenSansSemiBold"
                                                 FontSize="12"
-                                                Text="{x:Static strings:AppResources.Dashboard_MissedQuestionnaires}"
+                                                Text="{loc:Localize Key=Dashboard_MissedQuestionnaires}"
                                                 TextColor="#D32F2F" />
                                             <Label
                                                 x:Name="MissingQNumber"
                                                 FontAttributes="Bold"
                                                 FontFamily="OpenSansSemiBold"
                                                 FontSize="22"
-                                                Text="{x:Static strings:AppResources.Dashboard_MissedQsLabel}"
+                                                Text="{loc:Localize Key=Dashboard_MissedQsLabel}"
                                                 TextColor="#031926" />
 
                                             <Label
@@ -2859,7 +2860,7 @@
                                                 FontSize="14"
                                                 HorizontalOptions="Start"
                                                 LineBreakMode="WordWrap"
-                                                Text="{x:Static strings:AppResources.Dashboard_MissedQsMsg}"
+                                                Text="{loc:Localize Key=Dashboard_MissedQsMsg}"
                                                 TextColor="#031926" />
 
                                         </VerticalStackLayout>
@@ -2870,7 +2871,7 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="14"
-                                            Text="{x:Static strings:AppResources.Dashboard_TapCompleteMissed}"
+                                            Text="{loc:Localize Key=Dashboard_TapCompleteMissed}"
                                             TextColor="#D32F2F"
                                             VerticalOptions="Center" />
 
@@ -2958,7 +2959,7 @@ VerticalOptions="Fill">
                         <Label
                         FontFamily="OpenSansRegular"
                         FontSize="12"
-                        Text="{x:Static strings:AppResources.Dashboard_NotCompleted}"
+                        Text="{loc:Localize Key=Dashboard_NotCompleted}"
                         TextColor="#031926" />
                     </VerticalStackLayout>
 
@@ -2967,7 +2968,7 @@ VerticalOptions="Fill">
                     FontAttributes="Bold"
                     FontFamily="OpenSansSemiBold"
                     FontSize="12"
-                    Text="{x:Static strings:AppResources.Dashboard_Missed}"
+                    Text="{loc:Localize Key=Dashboard_Missed}"
                     TextColor="Red"
                     VerticalOptions="Center" />
                 </Grid>
@@ -3009,7 +3010,7 @@ VerticalOptions="Fill">
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="22"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_ExpandHousehold}"
+                                        Text="{loc:Localize Key=Dashboard_ExpandHousehold}"
                                         TextColor="#031926" />
 
                                     <!--  Subtitle  -->
@@ -3017,7 +3018,7 @@ VerticalOptions="Fill">
                                         Grid.Row="2"
                                         Margin="0,5,0,0"
                                         FontSize="14"
-                                        Text="{x:Static strings:AppResources.Dashboard_InviteMembers}"
+                                        Text="{loc:Localize Key=Dashboard_InviteMembers}"
                                         TextColor="#6b7280" />
 
 
@@ -3033,7 +3034,7 @@ VerticalOptions="Fill">
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="14"
                                         HorizontalOptions="Fill"
-                                        Text="{x:Static strings:AppResources.Common_AddNewMember}"
+                                        Text="{loc:Localize Key=Common_AddNewMember}"
                                         TextColor="White"
                                         VerticalOptions="Fill" />
 
@@ -3069,14 +3070,14 @@ VerticalOptions="Fill">
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="22"
                                         LineBreakMode="WordWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_GiveAccessTitle}"
+                                        Text="{loc:Localize Key=Dashboard_GiveAccessTitle}"
                                         TextColor="#031926" />
                                     <!--  Subtitle  -->
                                     <Label
                                         Grid.Row="2"
                                         Margin="0,5,0,0"
                                         FontSize="14"
-                                        Text="{x:Static strings:AppResources.Dashboard_GiveAccessMsg}"
+                                        Text="{loc:Localize Key=Dashboard_GiveAccessMsg}"
                                         TextColor="#6b7280" />
                                     <Button
                                         Margin="0,20,0,10"
@@ -3089,7 +3090,7 @@ VerticalOptions="Fill">
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="14"
                                         HorizontalOptions="Fill"
-                                        Text="{x:Static strings:AppResources.Dashboard_GrantAccess}"
+                                        Text="{loc:Localize Key=Dashboard_GrantAccess}"
                                         TextColor="White"
                                         VerticalOptions="Fill" />
                                 </StackLayout>
@@ -3139,7 +3140,7 @@ VerticalOptions="Fill">
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="11"
-                                            Text="{x:Static strings:AppResources.Dashboard_Action}"
+                                            Text="{loc:Localize Key=Dashboard_Action}"
                                             TextColor="Red" />
 
                                         <!--  Title  -->
@@ -3147,13 +3148,13 @@ VerticalOptions="Fill">
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="15"
-                                            Text="{x:Static strings:AppResources.Dashboard_CompleteBaseline}"
+                                            Text="{loc:Localize Key=Dashboard_CompleteBaseline}"
                                             TextColor="#031926" />
 
                                         <!--  Subtitle  -->
                                         <Label
                                             FontSize="13"
-                                            Text="{x:Static strings:AppResources.Dashboard_BaselineFormRequirement}"
+                                            Text="{loc:Localize Key=Dashboard_BaselineFormRequirement}"
                                             TextColor="#6b7280" />
 
                                     </VerticalStackLayout>
@@ -3194,7 +3195,7 @@ VerticalOptions="Fill">
                                         FontSize="12"
                                         HorizontalOptions="Center"
                                         HorizontalTextAlignment="Center"
-                                        Text="{x:Static strings:AppResources.Dashboard_NotificationsOff}"
+                                        Text="{loc:Localize Key=Dashboard_NotificationsOff}"
                                         TextColor="#031926"
                                         VerticalOptions="Start" />
 
@@ -3207,7 +3208,7 @@ VerticalOptions="Fill">
                                         CornerRadius="5"
                                         FontAttributes="Bold"
                                         HorizontalOptions="Fill"
-                                        Text="{x:Static strings:AppResources.Dashboard_TurnOnNotifications}"
+                                        Text="{loc:Localize Key=Dashboard_TurnOnNotifications}"
                                         TextColor="#031926" />
 
 
@@ -3243,7 +3244,7 @@ VerticalOptions="Fill">
                                         FontAttributes="Bold"
                                         FontSize="16"
                                         HorizontalOptions="Start"
-                                        Text="{x:Static strings:AppResources.Dashboard_ThankYouStudy}"
+                                        Text="{loc:Localize Key=Dashboard_ThankYouStudy}"
                                         TextColor="#031926"
                                         VerticalOptions="Center" />
 
@@ -3301,13 +3302,13 @@ VerticalOptions="Fill">
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="20"
-                                        Text="{x:Static strings:AppResources.Dashboard_StudyInformation}"
+                                        Text="{loc:Localize Key=Dashboard_StudyInformation}"
                                         TextColor="#0F172A" />
                                     <Label
                                         x:Name="studynamelbl"
                                         FontFamily="OpenSansRegular"
                                         FontSize="13"
-                                        Text="{x:Static strings:AppResources.Dashboard_HopperStudy}"
+                                        Text="{loc:Localize Key=Dashboard_HopperStudy}"
                                         TextColor="#64748B" />
                                 </VerticalStackLayout>
                             </HorizontalStackLayout>
@@ -3319,14 +3320,14 @@ VerticalOptions="Fill">
                                     FontAttributes="Bold"
                                     FontFamily="OpenSansSemiBold"
                                     FontSize="16"
-                                    Text="{x:Static strings:AppResources.Dashboard_ContactInformation}"
+                                    Text="{loc:Localize Key=Dashboard_ContactInformation}"
                                     TextColor="Black" />
 
                                 <Label
                                     Margin="20,5"
                                     FontFamily="OpenSansRegular"
                                     FontSize="12"
-                                    Text="{x:Static strings:AppResources.Dashboard_ContactMsg}"
+                                    Text="{loc:Localize Key=Dashboard_ContactMsg}"
                                     TextColor="Gray" />
 
                                 <Grid RowDefinitions="Auto">
@@ -3428,13 +3429,13 @@ VerticalOptions="Fill">
                                                         FontFamily="OpenSansSemiBold"
                                                         FontSize="16"
                                                         HorizontalTextAlignment="Center"
-                                                        Text="{x:Static strings:AppResources.Dashboard_NoContactFound}"
+                                                        Text="{loc:Localize Key=Dashboard_NoContactFound}"
                                                         TextColor="#0F172A" />
                                                     <Label
                                                         FontFamily="OpenSansRegular"
                                                         FontSize="13"
                                                         HorizontalTextAlignment="Center"
-                                                        Text="{x:Static strings:AppResources.Dashboard_ContactOffline}"
+                                                        Text="{loc:Localize Key=Dashboard_ContactOffline}"
                                                         TextColor="#64748B" />
                                                 </VerticalStackLayout>
                                             </VerticalStackLayout>
@@ -3447,7 +3448,7 @@ VerticalOptions="Fill">
                                     FontAttributes="Bold"
                                     FontFamily="OpenSansSemiBold"
                                     FontSize="14"
-                                    Text="{x:Static strings:AppResources.Dashboard_AdditionalInformation}"
+                                    Text="{loc:Localize Key=Dashboard_AdditionalInformation}"
                                     TextColor="Black" />
                             </VerticalStackLayout>
 
@@ -3566,13 +3567,13 @@ VerticalOptions="Fill">
                                                 FontFamily="OpenSansSemiBold"
                                                 FontSize="16"
                                                 HorizontalTextAlignment="Center"
-                                                Text="{x:Static strings:AppResources.Dashboard_NoResourcesFound}"
+                                                Text="{loc:Localize Key=Dashboard_NoResourcesFound}"
                                                 TextColor="#0F172A" />
                                             <Label
                                                 FontFamily="OpenSansRegular"
                                                 FontSize="13"
                                                 HorizontalTextAlignment="Center"
-                                                Text="{x:Static strings:AppResources.Dashboard_ResourcesFailedLoad}"
+                                                Text="{loc:Localize Key=Dashboard_ResourcesFailedLoad}"
                                                 TextColor="#64748B" />
                                         </VerticalStackLayout>
                                     </VerticalStackLayout>
@@ -3617,7 +3618,7 @@ VerticalOptions="Fill">
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="20"
-                                        Text="{x:Static strings:AppResources.Dashboard_Profile}"
+                                        Text="{loc:Localize Key=Dashboard_Profile}"
                                         TextColor="#0F172A" />
 
                                     <Label
@@ -3626,7 +3627,7 @@ VerticalOptions="Fill">
                                         FontSize="13"
                                         HorizontalOptions="Start"
                                         LineBreakMode="CharacterWrap"
-                                        Text="{x:Static strings:AppResources.Dashboard_ManageYourProfile}"
+                                        Text="{loc:Localize Key=Dashboard_ManageYourProfile}"
                                         TextColor="#64748B" />
                                 </VerticalStackLayout>
 
@@ -3743,7 +3744,7 @@ VerticalOptions="Fill">
                                     FontAttributes="Bold"
                                     FontFamily="OpenSansSemiBold"
                                     FontSize="16"
-                                    Text="{x:Static strings:AppResources.Dashboard_PersonalInformation}"
+                                    Text="{loc:Localize Key=Dashboard_PersonalInformation}"
                                     TextColor="#031926" />
 
                                 <Border
@@ -3771,7 +3772,7 @@ VerticalOptions="Fill">
                                     FontAttributes="Bold"
                                     FontFamily="OpenSansSemiBold"
                                     FontSize="16"
-                                    Text="{x:Static strings:AppResources.Dashboard_Preferences}"
+                                    Text="{loc:Localize Key=Dashboard_Preferences}"
                                     TextColor="#031926" />
 
                                 <Border
@@ -3813,12 +3814,12 @@ VerticalOptions="Fill">
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="18"
-                                        Text="{x:Static strings:AppResources.Dashboard_GetInTouch}"
+                                        Text="{loc:Localize Key=Dashboard_GetInTouch}"
                                         TextColor="#031926" />
                                     <Label
                                         FontFamily="OpenSansRegular"
                                         FontSize="14"
-                                        Text="{x:Static strings:AppResources.Dashboard_SupportMsg}"
+                                        Text="{loc:Localize Key=Dashboard_SupportMsg}"
                                         TextColor="#64748B" />
                                     <Button
                                         Margin="0,8,0,0"
@@ -3828,7 +3829,7 @@ VerticalOptions="Fill">
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         HeightRequest="48"
-                                        Text="{x:Static strings:AppResources.Dashboard_MessageTeam}"
+                                        Text="{loc:Localize Key=Dashboard_MessageTeam}"
                                         TextColor="White">
                                         <Button.Shadow>
                                             <Shadow
@@ -3855,7 +3856,7 @@ VerticalOptions="Fill">
                                     FontAttributes="Bold"
                                     FontFamily="OpenSansSemiBold"
                                     HeightRequest="50"
-                                    Text="{x:Static strings:AppResources.Dashboard_LogOut}"
+                                    Text="{loc:Localize Key=Dashboard_LogOut}"
                                     TextColor="#009fe3" />
 
 
@@ -3892,18 +3893,18 @@ VerticalOptions="Fill">
                                                 FontAttributes="Bold"
                                                 FontFamily="OpenSansSemiBold"
                                                 FontSize="11"
-                                                Text="{x:Static strings:AppResources.Dashboard_WithdrawalAction}"
+                                                Text="{loc:Localize Key=Dashboard_WithdrawalAction}"
                                                 TextColor="#DC2626" />
                                             <Label
                                                 FontAttributes="Bold"
                                                 FontFamily="OpenSansSemiBold"
                                                 FontSize="15"
-                                                Text="{x:Static strings:AppResources.Dashboard_WithdrawTitle}"
+                                                Text="{loc:Localize Key=Dashboard_WithdrawTitle}"
                                                 TextColor="#7F1D1D" />
                                             <Label
                                                 FontFamily="OpenSansRegular"
                                                 FontSize="13"
-                                                Text="{x:Static strings:AppResources.Dashboard_WithdrawWarning}"
+                                                Text="{loc:Localize Key=Dashboard_WithdrawWarning}"
                                                 TextColor="#991B1B" />
                                         </VerticalStackLayout>
                                     </Grid>
@@ -3916,7 +3917,7 @@ VerticalOptions="Fill">
                                     FontFamily="OpenSansRegular"
                                     FontSize="13"
                                     HorizontalOptions="Center"
-                                    Text="{x:Static strings:AppResources.Dashboard_AppVersion}"
+                                    Text="{loc:Localize Key=Dashboard_AppVersion}"
                                     TextColor="#94A3B8" />
 
                             </VerticalStackLayout>

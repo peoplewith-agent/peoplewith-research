@@ -3,6 +3,7 @@
     x:Class="PeopleWithResearch.SelectNotificationTime"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:loc="clr-namespace:PeopleWithResearch"
     xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
     xmlns:mopup="clr-namespace:Mopups.Pages;assembly=Mopups"
     xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
@@ -60,7 +61,7 @@
                             FontFamily="OpenSansSemi"
                             FontSize="24"
                             HorizontalOptions="Center"
-                            Text="{x:Static strings:AppResources.Notification_Title}"
+                            Text="{loc:Localize Key=Notification_Title}"
                             TextColor="Black" />
 
                         <Label
@@ -143,7 +144,7 @@
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Center"
                             IsVisible="False"
-                            Text="{x:Static strings:AppResources.Notification_SelectTimeHint}"
+                            Text="{loc:Localize Key=Notification_SelectTimeHint}"
                             TextColor="Red"
                             VerticalOptions="Start"
                             VerticalTextAlignment="Center" />
@@ -156,7 +157,7 @@
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemi"
                             FontSize="14"
-                            Text="{x:Static strings:AppResources.Notification_ChooseTime}"
+                            Text="{loc:Localize Key=Notification_ChooseTime}"
                             TextColor="White"
                             VerticalOptions="End" />
 
@@ -187,14 +188,14 @@
                                 FontFamily="OpenSansSemi"
                                 FontSize="24"
                                 HorizontalTextAlignment="Center"
-                                Text="{x:Static strings:AppResources.Notification_SavedTitle}"
+                                Text="{loc:Localize Key=Notification_SavedTitle}"
                                 TextColor="#111827" />
 
                             <Label
                                 FontFamily="OpenSansRegular"
                                 FontSize="15"
                                 HorizontalTextAlignment="Center"
-                                Text="{x:Static strings:AppResources.Notification_SavedSubtitle}"
+                                Text="{loc:Localize Key=Notification_SavedSubtitle}"
                                 TextColor="#6B7280" />
 
                         </VerticalStackLayout>
@@ -237,7 +238,7 @@
                             FontFamily="OpenSansRegular"
                             FontSize="14"
                             HorizontalTextAlignment="Center"
-                            Text="{x:Static strings:AppResources.Notification_ChangeAnytime}"
+                            Text="{loc:Localize Key=Notification_ChangeAnytime}"
                             TextColor="#6B7280" />
 
                     </VerticalStackLayout>

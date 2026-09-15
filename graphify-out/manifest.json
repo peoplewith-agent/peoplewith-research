@@ -1,0 +1,1484 @@
+{
+  "PeopleWithResearch.UnitTests/GlobalUsings.cs": {
+    "mtime": 1789394022.885078,
+    "seen": 1789395499.133922,
+    "ast_hash": "2f3485502787e737e2cfdea64c4ac18e",
+    "semantic_hash": "2f3485502787e737e2cfdea64c4ac18e"
+  },
+  "PeopleWithResearch.UnitTests/Helpers/CrashDetectedTests.cs": {
+    "mtime": 1789133638.6529274,
+    "seen": 1789391560.593459,
+    "ast_hash": "7ceb3f2d7db3709d5887eb6c8ecac90a",
+    "semantic_hash": "7ceb3f2d7db3709d5887eb6c8ecac90a"
+  },
+  "PeopleWithResearch.UnitTests/PeopleWithResearch.UnitTests.csproj": {
+    "mtime": 1789394252.4342782,
+    "seen": 1789395499.1340039,
+    "ast_hash": "b0eb16aa81391a568b923cc9b3fe954f",
+    "semantic_hash": "b0eb16aa81391a568b923cc9b3fe954f"
+  },
+  "PeopleWithResearch.UnitTests/Shims/MauiShims.cs": {
+    "mtime": 1789394207.045059,
+    "seen": 1789395499.134005,
+    "ast_hash": "ea12b52802c204feb3e94e6671005eb6",
+    "semantic_hash": "ea12b52802c204feb3e94e6671005eb6"
+  },
+  "PeopleWithResearch.UnitTests/ViewModels/ImperialViewModelConstructorTests.cs": {
+    "mtime": 1789133638.654198,
+    "seen": 1789391560.593463,
+    "ast_hash": "bfdc9a6f2b662e56270de10eeeae4a44",
+    "semantic_hash": "bfdc9a6f2b662e56270de10eeeae4a44"
+  },
+  "PeopleWithResearch.UnitTests/ViewModels/ImperialViewModelNavigationTests.cs": {
+    "mtime": 1789133638.6546428,
+    "seen": 1789391560.593463,
+    "ast_hash": "ccd9bfc822e58b571e412472cf30f960",
+    "semantic_hash": "ccd9bfc822e58b571e412472cf30f960"
+  },
+  "PeopleWithResearch.UnitTests/ViewModels/ImperialViewModelStateTests.cs": {
+    "mtime": 1789133638.6551402,
+    "seen": 1789391560.5934641,
+    "ast_hash": "4dbffd581b358fecdb0dd89b479658e2",
+    "semantic_hash": "4dbffd581b358fecdb0dd89b479658e2"
+  },
+  "PeopleWithResearch.UnitTests/ViewModels/ImperialViewModelValidationTests.cs": {
+    "mtime": 1789133638.6554077,
+    "seen": 1789391560.593465,
+    "ast_hash": "dbb04b6a8c2dae444d9446d32cb8feb9",
+    "semantic_hash": "dbb04b6a8c2dae444d9446d32cb8feb9"
+  },
+  "PeopleWithResearch.UnitTests/ViewModels/ImperialViewModelWizardStepCountTests.cs": {
+    "mtime": 1789133638.6559224,
+    "seen": 1789391560.593466,
+    "ast_hash": "4bd6b63108c47b357027bb30743701a6",
+    "semantic_hash": "4bd6b63108c47b357027bb30743701a6"
+  },
+  "PeopleWithResearch.sln": {
+    "mtime": 1789133638.6560543,
+    "seen": 1789391560.593467,
+    "ast_hash": "22f5cf51ab4455c666a615ab5bfef84f",
+    "semantic_hash": "22f5cf51ab4455c666a615ab5bfef84f"
+  },
+  "PeopleWithResearch/APICalls.cs": {
+    "mtime": 1789133638.6568487,
+    "seen": 1789391560.593468,
+    "ast_hash": "d6d6e3b67788162bfded652920211acb",
+    "semantic_hash": "d6d6e3b67788162bfded652920211acb"
+  },
+  "PeopleWithResearch/App.xaml": {
+    "mtime": 1789133638.6571705,
+    "seen": 1789391560.593469,
+    "ast_hash": "eec822cf477c02f494226a285e2d6ad3",
+    "semantic_hash": "eec822cf477c02f494226a285e2d6ad3"
+  },
+  "PeopleWithResearch/App.xaml.cs": {
+    "mtime": 1789393408.1247482,
+    "seen": 1789395499.134167,
+    "ast_hash": "aa6750ac093210552100d3d7793fb7e2",
+    "semantic_hash": "aa6750ac093210552100d3d7793fb7e2"
+  },
+  "PeopleWithResearch/AppShell.xaml": {
+    "mtime": 1789133638.6575513,
+    "seen": 1789391560.5934699,
+    "ast_hash": "5d3eb9610f0e00f36b73a18f75aaff2b",
+    "semantic_hash": "5d3eb9610f0e00f36b73a18f75aaff2b"
+  },
+  "PeopleWithResearch/AppShell.xaml.cs": {
+    "mtime": 1789133638.6576552,
+    "seen": 1789391560.593471,
+    "ast_hash": "87a9faa6c18dde77405e8525b31fc1c4",
+    "semantic_hash": "87a9faa6c18dde77405e8525b31fc1c4"
+  },
+  "PeopleWithResearch/Constants.cs": {
+    "mtime": 1789133638.6577742,
+    "seen": 1789391560.593472,
+    "ast_hash": "970dd6a830b98dceadd9c93744a84a66",
+    "semantic_hash": "970dd6a830b98dceadd9c93744a84a66"
+  },
+  "PeopleWithResearch/CustomProperties/ExtSearchBar.cs": {
+    "mtime": 1789133638.6579406,
+    "seen": 1789391560.593472,
+    "ast_hash": "2ba6e1dd853a34cc30846f46aabe0364",
+    "semantic_hash": "2ba6e1dd853a34cc30846f46aabe0364"
+  },
+  "PeopleWithResearch/CustomProperties/ExtendedButton.cs": {
+    "mtime": 1789133638.6581469,
+    "seen": 1789391560.593473,
+    "ast_hash": "7fdaacb88c25274e5f5ae13253259bed",
+    "semantic_hash": "7fdaacb88c25274e5f5ae13253259bed"
+  },
+  "PeopleWithResearch/CustomProperties/ExtendedCheckbox.cs": {
+    "mtime": 1789133638.6582658,
+    "seen": 1789391560.5934741,
+    "ast_hash": "de6898289808f09fce2a48c2f445614d",
+    "semantic_hash": "de6898289808f09fce2a48c2f445614d"
+  },
+  "PeopleWithResearch/CustomProperties/ExtendedEditor.cs": {
+    "mtime": 1789133638.6583672,
+    "seen": 1789391560.5934741,
+    "ast_hash": "756a710c9c1f0b5c7192c1f9fe04572f",
+    "semantic_hash": "756a710c9c1f0b5c7192c1f9fe04572f"
+  },
+  "PeopleWithResearch/CustomProperties/ExtendedEntry.cs": {
+    "mtime": 1789133638.6584735,
+    "seen": 1789391560.593475,
+    "ast_hash": "1de40bbbf4e685aa19eb79e38797820f",
+    "semantic_hash": "1de40bbbf4e685aa19eb79e38797820f"
+  },
+  "PeopleWithResearch/CustomProperties/ExtendedRadioButton.cs": {
+    "mtime": 1789133638.6585782,
+    "seen": 1789391560.593476,
+    "ast_hash": "27235344c0f4b51a26e2aa71d6bdd965",
+    "semantic_hash": "27235344c0f4b51a26e2aa71d6bdd965"
+  },
+  "PeopleWithResearch/CustomProperties/ExtendedRangeSlider.cs": {
+    "mtime": 1789133638.6586645,
+    "seen": 1789391560.593477,
+    "ast_hash": "4f4a0271d2b51501cfe00e664ad6a3c0",
+    "semantic_hash": "4f4a0271d2b51501cfe00e664ad6a3c0"
+  },
+  "PeopleWithResearch/CustomProperties/ExtendedSFCheckBox.cs": {
+    "mtime": 1789133638.6587627,
+    "seen": 1789391560.593478,
+    "ast_hash": "8f5a803cdd592c16cf45c8606f378f44",
+    "semantic_hash": "8f5a803cdd592c16cf45c8606f378f44"
+  },
+  "PeopleWithResearch/CustomProperties/ExtendedSFDatePicker.cs": {
+    "mtime": 1789133638.6588607,
+    "seen": 1789391560.593478,
+    "ast_hash": "d4ba1171c5aa5b7ba377cf12040f8116",
+    "semantic_hash": "d4ba1171c5aa5b7ba377cf12040f8116"
+  },
+  "PeopleWithResearch/CustomProperties/ExtendedSFListview.cs": {
+    "mtime": 1789133638.6589706,
+    "seen": 1789391560.593479,
+    "ast_hash": "47b1365d4ebc6cdcd92a10dd29cf7dee",
+    "semantic_hash": "47b1365d4ebc6cdcd92a10dd29cf7dee"
+  },
+  "PeopleWithResearch/CustomProperties/ExtendedSlider.cs": {
+    "mtime": 1789133638.6590827,
+    "seen": 1789391560.5934799,
+    "ast_hash": "195530e1690077ad92a0fa9fb4934385",
+    "semantic_hash": "195530e1690077ad92a0fa9fb4934385"
+  },
+  "PeopleWithResearch/CustomProperties/HideKeyboardEntry.cs": {
+    "mtime": 1789133638.6591854,
+    "seen": 1789391560.5934799,
+    "ast_hash": "26a98476a47f2627ce9df29e5d4e32da",
+    "semantic_hash": "26a98476a47f2627ce9df29e5d4e32da"
+  },
+  "PeopleWithResearch/CustomProperties/MauiRadioButton.cs": {
+    "mtime": 1789133638.6592834,
+    "seen": 1789391560.593481,
+    "ast_hash": "81df142f969a4f0e6161e30a1da17acd",
+    "semantic_hash": "81df142f969a4f0e6161e30a1da17acd"
+  },
+  "PeopleWithResearch/Helpers/B1TemplateSelector.cs": {
+    "mtime": 1789133638.659454,
+    "seen": 1789391560.593482,
+    "ast_hash": "f11b32f9d84162413670d9f053bec4eb",
+    "semantic_hash": "f11b32f9d84162413670d9f053bec4eb"
+  },
+  "PeopleWithResearch/Helpers/CheckNotifications.cs": {
+    "mtime": 1789133638.659557,
+    "seen": 1789391560.593482,
+    "ast_hash": "eedd0f9357794071c90e26d25431e0ff",
+    "semantic_hash": "eedd0f9357794071c90e26d25431e0ff"
+  },
+  "PeopleWithResearch/Helpers/ConfirmMessage.xaml": {
+    "mtime": 1789133638.6604211,
+    "seen": 1789391560.593483,
+    "ast_hash": "8b7e99dc72d40bded13cffd2a826cc50",
+    "semantic_hash": "8b7e99dc72d40bded13cffd2a826cc50"
+  },
+  "PeopleWithResearch/Helpers/ConfirmMessage.xaml.cs": {
+    "mtime": 1789133638.6605976,
+    "seen": 1789391560.593484,
+    "ast_hash": "37630faf750ca66a5b8b98d46e416a7e",
+    "semantic_hash": "37630faf750ca66a5b8b98d46e416a7e"
+  },
+  "PeopleWithResearch/Helpers/ConfirmTemplateSelector.cs": {
+    "mtime": 1789133638.6607053,
+    "seen": 1789391560.593484,
+    "ast_hash": "a21df857efbae3a122f5ddf79335114a",
+    "semantic_hash": "a21df857efbae3a122f5ddf79335114a"
+  },
+  "PeopleWithResearch/Helpers/ConnectivityService.cs": {
+    "mtime": 1789133638.6608195,
+    "seen": 1789391560.593485,
+    "ast_hash": "f2b6b5b0824030320fd8c14f9687b4eb",
+    "semantic_hash": "f2b6b5b0824030320fd8c14f9687b4eb"
+  },
+  "PeopleWithResearch/Helpers/CrashDetected.cs": {
+    "mtime": 1789133638.6609466,
+    "seen": 1789391560.593486,
+    "ast_hash": "8e91f1337ee901951584271356c2f499",
+    "semantic_hash": "8e91f1337ee901951584271356c2f499"
+  },
+  "PeopleWithResearch/Helpers/INotificationPermissionService.cs": {
+    "mtime": 1789133638.6610765,
+    "seen": 1789391560.593486,
+    "ast_hash": "4750a913a4e66f6a390e13ba1d376b2f",
+    "semantic_hash": "4750a913a4e66f6a390e13ba1d376b2f"
+  },
+  "PeopleWithResearch/Helpers/Infopopup.xaml": {
+    "mtime": 1789133638.6611998,
+    "seen": 1789391560.593487,
+    "ast_hash": "e3cc3c2b7fd750b264a69f028e4ebd7d",
+    "semantic_hash": "e3cc3c2b7fd750b264a69f028e4ebd7d"
+  },
+  "PeopleWithResearch/Helpers/Infopopup.xaml.cs": {
+    "mtime": 1789133638.661338,
+    "seen": 1789391560.593488,
+    "ast_hash": "1780ecf4bfc964399546f9313be3721c",
+    "semantic_hash": "1780ecf4bfc964399546f9313be3721c"
+  },
+  "PeopleWithResearch/Helpers/InvertedBoolConverter.cs": {
+    "mtime": 1789133638.6614497,
+    "seen": 1789391560.593488,
+    "ast_hash": "a8208cc653372d4f0408fea17e0a7298",
+    "semantic_hash": "a8208cc653372d4f0408fea17e0a7298"
+  },
+  "PeopleWithResearch/Helpers/Loadingpopup.xaml": {
+    "mtime": 1789133638.6615665,
+    "seen": 1789391560.593489,
+    "ast_hash": "f3bbe2a8008bfdaf82caa34efa983bb4",
+    "semantic_hash": "f3bbe2a8008bfdaf82caa34efa983bb4"
+  },
+  "PeopleWithResearch/Helpers/Loadingpopup.xaml.cs": {
+    "mtime": 1789133638.6617212,
+    "seen": 1789391560.59349,
+    "ast_hash": "691b51d8ce5be2da1263f62cee68420b",
+    "semantic_hash": "691b51d8ce5be2da1263f62cee68420b"
+  },
+  "PeopleWithResearch/Helpers/LoggingHandler.cs": {
+    "mtime": 1789133638.6618633,
+    "seen": 1789391560.59349,
+    "ast_hash": "3134efdb9ad00c93b163b46201245d1e",
+    "semantic_hash": "3134efdb9ad00c93b163b46201245d1e"
+  },
+  "PeopleWithResearch/Helpers/NetworkService.cs": {
+    "mtime": 1789133638.661998,
+    "seen": 1789391560.593492,
+    "ast_hash": "9ef1201d1031939895a960c0ba5670bf",
+    "semantic_hash": "9ef1201d1031939895a960c0ba5670bf"
+  },
+  "PeopleWithResearch/Helpers/Newlogout.cs": {
+    "mtime": 1789133638.662109,
+    "seen": 1789391560.593492,
+    "ast_hash": "1d7c98a41fb908099219ee0da7095980",
+    "semantic_hash": "1d7c98a41fb908099219ee0da7095980"
+  },
+  "PeopleWithResearch/Helpers/NhsNumberMaskBehavior.cs": {
+    "mtime": 1789133638.6622195,
+    "seen": 1789391560.593493,
+    "ast_hash": "ec5fb9cc4a8743cdc87655ba0520799b",
+    "semantic_hash": "ec5fb9cc4a8743cdc87655ba0520799b"
+  },
+  "PeopleWithResearch/Helpers/NoInternetPage.xaml": {
+    "mtime": 1789133638.6623833,
+    "seen": 1789391560.593494,
+    "ast_hash": "ddf0009f9dd899e62be967362664f55b",
+    "semantic_hash": "ddf0009f9dd899e62be967362664f55b"
+  },
+  "PeopleWithResearch/Helpers/NoInternetPage.xaml.cs": {
+    "mtime": 1789133638.6624923,
+    "seen": 1789391560.593494,
+    "ast_hash": "addd767d3b5c171aefbeebb0a831a2c4",
+    "semantic_hash": "addd767d3b5c171aefbeebb0a831a2c4"
+  },
+  "PeopleWithResearch/Helpers/NotificationService.cs": {
+    "mtime": 1789133638.662626,
+    "seen": 1789391560.5934951,
+    "ast_hash": "7edb15d061dd4d1975e4f5e32d3639e7",
+    "semantic_hash": "7edb15d061dd4d1975e4f5e32d3639e7"
+  },
+  "PeopleWithResearch/Helpers/PolicySectionTemplateSelector.cs": {
+    "mtime": 1789133638.6627533,
+    "seen": 1789391560.593496,
+    "ast_hash": "3dda5c3c9ff11888c667aba9050849cd",
+    "semantic_hash": "3dda5c3c9ff11888c667aba9050849cd"
+  },
+  "PeopleWithResearch/Helpers/PopupPageHelper.xaml": {
+    "mtime": 1789133638.6631684,
+    "seen": 1789391560.593496,
+    "ast_hash": "f40dff9460a88279db4ed5f6b5b39899",
+    "semantic_hash": "f40dff9460a88279db4ed5f6b5b39899"
+  },
+  "PeopleWithResearch/Helpers/PopupPageHelper.xaml.cs": {
+    "mtime": 1789133638.663363,
+    "seen": 1789391560.593497,
+    "ast_hash": "b4f6b7b1c5f16e9089bb5352aa1672a8",
+    "semantic_hash": "b4f6b7b1c5f16e9089bb5352aa1672a8"
+  },
+  "PeopleWithResearch/Helpers/PracticeSearch.xaml": {
+    "mtime": 1789133638.6635075,
+    "seen": 1789391560.5934982,
+    "ast_hash": "5b4a94ce38d356045cbd1e18148c990c",
+    "semantic_hash": "5b4a94ce38d356045cbd1e18148c990c"
+  },
+  "PeopleWithResearch/Helpers/PracticeSearch.xaml.cs": {
+    "mtime": 1789133638.6636147,
+    "seen": 1789391560.5934982,
+    "ast_hash": "b966a8f07c509b7ace1a021f58b01885",
+    "semantic_hash": "b966a8f07c509b7ace1a021f58b01885"
+  },
+  "PeopleWithResearch/Helpers/QuestionnaireTemplateSelector.cs": {
+    "mtime": 1789133638.6637082,
+    "seen": 1789391560.593499,
+    "ast_hash": "675d7b16036859e7a7b615b5ff90b101",
+    "semantic_hash": "675d7b16036859e7a7b615b5ff90b101"
+  },
+  "PeopleWithResearch/Helpers/SelectLanguagePopup.xaml": {
+    "mtime": 1789133638.6638262,
+    "seen": 1789391560.593499,
+    "ast_hash": "dfc5b261091d11fe0bbf546944a15c63",
+    "semantic_hash": "dfc5b261091d11fe0bbf546944a15c63"
+  },
+  "PeopleWithResearch/Helpers/SelectLanguagePopup.xaml.cs": {
+    "mtime": 1789394614.1780975,
+    "seen": 1789395499.1349492,
+    "ast_hash": "a5a520c9e84d6552354d0aed93f8e944",
+    "semantic_hash": "a5a520c9e84d6552354d0aed93f8e944"
+  },
+  "PeopleWithResearch/Helpers/Settings.cs": {
+    "mtime": 1789133638.664067,
+    "seen": 1789391560.5935009,
+    "ast_hash": "e93ee834e91eb3538bada61d3774f859",
+    "semantic_hash": "e93ee834e91eb3538bada61d3774f859"
+  },
+  "PeopleWithResearch/Helpers/ShowImage.xaml": {
+    "mtime": 1789133638.6643229,
+    "seen": 1789391560.5935009,
+    "ast_hash": "60c2864ea64beef503b3de7a99be4b73",
+    "semantic_hash": "60c2864ea64beef503b3de7a99be4b73"
+  },
+  "PeopleWithResearch/Helpers/ShowImage.xaml.cs": {
+    "mtime": 1789133638.6644323,
+    "seen": 1789391560.593502,
+    "ast_hash": "2539ea6cbfff50655fab9a1016a00bf8",
+    "semantic_hash": "2539ea6cbfff50655fab9a1016a00bf8"
+  },
+  "PeopleWithResearch/Helpers/UpdateDashCompleted.cs": {
+    "mtime": 1789133638.6645267,
+    "seen": 1789391560.593503,
+    "ast_hash": "0138b22081269663886fe5e9c98d18fb",
+    "semantic_hash": "0138b22081269663886fe5e9c98d18fb"
+  },
+  "PeopleWithResearch/Helpers/UpdatePage.xaml": {
+    "mtime": 1789133638.6646395,
+    "seen": 1789391560.593503,
+    "ast_hash": "05bf97201edf685736749d285484c0d6",
+    "semantic_hash": "05bf97201edf685736749d285484c0d6"
+  },
+  "PeopleWithResearch/Helpers/UpdatePage.xaml.cs": {
+    "mtime": 1789133638.6647398,
+    "seen": 1789391560.593504,
+    "ast_hash": "45960cd7da5f6e75f9f6c793b6844447",
+    "semantic_hash": "45960cd7da5f6e75f9f6c793b6844447"
+  },
+  "PeopleWithResearch/Helpers/UpdateProfile.cs": {
+    "mtime": 1789133638.6648452,
+    "seen": 1789391560.593505,
+    "ast_hash": "2d40a038958af05d89c0978347785d8f",
+    "semantic_hash": "2d40a038958af05d89c0978347785d8f"
+  },
+  "PeopleWithResearch/Helpers/UserNotification.cs": {
+    "mtime": 1789133638.6650395,
+    "seen": 1789391560.593505,
+    "ast_hash": "eb070f4401bc6ba88d668f66210aea3a",
+    "semantic_hash": "eb070f4401bc6ba88d668f66210aea3a"
+  },
+  "PeopleWithResearch/Helpers/VersionCheckService.cs": {
+    "mtime": 1789133638.6651535,
+    "seen": 1789391560.593506,
+    "ast_hash": "cabb6b04db5f94d881d6c6d627e563fe",
+    "semantic_hash": "cabb6b04db5f94d881d6c6d627e563fe"
+  },
+  "PeopleWithResearch/Helpers/ZumoApiVersionHandler.cs": {
+    "mtime": 1789133638.665282,
+    "seen": 1789391560.593507,
+    "ast_hash": "90b606c368e873cc8dfde684671861ad",
+    "semantic_hash": "90b606c368e873cc8dfde684671861ad"
+  },
+  "PeopleWithResearch/Helpers/genericlist.cs": {
+    "mtime": 1789133638.6654754,
+    "seen": 1789391560.593507,
+    "ast_hash": "9e4942f13f104ae3c9eb266248ea6fe6",
+    "semantic_hash": "9e4942f13f104ae3c9eb266248ea6fe6"
+  },
+  "PeopleWithResearch/MainPage.xaml": {
+    "mtime": 1789393385.273099,
+    "seen": 1789395499.135146,
+    "ast_hash": "dacabbafcf7f54cb88cbbc3c6f9fc92d",
+    "semantic_hash": "dacabbafcf7f54cb88cbbc3c6f9fc92d"
+  },
+  "PeopleWithResearch/MainPage.xaml.cs": {
+    "mtime": 1789394654.296296,
+    "seen": 1789395499.135147,
+    "ast_hash": "33df52091e32d835e516351a8c8145fd",
+    "semantic_hash": "33df52091e32d835e516351a8c8145fd"
+  },
+  "PeopleWithResearch/Managers/AdvertManager.cs": {
+    "mtime": 1789133638.6669483,
+    "seen": 1789391560.5935092,
+    "ast_hash": "61493f1cc41323495a6c70c897ada87f",
+    "semantic_hash": "61493f1cc41323495a6c70c897ada87f"
+  },
+  "PeopleWithResearch/Managers/AnswerManager.cs": {
+    "mtime": 1789133638.6670852,
+    "seen": 1789391560.59351,
+    "ast_hash": "0729f4dfe69480d5900d19b55482211b",
+    "semantic_hash": "0729f4dfe69480d5900d19b55482211b"
+  },
+  "PeopleWithResearch/Managers/ConsentManager.cs": {
+    "mtime": 1789133638.6672056,
+    "seen": 1789391560.59351,
+    "ast_hash": "969345b2d94689cbe5a134e4e2c589bc",
+    "semantic_hash": "969345b2d94689cbe5a134e4e2c589bc"
+  },
+  "PeopleWithResearch/Managers/FeatureManager.cs": {
+    "mtime": 1789133638.6672988,
+    "seen": 1789391560.5935109,
+    "ast_hash": "64fece8f352f2562300db5b55e0fc0af",
+    "semantic_hash": "64fece8f352f2562300db5b55e0fc0af"
+  },
+  "PeopleWithResearch/Managers/IncidentHistoryManager.cs": {
+    "mtime": 1789133638.667386,
+    "seen": 1789391560.5935118,
+    "ast_hash": "8fc7f4eb3bd755dafec8de641c167d3b",
+    "semantic_hash": "8fc7f4eb3bd755dafec8de641c167d3b"
+  },
+  "PeopleWithResearch/Managers/IncidentsManager.cs": {
+    "mtime": 1789133638.667473,
+    "seen": 1789391560.5935118,
+    "ast_hash": "5d787a16f19706460fb068c5055c9b72",
+    "semantic_hash": "5d787a16f19706460fb068c5055c9b72"
+  },
+  "PeopleWithResearch/Managers/MedDirectionsManager.cs": {
+    "mtime": 1789133638.6675684,
+    "seen": 1789391560.593513,
+    "ast_hash": "6c7b84a6ac8565506658a937810be7f1",
+    "semantic_hash": "6c7b84a6ac8565506658a937810be7f1"
+  },
+  "PeopleWithResearch/Managers/PrimaryCareManager.cs": {
+    "mtime": 1789133638.6676722,
+    "seen": 1789391560.593514,
+    "ast_hash": "71b5cc15950cb88505ed8f73323df97a",
+    "semantic_hash": "71b5cc15950cb88505ed8f73323df97a"
+  },
+  "PeopleWithResearch/Managers/PrivacyManager.cs": {
+    "mtime": 1789133638.6677647,
+    "seen": 1789391560.593514,
+    "ast_hash": "bfcfd28df620bed47ce5dde0da73c767",
+    "semantic_hash": "bfcfd28df620bed47ce5dde0da73c767"
+  },
+  "PeopleWithResearch/Managers/QuestionManager.cs": {
+    "mtime": 1789133638.6678712,
+    "seen": 1789391560.593515,
+    "ast_hash": "378d0c55611d5b05e693e19501b304d2",
+    "semantic_hash": "378d0c55611d5b05e693e19501b304d2"
+  },
+  "PeopleWithResearch/Managers/QuestionnaireManager.cs": {
+    "mtime": 1789133638.6679792,
+    "seen": 1789391560.593516,
+    "ast_hash": "ce4dd3ae489dd168f09ba191416c78e2",
+    "semantic_hash": "ce4dd3ae489dd168f09ba191416c78e2"
+  },
+  "PeopleWithResearch/Managers/UserConsentManager.cs": {
+    "mtime": 1789133638.6680753,
+    "seen": 1789391560.593516,
+    "ast_hash": "6e1e825bad582386031adae06b66d1a2",
+    "semantic_hash": "6e1e825bad582386031adae06b66d1a2"
+  },
+  "PeopleWithResearch/Managers/UserManager.cs": {
+    "mtime": 1789133638.6681845,
+    "seen": 1789391560.593517,
+    "ast_hash": "ed2a81ed126cc53b996aae832009a30c",
+    "semantic_hash": "ed2a81ed126cc53b996aae832009a30c"
+  },
+  "PeopleWithResearch/Managers/UserQuestionAnswerManager.cs": {
+    "mtime": 1789133638.668308,
+    "seen": 1789391560.593518,
+    "ast_hash": "3aa092b491a60153274123ba21d9106c",
+    "semantic_hash": "3aa092b491a60153274123ba21d9106c"
+  },
+  "PeopleWithResearch/Managers/UserQuestionnaireManager.cs": {
+    "mtime": 1789133638.6685188,
+    "seen": 1789391560.593518,
+    "ast_hash": "9f79d34c02210e3576127793c6985984",
+    "semantic_hash": "9f79d34c02210e3576127793c6985984"
+  },
+  "PeopleWithResearch/Managers/initialQuestionsAnswersManager.cs": {
+    "mtime": 1789133638.6686735,
+    "seen": 1789391560.5935192,
+    "ast_hash": "f1e6fc1a706e7478c4c041418ab26d55",
+    "semantic_hash": "f1e6fc1a706e7478c4c041418ab26d55"
+  },
+  "PeopleWithResearch/Managers/initialQuestionsManager.cs": {
+    "mtime": 1789133638.668819,
+    "seen": 1789391560.5935202,
+    "ast_hash": "ad0834573c3ed3e889ca6cea5eac991a",
+    "semantic_hash": "ad0834573c3ed3e889ca6cea5eac991a"
+  },
+  "PeopleWithResearch/Managers/userInitialQuestionsResponsesManager.cs": {
+    "mtime": 1789133638.6689382,
+    "seen": 1789391560.5935209,
+    "ast_hash": "a5f9dd3c7a5857e354bf870ffc63fc3d",
+    "semantic_hash": "a5f9dd3c7a5857e354bf870ffc63fc3d"
+  },
+  "PeopleWithResearch/MauiProgram.cs": {
+    "mtime": 1789393357.3027847,
+    "seen": 1789395499.135474,
+    "ast_hash": "53bb57bb0ab05d7810f63916eae301fb",
+    "semantic_hash": "53bb57bb0ab05d7810f63916eae301fb"
+  },
+  "PeopleWithResearch/Models/AlertService.cs": {
+    "mtime": 1789133638.6703138,
+    "seen": 1789391560.5935218,
+    "ast_hash": "08aebb953f9a8b281c5f683206b6fc79",
+    "semantic_hash": "08aebb953f9a8b281c5f683206b6fc79"
+  },
+  "PeopleWithResearch/Models/Answers.cs": {
+    "mtime": 1789133638.670443,
+    "seen": 1789391560.593523,
+    "ast_hash": "7a8f6022cefeb9e9f1264948983101ce",
+    "semantic_hash": "7a8f6022cefeb9e9f1264948983101ce"
+  },
+  "PeopleWithResearch/Models/AppConfig.cs": {
+    "mtime": 1789133638.67056,
+    "seen": 1789391560.593524,
+    "ast_hash": "321178e120317a061be37c65dc35448b",
+    "semantic_hash": "321178e120317a061be37c65dc35448b"
+  },
+  "PeopleWithResearch/Models/Customheightandweight.cs": {
+    "mtime": 1789133638.6706629,
+    "seen": 1789391560.593524,
+    "ast_hash": "f2b38b5d109a29c065be6fcb69b9436b",
+    "semantic_hash": "f2b38b5d109a29c065be6fcb69b9436b"
+  },
+  "PeopleWithResearch/Models/HouseholdMemberEntryViewModel.cs": {
+    "mtime": 1789133638.6707952,
+    "seen": 1789391560.593525,
+    "ast_hash": "82c695ceb0d65f4992cbea61ae6db431",
+    "semantic_hash": "82c695ceb0d65f4992cbea61ae6db431"
+  },
+  "PeopleWithResearch/Models/IdealAddress.cs": {
+    "mtime": 1789133638.6737797,
+    "seen": 1789391560.593525,
+    "ast_hash": "df24456149bd763dae6830e8b5e0e6f7",
+    "semantic_hash": "df24456149bd763dae6830e8b5e0e6f7"
+  },
+  "PeopleWithResearch/Models/LanguageOption.cs": {
+    "mtime": 1789133638.6739218,
+    "seen": 1789391560.5935261,
+    "ast_hash": "5c68d7b033be67f2fb8cc631ad5bc38b",
+    "semantic_hash": "5c68d7b033be67f2fb8cc631ad5bc38b"
+  },
+  "PeopleWithResearch/Models/NewImperialViewModel.cs": {
+    "mtime": 1789133638.6744351,
+    "seen": 1789391560.593527,
+    "ast_hash": "7e75266da3f2b1b4e8e0c776632a0dd6",
+    "semantic_hash": "7e75266da3f2b1b4e8e0c776632a0dd6"
+  },
+  "PeopleWithResearch/Models/ObservableCollectionExtensions.cs": {
+    "mtime": 1789133638.6748753,
+    "seen": 1789391560.593527,
+    "ast_hash": "5c639c7d1a2e142abd18d9a3b443d8ad",
+    "semantic_hash": "5c639c7d1a2e142abd18d9a3b443d8ad"
+  },
+  "PeopleWithResearch/Models/PolicyModels.cs": {
+    "mtime": 1789133638.6749747,
+    "seen": 1789391560.593528,
+    "ast_hash": "7c7e6cba2d2f53231a7ba1ca05199b18",
+    "semantic_hash": "7c7e6cba2d2f53231a7ba1ca05199b18"
+  },
+  "PeopleWithResearch/Models/Question.cs": {
+    "mtime": 1789133638.675097,
+    "seen": 1789391560.593529,
+    "ast_hash": "b6e491a0428bd6ec4ece8e3a345eba55",
+    "semantic_hash": "b6e491a0428bd6ec4ece8e3a345eba55"
+  },
+  "PeopleWithResearch/Models/QuestionANDAnswers.cs": {
+    "mtime": 1789133638.6754935,
+    "seen": 1789391560.593529,
+    "ast_hash": "e125f9280a155cbe59f485a62c46a2e7",
+    "semantic_hash": "e125f9280a155cbe59f485a62c46a2e7"
+  },
+  "PeopleWithResearch/Models/QuestionModel.cs": {
+    "mtime": 1789133638.6756008,
+    "seen": 1789391560.5935302,
+    "ast_hash": "f2e0775960c713042f4bdd41460f6a3e",
+    "semantic_hash": "f2e0775960c713042f4bdd41460f6a3e"
+  },
+  "PeopleWithResearch/Models/Questionnaire.cs": {
+    "mtime": 1789133638.6757607,
+    "seen": 1789391560.593531,
+    "ast_hash": "3279dff87fa30a6e8d8e77b6a21118ef",
+    "semantic_hash": "3279dff87fa30a6e8d8e77b6a21118ef"
+  },
+  "PeopleWithResearch/Models/QuestionnaireModel.cs": {
+    "mtime": 1789133638.6758685,
+    "seen": 1789391560.593531,
+    "ast_hash": "122bda5935dd86be9a03f6024dc1cbed",
+    "semantic_hash": "122bda5935dd86be9a03f6024dc1cbed"
+  },
+  "PeopleWithResearch/Models/QuestionnaireResult.cs": {
+    "mtime": 1789133638.6759584,
+    "seen": 1789391560.5935318,
+    "ast_hash": "45ba0e4504e19fc8d771a0c10540991d",
+    "semantic_hash": "45ba0e4504e19fc8d771a0c10540991d"
+  },
+  "PeopleWithResearch/Models/UserQuestionAnswer.cs": {
+    "mtime": 1789133638.6760778,
+    "seen": 1789391560.5935318,
+    "ast_hash": "4a6c5270435337452fd8290c5a634800",
+    "semantic_hash": "4a6c5270435337452fd8290c5a634800"
+  },
+  "PeopleWithResearch/Models/UserQuestionnaire.cs": {
+    "mtime": 1789133638.676198,
+    "seen": 1789391560.593533,
+    "ast_hash": "ee77aa36ab441ac310a534a086fa7b2c",
+    "semantic_hash": "ee77aa36ab441ac310a534a086fa7b2c"
+  },
+  "PeopleWithResearch/Models/ValueConverters.cs": {
+    "mtime": 1789133638.6763105,
+    "seen": 1789391560.593534,
+    "ast_hash": "7e38f8a0f877e05eb3d4707bbc0ce93d",
+    "semantic_hash": "7e38f8a0f877e05eb3d4707bbc0ce93d"
+  },
+  "PeopleWithResearch/Models/advert.cs": {
+    "mtime": 1789133638.6764002,
+    "seen": 1789391560.593534,
+    "ast_hash": "e9ebf2ae4d96c52ce3e0f9192e4dc5ad",
+    "semantic_hash": "e9ebf2ae4d96c52ce3e0f9192e4dc5ad"
+  },
+  "PeopleWithResearch/Models/appversion.cs": {
+    "mtime": 1789133638.6764991,
+    "seen": 1789391560.593535,
+    "ast_hash": "5c3ad6adc183c3525d0ad46b24fed329",
+    "semantic_hash": "5c3ad6adc183c3525d0ad46b24fed329"
+  },
+  "PeopleWithResearch/Models/b1questionnairemodel.cs": {
+    "mtime": 1789133638.6766906,
+    "seen": 1789391560.593536,
+    "ast_hash": "be7f2f6a44a799eaf63f71a26c52d58e",
+    "semantic_hash": "be7f2f6a44a799eaf63f71a26c52d58e"
+  },
+  "PeopleWithResearch/Models/consent.cs": {
+    "mtime": 1789133638.676895,
+    "seen": 1789391560.593536,
+    "ast_hash": "e183851d082374c1b699c41743a8d762",
+    "semantic_hash": "e183851d082374c1b699c41743a8d762"
+  },
+  "PeopleWithResearch/Models/features.cs": {
+    "mtime": 1789133638.6770084,
+    "seen": 1789391560.593537,
+    "ast_hash": "ead2534b203bbff014a2345e50b99c2b",
+    "semantic_hash": "ead2534b203bbff014a2345e50b99c2b"
+  },
+  "PeopleWithResearch/Models/householdgroup.cs": {
+    "mtime": 1789133638.6771147,
+    "seen": 1789391560.593538,
+    "ast_hash": "846806a2c465066fa1a54720943c01b5",
+    "semantic_hash": "846806a2c465066fa1a54720943c01b5"
+  },
+  "PeopleWithResearch/Models/householdgroupjsondetails.cs": {
+    "mtime": 1789133638.6776617,
+    "seen": 1789391560.593538,
+    "ast_hash": "119d3f9abd292d405d1b3bf92500d163",
+    "semantic_hash": "119d3f9abd292d405d1b3bf92500d163"
+  },
+  "PeopleWithResearch/Models/householdstudyrecord.cs": {
+    "mtime": 1789133638.6820354,
+    "seen": 1789391560.593539,
+    "ast_hash": "a056eefaa60d2268ddf0fb59ac7207e7",
+    "semantic_hash": "a056eefaa60d2268ddf0fb59ac7207e7"
+  },
+  "PeopleWithResearch/Models/incidentHistory.cs": {
+    "mtime": 1789133638.6834857,
+    "seen": 1789391560.5935402,
+    "ast_hash": "9fbefb62f25718296404469631deffdd",
+    "semantic_hash": "9fbefb62f25718296404469631deffdd"
+  },
+  "PeopleWithResearch/Models/incidents.cs": {
+    "mtime": 1789133638.6835976,
+    "seen": 1789391560.5935402,
+    "ast_hash": "353c5836fde679f8365f2ec87f404ccf",
+    "semantic_hash": "353c5836fde679f8365f2ec87f404ccf"
+  },
+  "PeopleWithResearch/Models/initialQuestions.cs": {
+    "mtime": 1789133638.6837497,
+    "seen": 1789391560.5935411,
+    "ast_hash": "463b9e4796760681800fb48e3a3aa6e7",
+    "semantic_hash": "463b9e4796760681800fb48e3a3aa6e7"
+  },
+  "PeopleWithResearch/Models/initialQuestionsAnswers.cs": {
+    "mtime": 1789133638.6838565,
+    "seen": 1789391560.5935419,
+    "ast_hash": "10a8cfde44c3bde4e9cc48b6dc3d2e31",
+    "semantic_hash": "10a8cfde44c3bde4e9cc48b6dc3d2e31"
+  },
+  "PeopleWithResearch/Models/meddirections.cs": {
+    "mtime": 1789133638.6839566,
+    "seen": 1789391560.5935419,
+    "ast_hash": "ec7fe50850330bfe9458ddcbd1971b41",
+    "semantic_hash": "ec7fe50850330bfe9458ddcbd1971b41"
+  },
+  "PeopleWithResearch/Models/newuser.cs": {
+    "mtime": 1789133638.6840503,
+    "seen": 1789391560.5935428,
+    "ast_hash": "e6d3b7fbe8b825c7ae21fa7845c7956c",
+    "semantic_hash": "e6d3b7fbe8b825c7ae21fa7845c7956c"
+  },
+  "PeopleWithResearch/Models/newuserquestionnaire.cs": {
+    "mtime": 1789133638.6841514,
+    "seen": 1789391560.593544,
+    "ast_hash": "cbb6f5a380379b470fdf6148d57e5f17",
+    "semantic_hash": "cbb6f5a380379b470fdf6148d57e5f17"
+  },
+  "PeopleWithResearch/Models/primarycare.cs": {
+    "mtime": 1789133638.6842527,
+    "seen": 1789391560.593544,
+    "ast_hash": "5af82dc5d4aa164fab33e69c97454f35",
+    "semantic_hash": "5af82dc5d4aa164fab33e69c97454f35"
+  },
+  "PeopleWithResearch/Models/privacyPolicy.cs": {
+    "mtime": 1789133638.6843524,
+    "seen": 1789391560.593545,
+    "ast_hash": "32440face8b7e2f1095f188ba7a7af09",
+    "semantic_hash": "32440face8b7e2f1095f188ba7a7af09"
+  },
+  "PeopleWithResearch/Models/pushdata.cs": {
+    "mtime": 1789133638.6844373,
+    "seen": 1789391560.593546,
+    "ast_hash": "dd765c9204f56e23c324529cbd7b4508",
+    "semantic_hash": "dd765c9204f56e23c324529cbd7b4508"
+  },
+  "PeopleWithResearch/Models/questionnaires.cs": {
+    "mtime": 1789133638.6846178,
+    "seen": 1789391560.593546,
+    "ast_hash": "c367da9ab51e5232478436c07780a9a6",
+    "semantic_hash": "c367da9ab51e5232478436c07780a9a6"
+  },
+  "PeopleWithResearch/Models/signupcode.cs": {
+    "mtime": 1789133638.6847205,
+    "seen": 1789391560.593547,
+    "ast_hash": "68acc36c8f2aa2fa893c8c2daf9a8486",
+    "semantic_hash": "68acc36c8f2aa2fa893c8c2daf9a8486"
+  },
+  "PeopleWithResearch/Models/user.cs": {
+    "mtime": 1789133638.6849077,
+    "seen": 1789391560.593548,
+    "ast_hash": "eb433b2b08aca329958484ec143b9990",
+    "semantic_hash": "eb433b2b08aca329958484ec143b9990"
+  },
+  "PeopleWithResearch/Models/userInitialQuestionsResponses.cs": {
+    "mtime": 1789133638.6850076,
+    "seen": 1789391560.593548,
+    "ast_hash": "3e36edae117400fb7a908a2584fe7d94",
+    "semantic_hash": "3e36edae117400fb7a908a2584fe7d94"
+  },
+  "PeopleWithResearch/Models/userconsent.cs": {
+    "mtime": 1789133638.685102,
+    "seen": 1789391560.593549,
+    "ast_hash": "4d428cf952d0bfc35d39828511b754ba",
+    "semantic_hash": "4d428cf952d0bfc35d39828511b754ba"
+  },
+  "PeopleWithResearch/NewMainPage.xaml": {
+    "mtime": 1789133638.6853225,
+    "seen": 1789391560.59355,
+    "ast_hash": "1fe08481ca5df128b94851049d5f84b4",
+    "semantic_hash": "1fe08481ca5df128b94851049d5f84b4"
+  },
+  "PeopleWithResearch/NewMainPage.xaml.cs": {
+    "mtime": 1789133638.6854508,
+    "seen": 1789391560.59355,
+    "ast_hash": "15c9f2c64c5f51ba3468e68a5b6d4c78",
+    "semantic_hash": "15c9f2c64c5f51ba3468e68a5b6d4c78"
+  },
+  "PeopleWithResearch/PeopleWithResearch.csproj": {
+    "mtime": 1789393435.7121634,
+    "seen": 1789395499.136265,
+    "ast_hash": "ac6eb5d136910c72411440e4e964e3fb",
+    "semantic_hash": "ac6eb5d136910c72411440e4e964e3fb"
+  },
+  "PeopleWithResearch/Platforms/Android/CustomProperties/HideKeyboardEntryRenderer.cs": {
+    "mtime": 1789133638.6861193,
+    "seen": 1789391560.5935519,
+    "ast_hash": "909ca1dba874fe42d3e59c3a0dc05ac6",
+    "semantic_hash": "909ca1dba874fe42d3e59c3a0dc05ac6"
+  },
+  "PeopleWithResearch/Platforms/Android/MainActivity.cs": {
+    "mtime": 1789133638.686417,
+    "seen": 1789391560.5935519,
+    "ast_hash": "e33817e82abc343d42115658bb586d07",
+    "semantic_hash": "e33817e82abc343d42115658bb586d07"
+  },
+  "PeopleWithResearch/Platforms/Android/MainApplication.cs": {
+    "mtime": 1789133638.6865582,
+    "seen": 1789391560.5935528,
+    "ast_hash": "4a91337c87f1a1f133e75c173b06b432",
+    "semantic_hash": "4a91337c87f1a1f133e75c173b06b432"
+  },
+  "PeopleWithResearch/Platforms/Android/NotificationCheckAndroid.cs": {
+    "mtime": 1789133638.6866663,
+    "seen": 1789391560.593554,
+    "ast_hash": "50f31c3a6041585d235a49b1b3cdffd3",
+    "semantic_hash": "50f31c3a6041585d235a49b1b3cdffd3"
+  },
+  "PeopleWithResearch/Platforms/Android/NotificationPermissionServiceAndroid.cs": {
+    "mtime": 1789133638.6867738,
+    "seen": 1789391560.593555,
+    "ast_hash": "b135803880575e825df59a40086090e8",
+    "semantic_hash": "b135803880575e825df59a40086090e8"
+  },
+  "PeopleWithResearch/Platforms/Android/Services/FirebaseService.cs": {
+    "mtime": 1789133638.6884687,
+    "seen": 1789391560.593556,
+    "ast_hash": "17615583c9e002e3acab82d4d8b3a0f7",
+    "semantic_hash": "17615583c9e002e3acab82d4d8b3a0f7"
+  },
+  "PeopleWithResearch/Platforms/Android/google-services.json": {
+    "mtime": 1789133638.6885705,
+    "seen": 1789391560.593556,
+    "ast_hash": "c72cbfbb99ee80b7253dc319753946b6",
+    "semantic_hash": "c72cbfbb99ee80b7253dc319753946b6"
+  },
+  "PeopleWithResearch/Platforms/MacCatalyst/AppDelegate.cs": {
+    "mtime": 1789133638.6887352,
+    "seen": 1789391560.593557,
+    "ast_hash": "6d1d577c5e5fef9f52c8c59db8209ec6",
+    "semantic_hash": "6d1d577c5e5fef9f52c8c59db8209ec6"
+  },
+  "PeopleWithResearch/Platforms/MacCatalyst/Program.cs": {
+    "mtime": 1789133638.6890562,
+    "seen": 1789391560.593557,
+    "ast_hash": "3b618139906340692da8265d3ba4b73c",
+    "semantic_hash": "3b618139906340692da8265d3ba4b73c"
+  },
+  "PeopleWithResearch/Platforms/Tizen/Main.cs": {
+    "mtime": 1789133638.689218,
+    "seen": 1789391560.593558,
+    "ast_hash": "69d4f6f47df33201a75d502710b252ec",
+    "semantic_hash": "69d4f6f47df33201a75d502710b252ec"
+  },
+  "PeopleWithResearch/Platforms/Windows/App.xaml": {
+    "mtime": 1789133638.6894662,
+    "seen": 1789391560.593559,
+    "ast_hash": "02bb23dea6fcb5c5c288d49d23bf6f85",
+    "semantic_hash": "02bb23dea6fcb5c5c288d49d23bf6f85"
+  },
+  "PeopleWithResearch/Platforms/Windows/App.xaml.cs": {
+    "mtime": 1789133638.6895747,
+    "seen": 1789391560.593559,
+    "ast_hash": "a6acb31cf9a8c35100a39d532f0ecd4b",
+    "semantic_hash": "a6acb31cf9a8c35100a39d532f0ecd4b"
+  },
+  "PeopleWithResearch/Platforms/iOS/AppDelegate.cs": {
+    "mtime": 1789133638.6900177,
+    "seen": 1789391560.59356,
+    "ast_hash": "725deb1bfa5e6087f1a4df36f03b5800",
+    "semantic_hash": "725deb1bfa5e6087f1a4df36f03b5800"
+  },
+  "PeopleWithResearch/Platforms/iOS/CustomProperties/ExtendedSearchBar.cs": {
+    "mtime": 1789133638.6901774,
+    "seen": 1789391560.5935612,
+    "ast_hash": "8a207593cb133a3330ca515c21634a5b",
+    "semantic_hash": "8a207593cb133a3330ca515c21634a5b"
+  },
+  "PeopleWithResearch/Platforms/iOS/CustomProperties/HideKeyboardEntryRenderer.cs": {
+    "mtime": 1789133638.6902878,
+    "seen": 1789391560.5935612,
+    "ast_hash": "62910ea5b9f283125ff83596ce634c19",
+    "semantic_hash": "62910ea5b9f283125ff83596ce634c19"
+  },
+  "PeopleWithResearch/Platforms/iOS/NotificationCheckiOS.cs": {
+    "mtime": 1789133638.6906054,
+    "seen": 1789391560.5935621,
+    "ast_hash": "37d6b9fea086d459257ddb4c375fad92",
+    "semantic_hash": "37d6b9fea086d459257ddb4c375fad92"
+  },
+  "PeopleWithResearch/Platforms/iOS/NotificationPermissionServiceiOS.cs": {
+    "mtime": 1789133638.6907077,
+    "seen": 1789391560.5935621,
+    "ast_hash": "518b8fc91c4d56f4ae6b865996f65eee",
+    "semantic_hash": "518b8fc91c4d56f4ae6b865996f65eee"
+  },
+  "PeopleWithResearch/Platforms/iOS/Program.cs": {
+    "mtime": 1789133638.6908114,
+    "seen": 1789391560.5935628,
+    "ast_hash": "3b618139906340692da8265d3ba4b73c",
+    "semantic_hash": "3b618139906340692da8265d3ba4b73c"
+  },
+  "PeopleWithResearch/Platforms/iOS/Services/UserNotificaitonCenterDelegate.cs": {
+    "mtime": 1789133638.6926384,
+    "seen": 1789391560.5935638,
+    "ast_hash": "dc965d6c52d1d4cf1bf4439ff944a7a8",
+    "semantic_hash": "dc965d6c52d1d4cf1bf4439ff944a7a8"
+  },
+  "PeopleWithResearch/Properties/launchSettings.json": {
+    "mtime": 1789133638.692764,
+    "seen": 1789391560.5935638,
+    "ast_hash": "836220c8be2d5322ad68c2a5c7538c2f",
+    "semantic_hash": "836220c8be2d5322ad68c2a5c7538c2f"
+  },
+  "PeopleWithResearch/Resources/Raw/b1_Individual_Q.json": {
+    "mtime": 1789133638.7314208,
+    "seen": 1789391560.593565,
+    "ast_hash": "f48fbd28e9ffb28fc7a0e935513eaa67",
+    "semantic_hash": "f48fbd28e9ffb28fc7a0e935513eaa67"
+  },
+  "PeopleWithResearch/Resources/Raw/b1_samples.json": {
+    "mtime": 1789133638.731699,
+    "seen": 1789391560.593566,
+    "ast_hash": "1f5c6116012c4fac2a12dea24f599cb2",
+    "semantic_hash": "1f5c6116012c4fac2a12dea24f599cb2"
+  },
+  "PeopleWithResearch/Resources/Raw/endofstudyform.json": {
+    "mtime": 1789133638.7318645,
+    "seen": 1789391560.593577,
+    "ast_hash": "58afbe0462049fba6b7c5e92de8f3c91",
+    "semantic_hash": "58afbe0462049fba6b7c5e92de8f3c91"
+  },
+  "PeopleWithResearch/Resources/Raw/faq.json": {
+    "mtime": 1789133638.731988,
+    "seen": 1789391560.59358,
+    "ast_hash": "230328967fb426d0af67c8e607e0915b",
+    "semantic_hash": "230328967fb426d0af67c8e607e0915b"
+  },
+  "PeopleWithResearch/Resources/Raw/privacypolicy.json": {
+    "mtime": 1789133638.7321315,
+    "seen": 1789391560.593581,
+    "ast_hash": "a6f439727296d46619b840d287c4a6ce",
+    "semantic_hash": "a6f439727296d46619b840d287c4a6ce"
+  },
+  "PeopleWithResearch/Resources/Raw/t1formjson.json": {
+    "mtime": 1789133638.7322211,
+    "seen": 1789391560.5935822,
+    "ast_hash": "e80787bcb6c37f7b2b1defb64c934d4a",
+    "semantic_hash": "e80787bcb6c37f7b2b1defb64c934d4a"
+  },
+  "PeopleWithResearch/Resources/Raw/tform.json": {
+    "mtime": 1789133638.7323267,
+    "seen": 1789391560.593583,
+    "ast_hash": "c3f29955104297d8cd0f96ffda8cbecf",
+    "semantic_hash": "c3f29955104297d8cd0f96ffda8cbecf"
+  },
+  "PeopleWithResearch/Resources/Raw/withdraw.json": {
+    "mtime": 1789133638.7324202,
+    "seen": 1789391560.593584,
+    "ast_hash": "77c2d7efbc63b809d9f42ee17f44a9e4",
+    "semantic_hash": "77c2d7efbc63b809d9f42ee17f44a9e4"
+  },
+  "PeopleWithResearch/Resources/Styles/Colors.xaml": {
+    "mtime": 1789133638.7345598,
+    "seen": 1789391560.593585,
+    "ast_hash": "be75b777eff1639823b16308399569fd",
+    "semantic_hash": "be75b777eff1639823b16308399569fd"
+  },
+  "PeopleWithResearch/Resources/Styles/Styles.xaml": {
+    "mtime": 1789133638.7346644,
+    "seen": 1789391560.593586,
+    "ast_hash": "87f34c89db90e0f6ec6a8546a37702a2",
+    "semantic_hash": "87f34c89db90e0f6ec6a8546a37702a2"
+  },
+  "PeopleWithResearch/Views/Dashboard/DashboardConsent.xaml": {
+    "mtime": 1789133638.736132,
+    "seen": 1789391560.593587,
+    "ast_hash": "86d19802084a9e963e9bc3aaab9ae434",
+    "semantic_hash": "86d19802084a9e963e9bc3aaab9ae434"
+  },
+  "PeopleWithResearch/Views/Dashboard/DashboardConsent.xaml.cs": {
+    "mtime": 1789133638.7362256,
+    "seen": 1789391560.5935879,
+    "ast_hash": "45bd01df762fc25bad0e58be235c3ef2",
+    "semantic_hash": "45bd01df762fc25bad0e58be235c3ef2"
+  },
+  "PeopleWithResearch/Views/Dashboard/FAQ_s.xaml": {
+    "mtime": 1789133638.7364206,
+    "seen": 1789391560.593601,
+    "ast_hash": "8686824d0f9be84c031a48cf9bdabce7",
+    "semantic_hash": "8686824d0f9be84c031a48cf9bdabce7"
+  },
+  "PeopleWithResearch/Views/Dashboard/FAQ_s.xaml.cs": {
+    "mtime": 1789133638.736506,
+    "seen": 1789391560.593602,
+    "ast_hash": "d8bb9d11d97bc98eea790375c36979e3",
+    "semantic_hash": "d8bb9d11d97bc98eea790375c36979e3"
+  },
+  "PeopleWithResearch/Views/Dashboard/ImperialDashboard.xaml": {
+    "mtime": 1789133638.7368033,
+    "seen": 1789391560.5936031,
+    "ast_hash": "5d009f8bd9d1e9a03b20aa9789495ea6",
+    "semantic_hash": "5d009f8bd9d1e9a03b20aa9789495ea6"
+  },
+  "PeopleWithResearch/Views/Dashboard/ImperialDashboard.xaml.cs": {
+    "mtime": 1789133638.7377846,
+    "seen": 1789391560.593604,
+    "ast_hash": "023f631f782b7daf5ec8534292f6f4d2",
+    "semantic_hash": "023f631f782b7daf5ec8534292f6f4d2"
+  },
+  "PeopleWithResearch/Views/Dashboard/LostConnectionPage.xaml": {
+    "mtime": 1789133638.7379053,
+    "seen": 1789391560.593605,
+    "ast_hash": "db013f0e85cb39d7b99e2ea7ab718bc2",
+    "semantic_hash": "db013f0e85cb39d7b99e2ea7ab718bc2"
+  },
+  "PeopleWithResearch/Views/Dashboard/LostConnectionPage.xaml.cs": {
+    "mtime": 1789133638.7380552,
+    "seen": 1789391560.593607,
+    "ast_hash": "47896fd83ab809f848784eb74b705b2d",
+    "semantic_hash": "47896fd83ab809f848784eb74b705b2d"
+  },
+  "PeopleWithResearch/Views/Dashboard/MainDashboard.xaml": {
+    "mtime": 1789133638.7381651,
+    "seen": 1789391560.593608,
+    "ast_hash": "be7e8fa0a111ba150eafb7ab2272d1d2",
+    "semantic_hash": "be7e8fa0a111ba150eafb7ab2272d1d2"
+  },
+  "PeopleWithResearch/Views/Dashboard/MainDashboard.xaml.cs": {
+    "mtime": 1789133638.7384908,
+    "seen": 1789391560.5936089,
+    "ast_hash": "45f1932d0f2678685e6fc698bb54908a",
+    "semantic_hash": "45f1932d0f2678685e6fc698bb54908a"
+  },
+  "PeopleWithResearch/Views/Dashboard/ManageProfile.xaml": {
+    "mtime": 1789133638.7385836,
+    "seen": 1789391560.59361,
+    "ast_hash": "bc45283b4d80ba720740a106144de101",
+    "semantic_hash": "bc45283b4d80ba720740a106144de101"
+  },
+  "PeopleWithResearch/Views/Dashboard/ManageProfile.xaml.cs": {
+    "mtime": 1789133638.7387457,
+    "seen": 1789391560.593611,
+    "ast_hash": "ff9b95e8bf7ae363027ef477ded92c9f",
+    "semantic_hash": "ff9b95e8bf7ae363027ef477ded92c9f"
+  },
+  "PeopleWithResearch/Views/Dashboard/NewProfileEdit.xaml": {
+    "mtime": 1789133638.7388363,
+    "seen": 1789391560.593612,
+    "ast_hash": "6be9145be2bb0899be214955f90ee4cc",
+    "semantic_hash": "6be9145be2bb0899be214955f90ee4cc"
+  },
+  "PeopleWithResearch/Views/Dashboard/NewProfileEdit.xaml.cs": {
+    "mtime": 1789133638.7390037,
+    "seen": 1789391560.5936131,
+    "ast_hash": "6926b833e3e02f5fba53e415a72cecc6",
+    "semantic_hash": "6926b833e3e02f5fba53e415a72cecc6"
+  },
+  "PeopleWithResearch/Views/Dashboard/PrivacyPolicyPage.xaml": {
+    "mtime": 1789133638.7394075,
+    "seen": 1789391560.593614,
+    "ast_hash": "53b6c8c84c09ebd3042aaa24b198d054",
+    "semantic_hash": "53b6c8c84c09ebd3042aaa24b198d054"
+  },
+  "PeopleWithResearch/Views/Dashboard/PrivacyPolicyPage.xaml.cs": {
+    "mtime": 1789133638.7394822,
+    "seen": 1789391560.593614,
+    "ast_hash": "2baf9dc5d97cf590b75cf124add0cd00",
+    "semantic_hash": "2baf9dc5d97cf590b75cf124add0cd00"
+  },
+  "PeopleWithResearch/Views/Dashboard/ProfileEdit.xaml": {
+    "mtime": 1789133638.7395892,
+    "seen": 1789391560.593615,
+    "ast_hash": "cef0df2d724353748438589ee4e4e6c5",
+    "semantic_hash": "cef0df2d724353748438589ee4e4e6c5"
+  },
+  "PeopleWithResearch/Views/Dashboard/ProfileEdit.xaml.cs": {
+    "mtime": 1789133638.7396853,
+    "seen": 1789391560.5936158,
+    "ast_hash": "1dd2022c0e805ec3fd7053ef64a1ebb8",
+    "semantic_hash": "1dd2022c0e805ec3fd7053ef64a1ebb8"
+  },
+  "PeopleWithResearch/Views/Dashboard/SelectNotificationTime.xaml": {
+    "mtime": 1789133638.7398486,
+    "seen": 1789391560.593617,
+    "ast_hash": "a69b149792762c3cd988ec53e9ed5ef8",
+    "semantic_hash": "a69b149792762c3cd988ec53e9ed5ef8"
+  },
+  "PeopleWithResearch/Views/Dashboard/SelectNotificationTime.xaml.cs": {
+    "mtime": 1789133638.7399516,
+    "seen": 1789391560.593618,
+    "ast_hash": "2b63c656ceec99d3b721ccef33012d83",
+    "semantic_hash": "2b63c656ceec99d3b721ccef33012d83"
+  },
+  "PeopleWithResearch/Views/Dashboard/WithdrawVideoPopUp.xaml": {
+    "mtime": 1789133638.7400463,
+    "seen": 1789391560.5936189,
+    "ast_hash": "79a419d18e05e6ca57e9c6d803aef35f",
+    "semantic_hash": "79a419d18e05e6ca57e9c6d803aef35f"
+  },
+  "PeopleWithResearch/Views/Dashboard/WithdrawVideoPopUp.xaml.cs": {
+    "mtime": 1789133638.7401397,
+    "seen": 1789391560.59362,
+    "ast_hash": "ef0c50c9274bfbf0194b5d02d8efd89f",
+    "semantic_hash": "ef0c50c9274bfbf0194b5d02d8efd89f"
+  },
+  "PeopleWithResearch/Views/Imperial/Addnewmember.xaml": {
+    "mtime": 1789133638.7403247,
+    "seen": 1789391560.59362,
+    "ast_hash": "3930e7be064b241f89f71f9e4a3330b0",
+    "semantic_hash": "3930e7be064b241f89f71f9e4a3330b0"
+  },
+  "PeopleWithResearch/Views/Imperial/Addnewmember.xaml.cs": {
+    "mtime": 1789133638.7404714,
+    "seen": 1789391560.593621,
+    "ast_hash": "7aa531f5a481214c1c4caa5b50aa13a5",
+    "semantic_hash": "7aa531f5a481214c1c4caa5b50aa13a5"
+  },
+  "PeopleWithResearch/Views/Imperial/pdfpage.xaml": {
+    "mtime": 1789133638.7406743,
+    "seen": 1789391560.593622,
+    "ast_hash": "b962bcfc444ac9a51e5a3faae081ba9b",
+    "semantic_hash": "b962bcfc444ac9a51e5a3faae081ba9b"
+  },
+  "PeopleWithResearch/Views/Imperial/pdfpage.xaml.cs": {
+    "mtime": 1789133638.7407453,
+    "seen": 1789391560.593623,
+    "ast_hash": "9a9f3445083bee48c4ce528b7154c783",
+    "semantic_hash": "9a9f3445083bee48c4ce528b7154c783"
+  },
+  "PeopleWithResearch/Views/Login/ForgotPassword.xaml": {
+    "mtime": 1789133638.7408805,
+    "seen": 1789391560.593623,
+    "ast_hash": "6345c21f60303352d8b8f14365a5d30c",
+    "semantic_hash": "6345c21f60303352d8b8f14365a5d30c"
+  },
+  "PeopleWithResearch/Views/Login/ForgotPassword.xaml.cs": {
+    "mtime": 1789133638.7410035,
+    "seen": 1789391560.593624,
+    "ast_hash": "688c3c4a1b3cfc9809b22332e664983d",
+    "semantic_hash": "688c3c4a1b3cfc9809b22332e664983d"
+  },
+  "PeopleWithResearch/Views/Login/LoginPage.xaml": {
+    "mtime": 1789133638.7411249,
+    "seen": 1789391560.593625,
+    "ast_hash": "28e444e404fe7509e4d57d9caa8d33d1",
+    "semantic_hash": "28e444e404fe7509e4d57d9caa8d33d1"
+  },
+  "PeopleWithResearch/Views/Login/LoginPage.xaml.cs": {
+    "mtime": 1789133638.741239,
+    "seen": 1789391560.593625,
+    "ast_hash": "01d3a65ff0f9180bdc127ee9b4ad5272",
+    "semantic_hash": "01d3a65ff0f9180bdc127ee9b4ad5272"
+  },
+  "PeopleWithResearch/Views/Login/Logout.xaml": {
+    "mtime": 1789133638.741543,
+    "seen": 1789391560.593626,
+    "ast_hash": "40f4caaeb88a9dfc14cbea7b71fd48ed",
+    "semantic_hash": "40f4caaeb88a9dfc14cbea7b71fd48ed"
+  },
+  "PeopleWithResearch/Views/Login/Logout.xaml.cs": {
+    "mtime": 1789133638.7416546,
+    "seen": 1789391560.593627,
+    "ast_hash": "8c1506ed9cedd669763cbb8eec910028",
+    "semantic_hash": "8c1506ed9cedd669763cbb8eec910028"
+  },
+  "PeopleWithResearch/Views/Login/NewLoginPage.xaml": {
+    "mtime": 1789133638.741878,
+    "seen": 1789391560.593627,
+    "ast_hash": "1aac75a330bde6fc88698345d13a28f0",
+    "semantic_hash": "1aac75a330bde6fc88698345d13a28f0"
+  },
+  "PeopleWithResearch/Views/Login/NewLoginPage.xaml.cs": {
+    "mtime": 1789133638.742074,
+    "seen": 1789391560.593628,
+    "ast_hash": "b27c12e9d8ccfc51cbe3529596108c41",
+    "semantic_hash": "b27c12e9d8ccfc51cbe3529596108c41"
+  },
+  "PeopleWithResearch/Views/Login/RegisterPage.xaml": {
+    "mtime": 1789133638.7422726,
+    "seen": 1789391560.593628,
+    "ast_hash": "8a7ebfdc00cde66f9abf0daee9ce7140",
+    "semantic_hash": "8a7ebfdc00cde66f9abf0daee9ce7140"
+  },
+  "PeopleWithResearch/Views/Login/RegisterPage.xaml.cs": {
+    "mtime": 1789133638.742507,
+    "seen": 1789391560.593629,
+    "ast_hash": "431e1b6812e660962f6ff293ff3c591d",
+    "semantic_hash": "431e1b6812e660962f6ff293ff3c591d"
+  },
+  "PeopleWithResearch/Views/Login/RegisterWithDetailsPage.xaml": {
+    "mtime": 1789133638.7425983,
+    "seen": 1789391560.5936298,
+    "ast_hash": "c673d3df3f9abca91e969445691203b3",
+    "semantic_hash": "c673d3df3f9abca91e969445691203b3"
+  },
+  "PeopleWithResearch/Views/Login/RegisterWithDetailsPage.xaml.cs": {
+    "mtime": 1789133638.7429984,
+    "seen": 1789391560.5936298,
+    "ast_hash": "6e8859e7a84bd4692101ed928e5c9581",
+    "semantic_hash": "6e8859e7a84bd4692101ed928e5c9581"
+  },
+  "PeopleWithResearch/Views/Login/SignUpConstent.xaml": {
+    "mtime": 1789133638.743203,
+    "seen": 1789391560.593631,
+    "ast_hash": "c5a1b05c78b60b7cbbf358f4e9261eec",
+    "semantic_hash": "c5a1b05c78b60b7cbbf358f4e9261eec"
+  },
+  "PeopleWithResearch/Views/Login/SignUpConstent.xaml.cs": {
+    "mtime": 1789133638.7432945,
+    "seen": 1789391560.593632,
+    "ast_hash": "80935858b16ac7503ee8fff389274003",
+    "semantic_hash": "80935858b16ac7503ee8fff389274003"
+  },
+  "PeopleWithResearch/Views/Login/WelcomePage.xaml": {
+    "mtime": 1789133638.7433605,
+    "seen": 1789391560.593632,
+    "ast_hash": "e1f145c28a09c14dcdf34976de297a51",
+    "semantic_hash": "e1f145c28a09c14dcdf34976de297a51"
+  },
+  "PeopleWithResearch/Views/Login/WelcomePage.xaml.cs": {
+    "mtime": 1789133638.7434628,
+    "seen": 1789391560.593633,
+    "ast_hash": "f7dfc127a86859a4aa4f5c007dc2649b",
+    "semantic_hash": "f7dfc127a86859a4aa4f5c007dc2649b"
+  },
+  "PeopleWithResearch/Views/New/RegisterLogin/SignUpCodes/Imperial.xaml": {
+    "mtime": 1789133638.744075,
+    "seen": 1789391560.5936341,
+    "ast_hash": "801cbff10d21df1d9132770d11f42ead",
+    "semantic_hash": "801cbff10d21df1d9132770d11f42ead"
+  },
+  "PeopleWithResearch/Views/New/RegisterLogin/SignUpCodes/Imperial.xaml.cs": {
+    "mtime": 1789133638.7446923,
+    "seen": 1789391560.5936341,
+    "ast_hash": "ed04b969a435af3b328498ebb3224e91",
+    "semantic_hash": "ed04b969a435af3b328498ebb3224e91"
+  },
+  "PeopleWithResearch/Views/New/RegisterLogin/SignUpCodes/NewImperial.xaml": {
+    "mtime": 1789133638.7452981,
+    "seen": 1789391560.593635,
+    "ast_hash": "01e5fe2350575d4199e1d53d342c1abf",
+    "semantic_hash": "01e5fe2350575d4199e1d53d342c1abf"
+  },
+  "PeopleWithResearch/Views/New/RegisterLogin/SignUpCodes/NewImperial.xaml.cs": {
+    "mtime": 1789133638.7467349,
+    "seen": 1789391560.593636,
+    "ast_hash": "ff6be14d40f03f7888e011b88028a60b",
+    "semantic_hash": "ff6be14d40f03f7888e011b88028a60b"
+  },
+  "PeopleWithResearch/Views/Questionnaires/AllQuestionnaires.xaml": {
+    "mtime": 1789133638.746912,
+    "seen": 1789391560.593636,
+    "ast_hash": "03edf58b00be7fd0df70af9a15b385b8",
+    "semantic_hash": "03edf58b00be7fd0df70af9a15b385b8"
+  },
+  "PeopleWithResearch/Views/Questionnaires/AllQuestionnaires.xaml.cs": {
+    "mtime": 1789133638.7470014,
+    "seen": 1789391560.5936372,
+    "ast_hash": "db08c78519c38ff2dfe501497f4ae163",
+    "semantic_hash": "db08c78519c38ff2dfe501497f4ae163"
+  },
+  "PeopleWithResearch/Views/Questionnaires/B1Questionnaire.xaml": {
+    "mtime": 1789133638.7471511,
+    "seen": 1789391560.5936372,
+    "ast_hash": "ecc88fd21a6323d758ef2066aacb6491",
+    "semantic_hash": "ecc88fd21a6323d758ef2066aacb6491"
+  },
+  "PeopleWithResearch/Views/Questionnaires/B1Questionnaire.xaml.cs": {
+    "mtime": 1789133638.747347,
+    "seen": 1789391560.593638,
+    "ast_hash": "aeafd5734d645649b84c7ad3f418249b",
+    "semantic_hash": "aeafd5734d645649b84c7ad3f418249b"
+  },
+  "PeopleWithResearch/Views/Questionnaires/EndStudyQuestionnaire.xaml": {
+    "mtime": 1789133638.7475712,
+    "seen": 1789391560.593639,
+    "ast_hash": "f60850bcd451701df331405861b2e11c",
+    "semantic_hash": "f60850bcd451701df331405861b2e11c"
+  },
+  "PeopleWithResearch/Views/Questionnaires/EndStudyQuestionnaire.xaml.cs": {
+    "mtime": 1789133638.7477653,
+    "seen": 1789391560.593639,
+    "ast_hash": "e120170ba41e2f5bf5ec3b6b39cbf1c0",
+    "semantic_hash": "e120170ba41e2f5bf5ec3b6b39cbf1c0"
+  },
+  "PeopleWithResearch/Views/Questionnaires/NewAllQuestionnaires.xaml": {
+    "mtime": 1789133638.7481081,
+    "seen": 1789391560.5936399,
+    "ast_hash": "afb875abab84e6eb8cd69ea8e36e4733",
+    "semantic_hash": "afb875abab84e6eb8cd69ea8e36e4733"
+  },
+  "PeopleWithResearch/Views/Questionnaires/NewAllQuestionnaires.xaml.cs": {
+    "mtime": 1789133638.7482634,
+    "seen": 1789391560.593641,
+    "ast_hash": "2894f40a362c0d475e916457e8d22efe",
+    "semantic_hash": "2894f40a362c0d475e916457e8d22efe"
+  },
+  "PeopleWithResearch/Views/Questionnaires/NewQuestionnairesPage.xaml": {
+    "mtime": 1789133638.7484126,
+    "seen": 1789391560.593641,
+    "ast_hash": "724df328d545af763cd16233deecb941",
+    "semantic_hash": "724df328d545af763cd16233deecb941"
+  },
+  "PeopleWithResearch/Views/Questionnaires/NewQuestionnairesPage.xaml.cs": {
+    "mtime": 1789133638.7488847,
+    "seen": 1789391560.593642,
+    "ast_hash": "635fb7d94c6a4739f666b7da34ab7c64",
+    "semantic_hash": "635fb7d94c6a4739f666b7da34ab7c64"
+  },
+  "PeopleWithResearch/Views/Questionnaires/NotificationQuestion.xaml": {
+    "mtime": 1789133638.7490485,
+    "seen": 1789391560.593643,
+    "ast_hash": "1623e4e862a986893cd66aee9420dc2c",
+    "semantic_hash": "1623e4e862a986893cd66aee9420dc2c"
+  },
+  "PeopleWithResearch/Views/Questionnaires/NotificationQuestion.xaml.cs": {
+    "mtime": 1789133638.749225,
+    "seen": 1789391560.593643,
+    "ast_hash": "7ae4a4b63a56a0230aa045091d3b559d",
+    "semantic_hash": "7ae4a4b63a56a0230aa045091d3b559d"
+  },
+  "PeopleWithResearch/Views/Questionnaires/NotificationQuestionGP.xaml": {
+    "mtime": 1789133638.7494483,
+    "seen": 1789391560.5936441,
+    "ast_hash": "18d22a7b6e42fbf84e69f956fda619e6",
+    "semantic_hash": "18d22a7b6e42fbf84e69f956fda619e6"
+  },
+  "PeopleWithResearch/Views/Questionnaires/NotificationQuestionGP.xaml.cs": {
+    "mtime": 1789133638.7497387,
+    "seen": 1789391560.5936441,
+    "ast_hash": "416141edb7fb594cdb172598c1376533",
+    "semantic_hash": "416141edb7fb594cdb172598c1376533"
+  },
+  "PeopleWithResearch/Views/Questionnaires/QuestionnairePage.xaml": {
+    "mtime": 1789133638.7502778,
+    "seen": 1789391560.593645,
+    "ast_hash": "1f60d4510f6e91146df25487f14cf734",
+    "semantic_hash": "1f60d4510f6e91146df25487f14cf734"
+  },
+  "PeopleWithResearch/Views/Questionnaires/QuestionnairePage.xaml.cs": {
+    "mtime": 1789133638.7505262,
+    "seen": 1789391560.593646,
+    "ast_hash": "3ec99bc9b4a5f5715f3b7b652134438c",
+    "semantic_hash": "3ec99bc9b4a5f5715f3b7b652134438c"
+  },
+  "PeopleWithResearch/Views/Questionnaires/QuestionnairePageGP.xaml": {
+    "mtime": 1789133638.750763,
+    "seen": 1789391560.593647,
+    "ast_hash": "65b15d91f9cdb23fa16a2c656707827d",
+    "semantic_hash": "65b15d91f9cdb23fa16a2c656707827d"
+  },
+  "PeopleWithResearch/Views/Questionnaires/QuestionnairePageGP.xaml.cs": {
+    "mtime": 1789133638.7509594,
+    "seen": 1789391560.593647,
+    "ast_hash": "5c8c248d8d927ef51d58f1184f920688",
+    "semantic_hash": "5c8c248d8d927ef51d58f1184f920688"
+  },
+  "PeopleWithResearch/Views/Questionnaires/QuestionnairePageHardCoded.xaml": {
+    "mtime": 1789133638.7511451,
+    "seen": 1789391560.5936482,
+    "ast_hash": "79a4b2a778358da414512f69a311c6c1",
+    "semantic_hash": "79a4b2a778358da414512f69a311c6c1"
+  },
+  "PeopleWithResearch/Views/Questionnaires/QuestionnairePageHardCoded.xaml.cs": {
+    "mtime": 1789133638.751517,
+    "seen": 1789391560.593649,
+    "ast_hash": "51c3d064b139361ef8e796ef08a07d7b",
+    "semantic_hash": "51c3d064b139361ef8e796ef08a07d7b"
+  },
+  "PeopleWithResearch/Views/Questionnaires/QuestionnairePageHardCoded32.xaml": {
+    "mtime": 1789133638.7517216,
+    "seen": 1789391560.593649,
+    "ast_hash": "41de7c1447e3a01728b7fb8abf2e7c6c",
+    "semantic_hash": "41de7c1447e3a01728b7fb8abf2e7c6c"
+  },
+  "PeopleWithResearch/Views/Questionnaires/QuestionnairePageHardCoded32.xaml.cs": {
+    "mtime": 1789133638.751879,
+    "seen": 1789391560.5936499,
+    "ast_hash": "0d37353f22ab5b54f749f0050eda0e18",
+    "semantic_hash": "0d37353f22ab5b54f749f0050eda0e18"
+  },
+  "PeopleWithResearch/Views/Questionnaires/T1Questionnaire.xaml": {
+    "mtime": 1789133638.7522182,
+    "seen": 1789391560.5936499,
+    "ast_hash": "3b9744d812c433bde30c560ead24ca05",
+    "semantic_hash": "3b9744d812c433bde30c560ead24ca05"
+  },
+  "PeopleWithResearch/Views/Questionnaires/T1Questionnaire.xaml.cs": {
+    "mtime": 1789133638.7523875,
+    "seen": 1789391560.593651,
+    "ast_hash": "68651eceb1294b691bc6b43fe5c01709",
+    "semantic_hash": "68651eceb1294b691bc6b43fe5c01709"
+  },
+  "PeopleWithResearch/Views/Questionnaires/UpdatedQuestionnairesPage.xaml": {
+    "mtime": 1789133638.7527287,
+    "seen": 1789391560.593652,
+    "ast_hash": "a21d122477ab3a90bdb61c2dc9d10770",
+    "semantic_hash": "a21d122477ab3a90bdb61c2dc9d10770"
+  },
+  "PeopleWithResearch/Views/Questionnaires/UpdatedQuestionnairesPage.xaml.cs": {
+    "mtime": 1789133638.7528641,
+    "seen": 1789391560.593652,
+    "ast_hash": "03866f470d43e4631eb052511cd76c0a",
+    "semantic_hash": "03866f470d43e4631eb052511cd76c0a"
+  },
+  "PeopleWithResearch/Views/Questionnaires/ViewquestionnaireProgress.xaml": {
+    "mtime": 1789133638.752997,
+    "seen": 1789391560.593653,
+    "ast_hash": "c796e9f44d3d9269dbf9f24fb9ac3bb2",
+    "semantic_hash": "c796e9f44d3d9269dbf9f24fb9ac3bb2"
+  },
+  "PeopleWithResearch/Views/Questionnaires/ViewquestionnaireProgress.xaml.cs": {
+    "mtime": 1789133638.7531157,
+    "seen": 1789391560.593654,
+    "ast_hash": "4b86cca69693e0de6c21d380af4e67c4",
+    "semantic_hash": "4b86cca69693e0de6c21d380af4e67c4"
+  },
+  "PeopleWithResearch/Views/TestRegPage.xaml": {
+    "mtime": 1789133638.7532241,
+    "seen": 1789391560.593654,
+    "ast_hash": "18647023547147cab6dec1f34ee0ba05",
+    "semantic_hash": "18647023547147cab6dec1f34ee0ba05"
+  },
+  "PeopleWithResearch/Views/TestRegPage.xaml.cs": {
+    "mtime": 1789133638.7533185,
+    "seen": 1789391560.593655,
+    "ast_hash": "e05cab16fdfa1174c26f1c065a328dd6",
+    "semantic_hash": "e05cab16fdfa1174c26f1c065a328dd6"
+  },
+  "PeopleWithResearch/WeakReferenceMessage.cs": {
+    "mtime": 1789133638.753416,
+    "seen": 1789391560.593656,
+    "ast_hash": "77df1181522918a3bd07a77e35d90791",
+    "semantic_hash": "77df1181522918a3bd07a77e35d90791"
+  },
+  "PeopleWithResearch/Platforms/Android/Resources/raw/pwjingo.mp3": {
+    "mtime": 1789133638.6878963,
+    "seen": 1789391560.593656,
+    "ast_hash": "1f63a1e4c708fb20f4b9a2444de8ccac",
+    "semantic_hash": "1f63a1e4c708fb20f4b9a2444de8ccac"
+  },
+  "PeopleWithResearch.UnitTests/Helpers/LanguagePersistenceTests.cs": {
+    "mtime": 1789394840.157387,
+    "seen": 1789395499.1340008,
+    "ast_hash": "e8fd863562e10c8ac21598d53744b596",
+    "semantic_hash": "e8fd863562e10c8ac21598d53744b596"
+  },
+  "PeopleWithResearch.UnitTests/Helpers/LocalizationManagerTests.cs": {
+    "mtime": 1789394830.256109,
+    "seen": 1789395499.134003,
+    "ast_hash": "c773b6d8b5e93a36ad84bb8e11311732",
+    "semantic_hash": "c773b6d8b5e93a36ad84bb8e11311732"
+  },
+  "PeopleWithResearch/Helpers/LanguageChangedMessage.cs": {
+    "mtime": 1789393344.0018048,
+    "seen": 1789395499.13466,
+    "ast_hash": "b57fa0fb1ac485b3d5586de8ce696731",
+    "semantic_hash": "b57fa0fb1ac485b3d5586de8ce696731"
+  },
+  "PeopleWithResearch/Helpers/LocalizationManager.cs": {
+    "mtime": 1789394623.2487757,
+    "seen": 1789395499.134697,
+    "ast_hash": "e1f8fb76d496e7323a8dc670c24efa37",
+    "semantic_hash": "e1f8fb76d496e7323a8dc670c24efa37"
+  },
+  "PeopleWithResearch/Resources/Strings/AppResources.Designer.cs": {
+    "mtime": 1789393502.4875367,
+    "seen": 1789395499.136863,
+    "ast_hash": "6ca626ba122c69cffcd67c52c7f6b2a1",
+    "semantic_hash": "6ca626ba122c69cffcd67c52c7f6b2a1"
+  }
+}

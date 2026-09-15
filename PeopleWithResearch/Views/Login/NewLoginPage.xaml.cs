@@ -32,6 +32,26 @@ namespace PeopleWithResearch
             InitializeComponent();
             emailentry.TextChanged += OnEntryTextChanged;
             passwordentry.TextChanged += OnEntryTextChanged;
+            ApplyLocalization();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ApplyLocalization();
+        }
+
+        private void ApplyLocalization()
+        {
+            Titlelbl.Text          = LocalizationManager.Get("Login_WelcomeBack");
+            subtitleLbl.Text       = LocalizationManager.Get("Login_SignInSubtitle");
+            emailLbl.Text          = LocalizationManager.Get("Login_EmailLabel");
+            passwordLbl.Text       = LocalizationManager.Get("Login_PasswordLabel");
+            forgotPasswordLbl.Text = LocalizationManager.Get("Login_ForgotPassword");
+            Login.Text             = LocalizationManager.Get("Login_SignInButton");
+            noAccountSpan.Text     = LocalizationManager.Get("Login_NoAccount") + " ";
+            signUpSpan.Text        = LocalizationManager.Get("Login_SignUpLink");
+            privacyPolicyLbl.Text  = LocalizationManager.Get("Common_PrivacyPolicy");
         }
 
         private void OnEntryTextChanged(object sender, TextChangedEventArgs e)

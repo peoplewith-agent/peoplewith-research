@@ -3,6 +3,7 @@
     x:Class="PeopleWithResearch.ProfileEdit"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:loc="clr-namespace:PeopleWithResearch"
     xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
     xmlns:local="clr-namespace:PeopleWithResearch"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
@@ -24,7 +25,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_YourName}"
+                        Text="{loc:Localize Key=ProfileEdit_YourName}"
                         TextColor="Black" />
 
                     <Grid Margin="0,0,0,40">
@@ -103,7 +104,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_YourEmail}"
+                        Text="{loc:Localize Key=ProfileEdit_YourEmail}"
                         TextColor="Black" />
 
 
@@ -137,12 +138,12 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_DateOfBirth}"
+                        Text="{loc:Localize Key=ProfileEdit_DateOfBirth}"
                         TextColor="Black" />
                     <Label
                         FontSize="15"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_DobInstruction}"
+                        Text="{loc:Localize Key=ProfileEdit_DobInstruction}"
                         TextColor="Gray" />
 
 
@@ -338,7 +339,7 @@
                             FontAttributes="Bold"
                             HeightRequest="40"
                             HorizontalOptions="CenterAndExpand"
-                            Text="{x:Static strings:AppResources.ProfileEdit_Confirm}"
+                            Text="{loc:Localize Key=ProfileEdit_Confirm}"
                             TextColor="White"
                             VerticalOptions="CenterAndExpand"
                             WidthRequest="120" />
@@ -361,7 +362,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_SelectGender}"
+                        Text="{loc:Localize Key=ProfileEdit_SelectGender}"
                         TextColor="Black" />
 
                     <!--<Label Text="PeopleWith utilise your gender to help profile your anonymised, consolidated, non-personal health information for the purpose of research into conditions"  HorizontalOptions="Center" TextColor="Gray" FontSize="Small" />-->
@@ -462,7 +463,7 @@
                         FontSize="12"
                         HorizontalOptions="Start"
                         IsVisible="false"
-                        Text="{x:Static strings:AppResources.ProfileEdit_PleaseState}"
+                        Text="{loc:Localize Key=ProfileEdit_PleaseState}"
                         TextColor="Black"
                         VerticalOptions="Start" />
 
@@ -488,7 +489,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_Ethnicity}"
+                        Text="{loc:Localize Key=ProfileEdit_Ethnicity}"
                         TextColor="Black" />
 
                     <!--<Label Text="It's quick and easy to sign up to PeopleWith"  HorizontalOptions="Center" TextColor="Gray" FontSize="Small" />-->
@@ -593,7 +594,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_PhoneNumber}"
+                        Text="{loc:Localize Key=ProfileEdit_PhoneNumber}"
                         TextColor="Black" />
 
                     <inputLayout:SfTextInputLayout
@@ -624,7 +625,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_TownCity}"
+                        Text="{loc:Localize Key=ProfileEdit_TownCity}"
                         TextColor="Black" />
 
                     <inputLayout:SfTextInputLayout
@@ -655,13 +656,13 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_Height}"
+                        Text="{loc:Localize Key=ProfileEdit_Height}"
                         TextColor="Black" />
 
                     <Label
                         FontSize="15"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_SelectHeight}"
+                        Text="{loc:Localize Key=ProfileEdit_SelectHeight}"
                         TextColor="Gray" />
 
                     <Grid>
@@ -957,13 +958,13 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_Weight}"
+                        Text="{loc:Localize Key=ProfileEdit_Weight}"
                         TextColor="Black" />
 
                     <Label
                         FontSize="15"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_SelectWeight}"
+                        Text="{loc:Localize Key=ProfileEdit_SelectWeight}"
                         TextColor="Gray" />
 
 
@@ -1256,7 +1257,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_Notifications}"
+                        Text="{loc:Localize Key=ProfileEdit_Notifications}"
                         TextColor="Black" />
 
 
@@ -1283,7 +1284,7 @@
                                 Margin="10,10,0,0"
                                 FontAttributes="None"
                                 HorizontalOptions="StartAndExpand"
-                                Text="{x:Static strings:AppResources.ProfileEdit_AllowNotifications}"
+                                Text="{loc:Localize Key=ProfileEdit_AllowNotifications}"
                                 TextColor="Black"
                                 VerticalOptions="Center" />
                             <Switch
@@ -1309,13 +1310,13 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_NhiTitle}"
+                        Text="{loc:Localize Key=ProfileEdit_NhiTitle}"
                         TextColor="Black" />
                     <Label
                         FontAttributes="None"
                         FontSize="18"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_NhiInstruction}"
+                        Text="{loc:Localize Key=ProfileEdit_NhiInstruction}"
                         TextColor="Black" />
                     <inputLayout:SfTextInputLayout
                         x:Name="epidhint"
@@ -1349,7 +1350,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="{x:Static strings:AppResources.ProfileEdit_PasswordReset}"
+                        Text="{loc:Localize Key=ProfileEdit_PasswordReset}"
                         TextColor="Black" />
 
 
@@ -1427,7 +1428,7 @@
                         CornerRadius="10"
                         FontAttributes="Bold"
                         HorizontalOptions="FillAndExpand"
-                        Text="{x:Static strings:AppResources.ProfileEdit_Save}"
+                        Text="{loc:Localize Key=ProfileEdit_Save}"
                         TextColor="White" />
 
 

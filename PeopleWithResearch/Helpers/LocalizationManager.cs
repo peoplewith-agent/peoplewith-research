@@ -18,6 +18,18 @@ public static class LocalizationManager
         // correctly restore the persisted code via GetDefaultLanguage().
         Helpers.Settings.SelectedLanguage = languageCode;
         var culture = new CultureInfo(languageCode);
+
+        // Release the ResourceManager's per-culture cache so that the next
+        // GetString call re-probes the satellite assembly for the new culture
+        // rather than returning the previously cached neutral (English) ResourceSet.
+        AppResources.ResourceManager.ReleaseAllResources();
+
+        // DefaultThreadCurrentCulture/DefaultThreadCurrentUICulture apply to ALL threads
+        // (including the UI/main thread). Without these, the culture set on
+        // Thread.CurrentThread is invisible to MainThread.BeginInvokeOnMainThread
+        // and to any page constructed on the UI thread.
+        CultureInfo.DefaultThreadCurrentCulture = culture;
+        CultureInfo.DefaultThreadCurrentUICulture = culture;
         CultureInfo.CurrentCulture = culture;
         CultureInfo.CurrentUICulture = culture;
         Thread.CurrentThread.CurrentCulture = culture;
@@ -38,7 +50,15 @@ public static class LocalizationManager
     {
         try
         {
-            return AppResources.ResourceManager.GetString(key, CultureInfo.CurrentUICulture) ?? key;
+            // Explicitly construct the culture from the persisted preference rather
+            // than trusting CultureInfo.CurrentUICulture — this avoids any thread-
+            // marshalling race where the UI thread hasn't yet picked up the new
+            // DefaultThreadCurrentUICulture value.
+            var langCode = Helpers.Settings.SelectedLanguage;
+            var culture = string.IsNullOrEmpty(langCode)
+                ? System.Globalization.CultureInfo.CurrentUICulture
+                : new System.Globalization.CultureInfo(langCode);
+            return AppResources.ResourceManager.GetString(key, culture) ?? key;
         }
         catch
         {

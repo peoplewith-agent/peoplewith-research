@@ -3,6 +3,7 @@
     x:Class="PeopleWithResearch.ManageProfile"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:loc="clr-namespace:PeopleWithResearch"
     xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
@@ -95,11 +96,11 @@
                         x:Name="Titlelbl"
                         FontSize="26"
                         Style="{StaticResource TitleStyle}"
-                        Text="{x:Static strings:AppResources.Manage_Title}" />
+                        Text="{loc:Localize Key=Manage_Title}" />
                     <Label
                         x:Name="SubTitlelbl"
                         Style="{StaticResource SubTitleStyle}"
-                        Text="{x:Static strings:AppResources.Manage_Subtitle}" />
+                        Text="{loc:Localize Key=Manage_Subtitle}" />
                 </VerticalStackLayout>
 
                 <Border
@@ -115,7 +116,7 @@
 
                             <Label
                                 Style="{StaticResource TitleStyle}"
-                                Text="{x:Static strings:AppResources.Manage_PersonalInformation}"
+                                Text="{loc:Localize Key=Manage_PersonalInformation}"
                                 TextColor="#009fe3" />
 
                         </HorizontalStackLayout>
@@ -125,7 +126,7 @@
                         <Label
                             Margin="0,20,0,5"
                             Style="{StaticResource SubHeadStyle}"
-                            Text="{x:Static strings:AppResources.Manage_UserId}" />
+                            Text="{loc:Localize Key=Manage_UserId}" />
 
                         <Grid>
                             <inputLayout:SfTextInputLayout
@@ -166,17 +167,17 @@
                                 Grid.Column="0"
                                 Margin="0,0,0,5"
                                 Style="{StaticResource SubHeadStyle}"
-                                Text="{x:Static strings:AppResources.Manage_FirstName}" />
+                                Text="{loc:Localize Key=Manage_FirstName}" />
                             <inputLayout:SfTextInputLayout
                                 x:Name="NameHelper"
                                 Grid.Row="1"
                                 Grid.Column="0"
-                                Hint="{x:Static strings:AppResources.Manage_FirstName}"
+                                Hint="{loc:Localize Key=Manage_FirstName}"
                                 Style="{StaticResource InputLayoutstyle}">
                                 <Entry
                                     x:Name="NameEntry"
                                     IsReadOnly="True"
-                                    Placeholder="{x:Static strings:AppResources.Manage_FirstName}"
+                                    Placeholder="{loc:Localize Key=Manage_FirstName}"
                                     Style="{StaticResource EntryStyle}" />
                             </inputLayout:SfTextInputLayout>
 
@@ -185,17 +186,17 @@
                                 Grid.Column="1"
                                 Margin="0,0,0,5"
                                 Style="{StaticResource SubHeadStyle}"
-                                Text="{x:Static strings:AppResources.Manage_Surname}" />
+                                Text="{loc:Localize Key=Manage_Surname}" />
                             <inputLayout:SfTextInputLayout
                                 x:Name="SurnameHelper"
                                 Grid.Row="1"
                                 Grid.Column="1"
-                                Hint="{x:Static strings:AppResources.Manage_Surname}"
+                                Hint="{loc:Localize Key=Manage_Surname}"
                                 Style="{StaticResource InputLayoutstyle}">
                                 <Entry
                                     x:Name="SurnameEntry"
                                     IsReadOnly="True"
-                                    Placeholder="{x:Static strings:AppResources.Manage_Surname}"
+                                    Placeholder="{loc:Localize Key=Manage_Surname}"
                                     Style="{StaticResource EntryStyle}" />
                             </inputLayout:SfTextInputLayout>
                         </Grid>
@@ -203,16 +204,16 @@
                         <Label
                             Margin="0,0,0,5"
                             Style="{StaticResource SubHeadStyle}"
-                            Text="{x:Static strings:AppResources.Manage_Email}" />
+                            Text="{loc:Localize Key=Manage_Email}" />
                         <inputLayout:SfTextInputLayout
                             x:Name="EmailHelper"
-                            Hint="{x:Static strings:AppResources.Manage_Email}"
+                            Hint="{loc:Localize Key=Manage_Email}"
                             Style="{StaticResource InputLayoutstyle}">
                             <Entry
                                 x:Name="EmailEntry"
                                 IsReadOnly="True"
                                 Keyboard="Email"
-                                Placeholder="{x:Static strings:AppResources.Manage_Email}"
+                                Placeholder="{loc:Localize Key=Manage_Email}"
                                 Style="{StaticResource EntryStyle}"
                                 Text="{Binding household_individual_email}" />
                         </inputLayout:SfTextInputLayout>
@@ -222,7 +223,7 @@
                         <Label
                             IsVisible="False"
                             Style="{StaticResource SubbodyStyle}"
-                            Text="{x:Static strings:AppResources.Manage_PermissionGranted}" />
+                            Text="{loc:Localize Key=Manage_PermissionGranted}" />
 
                         <Border
                             Margin="0,4"
@@ -258,7 +259,7 @@
                                             <Span
                                                 FontFamily="OpenSansRegular"
                                                 FontSize="12"
-                                Text="{x:Static strings:AppResources.Manage_PermissionCheck}"
+                                Text="{loc:Localize Key=Manage_PermissionCheck}"
                                                 TextColor="#031926" />
 
                                         </FormattedString>
@@ -286,7 +287,7 @@
 
                             <Label
                                 Style="{StaticResource TitleStyle}"
-                                Text="{x:Static strings:AppResources.Manage_HouseholdDetails}"
+                                Text="{loc:Localize Key=Manage_HouseholdDetails}"
                                 TextColor="#009fe3" />
 
                         </HorizontalStackLayout>
@@ -301,7 +302,7 @@
                                 Grid.Column="0"
                                 Margin="0,0,0,5"
                                 Style="{StaticResource SubHeadStyle}"
-                                Text="{x:Static strings:AppResources.Manage_Status}" />
+                                Text="{loc:Localize Key=Manage_Status}" />
 
 
                             <inputLayout:SfTextInputLayout
@@ -343,7 +344,7 @@
                                 Grid.Column="1"
                                 Margin="0,0,0,5"
                                 Style="{StaticResource SubHeadStyle}"
-                                Text="{x:Static strings:AppResources.Manage_GroupId}" />
+                                Text="{loc:Localize Key=Manage_GroupId}" />
 
                             <inputLayout:SfTextInputLayout
                                 x:Name="GroupIDHelper"
@@ -436,7 +437,7 @@
                     FontSize="14"
                     HorizontalOptions="Center"
                     Style="{StaticResource SubHeadStyle}"
-                                Text="{x:Static strings:AppResources.Manage_EnableEditHint}" />
+                                Text="{loc:Localize Key=Manage_EnableEditHint}" />
                 <Button
                     x:Name="Editbtn"
                     Background="#009fe3"
@@ -444,7 +445,7 @@
                     FontAttributes="Bold"
                     FontFamily="OpenSansSemiBold"
                     FontSize="16"
-                    Text="{x:Static strings:AppResources.Manage_EnableEdit}"
+                    Text="{loc:Localize Key=Manage_EnableEdit}"
                     TextColor="White" />
             </VerticalStackLayout>
         </Border>
