@@ -26,7 +26,8 @@ public partial class NewMainPage : ContentPage
         { "en", "English" },
         { "pl", "Polski" },
         { "ro", "Română" },
-        { "gu", "ગુજરાતી" }
+        { "gu", "ગુજરાતી" },
+        { "es", "Español" }
     };
 
     private static readonly Dictionary<string, string> _languageFlags = new()
@@ -34,7 +35,8 @@ public partial class NewMainPage : ContentPage
         { "en", "egflag.png" },
         { "pl", "plflag.png" },
         { "ro", "roflag.png" },
-        { "gu", "guflag.png" }
+        { "gu", "guflag.png" },
+        { "es", "esflag.png" }
     };
 
     protected override void OnAppearing()
