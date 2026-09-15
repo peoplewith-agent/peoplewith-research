@@ -29,6 +29,14 @@ public partial class NewMainPage : ContentPage
         { "gu", "ગુજરાતી" }
     };
 
+    private static readonly Dictionary<string, string> _languageFlags = new()
+    {
+        { "en", "egflag.png" },
+        { "pl", "plflag.png" },
+        { "ro", "roflag.png" },
+        { "gu", "guflag.png" }
+    };
+
     protected override void OnAppearing()
     {
         base.OnAppearing();
@@ -536,9 +544,17 @@ public partial class NewMainPage : ContentPage
     private void UpdateLanguageLabel()
     {
         var code = Helpers.Settings.SelectedLanguage;
-        languageLabel.Text = (!string.IsNullOrEmpty(code) && _languageNames.TryGetValue(code, out var name))
-            ? name
-            : LocalizationManager.Get("SelectLang_Title");
+        if (!string.IsNullOrEmpty(code) && _languageNames.TryGetValue(code, out var name))
+        {
+            languageLabel.Text = name;
+            if (_languageFlags.TryGetValue(code, out var flag))
+                languageFlagImage.Source = ImageSource.FromFile(flag);
+        }
+        else
+        {
+            languageLabel.Text = LocalizationManager.Get("SelectLang_Title");
+            languageFlagImage.Source = ImageSource.FromFile("egflag.png");
+        }
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
