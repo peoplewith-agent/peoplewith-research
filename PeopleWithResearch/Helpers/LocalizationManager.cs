@@ -5,7 +5,7 @@ namespace PeopleWithResearch;
 
 public static class LocalizationManager
 {
-    private static readonly string[] _supportedLanguages = ["en", "pl", "ro", "gu"];
+    private static readonly string[] _supportedLanguages = ["en", "pl", "ro", "gu", "es"];
 
     public static string CurrentLanguage => Helpers.Settings.SelectedLanguage ?? "en";
 
@@ -58,6 +58,23 @@ public static class LocalizationManager
             var culture = string.IsNullOrEmpty(langCode)
                 ? System.Globalization.CultureInfo.CurrentUICulture
                 : new System.Globalization.CultureInfo(langCode);
+            return AppResources.ResourceManager.GetString(key, culture) ?? key;
+        }
+        catch
+        {
+            return key;
+        }
+    }
+
+    /// <summary>
+    /// Look up a key in a specific language, regardless of the currently selected language.
+    /// Used by the language picker so each option shows its title/description in its own language.
+    /// </summary>
+    public static string GetForLanguage(string key, string languageCode)
+    {
+        try
+        {
+            var culture = new CultureInfo(languageCode);
             return AppResources.ResourceManager.GetString(key, culture) ?? key;
         }
         catch

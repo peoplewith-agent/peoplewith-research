@@ -29,7 +29,7 @@
         BackgroundColor="#EFEFF2"
         StrokeThickness="0"
         VerticalOptions="Center"
-        HeightRequest="380">
+        HeightRequest="460">
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="24" />
         </Border.StrokeShape>

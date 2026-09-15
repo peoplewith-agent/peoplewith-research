@@ -60,15 +60,16 @@ public partial class SelectLanguagePopup : PopupPage
             _currentLanguageCode = string.IsNullOrEmpty(Helpers.Settings.SelectedLanguage)
                 ? "en" : Helpers.Settings.SelectedLanguage;
 
-            // B2 fix: removed spurious using PeoplewithResearch (wrong-case namespace) — not needed here
-            Languages.Add(new LanguageOption { Name = "English", FlagImage = "egflag.png", LanguageTitle = AppResources.ResourceManager.GetString("SelectLang_Title", CultureInfo.CurrentUICulture) ?? "Select Language", LanguageDescription = AppResources.ResourceManager.GetString("SelectLang_Description", CultureInfo.CurrentUICulture) ?? "Choose your preferred language", LanguageCode = "en", IsSelected = _currentLanguageCode == "en" });
-            Languages.Add(new LanguageOption { Name = "Polski",  FlagImage = "plflag.png", LanguageTitle = AppResources.ResourceManager.GetString("SelectLang_Title", CultureInfo.CurrentUICulture) ?? "Select Language", LanguageDescription = AppResources.ResourceManager.GetString("SelectLang_Description", CultureInfo.CurrentUICulture) ?? "Choose your preferred language", LanguageCode = "pl", IsSelected = _currentLanguageCode == "pl" });
-            Languages.Add(new LanguageOption { Name = "Română",  FlagImage = "roflag.png", LanguageTitle = AppResources.ResourceManager.GetString("SelectLang_Title", CultureInfo.CurrentUICulture) ?? "Select Language", LanguageDescription = AppResources.ResourceManager.GetString("SelectLang_Description", CultureInfo.CurrentUICulture) ?? "Choose your preferred language", LanguageCode = "ro", IsSelected = _currentLanguageCode == "ro" });
-            Languages.Add(new LanguageOption { Name = "ગુજરાતી", FlagImage = "guflag.png", LanguageTitle = AppResources.ResourceManager.GetString("SelectLang_Title", CultureInfo.CurrentUICulture) ?? "Select Language", LanguageDescription = AppResources.ResourceManager.GetString("SelectLang_Description", CultureInfo.CurrentUICulture) ?? "Choose your preferred language", LanguageCode = "gu", IsSelected = _currentLanguageCode == "gu" });
-            Languages.Add(new LanguageOption { Name = "Español",  FlagImage = "esflag.png", LanguageTitle = AppResources.ResourceManager.GetString("SelectLang_Title", CultureInfo.CurrentUICulture) ?? "Select Language", LanguageDescription = AppResources.ResourceManager.GetString("SelectLang_Description", CultureInfo.CurrentUICulture) ?? "Choose your preferred language", LanguageCode = "es", IsSelected = _currentLanguageCode == "es" });
+            // Each language option shows the title/description in its OWN language
+            Languages.Add(new LanguageOption { Name = "English",  FlagImage = "egflag.png", LanguageTitle = LocalizationManager.GetForLanguage("SelectLang_Title", "en"),       LanguageDescription = LocalizationManager.GetForLanguage("SelectLang_Description", "en"),       LanguageCode = "en", IsSelected = _currentLanguageCode == "en" });
+            Languages.Add(new LanguageOption { Name = "Polski",   FlagImage = "plflag.png", LanguageTitle = LocalizationManager.GetForLanguage("SelectLang_Title", "pl"),       LanguageDescription = LocalizationManager.GetForLanguage("SelectLang_Description", "pl"),       LanguageCode = "pl", IsSelected = _currentLanguageCode == "pl" });
+            Languages.Add(new LanguageOption { Name = "Română",   FlagImage = "roflag.png", LanguageTitle = LocalizationManager.GetForLanguage("SelectLang_Title", "ro"),       LanguageDescription = LocalizationManager.GetForLanguage("SelectLang_Description", "ro"),       LanguageCode = "ro", IsSelected = _currentLanguageCode == "ro" });
+            Languages.Add(new LanguageOption { Name = "ગુજરાતી",  FlagImage = "guflag.png", LanguageTitle = LocalizationManager.GetForLanguage("SelectLang_Title", "gu"),       LanguageDescription = LocalizationManager.GetForLanguage("SelectLang_Description", "gu"),       LanguageCode = "gu", IsSelected = _currentLanguageCode == "gu" });
+            Languages.Add(new LanguageOption { Name = "Español",  FlagImage = "esflag.png", LanguageTitle = LocalizationManager.GetForLanguage("SelectLang_Title", "es"),       LanguageDescription = LocalizationManager.GetForLanguage("SelectLang_Description", "es"),       LanguageCode = "es", IsSelected = _currentLanguageCode == "es" });
 
-            LanguageTitleLabel.Text = Languages.FirstOrDefault(l => l.IsSelected)?.LanguageTitle ?? "Select Language";
-            LanguageDescriptionLabel.Text = Languages.FirstOrDefault(l => l.IsSelected)?.LanguageDescription ?? "Choose your preferred language";
+            var selected = Languages.FirstOrDefault(l => l.IsSelected) ?? Languages[0];
+            LanguageTitleLabel.Text       = selected.LanguageTitle;
+            LanguageDescriptionLabel.Text = selected.LanguageDescription;
         }
         catch (Exception Ex) { NotasyncMethod(Ex); }
     }
