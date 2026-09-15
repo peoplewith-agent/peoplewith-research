@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
     xmlns:mopup="clr-namespace:Mopups.Pages;assembly=Mopups"
+    xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     xmlns:sflistview="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     BackgroundColor="#66000000"
@@ -59,7 +60,7 @@
                             FontFamily="OpenSansSemi"
                             FontSize="24"
                             HorizontalOptions="Center"
-                            Text="Notification reminder time"
+                            Text="{x:Static strings:AppResources.Notification_Title}"
                             TextColor="Black" />
 
                         <Label
@@ -142,7 +143,7 @@
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Center"
                             IsVisible="False"
-                            Text="Please select a notification time"
+                            Text="{x:Static strings:AppResources.Notification_SelectTimeHint}"
                             TextColor="Red"
                             VerticalOptions="Start"
                             VerticalTextAlignment="Center" />
@@ -155,7 +156,7 @@
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemi"
                             FontSize="14"
-                            Text="Choose Time"
+                            Text="{x:Static strings:AppResources.Notification_ChooseTime}"
                             TextColor="White"
                             VerticalOptions="End" />
 
@@ -186,14 +187,14 @@
                                 FontFamily="OpenSansSemi"
                                 FontSize="24"
                                 HorizontalTextAlignment="Center"
-                                Text="Notification Time Saved!"
+                                Text="{x:Static strings:AppResources.Notification_SavedTitle}"
                                 TextColor="#111827" />
 
                             <Label
                                 FontFamily="OpenSansRegular"
                                 FontSize="15"
                                 HorizontalTextAlignment="Center"
-                                Text="We'll remind you every day at"
+                                Text="{x:Static strings:AppResources.Notification_SavedSubtitle}"
                                 TextColor="#6B7280" />
 
                         </VerticalStackLayout>
@@ -236,7 +237,7 @@
                             FontFamily="OpenSansRegular"
                             FontSize="14"
                             HorizontalTextAlignment="Center"
-                            Text="You can change this reminder at any time from your notification settings"
+                            Text="{x:Static strings:AppResources.Notification_ChangeAnytime}"
                             TextColor="#6B7280" />
 
                     </VerticalStackLayout>

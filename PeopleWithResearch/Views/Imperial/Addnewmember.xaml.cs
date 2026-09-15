@@ -108,7 +108,7 @@ public partial class Addnewmember : ContentPage
                 {
                     Vibration.Vibrate();
                     firstemailhelper.HasError = true;
-                    firstemailhelper.ErrorText = "Please enter a valid email address";
+                    firstemailhelper.ErrorText = LocalizationManager.Get("AddMember_EmailInvalid");
                     return false;
                 }
 
@@ -118,7 +118,7 @@ public partial class Addnewmember : ContentPage
                 {
                     Vibration.Vibrate();
                     firstemailhelper.HasError = true;
-                    firstemailhelper.ErrorText = "User in family with same email already exists";
+                    firstemailhelper.ErrorText = LocalizationManager.Get("AddMember_EmailFamilyExists");
                     return false;
                 }
 
@@ -130,7 +130,7 @@ public partial class Addnewmember : ContentPage
                 {
                     Vibration.Vibrate();
                     firstemailhelper.HasError = true;
-                    firstemailhelper.ErrorText = "User with same email already exists";
+                    firstemailhelper.ErrorText = LocalizationManager.Get("AddMember_EmailExists");
                     return false;
                 }
 

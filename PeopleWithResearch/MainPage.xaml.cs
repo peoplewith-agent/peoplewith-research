@@ -149,7 +149,7 @@ namespace PeopleWithResearch
 
                     if (checkuser == null)
                     {
-                        loaderlabel.Text = "Invalid Research Code";
+                        loaderlabel.Text = LocalizationManager.Get("Main_InvalidCode");
                         tickloader.Source = ImageSource.FromFile("error.png");
                         tickloader.IsVisible = true;
                         loader.IsVisible = false;
@@ -162,7 +162,7 @@ namespace PeopleWithResearch
                     if (checkuser.Count != 0)
                     {
                         await Task.Delay(2000);
-                        loaderlabel.Text = "Validating your user code to ensure a secure and efficient login experience";
+                        loaderlabel.Text = LocalizationManager.Get("Main_ValidatingCode");
 
 
                         //tick1.Opacity = 1;
@@ -171,7 +171,7 @@ namespace PeopleWithResearch
                     else
                     {
                         //code is not in system
-                        loaderlabel.Text = "Invalid Research Code";
+                        loaderlabel.Text = LocalizationManager.Get("Main_InvalidCode");
                         tickloader.Source = ImageSource.FromFile("error.png");
                         tickloader.IsVisible = true;
                         loader.IsVisible = false;
@@ -211,7 +211,7 @@ namespace PeopleWithResearch
 
                                 if (checkepid.Any(x => x.RegStatus == "Active"))
                                 {
-                                    loaderlabel.Text = "Details associated to this research code are already in use. Please login to continue. If you believe this is an error, please contact: support@peoplewith.com";
+                                    loaderlabel.Text = LocalizationManager.Get("Main_DetailsInUse");
                                     tickloader.Source = ImageSource.FromFile("error.png");
                                     tickloader.IsVisible = true;
                                     loader.IsVisible = false;
@@ -248,7 +248,7 @@ namespace PeopleWithResearch
 
 
 
-                            loaderlabel.Text = "Checking for any duplications in our system";
+                            loaderlabel.Text = LocalizationManager.Get("Main_CheckingDuplications");
 
                             checksignupcodes = await advertmanager.GetSpecficAd(checkuser[0].Signupid);
 
@@ -277,7 +277,7 @@ namespace PeopleWithResearch
                             }
 
                             // Analytics.TrackEvent("MainPage - Success on copy and paste code");
-                            loaderlabel.Text = "Success";
+                            loaderlabel.Text = LocalizationManager.Get("Main_Success");
                             loader.IsVisible = false;
                             tickloader.IsVisible = true;
 
@@ -298,7 +298,7 @@ namespace PeopleWithResearch
                         }
                         else
                         {
-                            loaderlabel.Text = "User already exists";
+                            loaderlabel.Text = LocalizationManager.Get("Main_UserAlreadyExists");
                             tickloader.Source = ImageSource.FromFile("error.png");
                             tickloader.IsVisible = true;
                             loader.IsVisible = false;
@@ -357,7 +357,7 @@ namespace PeopleWithResearch
                 tryagainbutton.IsVisible = false;
                 tickloader.IsVisible = false;
                 tickloader.Source = ImageSource.FromFile("tick.png");
-                loaderlabel.Text = "Checking code...";
+                loaderlabel.Text = LocalizationManager.Get("Main_CheckingCode");
                 pastebtn.IsVisible = true;
                 loginlbl.IsVisible = true;
                 loginbtn.IsVisible = true;
@@ -399,7 +399,7 @@ namespace PeopleWithResearch
                 tryagainbutton.IsVisible = false;
                 tickloader.IsVisible = false;
                 tickloader.Source = ImageSource.FromFile("tick.png");
-                loaderlabel.Text = "Checking code...";
+                loaderlabel.Text = LocalizationManager.Get("Main_CheckingCode");
                 pastebtn.IsVisible = true;
                 loginlbl.IsVisible = true;
                 loginbtn.IsVisible = true;
@@ -453,7 +453,7 @@ namespace PeopleWithResearch
         {
             try
             {
-                mainlbl.Text = AppResources.ResourceManager.GetString("MainPage_ResearchCode", CultureInfo.CurrentUICulture) ?? "Your Research Code";
+                mainlbl.Text = LocalizationManager.Get("MainPage_ResearchCode");
             }
             catch (Exception Ex)
             {

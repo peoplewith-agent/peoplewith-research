@@ -609,7 +609,7 @@ namespace PeopleWithResearch
                         if (string.IsNullOrEmpty(emailregtxt.Text))
                         {
                             emailreghint.HasError = true;
-                            emailreghint.ErrorText = "Please enter an email address";
+                            emailreghint.ErrorText = LocalizationManager.Get("ProfileEdit_EmailEmpty");
                             Vibration.Vibrate();
                             emailregtxt.Focus();
                             return;
@@ -620,7 +620,7 @@ namespace PeopleWithResearch
                         {
                            // emailreghint.ErrorColor = Colors.Red;
                             emailreghint.HasError = true;
-                            emailreghint.ErrorText = "Please enter a valid email address";
+                            emailreghint.ErrorText = LocalizationManager.Get("ProfileEdit_EmailInvalid");
                             Vibration.Vibrate();
                             emailregtxt.Focus();
                             return;
@@ -663,7 +663,7 @@ namespace PeopleWithResearch
                             {
 
                                 emailreghint.HasError = true;
-                                emailreghint.ErrorText = "Email address already in use.";
+                                emailreghint.ErrorText = LocalizationManager.Get("ProfileEdit_EmailInUse");
                                 Vibration.Vibrate();
                                 emailregtxt.Focus();
                                 return;
@@ -777,7 +777,7 @@ namespace PeopleWithResearch
 
                         if (string.IsNullOrEmpty(passwordold.Text))
                         {
-                            passworderror.Text = "Please Enter your Current Password";
+                            passworderror.Text = LocalizationManager.Get("ProfileEdit_EnterCurrentPassword");
                             Vibration.Vibrate();
                             return;
                         }
@@ -813,7 +813,7 @@ namespace PeopleWithResearch
                             {
                                 if (string.IsNullOrEmpty(passwordnew.Text) || string.IsNullOrEmpty(passwordnew.Text))
                                 {
-                                    passworderror.Text = "Please Enter and Confirm your New Password";
+                                    passworderror.Text = LocalizationManager.Get("ProfileEdit_EnterNewPassword");
                                     Vibration.Vibrate();
                                     return;
                                 }
@@ -821,7 +821,7 @@ namespace PeopleWithResearch
                                 {
                                     if (passwordnew.Text != newpasswordcheck.Text)
                                     {
-                                        passworderror.Text = "New Password Does not Match";
+                                        passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordMismatch");
                                         Vibration.Vibrate();
                                         return;
                                     }
@@ -830,7 +830,7 @@ namespace PeopleWithResearch
 
                                         if (passwordnew.Text.Length < 8)
                                         {
-                                            passworderror.Text = "New Password must be longer than 8 characters and no more than 15 characters";
+                                            passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordTooShort");
                                             Vibration.Vibrate();
                                             return;
                                         }
@@ -844,7 +844,7 @@ namespace PeopleWithResearch
 
                                             if (!hasMiniMaxChars.IsMatch(passwordnew.Text))
                                             {
-                                                passworderror.Text = "Password must be between 8 and 15 characters";
+                                                passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordLength");
                                                 Vibration.Vibrate();
                                                 return;
                                             }
@@ -852,7 +852,7 @@ namespace PeopleWithResearch
                                             {
                                                 if (!hasNumber.IsMatch(passwordnew.Text))
                                                 {
-                                                    passworderror.Text = "Password must contain at least one number";
+                                                    passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordNeedsNumber");
                                                     Vibration.Vibrate();
                                                     return;
                                                 }
@@ -860,7 +860,7 @@ namespace PeopleWithResearch
                                                 {
                                                     if (!hasUpperChar.IsMatch(passwordnew.Text))
                                                     {
-                                                        passworderror.Text = "Password must contain at least one upper case letter";
+                                                        passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordNeedsUpper");
                                                         Vibration.Vibrate();
                                                         return;
                                                     }
@@ -868,7 +868,7 @@ namespace PeopleWithResearch
                                                     {
                                                         if (!hasLowerChar.IsMatch(passwordnew.Text))
                                                         {
-                                                            passworderror.Text = "Password must contain at lease one lower case letter";
+                                                            passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordNeedsLower");
                                                             Vibration.Vibrate();
                                                             return;
                                                         }
@@ -876,7 +876,7 @@ namespace PeopleWithResearch
                                                         {
                                                             if (!hasSymbols.IsMatch(passwordnew.Text))
                                                             {
-                                                                passworderror.Text = "Password must contain at least one symbol";
+                                                                passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordNeedsSymbol");
                                                                 Vibration.Vibrate();
                                                                 return;
                                                             }
@@ -900,7 +900,7 @@ namespace PeopleWithResearch
                             else
                             {
                                 Vibration.Vibrate();
-                                passworderror.Text = "Current Password incorrect, Please enter the correct Password";
+                                passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordCurrentIncorrect");
                                 return;
                             }
 

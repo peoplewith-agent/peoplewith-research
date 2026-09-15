@@ -6,6 +6,7 @@
     xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     ios:Page.UseSafeArea="True"
     BackgroundColor="White">
@@ -94,11 +95,11 @@
                         x:Name="Titlelbl"
                         FontSize="26"
                         Style="{StaticResource TitleStyle}"
-                        Text="Manage Profile" />
+                        Text="{x:Static strings:AppResources.Manage_Title}" />
                     <Label
                         x:Name="SubTitlelbl"
                         Style="{StaticResource SubTitleStyle}"
-                        Text="Select any editable field to update your profile details. Some fields are read-only." />
+                        Text="{x:Static strings:AppResources.Manage_Subtitle}" />
                 </VerticalStackLayout>
 
                 <Border
@@ -114,7 +115,7 @@
 
                             <Label
                                 Style="{StaticResource TitleStyle}"
-                                Text="Personal Information"
+                                Text="{x:Static strings:AppResources.Manage_PersonalInformation}"
                                 TextColor="#009fe3" />
 
                         </HorizontalStackLayout>
@@ -124,7 +125,7 @@
                         <Label
                             Margin="0,20,0,5"
                             Style="{StaticResource SubHeadStyle}"
-                            Text="User Id" />
+                            Text="{x:Static strings:AppResources.Manage_UserId}" />
 
                         <Grid>
                             <inputLayout:SfTextInputLayout
@@ -165,17 +166,17 @@
                                 Grid.Column="0"
                                 Margin="0,0,0,5"
                                 Style="{StaticResource SubHeadStyle}"
-                                Text="First name" />
+                                Text="{x:Static strings:AppResources.Manage_FirstName}" />
                             <inputLayout:SfTextInputLayout
                                 x:Name="NameHelper"
                                 Grid.Row="1"
                                 Grid.Column="0"
-                                Hint="First name"
+                                Hint="{x:Static strings:AppResources.Manage_FirstName}"
                                 Style="{StaticResource InputLayoutstyle}">
                                 <Entry
                                     x:Name="NameEntry"
                                     IsReadOnly="True"
-                                    Placeholder="Enter first name"
+                                    Placeholder="{x:Static strings:AppResources.Manage_FirstName}"
                                     Style="{StaticResource EntryStyle}" />
                             </inputLayout:SfTextInputLayout>
 
@@ -184,17 +185,17 @@
                                 Grid.Column="1"
                                 Margin="0,0,0,5"
                                 Style="{StaticResource SubHeadStyle}"
-                                Text="Surname" />
+                                Text="{x:Static strings:AppResources.Manage_Surname}" />
                             <inputLayout:SfTextInputLayout
                                 x:Name="SurnameHelper"
                                 Grid.Row="1"
                                 Grid.Column="1"
-                                Hint="Surname"
+                                Hint="{x:Static strings:AppResources.Manage_Surname}"
                                 Style="{StaticResource InputLayoutstyle}">
                                 <Entry
                                     x:Name="SurnameEntry"
                                     IsReadOnly="True"
-                                    Placeholder="Enter surname"
+                                    Placeholder="{x:Static strings:AppResources.Manage_Surname}"
                                     Style="{StaticResource EntryStyle}" />
                             </inputLayout:SfTextInputLayout>
                         </Grid>
@@ -202,16 +203,16 @@
                         <Label
                             Margin="0,0,0,5"
                             Style="{StaticResource SubHeadStyle}"
-                            Text="Email" />
+                            Text="{x:Static strings:AppResources.Manage_Email}" />
                         <inputLayout:SfTextInputLayout
                             x:Name="EmailHelper"
-                            Hint="Email"
+                            Hint="{x:Static strings:AppResources.Manage_Email}"
                             Style="{StaticResource InputLayoutstyle}">
                             <Entry
                                 x:Name="EmailEntry"
                                 IsReadOnly="True"
                                 Keyboard="Email"
-                                Placeholder="Enter your email address"
+                                Placeholder="{x:Static strings:AppResources.Manage_Email}"
                                 Style="{StaticResource EntryStyle}"
                                 Text="{Binding household_individual_email}" />
                         </inputLayout:SfTextInputLayout>
@@ -221,7 +222,7 @@
                         <Label
                             IsVisible="False"
                             Style="{StaticResource SubbodyStyle}"
-                            Text="Permission granted at account creation" />
+                            Text="{x:Static strings:AppResources.Manage_PermissionGranted}" />
 
                         <Border
                             Margin="0,4"
@@ -257,7 +258,7 @@
                                             <Span
                                                 FontFamily="OpenSansRegular"
                                                 FontSize="12"
-                                                Text="Please check the box to confirm you have permission to provide communication details for this member of your household"
+                                Text="{x:Static strings:AppResources.Manage_PermissionCheck}"
                                                 TextColor="#031926" />
 
                                         </FormattedString>
@@ -285,7 +286,7 @@
 
                             <Label
                                 Style="{StaticResource TitleStyle}"
-                                Text="Household Details"
+                                Text="{x:Static strings:AppResources.Manage_HouseholdDetails}"
                                 TextColor="#009fe3" />
 
                         </HorizontalStackLayout>
@@ -300,7 +301,7 @@
                                 Grid.Column="0"
                                 Margin="0,0,0,5"
                                 Style="{StaticResource SubHeadStyle}"
-                                Text="Status" />
+                                Text="{x:Static strings:AppResources.Manage_Status}" />
 
 
                             <inputLayout:SfTextInputLayout
@@ -342,7 +343,7 @@
                                 Grid.Column="1"
                                 Margin="0,0,0,5"
                                 Style="{StaticResource SubHeadStyle}"
-                                Text="Group Id" />
+                                Text="{x:Static strings:AppResources.Manage_GroupId}" />
 
                             <inputLayout:SfTextInputLayout
                                 x:Name="GroupIDHelper"
@@ -435,7 +436,7 @@
                     FontSize="14"
                     HorizontalOptions="Center"
                     Style="{StaticResource SubHeadStyle}"
-                    Text="Select 'Enable Edit' to be able to edit certain fields" />
+                                Text="{x:Static strings:AppResources.Manage_EnableEditHint}" />
                 <Button
                     x:Name="Editbtn"
                     Background="#009fe3"
@@ -443,7 +444,7 @@
                     FontAttributes="Bold"
                     FontFamily="OpenSansSemiBold"
                     FontSize="16"
-                    Text="Enable Edit"
+                    Text="{x:Static strings:AppResources.Manage_EnableEdit}"
                     TextColor="White" />
             </VerticalStackLayout>
         </Border>

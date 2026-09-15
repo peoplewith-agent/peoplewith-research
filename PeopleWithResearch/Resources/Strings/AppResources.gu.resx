@@ -110,4 +110,965 @@
   <data name="Common_Retry" xml:space="preserve">
     <value>ફરી પ્રયાસ કરો</value>
   </data>
+
+  <!-- Common (shared across multiple pages) -->
+  <data name="Common_SelectAnOption" xml:space="preserve">
+    <value>[GU] Select an option</value>
+  </data>
+  <data name="Common_PleaseComplete" xml:space="preserve">
+    <value>[GU] Please complete</value>
+  </data>
+  <data name="Common_PrivacyPolicy" xml:space="preserve">
+    <value>[GU] Privacy Policy</value>
+  </data>
+  <data name="Common_Back" xml:space="preserve">
+    <value>[GU] Back</value>
+  </data>
+  <data name="Common_AddNewMember" xml:space="preserve">
+    <value>[GU] Add New Member</value>
+  </data>
+  <data name="Common_ActionRequired" xml:space="preserve">
+    <value>[GU] ACTION REQUIRED</value>
+  </data>
+  <data name="Common_CompleteBaselineQ" xml:space="preserve">
+    <value>[GU] Complete Baseline Questionnaire</value>
+  </data>
+  <data name="Common_BaselineQPrompt" xml:space="preserve">
+    <value>[GU] Please complete your baseline questionnaire to continue.</value>
+  </data>
+  <data name="Common_StudyProgress" xml:space="preserve">
+    <value>[GU] STUDY PROGRESS</value>
+  </data>
+  <data name="Common_ManageProfile" xml:space="preserve">
+    <value>[GU] Manage profile</value>
+  </data>
+
+  <data name="Common_StatusCompleted" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Common_StatusPending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+
+  <!-- NewMainPage -->
+  <data name="Main_CheckingCode" xml:space="preserve">
+    <value>[GU] Checking code...</value>
+  </data>
+  <data name="Main_Clear" xml:space="preserve">
+    <value>[GU] Clear</value>
+  </data>
+  <data name="Main_SuccessCheck" xml:space="preserve">
+    <value>✓</value>
+  </data>
+  <data name="Main_SuccessTick" xml:space="preserve">
+    <value>✓</value>
+  </data>
+  <data name="Main_Success" xml:space="preserve">
+    <value>[GU] Success</value>
+  </data>
+  <data name="Main_SuccessLabel" xml:space="preserve">
+    <value>[GU] Success</value>
+  </data>
+  <data name="Main_Register" xml:space="preserve">
+    <value>[GU] Register</value>
+  </data>
+  <data name="Main_LogIn" xml:space="preserve">
+    <value>[GU] Log In</value>
+  </data>
+  <data name="Main_IfYouHaveDetails" xml:space="preserve">
+    <value>[GU] If you have your details for a research project, you can register to participate. If you've already registered for a project before, you can log in to access your account and continue.</value>
+  </data>
+  <data name="Main_Description" xml:space="preserve">
+    <value>[GU] If you have your details for a research project, you can register to participate. If you've already registered for a project before, you can log in to access your account and continue.</value>
+  </data>
+  <data name="Main_DescSpan1" xml:space="preserve">
+    <value>[GU] Thanks for your interest in taking part! </value>
+  </data>
+  <data name="Main_DescSpan2" xml:space="preserve">
+    <value>[GU] If you already have a code, tap </value>
+  </data>
+  <data name="Main_DescSpan3" xml:space="preserve">
+    <value>[GU] 'Paste Research Code'</value>
+  </data>
+  <data name="Main_DescSpan4" xml:space="preserve">
+    <value>[GU]  and follow the on-screen prompt to continue.</value>
+  </data>
+  <data name="Main_PasteTextConst" xml:space="preserve">
+    <value>[GU] Paste Research Code</value>
+  </data>
+  <data name="Main_CheckTextConst" xml:space="preserve">
+    <value>[GU] Check Research Code</value>
+  </data>
+  <data name="Main_ClipboardUnavailableTitle" xml:space="preserve">
+    <value>[GU] Clipboard Unavailable</value>
+  </data>
+  <data name="Main_ClipboardUnavailableMsg" xml:space="preserve">
+    <value>[GU] We couldn't read your clipboard. Please type your research code instead.</value>
+  </data>
+  <data name="Main_RequestTimedOut" xml:space="preserve">
+    <value>[GU] Request timed out. Please check your connection and try again.</value>
+  </data>
+  <data name="Main_InvalidCode" xml:space="preserve">
+    <value>[GU] Invalid Research Code</value>
+  </data>
+  <data name="Main_RegistrationActiveTitle" xml:space="preserve">
+    <value>[GU] Registration Active</value>
+  </data>
+  <data name="Main_RegistrationActiveMsg" xml:space="preserve">
+    <value>[GU] This email address is already in use. Try logging in instead.</value>
+  </data>
+  <data name="Main_SomethingWentWrong" xml:space="preserve">
+    <value>[GU] Something went wrong. Please try again.</value>
+  </data>
+  <data name="Main_ValidatingCode" xml:space="preserve">
+    <value>[GU] Validating your user code to ensure a secure and efficient login experience</value>
+  </data>
+  <data name="Main_CheckingDuplications" xml:space="preserve">
+    <value>[GU] Checking for any duplications in our system</value>
+  </data>
+  <data name="Main_DetailsInUse" xml:space="preserve">
+    <value>[GU] Details associated to this research code are already in use. Please login to continue. If you believe this is an error, please contact: support@peoplewith.com</value>
+  </data>
+  <data name="Main_UserAlreadyExists" xml:space="preserve">
+    <value>[GU] User already exists</value>
+  </data>
+
+  <!-- NewLoginPage -->
+  <data name="Login_WelcomeBack" xml:space="preserve">
+    <value>[GU] Welcome Back</value>
+  </data>
+  <data name="Login_SignInSubtitle" xml:space="preserve">
+    <value>[GU] Sign in to access your research dashboard</value>
+  </data>
+  <data name="Login_EmailLabel" xml:space="preserve">
+    <value>[GU] Email Address*</value>
+  </data>
+  <data name="Login_PasswordLabel" xml:space="preserve">
+    <value>[GU] Password*</value>
+  </data>
+  <data name="Login_ForgotPassword" xml:space="preserve">
+    <value>[GU] Forgotten password?</value>
+  </data>
+  <data name="Login_SignInButton" xml:space="preserve">
+    <value>[GU] Sign In</value>
+  </data>
+  <data name="Login_NoAccount" xml:space="preserve">
+    <value>[GU] Haven't got an account?</value>
+  </data>
+  <data name="Login_SignUpLink" xml:space="preserve">
+    <value>[GU] Sign up</value>
+  </data>
+  <data name="Login_EmailEmpty" xml:space="preserve">
+    <value>[GU] Email cannot be empty</value>
+  </data>
+  <data name="Login_EmailInvalid" xml:space="preserve">
+    <value>[GU] Please enter a valid email address</value>
+  </data>
+  <data name="Login_PasswordEmpty" xml:space="preserve">
+    <value>[GU] Password cannot be empty</value>
+  </data>
+  <data name="Login_AccountNotFound" xml:space="preserve">
+    <value>[GU] We couldn't find an account with that email</value>
+  </data>
+  <data name="Login_AccountDeletedTitle" xml:space="preserve">
+    <value>[GU] Account Deleted</value>
+  </data>
+  <data name="Login_AccountDeletedMsg" xml:space="preserve">
+    <value>[GU] Your account has been deleted</value>
+  </data>
+  <data name="Login_OnboardingTitle" xml:space="preserve">
+    <value>[GU] Account Onboarding</value>
+  </data>
+  <data name="Login_OnboardingMsg" xml:space="preserve">
+    <value>[GU] Please use your email to continue registering</value>
+  </data>
+  <data name="Login_WithdrawnTitle" xml:space="preserve">
+    <value>[GU] Withdrawn from Study</value>
+  </data>
+  <data name="Login_WithdrawnMsg" xml:space="preserve">
+    <value>[GU] You have withdrawn from the study and can no longer access your account</value>
+  </data>
+  <data name="Login_PasswordIncorrect" xml:space="preserve">
+    <value>[GU] Password Incorrect, Try Again</value>
+  </data>
+
+  <!-- ImperialDashboard -->
+  <data name="Dashboard_WelcomeBack" xml:space="preserve">
+    <value>[GU] Welcome back to your dashboard</value>
+  </data>
+  <data name="Dashboard_LoggedInAs" xml:space="preserve">
+    <value>[GU] Logged in as</value>
+  </data>
+  <data name="Dashboard_StudyUserId" xml:space="preserve">
+    <value>[GU] STUDY USER ID</value>
+  </data>
+  <data name="Dashboard_HouseRep" xml:space="preserve">
+    <value>[GU] House Rep</value>
+  </data>
+  <data name="Dashboard_ActiveNo" xml:space="preserve">
+    <value>[GU] Active No.</value>
+  </data>
+  <data name="Dashboard_HouseholdRep" xml:space="preserve">
+    <value>[GU] HOUSEHOLD REP</value>
+  </data>
+  <data name="Dashboard_StayInLoop" xml:space="preserve">
+    <value>[GU] Stay in the loop</value>
+  </data>
+  <data name="Dashboard_Action" xml:space="preserve">
+    <value>[GU] ACTION</value>
+  </data>
+  <data name="Dashboard_NeverMissUpdate" xml:space="preserve">
+    <value>[GU] Never miss an update</value>
+  </data>
+  <data name="Dashboard_NotificationsPrompt" xml:space="preserve">
+    <value>[GU] Enable notifications to get instant questionnaire alerts, weekly study reminders, and progress updates for everyone in your household.</value>
+  </data>
+  <data name="Dashboard_NotNow" xml:space="preserve">
+    <value>[GU] Not Now</value>
+  </data>
+  <data name="Dashboard_Enable" xml:space="preserve">
+    <value>[GU] Enable</value>
+  </data>
+  <data name="Dashboard_AllTasksCompleted" xml:space="preserve">
+    <value>[GU] All tasks completed for today</value>
+  </data>
+  <data name="Dashboard_QCompleted" xml:space="preserve">
+    <value>[GU] You have completed today's questionnaire. Your next questionnaire will be available tomorrow. Please check that all other household members have also completed their forms for today</value>
+  </data>
+  <data name="Dashboard_BaselineFormStage" xml:space="preserve">
+    <value>[GU] Your household is at the baseline form stage</value>
+  </data>
+  <data name="Dashboard_BaselineFormRequirement" xml:space="preserve">
+    <value>[GU] To progress to the next stage of the study, at least 3 household members must complete the baseline form</value>
+  </data>
+  <data name="Dashboard_BaselineSamplingStage" xml:space="preserve">
+    <value>[GU] Your household is at the baseline sampling stage</value>
+  </data>
+  <data name="Dashboard_SamplingKitsArrive" xml:space="preserve">
+    <value>[GU] When your baseline sampling kits arrive:</value>
+  </data>
+  <data name="Dashboard_SamplingStep1" xml:space="preserve">
+    <value>1.</value>
+  </data>
+  <data name="Dashboard_SamplingCollect" xml:space="preserve">
+    <value>[GU] Collect your baseline samples</value>
+  </data>
+  <data name="Dashboard_SamplingStep2" xml:space="preserve">
+    <value>2.</value>
+  </data>
+  <data name="Dashboard_SamplingCompleteForm" xml:space="preserve">
+    <value>[GU] Complete the baseline sample form</value>
+  </data>
+  <data name="Dashboard_SamplingSameDay" xml:space="preserve">
+    <value>[GU] Please make sure that everyone in your household collects their samples and completes the form on the same day.</value>
+  </data>
+  <data name="Dashboard_BaselineSamples" xml:space="preserve">
+    <value>[GU] Baseline Samples</value>
+  </data>
+  <data name="Dashboard_HouseholdParticipants" xml:space="preserve">
+    <value>[GU] Household Participants</value>
+  </data>
+  <data name="Dashboard_BaselineForm" xml:space="preserve">
+    <value>[GU] Baseline form</value>
+  </data>
+  <data name="Dashboard_BaselineSamplesLabel" xml:space="preserve">
+    <value>[GU] Baseline samples</value>
+  </data>
+  <data name="Dashboard_LastActive" xml:space="preserve">
+    <value>[GU] Last active</value>
+  </data>
+  <data name="Dashboard_Questionnaires" xml:space="preserve">
+    <value>[GU] Questionnaires</value>
+  </data>
+  <data name="Dashboard_AwaitingBaseline" xml:space="preserve">
+    <value>[GU] Awaiting baseline questionnaire</value>
+  </data>
+  <data name="Dashboard_CompleteOnBehalf" xml:space="preserve">
+    <value>[GU] As the household representative, you can complete the baseline form on their behalf. Please ensure all information is accurate.</value>
+  </data>
+  <data name="Dashboard_CompleteBaseline" xml:space="preserve">
+    <value>[GU] Complete Baseline</value>
+  </data>
+  <data name="Dashboard_ProfileNotActive" xml:space="preserve">
+    <value>[GU] Profile not active</value>
+  </data>
+  <data name="Dashboard_ProfileNotActiveMsg" xml:space="preserve">
+    <value>[GU] Please contact your study team on the number below to activate this profile.</value>
+  </data>
+  <data name="Dashboard_ActiveProfile" xml:space="preserve">
+    <value>[GU] Active Profile</value>
+  </data>
+  <data name="Dashboard_ProgressSoFar" xml:space="preserve">
+    <value>[GU] PROGRESS SO FAR</value>
+  </data>
+  <data name="Dashboard_CompletedQuestionnaires" xml:space="preserve">
+    <value>[GU] Completed Questionnaire's</value>
+  </data>
+  <data name="Dashboard_ReviewQsSubmitted" xml:space="preserve">
+    <value>[GU] Tap here to review the questionnaires you've submitted so far.</value>
+  </data>
+  <data name="Dashboard_TapViewCompleted" xml:space="preserve">
+    <value>[GU] Tap to view all completed forms</value>
+  </data>
+  <data name="Dashboard_MissedQuestionnaires" xml:space="preserve">
+    <value>[GU] MISSED QUESTIONNAIRES</value>
+  </data>
+  <data name="Dashboard_MissedQsLabel" xml:space="preserve">
+    <value>[GU] Missed Questionnaire's</value>
+  </data>
+  <data name="Dashboard_MissedQsMsg" xml:space="preserve">
+    <value>[GU] You have incomplete questionnaire's. Nothing is lost - tap here to catch up now.</value>
+  </data>
+  <data name="Dashboard_TapCompleteMissed" xml:space="preserve">
+    <value>[GU] Tap to complete missed forms</value>
+  </data>
+  <data name="Dashboard_NotCompleted" xml:space="preserve">
+    <value>[GU] Not completed</value>
+  </data>
+  <data name="Dashboard_Missed" xml:space="preserve">
+    <value>[GU] MISSED</value>
+  </data>
+  <data name="Dashboard_ExpandHousehold" xml:space="preserve">
+    <value>[GU] Expand your Household</value>
+  </data>
+  <data name="Dashboard_InviteMembers" xml:space="preserve">
+    <value>[GU] Invite your household members to participate and contribute to your research together</value>
+  </data>
+  <data name="Dashboard_GiveAccessTitle" xml:space="preserve">
+    <value>[GU] Give Access to Your Household Rep</value>
+  </data>
+  <data name="Dashboard_GiveAccessMsg" xml:space="preserve">
+    <value>[GU] Allow your household representative to manage and access your account on your behalf from their own account</value>
+  </data>
+  <data name="Dashboard_GrantAccess" xml:space="preserve">
+    <value>[GU] Grant Access</value>
+  </data>
+  <data name="Dashboard_NotificationsOff" xml:space="preserve">
+    <value>[GU] It appears your notifications are turned off. Tap the button below and enable notifications to receive weekly study reminders.</value>
+  </data>
+  <data name="Dashboard_TurnOnNotifications" xml:space="preserve">
+    <value>[GU] Turn On Notifications</value>
+  </data>
+  <data name="Dashboard_ThankYouStudy" xml:space="preserve">
+    <value>[GU] For taking part in the Hopper Study</value>
+  </data>
+  <data name="Dashboard_StudyInformation" xml:space="preserve">
+    <value>[GU] Study Information</value>
+  </data>
+  <data name="Dashboard_HopperStudy" xml:space="preserve">
+    <value>[GU] Hopper Study</value>
+  </data>
+  <data name="Dashboard_ContactInformation" xml:space="preserve">
+    <value>[GU] Contact Information</value>
+  </data>
+  <data name="Dashboard_ContactMsg" xml:space="preserve">
+    <value>[GU] Don't hesitate to contact us whether you have a suggestion for improvement, a complaint, or an issue you would like resolved.</value>
+  </data>
+  <data name="Dashboard_NoContactFound" xml:space="preserve">
+    <value>[GU] No Contact Information Found</value>
+  </data>
+  <data name="Dashboard_ContactOffline" xml:space="preserve">
+    <value>[GU] Contact methods are currently offline.</value>
+  </data>
+  <data name="Dashboard_AdditionalInformation" xml:space="preserve">
+    <value>[GU] Additional Information</value>
+  </data>
+  <data name="Dashboard_NoResourcesFound" xml:space="preserve">
+    <value>[GU] No Resources Found</value>
+  </data>
+  <data name="Dashboard_ResourcesFailedLoad" xml:space="preserve">
+    <value>[GU] Resources failed to load. try load page again. if problem persists contact support.</value>
+  </data>
+  <data name="Dashboard_Profile" xml:space="preserve">
+    <value>[GU] Profile</value>
+  </data>
+  <data name="Dashboard_ManageYourProfile" xml:space="preserve">
+    <value>[GU] Manage your profile</value>
+  </data>
+  <data name="Dashboard_PersonalInformation" xml:space="preserve">
+    <value>[GU] Personal Information</value>
+  </data>
+  <data name="Dashboard_Preferences" xml:space="preserve">
+    <value>[GU] Preferences</value>
+  </data>
+  <data name="Dashboard_GetInTouch" xml:space="preserve">
+    <value>[GU] Get in Touch</value>
+  </data>
+  <data name="Dashboard_SupportMsg" xml:space="preserve">
+    <value>[GU] Need a hand? We're here to help with anything you need. Reach out to our support team anytime.</value>
+  </data>
+  <data name="Dashboard_MessageTeam" xml:space="preserve">
+    <value>[GU] Message the Team</value>
+  </data>
+  <data name="Dashboard_LogOut" xml:space="preserve">
+    <value>[GU] Log Out</value>
+  </data>
+  <data name="Dashboard_WithdrawalAction" xml:space="preserve">
+    <value>[GU] WITHDRAWAL ACTION</value>
+  </data>
+  <data name="Dashboard_WithdrawTitle" xml:space="preserve">
+    <value>[GU] Withdraw from HOPPER Study</value>
+  </data>
+  <data name="Dashboard_WithdrawWarning" xml:space="preserve">
+    <value>[GU] Once withdrawn, you will no longer be part of this study and lose access to your account.</value>
+  </data>
+  <data name="Dashboard_AppVersion" xml:space="preserve">
+    <value>[GU] App Version 1.0.0</value>
+  </data>
+  <data name="Dashboard_HiPrefix" xml:space="preserve">
+    <value>[GU] Hi,</value>
+  </data>
+  <data name="Dashboard_Participant" xml:space="preserve">
+    <value>[GU] Participant</value>
+  </data>
+  <data name="Dashboard_Day28" xml:space="preserve">
+    <value>[GU] Day 28</value>
+  </data>
+  <data name="Dashboard_SamplingSymptoms" xml:space="preserve">
+    <value>[GU] Start sampling with the kits in your house if, in the past 24 hours, you or anyone in your household has developed any of the following NEW symptoms:</value>
+  </data>
+  <data name="Dashboard_SamplingPeriodSuffix" xml:space="preserve">
+    <value>[GU] of your triggered survey period</value>
+  </data>
+  <data name="Dashboard_BaselineSamplesFormTitle" xml:space="preserve">
+    <value>[GU] Baseline Samples Form Complete</value>
+  </data>
+  <data name="Dashboard_BaselineSamplesFormMsg" xml:space="preserve">
+    <value>[GU] You've already completed the baseline samples form. Please make sure everyone else in your household has done the same.</value>
+  </data>
+  <data name="Dashboard_WithdrawAlertTitle" xml:space="preserve">
+    <value>[GU] Withdraw from Study</value>
+  </data>
+  <data name="Dashboard_WithdrawAlertMsg" xml:space="preserve">
+    <value>[GU] Are you sure you want to withdraw from the HOPPER study? This action is permanent, and you will lose all access to your account.</value>
+  </data>
+  <data name="Dashboard_WithdrawButton" xml:space="preserve">
+    <value>[GU] Withdraw</value>
+  </data>
+  <data name="Dashboard_LogoutTitle" xml:space="preserve">
+    <value>[GU] Logout</value>
+  </data>
+  <data name="Dashboard_LogoutMsg" xml:space="preserve">
+    <value>[GU] Are you sure you want to logout</value>
+  </data>
+  <data name="Dashboard_LogoutButton" xml:space="preserve">
+    <value>[GU] Logout</value>
+  </data>
+  <data name="Dashboard_ConfirmAccessTitle" xml:space="preserve">
+    <value>[GU] Confirm Access</value>
+  </data>
+  <data name="Dashboard_ConfirmAccessMsg" xml:space="preserve">
+    <value>[GU] Are you sure you want to give access?</value>
+  </data>
+  <data name="Dashboard_ConfirmAccessYes" xml:space="preserve">
+    <value>[GU] Yes</value>
+  </data>
+  <data name="Dashboard_ConfirmAccessNo" xml:space="preserve">
+    <value>[GU] No</value>
+  </data>
+  <data name="Dashboard_AccessGrantedTitle" xml:space="preserve">
+    <value>[GU] Success</value>
+  </data>
+  <data name="Dashboard_AccessGrantedMsg" xml:space="preserve">
+    <value>[GU] Access has been granted.</value>
+  </data>
+
+  <data name="Dashboard_WaitingStage" xml:space="preserve">
+    <value>Your household is at the waiting stage</value>
+  </data>
+  <data name="Dashboard_SymptomCough" xml:space="preserve">
+    <value>Cough</value>
+  </data>
+  <data name="Dashboard_SymptomTasteSmell" xml:space="preserve">
+    <value>Loss of taste or smell</value>
+  </data>
+  <data name="Dashboard_SymptomSoreThroat" xml:space="preserve">
+    <value>Sore throat</value>
+  </data>
+  <data name="Dashboard_SymptomBreath" xml:space="preserve">
+    <value>Shortness of breath</value>
+  </data>
+  <data name="Dashboard_SamplingAndThinkSymptoms" xml:space="preserve">
+    <value>AND you think these symptoms are the start of a new cold or flu-like illness (rather than your usual hay fever/seasonal allergies, smoking or vaping effects, or an ongoing long-term condition that you regularly experience)</value>
+  </data>
+  <data name="Dashboard_HouseholdIsOn" xml:space="preserve">
+    <value>Your household is on </value>
+  </data>
+  <data name="Dashboard_SamplingStep1Collect" xml:space="preserve">
+    <value>Please collect any samples due today using the kits we sent you</value>
+  </data>
+  <data name="Dashboard_SamplingStep2Complete" xml:space="preserve">
+    <value>Once you have collected your samples, tap here to complete today's questionnaire.</value>
+  </data>
+  <data name="Dashboard_DailyRecordingComplete" xml:space="preserve">
+    <value>Daily recording complete</value>
+  </data>
+  <data name="Dashboard_DailyRecordingCompleteMsg" xml:space="preserve">
+    <value>You no longer need to complete daily symptom forms. Your next step is your final Day 28 questionnaire. After that you will need to complete a short End of Study form to finish your participation.</value>
+  </data>
+  <data name="Dashboard_EndStudyFeedbackTitle" xml:space="preserve">
+    <value>Congratulations â Your household has reached the End of Study Feedback Stage!</value>
+  </data>
+  <data name="Dashboard_EndStudyThankYou" xml:space="preserve">
+    <value>Thank you for taking part in the HOPPER Study. Your participation has made an important contribution to our research. </value>
+  </data>
+  <data name="Dashboard_EndStudyFinalQ" xml:space="preserve">
+    <value>Please tap here to complete a short final questionnaire before finishing your participation in the study.</value>
+  </data>
+  <data name="Dashboard_StudyComplete" xml:space="preserve">
+    <value>STUDY COMPLETE</value>
+  </data>
+  <data name="Dashboard_StudyCompleteTitle" xml:space="preserve">
+    <value>Thank you for taking part!</value>
+  </data>
+  <data name="Dashboard_StudyCompleteMsg" xml:space="preserve">
+    <value>Your participation in the HOPPER study is now complete. The data you have contributed will make a real difference to our understanding of respiratory illnesses in households.</value>
+  </data>
+  <data name="Dashboard_RestartStudyTitle" xml:space="preserve">
+    <value>Want to restart the study?</value>
+  </data>
+  <data name="Dashboard_RestartStudyMsg" xml:space="preserve">
+    <value>If you or someone in your household develops new symptoms and you would like to restart the triggered sampling period, please contact the study team directly.</value>
+  </data>
+  <data name="Dashboard_ContactStudyTeam" xml:space="preserve">
+    <value>Contact the study team</value>
+  </data>
+  <data name="Dashboard_RecentQuestionnaires" xml:space="preserve">
+    <value>Recent Questionnaires</value>
+  </data>
+  <data name="Dashboard_ViewFormsHistory" xml:space="preserve">
+    <value>View Forms History</value>
+  </data>
+  <data name="Dashboard_TodayDayThree" xml:space="preserve">
+    <value>Today is DAY THREE of triggered sampling</value>
+  </data>
+  <data name="Dashboard_T1FormInstruction" xml:space="preserve">
+    <value>Please carry out the samples for today and fill in your T1 form</value>
+  </data>
+
+  <!-- Addnewmember -->
+  <data name="AddMember_Subtitle" xml:space="preserve">
+    <value>[GU] Add details about your family member to add them to the study</value>
+  </data>
+  <data name="AddMember_MemberNameLabel" xml:space="preserve">
+    <value>[GU] Household member's name</value>
+  </data>
+  <data name="AddMember_MemberNameHint" xml:space="preserve">
+    <value>[GU] Enter their first and last name</value>
+  </data>
+  <data name="AddMember_LastName" xml:space="preserve">
+    <value>[GU] Last Name</value>
+  </data>
+  <data name="AddMember_OwnPhoneQuestion" xml:space="preserve">
+    <value>[GU] Will they use their own phone for the study?</value>
+  </data>
+  <data name="AddMember_OwnPhoneSubtitle" xml:space="preserve">
+    <value>[GU] This helps us set up the right kind of profile for them</value>
+  </data>
+  <data name="AddMember_YesOwnAccount" xml:space="preserve">
+    <value>[GU] If yes — they set up their own account</value>
+  </data>
+  <data name="AddMember_YesOwnAccountDetail" xml:space="preserve">
+    <value>[GU] We'll need an email address so they can download the app, verify their identity, and complete their own daily questionnaires and samples.</value>
+  </data>
+  <data name="AddMember_NoManageProfile" xml:space="preserve">
+    <value>[GU] If no — you manage this profile for them</value>
+  </data>
+  <data name="AddMember_NoManageProfileDetail" xml:space="preserve">
+    <value>[GU] You'll complete their daily questionnaires and update their details on their behalf. No email address is needed — you can switch to their profile at any time.</value>
+  </data>
+  <data name="AddMember_EmailLabel" xml:space="preserve">
+    <value>[GU] Email address</value>
+  </data>
+  <data name="AddMember_EmailHint" xml:space="preserve">
+    <value>[GU] Used to set up their own account and send communications</value>
+  </data>
+  <data name="AddMember_AgeLabel" xml:space="preserve">
+    <value>[GU] Age of member</value>
+  </data>
+  <data name="AddMember_AgeHint" xml:space="preserve">
+    <value>[GU] Please select age of member</value>
+  </data>
+  <data name="AddMember_RelationLabel" xml:space="preserve">
+    <value>[GU] Relation of member</value>
+  </data>
+  <data name="AddMember_RelationHint" xml:space="preserve">
+    <value>[GU] Please select relation of member</value>
+  </data>
+  <data name="AddMember_PermissionCheck" xml:space="preserve">
+    <value>[GU] Please check the box to confirm you have permission to provide communication details for this member of your household</value>
+  </data>
+  <data name="AddMember_AgreeTerms" xml:space="preserve">
+    <value>[GU] Please agree to terms</value>
+  </data>
+  <data name="AddMember_EmailInvalid" xml:space="preserve">
+    <value>[GU] Please enter a valid email address</value>
+  </data>
+  <data name="AddMember_EmailFamilyExists" xml:space="preserve">
+    <value>[GU] User in family with same email already exists</value>
+  </data>
+  <data name="AddMember_EmailExists" xml:space="preserve">
+    <value>[GU] User with same email already exists</value>
+  </data>
+
+  <!-- pdfpage -->
+  <data name="Pdf_Close" xml:space="preserve">
+    <value>[GU] Close</value>
+  </data>
+
+  <!-- SelectNotificationTime -->
+  <data name="Notification_Title" xml:space="preserve">
+    <value>[GU] Notification reminder time</value>
+  </data>
+  <data name="Notification_SelectTimeHint" xml:space="preserve">
+    <value>[GU] Please select a notification time</value>
+  </data>
+  <data name="Notification_ChooseTime" xml:space="preserve">
+    <value>[GU] Choose Time</value>
+  </data>
+  <data name="Notification_SavedTitle" xml:space="preserve">
+    <value>[GU] Notification Time Saved!</value>
+  </data>
+  <data name="Notification_SavedSubtitle" xml:space="preserve">
+    <value>[GU] We'll remind you every day at</value>
+  </data>
+  <data name="Notification_ChangeAnytime" xml:space="preserve">
+    <value>[GU] You can change this reminder at any time from your notification settings</value>
+  </data>
+
+  <!-- WithdrawVideoPopUp -->
+  <data name="Withdraw_ErrorTitle" xml:space="preserve">
+    <value>[GU] Whoops! Something went wrong</value>
+  </data>
+  <data name="Withdraw_ErrorMsg" xml:space="preserve">
+    <value>[GU] Seems like something has gone wrong. Try restarting the PeopleWithResearch app or contact support@peoplewith.com</value>
+  </data>
+  <data name="Withdraw_ErrorOk" xml:space="preserve">
+    <value>[GU] Ok</value>
+  </data>
+  <data name="Withdraw_CloseVideo" xml:space="preserve">
+    <value>[GU] Close Video</value>
+  </data>
+  <data name="Withdraw_ProceedButton" xml:space="preserve">
+    <value>[GU] Proceed with Withdrawal</value>
+  </data>
+
+  <!-- ManageProfile -->
+  <data name="Manage_Title" xml:space="preserve">
+    <value>[GU] Manage Profile</value>
+  </data>
+  <data name="Manage_Subtitle" xml:space="preserve">
+    <value>[GU] Select any editable field to update your profile details. Some fields are read-only.</value>
+  </data>
+  <data name="Manage_PersonalInformation" xml:space="preserve">
+    <value>[GU] Personal Information</value>
+  </data>
+  <data name="Manage_UserId" xml:space="preserve">
+    <value>[GU] User Id</value>
+  </data>
+  <data name="Manage_FirstName" xml:space="preserve">
+    <value>[GU] First name</value>
+  </data>
+  <data name="Manage_Surname" xml:space="preserve">
+    <value>[GU] Surname</value>
+  </data>
+  <data name="Manage_Email" xml:space="preserve">
+    <value>[GU] Email</value>
+  </data>
+  <data name="Manage_PermissionGranted" xml:space="preserve">
+    <value>[GU] Permission granted at account creation</value>
+  </data>
+  <data name="Manage_PermissionCheck" xml:space="preserve">
+    <value>[GU] Please check the box to confirm you have permission to provide communication details for this member of your household</value>
+  </data>
+  <data name="Manage_HouseholdDetails" xml:space="preserve">
+    <value>[GU] Household Details</value>
+  </data>
+  <data name="Manage_Status" xml:space="preserve">
+    <value>[GU] Status</value>
+  </data>
+  <data name="Manage_GroupId" xml:space="preserve">
+    <value>[GU] Group Id</value>
+  </data>
+  <data name="Manage_AgeLabel" xml:space="preserve">
+    <value>[GU] Age of member</value>
+  </data>
+  <data name="Manage_AgeHint" xml:space="preserve">
+    <value>[GU] Please select age of member</value>
+  </data>
+  <data name="Manage_RelationLabel" xml:space="preserve">
+    <value>[GU] Relation of member</value>
+  </data>
+  <data name="Manage_RelationHint" xml:space="preserve">
+    <value>[GU] Please select relation of member</value>
+  </data>
+  <data name="Manage_EnableEditHint" xml:space="preserve">
+    <value>[GU] Select 'Enable Edit' to be able to edit certain fields</value>
+  </data>
+  <data name="Manage_EnableEdit" xml:space="preserve">
+    <value>[GU] Enable Edit</value>
+  </data>
+  <data name="Manage_SaveChanges" xml:space="preserve">
+    <value>[GU] Save Changes</value>
+  </data>
+  <data name="Manage_EditField" xml:space="preserve">
+    <value>[GU] Edit a field to enable 'Save Changes'</value>
+  </data>
+  <data name="Manage_UpdateFailedTitle" xml:space="preserve">
+    <value>[GU] Update Failed</value>
+  </data>
+  <data name="Manage_UpdateFailedMsg" xml:space="preserve">
+    <value>[GU] We couldn't retrieve this specific users data. Please try again later. If the problem persists, please contact support.</value>
+  </data>
+  <data name="Manage_SaveFailedTitle" xml:space="preserve">
+    <value>[GU] Save Failed</value>
+  </data>
+  <data name="Manage_SaveFailedMsg" xml:space="preserve">
+    <value>[GU] We couldn't save your data. Please try again later. If the problem persists, please contact support.</value>
+  </data>
+  <data name="Manage_EnterFirstName" xml:space="preserve">
+    <value>[GU] Enter a first name</value>
+  </data>
+  <data name="Manage_EnterSurname" xml:space="preserve">
+    <value>[GU] Enter a surname</value>
+  </data>
+  <data name="Manage_EnterEmail" xml:space="preserve">
+    <value>[GU] Please enter an email address</value>
+  </data>
+  <data name="Manage_EnterValidEmail" xml:space="preserve">
+    <value>[GU] Please enter a valid email address</value>
+  </data>
+  <data name="Manage_ProfileUpdated" xml:space="preserve">
+    <value>[GU] Profile Updated</value>
+  </data>
+  <data name="Manage_CopiedToClipboard" xml:space="preserve">
+    <value>[GU] Copied to clipboard</value>
+  </data>
+
+  <!-- ProfileEdit -->
+  <data name="ProfileEdit_YourName" xml:space="preserve">
+    <value>[GU] Your Name</value>
+  </data>
+  <data name="ProfileEdit_YourEmail" xml:space="preserve">
+    <value>[GU] Your Email</value>
+  </data>
+  <data name="ProfileEdit_DateOfBirth" xml:space="preserve">
+    <value>[GU] Date of Birth</value>
+  </data>
+  <data name="ProfileEdit_DobInstruction" xml:space="preserve">
+    <value>[GU] Select your Date of Birth and Click Confirm, Then Save to Continue.</value>
+  </data>
+  <data name="ProfileEdit_Confirm" xml:space="preserve">
+    <value>[GU] Confirm</value>
+  </data>
+  <data name="ProfileEdit_SelectGender" xml:space="preserve">
+    <value>[GU] Select your gender</value>
+  </data>
+  <data name="ProfileEdit_PleaseState" xml:space="preserve">
+    <value>[GU] Please State:</value>
+  </data>
+  <data name="ProfileEdit_Ethnicity" xml:space="preserve">
+    <value>[GU] Ethnicity</value>
+  </data>
+  <data name="ProfileEdit_PhoneNumber" xml:space="preserve">
+    <value>[GU] Phone Number</value>
+  </data>
+  <data name="ProfileEdit_TownCity" xml:space="preserve">
+    <value>[GU] Town/City</value>
+  </data>
+  <data name="ProfileEdit_Height" xml:space="preserve">
+    <value>[GU] Height</value>
+  </data>
+  <data name="ProfileEdit_SelectHeight" xml:space="preserve">
+    <value>[GU] Please select your height</value>
+  </data>
+  <data name="ProfileEdit_Weight" xml:space="preserve">
+    <value>[GU] Weight</value>
+  </data>
+  <data name="ProfileEdit_SelectWeight" xml:space="preserve">
+    <value>[GU] Please select your weight</value>
+  </data>
+  <data name="ProfileEdit_Notifications" xml:space="preserve">
+    <value>[GU] Notifications</value>
+  </data>
+  <data name="ProfileEdit_AllowNotifications" xml:space="preserve">
+    <value>[GU] Allow Notifications</value>
+  </data>
+  <data name="ProfileEdit_NhiTitle" xml:space="preserve">
+    <value>[GU] Your National Health Identifier</value>
+  </data>
+  <data name="ProfileEdit_NhiInstruction" xml:space="preserve">
+    <value>[GU] Please update your National Health Identifier. Tap on the box below to update your NHS Number if you live in England or Wales, your CHI Number if you live in Scotland or your Health and Social Care Number if you live in Northern Ireland.</value>
+  </data>
+  <data name="ProfileEdit_PasswordReset" xml:space="preserve">
+    <value>[GU] Password Reset</value>
+  </data>
+  <data name="ProfileEdit_Save" xml:space="preserve">
+    <value>[GU] Save</value>
+  </data>
+  <data name="ProfileEdit_EmailEmpty" xml:space="preserve">
+    <value>[GU] Please enter an email address</value>
+  </data>
+  <data name="ProfileEdit_EmailInvalid" xml:space="preserve">
+    <value>[GU] Please enter a valid email address</value>
+  </data>
+  <data name="ProfileEdit_EmailInUse" xml:space="preserve">
+    <value>[GU] Email address already in use.</value>
+  </data>
+  <data name="ProfileEdit_EnterCurrentPassword" xml:space="preserve">
+    <value>[GU] Please Enter your Current Password</value>
+  </data>
+  <data name="ProfileEdit_EnterNewPassword" xml:space="preserve">
+    <value>[GU] Please Enter and Confirm your New Password</value>
+  </data>
+  <data name="ProfileEdit_PasswordMismatch" xml:space="preserve">
+    <value>[GU] New Password Does not Match</value>
+  </data>
+  <data name="ProfileEdit_PasswordTooShort" xml:space="preserve">
+    <value>[GU] New Password must be longer than 8 characters and no more than 15 characters</value>
+  </data>
+  <data name="ProfileEdit_PasswordLength" xml:space="preserve">
+    <value>[GU] Password must be between 8 and 15 characters</value>
+  </data>
+  <data name="ProfileEdit_PasswordNeedsNumber" xml:space="preserve">
+    <value>[GU] Password must contain at least one number</value>
+  </data>
+  <data name="ProfileEdit_PasswordNeedsUpper" xml:space="preserve">
+    <value>[GU] Password must contain at least one upper case letter</value>
+  </data>
+  <data name="ProfileEdit_PasswordNeedsLower" xml:space="preserve">
+    <value>[GU] Password must contain at lease one lower case letter</value>
+  </data>
+  <data name="ProfileEdit_PasswordNeedsSymbol" xml:space="preserve">
+    <value>[GU] Password must contain at least one symbol</value>
+  </data>
+  <data name="ProfileEdit_PasswordCurrentIncorrect" xml:space="preserve">
+    <value>[GU] Current Password incorrect, Please enter the correct Password</value>
+  </data>
+
+  <!-- PrivacyPolicyPage -->
+  <data name="Privacy_FooterLinks" xml:space="preserve">
+    <value>[GU] TERMS · PRIVACY · DATA</value>
+  </data>
+
+  <!-- FAQ_s -->
+  <data name="Faq_Title" xml:space="preserve">
+    <value>[GU] Hopper FAQ's</value>
+  </data>
+  <data name="Faq_Subtitle" xml:space="preserve">
+    <value>[GU] Find the answers to all your questions</value>
+  </data>
+  <data name="Faq_Loading" xml:space="preserve">
+    <value>[GU] Loading FAQ's...</value>
+  </data>
+  <data name="Faq_FilterBy" xml:space="preserve">
+    <value>[GU] FILTER BY</value>
+  </data>
+  <data name="Faq_NoFaqsFound" xml:space="preserve">
+    <value>[GU] No FAQs found</value>
+  </data>
+  <data name="Faq_NoFaqsMsg" xml:space="preserve">
+    <value>[GU] We couldn't find matches for your search. Try tweaking your keywords or filters.</value>
+  </data>
+
+  <!-- NewImperial (registration wizard) -->
+  <data name="Register_EmailHelperText" xml:space="preserve">
+    <value>[GU] Please do not use a work or academic email address</value>
+  </data>
+  <data name="Register_PasswordMustContain" xml:space="preserve">
+    <value>[GU] Password must contain:</value>
+  </data>
+  <data name="Register_PwMinChars" xml:space="preserve">
+    <value>[GU] Min 8 Characters</value>
+  </data>
+  <data name="Register_PwSpecialChar" xml:space="preserve">
+    <value>[GU] Special Character</value>
+  </data>
+  <data name="Register_PwCapital" xml:space="preserve">
+    <value>[GU] Capital letter</value>
+  </data>
+  <data name="Register_PwNumber" xml:space="preserve">
+    <value>[GU] Number</value>
+  </data>
+  <data name="Register_CheckPostcode" xml:space="preserve">
+    <value>[GU] Check Postcode</value>
+  </data>
+  <data name="Register_PostcodeNoResults" xml:space="preserve">
+    <value>[GU] No results found</value>
+  </data>
+  <data name="Register_PostcodeNoResultsMsg" xml:space="preserve">
+    <value>[GU] We couldn't find any matches for that postcode. Please double-check your entry or try a different one</value>
+  </data>
+  <data name="Register_ClearAddress" xml:space="preserve">
+    <value>[GU] Clear Address</value>
+  </data>
+  <data name="Register_DobError" xml:space="preserve">
+    <value>[GU] Please enter a valid date of birth</value>
+  </data>
+  <data name="Register_SkipQuestion" xml:space="preserve">
+    <value>[GU] Please leave this empty if you prefer to skip the question</value>
+  </data>
+  <data name="Register_HeightFt" xml:space="preserve">
+    <value>[GU] ft</value>
+  </data>
+  <data name="Register_HeightIn" xml:space="preserve">
+    <value>[GU] in</value>
+  </data>
+  <data name="Register_HeightCm" xml:space="preserve">
+    <value>[GU] cm</value>
+  </data>
+  <data name="Register_AddHouseholdMember" xml:space="preserve">
+    <value>[GU] Add Household Member</value>
+  </data>
+  <data name="Register_AddHouseholdMemberSub" xml:space="preserve">
+    <value>[GU] Add details about your household member</value>
+  </data>
+  <data name="Register_MemberName" xml:space="preserve">
+    <value>[GU] Household member's name</value>
+  </data>
+  <data name="Register_MemberNameHint" xml:space="preserve">
+    <value>[GU] Enter their first and last name</value>
+  </data>
+  <data name="Register_OwnPhone" xml:space="preserve">
+    <value>[GU] Will they use their own phone for the study?</value>
+  </data>
+  <data name="Register_OwnPhoneSub" xml:space="preserve">
+    <value>[GU] This helps us set up the right kind of profile for them</value>
+  </data>
+  <data name="Register_IfYes" xml:space="preserve">
+    <value>[GU] If yes —</value>
+  </data>
+  <data name="Register_IfYesDetail" xml:space="preserve">
+    <value>[GU] they'll need their own email to download the app, verify their identity, and complete their own daily questionnaires and samples.</value>
+  </data>
+  <data name="Register_TermsTitle" xml:space="preserve">
+    <value>[GU] PeopleWith Terms and Conditions</value>
+  </data>
+  <data name="Register_AgreeTerms" xml:space="preserve">
+    <value>[GU] I have read and agree to</value>
+  </data>
+  <data name="Register_AgreeTermsLink" xml:space="preserve">
+    <value>[GU] PeopleWith's Terms and Conditions of Use and Data Policy</value>
+  </data>
+  <data name="Register_Required" xml:space="preserve">
+    <value>[GU] Required</value>
+  </data>
+  <data name="Register_AgreeEmail" xml:space="preserve">
+    <value>[GU] I agree to allow</value>
+  </data>
+  <data name="Register_AgreeEmailLink" xml:space="preserve">
+    <value>[GU] PeopleWith to send me Email Notifications</value>
+  </data>
+  <data name="Register_EnterFullName" xml:space="preserve">
+    <value>[GU] Please enter full name</value>
+  </data>
+  <data name="Register_EnterRole" xml:space="preserve">
+    <value>[GU] Please enter role</value>
+  </data>
+  <data name="Register_EnterValue" xml:space="preserve">
+    <value>[GU] Enter Value</value>
+  </data>
+  <data name="Register_AddValue" xml:space="preserve">
+    <value>[GU] Add Value</value>
+  </data>
 </root>

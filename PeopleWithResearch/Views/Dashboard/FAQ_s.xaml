@@ -6,6 +6,7 @@
     xmlns:SyncExpand="clr-namespace:Syncfusion.Maui.Expander;assembly=Syncfusion.Maui.Expander"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     Background="White">
     <Grid Margin="20,20,20,0" RowDefinitions="Auto,Auto,Auto,Auto,*">
 
@@ -17,14 +18,14 @@
                 FontFamily="OpenSansSemiBold"
                 FontSize="24"
                 HorizontalOptions="Start"
-                Text="Hopper FAQ's"
+                Text="{x:Static strings:AppResources.Faq_Title}"
                 TextColor="#031926" />
 
             <Label
                 FontFamily="OpenSansRegular"
                 FontSize="14"
                 HorizontalOptions="Start"
-                Text="Find the answers to all your questions"
+                Text="{x:Static strings:AppResources.Faq_Subtitle}"
                 TextColor="#62727B" />
         </VerticalStackLayout>
 
@@ -95,7 +96,7 @@
                     FontAttributes="Bold"
                     FontSize="12"
                     HorizontalOptions="Center"
-                    Text="Loading FAQ's..."
+                    Text="{x:Static strings:AppResources.Faq_Loading}"
                     TextColor="Black" />
             </StackLayout>
         </Grid>
@@ -110,7 +111,7 @@
                 CharacterSpacing="1"
                 FontFamily="OpenSansSemiBold"
                 FontSize="10"
-                Text="FILTER BY"
+                Text="{x:Static strings:AppResources.Faq_FilterBy}"
                 TextColor="#94A3B8" />
 
             <syncfusion:SfListView
@@ -202,14 +203,14 @@
                         FontFamily="OpenSansSemiBold"
                         FontSize="16"
                         HorizontalTextAlignment="Center"
-                        Text="No FAQs found"
+                        Text="{x:Static strings:AppResources.Faq_NoFaqsFound}"
                         TextColor="#031926" />
                     <Label
                         FontFamily="OpenSansRegular"
                         FontSize="13"
                         HorizontalTextAlignment="Center"
                         LineBreakMode="WordWrap"
-                        Text="We couldn't find matches for your search. Try tweaking your keywords or filters."
+                        Text="{x:Static strings:AppResources.Faq_NoFaqsMsg}"
                         TextColor="#62727B" />
                 </VerticalStackLayout>
             </Border>

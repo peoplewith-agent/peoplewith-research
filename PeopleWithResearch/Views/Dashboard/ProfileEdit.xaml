@@ -7,6 +7,7 @@
     xmlns:local="clr-namespace:PeopleWithResearch"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
     xmlns:syncfusion11="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
+    xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     xmlns:sys="clr-namespace:System;assembly=netstandard"
     BackgroundColor="White">
     <ContentPage.Content>
@@ -23,7 +24,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="Your Name"
+                        Text="{x:Static strings:AppResources.ProfileEdit_YourName}"
                         TextColor="Black" />
 
                     <Grid Margin="0,0,0,40">
@@ -102,7 +103,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="Your Email"
+                        Text="{x:Static strings:AppResources.ProfileEdit_YourEmail}"
                         TextColor="Black" />
 
 
@@ -136,12 +137,12 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="Date of Birth"
+                        Text="{x:Static strings:AppResources.ProfileEdit_DateOfBirth}"
                         TextColor="Black" />
                     <Label
                         FontSize="15"
                         HorizontalOptions="Center"
-                        Text="Select your Date of Birth and Click Confirm, Then Save to Continue."
+                        Text="{x:Static strings:AppResources.ProfileEdit_DobInstruction}"
                         TextColor="Gray" />
 
 
@@ -337,7 +338,7 @@
                             FontAttributes="Bold"
                             HeightRequest="40"
                             HorizontalOptions="CenterAndExpand"
-                            Text="Confirm"
+                            Text="{x:Static strings:AppResources.ProfileEdit_Confirm}"
                             TextColor="White"
                             VerticalOptions="CenterAndExpand"
                             WidthRequest="120" />
@@ -360,7 +361,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="Select your gender"
+                        Text="{x:Static strings:AppResources.ProfileEdit_SelectGender}"
                         TextColor="Black" />
 
                     <!--<Label Text="PeopleWith utilise your gender to help profile your anonymised, consolidated, non-personal health information for the purpose of research into conditions"  HorizontalOptions="Center" TextColor="Gray" FontSize="Small" />-->
@@ -461,7 +462,7 @@
                         FontSize="12"
                         HorizontalOptions="Start"
                         IsVisible="false"
-                        Text="Please State:"
+                        Text="{x:Static strings:AppResources.ProfileEdit_PleaseState}"
                         TextColor="Black"
                         VerticalOptions="Start" />
 
@@ -487,7 +488,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="Ethnicity"
+                        Text="{x:Static strings:AppResources.ProfileEdit_Ethnicity}"
                         TextColor="Black" />
 
                     <!--<Label Text="It's quick and easy to sign up to PeopleWith"  HorizontalOptions="Center" TextColor="Gray" FontSize="Small" />-->
@@ -592,7 +593,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="Phone Number"
+                        Text="{x:Static strings:AppResources.ProfileEdit_PhoneNumber}"
                         TextColor="Black" />
 
                     <inputLayout:SfTextInputLayout
@@ -623,7 +624,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="Town/City"
+                        Text="{x:Static strings:AppResources.ProfileEdit_TownCity}"
                         TextColor="Black" />
 
                     <inputLayout:SfTextInputLayout
@@ -654,13 +655,13 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="Height"
+                        Text="{x:Static strings:AppResources.ProfileEdit_Height}"
                         TextColor="Black" />
 
                     <Label
                         FontSize="15"
                         HorizontalOptions="Center"
-                        Text="Please select your height"
+                        Text="{x:Static strings:AppResources.ProfileEdit_SelectHeight}"
                         TextColor="Gray" />
 
                     <Grid>
@@ -956,13 +957,13 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="Weight"
+                        Text="{x:Static strings:AppResources.ProfileEdit_Weight}"
                         TextColor="Black" />
 
                     <Label
                         FontSize="15"
                         HorizontalOptions="Center"
-                        Text="Please select your weight"
+                        Text="{x:Static strings:AppResources.ProfileEdit_SelectWeight}"
                         TextColor="Gray" />
 
 
@@ -1255,7 +1256,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="Notifications"
+                        Text="{x:Static strings:AppResources.ProfileEdit_Notifications}"
                         TextColor="Black" />
 
 
@@ -1282,7 +1283,7 @@
                                 Margin="10,10,0,0"
                                 FontAttributes="None"
                                 HorizontalOptions="StartAndExpand"
-                                Text="Allow Notifications"
+                                Text="{x:Static strings:AppResources.ProfileEdit_AllowNotifications}"
                                 TextColor="Black"
                                 VerticalOptions="Center" />
                             <Switch
@@ -1308,13 +1309,13 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="Your National Health Identifier"
+                        Text="{x:Static strings:AppResources.ProfileEdit_NhiTitle}"
                         TextColor="Black" />
                     <Label
                         FontAttributes="None"
                         FontSize="18"
                         HorizontalOptions="Center"
-                        Text="Please update your National Health Identifier. Tap on the box below to update your NHS Number if you live in England or Wales, your CHI Number if you live in Scotland or your Health and Social Care Number if you live in Northern Ireland."
+                        Text="{x:Static strings:AppResources.ProfileEdit_NhiInstruction}"
                         TextColor="Black" />
                     <inputLayout:SfTextInputLayout
                         x:Name="epidhint"
@@ -1348,7 +1349,7 @@
                         FontAttributes="Bold"
                         FontSize="26"
                         HorizontalOptions="Center"
-                        Text="Password Reset"
+                        Text="{x:Static strings:AppResources.ProfileEdit_PasswordReset}"
                         TextColor="Black" />
 
 
@@ -1426,7 +1427,7 @@
                         CornerRadius="10"
                         FontAttributes="Bold"
                         HorizontalOptions="FillAndExpand"
-                        Text="Save"
+                        Text="{x:Static strings:AppResources.ProfileEdit_Save}"
                         TextColor="White" />
 
 

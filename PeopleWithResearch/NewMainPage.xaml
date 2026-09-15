@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     ios:Page.UseSafeArea="True"
     BackgroundColor="White"
@@ -27,7 +28,7 @@
                     FontFamily="OpenSansSemiBold"
                     FontSize="32"
                     HorizontalOptions="Center"
-                    Text="Your Research Code"
+                    Text="{x:Static strings:AppResources.MainPage_ResearchCode}"
                     TextColor="Black" />
 
                 <!--  Description  -->
@@ -42,23 +43,23 @@
                             <Span
                                 FontFamily="OpenSansRegular"
                                 FontSize="16"
-                                Text="Thanks for your interest in taking part! "
+                                Text="{x:Static strings:AppResources.Main_DescSpan1}"
                                 TextColor="#555555" />
                             <Span
                                 FontFamily="OpenSansRegular"
                                 FontSize="16"
-                                Text="If you already have a code, tap "
+                                Text="{x:Static strings:AppResources.Main_DescSpan2}"
                                 TextColor="#555555" />
                             <Span
                                 FontAttributes="Bold"
                                 FontFamily="OpenSansSemiBold"
                                 FontSize="16"
-                                Text="'Paste Research Code'"
+                                Text="{x:Static strings:AppResources.Main_DescSpan3}"
                                 TextColor="#009FE3" />
                             <Span
                                 FontFamily="OpenSansRegular"
                                 FontSize="16"
-                                Text=" and follow the on-screen prompt to continue."
+                                Text="{x:Static strings:AppResources.Main_DescSpan4}"
                                 TextColor="#555555" />
                         </FormattedString>
                     </Label.FormattedText>
@@ -109,7 +110,7 @@
                                 FontFamily="OpenSansSemiBold"
                                 FontSize="16"
                                 HeightRequest="45"
-                                Text="Paste Research Code"
+                                Text="{x:Static strings:AppResources.Main_PasteTextConst}"
                                 TextColor="White" />
 
                         </Grid>
@@ -145,7 +146,7 @@
                                 FontSize="14"
                                 HorizontalOptions="Center"
                                 HorizontalTextAlignment="Center"
-                                Text="Checking code..."
+                                Text="{x:Static strings:AppResources.Main_CheckingCode}"
                                 TextColor="Black" />
 
                             <!--<Button Background="#009fe3" IsVisible="False" x:Name="tryagainbutton" Clicked="tryagainbutton_Clicked" Padding="25,0,25,0" CornerRadius="5" HeightRequest="35" HorizontalOptions="Center" VerticalOptions="Center" Text="Try Again" TextColor="White" FontAttributes="Bold"></Button>-->
@@ -212,7 +213,7 @@
                             FontSize="14"
                             HeightRequest="40"
                             IsVisible="False"
-                            Text="Clear"
+                            Text="{x:Static strings:AppResources.Main_Clear}"
                             TextColor="#777777" />
 
                         <Border
@@ -238,7 +239,7 @@
                                 <Label
                                     FontAttributes="Bold"
                                     FontSize="16"
-                                    Text="✓"
+                                    Text="{x:Static strings:AppResources.Main_SuccessTick}"
                                     TextColor="White"
                                     VerticalOptions="Center" />
 
@@ -246,7 +247,7 @@
                                     FontAttributes="Bold"
                                     FontFamily="OpenSansSemibold"
                                     FontSize="16"
-                                    Text="Success"
+                                    Text="{x:Static strings:AppResources.Main_SuccessLabel}"
                                     TextColor="White"
                                     VerticalOptions="Center" />
                             </HorizontalStackLayout>
@@ -275,7 +276,7 @@
                 FontSize="14"
                 HorizontalTextAlignment="Center"
                 LineBreakMode="WordWrap"
-                Text="If you have your details for a research project, you can register to participate. If you’ve already registered for a project before, you can log in to access your account and continue."
+                Text="{x:Static strings:AppResources.Main_Description}"
                 TextColor="#666666" />
 
             <!--  Buttons side by side using Grid  -->
@@ -295,7 +296,7 @@
                     FontFamily="OpenSansSemiBold"
                     FontSize="16"
                     HeightRequest="45"
-                    Text="Register"
+                    Text="{x:Static strings:AppResources.Main_Register}"
                     TextColor="White" />-->
 
                 <Button
@@ -310,7 +311,7 @@
                     FontFamily="OpenSansSemiBold"
                     FontSize="16"
                     HeightRequest="45"
-                    Text="Log In"
+                    Text="{x:Static strings:AppResources.Main_LogIn}"
                     TextColor="#009FE3" />
 
                     

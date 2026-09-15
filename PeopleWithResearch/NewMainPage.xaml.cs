@@ -17,8 +17,8 @@ public partial class NewMainPage : ContentPage
 
     //public QuestionnaireManager questionnairemanager;
     public ObservableCollection<Questionnaire> questionnairedetails = new ObservableCollection<Questionnaire>();
-    private const string PasteText = "Paste Research Code";
-    private const string CheckText = "Check Research Code";
+    private string PasteText => LocalizationManager.Get("Main_PasteTextConst");
+    private string CheckText => LocalizationManager.Get("Main_CheckTextConst");
     private bool isawait = false;
 
     Dictionary<string, string> languages = new Dictionary<string, string>(){ {"en", "Select language"}, {"fr", "Sélectionner la langue"}, {"es", "Seleccionar idioma"}, {"de", "Sprache auswählen"}};
@@ -69,8 +69,8 @@ public partial class NewMainPage : ContentPage
                 catch (Exception clipEx)
                 {
                     CrashDetected.LogCrash(clipEx, Navigation, "pastebtn_Clicked_Clipboard");
-                    await DisplayAlert("Clipboard Unavailable",
-                        "We couldn't read your clipboard. Please type your research code instead.", "Ok");
+                    await DisplayAlert(LocalizationManager.Get("Main_ClipboardUnavailableTitle"),
+                        LocalizationManager.Get("Main_ClipboardUnavailableMsg"), LocalizationManager.Get("Common_OK"));
                     return;
                 }
 
@@ -118,8 +118,8 @@ public partial class NewMainPage : ContentPage
             {
                 checkingstack.IsVisible = false;
                 pastebtn.IsVisible = true;
-                await DisplayAlert("Registration Active",
-                    "This email address is already in use. Try logging in instead.", "Ok");
+                await DisplayAlert(LocalizationManager.Get("Main_RegistrationActiveTitle"),
+                    LocalizationManager.Get("Main_RegistrationActiveMsg"), LocalizationManager.Get("Common_OK"));
                 return;
             }
 

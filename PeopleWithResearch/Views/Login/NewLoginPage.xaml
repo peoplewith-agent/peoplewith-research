@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     BackgroundColor="#FBFBFB"
     NavigationPage.HasBackButton="True">
     <Grid RowDefinitions="*, Auto">
@@ -30,13 +31,13 @@
                         FontFamily="OpenSansSemiBold"
                         FontSize="28"
                         HorizontalTextAlignment="Center"
-                        Text="Welcome Back"
+                        Text="{x:Static strings:AppResources.Login_WelcomeBack}"
                         TextColor="#031926" />
                     <Label
                         FontFamily="OpenSansRegular"
                         FontSize="14"
                         HorizontalTextAlignment="Center"
-                        Text="Sign in to access your research dashboard"
+                        Text="{x:Static strings:AppResources.Login_SignInSubtitle}"
                         TextColor="Gray" />
                 </VerticalStackLayout>
 
@@ -50,7 +51,7 @@
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             FontSize="14"
-                            Text="Email Address*"
+                            Text="{x:Static strings:AppResources.Login_EmailLabel}"
                             TextColor="#031926" />
                         <inputLayout:SfTextInputLayout
                             x:Name="emailhelper"
@@ -87,7 +88,7 @@
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             FontSize="14"
-                            Text="Password*"
+                            Text="{x:Static strings:AppResources.Login_PasswordLabel}"
                             TextColor="#031926" />
                         <inputLayout:SfTextInputLayout
                             x:Name="passhelper"
@@ -123,7 +124,7 @@
                             FontFamily="OpenSansRegular"
                             FontSize="14"
                             HorizontalOptions="End"
-                            Text="Forgotten password?"
+                            Text="{x:Static strings:AppResources.Login_ForgotPassword}"
                             TextColor="#009fe3">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ForgotPass_Tapped" />
@@ -146,7 +147,7 @@
                             FontSize="16"
                             HeightRequest="50"
                             HorizontalOptions="Fill"
-                            Text="Sign In"
+                            Text="{x:Static strings:AppResources.Login_SignInButton}"
                             TextColor="White" />
 
                         <Border
@@ -170,10 +171,10 @@
                     <Label FontSize="14" HorizontalOptions="Center">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Haven't got an account? " TextColor="Gray" />
+                                <Span Text="{x:Static strings:AppResources.Login_NoAccount} " TextColor="Gray" />
                                 <Span
                                     FontAttributes="Bold"
-                                    Text="Sign up"
+                                    Text="{x:Static strings:AppResources.Login_SignUpLink}"
                                     TextColor="#009fe3">
                                     <Span.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="SignupClicked" />
@@ -196,7 +197,7 @@
                 FontFamily="OpenSansRegular"
                 FontSize="14"
                 HorizontalOptions="Center"
-                Text="Privacy Policy"
+                Text="{x:Static strings:AppResources.Common_PrivacyPolicy}"
                 TextColor="#64748B"
                 TextDecorations="None">
                 <Label.GestureRecognizers>

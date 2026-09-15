@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:PeopleWithResearch"
+    xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -165,7 +166,7 @@
                     FontAttributes="Bold"
                     FontFamily="OpenSansSemiBold"
                     FontSize="11"
-                    Text="TERMS · PRIVACY · DATA"
+                    Text="{x:Static strings:AppResources.Privacy_FooterLinks}"
                     TextColor="{StaticResource Accent}" />
                 <Label
                     Margin="0,10,0,0"

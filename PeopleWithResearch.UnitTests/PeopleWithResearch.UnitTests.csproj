@@ -75,6 +75,19 @@
     <!-- PD2-29: AppResources.Designer.cs linked so LocalizationManager compiles in tests -->
     <Compile Include="..\PeopleWithResearch\Resources\Strings\AppResources.Designer.cs"
              Link="LinkedSource\Resources\Strings\AppResources.Designer.cs" />
+    <!-- PD2-30: satellite .resx files embedded so ResourceManager can resolve non-default cultures in tests -->
+    <EmbeddedResource Include="..\PeopleWithResearch\Resources\Strings\AppResources.resx"
+                      Link="LinkedSource\Resources\Strings\AppResources.resx"
+                      LogicalName="PeopleWithResearch.Resources.Strings.AppResources.resources" />
+    <EmbeddedResource Include="..\PeopleWithResearch\Resources\Strings\AppResources.pl.resx"
+                      Link="LinkedSource\Resources\Strings\AppResources.pl.resx"
+                      LogicalName="PeopleWithResearch.Resources.Strings.AppResources.pl.resources" />
+    <EmbeddedResource Include="..\PeopleWithResearch\Resources\Strings\AppResources.ro.resx"
+                      Link="LinkedSource\Resources\Strings\AppResources.ro.resx"
+                      LogicalName="PeopleWithResearch.Resources.Strings.AppResources.ro.resources" />
+    <EmbeddedResource Include="..\PeopleWithResearch\Resources\Strings\AppResources.gu.resx"
+                      Link="LinkedSource\Resources\Strings\AppResources.gu.resx"
+                      LogicalName="PeopleWithResearch.Resources.Strings.AppResources.gu.resources" />
   </ItemGroup>
 
 </Project>
