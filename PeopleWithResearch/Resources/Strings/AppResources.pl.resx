@@ -1071,4 +1071,70 @@
   <data name="Register_AddValue" xml:space="preserve">
     <value>Dodaj wartość</value>
   </data>
+
+  <!-- Tab headers -->
+  <data name="Tab_Home" xml:space="preserve">
+    <value>Strona główna</value>
+  </data>
+  <data name="Tab_Information" xml:space="preserve">
+    <value>Informacje</value>
+  </data>
+  <data name="Tab_Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+
+  <!-- Settings list items -->
+  <data name="Settings_Language" xml:space="preserve">
+    <value>Język</value>
+  </data>
+  <data name="Settings_ChangeLanguage" xml:space="preserve">
+    <value>Zmień język</value>
+  </data>
+  <data name="Settings_ResetPassword" xml:space="preserve">
+    <value>Zresetuj hasło</value>
+  </data>
+  <data name="Settings_Notifications" xml:space="preserve">
+    <value>Powiadomienia</value>
+  </data>
+  <data name="Settings_Enabled" xml:space="preserve">
+    <value>Włączone</value>
+  </data>
+  <data name="Settings_Disabled" xml:space="preserve">
+    <value>Wyłączone</value>
+  </data>
+  <data name="Settings_SignupCode" xml:space="preserve">
+    <value>Kod rejestracji</value>
+  </data>
+  <data name="Settings_NotificationSchedule" xml:space="preserve">
+    <value>Harmonogram powiadomień</value>
+  </data>
+  <data name="Settings_ChangeTime" xml:space="preserve">
+    <value>Zmień godzinę</value>
+  </data>
+
+  <!-- Profile list items -->
+  <data name="Profile_Name" xml:space="preserve">
+    <value>Imię i nazwisko</value>
+  </data>
+  <data name="Profile_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Profile_DateOfBirth" xml:space="preserve">
+    <value>Data urodzenia</value>
+  </data>
+  <data name="Profile_Gender" xml:space="preserve">
+    <value>Płeć</value>
+  </data>
+  <data name="Profile_Ethnicity" xml:space="preserve">
+    <value>Pochodzenie etniczne</value>
+  </data>
+  <data name="Profile_PhoneNumber" xml:space="preserve">
+    <value>Numer telefonu</value>
+  </data>
+  <data name="Profile_TownCity" xml:space="preserve">
+    <value>Miejscowość/Miasto</value>
+  </data>
+  <data name="Profile_Nhi" xml:space="preserve">
+    <value>Krajowy identyfikator zdrowotny</value>
+  </data>
 </root>

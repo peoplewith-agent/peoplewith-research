@@ -73,6 +73,9 @@ public partial class ImperialDashboard : ContentPage
         welcomelbl.Text = LocalizationManager.Get("Dashboard_HiPrefix") + " " + Helpers.Settings.FirstName + " " + Helpers.Settings.Surname;
         activeProfileChipName.Text = Helpers.Settings.FirstName + " " + Helpers.Settings.Surname;
 
+        // Localise static tab headers and "Logged in as" span
+        ApplyDashboardLocalization();
+
       //  checkifappisupdated();
 
         GetHouseholdData();
@@ -151,6 +154,21 @@ public partial class ImperialDashboard : ContentPage
         if (string.IsNullOrEmpty(Helpers.Settings.SelectedLanguage))
         {
             SelectedLangugage();
+        }
+    }
+
+    private void ApplyDashboardLocalization()
+    {
+        try
+        {
+            hometab.Header    = LocalizationManager.Get("Tab_Home");
+            infotab.Header    = LocalizationManager.Get("Tab_Information");
+            profiletab.Header = LocalizationManager.Get("Tab_Profile");
+            loggedInAsSpan.Text = LocalizationManager.Get("Dashboard_LoggedInAs") + " ";
+        }
+        catch (Exception Ex)
+        {
+            CrashDetected.LogCrash(Ex, Navigation, "ApplyDashboardLocalization");
         }
     }
 
@@ -2095,27 +2113,15 @@ public partial class ImperialDashboard : ContentPage
         {
             ResetTabs();
 
-            switch (e.TabItem.Header?.ToString())
-            {
-                case "Home":
-                    SetActiveTab(hometab, "dashiconactive.png");
-                  //  tabsview.Background = Colors.Transparent; 
-                    break;
-
-                case "Information":
-                    SetActiveTab(infotab, "dashexploreactive.png");
-                   // tabsview.Background = Colors.Transparent;
-                    break;
-
-                case "Profile":
-                    SetActiveTab(profiletab, "dashbrowseactive.png");
-                 //   tabsview.Background = Color.FromArgb("#f8f9fb");
-                    break;
+            // Compare by reference (x:Name) so it works regardless of language
+            var tapped = e.TabItem;
+            if      (ReferenceEquals(tapped, hometab))    SetActiveTab(hometab,    "dashiconactive.png");
+            else if (ReferenceEquals(tapped, infotab))    SetActiveTab(infotab,    "dashexploreactive.png");
+            else if (ReferenceEquals(tapped, profiletab)) SetActiveTab(profiletab, "dashbrowseactive.png");
 
                 //case "Questions":
                 //    SetActiveTab(additionalquestionstab, "questiondashblack.png");
                 //    break;
-            }
         }
         catch (Exception Ex)
         {
@@ -2206,7 +2212,16 @@ public partial class ImperialDashboard : ContentPage
 
             if (!String.IsNullOrEmpty(Item.Id) && Item.Id == "Select Language")
             {
-                await MopupService.Instance.PushAsync(new SelectLanguagePopup(true));
+                // Use TCS pattern so we can detect a change and rebuild the page tree
+                var tcs = new TaskCompletionSource<string>(TaskCreationOptions.RunContinuationsAsynchronously);
+                string previousCode = Helpers.Settings.SelectedLanguage ?? "en";
+                await MopupService.Instance.PushAsync(new SelectLanguagePopup(tcs));
+                string selectedCode = await tcs.Task;
+                if (selectedCode != previousCode)
+                {
+                    LocalizationManager.SetLanguage(selectedCode);
+                    await App.SetMainPage(new NavigationPage(new ImperialDashboard()));
+                }
                 return;
             }
 

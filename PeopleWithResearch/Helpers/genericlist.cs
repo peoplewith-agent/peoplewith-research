@@ -82,16 +82,10 @@ namespace PeopleWithResearch
             "Other"
         };
 
-        public static readonly Dictionary<string,string> getlanguage = new Dictionary<string,string>
+        // Show the language name (e.g. "English", "Español") rather than the raw code
+        private static readonly Dictionary<string, string> _languageDisplayNames = new()
         {
-            // { "en", "Select language" },
-            // { "fr", "Sélectionner la langue" },
-            // { "es", "Seleccionar idioma" },
-            // { "de", "Sprache auswählen" }
-            { "en", "Change language" },
-            { "fr", "Changer de langue" },
-            { "es", "Cambiar idioma" },
-            { "de", "Sprache ändern" }
+            { "en", "English" }, { "pl", "Polski" }, { "ro", "Română" }, { "gu", "ગુજરાતી" }, { "es", "Español" }
         };
 
 
@@ -138,26 +132,26 @@ namespace PeopleWithResearch
             {
                 new user
                 {
-                    Title = "Name",
+                    Title = LocalizationManager.Get("Profile_Name"),
                     Role = string.Join(" ", new[] { Helpers.Settings.FirstName, Helpers.Settings.Surname }
                            .Where(s => !string.IsNullOrWhiteSpace(s)))
                            is string fullName && !string.IsNullOrEmpty(fullName)
                            ? fullName
                            : "--" , Image = "nameicon.png"
                 },
-                new user { Title = "Email", Role = !string.IsNullOrEmpty(Helpers.Settings.Email) ? Helpers.Settings.Email : "--", Image = "emailicon.png" },
-                new user { Title = "Date of Birth", Role = !string.IsNullOrEmpty(Helpers.Settings.Age) ? Helpers.Settings.Age : "--", Image = "birthdateicon.png"  },
-                new user { Title = "Gender", Role = !string.IsNullOrEmpty(Helpers.Settings.Gender) ? Helpers.Settings.Gender : "--", Image = "newgendericon.png"  },
-                new user { Title = "Ethnicity", Role = !string.IsNullOrEmpty(Helpers.Settings.Ethnicity) ? Helpers.Settings.Ethnicity : "--" , Image = "ethnicityicon.png" },
-                new user { Title = "Phone Number", Role = !string.IsNullOrEmpty(Helpers.Settings.PhoneNumber) ? Helpers.Settings.PhoneNumber : "--" , Image = "numbericon.png"},
-                new user { Title = "Town/City", Role = !string.IsNullOrEmpty(Helpers.Settings.Town) ? Helpers.Settings.Town : "--" , Image = "townicon.png"}
+                new user { Title = LocalizationManager.Get("Profile_Email"),        Role = !string.IsNullOrEmpty(Helpers.Settings.Email)       ? Helpers.Settings.Email       : "--", Image = "emailicon.png" },
+                new user { Title = LocalizationManager.Get("Profile_DateOfBirth"),  Role = !string.IsNullOrEmpty(Helpers.Settings.Age)         ? Helpers.Settings.Age         : "--", Image = "birthdateicon.png"  },
+                new user { Title = LocalizationManager.Get("Profile_Gender"),       Role = !string.IsNullOrEmpty(Helpers.Settings.Gender)      ? Helpers.Settings.Gender      : "--", Image = "newgendericon.png"  },
+                new user { Title = LocalizationManager.Get("Profile_Ethnicity"),    Role = !string.IsNullOrEmpty(Helpers.Settings.Ethnicity)   ? Helpers.Settings.Ethnicity   : "--" , Image = "ethnicityicon.png" },
+                new user { Title = LocalizationManager.Get("Profile_PhoneNumber"),  Role = !string.IsNullOrEmpty(Helpers.Settings.PhoneNumber) ? Helpers.Settings.PhoneNumber : "--" , Image = "numbericon.png"},
+                new user { Title = LocalizationManager.Get("Profile_TownCity"),     Role = !string.IsNullOrEmpty(Helpers.Settings.Town)        ? Helpers.Settings.Town        : "--" , Image = "townicon.png"}
             };
 
             if (Helpers.Settings.Validityconfirmed == "false")
             {
                 items.Add(new user
                 {
-                    Title = "National Health Identifier",
+                    Title = LocalizationManager.Get("Profile_Nhi"),
                     Role = !string.IsNullOrEmpty(Helpers.Settings.Userepid) ? Helpers.Settings.Userepid : "--"
                 });
             }
@@ -173,19 +167,22 @@ namespace PeopleWithResearch
             bool isEnabled = await LocalNotificationCenter.Current.AreNotificationsEnabled();
 
 
+            var langCode = Helpers.Settings.SelectedLanguage;
+            var langDisplayName = _languageDisplayNames.TryGetValue(langCode ?? "", out var dn) ? dn : langCode ?? "--";
+
             var newuser = new user
             {
-                Title = !string.IsNullOrEmpty(Helpers.Settings.SelectedLanguage) ? Helpers.Settings.SelectedLanguage : "--",
-                Role = getlanguage.TryGetValue(Helpers.Settings.SelectedLanguage, out var languageTitle) ? languageTitle : "Change language", 
+                Title = langDisplayName,
+                Role = LocalizationManager.Get("Settings_ChangeLanguage"),
                 Image = "world.png",
                 Id = "Select Language"
             };
 
             var items = new ObservableCollection<user>
             {
-                new user { Title = "Reset Password", Role = "**********", Image = "passwordicon.png"  },
-                new user { Title = "Notifications", Role = isEnabled ? "Enabled" : "Disabled" , Image = "bellicon.png" },
-                new user { Title = "Sign-up Code", Role = !string.IsNullOrEmpty(Helpers.Settings.SignUp) ? Helpers.Settings.SignUp : "--" , Image = "keyicon.png"},
+                new user { Title = LocalizationManager.Get("Settings_ResetPassword"),        Role = "**********",                                                        Image = "passwordicon.png"  },
+                new user { Title = LocalizationManager.Get("Settings_Notifications"),        Role = isEnabled ? LocalizationManager.Get("Settings_Enabled") : LocalizationManager.Get("Settings_Disabled"), Image = "bellicon.png" },
+                new user { Title = LocalizationManager.Get("Settings_SignupCode"),           Role = !string.IsNullOrEmpty(Helpers.Settings.SignUp) ? Helpers.Settings.SignUp : "--", Image = "keyicon.png"},
                 newuser,        
             };
             //var notificationTime = Preferences.Get("notificationtime", string.Empty);
@@ -195,8 +192,8 @@ namespace PeopleWithResearch
             {
                 items.Add(new user
                 {
-                    Title = "Notification Schedule",
-                    Role = "Change Time",
+                    Title = LocalizationManager.Get("Settings_NotificationSchedule"),
+                    Role  = LocalizationManager.Get("Settings_ChangeTime"),
                     Image = "time.png"
                 });
             }

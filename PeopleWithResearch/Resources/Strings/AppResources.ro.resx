@@ -1071,4 +1071,70 @@
   <data name="Register_AddValue" xml:space="preserve">
     <value>[RO] Add Value</value>
   </data>
+
+  <!-- Tab headers -->
+  <data name="Tab_Home" xml:space="preserve">
+    <value>Acasă</value>
+  </data>
+  <data name="Tab_Information" xml:space="preserve">
+    <value>Informații</value>
+  </data>
+  <data name="Tab_Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+
+  <!-- Settings list items -->
+  <data name="Settings_Language" xml:space="preserve">
+    <value>Limbă</value>
+  </data>
+  <data name="Settings_ChangeLanguage" xml:space="preserve">
+    <value>Schimbă limba</value>
+  </data>
+  <data name="Settings_ResetPassword" xml:space="preserve">
+    <value>Resetare parolă</value>
+  </data>
+  <data name="Settings_Notifications" xml:space="preserve">
+    <value>Notificări</value>
+  </data>
+  <data name="Settings_Enabled" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="Settings_Disabled" xml:space="preserve">
+    <value>Dezactivate</value>
+  </data>
+  <data name="Settings_SignupCode" xml:space="preserve">
+    <value>Cod de înregistrare</value>
+  </data>
+  <data name="Settings_NotificationSchedule" xml:space="preserve">
+    <value>Program notificări</value>
+  </data>
+  <data name="Settings_ChangeTime" xml:space="preserve">
+    <value>Schimbă ora</value>
+  </data>
+
+  <!-- Profile list items -->
+  <data name="Profile_Name" xml:space="preserve">
+    <value>Nume</value>
+  </data>
+  <data name="Profile_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Profile_DateOfBirth" xml:space="preserve">
+    <value>Data naşterii</value>
+  </data>
+  <data name="Profile_Gender" xml:space="preserve">
+    <value>Gen</value>
+  </data>
+  <data name="Profile_Ethnicity" xml:space="preserve">
+    <value>Etnie</value>
+  </data>
+  <data name="Profile_PhoneNumber" xml:space="preserve">
+    <value>Număr de telefon</value>
+  </data>
+  <data name="Profile_TownCity" xml:space="preserve">
+    <value>Oraş/Localitate</value>
+  </data>
+  <data name="Profile_Nhi" xml:space="preserve">
+    <value>Identificator național de sănătate</value>
+  </data>
 </root>

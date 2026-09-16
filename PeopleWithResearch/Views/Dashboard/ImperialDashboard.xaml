@@ -183,7 +183,7 @@
                         VerticalOptions="Center">
                         <Label
                             FontFamily="OpenSansRegular"
-                            FontSize="12"
+                            FontSize="12" x:Name="infolbllist"
                             Text="{Binding Title}"
                             TextColor="#64748B" />
                         <Label
@@ -355,11 +355,11 @@
                                     </Image>
                                     <Label
                                         FontFamily="OpenSansSemiBold"
-                                        FontSize="12"
+                                        FontSize="12" x:Name="loggedinprofilelbl"
                                         VerticalOptions="Center">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="Logged in as " TextColor="#505050" />
+                                                <Span x:Name="loggedInAsSpan" Text="Logged in as " TextColor="#505050" />
                                                 <Span
                                                     x:Name="activeProfileChipName"
                                                     FontAttributes="Bold"

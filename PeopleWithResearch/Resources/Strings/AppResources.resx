@@ -1079,4 +1079,70 @@
   <data name="Register_AddValue" xml:space="preserve">
     <value>Add Value</value>
   </data>
+
+  <!-- Tab headers -->
+  <data name="Tab_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Tab_Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Tab_Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+
+  <!-- Settings list items -->
+  <data name="Settings_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Settings_ChangeLanguage" xml:space="preserve">
+    <value>Change Language</value>
+  </data>
+  <data name="Settings_ResetPassword" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="Settings_Notifications" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="Settings_Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="Settings_Disabled" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Settings_SignupCode" xml:space="preserve">
+    <value>Sign-up Code</value>
+  </data>
+  <data name="Settings_NotificationSchedule" xml:space="preserve">
+    <value>Notification Schedule</value>
+  </data>
+  <data name="Settings_ChangeTime" xml:space="preserve">
+    <value>Change Time</value>
+  </data>
+
+  <!-- Profile list items -->
+  <data name="Profile_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Profile_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Profile_DateOfBirth" xml:space="preserve">
+    <value>Date of Birth</value>
+  </data>
+  <data name="Profile_Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Profile_Ethnicity" xml:space="preserve">
+    <value>Ethnicity</value>
+  </data>
+  <data name="Profile_PhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="Profile_TownCity" xml:space="preserve">
+    <value>Town/City</value>
+  </data>
+  <data name="Profile_Nhi" xml:space="preserve">
+    <value>National Health Identifier</value>
+  </data>
 </root>
