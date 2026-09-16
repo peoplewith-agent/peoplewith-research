@@ -132,27 +132,29 @@ namespace PeopleWithResearch
             {
                 new user
                 {
+                    Id    = "Name",
                     Title = LocalizationManager.Get("Profile_Name"),
-                    Role = string.Join(" ", new[] { Helpers.Settings.FirstName, Helpers.Settings.Surname }
+                    Role  = string.Join(" ", new[] { Helpers.Settings.FirstName, Helpers.Settings.Surname }
                            .Where(s => !string.IsNullOrWhiteSpace(s)))
                            is string fullName && !string.IsNullOrEmpty(fullName)
                            ? fullName
-                           : "--" , Image = "nameicon.png"
+                           : "--", Image = "nameicon.png"
                 },
-                new user { Title = LocalizationManager.Get("Profile_Email"),        Role = !string.IsNullOrEmpty(Helpers.Settings.Email)       ? Helpers.Settings.Email       : "--", Image = "emailicon.png" },
-                new user { Title = LocalizationManager.Get("Profile_DateOfBirth"),  Role = !string.IsNullOrEmpty(Helpers.Settings.Age)         ? Helpers.Settings.Age         : "--", Image = "birthdateicon.png"  },
-                new user { Title = LocalizationManager.Get("Profile_Gender"),       Role = !string.IsNullOrEmpty(Helpers.Settings.Gender)      ? Helpers.Settings.Gender      : "--", Image = "newgendericon.png"  },
-                new user { Title = LocalizationManager.Get("Profile_Ethnicity"),    Role = !string.IsNullOrEmpty(Helpers.Settings.Ethnicity)   ? Helpers.Settings.Ethnicity   : "--" , Image = "ethnicityicon.png" },
-                new user { Title = LocalizationManager.Get("Profile_PhoneNumber"),  Role = !string.IsNullOrEmpty(Helpers.Settings.PhoneNumber) ? Helpers.Settings.PhoneNumber : "--" , Image = "numbericon.png"},
-                new user { Title = LocalizationManager.Get("Profile_TownCity"),     Role = !string.IsNullOrEmpty(Helpers.Settings.Town)        ? Helpers.Settings.Town        : "--" , Image = "townicon.png"}
+                new user { Id = "Email",              Title = LocalizationManager.Get("Profile_Email"),       Role = !string.IsNullOrEmpty(Helpers.Settings.Email)       ? Helpers.Settings.Email       : "--", Image = "emailicon.png" },
+                new user { Id = "Date of Birth",      Title = LocalizationManager.Get("Profile_DateOfBirth"), Role = !string.IsNullOrEmpty(Helpers.Settings.Age)         ? Helpers.Settings.Age         : "--", Image = "birthdateicon.png"  },
+                new user { Id = "Gender",             Title = LocalizationManager.Get("Profile_Gender"),      Role = !string.IsNullOrEmpty(Helpers.Settings.Gender)      ? Helpers.Settings.Gender      : "--", Image = "newgendericon.png"  },
+                new user { Id = "Ethnicity",          Title = LocalizationManager.Get("Profile_Ethnicity"),   Role = !string.IsNullOrEmpty(Helpers.Settings.Ethnicity)   ? Helpers.Settings.Ethnicity   : "--", Image = "ethnicityicon.png" },
+                new user { Id = "Phone Number",       Title = LocalizationManager.Get("Profile_PhoneNumber"), Role = !string.IsNullOrEmpty(Helpers.Settings.PhoneNumber) ? Helpers.Settings.PhoneNumber : "--", Image = "numbericon.png" },
+                new user { Id = "Town/City",          Title = LocalizationManager.Get("Profile_TownCity"),    Role = !string.IsNullOrEmpty(Helpers.Settings.Town)        ? Helpers.Settings.Town        : "--", Image = "townicon.png" }
             };
 
             if (Helpers.Settings.Validityconfirmed == "false")
             {
                 items.Add(new user
                 {
+                    Id    = "National Health Identifier",
                     Title = LocalizationManager.Get("Profile_Nhi"),
-                    Role = !string.IsNullOrEmpty(Helpers.Settings.Userepid) ? Helpers.Settings.Userepid : "--"
+                    Role  = !string.IsNullOrEmpty(Helpers.Settings.Userepid) ? Helpers.Settings.Userepid : "--"
                 });
             }
 

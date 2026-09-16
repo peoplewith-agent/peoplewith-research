@@ -92,7 +92,8 @@ namespace PeopleWithResearch
             passeduser = itempassed;
             GetUserDetails();
 
-            switch (passeduser.Title?.ToString())
+            // Use Id (stable English key) so routing works regardless of the UI language
+            switch (passeduser.Id ?? passeduser.Title?.ToString())
             {
                 //Name Stack
                 case "Name":
@@ -124,7 +125,7 @@ namespace PeopleWithResearch
                     NumberStack();
                     break;
 
-                //Number Stack
+                //Town Stack
                 case "Town/City":
                     TownStack();
                     break;
@@ -134,8 +135,9 @@ namespace PeopleWithResearch
                     EthIDStack();
                     break;
 
-                //Rest Password Stack
+                //Reset Password Stack
                 case "Rest Password":
+                case "Reset Password":
                     RestPasswordStack();
                     break;
 
