@@ -366,7 +366,7 @@ public partial class ImperialDashboard : ContentPage
                 item.ShowContactStudyTeam = !isWithdrawn && isOver16 && hasNoEmail;
 
                 item.Studyactiveimage = isActive ? "greentick.png" : isOnboarding ? "error.png" : "logout.png";
-                item.Studyinfo = $"{item.household_individual_userid} | {item.household_individual_status} | {item.household_individual_age}";
+                item.Studyinfo = $"{item.household_individual_userid} | {TranslateHouseholdStatus(item.household_individual_status)} | {item.household_individual_age}";
 
                 if (isWithdrawn)
                 {
@@ -443,6 +443,17 @@ public partial class ImperialDashboard : ContentPage
         {
             CrashDetected.LogCrash(Ex, Navigation, "GetHouseholdData");
         }
+    }
+
+    private static string TranslateHouseholdStatus(string englishStatus)
+    {
+        return englishStatus?.ToLower() switch
+        {
+            "active"      => LocalizationManager.Get("Household_StatusActive"),
+            "onboarding"  => LocalizationManager.Get("Household_StatusOnboarding"),
+            "withdrawn"   => LocalizationManager.Get("Household_StatusWithdrawn"),
+            _             => englishStatus ?? string.Empty
+        };
     }
 
     private void WithdrawnStyle(householdgroupjsondetails item)
@@ -584,7 +595,7 @@ public partial class ImperialDashboard : ContentPage
             item.BaselineButtonEnabled = true;
             item.ManageButtonOpacity = 0.2;
             item.ManageButtonEnabled = false;
-            item.SendReminderText = "Send Email Reminder";
+            item.SendReminderText = LocalizationManager.Get("Household_SendEmailReminder");
         }
         else if (isActive)
         {
@@ -593,7 +604,7 @@ public partial class ImperialDashboard : ContentPage
             item.BaselineButtonEnabled = false;
             item.ManageButtonOpacity = 1;
             item.ManageButtonEnabled = true;
-            item.SendReminderText = "Nudge User - Notification";
+            item.SendReminderText = LocalizationManager.Get("Household_NudgeNotification");
         }
     }
 
@@ -1900,8 +1911,8 @@ public partial class ImperialDashboard : ContentPage
                     item.ColorTheme = "#868F96";
                 }
 
-                if (item.type == "phone") item.title = "Call us";
-                if (item.type == "email") item.title = item.description.Contains("imperial") ? "General enquiries" : "Technical support";
+                if (item.type == "phone") item.title = LocalizationManager.Get("Info_CallUs");
+                if (item.type == "email") item.title = item.description.Contains("imperial") ? LocalizationManager.Get("Info_GeneralEnquiries") : LocalizationManager.Get("Info_TechnicalSupport");
             }
 
 

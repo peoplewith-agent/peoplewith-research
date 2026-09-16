@@ -1363,4 +1363,31 @@
   <data name="Eth_HPreferNotAnswer" xml:space="preserve">
     <value>Prefer să nu răspund</value>
   </data>
+
+
+  <!-- Information tab and household dashboard labels -->
+  <data name="Info_CallUs" xml:space="preserve">
+    <value>Sunați-ne</value>
+  </data>
+  <data name="Info_GeneralEnquiries" xml:space="preserve">
+    <value>Întrebări generale</value>
+  </data>
+  <data name="Info_TechnicalSupport" xml:space="preserve">
+    <value>Suport tehnic</value>
+  </data>
+  <data name="Household_StatusActive" xml:space="preserve">
+    <value>Activ</value>
+  </data>
+  <data name="Household_StatusOnboarding" xml:space="preserve">
+    <value>Înregistrare</value>
+  </data>
+  <data name="Household_StatusWithdrawn" xml:space="preserve">
+    <value>Retras</value>
+  </data>
+  <data name="Household_SendEmailReminder" xml:space="preserve">
+    <value>Trimite memento prin e-mail</value>
+  </data>
+  <data name="Household_NudgeNotification" xml:space="preserve">
+    <value>Notificare utilizator</value>
+  </data>
 </root>

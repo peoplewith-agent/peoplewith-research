@@ -1371,4 +1371,31 @@
   <data name="Eth_HPreferNotAnswer" xml:space="preserve">
     <value>Prefer not to answer</value>
   </data>
+
+
+  <!-- Information tab and household dashboard labels -->
+  <data name="Info_CallUs" xml:space="preserve">
+    <value>Call us</value>
+  </data>
+  <data name="Info_GeneralEnquiries" xml:space="preserve">
+    <value>General enquiries</value>
+  </data>
+  <data name="Info_TechnicalSupport" xml:space="preserve">
+    <value>Technical support</value>
+  </data>
+  <data name="Household_StatusActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Household_StatusOnboarding" xml:space="preserve">
+    <value>Onboarding</value>
+  </data>
+  <data name="Household_StatusWithdrawn" xml:space="preserve">
+    <value>Withdrawn</value>
+  </data>
+  <data name="Household_SendEmailReminder" xml:space="preserve">
+    <value>Send Email Reminder</value>
+  </data>
+  <data name="Household_NudgeNotification" xml:space="preserve">
+    <value>Nudge User - Notification</value>
+  </data>
 </root>
