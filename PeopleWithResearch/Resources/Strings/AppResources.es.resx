@@ -1387,4 +1387,37 @@
   <data name="Household_NudgeNotification" xml:space="preserve">
     <value>Avisar al usuario - Notificación</value>
   </data>
+
+
+  <!-- AddMember page lists and settings routing -->
+  <data name="AddMember_RelParentGuardian" xml:space="preserve">
+    <value>Soy su padre/tutor</value>
+  </data>
+  <data name="AddMember_RelPartnerSpouse" xml:space="preserve">
+    <value>Soy su pareja/cónyuge</value>
+  </data>
+  <data name="AddMember_RelChild" xml:space="preserve">
+    <value>Soy su hijo/a</value>
+  </data>
+  <data name="AddMember_RelOther" xml:space="preserve">
+    <value>Otro</value>
+  </data>
+  <data name="AddMember_PhoneYes" xml:space="preserve">
+    <value>Sí, teléfono propio</value>
+  </data>
+  <data name="AddMember_PhoneNo" xml:space="preserve">
+    <value>No, participaré por ellos</value>
+  </data>
+  <data name="Settings_NotificationsId" xml:space="preserve">
+    <value>Notificaciones</value>
+  </data>
+  <data name="Settings_ResetPasswordId" xml:space="preserve">
+    <value>Restablecer contraseña</value>
+  </data>
+  <data name="Settings_NotifScheduleId" xml:space="preserve">
+    <value>Horario de notificaciones</value>
+  </data>
+  <data name="Settings_SignupCodeId" xml:space="preserve">
+    <value>Código de registro</value>
+  </data>
 </root>

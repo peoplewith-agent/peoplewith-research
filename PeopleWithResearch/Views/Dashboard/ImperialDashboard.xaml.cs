@@ -2196,12 +2196,14 @@ public partial class ImperialDashboard : ContentPage
         {
             var Item = e.DataItem as user;
             if (Item == null) return;
-            if (Item.Title == "Notifications")
+
+            var itemId = Item.Id ?? Item.Title; // fall back to Title for any item without an Id
+
+            if (itemId == "Notifications")
             {
-                if (Item.Role == "Disabled")
+                if (Item.Role == LocalizationManager.Get("Settings_Disabled") || Item.Role == "Disabled")
                 {
                     AppInfo.ShowSettingsUI(); 
-                    //CheckNotifications();
                     return; 
                 }
                 else
@@ -2209,19 +2211,19 @@ public partial class ImperialDashboard : ContentPage
                     return;
                 }
             }
-            if (Item.Title == "Reset Password")
+            if (itemId == "Reset Password")
             {
                 await Navigation.PushAsync(new ForgotPassword("Reset"), false);
                 return;
             }
 
-            if(Item.Title == "Notification Schedule")
+            if (itemId == "Notification Schedule")
             {
                 await MopupService.Instance.PushAsync(new SelectNotificationTime());
                 return; 
             }
 
-            if (!String.IsNullOrEmpty(Item.Id) && Item.Id == "Select Language")
+            if (itemId == "Select Language")
             {
                 // Use TCS pattern so we can detect a change and rebuild the page tree
                 var tcs = new TaskCompletionSource<string>(TaskCreationOptions.RunContinuationsAsynchronously);
@@ -2236,7 +2238,7 @@ public partial class ImperialDashboard : ContentPage
                 return;
             }
 
-            if (Item.Title == "Sign-up Code")
+            if (itemId == "Sign-up Code")
             {
                 return;
             }

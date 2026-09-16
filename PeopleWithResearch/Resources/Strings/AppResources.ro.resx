@@ -1390,4 +1390,37 @@
   <data name="Household_NudgeNotification" xml:space="preserve">
     <value>Notificare utilizator</value>
   </data>
+
+
+  <!-- AddMember page lists and settings routing -->
+  <data name="AddMember_RelParentGuardian" xml:space="preserve">
+    <value>Sunt părintele/tutorele lor</value>
+  </data>
+  <data name="AddMember_RelPartnerSpouse" xml:space="preserve">
+    <value>Sunt partenerul/soțul lor</value>
+  </data>
+  <data name="AddMember_RelChild" xml:space="preserve">
+    <value>Sunt copilul lor</value>
+  </data>
+  <data name="AddMember_RelOther" xml:space="preserve">
+    <value>Altul</value>
+  </data>
+  <data name="AddMember_PhoneYes" xml:space="preserve">
+    <value>Da, telefon propriu</value>
+  </data>
+  <data name="AddMember_PhoneNo" xml:space="preserve">
+    <value>Nu, voi participa în locul lor</value>
+  </data>
+  <data name="Settings_NotificationsId" xml:space="preserve">
+    <value>Notificări</value>
+  </data>
+  <data name="Settings_ResetPasswordId" xml:space="preserve">
+    <value>Resetare parolă</value>
+  </data>
+  <data name="Settings_NotifScheduleId" xml:space="preserve">
+    <value>Program notificări</value>
+  </data>
+  <data name="Settings_SignupCodeId" xml:space="preserve">
+    <value>Cod de înregistrare</value>
+  </data>
 </root>

@@ -22,29 +22,33 @@ public partial class Addnewmember : ContentPage
 
         householdgroupdetailspassed = householdgroupdetails;
 
-        var stringlist = new List<string>();
-        stringlist.Add("0 - 5"); 
-        stringlist.Add("5 - 10");
-        stringlist.Add("11 - 15");
-        stringlist.Add("16+");
+        var stringlist = new List<string>
+        {
+            "0 - 5",
+            "5 - 10",
+            "11 - 15",
+            "16+"
+        };
 
         familyagelist.ItemsSource = stringlist;
 
 
         var relationships = new List<string>
-{
-"I am their parent/guardian",
-"I am their partner/spouse",
-"I am their child",
-"Other"
-};
+        {
+            LocalizationManager.Get("AddMember_RelParentGuardian"),
+            LocalizationManager.Get("AddMember_RelPartnerSpouse"),
+            LocalizationManager.Get("AddMember_RelChild"),
+            LocalizationManager.Get("AddMember_RelOther")
+        };
 
         familymember1list.ItemsSource = relationships;
 
 
-        var stringlistphone = new List<string>();
-        stringlistphone.Add("Yes, own phone");
-        stringlistphone.Add("No, I'll take part for them");
+        var stringlistphone = new List<string>
+        {
+            LocalizationManager.Get("AddMember_PhoneYes"),
+            LocalizationManager.Get("AddMember_PhoneNo")
+        };
 
         usingphone1.ItemsSource = stringlistphone;
 
@@ -193,7 +197,17 @@ public partial class Addnewmember : ContentPage
             newone.household_individual_name = firstfamentry.Text.Trim() + " " + firstsurnameentry.Text.Trim();
             newone.household_individual_email = email1lbl.IsVisible ? firstemailentry.Text?.Trim() : null;
             newone.household_individual_status = "onboarding";
-            newone.household_individual_relationship = familymember1list.SelectedItem.ToString().Trim();
+            // Map selected localized relationship back to English for DB
+            var relEnglish = new[] { "I am their parent/guardian", "I am their partner/spouse", "I am their child", "Other" };
+            var relLocalized = new[] {
+                LocalizationManager.Get("AddMember_RelParentGuardian"),
+                LocalizationManager.Get("AddMember_RelPartnerSpouse"),
+                LocalizationManager.Get("AddMember_RelChild"),
+                LocalizationManager.Get("AddMember_RelOther")
+            };
+            var selectedRel = familymember1list.SelectedItem?.ToString()?.Trim() ?? "";
+            int relIdx = Array.IndexOf(relLocalized, selectedRel);
+            newone.household_individual_relationship = relIdx >= 0 ? relEnglish[relIdx] : selectedRel;
             newone.household_individual_age = familyagelist.SelectedItem.ToString().Trim();
             householdgroupdetailspassed.userdetailslist.Add(newone);
 
@@ -335,7 +349,11 @@ public partial class Addnewmember : ContentPage
 
             var item = e.DataItem as string;
 
-            if(item.Contains("Yes"))
+            // Index 0 = "Yes, own phone" in any language
+            int tappedIndex = usingphone1.ItemsSource is List<string> phoneList ? phoneList.IndexOf(item) : -1;
+            bool isOwnPhone = tappedIndex == 0;
+
+            if (isOwnPhone)
             {
                 firstemailhelper.IsVisible = true;
                 email1lbl.IsVisible = true;

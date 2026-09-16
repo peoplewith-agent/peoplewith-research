@@ -336,9 +336,9 @@ namespace PeopleWithResearch
 
             var items = new ObservableCollection<user>
             {
-                new user { Title = LocalizationManager.Get("Settings_ResetPassword"),        Role = "**********",                                                        Image = "passwordicon.png"  },
-                new user { Title = LocalizationManager.Get("Settings_Notifications"),        Role = isEnabled ? LocalizationManager.Get("Settings_Enabled") : LocalizationManager.Get("Settings_Disabled"), Image = "bellicon.png" },
-                new user { Title = LocalizationManager.Get("Settings_SignupCode"),           Role = !string.IsNullOrEmpty(Helpers.Settings.SignUp) ? Helpers.Settings.SignUp : "--", Image = "keyicon.png"},
+                new user { Id = "Reset Password",        Title = LocalizationManager.Get("Settings_ResetPassword"),        Role = "**********",                                                        Image = "passwordicon.png"  },
+                new user { Id = "Notifications",         Title = LocalizationManager.Get("Settings_Notifications"),        Role = isEnabled ? LocalizationManager.Get("Settings_Enabled") : LocalizationManager.Get("Settings_Disabled"), Image = "bellicon.png" },
+                new user { Id = "Sign-up Code",          Title = LocalizationManager.Get("Settings_SignupCode"),           Role = !string.IsNullOrEmpty(Helpers.Settings.SignUp) ? Helpers.Settings.SignUp : "--", Image = "keyicon.png"},
                 newuser,        
             };
             //var notificationTime = Preferences.Get("notificationtime", string.Empty);
@@ -348,6 +348,7 @@ namespace PeopleWithResearch
             {
                 items.Add(new user
                 {
+                    Id    = "Notification Schedule",
                     Title = LocalizationManager.Get("Settings_NotificationSchedule"),
                     Role  = LocalizationManager.Get("Settings_ChangeTime"),
                     Image = "time.png"
