@@ -757,7 +757,7 @@
                 Clicked="Button_Clicked"
                 FontAttributes="Bold"
                 FontFamily="OpenSansSemiBold"
-                FontSize="14"
+                FontSize="14" TextColor="White"
                 HorizontalOptions="FillAndExpand"
                 Text="{loc:Localize Key=Common_AddNewMember}"
                 VerticalOptions="Fill" />

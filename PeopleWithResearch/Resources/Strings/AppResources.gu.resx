@@ -1423,4 +1423,18 @@
   <data name="Settings_SignupCodeId" xml:space="preserve">
     <value>સાઇન-અપ કોડ</value>
   </data>
+
+  <!-- AddMember placeholders and popup -->
+  <data name="AddMember_FirstNamePlaceholder" xml:space="preserve">
+    <value>પ્રથમ નામ</value>
+  </data>
+  <data name="AddMember_SurnamePlaceholder" xml:space="preserve">
+    <value>અટક</value>
+  </data>
+  <data name="AddMember_EmailPlaceholder" xml:space="preserve">
+    <value>ઇ-મેઇલ સરનામું</value>
+  </data>
+  <data name="AddMember_NewMemberAdded" xml:space="preserve">
+    <value>નવો સભ્ય ઉમેરાયો</value>
+  </data>
 </root>

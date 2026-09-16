@@ -52,6 +52,14 @@ public partial class Addnewmember : ContentPage
 
         usingphone1.ItemsSource = stringlistphone;
 
+        // Localize placeholders and error text
+        firstfamentry.Placeholder = LocalizationManager.Get("AddMember_FirstNamePlaceholder");
+        firstsurnameentry.Placeholder = LocalizationManager.Get("AddMember_SurnamePlaceholder");
+        firstemailentry.Placeholder = LocalizationManager.Get("AddMember_EmailPlaceholder");
+        firstfamhelper.ErrorText = LocalizationManager.Get("Common_PleaseComplete");
+        firstsurnamehelper.ErrorText = LocalizationManager.Get("Common_PleaseComplete");
+        firstemailhelper.ErrorText = LocalizationManager.Get("Common_PleaseComplete");
+
     }
 
     static Regex ValidEmailRegex = CreateValidEmailRegex();
@@ -258,7 +266,7 @@ public partial class Addnewmember : ContentPage
                 //Debug.WriteLine($"Failed to send: {response.StatusCode}");
             }
 
-            await MopupService.Instance.PushAsync(new PopupPageHelper("New Member Added") { });
+            await MopupService.Instance.PushAsync(new PopupPageHelper(LocalizationManager.Get("AddMember_NewMemberAdded")) { });
 
             await Task.Delay(1500);
 

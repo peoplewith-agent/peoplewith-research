@@ -1420,4 +1420,18 @@
   <data name="Settings_SignupCodeId" xml:space="preserve">
     <value>Código de registro</value>
   </data>
+
+  <!-- AddMember placeholders and popup -->
+  <data name="AddMember_FirstNamePlaceholder" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="AddMember_SurnamePlaceholder" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="AddMember_EmailPlaceholder" xml:space="preserve">
+    <value>Dirección de correo</value>
+  </data>
+  <data name="AddMember_NewMemberAdded" xml:space="preserve">
+    <value>Nuevo miembro añadido</value>
+  </data>
 </root>
