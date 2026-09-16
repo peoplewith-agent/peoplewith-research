@@ -1210,4 +1210,154 @@
   <data name="ProfileEdit_EnterPhone" xml:space="preserve">
     <value>Introduzca el número de teléfono</value>
   </data>
+
+
+  <!-- Ethnicity options -->
+  <data name="Eth_White" xml:space="preserve">
+    <value>Blanco</value>
+  </data>
+  <data name="Eth_WhiteEnglish" xml:space="preserve">
+    <value>Blanco inglés</value>
+  </data>
+  <data name="Eth_WhiteWelsh" xml:space="preserve">
+    <value>Blanco galés</value>
+  </data>
+  <data name="Eth_WhiteScottish" xml:space="preserve">
+    <value>Blanco escocés</value>
+  </data>
+  <data name="Eth_WhiteNorthernIrish" xml:space="preserve">
+    <value>Blanco irlandés del norte</value>
+  </data>
+  <data name="Eth_WhiteIrish" xml:space="preserve">
+    <value>Blanco irlandés</value>
+  </data>
+  <data name="Eth_WhiteGypsy" xml:space="preserve">
+    <value>Blanco gitano o viajero irlandés</value>
+  </data>
+  <data name="Eth_WhiteOther" xml:space="preserve">
+    <value>Blanco otro</value>
+  </data>
+  <data name="Eth_MixedWhiteBlackCarib" xml:space="preserve">
+    <value>Mixto blanco y negro caribeño</value>
+  </data>
+  <data name="Eth_MixedWhiteBlackAf" xml:space="preserve">
+    <value>Mixto blanco y negro africano</value>
+  </data>
+  <data name="Eth_MixedWhiteOther" xml:space="preserve">
+    <value>Mixto blanco otro</value>
+  </data>
+  <data name="Eth_AsianIndian" xml:space="preserve">
+    <value>Asiático indio</value>
+  </data>
+  <data name="Eth_AsianPakistani" xml:space="preserve">
+    <value>Asiático pakistaní</value>
+  </data>
+  <data name="Eth_AsianBangladeshi" xml:space="preserve">
+    <value>Asiático bangladesí</value>
+  </data>
+  <data name="Eth_AsianChinese" xml:space="preserve">
+    <value>Asiático chino</value>
+  </data>
+  <data name="Eth_AsianBritish" xml:space="preserve">
+    <value>Asiático británico</value>
+  </data>
+  <data name="Eth_AsianOther" xml:space="preserve">
+    <value>Asiático otro</value>
+  </data>
+  <data name="Eth_BlackAfrican" xml:space="preserve">
+    <value>Negro africano</value>
+  </data>
+  <data name="Eth_BlackAfricanAmerican" xml:space="preserve">
+    <value>Negro afroamericano</value>
+  </data>
+  <data name="Eth_BlackCaribbean" xml:space="preserve">
+    <value>Negro caribeño</value>
+  </data>
+  <data name="Eth_BlackOther" xml:space="preserve">
+    <value>Negro otro</value>
+  </data>
+  <data name="Eth_Arab" xml:space="preserve">
+    <value>Árabe</value>
+  </data>
+  <data name="Eth_Hispanic" xml:space="preserve">
+    <value>Hispano</value>
+  </data>
+  <data name="Eth_Latino" xml:space="preserve">
+    <value>Latino</value>
+  </data>
+  <data name="Eth_NativeAmerican" xml:space="preserve">
+    <value>Nativo americano</value>
+  </data>
+  <data name="Eth_PacificIslander" xml:space="preserve">
+    <value>Isleño del Pacífico</value>
+  </data>
+  <data name="Eth_Other" xml:space="preserve">
+    <value>Otro</value>
+  </data>
+  <data name="Eth_PreferNotDisclose" xml:space="preserve">
+    <value>Prefiero no divulgar</value>
+  </data>
+  <data name="Eth_HAsianOrAsianBritish" xml:space="preserve">
+    <value>Asiático: Asiático o asiático británico</value>
+  </data>
+  <data name="Eth_HAsianIndian" xml:space="preserve">
+    <value>Asiático: indio</value>
+  </data>
+  <data name="Eth_HAsianPakistani" xml:space="preserve">
+    <value>Asiático: pakistaní</value>
+  </data>
+  <data name="Eth_HAsianBangladeshi" xml:space="preserve">
+    <value>Asiático: bangladesí</value>
+  </data>
+  <data name="Eth_HAsianChinese" xml:space="preserve">
+    <value>Asiático: chino</value>
+  </data>
+  <data name="Eth_HAsianOtherBackground" xml:space="preserve">
+    <value>Asiático: cualquier otro origen asiático</value>
+  </data>
+  <data name="Eth_HBlackCaribbean" xml:space="preserve">
+    <value>Negro: caribeño</value>
+  </data>
+  <data name="Eth_HBlackAfrican" xml:space="preserve">
+    <value>Negro: africano</value>
+  </data>
+  <data name="Eth_HBlackOtherBackground" xml:space="preserve">
+    <value>Negro: cualquier otro origen negro, negro británico o caribeño</value>
+  </data>
+  <data name="Eth_HMixedWhiteBlackCarib" xml:space="preserve">
+    <value>Mixto: blanco y negro caribeño</value>
+  </data>
+  <data name="Eth_HMixedWhiteBlackAf" xml:space="preserve">
+    <value>Mixto: blanco y negro africano</value>
+  </data>
+  <data name="Eth_HMixedWhiteAsian" xml:space="preserve">
+    <value>Mixto: blanco y asiático</value>
+  </data>
+  <data name="Eth_HMixedOther" xml:space="preserve">
+    <value>Mixto: cualquier otro origen mixto o multiétnico</value>
+  </data>
+  <data name="Eth_HWhiteBritish" xml:space="preserve">
+    <value>Blanco: inglés, galés, escocés, irlandés del norte o británico</value>
+  </data>
+  <data name="Eth_HWhiteIrish" xml:space="preserve">
+    <value>Blanco: irlandés</value>
+  </data>
+  <data name="Eth_HWhiteGypsy" xml:space="preserve">
+    <value>Blanco: gitano o viajero irlandés</value>
+  </data>
+  <data name="Eth_HWhiteRoma" xml:space="preserve">
+    <value>Blanco: Roma</value>
+  </data>
+  <data name="Eth_HWhiteOther" xml:space="preserve">
+    <value>Blanco: cualquier otro origen blanco</value>
+  </data>
+  <data name="Eth_HArab" xml:space="preserve">
+    <value>Árabe</value>
+  </data>
+  <data name="Eth_HOtherGroup" xml:space="preserve">
+    <value>Otro: cualquier otro grupo étnico</value>
+  </data>
+  <data name="Eth_HPreferNotAnswer" xml:space="preserve">
+    <value>Prefiero no responder</value>
+  </data>
 </root>

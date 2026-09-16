@@ -1213,4 +1213,154 @@
   <data name="ProfileEdit_EnterPhone" xml:space="preserve">
     <value>Introduceți numărul de telefon</value>
   </data>
+
+
+  <!-- Ethnicity options -->
+  <data name="Eth_White" xml:space="preserve">
+    <value>Alb</value>
+  </data>
+  <data name="Eth_WhiteEnglish" xml:space="preserve">
+    <value>Alb Englez</value>
+  </data>
+  <data name="Eth_WhiteWelsh" xml:space="preserve">
+    <value>Alb Galez</value>
+  </data>
+  <data name="Eth_WhiteScottish" xml:space="preserve">
+    <value>Alb Scoțian</value>
+  </data>
+  <data name="Eth_WhiteNorthernIrish" xml:space="preserve">
+    <value>Alb Irlandez de Nord</value>
+  </data>
+  <data name="Eth_WhiteIrish" xml:space="preserve">
+    <value>Alb Irlandez</value>
+  </data>
+  <data name="Eth_WhiteGypsy" xml:space="preserve">
+    <value>Alb Țigan sau Călător Irlandez</value>
+  </data>
+  <data name="Eth_WhiteOther" xml:space="preserve">
+    <value>Alb Altul</value>
+  </data>
+  <data name="Eth_MixedWhiteBlackCarib" xml:space="preserve">
+    <value>Mixt Alb și Negru Caraib</value>
+  </data>
+  <data name="Eth_MixedWhiteBlackAf" xml:space="preserve">
+    <value>Mixt Alb și Negru African</value>
+  </data>
+  <data name="Eth_MixedWhiteOther" xml:space="preserve">
+    <value>Mixt Alb Altul</value>
+  </data>
+  <data name="Eth_AsianIndian" xml:space="preserve">
+    <value>Asiatic Indian</value>
+  </data>
+  <data name="Eth_AsianPakistani" xml:space="preserve">
+    <value>Asiatic Pakistani</value>
+  </data>
+  <data name="Eth_AsianBangladeshi" xml:space="preserve">
+    <value>Asiatic Bangladeshi</value>
+  </data>
+  <data name="Eth_AsianChinese" xml:space="preserve">
+    <value>Asiatic Chinez</value>
+  </data>
+  <data name="Eth_AsianBritish" xml:space="preserve">
+    <value>Asiatic Britanic</value>
+  </data>
+  <data name="Eth_AsianOther" xml:space="preserve">
+    <value>Asiatic Alt</value>
+  </data>
+  <data name="Eth_BlackAfrican" xml:space="preserve">
+    <value>Negru African</value>
+  </data>
+  <data name="Eth_BlackAfricanAmerican" xml:space="preserve">
+    <value>Negru Afro-American</value>
+  </data>
+  <data name="Eth_BlackCaribbean" xml:space="preserve">
+    <value>Negru Caraib</value>
+  </data>
+  <data name="Eth_BlackOther" xml:space="preserve">
+    <value>Negru Altul</value>
+  </data>
+  <data name="Eth_Arab" xml:space="preserve">
+    <value>Arab</value>
+  </data>
+  <data name="Eth_Hispanic" xml:space="preserve">
+    <value>Hispanic</value>
+  </data>
+  <data name="Eth_Latino" xml:space="preserve">
+    <value>Latino</value>
+  </data>
+  <data name="Eth_NativeAmerican" xml:space="preserve">
+    <value>Nativ American</value>
+  </data>
+  <data name="Eth_PacificIslander" xml:space="preserve">
+    <value>Insularul Pacific</value>
+  </data>
+  <data name="Eth_Other" xml:space="preserve">
+    <value>Altul</value>
+  </data>
+  <data name="Eth_PreferNotDisclose" xml:space="preserve">
+    <value>Prefer să nu divulg</value>
+  </data>
+  <data name="Eth_HAsianOrAsianBritish" xml:space="preserve">
+    <value>Asiatic: Asiatic sau Asiatic Britanic</value>
+  </data>
+  <data name="Eth_HAsianIndian" xml:space="preserve">
+    <value>Asiatic: Indian</value>
+  </data>
+  <data name="Eth_HAsianPakistani" xml:space="preserve">
+    <value>Asiatic: Pakistani</value>
+  </data>
+  <data name="Eth_HAsianBangladeshi" xml:space="preserve">
+    <value>Asiatic: Bangladeshi</value>
+  </data>
+  <data name="Eth_HAsianChinese" xml:space="preserve">
+    <value>Asiatic: Chinez</value>
+  </data>
+  <data name="Eth_HAsianOtherBackground" xml:space="preserve">
+    <value>Asiatic: Orice alt fundal asiatic</value>
+  </data>
+  <data name="Eth_HBlackCaribbean" xml:space="preserve">
+    <value>Negru: Caraib</value>
+  </data>
+  <data name="Eth_HBlackAfrican" xml:space="preserve">
+    <value>Negru: African</value>
+  </data>
+  <data name="Eth_HBlackOtherBackground" xml:space="preserve">
+    <value>Negru: Orice alt fundal Negru, Negru Britanic sau Caraib</value>
+  </data>
+  <data name="Eth_HMixedWhiteBlackCarib" xml:space="preserve">
+    <value>Mixt: Alb și Negru Caraib</value>
+  </data>
+  <data name="Eth_HMixedWhiteBlackAf" xml:space="preserve">
+    <value>Mixt: Alb și Negru African</value>
+  </data>
+  <data name="Eth_HMixedWhiteAsian" xml:space="preserve">
+    <value>Mixt: Alb și Asiatic</value>
+  </data>
+  <data name="Eth_HMixedOther" xml:space="preserve">
+    <value>Mixt: Orice alt fundal mixt sau multi-etnic</value>
+  </data>
+  <data name="Eth_HWhiteBritish" xml:space="preserve">
+    <value>Alb: Englez, Galez, Scoțian, Irlandez de Nord sau Britanic</value>
+  </data>
+  <data name="Eth_HWhiteIrish" xml:space="preserve">
+    <value>Alb: Irlandez</value>
+  </data>
+  <data name="Eth_HWhiteGypsy" xml:space="preserve">
+    <value>Alb: Țigan sau Călător Irlandez</value>
+  </data>
+  <data name="Eth_HWhiteRoma" xml:space="preserve">
+    <value>Alb: Roma</value>
+  </data>
+  <data name="Eth_HWhiteOther" xml:space="preserve">
+    <value>Alb: Orice alt fundal Alb</value>
+  </data>
+  <data name="Eth_HArab" xml:space="preserve">
+    <value>Arab</value>
+  </data>
+  <data name="Eth_HOtherGroup" xml:space="preserve">
+    <value>Alt: Orice alt grup etnic</value>
+  </data>
+  <data name="Eth_HPreferNotAnswer" xml:space="preserve">
+    <value>Prefer să nu răspund</value>
+  </data>
 </root>

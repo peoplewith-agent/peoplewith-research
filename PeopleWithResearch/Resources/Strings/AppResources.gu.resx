@@ -1213,4 +1213,154 @@
   <data name="ProfileEdit_EnterPhone" xml:space="preserve">
     <value>ફોન નંબર દાખલ કરો</value>
   </data>
+
+
+  <!-- Ethnicity options -->
+  <data name="Eth_White" xml:space="preserve">
+    <value>શ્વેત</value>
+  </data>
+  <data name="Eth_WhiteEnglish" xml:space="preserve">
+    <value>સફેદ અંગ્રેજ</value>
+  </data>
+  <data name="Eth_WhiteWelsh" xml:space="preserve">
+    <value>સફેદ વેલ્શ</value>
+  </data>
+  <data name="Eth_WhiteScottish" xml:space="preserve">
+    <value>સફેદ સ્કોટિશ</value>
+  </data>
+  <data name="Eth_WhiteNorthernIrish" xml:space="preserve">
+    <value>સફેદ ઉત્તર આઇરિશ</value>
+  </data>
+  <data name="Eth_WhiteIrish" xml:space="preserve">
+    <value>સફેદ આઇરિશ</value>
+  </data>
+  <data name="Eth_WhiteGypsy" xml:space="preserve">
+    <value>સફેદ ઘૂમ્મ્ળ અથવા આઇરિશ પ્રવાસી</value>
+  </data>
+  <data name="Eth_WhiteOther" xml:space="preserve">
+    <value>સફેદ અન્ય</value>
+  </data>
+  <data name="Eth_MixedWhiteBlackCarib" xml:space="preserve">
+    <value>મિક્સ્ડ સફેદ અને કાળો કેરેબિયન</value>
+  </data>
+  <data name="Eth_MixedWhiteBlackAf" xml:space="preserve">
+    <value>મિક્સ્ડ સફેદ અને કાળો આફ્રિકન</value>
+  </data>
+  <data name="Eth_MixedWhiteOther" xml:space="preserve">
+    <value>મિક્સ્ડ સફેદ અન્ય</value>
+  </data>
+  <data name="Eth_AsianIndian" xml:space="preserve">
+    <value>એશિયન ભારતીય</value>
+  </data>
+  <data name="Eth_AsianPakistani" xml:space="preserve">
+    <value>એશિયન પાકિસ્તાની</value>
+  </data>
+  <data name="Eth_AsianBangladeshi" xml:space="preserve">
+    <value>એશિયન બાંગ્લાદેશી</value>
+  </data>
+  <data name="Eth_AsianChinese" xml:space="preserve">
+    <value>એશિયન ચાઇનીઝ</value>
+  </data>
+  <data name="Eth_AsianBritish" xml:space="preserve">
+    <value>એશિયન બ્રિટિશ</value>
+  </data>
+  <data name="Eth_AsianOther" xml:space="preserve">
+    <value>એશિયન અન્ય</value>
+  </data>
+  <data name="Eth_BlackAfrican" xml:space="preserve">
+    <value>કાળો આફ્રિકન</value>
+  </data>
+  <data name="Eth_BlackAfricanAmerican" xml:space="preserve">
+    <value>કાળો આફ્રિકન અમેરિકન</value>
+  </data>
+  <data name="Eth_BlackCaribbean" xml:space="preserve">
+    <value>કાળો કેરેબિયન</value>
+  </data>
+  <data name="Eth_BlackOther" xml:space="preserve">
+    <value>કાળો અન્ય</value>
+  </data>
+  <data name="Eth_Arab" xml:space="preserve">
+    <value>અરબ</value>
+  </data>
+  <data name="Eth_Hispanic" xml:space="preserve">
+    <value>હિસ્પેનિક</value>
+  </data>
+  <data name="Eth_Latino" xml:space="preserve">
+    <value>લેટિનો</value>
+  </data>
+  <data name="Eth_NativeAmerican" xml:space="preserve">
+    <value>મૂળ અમેરિકન</value>
+  </data>
+  <data name="Eth_PacificIslander" xml:space="preserve">
+    <value>પેસિફિક આઇલેન્ડર</value>
+  </data>
+  <data name="Eth_Other" xml:space="preserve">
+    <value>અન્ય</value>
+  </data>
+  <data name="Eth_PreferNotDisclose" xml:space="preserve">
+    <value>જાહેર ન કરવું પ્રાધાન્ય</value>
+  </data>
+  <data name="Eth_HAsianOrAsianBritish" xml:space="preserve">
+    <value>એશિયન: એશિયન અથવા એશિયન બ્રિટિશ</value>
+  </data>
+  <data name="Eth_HAsianIndian" xml:space="preserve">
+    <value>એશિયન: ભારતીય</value>
+  </data>
+  <data name="Eth_HAsianPakistani" xml:space="preserve">
+    <value>એશિયન: પાકિસ્તાની</value>
+  </data>
+  <data name="Eth_HAsianBangladeshi" xml:space="preserve">
+    <value>એશિયન: બાંગ્લાદેશી</value>
+  </data>
+  <data name="Eth_HAsianChinese" xml:space="preserve">
+    <value>એશિયન: ચાઇનીઝ</value>
+  </data>
+  <data name="Eth_HAsianOtherBackground" xml:space="preserve">
+    <value>એશિયન: અન્ય કોઈ એશિયન પૃષ્ઠભૂમિ</value>
+  </data>
+  <data name="Eth_HBlackCaribbean" xml:space="preserve">
+    <value>કાળો: કેરેબિયન</value>
+  </data>
+  <data name="Eth_HBlackAfrican" xml:space="preserve">
+    <value>કાળો: આફ્રિકન</value>
+  </data>
+  <data name="Eth_HBlackOtherBackground" xml:space="preserve">
+    <value>કાળો: અન્ય કોઈ કાળા, કાળા બ્રિટિશ અથવા કેરેબિયન પૃષ્ઠભૂમિ</value>
+  </data>
+  <data name="Eth_HMixedWhiteBlackCarib" xml:space="preserve">
+    <value>મિક્સ્ડ: સફેદ અને કાળો કેરેબિયન</value>
+  </data>
+  <data name="Eth_HMixedWhiteBlackAf" xml:space="preserve">
+    <value>મિક્સ્ડ: સફેદ અને કાળો આફ્રિકન</value>
+  </data>
+  <data name="Eth_HMixedWhiteAsian" xml:space="preserve">
+    <value>મિક્સ્ડ: સફેદ અને એશિયન</value>
+  </data>
+  <data name="Eth_HMixedOther" xml:space="preserve">
+    <value>મિક્સ્ડ: અન્ય કોઈ મિક્સ્ડ અથવા બહુ-વંશીય પૃષ્ઠભૂમિ</value>
+  </data>
+  <data name="Eth_HWhiteBritish" xml:space="preserve">
+    <value>સફેદ: અંગ્રેજ, વેલ્શ, સ્કોટિશ, ઉત્તર આઇરિશ અથવા બ્રિટિશ</value>
+  </data>
+  <data name="Eth_HWhiteIrish" xml:space="preserve">
+    <value>સફેદ: આઇરિશ</value>
+  </data>
+  <data name="Eth_HWhiteGypsy" xml:space="preserve">
+    <value>સફેદ: ઘૂમ્મ્ળ અથવા આઇરિશ પ્રવાસી</value>
+  </data>
+  <data name="Eth_HWhiteRoma" xml:space="preserve">
+    <value>સફેદ: રોમા</value>
+  </data>
+  <data name="Eth_HWhiteOther" xml:space="preserve">
+    <value>સફેદ: અન્ય કોઈ સફેદ પૃષ્ઠભૂમિ</value>
+  </data>
+  <data name="Eth_HArab" xml:space="preserve">
+    <value>અરબ</value>
+  </data>
+  <data name="Eth_HOtherGroup" xml:space="preserve">
+    <value>અન્ય: અન્ય કોઈ વંશીય જૂથ</value>
+  </data>
+  <data name="Eth_HPreferNotAnswer" xml:space="preserve">
+    <value>જવાબ ન આપવો પ્રાધાન્ય</value>
+  </data>
 </root>

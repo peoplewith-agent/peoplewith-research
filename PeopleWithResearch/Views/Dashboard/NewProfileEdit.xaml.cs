@@ -305,13 +305,16 @@ namespace PeopleWithResearch
                 Titlelbl.Text = LocalizationManager.Get("ProfileEdit_EditEthnicity");
                 btnmain.Text = LocalizationManager.Get("ProfileEdit_UpdateEthnicity");
                 ethstack.IsVisible = true;
-                //ethnicity
-                ethnlist.ItemsSource = Genericlist.EthnicityOptions();
-
-                var Eth = Helpers.Settings.Ethnicity; 
-                if (!String.IsNullOrEmpty(Eth))
+                // Use localized list for display; English value saved to DB via index
+                var localizedEth = Genericlist.EthnicityOptionsLocalized();
+                ethnlist.ItemsSource = localizedEth;
+                var Eth = Helpers.Settings.Ethnicity;
+                if (!string.IsNullOrEmpty(Eth))
                 {
-                    ethnlist.SelectedItem = Eth;
+                    int ethIdx = Genericlist.EthnicityIndexForEnglishValue(Eth);
+                    if (ethIdx >= 0 && ethIdx < localizedEth.Count)
+                        ethnlist.SelectedItem = localizedEth[ethIdx];
+                    ethtext = Eth; // keep ethtext as English
                 }
                
             }
@@ -488,7 +491,10 @@ namespace PeopleWithResearch
                 var item = e.DataItem as string;
                 if (item != null)
                 {
-                    ethtext = item;
+                    // Map localized display string back to English DB value via index
+                    var localizedEth = Genericlist.EthnicityOptionsLocalized();
+                    int idx = localizedEth.IndexOf(item);
+                    ethtext = idx >= 0 ? Genericlist.EthnicityEnglishValue(idx) : item;
                 }
                
 
@@ -605,7 +611,7 @@ namespace PeopleWithResearch
                             if (string.IsNullOrEmpty(GenderTxt.Text))
                             {
                                 GenderHelper.HasError = true;
-                                GenderHelper.ErrorText = "Enter Gender"; 
+                                GenderHelper.ErrorText = LocalizationManager.Get("ProfileEdit_EnterGender");
                                 Vibration.Vibrate();
                                 return;
                             }
