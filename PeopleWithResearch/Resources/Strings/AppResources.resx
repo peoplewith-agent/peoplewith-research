@@ -1145,4 +1145,80 @@
   <data name="Profile_Nhi" xml:space="preserve">
     <value>National Health Identifier</value>
   </data>
+
+  <!-- ProfileEdit page titles and buttons -->
+  <data name="ProfileEdit_EditName" xml:space="preserve">
+    <value>Edit Name</value>
+  </data>
+  <data name="ProfileEdit_UpdateName" xml:space="preserve">
+    <value>Update Name</value>
+  </data>
+  <data name="ProfileEdit_EditEmail" xml:space="preserve">
+    <value>Edit Email</value>
+  </data>
+  <data name="ProfileEdit_UpdateEmail" xml:space="preserve">
+    <value>Update Email</value>
+  </data>
+  <data name="ProfileEdit_EditDob" xml:space="preserve">
+    <value>Edit Date of Birth</value>
+  </data>
+  <data name="ProfileEdit_UpdateDob" xml:space="preserve">
+    <value>Update Date of Birth</value>
+  </data>
+  <data name="ProfileEdit_EditGender" xml:space="preserve">
+    <value>Edit Gender</value>
+  </data>
+  <data name="ProfileEdit_UpdateGender" xml:space="preserve">
+    <value>Update Gender</value>
+  </data>
+  <data name="ProfileEdit_EditEthnicity" xml:space="preserve">
+    <value>Edit Ethnicity</value>
+  </data>
+  <data name="ProfileEdit_UpdateEthnicity" xml:space="preserve">
+    <value>Update Ethnicity</value>
+  </data>
+  <data name="ProfileEdit_EditPhone" xml:space="preserve">
+    <value>Edit Phone Number</value>
+  </data>
+  <data name="ProfileEdit_UpdatePhone" xml:space="preserve">
+    <value>Update Phone Number</value>
+  </data>
+  <data name="ProfileEdit_EditTown" xml:space="preserve">
+    <value>Edit Town/City</value>
+  </data>
+  <data name="ProfileEdit_UpdateTown" xml:space="preserve">
+    <value>Update Town/City</value>
+  </data>
+  <data name="ProfileEdit_EditNhi" xml:space="preserve">
+    <value>Edit National Health Identifier</value>
+  </data>
+  <data name="ProfileEdit_UpdateNhi" xml:space="preserve">
+    <value>Update N.H.I</value>
+  </data>
+  <data name="ProfileEdit_ResetPasswordTitle" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="ProfileEdit_CheckPassword" xml:space="preserve">
+    <value>Check Password</value>
+  </data>
+
+  <!-- Gender options (translated for display; English value saved to DB) -->
+  <data name="Gender_Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Gender_Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Gender_PreferNotToSay" xml:space="preserve">
+    <value>Prefer not to say</value>
+  </data>
+  <data name="Gender_SelfDescribe" xml:space="preserve">
+    <value>Prefer to self-describe</value>
+  </data>
+  <data name="ProfileEdit_EnterGender" xml:space="preserve">
+    <value>Enter Gender</value>
+  </data>
+  <data name="ProfileEdit_EnterPhone" xml:space="preserve">
+    <value>Enter Phone Number</value>
+  </data>
 </root>

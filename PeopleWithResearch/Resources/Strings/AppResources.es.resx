@@ -1134,4 +1134,80 @@
   <data name="Profile_Nhi" xml:space="preserve">
     <value>Identificador nacional de salud</value>
   </data>
+
+  <!-- ProfileEdit page titles and buttons -->
+  <data name="ProfileEdit_EditName" xml:space="preserve">
+    <value>Editar nombre</value>
+  </data>
+  <data name="ProfileEdit_UpdateName" xml:space="preserve">
+    <value>Actualizar nombre</value>
+  </data>
+  <data name="ProfileEdit_EditEmail" xml:space="preserve">
+    <value>Editar correo electrónico</value>
+  </data>
+  <data name="ProfileEdit_UpdateEmail" xml:space="preserve">
+    <value>Actualizar correo electrónico</value>
+  </data>
+  <data name="ProfileEdit_EditDob" xml:space="preserve">
+    <value>Editar fecha de nacimiento</value>
+  </data>
+  <data name="ProfileEdit_UpdateDob" xml:space="preserve">
+    <value>Actualizar fecha de nacimiento</value>
+  </data>
+  <data name="ProfileEdit_EditGender" xml:space="preserve">
+    <value>Editar género</value>
+  </data>
+  <data name="ProfileEdit_UpdateGender" xml:space="preserve">
+    <value>Actualizar género</value>
+  </data>
+  <data name="ProfileEdit_EditEthnicity" xml:space="preserve">
+    <value>Editar etnia</value>
+  </data>
+  <data name="ProfileEdit_UpdateEthnicity" xml:space="preserve">
+    <value>Actualizar etnia</value>
+  </data>
+  <data name="ProfileEdit_EditPhone" xml:space="preserve">
+    <value>Editar número de teléfono</value>
+  </data>
+  <data name="ProfileEdit_UpdatePhone" xml:space="preserve">
+    <value>Actualizar número de teléfono</value>
+  </data>
+  <data name="ProfileEdit_EditTown" xml:space="preserve">
+    <value>Editar localidad/ciudad</value>
+  </data>
+  <data name="ProfileEdit_UpdateTown" xml:space="preserve">
+    <value>Actualizar localidad/ciudad</value>
+  </data>
+  <data name="ProfileEdit_EditNhi" xml:space="preserve">
+    <value>Editar identificador nacional de salud</value>
+  </data>
+  <data name="ProfileEdit_UpdateNhi" xml:space="preserve">
+    <value>Actualizar N.H.I</value>
+  </data>
+  <data name="ProfileEdit_ResetPasswordTitle" xml:space="preserve">
+    <value>Restablecer contraseña</value>
+  </data>
+  <data name="ProfileEdit_CheckPassword" xml:space="preserve">
+    <value>Comprobar contraseña</value>
+  </data>
+
+  <!-- Gender options -->
+  <data name="Gender_Male" xml:space="preserve">
+    <value>Masculino</value>
+  </data>
+  <data name="Gender_Female" xml:space="preserve">
+    <value>Femenino</value>
+  </data>
+  <data name="Gender_PreferNotToSay" xml:space="preserve">
+    <value>Prefiero no decirlo</value>
+  </data>
+  <data name="Gender_SelfDescribe" xml:space="preserve">
+    <value>Prefiero autodescribirme</value>
+  </data>
+  <data name="ProfileEdit_EnterGender" xml:space="preserve">
+    <value>Introduzca el género</value>
+  </data>
+  <data name="ProfileEdit_EnterPhone" xml:space="preserve">
+    <value>Introduzca el número de teléfono</value>
+  </data>
 </root>

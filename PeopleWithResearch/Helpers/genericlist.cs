@@ -66,6 +66,31 @@ namespace PeopleWithResearch
             "Prefer to self-describe"
         };
 
+        // Returns gender options translated into the current language for display purposes.
+        // The parallel GenderOptions list (English) must be used when saving to the database.
+        public static List<string> GenderOptionsLocalized()
+        {
+            return new List<string>
+            {
+                LocalizationManager.Get("Gender_Male"),
+                LocalizationManager.Get("Gender_Female"),
+                LocalizationManager.Get("Gender_PreferNotToSay"),
+                LocalizationManager.Get("Gender_SelfDescribe")
+            };
+        }
+
+        // Returns the English DB value for a given index into GenderOptions / GenderOptionsLocalized.
+        public static string GenderEnglishValue(int index)
+        {
+            return index >= 0 && index < GenderOptions.Count ? GenderOptions[index] : string.Empty;
+        }
+
+        // Returns the index in GenderOptions for the given English DB value.
+        public static int GenderIndexForEnglishValue(string englishValue)
+        {
+            return GenderOptions.IndexOf(englishValue ?? string.Empty);
+        }
+
         public static readonly List<string> AgeOptions = new List<string>
         {
             "0 - 5",

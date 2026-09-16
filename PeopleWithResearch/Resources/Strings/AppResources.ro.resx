@@ -1137,4 +1137,80 @@
   <data name="Profile_Nhi" xml:space="preserve">
     <value>Identificator național de sănătate</value>
   </data>
+
+  <!-- ProfileEdit page titles and buttons -->
+  <data name="ProfileEdit_EditName" xml:space="preserve">
+    <value>Editează numele</value>
+  </data>
+  <data name="ProfileEdit_UpdateName" xml:space="preserve">
+    <value>Actualizează numele</value>
+  </data>
+  <data name="ProfileEdit_EditEmail" xml:space="preserve">
+    <value>Editează e-mailul</value>
+  </data>
+  <data name="ProfileEdit_UpdateEmail" xml:space="preserve">
+    <value>Actualizează e-mailul</value>
+  </data>
+  <data name="ProfileEdit_EditDob" xml:space="preserve">
+    <value>Editează data nașterii</value>
+  </data>
+  <data name="ProfileEdit_UpdateDob" xml:space="preserve">
+    <value>Actualizează data nașterii</value>
+  </data>
+  <data name="ProfileEdit_EditGender" xml:space="preserve">
+    <value>Editează genul</value>
+  </data>
+  <data name="ProfileEdit_UpdateGender" xml:space="preserve">
+    <value>Actualizează genul</value>
+  </data>
+  <data name="ProfileEdit_EditEthnicity" xml:space="preserve">
+    <value>Editează etnia</value>
+  </data>
+  <data name="ProfileEdit_UpdateEthnicity" xml:space="preserve">
+    <value>Actualizează etnia</value>
+  </data>
+  <data name="ProfileEdit_EditPhone" xml:space="preserve">
+    <value>Editează numărul de telefon</value>
+  </data>
+  <data name="ProfileEdit_UpdatePhone" xml:space="preserve">
+    <value>Actualizează numărul de telefon</value>
+  </data>
+  <data name="ProfileEdit_EditTown" xml:space="preserve">
+    <value>Editează orașul/localitatea</value>
+  </data>
+  <data name="ProfileEdit_UpdateTown" xml:space="preserve">
+    <value>Actualizează orașul/localitatea</value>
+  </data>
+  <data name="ProfileEdit_EditNhi" xml:space="preserve">
+    <value>Editează identificatorul național de sănătate</value>
+  </data>
+  <data name="ProfileEdit_UpdateNhi" xml:space="preserve">
+    <value>Actualizează N.H.I</value>
+  </data>
+  <data name="ProfileEdit_ResetPasswordTitle" xml:space="preserve">
+    <value>Resetare parolă</value>
+  </data>
+  <data name="ProfileEdit_CheckPassword" xml:space="preserve">
+    <value>Verifică parola</value>
+  </data>
+
+  <!-- Gender options -->
+  <data name="Gender_Male" xml:space="preserve">
+    <value>Masculin</value>
+  </data>
+  <data name="Gender_Female" xml:space="preserve">
+    <value>Feminin</value>
+  </data>
+  <data name="Gender_PreferNotToSay" xml:space="preserve">
+    <value>Prefer să nu spun</value>
+  </data>
+  <data name="Gender_SelfDescribe" xml:space="preserve">
+    <value>Prefer să mă autodescriu</value>
+  </data>
+  <data name="ProfileEdit_EnterGender" xml:space="preserve">
+    <value>Introduceți genul</value>
+  </data>
+  <data name="ProfileEdit_EnterPhone" xml:space="preserve">
+    <value>Introduceți numărul de telefon</value>
+  </data>
 </root>

@@ -230,8 +230,8 @@ namespace PeopleWithResearch
         {
             try
             {
-                Titlelbl.Text = "Edit Name"; 
-                btnmain.Text = "Update Name";
+                Titlelbl.Text = LocalizationManager.Get("ProfileEdit_EditName");
+                btnmain.Text = LocalizationManager.Get("ProfileEdit_UpdateName");
                 NameEdit.IsVisible = true;
                 FirstNameTxt.Text = Helpers.Settings.FirstName;
                 SurNameTxt.Text = Helpers.Settings.Surname;
@@ -247,8 +247,8 @@ namespace PeopleWithResearch
         {
             try
             {
-                Titlelbl.Text = "Edit Email";
-                btnmain.Text = "Update Email";
+                Titlelbl.Text = LocalizationManager.Get("ProfileEdit_EditEmail");
+                btnmain.Text = LocalizationManager.Get("ProfileEdit_UpdateEmail");
                 emailstack.IsVisible = true;
                 emailregtxt.Text = Helpers.Settings.Email;
 
@@ -267,8 +267,8 @@ namespace PeopleWithResearch
                 daypickernew.MinimumDate = MinDate.Date;
                 daypickernew.MaximumDate = DateTime.Now.AddDays(-1).Date;
 
-                Titlelbl.Text = "Edit Date of Birth";
-                btnmain.Text = "Update Date of Birth";
+                Titlelbl.Text = LocalizationManager.Get("ProfileEdit_EditDob");
+                btnmain.Text = LocalizationManager.Get("ProfileEdit_UpdateDob");
                 dobstack.IsVisible = true;
                 DayPickerStack.IsVisible = true;
 
@@ -302,8 +302,8 @@ namespace PeopleWithResearch
         {
             try
             {
-                Titlelbl.Text = "Edit Ethnicity";
-                btnmain.Text = "Update Ethnicity";
+                Titlelbl.Text = LocalizationManager.Get("ProfileEdit_EditEthnicity");
+                btnmain.Text = LocalizationManager.Get("ProfileEdit_UpdateEthnicity");
                 ethstack.IsVisible = true;
                 //ethnicity
                 ethnlist.ItemsSource = Genericlist.EthnicityOptions();
@@ -325,24 +325,29 @@ namespace PeopleWithResearch
         {
             try
             {
-                Titlelbl.Text = "Edit Gender";
-                btnmain.Text = "Update Gender";
+                Titlelbl.Text = LocalizationManager.Get("ProfileEdit_EditGender");
+                btnmain.Text = LocalizationManager.Get("ProfileEdit_UpdateGender");
                 genderstack.IsVisible = true;
-                //Gender
-                genlist = Genericlist.GenderOptions;
-                genderlist.ItemsSource = genlist; 
+                //Gender — use localized display list; English values saved to DB via index
+                var localizedGenders = Genericlist.GenderOptionsLocalized();
+                genlist = localizedGenders;
+                genderlist.ItemsSource = genlist;
+                // Restore selection from stored English value
                 gendertext = Helpers.Settings.Gender;
                 if (!string.IsNullOrEmpty(gendertext))
                 {
-                    if (!genlist.Contains(gendertext))
+                    int idx = Genericlist.GenderIndexForEnglishValue(gendertext);
+                    if (idx < 0)
                     {
-                        genderlist.SelectedItem = "Prefer to self-describe";
+                        // Custom self-describe value — select the last item (self-describe)
+                        int selfIdx = Genericlist.GenderIndexForEnglishValue("Prefer to self-describe");
+                        if (selfIdx >= 0) genderlist.SelectedItem = localizedGenders[selfIdx];
                         OtherGen.IsVisible = true;
                         GenderTxt.Text = gendertext;
                     }
                     else
                     {
-                        genderlist.SelectedItem = gendertext;
+                        genderlist.SelectedItem = localizedGenders[idx];
                     }
                 }
 
@@ -357,8 +362,8 @@ namespace PeopleWithResearch
         {
             try
             {
-                Titlelbl.Text = "Edit Number";
-                btnmain.Text = "Update Number";
+                Titlelbl.Text = LocalizationManager.Get("ProfileEdit_EditPhone");
+                btnmain.Text = LocalizationManager.Get("ProfileEdit_UpdatePhone");
                 phonestack.IsVisible = true;
                 mobtxt.Text = Helpers.Settings.PhoneNumber;
             }
@@ -372,8 +377,8 @@ namespace PeopleWithResearch
         {
             try
             {
-                Titlelbl.Text = "Edit Town/City";
-                btnmain.Text = "Update Town/City";
+                Titlelbl.Text = LocalizationManager.Get("ProfileEdit_EditTown");
+                btnmain.Text = LocalizationManager.Get("ProfileEdit_UpdateTown");
                 townstack.IsVisible = true;
                 towntxt.Text = Helpers.Settings.Town;
             }
@@ -387,8 +392,8 @@ namespace PeopleWithResearch
         {
             try
             {
-                Titlelbl.Text = "Edit National Health Identifier";
-                btnmain.Text = "Update N.H.I";
+                Titlelbl.Text = LocalizationManager.Get("ProfileEdit_EditNhi");
+                btnmain.Text = LocalizationManager.Get("ProfileEdit_UpdateNhi");
                 epidstack.IsVisible = true;
                 epidtxt.Text = Helpers.Settings.Userepid;
             }
@@ -402,8 +407,8 @@ namespace PeopleWithResearch
         {
             try
             {
-                Titlelbl.Text = "Reset Password";
-                btnmain.Text = "Check Password";
+                Titlelbl.Text = LocalizationManager.Get("ProfileEdit_ResetPasswordTitle");
+                btnmain.Text = LocalizationManager.Get("ProfileEdit_CheckPassword");
                 epidstack.IsVisible = true;
                 epidtxt.Text = Helpers.Settings.Userepid;
             }
@@ -463,8 +468,11 @@ namespace PeopleWithResearch
 
                 if (item != null)
                 {
-                    gendertext = item;
-                    OtherGen.IsVisible = item.Contains("self-describe");
+                    // Find the index in the localized list so we can look up the English DB value
+                    int idx = genlist?.IndexOf(item) ?? -1;
+                    string englishValue = idx >= 0 ? Genericlist.GenderEnglishValue(idx) : item;
+                    gendertext = englishValue;
+                    OtherGen.IsVisible = englishValue == "Prefer to self-describe";
                 }               
             }
             catch (Exception Ex)

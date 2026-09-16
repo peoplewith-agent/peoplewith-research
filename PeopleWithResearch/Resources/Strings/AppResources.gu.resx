@@ -1137,4 +1137,80 @@
   <data name="Profile_Nhi" xml:space="preserve">
     <value>રાષ્ટ્રીય આરોગ્ય ઓળખકતા</value>
   </data>
+
+  <!-- ProfileEdit page titles and buttons -->
+  <data name="ProfileEdit_EditName" xml:space="preserve">
+    <value>નામ સંપાદિત કરો</value>
+  </data>
+  <data name="ProfileEdit_UpdateName" xml:space="preserve">
+    <value>નામ અપડેટ કરો</value>
+  </data>
+  <data name="ProfileEdit_EditEmail" xml:space="preserve">
+    <value>ઇમેઇલ સંપાદિત કરો</value>
+  </data>
+  <data name="ProfileEdit_UpdateEmail" xml:space="preserve">
+    <value>ઇમેઇલ અપડેટ કરો</value>
+  </data>
+  <data name="ProfileEdit_EditDob" xml:space="preserve">
+    <value>જન્મ તારીખ સંપાદિત કરો</value>
+  </data>
+  <data name="ProfileEdit_UpdateDob" xml:space="preserve">
+    <value>જન્મ તારીખ અપડેટ કરો</value>
+  </data>
+  <data name="ProfileEdit_EditGender" xml:space="preserve">
+    <value>લિંગ સંપાદિત કરો</value>
+  </data>
+  <data name="ProfileEdit_UpdateGender" xml:space="preserve">
+    <value>લિંગ અપડેટ કરો</value>
+  </data>
+  <data name="ProfileEdit_EditEthnicity" xml:space="preserve">
+    <value>જાતિયતા સંપાદિત કરો</value>
+  </data>
+  <data name="ProfileEdit_UpdateEthnicity" xml:space="preserve">
+    <value>જાતિયતા અપડેટ કરો</value>
+  </data>
+  <data name="ProfileEdit_EditPhone" xml:space="preserve">
+    <value>ફોન નંબર સંપાદિત કરો</value>
+  </data>
+  <data name="ProfileEdit_UpdatePhone" xml:space="preserve">
+    <value>ફોન નંબર અપડેટ કરો</value>
+  </data>
+  <data name="ProfileEdit_EditTown" xml:space="preserve">
+    <value>નગર/શહેર સંપાદિત કરો</value>
+  </data>
+  <data name="ProfileEdit_UpdateTown" xml:space="preserve">
+    <value>નગર/શહેર અપડેટ કરો</value>
+  </data>
+  <data name="ProfileEdit_EditNhi" xml:space="preserve">
+    <value>રાષ્ટ્રીય આરોગ્ય ઓળખકતા સંપાદિત કરો</value>
+  </data>
+  <data name="ProfileEdit_UpdateNhi" xml:space="preserve">
+    <value>N.H.I અપડેટ કરો</value>
+  </data>
+  <data name="ProfileEdit_ResetPasswordTitle" xml:space="preserve">
+    <value>પાસવર્ડ રીસેટ કરો</value>
+  </data>
+  <data name="ProfileEdit_CheckPassword" xml:space="preserve">
+    <value>પાસવર્ડ તપાસો</value>
+  </data>
+
+  <!-- Gender options -->
+  <data name="Gender_Male" xml:space="preserve">
+    <value>પુરુષ</value>
+  </data>
+  <data name="Gender_Female" xml:space="preserve">
+    <value>સ્ત્રી</value>
+  </data>
+  <data name="Gender_PreferNotToSay" xml:space="preserve">
+    <value>કહેવું પસંદ નથી</value>
+  </data>
+  <data name="Gender_SelfDescribe" xml:space="preserve">
+    <value>સ્વયં વર્ણન કરવું પસંદ કરું</value>
+  </data>
+  <data name="ProfileEdit_EnterGender" xml:space="preserve">
+    <value>લિંગ દાખલ કરો</value>
+  </data>
+  <data name="ProfileEdit_EnterPhone" xml:space="preserve">
+    <value>ફોન નંબર દાખલ કરો</value>
+  </data>
 </root>
