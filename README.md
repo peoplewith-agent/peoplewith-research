@@ -1,2 +1,2 @@
 # pwresearch
-PeopleWith Research Development - July 26
+PeopleWith Research Development - July 2026
