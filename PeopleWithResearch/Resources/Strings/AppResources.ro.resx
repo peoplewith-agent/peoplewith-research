@@ -1437,4 +1437,78 @@
   <data name="AddMember_NewMemberAdded" xml:space="preserve">
     <value>Membru nou adăugat</value>
   </data>
+
+  <!-- ForgotPassword page and Notification detail -->
+  <data name="ForgotPwd_Title" xml:space="preserve">
+    <value>Parolă uitată</value>
+  </data>
+  <data name="ForgotPwd_Description" xml:space="preserve">
+    <value>Nu-ți face griji! Introdu adresa de email pentru a primi un link de resetare a parolei</value>
+  </data>
+  <data name="ForgotPwd_ResetTitle" xml:space="preserve">
+    <value>Resetare parolă</value>
+  </data>
+  <data name="ForgotPwd_ResetDescription" xml:space="preserve">
+    <value>Introdu adresa de email şi îți vom trimite un link pentru a actualiza parola.</value>
+  </data>
+  <data name="ForgotPwd_EmailLabel" xml:space="preserve">
+    <value>Adresă de email*</value>
+  </data>
+  <data name="ForgotPwd_NeedHelp" xml:space="preserve">
+    <value>Ai nevoie de ajutor?</value>
+  </data>
+  <data name="ForgotPwd_Submit" xml:space="preserve">
+    <value>Trimite</value>
+  </data>
+  <data name="ForgotPwd_RememberedPrefix" xml:space="preserve">
+    <value>Îi aminteşti parola? </value>
+  </data>
+  <data name="ForgotPwd_LogIn" xml:space="preserve">
+    <value>Autentificare</value>
+  </data>
+  <data name="ForgotPwd_ErrorEmpty" xml:space="preserve">
+    <value>Emailul nu poate fi gol</value>
+  </data>
+  <data name="ForgotPwd_ErrorInvalid" xml:space="preserve">
+    <value>Introdu o adresă de email validă</value>
+  </data>
+  <data name="ForgotPwd_ErrorNotFound" xml:space="preserve">
+    <value>Nu am găsit un cont cu acel email</value>
+  </data>
+  <data name="ForgotPwd_AlertDeletedTitle" xml:space="preserve">
+    <value>Cont şers</value>
+  </data>
+  <data name="ForgotPwd_AlertDeletedMsg" xml:space="preserve">
+    <value>Contul tău a fost şers</value>
+  </data>
+  <data name="ForgotPwd_AlertOnboardingTitle" xml:space="preserve">
+    <value>Cont în curs de înregistrare</value>
+  </data>
+  <data name="ForgotPwd_AlertOnboardingMsg" xml:space="preserve">
+    <value>Foloseşte emailul pentru a continua înregistrarea</value>
+  </data>
+  <data name="ForgotPwd_AlertWithdrawnTitle" xml:space="preserve">
+    <value>Retras din studiu</value>
+  </data>
+  <data name="ForgotPwd_AlertWithdrawnMsg" xml:space="preserve">
+    <value>Te-ai retras din studiu şi nu mai poți accesa contul</value>
+  </data>
+  <data name="ForgotPwd_AlertSuccessTitle" xml:space="preserve">
+    <value>Verifică-ți emailul</value>
+  </data>
+  <data name="ForgotPwd_AlertSuccessMsg" xml:space="preserve">
+    <value>Un link de resetare a parolei a fost trimis la adresa ta de email. Dacă nu îl vezi, verifică folderul spam.</value>
+  </data>
+  <data name="ForgotPwd_AlertFailTitle" xml:space="preserve">
+    <value>Ceva a mers greşit</value>
+  </data>
+  <data name="ForgotPwd_AlertFailMsg" xml:space="preserve">
+    <value>Am întâmpinat o problemă la trimiterea emailului. Încearcă din nou mai târziu sau contactează suportul.</value>
+  </data>
+  <data name="ForgotPwd_AlertOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Notification_Detail" xml:space="preserve">
+    <value>Setează ora preferată de notificare pentru a primi un memento zilnic</value>
+  </data>
 </root>

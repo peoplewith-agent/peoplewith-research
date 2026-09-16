@@ -2219,7 +2219,14 @@ public partial class ImperialDashboard : ContentPage
 
             if (itemId == "Notification Schedule")
             {
-                await MopupService.Instance.PushAsync(new SelectNotificationTime());
+                try
+                {
+                    await MopupService.Instance.PushAsync(new SelectNotificationTime(), false);
+                }
+                catch (Exception popupEx)
+                {
+                    CrashDetected.LogCrash(popupEx, Navigation, "Settingslist_ItemTapped_NotifSchedule");
+                }
                 return; 
             }
 

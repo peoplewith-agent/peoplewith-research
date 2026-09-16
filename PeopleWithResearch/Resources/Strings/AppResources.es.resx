@@ -1434,4 +1434,81 @@
   <data name="AddMember_NewMemberAdded" xml:space="preserve">
     <value>Nuevo miembro añadido</value>
   </data>
+
+  <!-- ForgotPassword page and Notification detail -->
+  <data name="ForgotPwd_Title" xml:space="preserve">
+    <value>Contraseña olvidada</value>
+  </data>
+  <data name="ForgotPwd_Description" xml:space="preserve">
+    <value>¡No te preocupes! Ingresa tu correo para recibir un enlace de restablecimiento de contraseña</value>
+  </data>
+  <data name="ForgotPwd_ResetTitle" xml:space="preserve">
+    <value>Restablecer contraseña</value>
+  </data>
+  <data name="ForgotPwd_ResetDescription" xml:space="preserve">
+    <value>Ingresa tu correo electrónico y te enviaremos un enlace para actualizar tu contraseña.</value>
+  </data>
+  <data name="ForgotPwd_EmailLabel" xml:space="preserve">
+    <value>Dirección de correo*</value>
+  </data>
+  <data name="ForgotPwd_NeedHelp" xml:space="preserve">
+    <value>¿Necesitas ayuda?</value>
+  </data>
+  <data name="ForgotPwd_Submit" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="ForgotPwd_RememberedPrefix" xml:space="preserve">
+    <value>¿Recuerdas tu contraseña? </value>
+  </data>
+  <data name="ForgotPwd_LogIn" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="ForgotPwd_ErrorEmpty" xml:space="preserve">
+    <value>El correo no puede estar vacío</value>
+  </data>
+  <data name="ForgotPwd_ErrorInvalid" xml:space="preserve">
+    <value>Introduce una dirección de correo válida</value>
+  </data>
+  <data name="FrogPwd_ErrorNotFound" xml:space="preserve">
+    <value>No encontramos una cuenta con ese correo</value>
+  </data>
+  <data name="ForgotPwd_ErrorNotFound" xml:space="preserve">
+    <value>No encontramos una cuenta con ese correo</value>
+  </data>
+  <data name="ForgotPwd_AlertDeletedTitle" xml:space="preserve">
+    <value>Cuenta eliminada</value>
+  </data>
+  <data name="ForgotPwd_AlertDeletedMsg" xml:space="preserve">
+    <value>Tu cuenta ha sido eliminada</value>
+  </data>
+  <data name="ForgotPwd_AlertOnboardingTitle" xml:space="preserve">
+    <value>Cuenta en proceso</value>
+  </data>
+  <data name="ForgotPwd_AlertOnboardingMsg" xml:space="preserve">
+    <value>Usa tu correo para continuar con el registro</value>
+  </data>
+  <data name="ForgotPwd_AlertWithdrawnTitle" xml:space="preserve">
+    <value>Retirado del estudio</value>
+  </data>
+  <data name="ForgotPwd_AlertWithdrawnMsg" xml:space="preserve">
+    <value>Te has retirado del estudio y ya no puedes acceder a tu cuenta</value>
+  </data>
+  <data name="ForgotPwd_AlertSuccessTitle" xml:space="preserve">
+    <value>Revisa tu correo</value>
+  </data>
+  <data name="ForgotPwd_AlertSuccessMsg" xml:space="preserve">
+    <value>Se ha enviado un enlace de restablecimiento a tu correo. Si no lo ves en unos minutos, revisa la carpeta de spam.</value>
+  </data>
+  <data name="ForgotPwd_AlertFailTitle" xml:space="preserve">
+    <value>Algo salió mal</value>
+  </data>
+  <data name="ForgotPwd_AlertFailMsg" xml:space="preserve">
+    <value>Tuvimos un problema al enviar el correo. Inténtalo más tarde o contacta soporte.</value>
+  </data>
+  <data name="ForgotPwd_AlertOk" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="Notification_Detail" xml:space="preserve">
+    <value>Establece tu hora de notificación preferida para recibir un recordatorio diario</value>
+  </data>
 </root>

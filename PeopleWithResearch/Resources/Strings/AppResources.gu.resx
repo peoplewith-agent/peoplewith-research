@@ -1437,4 +1437,78 @@
   <data name="AddMember_NewMemberAdded" xml:space="preserve">
     <value>નવો સભ્ય ઉમેરાયો</value>
   </data>
+
+  <!-- ForgotPassword page and Notification detail -->
+  <data name="ForgotPwd_Title" xml:space="preserve">
+    <value>પાસવર્ડ ભૂલાઇ ગયું</value>
+  </data>
+  <data name="ForgotPwd_Description" xml:space="preserve">
+    <value>ચિંતા ન કરો! પાસવર્ડ રીસેટ લિંક મેળવવા તમારો ઇ-મેઇલ દાખલ કરો</value>
+  </data>
+  <data name="ForgotPwd_ResetTitle" xml:space="preserve">
+    <value>પાસવર્ડ રીસેટ</value>
+  </data>
+  <data name="ForgotPwd_ResetDescription" xml:space="preserve">
+    <value>તમારો ઇ-મેઇલ દાખલ કરો અને અમે પાસવર્ડ અપડેટ કરવા લિંક મોકલીશું.</value>
+  </data>
+  <data name="ForgotPwd_EmailLabel" xml:space="preserve">
+    <value>ઇ-મેઇલ સરનામું*</value>
+  </data>
+  <data name="ForgotPwd_NeedHelp" xml:space="preserve">
+    <value>મદદ જોઈએ છે?</value>
+  </data>
+  <data name="ForgotPwd_Submit" xml:space="preserve">
+    <value>સબમિટ કરો</value>
+  </data>
+  <data name="ForgotPwd_RememberedPrefix" xml:space="preserve">
+    <value>પાસવર્ડ યાદ છે? </value>
+  </data>
+  <data name="ForgotPwd_LogIn" xml:space="preserve">
+    <value>લોગ ઇન</value>
+  </data>
+  <data name="ForgotPwd_ErrorEmpty" xml:space="preserve">
+    <value>ઇ-મેઇલ ખાલી ન હોઈ શકે</value>
+  </data>
+  <data name="ForgotPwd_ErrorInvalid" xml:space="preserve">
+    <value>કૃપા માન્ય ઇ-મેઇલ સરનામું દાખલ કરો</value>
+  </data>
+  <data name="ForgotPwd_ErrorNotFound" xml:space="preserve">
+    <value>આ ઇ-મેઇલ સાથે કોઈ ખાતું મળ્યું નથી</value>
+  </data>
+  <data name="ForgotPwd_AlertDeletedTitle" xml:space="preserve">
+    <value>ખાતું કાઢી નાખવામાં આવ્યું</value>
+  </data>
+  <data name="ForgotPwd_AlertDeletedMsg" xml:space="preserve">
+    <value>તમારું ખાતું કાઢી નાખવામાં આવ્યું છે</value>
+  </data>
+  <data name="ForgotPwd_AlertOnboardingTitle" xml:space="preserve">
+    <value>ખાતું ઊભું થઈ રહ્યું છે</value>
+  </data>
+  <data name="ForgotPwd_AlertOnboardingMsg" xml:space="preserve">
+    <value>નોંધણી ચાલુ રાખવા તમારો ઇ-મેઇલ વાપરો</value>
+  </data>
+  <data name="ForgotPwd_AlertWithdrawnTitle" xml:space="preserve">
+    <value>અભ્યાસમાંથી પાછા ખેંચાયા</value>
+  </data>
+  <data name="ForgotPwd_AlertWithdrawnMsg" xml:space="preserve">
+    <value>તમે અભ્યાસમાંથી પાછા ખેંચાયા છો</value>
+  </data>
+  <data name="ForgotPwd_AlertSuccessTitle" xml:space="preserve">
+    <value>તમારો ઇ-મેઇલ તપાસો</value>
+  </data>
+  <data name="ForgotPwd_AlertSuccessMsg" xml:space="preserve">
+    <value>પાસવર્ડ રીસેટ લિંક તમારા ઇ-મેઇલ પર મોકલવામાં આવી છે.</value>
+  </data>
+  <data name="ForgotPwd_AlertFailTitle" xml:space="preserve">
+    <value>કંઈક ખોટું પડ્યું</value>
+  </data>
+  <data name="ForgotPwd_AlertFailMsg" xml:space="preserve">
+    <value>ઇ-મેઇલ મોકલવામાં સમસ્યા આવી. પાછળથી ફરી પ્રયાસ કરો.</value>
+  </data>
+  <data name="ForgotPwd_AlertOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Notification_Detail" xml:space="preserve">
+    <value>તમારો પસંદીદા સૂચના સમય સેટ કરો</value>
+  </data>
 </root>

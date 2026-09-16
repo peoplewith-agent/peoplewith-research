@@ -20,7 +20,7 @@ namespace PeopleWithResearch
         public SelectNotificationTime()
         {
             InitializeComponent();
-            detailslbl.Text = $"Hi {Helpers.Settings.FirstName}! Set your preferred notification time to receive a helpful daily reminder to complete your symptoms and samples questionnaire";
+            detailslbl.Text = $"Hi {Helpers.Settings.FirstName}! {LocalizationManager.Get("Notification_Detail")}";
 
             HoursList = new ObservableCollection<string>();
             //Code to test 

@@ -1445,4 +1445,78 @@
   <data name="AddMember_NewMemberAdded" xml:space="preserve">
     <value>New Member Added</value>
   </data>
+
+  <!-- ForgotPassword page and Notification detail -->
+  <data name="ForgotPwd_Title" xml:space="preserve">
+    <value>Forgotten Password</value>
+  </data>
+  <data name="ForgotPwd_Description" xml:space="preserve">
+    <value>No worries! Enter your email address to receive a password reset link, then you can log back in</value>
+  </data>
+  <data name="ForgotPwd_ResetTitle" xml:space="preserve">
+    <value>Password Reset</value>
+  </data>
+  <data name="ForgotPwd_ResetDescription" xml:space="preserve">
+    <value>Enter your email address below, and we’ll send you a link to update your password.</value>
+  </data>
+  <data name="ForgotPwd_EmailLabel" xml:space="preserve">
+    <value>Email Address*</value>
+  </data>
+  <data name="ForgotPwd_NeedHelp" xml:space="preserve">
+    <value>Need help?</value>
+  </data>
+  <data name="ForgotPwd_Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="ForgotPwd_RememberedPrefix" xml:space="preserve">
+    <value>Remembered your password? </value>
+  </data>
+  <data name="ForgotPwd_LogIn" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="ForgotPwd_ErrorEmpty" xml:space="preserve">
+    <value>Email cannot be empty</value>
+  </data>
+  <data name="ForgotPwd_ErrorInvalid" xml:space="preserve">
+    <value>Please enter a valid email address</value>
+  </data>
+  <data name="ForgotPwd_ErrorNotFound" xml:space="preserve">
+    <value>We couldn’t find an account with that email</value>
+  </data>
+  <data name="ForgotPwd_AlertDeletedTitle" xml:space="preserve">
+    <value>Account Deleted</value>
+  </data>
+  <data name="ForgotPwd_AlertDeletedMsg" xml:space="preserve">
+    <value>Your account has been deleted</value>
+  </data>
+  <data name="ForgotPwd_AlertOnboardingTitle" xml:space="preserve">
+    <value>Account Onboarding</value>
+  </data>
+  <data name="ForgotPwd_AlertOnboardingMsg" xml:space="preserve">
+    <value>Please use your email to continue registering</value>
+  </data>
+  <data name="ForgotPwd_AlertWithdrawnTitle" xml:space="preserve">
+    <value>Withdrawn from Study</value>
+  </data>
+  <data name="ForgotPwd_AlertWithdrawnMsg" xml:space="preserve">
+    <value>You have withdrawn from the study and can no longer access your account</value>
+  </data>
+  <data name="ForgotPwd_AlertSuccessTitle" xml:space="preserve">
+    <value>Check Your Email</value>
+  </data>
+  <data name="ForgotPwd_AlertSuccessMsg" xml:space="preserve">
+    <value>A password reset link has been sent to your email address. If you don’t see it in your inbox within a few minutes, please check your spam or junk folder.</value>
+  </data>
+  <data name="ForgotPwd_AlertFailTitle" xml:space="preserve">
+    <value>Something went wrong</value>
+  </data>
+  <data name="ForgotPwd_AlertFailMsg" xml:space="preserve">
+    <value>We encountered an issue sending your password reset email. Please try again later. If the problem persists, contact support for assistance.</value>
+  </data>
+  <data name="ForgotPwd_AlertOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Notification_Detail" xml:space="preserve">
+    <value>Set your preferred notification time to receive a helpful daily reminder to complete your symptoms and samples questionnaire</value>
+  </data>
 </root>

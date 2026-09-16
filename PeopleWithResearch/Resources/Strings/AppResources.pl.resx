@@ -1437,4 +1437,78 @@
   <data name="AddMember_NewMemberAdded" xml:space="preserve">
     <value>Dodano nowego członka</value>
   </data>
+
+  <!-- ForgotPassword page and Notification detail -->
+  <data name="ForgotPwd_Title" xml:space="preserve">
+    <value>Zapomniane hasło</value>
+  </data>
+  <data name="ForgotPwd_Description" xml:space="preserve">
+    <value>Nie martw się! Podaj swój adres e-mail, aby otrzymać link do resetowania hasła</value>
+  </data>
+  <data name="ForgotPwd_ResetTitle" xml:space="preserve">
+    <value>Resetowanie hasła</value>
+  </data>
+  <data name="ForgotPwd_ResetDescription" xml:space="preserve">
+    <value>Podaj swój adres e-mail, a wyślemy Ci link do aktualizacji hasła.</value>
+  </data>
+  <data name="ForgotPwd_EmailLabel" xml:space="preserve">
+    <value>Adres e-mail*</value>
+  </data>
+  <data name="ForgotPwd_NeedHelp" xml:space="preserve">
+    <value>Potrzebujesz pomocy?</value>
+  </data>
+  <data name="ForgotPwd_Submit" xml:space="preserve">
+    <value>Wyślij</value>
+  </data>
+  <data name="ForgotPwd_RememberedPrefix" xml:space="preserve">
+    <value>Pamiętasz hasło? </value>
+  </data>
+  <data name="ForgotPwd_LogIn" xml:space="preserve">
+    <value>Zaloguj się</value>
+  </data>
+  <data name="ForgotPwd_ErrorEmpty" xml:space="preserve">
+    <value>E-mail nie może być pusty</value>
+  </data>
+  <data name="ForgotPwd_ErrorInvalid" xml:space="preserve">
+    <value>Podaj prawidłowy adres e-mail</value>
+  </data>
+  <data name="ForgotPwd_ErrorNotFound" xml:space="preserve">
+    <value>Nie znaleźliśmy konta z tym adresem e-mail</value>
+  </data>
+  <data name="ForgotPwd_AlertDeletedTitle" xml:space="preserve">
+    <value>Konto usunięte</value>
+  </data>
+  <data name="ForgotPwd_AlertDeletedMsg" xml:space="preserve">
+    <value>Twoje konto zostało usunięte</value>
+  </data>
+  <data name="ForgotPwd_AlertOnboardingTitle" xml:space="preserve">
+    <value>Konto w trakcie rejestracji</value>
+  </data>
+  <data name="ForgotPwd_AlertOnboardingMsg" xml:space="preserve">
+    <value>Użyj swojego e-maila, aby kontynuować rejestrację</value>
+  </data>
+  <data name="ForgotPwd_AlertWithdrawnTitle" xml:space="preserve">
+    <value>Wycofano z badania</value>
+  </data>
+  <data name="ForgotPwd_AlertWithdrawnMsg" xml:space="preserve">
+    <value>Wycofano Cię z badania i nie możesz już uzyskać dostępu do konta</value>
+  </data>
+  <data name="ForgotPwd_AlertSuccessTitle" xml:space="preserve">
+    <value>Sprawdź swoją skrzynkę</value>
+  </data>
+  <data name="ForgotPwd_AlertSuccessMsg" xml:space="preserve">
+    <value>Wysłano link resetowania hasła na Twój adres e-mail. Jeśli nie widzisz go w skrzynce odbiorczej, sprawdź folder spam.</value>
+  </data>
+  <data name="ForgotPwd_AlertFailTitle" xml:space="preserve">
+    <value>Coś poszło nie tak</value>
+  </data>
+  <data name="ForgotPwd_AlertFailMsg" xml:space="preserve">
+    <value>Wystąpił problem z wysyłaniem e-maila. Spróbuj ponownie później lub skontaktuj się z pomocą techniczną.</value>
+  </data>
+  <data name="ForgotPwd_AlertOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Notification_Detail" xml:space="preserve">
+    <value>Ustaw preferowany czas powiadomień, aby otrzymywać codzienne przypomnienie</value>
+  </data>
 </root>
