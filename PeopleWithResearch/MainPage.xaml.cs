@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using CommunityToolkit.Mvvm.Messaging;
 using Mopups.Services;
-using PeopleWithResearch.Resources.Strings;
 
 namespace PeopleWithResearch
 {

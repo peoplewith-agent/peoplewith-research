@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PeopleWithResearch.Resources.Strings
+namespace PeopleWithResearch
 {
     using System;
     using System.Reflection;
