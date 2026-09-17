@@ -98,8 +98,15 @@
 		<MauiSplashScreen Condition="'$(TargetFramework)'=='net10.0-ios'" BaseSize="200,200" Include="Resources\Splash\pwrsplash.svg" Color="#0E4A87" />
 		<MauiImage Include="Resources\Images\*" />
 		<MauiFont Include="Resources\Fonts\*" />
+		<!-- NotoSansGujarati-Regular.ttf must be placed in PeopleWithResearch/Resources/Fonts/ for Gujarati rendering -->
 		<None Remove="Platforms\Android\Resources\raw\pwjingo.mp3" />
 		<EmbeddedResource Include="Resources\AppIcon\pwrappicon.png" />
+		<!-- Set CustomToolNamespace so the auto-generated AppResources class lands in the correct namespace -->
+		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+			<CustomToolNamespace>PeopleWithResearch.Resources.Strings</CustomToolNamespace>
+		</EmbeddedResource>
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 

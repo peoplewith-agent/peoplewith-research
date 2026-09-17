@@ -12,5 +12,5 @@ global using Microsoft.Maui.Devices;  // DeviceInfo
 global using Microsoft.Maui.Storage;  // Preferences
 global using Sentry;                   // SentrySdk
 global using Microsoft.Maui.Controls;  // INavigation, ImageSource, Brush, Page, etc.
-global using PeopleWithResearch.Models;  // OptionDetails, RegField, etc.
+global using PeopleWithResearch;  // Models live in PeopleWithResearch namespace (no .Models sub-namespace)
 
