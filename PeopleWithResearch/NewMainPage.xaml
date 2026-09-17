@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     ios:Page.UseSafeArea="True"
     BackgroundColor="White"
@@ -23,11 +24,11 @@
 
                 <!--  Title  -->
                 <Label
+                    x:Name="titleLabel"
                     FontAttributes="Bold"
                     FontFamily="OpenSansSemiBold"
                     FontSize="32"
                     HorizontalOptions="Center"
-                    Text="Your Research Code"
                     TextColor="Black" />
 
                 <!--  Description  -->
@@ -40,25 +41,25 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span
+                                x:Name="descSpan1"
                                 FontFamily="OpenSansRegular"
                                 FontSize="16"
-                                Text="Thanks for your interest in taking part! "
                                 TextColor="#555555" />
                             <Span
+                                x:Name="descSpan2"
                                 FontFamily="OpenSansRegular"
                                 FontSize="16"
-                                Text="If you already have a code, tap "
                                 TextColor="#555555" />
                             <Span
+                                x:Name="descSpan3"
                                 FontAttributes="Bold"
                                 FontFamily="OpenSansSemiBold"
                                 FontSize="16"
-                                Text="'Paste Research Code'"
                                 TextColor="#009FE3" />
                             <Span
+                                x:Name="descSpan4"
                                 FontFamily="OpenSansRegular"
                                 FontSize="16"
-                                Text=" and follow the on-screen prompt to continue."
                                 TextColor="#555555" />
                         </FormattedString>
                     </Label.FormattedText>
@@ -109,7 +110,6 @@
                                 FontFamily="OpenSansSemiBold"
                                 FontSize="16"
                                 HeightRequest="45"
-                                Text="Paste Research Code"
                                 TextColor="White" />
 
                         </Grid>
@@ -145,7 +145,6 @@
                                 FontSize="14"
                                 HorizontalOptions="Center"
                                 HorizontalTextAlignment="Center"
-                                Text="Checking code..."
                                 TextColor="Black" />
 
                             <!--<Button Background="#009fe3" IsVisible="False" x:Name="tryagainbutton" Clicked="tryagainbutton_Clicked" Padding="25,0,25,0" CornerRadius="5" HeightRequest="35" HorizontalOptions="Center" VerticalOptions="Center" Text="Try Again" TextColor="White" FontAttributes="Bold"></Button>-->
@@ -212,7 +211,6 @@
                             FontSize="14"
                             HeightRequest="40"
                             IsVisible="False"
-                            Text="Clear"
                             TextColor="#777777" />
 
                         <Border
@@ -236,17 +234,17 @@
                                 VerticalOptions="Center">
 
                                 <Label
+                                    x:Name="successTickLabel"
                                     FontAttributes="Bold"
                                     FontSize="16"
-                                    Text="✓"
                                     TextColor="White"
                                     VerticalOptions="Center" />
 
                                 <Label
+                                    x:Name="successLabel"
                                     FontAttributes="Bold"
                                     FontFamily="OpenSansSemibold"
                                     FontSize="16"
-                                    Text="Success"
                                     TextColor="White"
                                     VerticalOptions="Center" />
                             </HorizontalStackLayout>
@@ -270,12 +268,12 @@
 
             <!--  Combined Prompt  -->
             <Label
+                x:Name="descriptionLabel"
                 Margin="10,0,10,0"
                 FontFamily="OpenSansRegular"
                 FontSize="14"
                 HorizontalTextAlignment="Center"
                 LineBreakMode="WordWrap"
-                Text="If you have your details for a research project, you can register to participate. If you’ve already registered for a project before, you can log in to access your account and continue."
                 TextColor="#666666" />
 
             <!--  Buttons side by side using Grid  -->
@@ -295,7 +293,7 @@
                     FontFamily="OpenSansSemiBold"
                     FontSize="16"
                     HeightRequest="45"
-                    Text="Register"
+                    Text="{x:Static strings:AppResources.Main_Register}"
                     TextColor="White" />-->
 
                 <Button
@@ -310,27 +308,24 @@
                     FontFamily="OpenSansSemiBold"
                     FontSize="16"
                     HeightRequest="45"
-                    Text="Log In"
                     TextColor="#009FE3" />
 
                     
             </Grid>
 
        <Grid>
-    <!-- <Border HorizontalOptions="Center" StrokeShape="RoundRectangle 30" Stroke="#009fe3" Background="#E6F1FB"> -->
-        <Border HorizontalOptions="Center" StrokeShape="RoundRectangle 30" Stroke="transparent" Background="transparent">
-        <Grid HorizontalOptions="Center" ColumnDefinitions="Auto,Auto" Padding="0" ColumnSpacing="10">
-            <Image Grid.Column="0" HeightRequest="15" WidthRequest="15" Source="world.png">
-                <Image.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="#009fe3" />
-                </Image.Behaviors>
-            </Image>
-            <Label x:Name="languageLabel" Grid.Column="1" FontSize="12" VerticalOptions="Center" FontAttributes="Bold" TextColor="#009fe3" Text="Change language" HorizontalOptions="Center" />
+        <Grid
+            HorizontalOptions="Center"
+            x:Name="languageGrid"
+            ColumnDefinitions="Auto,Auto"
+            Padding="8,6"
+            ColumnSpacing="10">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
+            </Grid.GestureRecognizers>
+            <Image x:Name="languageFlagImage" Grid.Column="0" HeightRequest="15" WidthRequest="22" Source="egflag.png" Aspect="AspectFill" VerticalOptions="Center" />
+            <Label x:Name="languageLabel" Grid.Column="1" FontSize="12" VerticalOptions="Center" FontAttributes="Bold" TextColor="#009fe3" HorizontalOptions="Center" />
         </Grid>
-        <Border.GestureRecognizers>
-            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
-        </Border.GestureRecognizers>
-    </Border>
 </Grid>
 
         </VerticalStackLayout>

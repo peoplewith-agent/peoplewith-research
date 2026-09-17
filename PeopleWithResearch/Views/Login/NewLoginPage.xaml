@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     BackgroundColor="#FBFBFB"
     NavigationPage.HasBackButton="True">
     <Grid RowDefinitions="*, Auto">
@@ -30,13 +31,12 @@
                         FontFamily="OpenSansSemiBold"
                         FontSize="28"
                         HorizontalTextAlignment="Center"
-                        Text="Welcome Back"
                         TextColor="#031926" />
                     <Label
+                        x:Name="subtitleLbl"
                         FontFamily="OpenSansRegular"
                         FontSize="14"
                         HorizontalTextAlignment="Center"
-                        Text="Sign in to access your research dashboard"
                         TextColor="Gray" />
                 </VerticalStackLayout>
 
@@ -46,11 +46,11 @@
                     <!--  Email Field  -->
                     <VerticalStackLayout Spacing="0">
                         <Label
+                            x:Name="emailLbl"
                             Margin="5,0,0,5"
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             FontSize="14"
-                            Text="Email Address*"
                             TextColor="#031926" />
                         <inputLayout:SfTextInputLayout
                             x:Name="emailhelper"
@@ -83,11 +83,11 @@
                     <!--  Password Field  -->
                     <VerticalStackLayout Spacing="0">
                         <Label
+                            x:Name="passwordLbl"
                             Margin="5,0,0,5"
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             FontSize="14"
-                            Text="Password*"
                             TextColor="#031926" />
                         <inputLayout:SfTextInputLayout
                             x:Name="passhelper"
@@ -118,12 +118,12 @@
                         </inputLayout:SfTextInputLayout>
 
                         <Label
+                            x:Name="forgotPasswordLbl"
                             Margin="0,0,0,0"
                             FontAttributes="Bold"
                             FontFamily="OpenSansRegular"
                             FontSize="14"
                             HorizontalOptions="End"
-                            Text="Forgotten password?"
                             TextColor="#009fe3">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ForgotPass_Tapped" />
@@ -146,7 +146,6 @@
                             FontSize="16"
                             HeightRequest="50"
                             HorizontalOptions="Fill"
-                            Text="Sign In"
                             TextColor="White" />
 
                         <Border
@@ -170,10 +169,10 @@
                     <Label FontSize="14" HorizontalOptions="Center">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Haven't got an account? " TextColor="Gray" />
+                                <Span x:Name="noAccountSpan" TextColor="Gray" />
                                 <Span
+                                    x:Name="signUpSpan"
                                     FontAttributes="Bold"
-                                    Text="Sign up"
                                     TextColor="#009fe3">
                                     <Span.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="SignupClicked" />
@@ -193,10 +192,10 @@
             Padding="20"
             VerticalOptions="End">
             <Label
+                x:Name="privacyPolicyLbl"
                 FontFamily="OpenSansRegular"
                 FontSize="14"
                 HorizontalOptions="Center"
-                Text="Privacy Policy"
                 TextColor="#64748B"
                 TextDecorations="None">
                 <Label.GestureRecognizers>

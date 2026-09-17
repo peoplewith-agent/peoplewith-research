@@ -70,8 +70,11 @@ public partial class ImperialDashboard : ContentPage
 
 
         studyidlbl.Text = Helpers.Settings.UsersID;
-        welcomelbl.Text = "Hi, " + Helpers.Settings.FirstName + " " + Helpers.Settings.Surname;
+        welcomelbl.Text = LocalizationManager.Get("Dashboard_HiPrefix") + " " + Helpers.Settings.FirstName + " " + Helpers.Settings.Surname;
         activeProfileChipName.Text = Helpers.Settings.FirstName + " " + Helpers.Settings.Surname;
+
+        // Localise static tab headers and "Logged in as" span
+        ApplyDashboardLocalization();
 
       //  checkifappisupdated();
 
@@ -151,6 +154,21 @@ public partial class ImperialDashboard : ContentPage
         if (string.IsNullOrEmpty(Helpers.Settings.SelectedLanguage))
         {
             SelectedLangugage();
+        }
+    }
+
+    private void ApplyDashboardLocalization()
+    {
+        try
+        {
+            hometab.Header    = LocalizationManager.Get("Tab_Home");
+            infotab.Header    = LocalizationManager.Get("Tab_Information");
+            profiletab.Header = LocalizationManager.Get("Tab_Profile");
+            loggedInAsSpan.Text = LocalizationManager.Get("Dashboard_LoggedInAs") + " ";
+        }
+        catch (Exception Ex)
+        {
+            CrashDetected.LogCrash(Ex, Navigation, "ApplyDashboardLocalization");
         }
     }
 
@@ -348,7 +366,7 @@ public partial class ImperialDashboard : ContentPage
                 item.ShowContactStudyTeam = !isWithdrawn && isOver16 && hasNoEmail;
 
                 item.Studyactiveimage = isActive ? "greentick.png" : isOnboarding ? "error.png" : "logout.png";
-                item.Studyinfo = $"{item.household_individual_userid} | {item.household_individual_status} | {item.household_individual_age}";
+                item.Studyinfo = $"{item.household_individual_userid} | {TranslateHouseholdStatus(item.household_individual_status)} | {item.household_individual_age}";
 
                 if (isWithdrawn)
                 {
@@ -425,6 +443,17 @@ public partial class ImperialDashboard : ContentPage
         {
             CrashDetected.LogCrash(Ex, Navigation, "GetHouseholdData");
         }
+    }
+
+    private static string TranslateHouseholdStatus(string englishStatus)
+    {
+        return englishStatus?.ToLower() switch
+        {
+            "active"      => LocalizationManager.Get("Household_StatusActive"),
+            "onboarding"  => LocalizationManager.Get("Household_StatusOnboarding"),
+            "withdrawn"   => LocalizationManager.Get("Household_StatusWithdrawn"),
+            _             => englishStatus ?? string.Empty
+        };
     }
 
     private void WithdrawnStyle(householdgroupjsondetails item)
@@ -506,7 +535,7 @@ public partial class ImperialDashboard : ContentPage
                 item.ShowActiveProfile = true;
                 item.ShowSwitchProfile = false;
 
-                welcomelbl.Text = "Hi, " + item.household_individual_name;
+                welcomelbl.Text = LocalizationManager.Get("Dashboard_HiPrefix") + " " + item.household_individual_name;
                 activeProfileChipName.Text = item.household_individual_name;
 
             }
@@ -538,7 +567,7 @@ public partial class ImperialDashboard : ContentPage
 
             // ---- Baseline Form status ----
             bool baselineFormCompleted = !isOnboarding;
-        item.BaselineFormStatusText = baselineFormCompleted ? "Completed" : "Pending";
+        item.BaselineFormStatusText = baselineFormCompleted ? LocalizationManager.Get("Common_StatusCompleted") : LocalizationManager.Get("Common_StatusPending");
         item.BaselineFormBorderColor = new SolidColorBrush(Color.FromArgb(baselineFormCompleted ? "#009fe3" : "#eeeeee"));
 
         if (ismainuser)
@@ -555,7 +584,7 @@ public partial class ImperialDashboard : ContentPage
         bool baselineSamplesCompleted = memberQuestionnaires.Any(q =>
             string.Equals(q.questionnaireid, "b1_samples", StringComparison.OrdinalIgnoreCase));
 
-        item.BaselineSamplesStatusText = baselineSamplesCompleted ? "Completed" : "Pending";
+        item.BaselineSamplesStatusText = baselineSamplesCompleted ? LocalizationManager.Get("Common_StatusCompleted") : LocalizationManager.Get("Common_StatusPending");
         item.BaselineSamplesBorderColor = new SolidColorBrush(Color.FromArgb(baselineSamplesCompleted ? "#009fe3" : "#eeeeee"));
         item.BaselineSamplesTextColor = baselineSamplesCompleted ? "#009fe3" : "#031926";
 
@@ -566,7 +595,7 @@ public partial class ImperialDashboard : ContentPage
             item.BaselineButtonEnabled = true;
             item.ManageButtonOpacity = 0.2;
             item.ManageButtonEnabled = false;
-            item.SendReminderText = "Send Email Reminder";
+            item.SendReminderText = LocalizationManager.Get("Household_SendEmailReminder");
         }
         else if (isActive)
         {
@@ -575,7 +604,7 @@ public partial class ImperialDashboard : ContentPage
             item.BaselineButtonEnabled = false;
             item.ManageButtonOpacity = 1;
             item.ManageButtonEnabled = true;
-            item.SendReminderText = "Nudge User - Notification";
+            item.SendReminderText = LocalizationManager.Get("Household_NudgeNotification");
         }
     }
 
@@ -1416,7 +1445,7 @@ public partial class ImperialDashboard : ContentPage
                             }
 
                             t1questionnairebordermain.IsVisible = true;
-                            waitinglbl.Text = "Start sampling with the kits in your house if, in the past 24 hours, you or anyone in your household has developed any of the following NEW symptoms:";
+                            waitinglbl.Text = LocalizationManager.Get("Dashboard_SamplingSymptoms");
                         }
                         else
                         {
@@ -1882,8 +1911,8 @@ public partial class ImperialDashboard : ContentPage
                     item.ColorTheme = "#868F96";
                 }
 
-                if (item.type == "phone") item.title = "Call us";
-                if (item.type == "email") item.title = item.description.Contains("imperial") ? "General enquiries" : "Technical support";
+                if (item.type == "phone") item.title = LocalizationManager.Get("Info_CallUs");
+                if (item.type == "email") item.title = item.description.Contains("imperial") ? LocalizationManager.Get("Info_GeneralEnquiries") : LocalizationManager.Get("Info_TechnicalSupport");
             }
 
 
@@ -1915,9 +1944,9 @@ public partial class ImperialDashboard : ContentPage
             if (alreadyCompleted)
             {
                 await DisplayAlert(
-    "Baseline Samples Form Complete",
-    "You've already completed the baseline samples form. Please make sure everyone else in your household has done the same.",
-    "Ok");
+    LocalizationManager.Get("Dashboard_BaselineSamplesFormTitle"),
+    LocalizationManager.Get("Dashboard_BaselineSamplesFormMsg"),
+    LocalizationManager.Get("Common_Ok"));
             }
             else
             {
@@ -1948,10 +1977,10 @@ public partial class ImperialDashboard : ContentPage
     {
         try
         {
-            bool result = await DisplayAlert("Withdraw from Study",
-                        "Are you sure you want to withdraw from the HOPPER study? This action is permanent, and you will lose all access to your account.",
-                        "Withdraw",
-                        "Cancel"); 
+            bool result = await DisplayAlert(LocalizationManager.Get("Dashboard_WithdrawAlertTitle"),
+                        LocalizationManager.Get("Dashboard_WithdrawAlertMsg"),
+                        LocalizationManager.Get("Dashboard_WithdrawButton"),
+                        LocalizationManager.Get("Common_Cancel")); 
             if (result)
             {
 
@@ -2095,27 +2124,15 @@ public partial class ImperialDashboard : ContentPage
         {
             ResetTabs();
 
-            switch (e.TabItem.Header?.ToString())
-            {
-                case "Home":
-                    SetActiveTab(hometab, "dashiconactive.png");
-                  //  tabsview.Background = Colors.Transparent; 
-                    break;
-
-                case "Information":
-                    SetActiveTab(infotab, "dashexploreactive.png");
-                   // tabsview.Background = Colors.Transparent;
-                    break;
-
-                case "Profile":
-                    SetActiveTab(profiletab, "dashbrowseactive.png");
-                 //   tabsview.Background = Color.FromArgb("#f8f9fb");
-                    break;
+            // Compare by reference (x:Name) so it works regardless of language
+            var tapped = e.TabItem;
+            if      (ReferenceEquals(tapped, hometab))    SetActiveTab(hometab,    "dashiconactive.png");
+            else if (ReferenceEquals(tapped, infotab))    SetActiveTab(infotab,    "dashexploreactive.png");
+            else if (ReferenceEquals(tapped, profiletab)) SetActiveTab(profiletab, "dashbrowseactive.png");
 
                 //case "Questions":
                 //    SetActiveTab(additionalquestionstab, "questiondashblack.png");
                 //    break;
-            }
         }
         catch (Exception Ex)
         {
@@ -2179,12 +2196,14 @@ public partial class ImperialDashboard : ContentPage
         {
             var Item = e.DataItem as user;
             if (Item == null) return;
-            if (Item.Title == "Notifications")
+
+            var itemId = Item.Id ?? Item.Title; // fall back to Title for any item without an Id
+
+            if (itemId == "Notifications")
             {
-                if (Item.Role == "Disabled")
+                if (Item.Role == LocalizationManager.Get("Settings_Disabled") || Item.Role == "Disabled")
                 {
                     AppInfo.ShowSettingsUI(); 
-                    //CheckNotifications();
                     return; 
                 }
                 else
@@ -2192,25 +2211,41 @@ public partial class ImperialDashboard : ContentPage
                     return;
                 }
             }
-            if (Item.Title == "Reset Password")
+            if (itemId == "Reset Password")
             {
                 await Navigation.PushAsync(new ForgotPassword("Reset"), false);
                 return;
             }
 
-            if(Item.Title == "Notification Schedule")
+            if (itemId == "Notification Schedule")
             {
-                await MopupService.Instance.PushAsync(new SelectNotificationTime());
+                try
+                {
+                    await MopupService.Instance.PushAsync(new SelectNotificationTime(), false);
+                }
+                catch (Exception popupEx)
+                {
+                    CrashDetected.LogCrash(popupEx, Navigation, "Settingslist_ItemTapped_NotifSchedule");
+                }
                 return; 
             }
 
-            if (!String.IsNullOrEmpty(Item.Id) && Item.Id == "Select Language")
+            if (itemId == "Select Language")
             {
-                await MopupService.Instance.PushAsync(new SelectLanguagePopup(true));
+                // Use TCS pattern so we can detect a change and rebuild the page tree
+                var tcs = new TaskCompletionSource<string>(TaskCreationOptions.RunContinuationsAsynchronously);
+                string previousCode = Helpers.Settings.SelectedLanguage ?? "en";
+                await MopupService.Instance.PushAsync(new SelectLanguagePopup(tcs));
+                string selectedCode = await tcs.Task;
+                if (selectedCode != previousCode)
+                {
+                    LocalizationManager.SetLanguage(selectedCode);
+                    await App.SetMainPage(new NavigationPage(new ImperialDashboard()));
+                }
                 return;
             }
 
-            if (Item.Title == "Sign-up Code")
+            if (itemId == "Sign-up Code")
             {
                 return;
             }
@@ -2232,7 +2267,7 @@ public partial class ImperialDashboard : ContentPage
             if (accessType == NetworkAccess.Internet)
             {
                 LogoutBtn.IsEnabled = false;
-                bool Answer = await DisplayAlert("Logout", "Are you sure you want to logout", "Logout", "Cancel");
+                bool Answer = await DisplayAlert(LocalizationManager.Get("Dashboard_LogoutTitle"), LocalizationManager.Get("Dashboard_LogoutMsg"), LocalizationManager.Get("Dashboard_LogoutButton"), LocalizationManager.Get("Common_Cancel"));
                 if (Answer)
                 {
                     Newlogout HandleLogout = new Newlogout("Logout");
@@ -2708,7 +2743,7 @@ public partial class ImperialDashboard : ContentPage
         try
         {
             //grant access button clicked
-            bool confirm = await DisplayAlert("Confirm Access", "Are you sure you want to give access?", "Yes", "No");
+            bool confirm = await DisplayAlert(LocalizationManager.Get("Dashboard_ConfirmAccessTitle"), LocalizationManager.Get("Dashboard_ConfirmAccessMsg"), LocalizationManager.Get("Dashboard_ConfirmAccessYes"), LocalizationManager.Get("Dashboard_ConfirmAccessNo"));
             if (!confirm)
             {
                 return;
@@ -2726,7 +2761,7 @@ public partial class ImperialDashboard : ContentPage
             else
             {
                 houserepaccessborder.IsVisible = false;
-                await DisplayAlert("Success", "Access has been granted.", "OK");
+                await DisplayAlert(LocalizationManager.Get("Dashboard_AccessGrantedTitle"), LocalizationManager.Get("Dashboard_AccessGrantedMsg"), LocalizationManager.Get("Common_Ok"));
             }
         }
         catch (Exception ex)

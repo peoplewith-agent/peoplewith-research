@@ -243,18 +243,21 @@ namespace PeopleWithResearch
 
 
 
-            if (itempassed.Title == "Name")
+            // Use Id (stable English key) so routing works regardless of the UI language
+            var profileItemId = itempassed.Id ?? itempassed.Title;
+
+            if (profileItemId == "Name")
             {
                 namestack.IsVisible = true;
                 firstnametxt.Text = Helpers.Settings.FirstName;
                 surnametxt.Text = Helpers.Settings.Surname;
             }
-            else if (itempassed.Title == "Email")
+            else if (profileItemId == "Email")
             {
                 emailstack.IsVisible = true;
                 emailregtxt.Text = Helpers.Settings.Email;
             }
-            else if (itempassed.Title == "Date of Birth")
+            else if (profileItemId == "Date of Birth")
             {
                 dobstack.IsVisible = true;
                 DayPickerStack.IsVisible = true;
@@ -275,7 +278,7 @@ namespace PeopleWithResearch
                 btnmain.IsVisible = false;
 
             }
-            else if (itempassed.Title == "Gender")
+            else if (profileItemId == "Gender")
             {
                 genderstack.IsVisible = true;
                 gendertext = Helpers.Settings.Gender;
@@ -294,23 +297,23 @@ namespace PeopleWithResearch
                     genderlist.SelectedItem = Helpers.Settings.Gender;
                 }
             }
-            else if (itempassed.Title == "Ethnicity")
+            else if (profileItemId == "Ethnicity")
             {
                 ethstack.IsVisible = true;
                 ethtext = Helpers.Settings.Ethnicity;
                 ethnlist.SelectedItem = Helpers.Settings.Ethnicity;
             }
-            else if (itempassed.Title == "Phone Number")
+            else if (profileItemId == "Phone Number")
             {
                 phonestack.IsVisible = true;
                 mobtxt.Text = Helpers.Settings.PhoneNumber;
             }
-            else if (itempassed.Title == "Town/City")
+            else if (profileItemId == "Town/City")
             {
                 townstack.IsVisible = true;
                 towntxt.Text = Helpers.Settings.Town;
             }
-            else if (itempassed.Title == "Height")
+            else if (profileItemId == "Height")
             {
 
 
@@ -420,7 +423,7 @@ namespace PeopleWithResearch
 
 
             }
-            else if (itempassed.Title == "Weight")
+            else if (profileItemId == "Weight")
             {
                 weightstack.IsVisible = true;
 
@@ -453,7 +456,7 @@ namespace PeopleWithResearch
                 }
             }
 
-            else if(itempassed.Title == "National Health Identifer")
+            else if (profileItemId == "National Health Identifer" || profileItemId == "National Health Identifier")
             {
                 epidstack.IsVisible = true;
                 epidtxt.Text = Helpers.Settings.Userepid;
@@ -609,7 +612,7 @@ namespace PeopleWithResearch
                         if (string.IsNullOrEmpty(emailregtxt.Text))
                         {
                             emailreghint.HasError = true;
-                            emailreghint.ErrorText = "Please enter an email address";
+                            emailreghint.ErrorText = LocalizationManager.Get("ProfileEdit_EmailEmpty");
                             Vibration.Vibrate();
                             emailregtxt.Focus();
                             return;
@@ -620,7 +623,7 @@ namespace PeopleWithResearch
                         {
                            // emailreghint.ErrorColor = Colors.Red;
                             emailreghint.HasError = true;
-                            emailreghint.ErrorText = "Please enter a valid email address";
+                            emailreghint.ErrorText = LocalizationManager.Get("ProfileEdit_EmailInvalid");
                             Vibration.Vibrate();
                             emailregtxt.Focus();
                             return;
@@ -663,7 +666,7 @@ namespace PeopleWithResearch
                             {
 
                                 emailreghint.HasError = true;
-                                emailreghint.ErrorText = "Email address already in use.";
+                                emailreghint.ErrorText = LocalizationManager.Get("ProfileEdit_EmailInUse");
                                 Vibration.Vibrate();
                                 emailregtxt.Focus();
                                 return;
@@ -777,7 +780,7 @@ namespace PeopleWithResearch
 
                         if (string.IsNullOrEmpty(passwordold.Text))
                         {
-                            passworderror.Text = "Please Enter your Current Password";
+                            passworderror.Text = LocalizationManager.Get("ProfileEdit_EnterCurrentPassword");
                             Vibration.Vibrate();
                             return;
                         }
@@ -813,7 +816,7 @@ namespace PeopleWithResearch
                             {
                                 if (string.IsNullOrEmpty(passwordnew.Text) || string.IsNullOrEmpty(passwordnew.Text))
                                 {
-                                    passworderror.Text = "Please Enter and Confirm your New Password";
+                                    passworderror.Text = LocalizationManager.Get("ProfileEdit_EnterNewPassword");
                                     Vibration.Vibrate();
                                     return;
                                 }
@@ -821,7 +824,7 @@ namespace PeopleWithResearch
                                 {
                                     if (passwordnew.Text != newpasswordcheck.Text)
                                     {
-                                        passworderror.Text = "New Password Does not Match";
+                                        passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordMismatch");
                                         Vibration.Vibrate();
                                         return;
                                     }
@@ -830,7 +833,7 @@ namespace PeopleWithResearch
 
                                         if (passwordnew.Text.Length < 8)
                                         {
-                                            passworderror.Text = "New Password must be longer than 8 characters and no more than 15 characters";
+                                            passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordTooShort");
                                             Vibration.Vibrate();
                                             return;
                                         }
@@ -844,7 +847,7 @@ namespace PeopleWithResearch
 
                                             if (!hasMiniMaxChars.IsMatch(passwordnew.Text))
                                             {
-                                                passworderror.Text = "Password must be between 8 and 15 characters";
+                                                passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordLength");
                                                 Vibration.Vibrate();
                                                 return;
                                             }
@@ -852,7 +855,7 @@ namespace PeopleWithResearch
                                             {
                                                 if (!hasNumber.IsMatch(passwordnew.Text))
                                                 {
-                                                    passworderror.Text = "Password must contain at least one number";
+                                                    passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordNeedsNumber");
                                                     Vibration.Vibrate();
                                                     return;
                                                 }
@@ -860,7 +863,7 @@ namespace PeopleWithResearch
                                                 {
                                                     if (!hasUpperChar.IsMatch(passwordnew.Text))
                                                     {
-                                                        passworderror.Text = "Password must contain at least one upper case letter";
+                                                        passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordNeedsUpper");
                                                         Vibration.Vibrate();
                                                         return;
                                                     }
@@ -868,7 +871,7 @@ namespace PeopleWithResearch
                                                     {
                                                         if (!hasLowerChar.IsMatch(passwordnew.Text))
                                                         {
-                                                            passworderror.Text = "Password must contain at lease one lower case letter";
+                                                            passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordNeedsLower");
                                                             Vibration.Vibrate();
                                                             return;
                                                         }
@@ -876,7 +879,7 @@ namespace PeopleWithResearch
                                                         {
                                                             if (!hasSymbols.IsMatch(passwordnew.Text))
                                                             {
-                                                                passworderror.Text = "Password must contain at least one symbol";
+                                                                passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordNeedsSymbol");
                                                                 Vibration.Vibrate();
                                                                 return;
                                                             }
@@ -900,7 +903,7 @@ namespace PeopleWithResearch
                             else
                             {
                                 Vibration.Vibrate();
-                                passworderror.Text = "Current Password incorrect, Please enter the correct Password";
+                                passworderror.Text = LocalizationManager.Get("ProfileEdit_PasswordCurrentIncorrect");
                                 return;
                             }
 

@@ -160,25 +160,25 @@ public partial class ManageProfile : ContentPage
 
             if (string.IsNullOrEmpty(NameEntry.Text))
             {
-                SetHelpers(NameHelper, NameEntry, "Enter a first name", true);
+                SetHelpers(NameHelper, NameEntry, LocalizationManager.Get("Manage_EnterFirstName"), true);
                 return true;
             }
 
             if (string.IsNullOrEmpty(SurnameEntry.Text))
             {
-                SetHelpers(SurnameHelper, SurnameEntry, "Enter a surname", true);
+                SetHelpers(SurnameHelper, SurnameEntry, LocalizationManager.Get("Manage_EnterSurname"), true);
                 return true;
             }
 
             if (string.IsNullOrEmpty(EmailEntry.Text))
             {
-                SetHelpers(EmailHelper, EmailEntry, "Please enter an email address", true);
+                SetHelpers(EmailHelper, EmailEntry, LocalizationManager.Get("Manage_EnterEmail"), true);
                 return true;
             }
 
             if (!EmailIsValid(EmailEntry.Text))
             {
-                SetHelpers(EmailHelper, EmailEntry, "Please enter a valid email address", true);
+                SetHelpers(EmailHelper, EmailEntry, LocalizationManager.Get("Manage_EnterValidEmail"), true);
                 return true;
             }
 
@@ -210,15 +210,15 @@ public partial class ManageProfile : ContentPage
         {
             var Button = sender as Button;
             if (Button == null) return; 
-            if(Button.Text == "Enable Edit")
+            if(Button.Text == LocalizationManager.Get("Manage_EnableEdit"))
             {
-                Editbtn.Text = "Save Changes";
+                Editbtn.Text = LocalizationManager.Get("Manage_SaveChanges");
                 NameEntry.IsReadOnly = false;
                 SurnameEntry.IsReadOnly = false;
                 EmailEntry.IsReadOnly = false;
                 Agelistview.IsEnabled = true;
                 RelationListview.IsEnabled = true;
-                Instructionlbl.Text = "Edit a field to enable 'Save Changes'";
+                Instructionlbl.Text = LocalizationManager.Get("Manage_EditField");
                 Editbtn.IsEnabled = false; 
                 return; 
             }
@@ -237,7 +237,7 @@ public partial class ManageProfile : ContentPage
             if (itemUpdate == null)
             {
                 Editbtn.IsEnabled = true;
-                await DisplayAlert("Update Failed", "We couldn't retrieve this specific users data. Please try again later. If the problem persists, please contact support.", "OK");
+                await DisplayAlert(LocalizationManager.Get("Manage_UpdateFailedTitle"), LocalizationManager.Get("Manage_UpdateFailedMsg"), LocalizationManager.Get("Common_OK"));
                 return;
             }
 
@@ -253,12 +253,12 @@ public partial class ManageProfile : ContentPage
             if (!isSuccessful)
             {
                 Editbtn.IsEnabled = true;
-                await DisplayAlert("Save Failed", "We couldn't save your data. Please try again later. If the problem persists, please contact support.", "OK");
+                await DisplayAlert(LocalizationManager.Get("Manage_SaveFailedTitle"), LocalizationManager.Get("Manage_SaveFailedMsg"), LocalizationManager.Get("Common_OK"));
                 return;
             }
             
 
-            await MopupService.Instance.PushAsync(new PopupPageHelper("Profile Updated"));
+            await MopupService.Instance.PushAsync(new PopupPageHelper(LocalizationManager.Get("Manage_ProfileUpdated")));
             WeakReferenceMessenger.Default.Send(new UpdateHouseHoldGroup(AllUserDetails));
 
             await Task.Delay(1500);
@@ -298,7 +298,7 @@ public partial class ManageProfile : ContentPage
 
             if (DeviceInfo.Platform == DevicePlatform.iOS)
             {
-                var toast = Toast.Make("Copied to clipboard");
+                var toast = Toast.Make(LocalizationManager.Get("Manage_CopiedToClipboard"));
                 await toast.Show();
             }
         }

@@ -60,14 +60,16 @@ public partial class SelectLanguagePopup : PopupPage
             _currentLanguageCode = string.IsNullOrEmpty(Helpers.Settings.SelectedLanguage)
                 ? "en" : Helpers.Settings.SelectedLanguage;
 
-            // B2 fix: removed spurious using PeoplewithResearch (wrong-case namespace) — not needed here
-            Languages.Add(new LanguageOption { Name = "English", FlagImage = "egflag.png", LanguageTitle = AppResources.ResourceManager.GetString("SelectLang_Title", CultureInfo.CurrentUICulture) ?? "Select Language", LanguageDescription = AppResources.ResourceManager.GetString("SelectLang_Description", CultureInfo.CurrentUICulture) ?? "Choose your preferred language", LanguageCode = "en", IsSelected = _currentLanguageCode == "en" });
-            Languages.Add(new LanguageOption { Name = "Polski",  FlagImage = "plflag.png", LanguageTitle = AppResources.ResourceManager.GetString("SelectLang_Title", CultureInfo.CurrentUICulture) ?? "Select Language", LanguageDescription = AppResources.ResourceManager.GetString("SelectLang_Description", CultureInfo.CurrentUICulture) ?? "Choose your preferred language", LanguageCode = "pl", IsSelected = _currentLanguageCode == "pl" });
-            Languages.Add(new LanguageOption { Name = "Română",  FlagImage = "roflag.png", LanguageTitle = AppResources.ResourceManager.GetString("SelectLang_Title", CultureInfo.CurrentUICulture) ?? "Select Language", LanguageDescription = AppResources.ResourceManager.GetString("SelectLang_Description", CultureInfo.CurrentUICulture) ?? "Choose your preferred language", LanguageCode = "ro", IsSelected = _currentLanguageCode == "ro" });
-            Languages.Add(new LanguageOption { Name = "ગુજરાતી", FlagImage = "guflag.png", LanguageTitle = AppResources.ResourceManager.GetString("SelectLang_Title", CultureInfo.CurrentUICulture) ?? "Select Language", LanguageDescription = AppResources.ResourceManager.GetString("SelectLang_Description", CultureInfo.CurrentUICulture) ?? "Choose your preferred language", LanguageCode = "gu", IsSelected = _currentLanguageCode == "gu" });
+            // Each language option shows the title/description in its OWN language
+            Languages.Add(new LanguageOption { Name = "English",  FlagImage = "egflag.png", LanguageTitle = LocalizationManager.GetForLanguage("SelectLang_Title", "en"),       LanguageDescription = LocalizationManager.GetForLanguage("SelectLang_Description", "en"),       LanguageCode = "en", IsSelected = _currentLanguageCode == "en" });
+            Languages.Add(new LanguageOption { Name = "Polski",   FlagImage = "plflag.png", LanguageTitle = LocalizationManager.GetForLanguage("SelectLang_Title", "pl"),       LanguageDescription = LocalizationManager.GetForLanguage("SelectLang_Description", "pl"),       LanguageCode = "pl", IsSelected = _currentLanguageCode == "pl" });
+            Languages.Add(new LanguageOption { Name = "Română",   FlagImage = "roflag.png", LanguageTitle = LocalizationManager.GetForLanguage("SelectLang_Title", "ro"),       LanguageDescription = LocalizationManager.GetForLanguage("SelectLang_Description", "ro"),       LanguageCode = "ro", IsSelected = _currentLanguageCode == "ro" });
+            Languages.Add(new LanguageOption { Name = "ગુજરાતી",  FlagImage = "guflag.png", LanguageTitle = LocalizationManager.GetForLanguage("SelectLang_Title", "gu"),       LanguageDescription = LocalizationManager.GetForLanguage("SelectLang_Description", "gu"),       LanguageCode = "gu", IsSelected = _currentLanguageCode == "gu" });
+            Languages.Add(new LanguageOption { Name = "Español",  FlagImage = "esflag.png", LanguageTitle = LocalizationManager.GetForLanguage("SelectLang_Title", "es"),       LanguageDescription = LocalizationManager.GetForLanguage("SelectLang_Description", "es"),       LanguageCode = "es", IsSelected = _currentLanguageCode == "es" });
 
-            LanguageTitleLabel.Text = Languages.FirstOrDefault(l => l.IsSelected)?.LanguageTitle ?? "Select Language";
-            LanguageDescriptionLabel.Text = Languages.FirstOrDefault(l => l.IsSelected)?.LanguageDescription ?? "Choose your preferred language";
+            var selected = Languages.FirstOrDefault(l => l.IsSelected) ?? Languages[0];
+            LanguageTitleLabel.Text       = selected.LanguageTitle;
+            LanguageDescriptionLabel.Text = selected.LanguageDescription;
         }
         catch (Exception Ex) { NotasyncMethod(Ex); }
     }
@@ -79,27 +81,37 @@ public partial class SelectLanguagePopup : PopupPage
             if (e.Parameter is not LanguageOption selected) return;
             foreach (var lang in Languages) lang.IsSelected = lang == selected;
 
-            // B4 fix: persist to Preferences BEFORE applying culture (avoid race if app killed mid-method)
             LocalizationManager.SetLanguage(selected.LanguageCode);
             WeakReferenceMessenger.Default.Send(new LanguageChangedMessage(selected.LanguageCode));
 
-            LanguageTitleLabel.Text = Languages.FirstOrDefault(l => l.IsSelected)?.LanguageTitle ?? "Select Language";
-            LanguageDescriptionLabel.Text = Languages.FirstOrDefault(l => l.IsSelected)?.LanguageDescription ?? "Choose your preferred language";
-            LanguageSelected?.Invoke(selected.LanguageCode);
-
-            await Task.Delay(150);
-
-            if (returnValue && returnlanguage != null)
-            {
-                // Return the language CODE (not the display title) for correct TCS semantics
-                returnlanguage.SetResult(selected.LanguageCode);
-            }
             if (reloadProfile)
-            {
                 WeakReferenceMessenger.Default.Send(new UpdateProfile("Reload"));
-            }
+
+            // Pop the popup FIRST so the close animation finishes before the TCS
+            // result triggers App.SetMainPage — otherwise the page replacement tears
+            // down the Mopups stack mid-animation and the popup never closes cleanly.
             await MopupService.Instance.PopAsync();
+
+            returnlanguage?.TrySetResult(selected.LanguageCode);
+            LanguageSelected?.Invoke(selected.LanguageCode);
         }
         catch (Exception Ex) { NotasyncMethod(Ex); }
+    }
+
+    private async void OnCancelTapped(object sender, EventArgs e)
+    {
+        try
+        {
+            await MopupService.Instance.PopAsync();
+            returnlanguage?.TrySetResult(Helpers.Settings.SelectedLanguage ?? "en");
+        }
+        catch (Exception Ex) { NotasyncMethod(Ex); }
+    }
+
+    // Called by Mopups when the user taps the dim background (CloseWhenBackgroundIsClicked="True")
+    protected override bool OnBackgroundClicked()
+    {
+        returnlanguage?.TrySetResult(Helpers.Settings.SelectedLanguage ?? "en");
+        return base.OnBackgroundClicked();
     }
 }

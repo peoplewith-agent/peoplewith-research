@@ -31,14 +31,16 @@ namespace PeopleWithResearch
         {
             InitializeComponent();
             emailentry.TextChanged += OnEntryTextChanged;
+            Titlelbl.Text = LocalizationManager.Get("ForgotPwd_Title");
+            Descriptivelbl.Text = LocalizationManager.Get("ForgotPwd_Description");
         }
 
         public ForgotPassword(string IsReset)
         {
             InitializeComponent();
             emailentry.TextChanged += OnEntryTextChanged;
-            Titlelbl.Text = "Password Reset";
-            Descriptivelbl.Text = "Enter your email address below, and we'll send you a link to update your password.";
+            Titlelbl.Text = LocalizationManager.Get("ForgotPwd_ResetTitle");
+            Descriptivelbl.Text = LocalizationManager.Get("ForgotPwd_ResetDescription");
             OtherOne.IsVisible = false;
         }
 
@@ -122,7 +124,7 @@ namespace PeopleWithResearch
                 if (string.IsNullOrEmpty(emailentry.Text))
                 {
                     emailhelper.HasError = true;
-                    emailhelper.ErrorText = "Email cannot be empty";
+                    emailhelper.ErrorText = LocalizationManager.Get("ForgotPwd_ErrorEmpty");
                     Vibration.Vibrate();
                     emailentry.Focus();
                     return;
@@ -130,7 +132,7 @@ namespace PeopleWithResearch
 
                 if (!EmailIsValid(emailentry.Text))
                 {
-                    emailhelper.ErrorText = "Please enter a valid email address";
+                    emailhelper.ErrorText = LocalizationManager.Get("ForgotPwd_ErrorInvalid");
                     emailhelper.HasError = true;
                     Vibration.Vibrate();
                     emailentry.Focus();
@@ -142,7 +144,7 @@ namespace PeopleWithResearch
                 var user = await APICalls.Instance.CheckEmailExists(emailentry.Text);
                 if (user.Count == 0)
                 {
-                    emailhelper.ErrorText = "We couldn't find an account with that email";
+                    emailhelper.ErrorText = LocalizationManager.Get("ForgotPwd_ErrorNotFound");
                     emailhelper.HasError = true;
                     Vibration.Vibrate();
                     emailentry.Focus();
@@ -161,19 +163,19 @@ namespace PeopleWithResearch
                 }
                 if (Userdetails.deleted == true)
                 {
-                    await DisplayAlert("Account Deleted", "Your account has been deleted", "OK");
+                    await DisplayAlert(LocalizationManager.Get("ForgotPwd_AlertDeletedTitle"), LocalizationManager.Get("ForgotPwd_AlertDeletedMsg"), LocalizationManager.Get("ForgotPwd_AlertOk"));
                     await LoadING(false);
                     return;
                 }
                 else if (Userdetails.status == "Onboarding")
                 {
-                    await DisplayAlert("Account Onboarding", "Please use your email to continue registering", "OK");
+                    await DisplayAlert(LocalizationManager.Get("ForgotPwd_AlertOnboardingTitle"), LocalizationManager.Get("ForgotPwd_AlertOnboardingMsg"), LocalizationManager.Get("ForgotPwd_AlertOk"));
                     await LoadING(false);
                     return;
                 }
                 else if (Userdetails.status == "Withdrawn")
                 {
-                    await DisplayAlert("Withdrawn from Study", "You have withdrawn from the study and can no longer access your account", "OK");
+                    await DisplayAlert(LocalizationManager.Get("ForgotPwd_AlertWithdrawnTitle"), LocalizationManager.Get("ForgotPwd_AlertWithdrawnMsg"), LocalizationManager.Get("ForgotPwd_AlertOk"));
                     await LoadING(false);
                     return;
                 }
@@ -183,12 +185,12 @@ namespace PeopleWithResearch
                 if (Check)
                 {
                     //Successfully Sent
-                    await DisplayAlert("Check Your Email", "A password reset link has been sent to your email address. If you don't see it in your inbox within a few minutes, please check your spam or junk folder.", "OK");
+                    await DisplayAlert(LocalizationManager.Get("ForgotPwd_AlertSuccessTitle"), LocalizationManager.Get("ForgotPwd_AlertSuccessMsg"), LocalizationManager.Get("ForgotPwd_AlertOk"));
                     Navigation.RemovePage(this);
                 }
                 else
                 {
-                    await DisplayAlert("Something went wrong", "We encountered an issue sending your password reset email. Please try again later. If the problem persists, contact support for assistance.", "OK");
+                    await DisplayAlert(LocalizationManager.Get("ForgotPwd_AlertFailTitle"), LocalizationManager.Get("ForgotPwd_AlertFailMsg"), LocalizationManager.Get("ForgotPwd_AlertOk"));
                 }
 
             }

@@ -7,7 +7,7 @@
     xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
     xmlns:local="clr-namespace:PeopleWithResearch"
     BackgroundColor="#66000000"
-    CloseWhenBackgroundIsClicked="False"
+    CloseWhenBackgroundIsClicked="True"
     NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
 
@@ -25,15 +25,16 @@
             DurationOut="200" />
     </pages:PopupPage.Animation>
 
-    <Border Margin="10,0"
+    <Border Margin="20,0"
         BackgroundColor="#EFEFF2"
         StrokeThickness="0"
-        VerticalOptions="Center">
+        VerticalOptions="Center"
+        HeightRequest="460">
         <Border.StrokeShape>
             <RoundRectangle CornerRadius="24" />
         </Border.StrokeShape>
 
-        <Grid RowDefinitions="Auto,Auto,*" Padding="24,20,24,24" RowSpacing="10">
+        <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="24,20,24,24" RowSpacing="10">
             <Label
                 x:Name="LanguageTitleLabel"
                 Grid.Row="0"
@@ -131,6 +132,19 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <Button
+                Grid.Row="3"
+                Text="Cancel"
+                BackgroundColor="Transparent"
+                BorderColor="#C7C7CC"
+                BorderWidth="1"
+                TextColor="#666666"
+                CornerRadius="10"
+                HeightRequest="44"
+                FontFamily="OpenSansRegular"
+                FontSize="14"
+                Clicked="OnCancelTapped" />
         </Grid>
     </Border>
 </pages:PopupPage>

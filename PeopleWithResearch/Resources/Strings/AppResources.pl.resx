@@ -110,4 +110,1405 @@
   <data name="Common_Retry" xml:space="preserve">
     <value>Ponów</value>
   </data>
+
+  <!-- Common (shared across multiple pages) -->
+  <data name="Common_SelectAnOption" xml:space="preserve">
+    <value>Wybierz opcję</value>
+  </data>
+  <data name="Common_PleaseComplete" xml:space="preserve">
+    <value>Proszę uzupełnić</value>
+  </data>
+  <data name="Common_PrivacyPolicy" xml:space="preserve">
+    <value>Polityka prywatności</value>
+  </data>
+  <data name="Common_Back" xml:space="preserve">
+    <value>Wstecz</value>
+  </data>
+  <data name="Common_AddNewMember" xml:space="preserve">
+    <value>Dodaj nowego członka</value>
+  </data>
+  <data name="Common_ActionRequired" xml:space="preserve">
+    <value>WYMAGANE DZIAŁANIE</value>
+  </data>
+  <data name="Common_CompleteBaselineQ" xml:space="preserve">
+    <value>Wypełnij kwestionariusz bazowy</value>
+  </data>
+  <data name="Common_BaselineQPrompt" xml:space="preserve">
+    <value>Proszę wypełnić kwestionariusz bazowy, aby kontynuować.</value>
+  </data>
+  <data name="Common_StudyProgress" xml:space="preserve">
+    <value>POSTĘP BADANIA</value>
+  </data>
+  <data name="Common_ManageProfile" xml:space="preserve">
+    <value>Zarządzaj profilem</value>
+  </data>
+
+  <data name="Common_StatusCompleted" xml:space="preserve">
+    <value>Ukończono</value>
+  </data>
+  <data name="Common_StatusPending" xml:space="preserve">
+    <value>Oczekuje</value>
+  </data>
+
+  <!-- NewMainPage -->
+  <data name="Main_CheckingCode" xml:space="preserve">
+    <value>Sprawdzanie kodu...</value>
+  </data>
+  <data name="Main_Clear" xml:space="preserve">
+    <value>Wyczyść</value>
+  </data>
+  <data name="Main_SuccessCheck" xml:space="preserve">
+    <value>✓</value>
+  </data>
+  <data name="Main_SuccessTick" xml:space="preserve">
+    <value>✓</value>
+  </data>
+  <data name="Main_Success" xml:space="preserve">
+    <value>Sukces</value>
+  </data>
+  <data name="Main_SuccessLabel" xml:space="preserve">
+    <value>Sukces</value>
+  </data>
+  <data name="Main_Register" xml:space="preserve">
+    <value>Zarejestruj się</value>
+  </data>
+  <data name="Main_LogIn" xml:space="preserve">
+    <value>Zaloguj się</value>
+  </data>
+  <data name="Main_IfYouHaveDetails" xml:space="preserve">
+    <value>Jeśli posiadasz dane do projektu badawczego, możesz zarejestrować się do udziału. Jeśli wcześniej brałeś/aś udział w projekcie, możesz zalogować się, aby uzyskać dostęp do konta.</value>
+  </data>
+  <data name="Main_Description" xml:space="preserve">
+    <value>Jeśli posiadasz dane do projektu badawczego, możesz zarejestrować się do udziału. Jeśli wcześniej brałeś/aś udział w projekcie, możesz zalogować się, aby uzyskać dostęp do konta.</value>
+  </data>
+  <data name="Main_DescSpan1" xml:space="preserve">
+    <value>Dziękujemy za zainteresowanie udziałem! </value>
+  </data>
+  <data name="Main_DescSpan2" xml:space="preserve">
+    <value>Jeśli masz już kod, dotknij </value>
+  </data>
+  <data name="Main_DescSpan3" xml:space="preserve">
+    <value>'Wklej Kod Badania'</value>
+  </data>
+  <data name="Main_DescSpan4" xml:space="preserve">
+    <value> i postępuj zgodnie z instrukcjami na ekranie, aby kontynuować.</value>
+  </data>
+  <data name="Main_PasteTextConst" xml:space="preserve">
+    <value>Wklej Kod Badania</value>
+  </data>
+  <data name="Main_CheckTextConst" xml:space="preserve">
+    <value>Sprawdź Kod Badania</value>
+  </data>
+  <data name="Main_ClipboardUnavailableTitle" xml:space="preserve">
+    <value>Schowek niedostępny</value>
+  </data>
+  <data name="Main_ClipboardUnavailableMsg" xml:space="preserve">
+    <value>Nie można odczytać zawartości schowka. Proszę wpisać kod badania ręcznie.</value>
+  </data>
+  <data name="Main_RequestTimedOut" xml:space="preserve">
+    <value>Upłynął limit czasu żądania. Sprawdź połączenie i spróbuj ponownie.</value>
+  </data>
+  <data name="Main_InvalidCode" xml:space="preserve">
+    <value>Nieprawidłowy kod badania</value>
+  </data>
+  <data name="Main_RegistrationActiveTitle" xml:space="preserve">
+    <value>Rejestracja aktywna</value>
+  </data>
+  <data name="Main_RegistrationActiveMsg" xml:space="preserve">
+    <value>Ten adres e-mail jest już używany. Spróbuj się zalogować.</value>
+  </data>
+  <data name="Main_SomethingWentWrong" xml:space="preserve">
+    <value>Coś poszło nie tak. Spróbuj ponownie.</value>
+  </data>
+  <data name="Main_ValidatingCode" xml:space="preserve">
+    <value>Weryfikacja kodu użytkownika w celu zapewnienia bezpiecznego i sprawnego logowania</value>
+  </data>
+  <data name="Main_CheckingDuplications" xml:space="preserve">
+    <value>Sprawdzanie duplikatów w naszym systemie</value>
+  </data>
+  <data name="Main_DetailsInUse" xml:space="preserve">
+    <value>Dane powiązane z tym kodem badania są już używane. Proszę się zalogować. Jeśli uważasz, że to błąd, skontaktuj się: support@peoplewith.com</value>
+  </data>
+  <data name="Main_UserAlreadyExists" xml:space="preserve">
+    <value>Użytkownik już istnieje</value>
+  </data>
+
+  <!-- NewLoginPage -->
+  <data name="Login_WelcomeBack" xml:space="preserve">
+    <value>Witamy z powrotem</value>
+  </data>
+  <data name="Login_SignInSubtitle" xml:space="preserve">
+    <value>Zaloguj się, aby uzyskać dostęp do panelu badania</value>
+  </data>
+  <data name="Login_EmailLabel" xml:space="preserve">
+    <value>Adres e-mail*</value>
+  </data>
+  <data name="Login_PasswordLabel" xml:space="preserve">
+    <value>Hasło*</value>
+  </data>
+  <data name="Login_ForgotPassword" xml:space="preserve">
+    <value>Zapomniałeś/aś hasła?</value>
+  </data>
+  <data name="Login_SignInButton" xml:space="preserve">
+    <value>Zaloguj się</value>
+  </data>
+  <data name="Login_NoAccount" xml:space="preserve">
+    <value>Nie masz konta?</value>
+  </data>
+  <data name="Login_SignUpLink" xml:space="preserve">
+    <value>Zarejestruj się</value>
+  </data>
+  <data name="Login_EmailEmpty" xml:space="preserve">
+    <value>E-mail nie może być pusty</value>
+  </data>
+  <data name="Login_EmailInvalid" xml:space="preserve">
+    <value>Wprowadź prawidłowy adres e-mail</value>
+  </data>
+  <data name="Login_PasswordEmpty" xml:space="preserve">
+    <value>Hasło nie może być puste</value>
+  </data>
+  <data name="Login_AccountNotFound" xml:space="preserve">
+    <value>Nie znaleziono konta z tym adresem e-mail</value>
+  </data>
+  <data name="Login_AccountDeletedTitle" xml:space="preserve">
+    <value>Konto usunięte</value>
+  </data>
+  <data name="Login_AccountDeletedMsg" xml:space="preserve">
+    <value>Twoje konto zostało usunięte</value>
+  </data>
+  <data name="Login_OnboardingTitle" xml:space="preserve">
+    <value>Wdrożenie konta</value>
+  </data>
+  <data name="Login_OnboardingMsg" xml:space="preserve">
+    <value>Użyj swojego e-maila, aby dokończyć rejestrację</value>
+  </data>
+  <data name="Login_WithdrawnTitle" xml:space="preserve">
+    <value>Wycofanie z badania</value>
+  </data>
+  <data name="Login_WithdrawnMsg" xml:space="preserve">
+    <value>Wycofałeś/aś się z badania i nie możesz już uzyskać dostępu do swojego konta</value>
+  </data>
+  <data name="Login_PasswordIncorrect" xml:space="preserve">
+    <value>Nieprawidłowe hasło, spróbuj ponownie</value>
+  </data>
+
+  <!-- ImperialDashboard -->
+  <data name="Dashboard_WelcomeBack" xml:space="preserve">
+    <value>Witamy z powrotem w panelu</value>
+  </data>
+  <data name="Dashboard_LoggedInAs" xml:space="preserve">
+    <value>Zalogowano jako</value>
+  </data>
+  <data name="Dashboard_StudyUserId" xml:space="preserve">
+    <value>ID UŻYTKOWNIKA BADANIA</value>
+  </data>
+  <data name="Dashboard_HouseRep" xml:space="preserve">
+    <value>Przedstawiciel domostwa</value>
+  </data>
+  <data name="Dashboard_ActiveNo" xml:space="preserve">
+    <value>Aktywny nr.</value>
+  </data>
+  <data name="Dashboard_HouseholdRep" xml:space="preserve">
+    <value>PRZEDSTAWICIEL DOMOSTWA</value>
+  </data>
+  <data name="Dashboard_StayInLoop" xml:space="preserve">
+    <value>Bądź na bieżąco</value>
+  </data>
+  <data name="Dashboard_Action" xml:space="preserve">
+    <value>DZIAŁANIE</value>
+  </data>
+  <data name="Dashboard_NeverMissUpdate" xml:space="preserve">
+    <value>Nie przegap żadnej aktualizacji</value>
+  </data>
+  <data name="Dashboard_NotificationsPrompt" xml:space="preserve">
+    <value>Włącz powiadomienia, aby otrzymywać natychmiastowe alerty o kwestionariuszach, cotygodniowe przypomnienia o badaniu i aktualizacje postępów dla wszystkich w Twoim domu.</value>
+  </data>
+  <data name="Dashboard_NotNow" xml:space="preserve">
+    <value>Nie teraz</value>
+  </data>
+  <data name="Dashboard_Enable" xml:space="preserve">
+    <value>Włącz</value>
+  </data>
+  <data name="Dashboard_AllTasksCompleted" xml:space="preserve">
+    <value>Wszystkie zadania na dziś ukończone</value>
+  </data>
+  <data name="Dashboard_QCompleted" xml:space="preserve">
+    <value>Wypełniłeś/aś dzisiejszy kwestionariusz. Następny będzie dostępny jutro. Sprawdź, czy wszyscy pozostali członkowie domostwa również wypełnili swoje formularze na dziś</value>
+  </data>
+  <data name="Dashboard_BaselineFormStage" xml:space="preserve">
+    <value>Twoje domostwu jest na etapie formularza bazowego</value>
+  </data>
+  <data name="Dashboard_BaselineFormRequirement" xml:space="preserve">
+    <value>Aby przejść do następnego etapu badania, co najmniej 3 członków domostwa musi wypełnić formularz bazowy</value>
+  </data>
+  <data name="Dashboard_BaselineSamplingStage" xml:space="preserve">
+    <value>Twoje domostwu jest na etapie pobierania próbek bazowych</value>
+  </data>
+  <data name="Dashboard_SamplingKitsArrive" xml:space="preserve">
+    <value>Gdy dotrą Twoje zestawy do pobierania próbek bazowych:</value>
+  </data>
+  <data name="Dashboard_SamplingStep1" xml:space="preserve">
+    <value>1.</value>
+  </data>
+  <data name="Dashboard_SamplingCollect" xml:space="preserve">
+    <value>Pobierz próbki bazowe</value>
+  </data>
+  <data name="Dashboard_SamplingStep2" xml:space="preserve">
+    <value>2.</value>
+  </data>
+  <data name="Dashboard_SamplingCompleteForm" xml:space="preserve">
+    <value>Wypełnij formularz próbek bazowych</value>
+  </data>
+  <data name="Dashboard_SamplingSameDay" xml:space="preserve">
+    <value>Upewnij się, że wszyscy w Twoim domostwie pobiorą próbki i wypełnią formularz tego samego dnia.</value>
+  </data>
+  <data name="Dashboard_BaselineSamples" xml:space="preserve">
+    <value>Próbki bazowe</value>
+  </data>
+  <data name="Dashboard_HouseholdParticipants" xml:space="preserve">
+    <value>Uczestnicy domostwa</value>
+  </data>
+  <data name="Dashboard_BaselineForm" xml:space="preserve">
+    <value>Formularz bazowy</value>
+  </data>
+  <data name="Dashboard_BaselineSamplesLabel" xml:space="preserve">
+    <value>Próbki bazowe</value>
+  </data>
+  <data name="Dashboard_LastActive" xml:space="preserve">
+    <value>Ostatnio aktywny</value>
+  </data>
+  <data name="Dashboard_Questionnaires" xml:space="preserve">
+    <value>Kwestionariusze</value>
+  </data>
+  <data name="Dashboard_AwaitingBaseline" xml:space="preserve">
+    <value>Oczekuje na kwestionariusz bazowy</value>
+  </data>
+  <data name="Dashboard_CompleteOnBehalf" xml:space="preserve">
+    <value>Jako przedstawiciel domostwa możesz wypełnić formularz bazowy w ich imieniu. Upewnij się, że wszystkie informacje są dokładne.</value>
+  </data>
+  <data name="Dashboard_CompleteBaseline" xml:space="preserve">
+    <value>Wypełnij formularz bazowy</value>
+  </data>
+  <data name="Dashboard_ProfileNotActive" xml:space="preserve">
+    <value>Profil nieaktywny</value>
+  </data>
+  <data name="Dashboard_ProfileNotActiveMsg" xml:space="preserve">
+    <value>Skontaktuj się z zespołem badawczym pod numerem podanym poniżej, aby aktywować ten profil.</value>
+  </data>
+  <data name="Dashboard_ActiveProfile" xml:space="preserve">
+    <value>Aktywny profil</value>
+  </data>
+  <data name="Dashboard_ProgressSoFar" xml:space="preserve">
+    <value>DOTYCHCZASOWY POSTĘP</value>
+  </data>
+  <data name="Dashboard_CompletedQuestionnaires" xml:space="preserve">
+    <value>Wypełnione kwestionariusze</value>
+  </data>
+  <data name="Dashboard_ReviewQsSubmitted" xml:space="preserve">
+    <value>Dotknij tutaj, aby przejrzeć dotychczas przesłane kwestionariusze.</value>
+  </data>
+  <data name="Dashboard_TapViewCompleted" xml:space="preserve">
+    <value>Dotknij, aby zobaczyć wszystkie ukończone formularze</value>
+  </data>
+  <data name="Dashboard_MissedQuestionnaires" xml:space="preserve">
+    <value>POMINIĘTE KWESTIONARIUSZE</value>
+  </data>
+  <data name="Dashboard_MissedQsLabel" xml:space="preserve">
+    <value>Pominięte kwestionariusze</value>
+  </data>
+  <data name="Dashboard_MissedQsMsg" xml:space="preserve">
+    <value>Masz niekompletne kwestionariusze. Nic nie jest stracone — dotknij tutaj, aby je teraz nadrobić.</value>
+  </data>
+  <data name="Dashboard_TapCompleteMissed" xml:space="preserve">
+    <value>Dotknij, aby wypełnić pominięte formularze</value>
+  </data>
+  <data name="Dashboard_NotCompleted" xml:space="preserve">
+    <value>Nie ukończono</value>
+  </data>
+  <data name="Dashboard_Missed" xml:space="preserve">
+    <value>POMINIĘTE</value>
+  </data>
+  <data name="Dashboard_ExpandHousehold" xml:space="preserve">
+    <value>Rozbuduj swoje domostwu</value>
+  </data>
+  <data name="Dashboard_InviteMembers" xml:space="preserve">
+    <value>Zaproś członków swojego domostwa do udziału i wspólnego wkładu w badanie</value>
+  </data>
+  <data name="Dashboard_GiveAccessTitle" xml:space="preserve">
+    <value>Nadaj dostęp przedstawicielowi domostwa</value>
+  </data>
+  <data name="Dashboard_GiveAccessMsg" xml:space="preserve">
+    <value>Zezwól przedstawicielowi domostwa na zarządzanie Twoim kontem i dostęp do niego w Twoim imieniu z ich własnego konta</value>
+  </data>
+  <data name="Dashboard_GrantAccess" xml:space="preserve">
+    <value>Nadaj dostęp</value>
+  </data>
+  <data name="Dashboard_NotificationsOff" xml:space="preserve">
+    <value>Wygląda na to, że Twoje powiadomienia są wyłączone. Dotknij poniższego przycisku i włącz powiadomienia, aby otrzymywać cotygodniowe przypomnienia o badaniu.</value>
+  </data>
+  <data name="Dashboard_TurnOnNotifications" xml:space="preserve">
+    <value>Włącz powiadomienia</value>
+  </data>
+  <data name="Dashboard_ThankYouStudy" xml:space="preserve">
+    <value>Dziękujemy za udział w badaniu Hopper</value>
+  </data>
+  <data name="Dashboard_StudyInformation" xml:space="preserve">
+    <value>Informacje o badaniu</value>
+  </data>
+  <data name="Dashboard_HopperStudy" xml:space="preserve">
+    <value>Badanie Hopper</value>
+  </data>
+  <data name="Dashboard_ContactInformation" xml:space="preserve">
+    <value>Dane kontaktowe</value>
+  </data>
+  <data name="Dashboard_ContactMsg" xml:space="preserve">
+    <value>Nie wahaj się z nami skontaktować — czy masz sugestię, skargę czy problem do rozwiązania.</value>
+  </data>
+  <data name="Dashboard_NoContactFound" xml:space="preserve">
+    <value>Nie znaleziono danych kontaktowych</value>
+  </data>
+  <data name="Dashboard_ContactOffline" xml:space="preserve">
+    <value>Metody kontaktu są obecnie niedostępne.</value>
+  </data>
+  <data name="Dashboard_AdditionalInformation" xml:space="preserve">
+    <value>Dodatkowe informacje</value>
+  </data>
+  <data name="Dashboard_NoResourcesFound" xml:space="preserve">
+    <value>Nie znaleziono zasobów</value>
+  </data>
+  <data name="Dashboard_ResourcesFailedLoad" xml:space="preserve">
+    <value>Nie udało się załadować zasobów. Spróbuj odświeżyć stronę. Jeśli problem się powtarza, skontaktuj się z pomocą techniczną.</value>
+  </data>
+  <data name="Dashboard_Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Dashboard_ManageYourProfile" xml:space="preserve">
+    <value>Zarządzaj swoim profilem</value>
+  </data>
+  <data name="Dashboard_PersonalInformation" xml:space="preserve">
+    <value>Dane osobowe</value>
+  </data>
+  <data name="Dashboard_Preferences" xml:space="preserve">
+    <value>Preferencje</value>
+  </data>
+  <data name="Dashboard_GetInTouch" xml:space="preserve">
+    <value>Skontaktuj się</value>
+  </data>
+  <data name="Dashboard_SupportMsg" xml:space="preserve">
+    <value>Potrzebujesz pomocy? Jesteśmy tu, aby pomóc we wszystkim, czego potrzebujesz. Skontaktuj się z naszym zespołem wsparcia w dowolnym momencie.</value>
+  </data>
+  <data name="Dashboard_MessageTeam" xml:space="preserve">
+    <value>Napisz do zespołu</value>
+  </data>
+  <data name="Dashboard_LogOut" xml:space="preserve">
+    <value>Wyloguj się</value>
+  </data>
+  <data name="Dashboard_WithdrawalAction" xml:space="preserve">
+    <value>AKCJA WYCOFANIA</value>
+  </data>
+  <data name="Dashboard_WithdrawTitle" xml:space="preserve">
+    <value>Wycofanie z badania HOPPER</value>
+  </data>
+  <data name="Dashboard_WithdrawWarning" xml:space="preserve">
+    <value>Po wycofaniu nie będziesz już częścią tego badania i utracisz dostęp do swojego konta.</value>
+  </data>
+  <data name="Dashboard_AppVersion" xml:space="preserve">
+    <value>Wersja aplikacji 1.0.0</value>
+  </data>
+  <data name="Dashboard_HiPrefix" xml:space="preserve">
+    <value>Cześć,</value>
+  </data>
+  <data name="Dashboard_Participant" xml:space="preserve">
+    <value>Uczestnik</value>
+  </data>
+  <data name="Dashboard_Day28" xml:space="preserve">
+    <value>Dzień 28</value>
+  </data>
+  <data name="Dashboard_SamplingSymptoms" xml:space="preserve">
+    <value>Rozpocznij pobieranie próbek przy użyciu zestawów w Twoim domu, jeśli w ciągu ostatnich 24 godzin u Ciebie lub kogokolwiek w Twoim domostwie pojawiły się NOWE objawy:</value>
+  </data>
+  <data name="Dashboard_SamplingPeriodSuffix" xml:space="preserve">
+    <value>Twojego okresu badania wywołanego objawami</value>
+  </data>
+  <data name="Dashboard_BaselineSamplesFormTitle" xml:space="preserve">
+    <value>Formularz próbek bazowych ukończony</value>
+  </data>
+  <data name="Dashboard_BaselineSamplesFormMsg" xml:space="preserve">
+    <value>Formularz próbek bazowych został już wypełniony. Upewnij się, że wszyscy pozostali członkowie Twojego domostwa zrobili to samo.</value>
+  </data>
+  <data name="Dashboard_WithdrawAlertTitle" xml:space="preserve">
+    <value>Wycofanie z badania</value>
+  </data>
+  <data name="Dashboard_WithdrawAlertMsg" xml:space="preserve">
+    <value>Czy na pewno chcesz wycofać się z badania HOPPER? Ta akcja jest nieodwracalna i utracisz dostęp do swojego konta.</value>
+  </data>
+  <data name="Dashboard_WithdrawButton" xml:space="preserve">
+    <value>Wycofaj się</value>
+  </data>
+  <data name="Dashboard_LogoutTitle" xml:space="preserve">
+    <value>Wylogowanie</value>
+  </data>
+  <data name="Dashboard_LogoutMsg" xml:space="preserve">
+    <value>Czy na pewno chcesz się wylogować?</value>
+  </data>
+  <data name="Dashboard_LogoutButton" xml:space="preserve">
+    <value>Wyloguj się</value>
+  </data>
+  <data name="Dashboard_ConfirmAccessTitle" xml:space="preserve">
+    <value>Potwierdź dostęp</value>
+  </data>
+  <data name="Dashboard_ConfirmAccessMsg" xml:space="preserve">
+    <value>Czy na pewno chcesz nadać dostęp?</value>
+  </data>
+  <data name="Dashboard_ConfirmAccessYes" xml:space="preserve">
+    <value>Tak</value>
+  </data>
+  <data name="Dashboard_ConfirmAccessNo" xml:space="preserve">
+    <value>Nie</value>
+  </data>
+  <data name="Dashboard_AccessGrantedTitle" xml:space="preserve">
+    <value>Sukces</value>
+  </data>
+  <data name="Dashboard_AccessGrantedMsg" xml:space="preserve">
+    <value>Dostęp został nadany.</value>
+  </data>
+
+  <data name="Dashboard_WaitingStage" xml:space="preserve">
+    <value>Your household is at the waiting stage</value>
+  </data>
+  <data name="Dashboard_SymptomCough" xml:space="preserve">
+    <value>Cough</value>
+  </data>
+  <data name="Dashboard_SymptomTasteSmell" xml:space="preserve">
+    <value>Loss of taste or smell</value>
+  </data>
+  <data name="Dashboard_SymptomSoreThroat" xml:space="preserve">
+    <value>Sore throat</value>
+  </data>
+  <data name="Dashboard_SymptomBreath" xml:space="preserve">
+    <value>Shortness of breath</value>
+  </data>
+  <data name="Dashboard_SamplingAndThinkSymptoms" xml:space="preserve">
+    <value>AND you think these symptoms are the start of a new cold or flu-like illness (rather than your usual hay fever/seasonal allergies, smoking or vaping effects, or an ongoing long-term condition that you regularly experience)</value>
+  </data>
+  <data name="Dashboard_HouseholdIsOn" xml:space="preserve">
+    <value>Your household is on </value>
+  </data>
+  <data name="Dashboard_SamplingStep1Collect" xml:space="preserve">
+    <value>Please collect any samples due today using the kits we sent you</value>
+  </data>
+  <data name="Dashboard_SamplingStep2Complete" xml:space="preserve">
+    <value>Once you have collected your samples, tap here to complete today's questionnaire.</value>
+  </data>
+  <data name="Dashboard_DailyRecordingComplete" xml:space="preserve">
+    <value>Daily recording complete</value>
+  </data>
+  <data name="Dashboard_DailyRecordingCompleteMsg" xml:space="preserve">
+    <value>You no longer need to complete daily symptom forms. Your next step is your final Day 28 questionnaire. After that you will need to complete a short End of Study form to finish your participation.</value>
+  </data>
+  <data name="Dashboard_EndStudyFeedbackTitle" xml:space="preserve">
+    <value>Congratulations â Your household has reached the End of Study Feedback Stage!</value>
+  </data>
+  <data name="Dashboard_EndStudyThankYou" xml:space="preserve">
+    <value>Thank you for taking part in the HOPPER Study. Your participation has made an important contribution to our research. </value>
+  </data>
+  <data name="Dashboard_EndStudyFinalQ" xml:space="preserve">
+    <value>Please tap here to complete a short final questionnaire before finishing your participation in the study.</value>
+  </data>
+  <data name="Dashboard_StudyComplete" xml:space="preserve">
+    <value>STUDY COMPLETE</value>
+  </data>
+  <data name="Dashboard_StudyCompleteTitle" xml:space="preserve">
+    <value>Thank you for taking part!</value>
+  </data>
+  <data name="Dashboard_StudyCompleteMsg" xml:space="preserve">
+    <value>Your participation in the HOPPER study is now complete. The data you have contributed will make a real difference to our understanding of respiratory illnesses in households.</value>
+  </data>
+  <data name="Dashboard_RestartStudyTitle" xml:space="preserve">
+    <value>Want to restart the study?</value>
+  </data>
+  <data name="Dashboard_RestartStudyMsg" xml:space="preserve">
+    <value>If you or someone in your household develops new symptoms and you would like to restart the triggered sampling period, please contact the study team directly.</value>
+  </data>
+  <data name="Dashboard_ContactStudyTeam" xml:space="preserve">
+    <value>Contact the study team</value>
+  </data>
+  <data name="Dashboard_RecentQuestionnaires" xml:space="preserve">
+    <value>Recent Questionnaires</value>
+  </data>
+  <data name="Dashboard_ViewFormsHistory" xml:space="preserve">
+    <value>View Forms History</value>
+  </data>
+  <data name="Dashboard_TodayDayThree" xml:space="preserve">
+    <value>Today is DAY THREE of triggered sampling</value>
+  </data>
+  <data name="Dashboard_T1FormInstruction" xml:space="preserve">
+    <value>Please carry out the samples for today and fill in your T1 form</value>
+  </data>
+
+  <!-- Addnewmember -->
+  <data name="AddMember_Subtitle" xml:space="preserve">
+    <value>Dodaj dane dotyczące członka rodziny, aby dołączyć go do badania</value>
+  </data>
+  <data name="AddMember_MemberNameLabel" xml:space="preserve">
+    <value>Imię i nazwisko członka domostwa</value>
+  </data>
+  <data name="AddMember_MemberNameHint" xml:space="preserve">
+    <value>Wprowadź imię i nazwisko</value>
+  </data>
+  <data name="AddMember_LastName" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="AddMember_OwnPhoneQuestion" xml:space="preserve">
+    <value>Czy będą używać własnego telefonu w badaniu?</value>
+  </data>
+  <data name="AddMember_OwnPhoneSubtitle" xml:space="preserve">
+    <value>Pomaga nam to skonfigurować odpowiedni rodzaj profilu dla tej osoby</value>
+  </data>
+  <data name="AddMember_YesOwnAccount" xml:space="preserve">
+    <value>Jeśli tak — zakładają własne konto</value>
+  </data>
+  <data name="AddMember_YesOwnAccountDetail" xml:space="preserve">
+    <value>Będziemy potrzebować adresu e-mail, aby mogli pobrać aplikację, zweryfikować tożsamość i codziennie wypełniać własne kwestionariusze i pobierać próbki.</value>
+  </data>
+  <data name="AddMember_NoManageProfile" xml:space="preserve">
+    <value>Jeśli nie — zarządzasz tym profilem za nich</value>
+  </data>
+  <data name="AddMember_NoManageProfileDetail" xml:space="preserve">
+    <value>Będziesz wypełniać ich codzienne kwestionariusze i aktualizować ich dane w ich imieniu. Adres e-mail nie jest wymagany — możesz przełączyć się na ich profil w dowolnym momencie.</value>
+  </data>
+  <data name="AddMember_EmailLabel" xml:space="preserve">
+    <value>Adres e-mail</value>
+  </data>
+  <data name="AddMember_EmailHint" xml:space="preserve">
+    <value>Służy do założenia własnego konta i wysyłania komunikacji</value>
+  </data>
+  <data name="AddMember_AgeLabel" xml:space="preserve">
+    <value>Wiek członka</value>
+  </data>
+  <data name="AddMember_AgeHint" xml:space="preserve">
+    <value>Proszę wybrać wiek członka</value>
+  </data>
+  <data name="AddMember_RelationLabel" xml:space="preserve">
+    <value>Relacja z członkiem</value>
+  </data>
+  <data name="AddMember_RelationHint" xml:space="preserve">
+    <value>Proszę wybrać relację z członkiem</value>
+  </data>
+  <data name="AddMember_PermissionCheck" xml:space="preserve">
+    <value>Zaznacz pole, aby potwierdzić, że masz zgodę na przekazanie danych kontaktowych tego członka Twojego domostwa</value>
+  </data>
+  <data name="AddMember_AgreeTerms" xml:space="preserve">
+    <value>Proszę zaakceptować warunki</value>
+  </data>
+  <data name="AddMember_EmailInvalid" xml:space="preserve">
+    <value>Wprowadź prawidłowy adres e-mail</value>
+  </data>
+  <data name="AddMember_EmailFamilyExists" xml:space="preserve">
+    <value>Użytkownik w rodzinie z tym samym adresem e-mail już istnieje</value>
+  </data>
+  <data name="AddMember_EmailExists" xml:space="preserve">
+    <value>Użytkownik z tym samym adresem e-mail już istnieje</value>
+  </data>
+
+  <!-- pdfpage -->
+  <data name="Pdf_Close" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
+
+  <!-- SelectNotificationTime -->
+  <data name="Notification_Title" xml:space="preserve">
+    <value>Czas przypomnienia o powiadomieniu</value>
+  </data>
+  <data name="Notification_SelectTimeHint" xml:space="preserve">
+    <value>Proszę wybrać godzinę powiadomienia</value>
+  </data>
+  <data name="Notification_ChooseTime" xml:space="preserve">
+    <value>Wybierz godzinę</value>
+  </data>
+  <data name="Notification_SavedTitle" xml:space="preserve">
+    <value>Godzina powiadomienia zapisana!</value>
+  </data>
+  <data name="Notification_SavedSubtitle" xml:space="preserve">
+    <value>Będziemy Ci przypominać każdego dnia o</value>
+  </data>
+  <data name="Notification_ChangeAnytime" xml:space="preserve">
+    <value>Możesz zmienić to przypomnienie w dowolnym momencie w ustawieniach powiadomień</value>
+  </data>
+
+  <!-- WithdrawVideoPopUp -->
+  <data name="Withdraw_ErrorTitle" xml:space="preserve">
+    <value>Ups! Coś poszło nie tak</value>
+  </data>
+  <data name="Withdraw_ErrorMsg" xml:space="preserve">
+    <value>Wygląda na to, że coś poszło nie tak. Spróbuj ponownie uruchomić aplikację PeopleWithResearch lub skontaktuj się pod adresem support@peoplewith.com</value>
+  </data>
+  <data name="Withdraw_ErrorOk" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Withdraw_CloseVideo" xml:space="preserve">
+    <value>Zamknij wideo</value>
+  </data>
+  <data name="Withdraw_ProceedButton" xml:space="preserve">
+    <value>Kontynuuj wycofanie</value>
+  </data>
+
+  <!-- ManageProfile -->
+  <data name="Manage_Title" xml:space="preserve">
+    <value>Zarządzaj profilem</value>
+  </data>
+  <data name="Manage_Subtitle" xml:space="preserve">
+    <value>Wybierz dowolne edytowalne pole, aby zaktualizować dane profilu. Niektóre pola są tylko do odczytu.</value>
+  </data>
+  <data name="Manage_PersonalInformation" xml:space="preserve">
+    <value>Dane osobowe</value>
+  </data>
+  <data name="Manage_UserId" xml:space="preserve">
+    <value>ID użytkownika</value>
+  </data>
+  <data name="Manage_FirstName" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="Manage_Surname" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="Manage_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Manage_PermissionGranted" xml:space="preserve">
+    <value>Zgoda udzielona przy tworzeniu konta</value>
+  </data>
+  <data name="Manage_PermissionCheck" xml:space="preserve">
+    <value>Zaznacz pole, aby potwierdzić, że masz zgodę na przekazanie danych kontaktowych tego członka Twojego domostwa</value>
+  </data>
+  <data name="Manage_HouseholdDetails" xml:space="preserve">
+    <value>Szczegóły domostwa</value>
+  </data>
+  <data name="Manage_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Manage_GroupId" xml:space="preserve">
+    <value>ID grupy</value>
+  </data>
+  <data name="Manage_AgeLabel" xml:space="preserve">
+    <value>Wiek członka</value>
+  </data>
+  <data name="Manage_AgeHint" xml:space="preserve">
+    <value>Proszę wybrać wiek członka</value>
+  </data>
+  <data name="Manage_RelationLabel" xml:space="preserve">
+    <value>Relacja z członkiem</value>
+  </data>
+  <data name="Manage_RelationHint" xml:space="preserve">
+    <value>Proszę wybrać relację z członkiem</value>
+  </data>
+  <data name="Manage_EnableEditHint" xml:space="preserve">
+    <value>Wybierz 'Włącz edycję', aby móc edytować określone pola</value>
+  </data>
+  <data name="Manage_EnableEdit" xml:space="preserve">
+    <value>Włącz edycję</value>
+  </data>
+  <data name="Manage_SaveChanges" xml:space="preserve">
+    <value>Zapisz zmiany</value>
+  </data>
+  <data name="Manage_EditField" xml:space="preserve">
+    <value>Edytuj pole, aby włączyć 'Zapisz zmiany'</value>
+  </data>
+  <data name="Manage_UpdateFailedTitle" xml:space="preserve">
+    <value>Aktualizacja nieudana</value>
+  </data>
+  <data name="Manage_UpdateFailedMsg" xml:space="preserve">
+    <value>Nie udało się pobrać danych tego użytkownika. Spróbuj ponownie później. Jeśli problem się powtarza, skontaktuj się z pomocą techniczną.</value>
+  </data>
+  <data name="Manage_SaveFailedTitle" xml:space="preserve">
+    <value>Zapisywanie nieudane</value>
+  </data>
+  <data name="Manage_SaveFailedMsg" xml:space="preserve">
+    <value>Nie udało się zapisać danych. Spróbuj ponownie później. Jeśli problem się powtarza, skontaktuj się z pomocą techniczną.</value>
+  </data>
+  <data name="Manage_EnterFirstName" xml:space="preserve">
+    <value>Wprowadź imię</value>
+  </data>
+  <data name="Manage_EnterSurname" xml:space="preserve">
+    <value>Wprowadź nazwisko</value>
+  </data>
+  <data name="Manage_EnterEmail" xml:space="preserve">
+    <value>Wprowadź adres e-mail</value>
+  </data>
+  <data name="Manage_EnterValidEmail" xml:space="preserve">
+    <value>Wprowadź prawidłowy adres e-mail</value>
+  </data>
+  <data name="Manage_ProfileUpdated" xml:space="preserve">
+    <value>Profil zaktualizowany</value>
+  </data>
+  <data name="Manage_CopiedToClipboard" xml:space="preserve">
+    <value>Skopiowano do schowka</value>
+  </data>
+
+  <!-- ProfileEdit -->
+  <data name="ProfileEdit_YourName" xml:space="preserve">
+    <value>Twoje imię i nazwisko</value>
+  </data>
+  <data name="ProfileEdit_YourEmail" xml:space="preserve">
+    <value>Twój adres e-mail</value>
+  </data>
+  <data name="ProfileEdit_DateOfBirth" xml:space="preserve">
+    <value>Data urodzenia</value>
+  </data>
+  <data name="ProfileEdit_DobInstruction" xml:space="preserve">
+    <value>Wybierz datę urodzenia i kliknij Potwierdź, a następnie Zapisz, aby kontynuować.</value>
+  </data>
+  <data name="ProfileEdit_Confirm" xml:space="preserve">
+    <value>Potwierdź</value>
+  </data>
+  <data name="ProfileEdit_SelectGender" xml:space="preserve">
+    <value>Wybierz płeć</value>
+  </data>
+  <data name="ProfileEdit_PleaseState" xml:space="preserve">
+    <value>Podaj:</value>
+  </data>
+  <data name="ProfileEdit_Ethnicity" xml:space="preserve">
+    <value>Pochodzenie etniczne</value>
+  </data>
+  <data name="ProfileEdit_PhoneNumber" xml:space="preserve">
+    <value>Numer telefonu</value>
+  </data>
+  <data name="ProfileEdit_TownCity" xml:space="preserve">
+    <value>Miejscowość/Miasto</value>
+  </data>
+  <data name="ProfileEdit_Height" xml:space="preserve">
+    <value>Wzrost</value>
+  </data>
+  <data name="ProfileEdit_SelectHeight" xml:space="preserve">
+    <value>Proszę wybrać wzrost</value>
+  </data>
+  <data name="ProfileEdit_Weight" xml:space="preserve">
+    <value>Waga</value>
+  </data>
+  <data name="ProfileEdit_SelectWeight" xml:space="preserve">
+    <value>Proszę wybrać wagę</value>
+  </data>
+  <data name="ProfileEdit_Notifications" xml:space="preserve">
+    <value>Powiadomienia</value>
+  </data>
+  <data name="ProfileEdit_AllowNotifications" xml:space="preserve">
+    <value>Zezwól na powiadomienia</value>
+  </data>
+  <data name="ProfileEdit_NhiTitle" xml:space="preserve">
+    <value>Twój krajowy identyfikator zdrowotny</value>
+  </data>
+  <data name="ProfileEdit_NhiInstruction" xml:space="preserve">
+    <value>Proszę zaktualizować swój krajowy identyfikator zdrowotny. Dotknij pole poniżej, aby zaktualizować numer NHS (Anglia/Walia), numer CHI (Szkocja) lub numer Health and Social Care (Irlandia Północna).</value>
+  </data>
+  <data name="ProfileEdit_PasswordReset" xml:space="preserve">
+    <value>Resetowanie hasła</value>
+  </data>
+  <data name="ProfileEdit_Save" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="ProfileEdit_EmailEmpty" xml:space="preserve">
+    <value>Wprowadź adres e-mail</value>
+  </data>
+  <data name="ProfileEdit_EmailInvalid" xml:space="preserve">
+    <value>Wprowadź prawidłowy adres e-mail</value>
+  </data>
+  <data name="ProfileEdit_EmailInUse" xml:space="preserve">
+    <value>Adres e-mail jest już używany.</value>
+  </data>
+  <data name="ProfileEdit_EnterCurrentPassword" xml:space="preserve">
+    <value>Wprowadź aktualne hasło</value>
+  </data>
+  <data name="ProfileEdit_EnterNewPassword" xml:space="preserve">
+    <value>Wprowadź i potwierdź nowe hasło</value>
+  </data>
+  <data name="ProfileEdit_PasswordMismatch" xml:space="preserve">
+    <value>Nowe hasło nie pasuje</value>
+  </data>
+  <data name="ProfileEdit_PasswordTooShort" xml:space="preserve">
+    <value>Nowe hasło musi mieć więcej niż 8 i nie więcej niż 15 znaków</value>
+  </data>
+  <data name="ProfileEdit_PasswordLength" xml:space="preserve">
+    <value>Hasło musi mieć od 8 do 15 znaków</value>
+  </data>
+  <data name="ProfileEdit_PasswordNeedsNumber" xml:space="preserve">
+    <value>Hasło musi zawierać co najmniej jedną cyfrę</value>
+  </data>
+  <data name="ProfileEdit_PasswordNeedsUpper" xml:space="preserve">
+    <value>Hasło musi zawierać co najmniej jedną wielką literę</value>
+  </data>
+  <data name="ProfileEdit_PasswordNeedsLower" xml:space="preserve">
+    <value>Hasło musi zawierać co najmniej jedną małą literę</value>
+  </data>
+  <data name="ProfileEdit_PasswordNeedsSymbol" xml:space="preserve">
+    <value>Hasło musi zawierać co najmniej jeden symbol</value>
+  </data>
+  <data name="ProfileEdit_PasswordCurrentIncorrect" xml:space="preserve">
+    <value>Aktualne hasło jest nieprawidłowe. Wprowadź prawidłowe hasło</value>
+  </data>
+
+  <!-- PrivacyPolicyPage -->
+  <data name="Privacy_FooterLinks" xml:space="preserve">
+    <value>WARUNKI · PRYWATNOŚĆ · DANE</value>
+  </data>
+
+  <!-- FAQ_s -->
+  <data name="Faq_Title" xml:space="preserve">
+    <value>FAQ Hopper</value>
+  </data>
+  <data name="Faq_Subtitle" xml:space="preserve">
+    <value>Znajdź odpowiedzi na wszystkie swoje pytania</value>
+  </data>
+  <data name="Faq_Loading" xml:space="preserve">
+    <value>Ładowanie FAQ...</value>
+  </data>
+  <data name="Faq_FilterBy" xml:space="preserve">
+    <value>FILTRUJ WEDŁUG</value>
+  </data>
+  <data name="Faq_NoFaqsFound" xml:space="preserve">
+    <value>Nie znaleziono FAQ</value>
+  </data>
+  <data name="Faq_NoFaqsMsg" xml:space="preserve">
+    <value>Nie znaleziono wyników dla Twojego wyszukiwania. Spróbuj zmienić słowa kluczowe lub filtry.</value>
+  </data>
+
+  <!-- NewImperial (registration wizard) -->
+  <data name="Register_EmailHelperText" xml:space="preserve">
+    <value>Proszę nie używać służbowego ani akademickiego adresu e-mail</value>
+  </data>
+  <data name="Register_PasswordMustContain" xml:space="preserve">
+    <value>Hasło musi zawierać:</value>
+  </data>
+  <data name="Register_PwMinChars" xml:space="preserve">
+    <value>Min. 8 znaków</value>
+  </data>
+  <data name="Register_PwSpecialChar" xml:space="preserve">
+    <value>Znak specjalny</value>
+  </data>
+  <data name="Register_PwCapital" xml:space="preserve">
+    <value>Wielka litera</value>
+  </data>
+  <data name="Register_PwNumber" xml:space="preserve">
+    <value>Cyfra</value>
+  </data>
+  <data name="Register_CheckPostcode" xml:space="preserve">
+    <value>Sprawdź kod pocztowy</value>
+  </data>
+  <data name="Register_PostcodeNoResults" xml:space="preserve">
+    <value>Nie znaleziono wyników</value>
+  </data>
+  <data name="Register_PostcodeNoResultsMsg" xml:space="preserve">
+    <value>Nie znaleziono dopasowań dla tego kodu pocztowego. Sprawdź wpis lub spróbuj innego</value>
+  </data>
+  <data name="Register_ClearAddress" xml:space="preserve">
+    <value>Wyczyść adres</value>
+  </data>
+  <data name="Register_DobError" xml:space="preserve">
+    <value>Wprowadź prawidłową datę urodzenia</value>
+  </data>
+  <data name="Register_SkipQuestion" xml:space="preserve">
+    <value>Pozostaw puste, jeśli wolisz pominąć to pytanie</value>
+  </data>
+  <data name="Register_HeightFt" xml:space="preserve">
+    <value>ft</value>
+  </data>
+  <data name="Register_HeightIn" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="Register_HeightCm" xml:space="preserve">
+    <value>cm</value>
+  </data>
+  <data name="Register_AddHouseholdMember" xml:space="preserve">
+    <value>Dodaj członka domostwa</value>
+  </data>
+  <data name="Register_AddHouseholdMemberSub" xml:space="preserve">
+    <value>Dodaj dane dotyczące członka Twojego domostwa</value>
+  </data>
+  <data name="Register_MemberName" xml:space="preserve">
+    <value>Imię i nazwisko członka domostwa</value>
+  </data>
+  <data name="Register_MemberNameHint" xml:space="preserve">
+    <value>Wprowadź imię i nazwisko</value>
+  </data>
+  <data name="Register_OwnPhone" xml:space="preserve">
+    <value>Czy będą używać własnego telefonu w badaniu?</value>
+  </data>
+  <data name="Register_OwnPhoneSub" xml:space="preserve">
+    <value>Pomaga nam to skonfigurować odpowiedni rodzaj profilu dla tej osoby</value>
+  </data>
+  <data name="Register_IfYes" xml:space="preserve">
+    <value>Jeśli tak —</value>
+  </data>
+  <data name="Register_IfYesDetail" xml:space="preserve">
+    <value>będą potrzebować własnego e-maila, aby pobrać aplikację, zweryfikować tożsamość i codziennie wypełniać własne kwestionariusze i pobierać próbki.</value>
+  </data>
+  <data name="Register_TermsTitle" xml:space="preserve">
+    <value>Regulamin PeopleWith</value>
+  </data>
+  <data name="Register_AgreeTerms" xml:space="preserve">
+    <value>Przeczytałem/am i akceptuję</value>
+  </data>
+  <data name="Register_AgreeTermsLink" xml:space="preserve">
+    <value>Regulamin użytkowania i politykę danych PeopleWith</value>
+  </data>
+  <data name="Register_Required" xml:space="preserve">
+    <value>Wymagane</value>
+  </data>
+  <data name="Register_AgreeEmail" xml:space="preserve">
+    <value>Zgadzam się, aby</value>
+  </data>
+  <data name="Register_AgreeEmailLink" xml:space="preserve">
+    <value>PeopleWith wysyłał mi powiadomienia e-mail</value>
+  </data>
+  <data name="Register_EnterFullName" xml:space="preserve">
+    <value>Wprowadź pełne imię i nazwisko</value>
+  </data>
+  <data name="Register_EnterRole" xml:space="preserve">
+    <value>Wprowadź rolę</value>
+  </data>
+  <data name="Register_EnterValue" xml:space="preserve">
+    <value>Wprowadź wartość</value>
+  </data>
+  <data name="Register_AddValue" xml:space="preserve">
+    <value>Dodaj wartość</value>
+  </data>
+
+  <!-- Tab headers -->
+  <data name="Tab_Home" xml:space="preserve">
+    <value>Strona główna</value>
+  </data>
+  <data name="Tab_Information" xml:space="preserve">
+    <value>Informacje</value>
+  </data>
+  <data name="Tab_Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+
+  <!-- Settings list items -->
+  <data name="Settings_Language" xml:space="preserve">
+    <value>Język</value>
+  </data>
+  <data name="Settings_ChangeLanguage" xml:space="preserve">
+    <value>Zmień język</value>
+  </data>
+  <data name="Settings_ResetPassword" xml:space="preserve">
+    <value>Zresetuj hasło</value>
+  </data>
+  <data name="Settings_Notifications" xml:space="preserve">
+    <value>Powiadomienia</value>
+  </data>
+  <data name="Settings_Enabled" xml:space="preserve">
+    <value>Włączone</value>
+  </data>
+  <data name="Settings_Disabled" xml:space="preserve">
+    <value>Wyłączone</value>
+  </data>
+  <data name="Settings_SignupCode" xml:space="preserve">
+    <value>Kod rejestracji</value>
+  </data>
+  <data name="Settings_NotificationSchedule" xml:space="preserve">
+    <value>Harmonogram powiadomień</value>
+  </data>
+  <data name="Settings_ChangeTime" xml:space="preserve">
+    <value>Zmień godzinę</value>
+  </data>
+
+  <!-- Profile list items -->
+  <data name="Profile_Name" xml:space="preserve">
+    <value>Imię i nazwisko</value>
+  </data>
+  <data name="Profile_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Profile_DateOfBirth" xml:space="preserve">
+    <value>Data urodzenia</value>
+  </data>
+  <data name="Profile_Gender" xml:space="preserve">
+    <value>Płeć</value>
+  </data>
+  <data name="Profile_Ethnicity" xml:space="preserve">
+    <value>Pochodzenie etniczne</value>
+  </data>
+  <data name="Profile_PhoneNumber" xml:space="preserve">
+    <value>Numer telefonu</value>
+  </data>
+  <data name="Profile_TownCity" xml:space="preserve">
+    <value>Miejscowość/Miasto</value>
+  </data>
+  <data name="Profile_Nhi" xml:space="preserve">
+    <value>Krajowy identyfikator zdrowotny</value>
+  </data>
+
+  <!-- ProfileEdit page titles and buttons -->
+  <data name="ProfileEdit_EditName" xml:space="preserve">
+    <value>Edytuj imię</value>
+  </data>
+  <data name="ProfileEdit_UpdateName" xml:space="preserve">
+    <value>Zaktualizuj imię</value>
+  </data>
+  <data name="ProfileEdit_EditEmail" xml:space="preserve">
+    <value>Edytuj e-mail</value>
+  </data>
+  <data name="ProfileEdit_UpdateEmail" xml:space="preserve">
+    <value>Zaktualizuj e-mail</value>
+  </data>
+  <data name="ProfileEdit_EditDob" xml:space="preserve">
+    <value>Edytuj datę urodzenia</value>
+  </data>
+  <data name="ProfileEdit_UpdateDob" xml:space="preserve">
+    <value>Zaktualizuj datę urodzenia</value>
+  </data>
+  <data name="ProfileEdit_EditGender" xml:space="preserve">
+    <value>Edytuj płeć</value>
+  </data>
+  <data name="ProfileEdit_UpdateGender" xml:space="preserve">
+    <value>Zaktualizuj płeć</value>
+  </data>
+  <data name="ProfileEdit_EditEthnicity" xml:space="preserve">
+    <value>Edytuj pochodzenie etniczne</value>
+  </data>
+  <data name="ProfileEdit_UpdateEthnicity" xml:space="preserve">
+    <value>Zaktualizuj pochodzenie etniczne</value>
+  </data>
+  <data name="ProfileEdit_EditPhone" xml:space="preserve">
+    <value>Edytuj numer telefonu</value>
+  </data>
+  <data name="ProfileEdit_UpdatePhone" xml:space="preserve">
+    <value>Zaktualizuj numer telefonu</value>
+  </data>
+  <data name="ProfileEdit_EditTown" xml:space="preserve">
+    <value>Edytuj miejscowość/miasto</value>
+  </data>
+  <data name="ProfileEdit_UpdateTown" xml:space="preserve">
+    <value>Zaktualizuj miejscowość/miasto</value>
+  </data>
+  <data name="ProfileEdit_EditNhi" xml:space="preserve">
+    <value>Edytuj krajowy identyfikator zdrowotny</value>
+  </data>
+  <data name="ProfileEdit_UpdateNhi" xml:space="preserve">
+    <value>Zaktualizuj N.H.I</value>
+  </data>
+  <data name="ProfileEdit_ResetPasswordTitle" xml:space="preserve">
+    <value>Zresetuj hasło</value>
+  </data>
+  <data name="ProfileEdit_CheckPassword" xml:space="preserve">
+    <value>Sprawdź hasło</value>
+  </data>
+
+  <!-- Gender options -->
+  <data name="Gender_Male" xml:space="preserve">
+    <value>Mężczyzna</value>
+  </data>
+  <data name="Gender_Female" xml:space="preserve">
+    <value>Kobieta</value>
+  </data>
+  <data name="Gender_PreferNotToSay" xml:space="preserve">
+    <value>Wolę nie odpowiadać</value>
+  </data>
+  <data name="Gender_SelfDescribe" xml:space="preserve">
+    <value>Wolę samookresić</value>
+  </data>
+  <data name="ProfileEdit_EnterGender" xml:space="preserve">
+    <value>Wprowadź płeć</value>
+  </data>
+  <data name="ProfileEdit_EnterPhone" xml:space="preserve">
+    <value>Wprowadź numer telefonu</value>
+  </data>
+
+
+  <!-- Ethnicity options -->
+  <data name="Eth_White" xml:space="preserve">
+    <value>Biały</value>
+  </data>
+  <data name="Eth_WhiteEnglish" xml:space="preserve">
+    <value>Biały Anglik</value>
+  </data>
+  <data name="Eth_WhiteWelsh" xml:space="preserve">
+    <value>Biały Walijczyk</value>
+  </data>
+  <data name="Eth_WhiteScottish" xml:space="preserve">
+    <value>Biały Szkot</value>
+  </data>
+  <data name="Eth_WhiteNorthernIrish" xml:space="preserve">
+    <value>Biały Irlandczyk Północny</value>
+  </data>
+  <data name="Eth_WhiteIrish" xml:space="preserve">
+    <value>Biały Irlandczyk</value>
+  </data>
+  <data name="Eth_WhiteGypsy" xml:space="preserve">
+    <value>Biały Cygan lub Irlandzki Wędrowiec</value>
+  </data>
+  <data name="Eth_WhiteOther" xml:space="preserve">
+    <value>Biały inny</value>
+  </data>
+  <data name="Eth_MixedWhiteBlackCarib" xml:space="preserve">
+    <value>Mieszany biały i czarny karaibski</value>
+  </data>
+  <data name="Eth_MixedWhiteBlackAf" xml:space="preserve">
+    <value>Mieszany biały i czarny afrykański</value>
+  </data>
+  <data name="Eth_MixedWhiteOther" xml:space="preserve">
+    <value>Mieszany biały inny</value>
+  </data>
+  <data name="Eth_AsianIndian" xml:space="preserve">
+    <value>Azjatycki Indianin</value>
+  </data>
+  <data name="Eth_AsianPakistani" xml:space="preserve">
+    <value>Azjatycki Pakistańczyk</value>
+  </data>
+  <data name="Eth_AsianBangladeshi" xml:space="preserve">
+    <value>Azjatycki Bangladeszański</value>
+  </data>
+  <data name="Eth_AsianChinese" xml:space="preserve">
+    <value>Azjatycki Chiński</value>
+  </data>
+  <data name="Eth_AsianBritish" xml:space="preserve">
+    <value>Azjatycki Brytyjczyk</value>
+  </data>
+  <data name="Eth_AsianOther" xml:space="preserve">
+    <value>Azjatycki inny</value>
+  </data>
+  <data name="Eth_BlackAfrican" xml:space="preserve">
+    <value>Czarny Afrykański</value>
+  </data>
+  <data name="Eth_BlackAfricanAmerican" xml:space="preserve">
+    <value>Czarny Afroamerykanin</value>
+  </data>
+  <data name="Eth_BlackCaribbean" xml:space="preserve">
+    <value>Czarny Karaibski</value>
+  </data>
+  <data name="Eth_BlackOther" xml:space="preserve">
+    <value>Czarny inny</value>
+  </data>
+  <data name="Eth_Arab" xml:space="preserve">
+    <value>Arabski</value>
+  </data>
+  <data name="Eth_Hispanic" xml:space="preserve">
+    <value>Hispanik</value>
+  </data>
+  <data name="Eth_Latino" xml:space="preserve">
+    <value>Latynoamerykański</value>
+  </data>
+  <data name="Eth_NativeAmerican" xml:space="preserve">
+    <value>Rdzenny Amerykanin</value>
+  </data>
+  <data name="Eth_PacificIslander" xml:space="preserve">
+    <value>Mieszkaniec Wysp Pacyfiku</value>
+  </data>
+  <data name="Eth_Other" xml:space="preserve">
+    <value>Inny</value>
+  </data>
+  <data name="Eth_PreferNotDisclose" xml:space="preserve">
+    <value>Wolę nie ujawniać</value>
+  </data>
+  <data name="Eth_HAsianOrAsianBritish" xml:space="preserve">
+    <value>Azjatycki: Azjata lub Azjatycki Brytyjczyk</value>
+  </data>
+  <data name="Eth_HAsianIndian" xml:space="preserve">
+    <value>Azjatycki: Indyjski</value>
+  </data>
+  <data name="Eth_HAsianPakistani" xml:space="preserve">
+    <value>Azjatycki: Pakistański</value>
+  </data>
+  <data name="Eth_HAsianBangladeshi" xml:space="preserve">
+    <value>Azjatycki: Bangladeszański</value>
+  </data>
+  <data name="Eth_HAsianChinese" xml:space="preserve">
+    <value>Azjatycki: Chiński</value>
+  </data>
+  <data name="Eth_HAsianOtherBackground" xml:space="preserve">
+    <value>Azjatycki: Inne azjatyckie pochodzenie</value>
+  </data>
+  <data name="Eth_HBlackCaribbean" xml:space="preserve">
+    <value>Czarny: Karaibski</value>
+  </data>
+  <data name="Eth_HBlackAfrican" xml:space="preserve">
+    <value>Czarny: Afrykański</value>
+  </data>
+  <data name="Eth_HBlackOtherBackground" xml:space="preserve">
+    <value>Czarny: Inne czarne, czarno-brytyjskie lub karaibskie pochodzenie</value>
+  </data>
+  <data name="Eth_HMixedWhiteBlackCarib" xml:space="preserve">
+    <value>Mieszany: Biały i czarny karaibski</value>
+  </data>
+  <data name="Eth_HMixedWhiteBlackAf" xml:space="preserve">
+    <value>Mieszany: Biały i czarny afrykański</value>
+  </data>
+  <data name="Eth_HMixedWhiteAsian" xml:space="preserve">
+    <value>Mieszany: Biały i azjatycki</value>
+  </data>
+  <data name="Eth_HMixedOther" xml:space="preserve">
+    <value>Mieszany: Inne mieszane lub wieloetniczne pochodzenie</value>
+  </data>
+  <data name="Eth_HWhiteBritish" xml:space="preserve">
+    <value>Biały: Angielski, walijski, szkocki, północnoirlandzki lub brytyjski</value>
+  </data>
+  <data name="Eth_HWhiteIrish" xml:space="preserve">
+    <value>Biały: Irlandzki</value>
+  </data>
+  <data name="Eth_HWhiteGypsy" xml:space="preserve">
+    <value>Biały: Cygan lub Irlandzki Wędrowiec</value>
+  </data>
+  <data name="Eth_HWhiteRoma" xml:space="preserve">
+    <value>Biały: Roma</value>
+  </data>
+  <data name="Eth_HWhiteOther" xml:space="preserve">
+    <value>Biały: Inne białe pochodzenie</value>
+  </data>
+  <data name="Eth_HArab" xml:space="preserve">
+    <value>Arabski</value>
+  </data>
+  <data name="Eth_HOtherGroup" xml:space="preserve">
+    <value>Inny: Inna grupa etniczna</value>
+  </data>
+  <data name="Eth_HPreferNotAnswer" xml:space="preserve">
+    <value>Wolę nie odpowiadać</value>
+  </data>
+
+
+  <!-- Information tab and household dashboard labels -->
+  <data name="Info_CallUs" xml:space="preserve">
+    <value>Zadzwoń do nas</value>
+  </data>
+  <data name="Info_GeneralEnquiries" xml:space="preserve">
+    <value>Ogólne zapytania</value>
+  </data>
+  <data name="Info_TechnicalSupport" xml:space="preserve">
+    <value>Pomoc techniczna</value>
+  </data>
+  <data name="Household_StatusActive" xml:space="preserve">
+    <value>Aktywny</value>
+  </data>
+  <data name="Household_StatusOnboarding" xml:space="preserve">
+    <value>Rejestracja</value>
+  </data>
+  <data name="Household_StatusWithdrawn" xml:space="preserve">
+    <value>Wycofany</value>
+  </data>
+  <data name="Household_SendEmailReminder" xml:space="preserve">
+    <value>Wyślij przypomnienie e-mail</value>
+  </data>
+  <data name="Household_NudgeNotification" xml:space="preserve">
+    <value>Powiadomienie użytkownika</value>
+  </data>
+
+
+  <!-- AddMember page lists and settings routing -->
+  <data name="AddMember_RelParentGuardian" xml:space="preserve">
+    <value>Jestem ich rodzicem/opiekunem</value>
+  </data>
+  <data name="AddMember_RelPartnerSpouse" xml:space="preserve">
+    <value>Jestem ich partnerem/małżonkiem</value>
+  </data>
+  <data name="AddMember_RelChild" xml:space="preserve">
+    <value>Jestem ich dzieckiem</value>
+  </data>
+  <data name="AddMember_RelOther" xml:space="preserve">
+    <value>Inne</value>
+  </data>
+  <data name="AddMember_PhoneYes" xml:space="preserve">
+    <value>Tak, własny telefon</value>
+  </data>
+  <data name="AddMember_PhoneNo" xml:space="preserve">
+    <value>Nie, wezmę udział za nich</value>
+  </data>
+  <data name="Settings_NotificationsId" xml:space="preserve">
+    <value>Powiadomienia</value>
+  </data>
+  <data name="Settings_ResetPasswordId" xml:space="preserve">
+    <value>Zresetuj hasło</value>
+  </data>
+  <data name="Settings_NotifScheduleId" xml:space="preserve">
+    <value>Harmonogram powiadomień</value>
+  </data>
+  <data name="Settings_SignupCodeId" xml:space="preserve">
+    <value>Kod rejestracji</value>
+  </data>
+
+  <!-- AddMember placeholders and popup -->
+  <data name="AddMember_FirstNamePlaceholder" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="AddMember_SurnamePlaceholder" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="AddMember_EmailPlaceholder" xml:space="preserve">
+    <value>Adres e-mail</value>
+  </data>
+  <data name="AddMember_NewMemberAdded" xml:space="preserve">
+    <value>Dodano nowego członka</value>
+  </data>
+
+  <!-- ForgotPassword page and Notification detail -->
+  <data name="ForgotPwd_Title" xml:space="preserve">
+    <value>Zapomniane hasło</value>
+  </data>
+  <data name="ForgotPwd_Description" xml:space="preserve">
+    <value>Nie martw się! Podaj swój adres e-mail, aby otrzymać link do resetowania hasła</value>
+  </data>
+  <data name="ForgotPwd_ResetTitle" xml:space="preserve">
+    <value>Resetowanie hasła</value>
+  </data>
+  <data name="ForgotPwd_ResetDescription" xml:space="preserve">
+    <value>Podaj swój adres e-mail, a wyślemy Ci link do aktualizacji hasła.</value>
+  </data>
+  <data name="ForgotPwd_EmailLabel" xml:space="preserve">
+    <value>Adres e-mail*</value>
+  </data>
+  <data name="ForgotPwd_NeedHelp" xml:space="preserve">
+    <value>Potrzebujesz pomocy?</value>
+  </data>
+  <data name="ForgotPwd_Submit" xml:space="preserve">
+    <value>Wyślij</value>
+  </data>
+  <data name="ForgotPwd_RememberedPrefix" xml:space="preserve">
+    <value>Pamiętasz hasło? </value>
+  </data>
+  <data name="ForgotPwd_LogIn" xml:space="preserve">
+    <value>Zaloguj się</value>
+  </data>
+  <data name="ForgotPwd_ErrorEmpty" xml:space="preserve">
+    <value>E-mail nie może być pusty</value>
+  </data>
+  <data name="ForgotPwd_ErrorInvalid" xml:space="preserve">
+    <value>Podaj prawidłowy adres e-mail</value>
+  </data>
+  <data name="ForgotPwd_ErrorNotFound" xml:space="preserve">
+    <value>Nie znaleźliśmy konta z tym adresem e-mail</value>
+  </data>
+  <data name="ForgotPwd_AlertDeletedTitle" xml:space="preserve">
+    <value>Konto usunięte</value>
+  </data>
+  <data name="ForgotPwd_AlertDeletedMsg" xml:space="preserve">
+    <value>Twoje konto zostało usunięte</value>
+  </data>
+  <data name="ForgotPwd_AlertOnboardingTitle" xml:space="preserve">
+    <value>Konto w trakcie rejestracji</value>
+  </data>
+  <data name="ForgotPwd_AlertOnboardingMsg" xml:space="preserve">
+    <value>Użyj swojego e-maila, aby kontynuować rejestrację</value>
+  </data>
+  <data name="ForgotPwd_AlertWithdrawnTitle" xml:space="preserve">
+    <value>Wycofano z badania</value>
+  </data>
+  <data name="ForgotPwd_AlertWithdrawnMsg" xml:space="preserve">
+    <value>Wycofano Cię z badania i nie możesz już uzyskać dostępu do konta</value>
+  </data>
+  <data name="ForgotPwd_AlertSuccessTitle" xml:space="preserve">
+    <value>Sprawdź swoją skrzynkę</value>
+  </data>
+  <data name="ForgotPwd_AlertSuccessMsg" xml:space="preserve">
+    <value>Wysłano link resetowania hasła na Twój adres e-mail. Jeśli nie widzisz go w skrzynce odbiorczej, sprawdź folder spam.</value>
+  </data>
+  <data name="ForgotPwd_AlertFailTitle" xml:space="preserve">
+    <value>Coś poszło nie tak</value>
+  </data>
+  <data name="ForgotPwd_AlertFailMsg" xml:space="preserve">
+    <value>Wystąpił problem z wysyłaniem e-maila. Spróbuj ponownie później lub skontaktuj się z pomocą techniczną.</value>
+  </data>
+  <data name="ForgotPwd_AlertOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Notification_Detail" xml:space="preserve">
+    <value>Ustaw preferowany czas powiadomień, aby otrzymywać codzienne przypomnienie</value>
+  </data>
 </root>

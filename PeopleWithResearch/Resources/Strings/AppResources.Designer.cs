@@ -156,5 +156,1897 @@ namespace PeopleWithResearch.Resources.Strings
         {
             get { return ResourceManager.GetString("Common_Retry", resourceCulture); }
         }
+
+        // ── Common (shared) ──────────────────────────────────────────────────
+
+        /// <summary>Common_SelectAnOption</summary>
+        public static string Common_SelectAnOption
+        {
+            get { return ResourceManager.GetString("Common_SelectAnOption", resourceCulture); }
+        }
+
+        /// <summary>Common_PleaseComplete</summary>
+        public static string Common_PleaseComplete
+        {
+            get { return ResourceManager.GetString("Common_PleaseComplete", resourceCulture); }
+        }
+
+        /// <summary>Common_PrivacyPolicy</summary>
+        public static string Common_PrivacyPolicy
+        {
+            get { return ResourceManager.GetString("Common_PrivacyPolicy", resourceCulture); }
+        }
+
+        /// <summary>Common_Back</summary>
+        public static string Common_Back
+        {
+            get { return ResourceManager.GetString("Common_Back", resourceCulture); }
+        }
+
+        /// <summary>Common_AddNewMember</summary>
+        public static string Common_AddNewMember
+        {
+            get { return ResourceManager.GetString("Common_AddNewMember", resourceCulture); }
+        }
+
+        /// <summary>Common_ActionRequired</summary>
+        public static string Common_ActionRequired
+        {
+            get { return ResourceManager.GetString("Common_ActionRequired", resourceCulture); }
+        }
+
+        /// <summary>Common_CompleteBaselineQ</summary>
+        public static string Common_CompleteBaselineQ
+        {
+            get { return ResourceManager.GetString("Common_CompleteBaselineQ", resourceCulture); }
+        }
+
+        /// <summary>Common_BaselineQPrompt</summary>
+        public static string Common_BaselineQPrompt
+        {
+            get { return ResourceManager.GetString("Common_BaselineQPrompt", resourceCulture); }
+        }
+
+        /// <summary>Common_StudyProgress</summary>
+        public static string Common_StudyProgress
+        {
+            get { return ResourceManager.GetString("Common_StudyProgress", resourceCulture); }
+        }
+
+        /// <summary>Common_ManageProfile</summary>
+        public static string Common_ManageProfile
+        {
+            get { return ResourceManager.GetString("Common_ManageProfile", resourceCulture); }
+        }
+
+        /// <summary>Common_StatusCompleted</summary>
+        public static string Common_StatusCompleted
+        {
+            get { return ResourceManager.GetString("Common_StatusCompleted", resourceCulture); }
+        }
+
+        /// <summary>Common_StatusPending</summary>
+        public static string Common_StatusPending
+        {
+            get { return ResourceManager.GetString("Common_StatusPending", resourceCulture); }
+        }
+
+        // ── NewMainPage ───────────────────────────────────────────────────────
+
+        /// <summary>Main_CheckingCode</summary>
+        public static string Main_CheckingCode
+        {
+            get { return ResourceManager.GetString("Main_CheckingCode", resourceCulture); }
+        }
+
+        /// <summary>Main_Clear</summary>
+        public static string Main_Clear
+        {
+            get { return ResourceManager.GetString("Main_Clear", resourceCulture); }
+        }
+
+        /// <summary>Main_SuccessCheck</summary>
+        public static string Main_SuccessCheck
+        {
+            get { return ResourceManager.GetString("Main_SuccessCheck", resourceCulture); }
+        }
+
+        /// <summary>Main_SuccessTick</summary>
+        public static string Main_SuccessTick
+        {
+            get { return ResourceManager.GetString("Main_SuccessTick", resourceCulture); }
+        }
+
+        /// <summary>Main_Success</summary>
+        public static string Main_Success
+        {
+            get { return ResourceManager.GetString("Main_Success", resourceCulture); }
+        }
+
+        /// <summary>Main_SuccessLabel</summary>
+        public static string Main_SuccessLabel
+        {
+            get { return ResourceManager.GetString("Main_SuccessLabel", resourceCulture); }
+        }
+
+        /// <summary>Main_Register</summary>
+        public static string Main_Register
+        {
+            get { return ResourceManager.GetString("Main_Register", resourceCulture); }
+        }
+
+        /// <summary>Main_LogIn</summary>
+        public static string Main_LogIn
+        {
+            get { return ResourceManager.GetString("Main_LogIn", resourceCulture); }
+        }
+
+        /// <summary>Main_IfYouHaveDetails</summary>
+        public static string Main_IfYouHaveDetails
+        {
+            get { return ResourceManager.GetString("Main_IfYouHaveDetails", resourceCulture); }
+        }
+
+        /// <summary>Main_Description</summary>
+        public static string Main_Description
+        {
+            get { return ResourceManager.GetString("Main_Description", resourceCulture); }
+        }
+
+        /// <summary>Main_DescSpan1</summary>
+        public static string Main_DescSpan1
+        {
+            get { return ResourceManager.GetString("Main_DescSpan1", resourceCulture); }
+        }
+
+        /// <summary>Main_DescSpan2</summary>
+        public static string Main_DescSpan2
+        {
+            get { return ResourceManager.GetString("Main_DescSpan2", resourceCulture); }
+        }
+
+        /// <summary>Main_DescSpan3</summary>
+        public static string Main_DescSpan3
+        {
+            get { return ResourceManager.GetString("Main_DescSpan3", resourceCulture); }
+        }
+
+        /// <summary>Main_DescSpan4</summary>
+        public static string Main_DescSpan4
+        {
+            get { return ResourceManager.GetString("Main_DescSpan4", resourceCulture); }
+        }
+
+        /// <summary>Main_PasteTextConst</summary>
+        public static string Main_PasteTextConst
+        {
+            get { return ResourceManager.GetString("Main_PasteTextConst", resourceCulture); }
+        }
+
+        /// <summary>Main_CheckTextConst</summary>
+        public static string Main_CheckTextConst
+        {
+            get { return ResourceManager.GetString("Main_CheckTextConst", resourceCulture); }
+        }
+
+        /// <summary>Main_ClipboardUnavailableTitle</summary>
+        public static string Main_ClipboardUnavailableTitle
+        {
+            get { return ResourceManager.GetString("Main_ClipboardUnavailableTitle", resourceCulture); }
+        }
+
+        /// <summary>Main_ClipboardUnavailableMsg</summary>
+        public static string Main_ClipboardUnavailableMsg
+        {
+            get { return ResourceManager.GetString("Main_ClipboardUnavailableMsg", resourceCulture); }
+        }
+
+        /// <summary>Main_RequestTimedOut</summary>
+        public static string Main_RequestTimedOut
+        {
+            get { return ResourceManager.GetString("Main_RequestTimedOut", resourceCulture); }
+        }
+
+        /// <summary>Main_InvalidCode</summary>
+        public static string Main_InvalidCode
+        {
+            get { return ResourceManager.GetString("Main_InvalidCode", resourceCulture); }
+        }
+
+        /// <summary>Main_RegistrationActiveTitle</summary>
+        public static string Main_RegistrationActiveTitle
+        {
+            get { return ResourceManager.GetString("Main_RegistrationActiveTitle", resourceCulture); }
+        }
+
+        /// <summary>Main_RegistrationActiveMsg</summary>
+        public static string Main_RegistrationActiveMsg
+        {
+            get { return ResourceManager.GetString("Main_RegistrationActiveMsg", resourceCulture); }
+        }
+
+        /// <summary>Main_SomethingWentWrong</summary>
+        public static string Main_SomethingWentWrong
+        {
+            get { return ResourceManager.GetString("Main_SomethingWentWrong", resourceCulture); }
+        }
+
+        /// <summary>Main_ValidatingCode</summary>
+        public static string Main_ValidatingCode
+        {
+            get { return ResourceManager.GetString("Main_ValidatingCode", resourceCulture); }
+        }
+
+        /// <summary>Main_CheckingDuplications</summary>
+        public static string Main_CheckingDuplications
+        {
+            get { return ResourceManager.GetString("Main_CheckingDuplications", resourceCulture); }
+        }
+
+        /// <summary>Main_DetailsInUse</summary>
+        public static string Main_DetailsInUse
+        {
+            get { return ResourceManager.GetString("Main_DetailsInUse", resourceCulture); }
+        }
+
+        /// <summary>Main_UserAlreadyExists</summary>
+        public static string Main_UserAlreadyExists
+        {
+            get { return ResourceManager.GetString("Main_UserAlreadyExists", resourceCulture); }
+        }
+
+        // ── NewLoginPage ──────────────────────────────────────────────────────
+
+        /// <summary>Login_WelcomeBack</summary>
+        public static string Login_WelcomeBack
+        {
+            get { return ResourceManager.GetString("Login_WelcomeBack", resourceCulture); }
+        }
+
+        /// <summary>Login_SignInSubtitle</summary>
+        public static string Login_SignInSubtitle
+        {
+            get { return ResourceManager.GetString("Login_SignInSubtitle", resourceCulture); }
+        }
+
+        /// <summary>Login_EmailLabel</summary>
+        public static string Login_EmailLabel
+        {
+            get { return ResourceManager.GetString("Login_EmailLabel", resourceCulture); }
+        }
+
+        /// <summary>Login_PasswordLabel</summary>
+        public static string Login_PasswordLabel
+        {
+            get { return ResourceManager.GetString("Login_PasswordLabel", resourceCulture); }
+        }
+
+        /// <summary>Login_ForgotPassword</summary>
+        public static string Login_ForgotPassword
+        {
+            get { return ResourceManager.GetString("Login_ForgotPassword", resourceCulture); }
+        }
+
+        /// <summary>Login_SignInButton</summary>
+        public static string Login_SignInButton
+        {
+            get { return ResourceManager.GetString("Login_SignInButton", resourceCulture); }
+        }
+
+        /// <summary>Login_NoAccount</summary>
+        public static string Login_NoAccount
+        {
+            get { return ResourceManager.GetString("Login_NoAccount", resourceCulture); }
+        }
+
+        /// <summary>Login_SignUpLink</summary>
+        public static string Login_SignUpLink
+        {
+            get { return ResourceManager.GetString("Login_SignUpLink", resourceCulture); }
+        }
+
+        /// <summary>Login_EmailEmpty</summary>
+        public static string Login_EmailEmpty
+        {
+            get { return ResourceManager.GetString("Login_EmailEmpty", resourceCulture); }
+        }
+
+        /// <summary>Login_EmailInvalid</summary>
+        public static string Login_EmailInvalid
+        {
+            get { return ResourceManager.GetString("Login_EmailInvalid", resourceCulture); }
+        }
+
+        /// <summary>Login_PasswordEmpty</summary>
+        public static string Login_PasswordEmpty
+        {
+            get { return ResourceManager.GetString("Login_PasswordEmpty", resourceCulture); }
+        }
+
+        /// <summary>Login_AccountNotFound</summary>
+        public static string Login_AccountNotFound
+        {
+            get { return ResourceManager.GetString("Login_AccountNotFound", resourceCulture); }
+        }
+
+        /// <summary>Login_AccountDeletedTitle</summary>
+        public static string Login_AccountDeletedTitle
+        {
+            get { return ResourceManager.GetString("Login_AccountDeletedTitle", resourceCulture); }
+        }
+
+        /// <summary>Login_AccountDeletedMsg</summary>
+        public static string Login_AccountDeletedMsg
+        {
+            get { return ResourceManager.GetString("Login_AccountDeletedMsg", resourceCulture); }
+        }
+
+        /// <summary>Login_OnboardingTitle</summary>
+        public static string Login_OnboardingTitle
+        {
+            get { return ResourceManager.GetString("Login_OnboardingTitle", resourceCulture); }
+        }
+
+        /// <summary>Login_OnboardingMsg</summary>
+        public static string Login_OnboardingMsg
+        {
+            get { return ResourceManager.GetString("Login_OnboardingMsg", resourceCulture); }
+        }
+
+        /// <summary>Login_WithdrawnTitle</summary>
+        public static string Login_WithdrawnTitle
+        {
+            get { return ResourceManager.GetString("Login_WithdrawnTitle", resourceCulture); }
+        }
+
+        /// <summary>Login_WithdrawnMsg</summary>
+        public static string Login_WithdrawnMsg
+        {
+            get { return ResourceManager.GetString("Login_WithdrawnMsg", resourceCulture); }
+        }
+
+        /// <summary>Login_PasswordIncorrect</summary>
+        public static string Login_PasswordIncorrect
+        {
+            get { return ResourceManager.GetString("Login_PasswordIncorrect", resourceCulture); }
+        }
+
+        // ── ImperialDashboard ─────────────────────────────────────────────────
+
+        /// <summary>Dashboard_WelcomeBack</summary>
+        public static string Dashboard_WelcomeBack
+        {
+            get { return ResourceManager.GetString("Dashboard_WelcomeBack", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_LoggedInAs</summary>
+        public static string Dashboard_LoggedInAs
+        {
+            get { return ResourceManager.GetString("Dashboard_LoggedInAs", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_StudyUserId</summary>
+        public static string Dashboard_StudyUserId
+        {
+            get { return ResourceManager.GetString("Dashboard_StudyUserId", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_HouseRep</summary>
+        public static string Dashboard_HouseRep
+        {
+            get { return ResourceManager.GetString("Dashboard_HouseRep", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ActiveNo</summary>
+        public static string Dashboard_ActiveNo
+        {
+            get { return ResourceManager.GetString("Dashboard_ActiveNo", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_HouseholdRep</summary>
+        public static string Dashboard_HouseholdRep
+        {
+            get { return ResourceManager.GetString("Dashboard_HouseholdRep", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_StayInLoop</summary>
+        public static string Dashboard_StayInLoop
+        {
+            get { return ResourceManager.GetString("Dashboard_StayInLoop", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_Action</summary>
+        public static string Dashboard_Action
+        {
+            get { return ResourceManager.GetString("Dashboard_Action", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_NeverMissUpdate</summary>
+        public static string Dashboard_NeverMissUpdate
+        {
+            get { return ResourceManager.GetString("Dashboard_NeverMissUpdate", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_NotificationsPrompt</summary>
+        public static string Dashboard_NotificationsPrompt
+        {
+            get { return ResourceManager.GetString("Dashboard_NotificationsPrompt", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_NotNow</summary>
+        public static string Dashboard_NotNow
+        {
+            get { return ResourceManager.GetString("Dashboard_NotNow", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_Enable</summary>
+        public static string Dashboard_Enable
+        {
+            get { return ResourceManager.GetString("Dashboard_Enable", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_AllTasksCompleted</summary>
+        public static string Dashboard_AllTasksCompleted
+        {
+            get { return ResourceManager.GetString("Dashboard_AllTasksCompleted", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_QCompleted</summary>
+        public static string Dashboard_QCompleted
+        {
+            get { return ResourceManager.GetString("Dashboard_QCompleted", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_BaselineFormStage</summary>
+        public static string Dashboard_BaselineFormStage
+        {
+            get { return ResourceManager.GetString("Dashboard_BaselineFormStage", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_BaselineFormRequirement</summary>
+        public static string Dashboard_BaselineFormRequirement
+        {
+            get { return ResourceManager.GetString("Dashboard_BaselineFormRequirement", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_BaselineSamplingStage</summary>
+        public static string Dashboard_BaselineSamplingStage
+        {
+            get { return ResourceManager.GetString("Dashboard_BaselineSamplingStage", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SamplingKitsArrive</summary>
+        public static string Dashboard_SamplingKitsArrive
+        {
+            get { return ResourceManager.GetString("Dashboard_SamplingKitsArrive", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SamplingStep1</summary>
+        public static string Dashboard_SamplingStep1
+        {
+            get { return ResourceManager.GetString("Dashboard_SamplingStep1", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SamplingCollect</summary>
+        public static string Dashboard_SamplingCollect
+        {
+            get { return ResourceManager.GetString("Dashboard_SamplingCollect", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SamplingStep2</summary>
+        public static string Dashboard_SamplingStep2
+        {
+            get { return ResourceManager.GetString("Dashboard_SamplingStep2", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SamplingCompleteForm</summary>
+        public static string Dashboard_SamplingCompleteForm
+        {
+            get { return ResourceManager.GetString("Dashboard_SamplingCompleteForm", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SamplingSameDay</summary>
+        public static string Dashboard_SamplingSameDay
+        {
+            get { return ResourceManager.GetString("Dashboard_SamplingSameDay", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_BaselineSamples</summary>
+        public static string Dashboard_BaselineSamples
+        {
+            get { return ResourceManager.GetString("Dashboard_BaselineSamples", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_HouseholdParticipants</summary>
+        public static string Dashboard_HouseholdParticipants
+        {
+            get { return ResourceManager.GetString("Dashboard_HouseholdParticipants", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_BaselineForm</summary>
+        public static string Dashboard_BaselineForm
+        {
+            get { return ResourceManager.GetString("Dashboard_BaselineForm", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_BaselineSamplesLabel</summary>
+        public static string Dashboard_BaselineSamplesLabel
+        {
+            get { return ResourceManager.GetString("Dashboard_BaselineSamplesLabel", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_LastActive</summary>
+        public static string Dashboard_LastActive
+        {
+            get { return ResourceManager.GetString("Dashboard_LastActive", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_Questionnaires</summary>
+        public static string Dashboard_Questionnaires
+        {
+            get { return ResourceManager.GetString("Dashboard_Questionnaires", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_AwaitingBaseline</summary>
+        public static string Dashboard_AwaitingBaseline
+        {
+            get { return ResourceManager.GetString("Dashboard_AwaitingBaseline", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_CompleteOnBehalf</summary>
+        public static string Dashboard_CompleteOnBehalf
+        {
+            get { return ResourceManager.GetString("Dashboard_CompleteOnBehalf", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_CompleteBaseline</summary>
+        public static string Dashboard_CompleteBaseline
+        {
+            get { return ResourceManager.GetString("Dashboard_CompleteBaseline", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ProfileNotActive</summary>
+        public static string Dashboard_ProfileNotActive
+        {
+            get { return ResourceManager.GetString("Dashboard_ProfileNotActive", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ProfileNotActiveMsg</summary>
+        public static string Dashboard_ProfileNotActiveMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_ProfileNotActiveMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ActiveProfile</summary>
+        public static string Dashboard_ActiveProfile
+        {
+            get { return ResourceManager.GetString("Dashboard_ActiveProfile", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ProgressSoFar</summary>
+        public static string Dashboard_ProgressSoFar
+        {
+            get { return ResourceManager.GetString("Dashboard_ProgressSoFar", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_CompletedQuestionnaires</summary>
+        public static string Dashboard_CompletedQuestionnaires
+        {
+            get { return ResourceManager.GetString("Dashboard_CompletedQuestionnaires", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ReviewQsSubmitted</summary>
+        public static string Dashboard_ReviewQsSubmitted
+        {
+            get { return ResourceManager.GetString("Dashboard_ReviewQsSubmitted", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_TapViewCompleted</summary>
+        public static string Dashboard_TapViewCompleted
+        {
+            get { return ResourceManager.GetString("Dashboard_TapViewCompleted", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_MissedQuestionnaires</summary>
+        public static string Dashboard_MissedQuestionnaires
+        {
+            get { return ResourceManager.GetString("Dashboard_MissedQuestionnaires", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_MissedQsLabel</summary>
+        public static string Dashboard_MissedQsLabel
+        {
+            get { return ResourceManager.GetString("Dashboard_MissedQsLabel", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_MissedQsMsg</summary>
+        public static string Dashboard_MissedQsMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_MissedQsMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_TapCompleteMissed</summary>
+        public static string Dashboard_TapCompleteMissed
+        {
+            get { return ResourceManager.GetString("Dashboard_TapCompleteMissed", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_NotCompleted</summary>
+        public static string Dashboard_NotCompleted
+        {
+            get { return ResourceManager.GetString("Dashboard_NotCompleted", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_Missed</summary>
+        public static string Dashboard_Missed
+        {
+            get { return ResourceManager.GetString("Dashboard_Missed", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ExpandHousehold</summary>
+        public static string Dashboard_ExpandHousehold
+        {
+            get { return ResourceManager.GetString("Dashboard_ExpandHousehold", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_InviteMembers</summary>
+        public static string Dashboard_InviteMembers
+        {
+            get { return ResourceManager.GetString("Dashboard_InviteMembers", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_GiveAccessTitle</summary>
+        public static string Dashboard_GiveAccessTitle
+        {
+            get { return ResourceManager.GetString("Dashboard_GiveAccessTitle", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_GiveAccessMsg</summary>
+        public static string Dashboard_GiveAccessMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_GiveAccessMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_GrantAccess</summary>
+        public static string Dashboard_GrantAccess
+        {
+            get { return ResourceManager.GetString("Dashboard_GrantAccess", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_NotificationsOff</summary>
+        public static string Dashboard_NotificationsOff
+        {
+            get { return ResourceManager.GetString("Dashboard_NotificationsOff", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_TurnOnNotifications</summary>
+        public static string Dashboard_TurnOnNotifications
+        {
+            get { return ResourceManager.GetString("Dashboard_TurnOnNotifications", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ThankYouStudy</summary>
+        public static string Dashboard_ThankYouStudy
+        {
+            get { return ResourceManager.GetString("Dashboard_ThankYouStudy", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_StudyInformation</summary>
+        public static string Dashboard_StudyInformation
+        {
+            get { return ResourceManager.GetString("Dashboard_StudyInformation", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_HopperStudy</summary>
+        public static string Dashboard_HopperStudy
+        {
+            get { return ResourceManager.GetString("Dashboard_HopperStudy", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ContactInformation</summary>
+        public static string Dashboard_ContactInformation
+        {
+            get { return ResourceManager.GetString("Dashboard_ContactInformation", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ContactMsg</summary>
+        public static string Dashboard_ContactMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_ContactMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_NoContactFound</summary>
+        public static string Dashboard_NoContactFound
+        {
+            get { return ResourceManager.GetString("Dashboard_NoContactFound", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ContactOffline</summary>
+        public static string Dashboard_ContactOffline
+        {
+            get { return ResourceManager.GetString("Dashboard_ContactOffline", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_AdditionalInformation</summary>
+        public static string Dashboard_AdditionalInformation
+        {
+            get { return ResourceManager.GetString("Dashboard_AdditionalInformation", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_NoResourcesFound</summary>
+        public static string Dashboard_NoResourcesFound
+        {
+            get { return ResourceManager.GetString("Dashboard_NoResourcesFound", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ResourcesFailedLoad</summary>
+        public static string Dashboard_ResourcesFailedLoad
+        {
+            get { return ResourceManager.GetString("Dashboard_ResourcesFailedLoad", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_Profile</summary>
+        public static string Dashboard_Profile
+        {
+            get { return ResourceManager.GetString("Dashboard_Profile", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ManageYourProfile</summary>
+        public static string Dashboard_ManageYourProfile
+        {
+            get { return ResourceManager.GetString("Dashboard_ManageYourProfile", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_PersonalInformation</summary>
+        public static string Dashboard_PersonalInformation
+        {
+            get { return ResourceManager.GetString("Dashboard_PersonalInformation", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_Preferences</summary>
+        public static string Dashboard_Preferences
+        {
+            get { return ResourceManager.GetString("Dashboard_Preferences", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_GetInTouch</summary>
+        public static string Dashboard_GetInTouch
+        {
+            get { return ResourceManager.GetString("Dashboard_GetInTouch", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SupportMsg</summary>
+        public static string Dashboard_SupportMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_SupportMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_MessageTeam</summary>
+        public static string Dashboard_MessageTeam
+        {
+            get { return ResourceManager.GetString("Dashboard_MessageTeam", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_LogOut</summary>
+        public static string Dashboard_LogOut
+        {
+            get { return ResourceManager.GetString("Dashboard_LogOut", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_WithdrawalAction</summary>
+        public static string Dashboard_WithdrawalAction
+        {
+            get { return ResourceManager.GetString("Dashboard_WithdrawalAction", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_WithdrawTitle</summary>
+        public static string Dashboard_WithdrawTitle
+        {
+            get { return ResourceManager.GetString("Dashboard_WithdrawTitle", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_WithdrawWarning</summary>
+        public static string Dashboard_WithdrawWarning
+        {
+            get { return ResourceManager.GetString("Dashboard_WithdrawWarning", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_AppVersion</summary>
+        public static string Dashboard_AppVersion
+        {
+            get { return ResourceManager.GetString("Dashboard_AppVersion", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_HiPrefix</summary>
+        public static string Dashboard_HiPrefix
+        {
+            get { return ResourceManager.GetString("Dashboard_HiPrefix", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_Participant</summary>
+        public static string Dashboard_Participant
+        {
+            get { return ResourceManager.GetString("Dashboard_Participant", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_Day28</summary>
+        public static string Dashboard_Day28
+        {
+            get { return ResourceManager.GetString("Dashboard_Day28", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SamplingSymptoms</summary>
+        public static string Dashboard_SamplingSymptoms
+        {
+            get { return ResourceManager.GetString("Dashboard_SamplingSymptoms", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SamplingPeriodSuffix</summary>
+        public static string Dashboard_SamplingPeriodSuffix
+        {
+            get { return ResourceManager.GetString("Dashboard_SamplingPeriodSuffix", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_BaselineSamplesFormTitle</summary>
+        public static string Dashboard_BaselineSamplesFormTitle
+        {
+            get { return ResourceManager.GetString("Dashboard_BaselineSamplesFormTitle", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_BaselineSamplesFormMsg</summary>
+        public static string Dashboard_BaselineSamplesFormMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_BaselineSamplesFormMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_WithdrawAlertTitle</summary>
+        public static string Dashboard_WithdrawAlertTitle
+        {
+            get { return ResourceManager.GetString("Dashboard_WithdrawAlertTitle", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_WithdrawAlertMsg</summary>
+        public static string Dashboard_WithdrawAlertMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_WithdrawAlertMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_WithdrawButton</summary>
+        public static string Dashboard_WithdrawButton
+        {
+            get { return ResourceManager.GetString("Dashboard_WithdrawButton", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_LogoutTitle</summary>
+        public static string Dashboard_LogoutTitle
+        {
+            get { return ResourceManager.GetString("Dashboard_LogoutTitle", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_LogoutMsg</summary>
+        public static string Dashboard_LogoutMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_LogoutMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_LogoutButton</summary>
+        public static string Dashboard_LogoutButton
+        {
+            get { return ResourceManager.GetString("Dashboard_LogoutButton", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ConfirmAccessTitle</summary>
+        public static string Dashboard_ConfirmAccessTitle
+        {
+            get { return ResourceManager.GetString("Dashboard_ConfirmAccessTitle", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ConfirmAccessMsg</summary>
+        public static string Dashboard_ConfirmAccessMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_ConfirmAccessMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ConfirmAccessYes</summary>
+        public static string Dashboard_ConfirmAccessYes
+        {
+            get { return ResourceManager.GetString("Dashboard_ConfirmAccessYes", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ConfirmAccessNo</summary>
+        public static string Dashboard_ConfirmAccessNo
+        {
+            get { return ResourceManager.GetString("Dashboard_ConfirmAccessNo", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_AccessGrantedTitle</summary>
+        public static string Dashboard_AccessGrantedTitle
+        {
+            get { return ResourceManager.GetString("Dashboard_AccessGrantedTitle", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_AccessGrantedMsg</summary>
+        public static string Dashboard_AccessGrantedMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_AccessGrantedMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_WaitingStage</summary>
+        public static string Dashboard_WaitingStage
+        {
+            get { return ResourceManager.GetString("Dashboard_WaitingStage", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SymptomCough</summary>
+        public static string Dashboard_SymptomCough
+        {
+            get { return ResourceManager.GetString("Dashboard_SymptomCough", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SymptomTasteSmell</summary>
+        public static string Dashboard_SymptomTasteSmell
+        {
+            get { return ResourceManager.GetString("Dashboard_SymptomTasteSmell", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SymptomSoreThroat</summary>
+        public static string Dashboard_SymptomSoreThroat
+        {
+            get { return ResourceManager.GetString("Dashboard_SymptomSoreThroat", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SymptomBreath</summary>
+        public static string Dashboard_SymptomBreath
+        {
+            get { return ResourceManager.GetString("Dashboard_SymptomBreath", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SamplingAndThinkSymptoms</summary>
+        public static string Dashboard_SamplingAndThinkSymptoms
+        {
+            get { return ResourceManager.GetString("Dashboard_SamplingAndThinkSymptoms", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_HouseholdIsOn</summary>
+        public static string Dashboard_HouseholdIsOn
+        {
+            get { return ResourceManager.GetString("Dashboard_HouseholdIsOn", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SamplingStep1Collect</summary>
+        public static string Dashboard_SamplingStep1Collect
+        {
+            get { return ResourceManager.GetString("Dashboard_SamplingStep1Collect", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_SamplingStep2Complete</summary>
+        public static string Dashboard_SamplingStep2Complete
+        {
+            get { return ResourceManager.GetString("Dashboard_SamplingStep2Complete", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_DailyRecordingComplete</summary>
+        public static string Dashboard_DailyRecordingComplete
+        {
+            get { return ResourceManager.GetString("Dashboard_DailyRecordingComplete", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_DailyRecordingCompleteMsg</summary>
+        public static string Dashboard_DailyRecordingCompleteMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_DailyRecordingCompleteMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_EndStudyFeedbackTitle</summary>
+        public static string Dashboard_EndStudyFeedbackTitle
+        {
+            get { return ResourceManager.GetString("Dashboard_EndStudyFeedbackTitle", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_EndStudyThankYou</summary>
+        public static string Dashboard_EndStudyThankYou
+        {
+            get { return ResourceManager.GetString("Dashboard_EndStudyThankYou", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_EndStudyFinalQ</summary>
+        public static string Dashboard_EndStudyFinalQ
+        {
+            get { return ResourceManager.GetString("Dashboard_EndStudyFinalQ", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_StudyComplete</summary>
+        public static string Dashboard_StudyComplete
+        {
+            get { return ResourceManager.GetString("Dashboard_StudyComplete", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_StudyCompleteTitle</summary>
+        public static string Dashboard_StudyCompleteTitle
+        {
+            get { return ResourceManager.GetString("Dashboard_StudyCompleteTitle", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_StudyCompleteMsg</summary>
+        public static string Dashboard_StudyCompleteMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_StudyCompleteMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_RestartStudyTitle</summary>
+        public static string Dashboard_RestartStudyTitle
+        {
+            get { return ResourceManager.GetString("Dashboard_RestartStudyTitle", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_RestartStudyMsg</summary>
+        public static string Dashboard_RestartStudyMsg
+        {
+            get { return ResourceManager.GetString("Dashboard_RestartStudyMsg", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ContactStudyTeam</summary>
+        public static string Dashboard_ContactStudyTeam
+        {
+            get { return ResourceManager.GetString("Dashboard_ContactStudyTeam", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_RecentQuestionnaires</summary>
+        public static string Dashboard_RecentQuestionnaires
+        {
+            get { return ResourceManager.GetString("Dashboard_RecentQuestionnaires", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_ViewFormsHistory</summary>
+        public static string Dashboard_ViewFormsHistory
+        {
+            get { return ResourceManager.GetString("Dashboard_ViewFormsHistory", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_TodayDayThree</summary>
+        public static string Dashboard_TodayDayThree
+        {
+            get { return ResourceManager.GetString("Dashboard_TodayDayThree", resourceCulture); }
+        }
+
+        /// <summary>Dashboard_T1FormInstruction</summary>
+        public static string Dashboard_T1FormInstruction
+        {
+            get { return ResourceManager.GetString("Dashboard_T1FormInstruction", resourceCulture); }
+        }
+
+        // ── Addnewmember ──────────────────────────────────────────────────────
+
+        /// <summary>AddMember_Subtitle</summary>
+        public static string AddMember_Subtitle
+        {
+            get { return ResourceManager.GetString("AddMember_Subtitle", resourceCulture); }
+        }
+
+        /// <summary>AddMember_MemberNameLabel</summary>
+        public static string AddMember_MemberNameLabel
+        {
+            get { return ResourceManager.GetString("AddMember_MemberNameLabel", resourceCulture); }
+        }
+
+        /// <summary>AddMember_MemberNameHint</summary>
+        public static string AddMember_MemberNameHint
+        {
+            get { return ResourceManager.GetString("AddMember_MemberNameHint", resourceCulture); }
+        }
+
+        /// <summary>AddMember_LastName</summary>
+        public static string AddMember_LastName
+        {
+            get { return ResourceManager.GetString("AddMember_LastName", resourceCulture); }
+        }
+
+        /// <summary>AddMember_OwnPhoneQuestion</summary>
+        public static string AddMember_OwnPhoneQuestion
+        {
+            get { return ResourceManager.GetString("AddMember_OwnPhoneQuestion", resourceCulture); }
+        }
+
+        /// <summary>AddMember_OwnPhoneSubtitle</summary>
+        public static string AddMember_OwnPhoneSubtitle
+        {
+            get { return ResourceManager.GetString("AddMember_OwnPhoneSubtitle", resourceCulture); }
+        }
+
+        /// <summary>AddMember_YesOwnAccount</summary>
+        public static string AddMember_YesOwnAccount
+        {
+            get { return ResourceManager.GetString("AddMember_YesOwnAccount", resourceCulture); }
+        }
+
+        /// <summary>AddMember_YesOwnAccountDetail</summary>
+        public static string AddMember_YesOwnAccountDetail
+        {
+            get { return ResourceManager.GetString("AddMember_YesOwnAccountDetail", resourceCulture); }
+        }
+
+        /// <summary>AddMember_NoManageProfile</summary>
+        public static string AddMember_NoManageProfile
+        {
+            get { return ResourceManager.GetString("AddMember_NoManageProfile", resourceCulture); }
+        }
+
+        /// <summary>AddMember_NoManageProfileDetail</summary>
+        public static string AddMember_NoManageProfileDetail
+        {
+            get { return ResourceManager.GetString("AddMember_NoManageProfileDetail", resourceCulture); }
+        }
+
+        /// <summary>AddMember_EmailLabel</summary>
+        public static string AddMember_EmailLabel
+        {
+            get { return ResourceManager.GetString("AddMember_EmailLabel", resourceCulture); }
+        }
+
+        /// <summary>AddMember_EmailHint</summary>
+        public static string AddMember_EmailHint
+        {
+            get { return ResourceManager.GetString("AddMember_EmailHint", resourceCulture); }
+        }
+
+        /// <summary>AddMember_AgeLabel</summary>
+        public static string AddMember_AgeLabel
+        {
+            get { return ResourceManager.GetString("AddMember_AgeLabel", resourceCulture); }
+        }
+
+        /// <summary>AddMember_AgeHint</summary>
+        public static string AddMember_AgeHint
+        {
+            get { return ResourceManager.GetString("AddMember_AgeHint", resourceCulture); }
+        }
+
+        /// <summary>AddMember_RelationLabel</summary>
+        public static string AddMember_RelationLabel
+        {
+            get { return ResourceManager.GetString("AddMember_RelationLabel", resourceCulture); }
+        }
+
+        /// <summary>AddMember_RelationHint</summary>
+        public static string AddMember_RelationHint
+        {
+            get { return ResourceManager.GetString("AddMember_RelationHint", resourceCulture); }
+        }
+
+        /// <summary>AddMember_PermissionCheck</summary>
+        public static string AddMember_PermissionCheck
+        {
+            get { return ResourceManager.GetString("AddMember_PermissionCheck", resourceCulture); }
+        }
+
+        /// <summary>AddMember_AgreeTerms</summary>
+        public static string AddMember_AgreeTerms
+        {
+            get { return ResourceManager.GetString("AddMember_AgreeTerms", resourceCulture); }
+        }
+
+        /// <summary>AddMember_EmailInvalid</summary>
+        public static string AddMember_EmailInvalid
+        {
+            get { return ResourceManager.GetString("AddMember_EmailInvalid", resourceCulture); }
+        }
+
+        /// <summary>AddMember_EmailFamilyExists</summary>
+        public static string AddMember_EmailFamilyExists
+        {
+            get { return ResourceManager.GetString("AddMember_EmailFamilyExists", resourceCulture); }
+        }
+
+        /// <summary>AddMember_EmailExists</summary>
+        public static string AddMember_EmailExists
+        {
+            get { return ResourceManager.GetString("AddMember_EmailExists", resourceCulture); }
+        }
+
+        // ── pdfpage ───────────────────────────────────────────────────────────
+
+        /// <summary>Pdf_Close</summary>
+        public static string Pdf_Close
+        {
+            get { return ResourceManager.GetString("Pdf_Close", resourceCulture); }
+        }
+
+        // ── SelectNotificationTime ────────────────────────────────────────────
+
+        /// <summary>Notification_Title</summary>
+        public static string Notification_Title
+        {
+            get { return ResourceManager.GetString("Notification_Title", resourceCulture); }
+        }
+
+        /// <summary>Notification_SelectTimeHint</summary>
+        public static string Notification_SelectTimeHint
+        {
+            get { return ResourceManager.GetString("Notification_SelectTimeHint", resourceCulture); }
+        }
+
+        /// <summary>Notification_ChooseTime</summary>
+        public static string Notification_ChooseTime
+        {
+            get { return ResourceManager.GetString("Notification_ChooseTime", resourceCulture); }
+        }
+
+        /// <summary>Notification_SavedTitle</summary>
+        public static string Notification_SavedTitle
+        {
+            get { return ResourceManager.GetString("Notification_SavedTitle", resourceCulture); }
+        }
+
+        /// <summary>Notification_SavedSubtitle</summary>
+        public static string Notification_SavedSubtitle
+        {
+            get { return ResourceManager.GetString("Notification_SavedSubtitle", resourceCulture); }
+        }
+
+        /// <summary>Notification_ChangeAnytime</summary>
+        public static string Notification_ChangeAnytime
+        {
+            get { return ResourceManager.GetString("Notification_ChangeAnytime", resourceCulture); }
+        }
+
+        // ── WithdrawVideoPopUp ────────────────────────────────────────────────
+
+        /// <summary>Withdraw_ErrorTitle</summary>
+        public static string Withdraw_ErrorTitle
+        {
+            get { return ResourceManager.GetString("Withdraw_ErrorTitle", resourceCulture); }
+        }
+
+        /// <summary>Withdraw_ErrorMsg</summary>
+        public static string Withdraw_ErrorMsg
+        {
+            get { return ResourceManager.GetString("Withdraw_ErrorMsg", resourceCulture); }
+        }
+
+        /// <summary>Withdraw_ErrorOk</summary>
+        public static string Withdraw_ErrorOk
+        {
+            get { return ResourceManager.GetString("Withdraw_ErrorOk", resourceCulture); }
+        }
+
+        /// <summary>Withdraw_CloseVideo</summary>
+        public static string Withdraw_CloseVideo
+        {
+            get { return ResourceManager.GetString("Withdraw_CloseVideo", resourceCulture); }
+        }
+
+        /// <summary>Withdraw_ProceedButton</summary>
+        public static string Withdraw_ProceedButton
+        {
+            get { return ResourceManager.GetString("Withdraw_ProceedButton", resourceCulture); }
+        }
+
+        // ── ManageProfile ─────────────────────────────────────────────────────
+
+        /// <summary>Manage_Title</summary>
+        public static string Manage_Title
+        {
+            get { return ResourceManager.GetString("Manage_Title", resourceCulture); }
+        }
+
+        /// <summary>Manage_Subtitle</summary>
+        public static string Manage_Subtitle
+        {
+            get { return ResourceManager.GetString("Manage_Subtitle", resourceCulture); }
+        }
+
+        /// <summary>Manage_PersonalInformation</summary>
+        public static string Manage_PersonalInformation
+        {
+            get { return ResourceManager.GetString("Manage_PersonalInformation", resourceCulture); }
+        }
+
+        /// <summary>Manage_UserId</summary>
+        public static string Manage_UserId
+        {
+            get { return ResourceManager.GetString("Manage_UserId", resourceCulture); }
+        }
+
+        /// <summary>Manage_FirstName</summary>
+        public static string Manage_FirstName
+        {
+            get { return ResourceManager.GetString("Manage_FirstName", resourceCulture); }
+        }
+
+        /// <summary>Manage_Surname</summary>
+        public static string Manage_Surname
+        {
+            get { return ResourceManager.GetString("Manage_Surname", resourceCulture); }
+        }
+
+        /// <summary>Manage_Email</summary>
+        public static string Manage_Email
+        {
+            get { return ResourceManager.GetString("Manage_Email", resourceCulture); }
+        }
+
+        /// <summary>Manage_PermissionGranted</summary>
+        public static string Manage_PermissionGranted
+        {
+            get { return ResourceManager.GetString("Manage_PermissionGranted", resourceCulture); }
+        }
+
+        /// <summary>Manage_PermissionCheck</summary>
+        public static string Manage_PermissionCheck
+        {
+            get { return ResourceManager.GetString("Manage_PermissionCheck", resourceCulture); }
+        }
+
+        /// <summary>Manage_HouseholdDetails</summary>
+        public static string Manage_HouseholdDetails
+        {
+            get { return ResourceManager.GetString("Manage_HouseholdDetails", resourceCulture); }
+        }
+
+        /// <summary>Manage_Status</summary>
+        public static string Manage_Status
+        {
+            get { return ResourceManager.GetString("Manage_Status", resourceCulture); }
+        }
+
+        /// <summary>Manage_GroupId</summary>
+        public static string Manage_GroupId
+        {
+            get { return ResourceManager.GetString("Manage_GroupId", resourceCulture); }
+        }
+
+        /// <summary>Manage_AgeLabel</summary>
+        public static string Manage_AgeLabel
+        {
+            get { return ResourceManager.GetString("Manage_AgeLabel", resourceCulture); }
+        }
+
+        /// <summary>Manage_AgeHint</summary>
+        public static string Manage_AgeHint
+        {
+            get { return ResourceManager.GetString("Manage_AgeHint", resourceCulture); }
+        }
+
+        /// <summary>Manage_RelationLabel</summary>
+        public static string Manage_RelationLabel
+        {
+            get { return ResourceManager.GetString("Manage_RelationLabel", resourceCulture); }
+        }
+
+        /// <summary>Manage_RelationHint</summary>
+        public static string Manage_RelationHint
+        {
+            get { return ResourceManager.GetString("Manage_RelationHint", resourceCulture); }
+        }
+
+        /// <summary>Manage_EnableEditHint</summary>
+        public static string Manage_EnableEditHint
+        {
+            get { return ResourceManager.GetString("Manage_EnableEditHint", resourceCulture); }
+        }
+
+        /// <summary>Manage_EnableEdit</summary>
+        public static string Manage_EnableEdit
+        {
+            get { return ResourceManager.GetString("Manage_EnableEdit", resourceCulture); }
+        }
+
+        /// <summary>Manage_SaveChanges</summary>
+        public static string Manage_SaveChanges
+        {
+            get { return ResourceManager.GetString("Manage_SaveChanges", resourceCulture); }
+        }
+
+        /// <summary>Manage_EditField</summary>
+        public static string Manage_EditField
+        {
+            get { return ResourceManager.GetString("Manage_EditField", resourceCulture); }
+        }
+
+        /// <summary>Manage_UpdateFailedTitle</summary>
+        public static string Manage_UpdateFailedTitle
+        {
+            get { return ResourceManager.GetString("Manage_UpdateFailedTitle", resourceCulture); }
+        }
+
+        /// <summary>Manage_UpdateFailedMsg</summary>
+        public static string Manage_UpdateFailedMsg
+        {
+            get { return ResourceManager.GetString("Manage_UpdateFailedMsg", resourceCulture); }
+        }
+
+        /// <summary>Manage_SaveFailedTitle</summary>
+        public static string Manage_SaveFailedTitle
+        {
+            get { return ResourceManager.GetString("Manage_SaveFailedTitle", resourceCulture); }
+        }
+
+        /// <summary>Manage_SaveFailedMsg</summary>
+        public static string Manage_SaveFailedMsg
+        {
+            get { return ResourceManager.GetString("Manage_SaveFailedMsg", resourceCulture); }
+        }
+
+        /// <summary>Manage_EnterFirstName</summary>
+        public static string Manage_EnterFirstName
+        {
+            get { return ResourceManager.GetString("Manage_EnterFirstName", resourceCulture); }
+        }
+
+        /// <summary>Manage_EnterSurname</summary>
+        public static string Manage_EnterSurname
+        {
+            get { return ResourceManager.GetString("Manage_EnterSurname", resourceCulture); }
+        }
+
+        /// <summary>Manage_EnterEmail</summary>
+        public static string Manage_EnterEmail
+        {
+            get { return ResourceManager.GetString("Manage_EnterEmail", resourceCulture); }
+        }
+
+        /// <summary>Manage_EnterValidEmail</summary>
+        public static string Manage_EnterValidEmail
+        {
+            get { return ResourceManager.GetString("Manage_EnterValidEmail", resourceCulture); }
+        }
+
+        /// <summary>Manage_ProfileUpdated</summary>
+        public static string Manage_ProfileUpdated
+        {
+            get { return ResourceManager.GetString("Manage_ProfileUpdated", resourceCulture); }
+        }
+
+        /// <summary>Manage_CopiedToClipboard</summary>
+        public static string Manage_CopiedToClipboard
+        {
+            get { return ResourceManager.GetString("Manage_CopiedToClipboard", resourceCulture); }
+        }
+
+        // ── ProfileEdit ───────────────────────────────────────────────────────
+
+        /// <summary>ProfileEdit_YourName</summary>
+        public static string ProfileEdit_YourName
+        {
+            get { return ResourceManager.GetString("ProfileEdit_YourName", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_YourEmail</summary>
+        public static string ProfileEdit_YourEmail
+        {
+            get { return ResourceManager.GetString("ProfileEdit_YourEmail", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_DateOfBirth</summary>
+        public static string ProfileEdit_DateOfBirth
+        {
+            get { return ResourceManager.GetString("ProfileEdit_DateOfBirth", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_DobInstruction</summary>
+        public static string ProfileEdit_DobInstruction
+        {
+            get { return ResourceManager.GetString("ProfileEdit_DobInstruction", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_Confirm</summary>
+        public static string ProfileEdit_Confirm
+        {
+            get { return ResourceManager.GetString("ProfileEdit_Confirm", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_SelectGender</summary>
+        public static string ProfileEdit_SelectGender
+        {
+            get { return ResourceManager.GetString("ProfileEdit_SelectGender", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_PleaseState</summary>
+        public static string ProfileEdit_PleaseState
+        {
+            get { return ResourceManager.GetString("ProfileEdit_PleaseState", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_Ethnicity</summary>
+        public static string ProfileEdit_Ethnicity
+        {
+            get { return ResourceManager.GetString("ProfileEdit_Ethnicity", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_PhoneNumber</summary>
+        public static string ProfileEdit_PhoneNumber
+        {
+            get { return ResourceManager.GetString("ProfileEdit_PhoneNumber", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_TownCity</summary>
+        public static string ProfileEdit_TownCity
+        {
+            get { return ResourceManager.GetString("ProfileEdit_TownCity", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_Height</summary>
+        public static string ProfileEdit_Height
+        {
+            get { return ResourceManager.GetString("ProfileEdit_Height", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_SelectHeight</summary>
+        public static string ProfileEdit_SelectHeight
+        {
+            get { return ResourceManager.GetString("ProfileEdit_SelectHeight", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_Weight</summary>
+        public static string ProfileEdit_Weight
+        {
+            get { return ResourceManager.GetString("ProfileEdit_Weight", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_SelectWeight</summary>
+        public static string ProfileEdit_SelectWeight
+        {
+            get { return ResourceManager.GetString("ProfileEdit_SelectWeight", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_Notifications</summary>
+        public static string ProfileEdit_Notifications
+        {
+            get { return ResourceManager.GetString("ProfileEdit_Notifications", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_AllowNotifications</summary>
+        public static string ProfileEdit_AllowNotifications
+        {
+            get { return ResourceManager.GetString("ProfileEdit_AllowNotifications", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_NhiTitle</summary>
+        public static string ProfileEdit_NhiTitle
+        {
+            get { return ResourceManager.GetString("ProfileEdit_NhiTitle", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_NhiInstruction</summary>
+        public static string ProfileEdit_NhiInstruction
+        {
+            get { return ResourceManager.GetString("ProfileEdit_NhiInstruction", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_PasswordReset</summary>
+        public static string ProfileEdit_PasswordReset
+        {
+            get { return ResourceManager.GetString("ProfileEdit_PasswordReset", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_Save</summary>
+        public static string ProfileEdit_Save
+        {
+            get { return ResourceManager.GetString("ProfileEdit_Save", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_EmailEmpty</summary>
+        public static string ProfileEdit_EmailEmpty
+        {
+            get { return ResourceManager.GetString("ProfileEdit_EmailEmpty", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_EmailInvalid</summary>
+        public static string ProfileEdit_EmailInvalid
+        {
+            get { return ResourceManager.GetString("ProfileEdit_EmailInvalid", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_EmailInUse</summary>
+        public static string ProfileEdit_EmailInUse
+        {
+            get { return ResourceManager.GetString("ProfileEdit_EmailInUse", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_EnterCurrentPassword</summary>
+        public static string ProfileEdit_EnterCurrentPassword
+        {
+            get { return ResourceManager.GetString("ProfileEdit_EnterCurrentPassword", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_EnterNewPassword</summary>
+        public static string ProfileEdit_EnterNewPassword
+        {
+            get { return ResourceManager.GetString("ProfileEdit_EnterNewPassword", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_PasswordMismatch</summary>
+        public static string ProfileEdit_PasswordMismatch
+        {
+            get { return ResourceManager.GetString("ProfileEdit_PasswordMismatch", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_PasswordTooShort</summary>
+        public static string ProfileEdit_PasswordTooShort
+        {
+            get { return ResourceManager.GetString("ProfileEdit_PasswordTooShort", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_PasswordLength</summary>
+        public static string ProfileEdit_PasswordLength
+        {
+            get { return ResourceManager.GetString("ProfileEdit_PasswordLength", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_PasswordNeedsNumber</summary>
+        public static string ProfileEdit_PasswordNeedsNumber
+        {
+            get { return ResourceManager.GetString("ProfileEdit_PasswordNeedsNumber", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_PasswordNeedsUpper</summary>
+        public static string ProfileEdit_PasswordNeedsUpper
+        {
+            get { return ResourceManager.GetString("ProfileEdit_PasswordNeedsUpper", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_PasswordNeedsLower</summary>
+        public static string ProfileEdit_PasswordNeedsLower
+        {
+            get { return ResourceManager.GetString("ProfileEdit_PasswordNeedsLower", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_PasswordNeedsSymbol</summary>
+        public static string ProfileEdit_PasswordNeedsSymbol
+        {
+            get { return ResourceManager.GetString("ProfileEdit_PasswordNeedsSymbol", resourceCulture); }
+        }
+
+        /// <summary>ProfileEdit_PasswordCurrentIncorrect</summary>
+        public static string ProfileEdit_PasswordCurrentIncorrect
+        {
+            get { return ResourceManager.GetString("ProfileEdit_PasswordCurrentIncorrect", resourceCulture); }
+        }
+
+        // ── PrivacyPolicyPage ─────────────────────────────────────────────────
+
+        /// <summary>Privacy_FooterLinks</summary>
+        public static string Privacy_FooterLinks
+        {
+            get { return ResourceManager.GetString("Privacy_FooterLinks", resourceCulture); }
+        }
+
+        // ── FAQ_s ─────────────────────────────────────────────────────────────
+
+        /// <summary>Faq_Title</summary>
+        public static string Faq_Title
+        {
+            get { return ResourceManager.GetString("Faq_Title", resourceCulture); }
+        }
+
+        /// <summary>Faq_Subtitle</summary>
+        public static string Faq_Subtitle
+        {
+            get { return ResourceManager.GetString("Faq_Subtitle", resourceCulture); }
+        }
+
+        /// <summary>Faq_Loading</summary>
+        public static string Faq_Loading
+        {
+            get { return ResourceManager.GetString("Faq_Loading", resourceCulture); }
+        }
+
+        /// <summary>Faq_FilterBy</summary>
+        public static string Faq_FilterBy
+        {
+            get { return ResourceManager.GetString("Faq_FilterBy", resourceCulture); }
+        }
+
+        /// <summary>Faq_NoFaqsFound</summary>
+        public static string Faq_NoFaqsFound
+        {
+            get { return ResourceManager.GetString("Faq_NoFaqsFound", resourceCulture); }
+        }
+
+        /// <summary>Faq_NoFaqsMsg</summary>
+        public static string Faq_NoFaqsMsg
+        {
+            get { return ResourceManager.GetString("Faq_NoFaqsMsg", resourceCulture); }
+        }
+
+        // ── NewImperial (registration wizard) ────────────────────────────────
+
+        /// <summary>Register_EmailHelperText</summary>
+        public static string Register_EmailHelperText
+        {
+            get { return ResourceManager.GetString("Register_EmailHelperText", resourceCulture); }
+        }
+
+        /// <summary>Register_PasswordMustContain</summary>
+        public static string Register_PasswordMustContain
+        {
+            get { return ResourceManager.GetString("Register_PasswordMustContain", resourceCulture); }
+        }
+
+        /// <summary>Register_PwMinChars</summary>
+        public static string Register_PwMinChars
+        {
+            get { return ResourceManager.GetString("Register_PwMinChars", resourceCulture); }
+        }
+
+        /// <summary>Register_PwSpecialChar</summary>
+        public static string Register_PwSpecialChar
+        {
+            get { return ResourceManager.GetString("Register_PwSpecialChar", resourceCulture); }
+        }
+
+        /// <summary>Register_PwCapital</summary>
+        public static string Register_PwCapital
+        {
+            get { return ResourceManager.GetString("Register_PwCapital", resourceCulture); }
+        }
+
+        /// <summary>Register_PwNumber</summary>
+        public static string Register_PwNumber
+        {
+            get { return ResourceManager.GetString("Register_PwNumber", resourceCulture); }
+        }
+
+        /// <summary>Register_CheckPostcode</summary>
+        public static string Register_CheckPostcode
+        {
+            get { return ResourceManager.GetString("Register_CheckPostcode", resourceCulture); }
+        }
+
+        /// <summary>Register_PostcodeNoResults</summary>
+        public static string Register_PostcodeNoResults
+        {
+            get { return ResourceManager.GetString("Register_PostcodeNoResults", resourceCulture); }
+        }
+
+        /// <summary>Register_PostcodeNoResultsMsg</summary>
+        public static string Register_PostcodeNoResultsMsg
+        {
+            get { return ResourceManager.GetString("Register_PostcodeNoResultsMsg", resourceCulture); }
+        }
+
+        /// <summary>Register_ClearAddress</summary>
+        public static string Register_ClearAddress
+        {
+            get { return ResourceManager.GetString("Register_ClearAddress", resourceCulture); }
+        }
+
+        /// <summary>Register_DobError</summary>
+        public static string Register_DobError
+        {
+            get { return ResourceManager.GetString("Register_DobError", resourceCulture); }
+        }
+
+        /// <summary>Register_SkipQuestion</summary>
+        public static string Register_SkipQuestion
+        {
+            get { return ResourceManager.GetString("Register_SkipQuestion", resourceCulture); }
+        }
+
+        /// <summary>Register_HeightFt</summary>
+        public static string Register_HeightFt
+        {
+            get { return ResourceManager.GetString("Register_HeightFt", resourceCulture); }
+        }
+
+        /// <summary>Register_HeightIn</summary>
+        public static string Register_HeightIn
+        {
+            get { return ResourceManager.GetString("Register_HeightIn", resourceCulture); }
+        }
+
+        /// <summary>Register_HeightCm</summary>
+        public static string Register_HeightCm
+        {
+            get { return ResourceManager.GetString("Register_HeightCm", resourceCulture); }
+        }
+
+        /// <summary>Register_AddHouseholdMember</summary>
+        public static string Register_AddHouseholdMember
+        {
+            get { return ResourceManager.GetString("Register_AddHouseholdMember", resourceCulture); }
+        }
+
+        /// <summary>Register_AddHouseholdMemberSub</summary>
+        public static string Register_AddHouseholdMemberSub
+        {
+            get { return ResourceManager.GetString("Register_AddHouseholdMemberSub", resourceCulture); }
+        }
+
+        /// <summary>Register_MemberName</summary>
+        public static string Register_MemberName
+        {
+            get { return ResourceManager.GetString("Register_MemberName", resourceCulture); }
+        }
+
+        /// <summary>Register_MemberNameHint</summary>
+        public static string Register_MemberNameHint
+        {
+            get { return ResourceManager.GetString("Register_MemberNameHint", resourceCulture); }
+        }
+
+        /// <summary>Register_OwnPhone</summary>
+        public static string Register_OwnPhone
+        {
+            get { return ResourceManager.GetString("Register_OwnPhone", resourceCulture); }
+        }
+
+        /// <summary>Register_OwnPhoneSub</summary>
+        public static string Register_OwnPhoneSub
+        {
+            get { return ResourceManager.GetString("Register_OwnPhoneSub", resourceCulture); }
+        }
+
+        /// <summary>Register_IfYes</summary>
+        public static string Register_IfYes
+        {
+            get { return ResourceManager.GetString("Register_IfYes", resourceCulture); }
+        }
+
+        /// <summary>Register_IfYesDetail</summary>
+        public static string Register_IfYesDetail
+        {
+            get { return ResourceManager.GetString("Register_IfYesDetail", resourceCulture); }
+        }
+
+        /// <summary>Register_TermsTitle</summary>
+        public static string Register_TermsTitle
+        {
+            get { return ResourceManager.GetString("Register_TermsTitle", resourceCulture); }
+        }
+
+        /// <summary>Register_AgreeTerms</summary>
+        public static string Register_AgreeTerms
+        {
+            get { return ResourceManager.GetString("Register_AgreeTerms", resourceCulture); }
+        }
+
+        /// <summary>Register_AgreeTermsLink</summary>
+        public static string Register_AgreeTermsLink
+        {
+            get { return ResourceManager.GetString("Register_AgreeTermsLink", resourceCulture); }
+        }
+
+        /// <summary>Register_Required</summary>
+        public static string Register_Required
+        {
+            get { return ResourceManager.GetString("Register_Required", resourceCulture); }
+        }
+
+        /// <summary>Register_AgreeEmail</summary>
+        public static string Register_AgreeEmail
+        {
+            get { return ResourceManager.GetString("Register_AgreeEmail", resourceCulture); }
+        }
+
+        /// <summary>Register_AgreeEmailLink</summary>
+        public static string Register_AgreeEmailLink
+        {
+            get { return ResourceManager.GetString("Register_AgreeEmailLink", resourceCulture); }
+        }
+
+        /// <summary>Register_EnterFullName</summary>
+        public static string Register_EnterFullName
+        {
+            get { return ResourceManager.GetString("Register_EnterFullName", resourceCulture); }
+        }
+
+        /// <summary>Register_EnterRole</summary>
+        public static string Register_EnterRole
+        {
+            get { return ResourceManager.GetString("Register_EnterRole", resourceCulture); }
+        }
+
+        /// <summary>Register_EnterValue</summary>
+        public static string Register_EnterValue
+        {
+            get { return ResourceManager.GetString("Register_EnterValue", resourceCulture); }
+        }
+
+        /// <summary>Register_AddValue</summary>
+        public static string Register_AddValue
+        {
+            get { return ResourceManager.GetString("Register_AddValue", resourceCulture); }
+        }
     }
 }

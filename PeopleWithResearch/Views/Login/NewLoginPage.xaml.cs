@@ -32,6 +32,26 @@ namespace PeopleWithResearch
             InitializeComponent();
             emailentry.TextChanged += OnEntryTextChanged;
             passwordentry.TextChanged += OnEntryTextChanged;
+            ApplyLocalization();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ApplyLocalization();
+        }
+
+        private void ApplyLocalization()
+        {
+            Titlelbl.Text          = LocalizationManager.Get("Login_WelcomeBack");
+            subtitleLbl.Text       = LocalizationManager.Get("Login_SignInSubtitle");
+            emailLbl.Text          = LocalizationManager.Get("Login_EmailLabel");
+            passwordLbl.Text       = LocalizationManager.Get("Login_PasswordLabel");
+            forgotPasswordLbl.Text = LocalizationManager.Get("Login_ForgotPassword");
+            Login.Text             = LocalizationManager.Get("Login_SignInButton");
+            noAccountSpan.Text     = LocalizationManager.Get("Login_NoAccount") + " ";
+            signUpSpan.Text        = LocalizationManager.Get("Login_SignUpLink");
+            privacyPolicyLbl.Text  = LocalizationManager.Get("Common_PrivacyPolicy");
         }
 
         private void OnEntryTextChanged(object sender, TextChangedEventArgs e)
@@ -167,7 +187,7 @@ namespace PeopleWithResearch
                 if (string.IsNullOrEmpty(emailentry.Text))
                 {
                     emailhelper.HasError = true;
-                    emailhelper.ErrorText = "Email cannot be empty";
+                    emailhelper.ErrorText = LocalizationManager.Get("Login_EmailEmpty");
                     Vibration.Vibrate();
                     emailentry.Focus();
                     await LoadING(false);
@@ -178,7 +198,7 @@ namespace PeopleWithResearch
 
                 if (!EmailIsValid(emailentry.Text))
                 {
-                    emailhelper.ErrorText = "Please enter a valid email address";
+                    emailhelper.ErrorText = LocalizationManager.Get("Login_EmailInvalid");
                     emailhelper.HasError = true;
                     Vibration.Vibrate();
                     emailentry.Focus();
@@ -191,7 +211,7 @@ namespace PeopleWithResearch
                 if (string.IsNullOrEmpty(passwordentry.Text))
                 {
                     passhelper.HasError = true;
-                    passhelper.ErrorText = "Password cannot be empty";
+                    passhelper.ErrorText = LocalizationManager.Get("Login_PasswordEmpty");
                     Vibration.Vibrate();
                     passwordentry.Focus();
                     await LoadING(false);
@@ -208,7 +228,7 @@ namespace PeopleWithResearch
                 var user = await APICalls.Instance.CheckEmailExists(emailentry.Text);
                 if (user.Count == 0)
                 {
-                    emailhelper.ErrorText = "We couldn't find an account with that email";
+                    emailhelper.ErrorText = LocalizationManager.Get("Login_AccountNotFound");
                     emailhelper.HasError = true;
                     Vibration.Vibrate();
                     emailentry.Focus();
@@ -234,7 +254,7 @@ namespace PeopleWithResearch
                     Login.IsEnabled = true;
                     isawait = false;
                     await LoadING(false);
-                    await DisplayAlert("Account Deleted", "Your account has been deleted", "OK");
+                    await DisplayAlert(LocalizationManager.Get("Login_AccountDeletedTitle"), LocalizationManager.Get("Login_AccountDeletedMsg"), LocalizationManager.Get("Common_OK"));
                     return;
                 }
                 else if (Userdetails.status == "Onboarding")
@@ -242,7 +262,7 @@ namespace PeopleWithResearch
                     Login.IsEnabled = true;
                     isawait = false;
                     await LoadING(false);
-                    await DisplayAlert("Account Onboarding", "Please use your email to continue registering", "OK");               
+                    await DisplayAlert(LocalizationManager.Get("Login_OnboardingTitle"), LocalizationManager.Get("Login_OnboardingMsg"), LocalizationManager.Get("Common_OK"));               
                     return;
                 }
                 else if (string.Equals(Userdetails.status, "Withdrawn", StringComparison.OrdinalIgnoreCase))
@@ -250,7 +270,7 @@ namespace PeopleWithResearch
                     Login.IsEnabled = true;
                     isawait = false;
                     await LoadING(false);
-                    await DisplayAlert("Withdrawn from Study", "You have withdrawn from the study and can no longer access your account", "OK");             
+                    await DisplayAlert(LocalizationManager.Get("Login_WithdrawnTitle"), LocalizationManager.Get("Login_WithdrawnMsg"), LocalizationManager.Get("Common_OK"));             
                     return;
                 }
 
@@ -260,7 +280,7 @@ namespace PeopleWithResearch
 
                 if (passwordtocompare != userpassword)
                 {
-                    passhelper.ErrorText = "Password Incorrect, Try Again";
+                    passhelper.ErrorText = LocalizationManager.Get("Login_PasswordIncorrect");
                     passhelper.HasError = true;
                     Vibration.Vibrate();
                     passwordentry.Focus();

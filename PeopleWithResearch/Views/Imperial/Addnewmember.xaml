@@ -3,8 +3,10 @@
     x:Class="PeopleWithResearch.Addnewmember"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:loc="clr-namespace:PeopleWithResearch"
     xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     BackgroundColor="White"
     NavigationPage.HasBackButton="True"
     NavigationPage.HasNavigationBar="True"
@@ -22,7 +24,7 @@
                 HorizontalOptions="Start"
                 HorizontalTextAlignment="Start"
                 LineBreakMode="WordWrap"
-                Text="Add New Member"
+                Text="{loc:Localize Key=Common_AddNewMember}"
                 TextColor="#031926" />
 
 
@@ -33,7 +35,7 @@
                 HorizontalOptions="Start"
                 HorizontalTextAlignment="Start"
                 LineBreakMode="WordWrap"
-                Text="Add details about your family member to add them to the study"
+                Text="{loc:Localize Key=AddMember_Subtitle}"
                 TextColor="#777777" />
 
 
@@ -77,7 +79,7 @@
                             FontFamily="OpenSansSemiBold"
                             FontSize="15"
                             HorizontalOptions="Start"
-                            Text="Household member's name"
+                            Text="{loc:Localize Key=AddMember_MemberNameLabel}"
                             TextColor="#031926" />
                         <Label
                             Grid.Row="1"
@@ -86,7 +88,7 @@
                             FontFamily="OpenSansSemiBold"
                             FontSize="12"
                             HorizontalOptions="Start"
-                            Text="Enter their first and last name"
+                            Text="{loc:Localize Key=AddMember_MemberNameHint}"
                             TextColor="#777777" />
 
 
@@ -134,7 +136,7 @@
                             FontSize="15"
                             HorizontalOptions="Start"
                             IsVisible="False"
-                            Text="Last Name"
+                            Text="{loc:Localize Key=AddMember_LastName}"
                             TextColor="#031926" />
 
                         <inputLayout:SfTextInputLayout
@@ -206,7 +208,7 @@
                             FontSize="15"
                             HorizontalOptions="Start"
                             LineBreakMode="WordWrap"
-                            Text="Will they use their own phone for the study?"
+                            Text="{loc:Localize Key=AddMember_OwnPhoneQuestion}"
                             TextColor="#031926" />
                         <Label
                             Grid.Row="1"
@@ -215,7 +217,7 @@
                             FontSize="12"
                             HorizontalOptions="Start"
                             LineBreakMode="WordWrap"
-                            Text="This helps us set up the right kind of profile for them"
+                            Text="{loc:Localize Key=AddMember_OwnPhoneSubtitle}"
                             TextColor="#777777" />
                         <VerticalStackLayout
                             Grid.Row="2"
@@ -226,14 +228,14 @@
                                 FontFamily="OpenSansSemiBold"
                                 FontSize="13"
                                 LineBreakMode="WordWrap"
-                                Text="If yes — they set up their own account"
+                                Text="{loc:Localize Key=AddMember_YesOwnAccount}"
                                 TextColor="#009FE3" />
                             <Label
                                 FontFamily="OpenSansRegular"
                                 FontSize="11"
                                 LineBreakMode="WordWrap"
                                 LineHeight="1.3"
-                                Text="We'll need an email address so they can download the app, verify their identity, and complete their own daily questionnaires and samples."
+                                Text="{loc:Localize Key=AddMember_YesOwnAccountDetail}"
                                 TextColor="#031926" />
                         </VerticalStackLayout>
                         <VerticalStackLayout
@@ -245,14 +247,14 @@
                                 FontFamily="OpenSansSemiBold"
                                 FontSize="13"
                                 LineBreakMode="WordWrap"
-                                Text="If no — you manage this profile for them"
+                                Text="{loc:Localize Key=AddMember_NoManageProfile}"
                                 TextColor="#009FE3" />
                             <Label
                                 FontFamily="OpenSansRegular"
                                 FontSize="11"
                                 LineBreakMode="WordWrap"
                                 LineHeight="1.3"
-                                Text="You'll complete their daily questionnaires and update their details on their behalf. No email address is needed — you can switch to their profile at any time."
+                                Text="{loc:Localize Key=AddMember_NoManageProfileDetail}"
                                 TextColor="#031926" />
                         </VerticalStackLayout>
                         <syncfusion:SfListView
@@ -327,7 +329,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="False"
-                            Text="Select an option"
+                            Text="{loc:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </Grid>
 
@@ -344,7 +346,7 @@
                         HorizontalOptions="Start"
                         IsVisible="False"
                         LineBreakMode="WordWrap"
-                        Text="Email address"
+                        Text="{loc:Localize Key=AddMember_EmailLabel}"
                         TextColor="#031926" />
                     <Label
                         x:Name="email2lbl"
@@ -357,7 +359,7 @@
                         HorizontalOptions="Start"
                         IsVisible="False"
                         LineBreakMode="WordWrap"
-                        Text="Used to set up their own account and send communications"
+                        Text="{loc:Localize Key=AddMember_EmailHint}"
                         TextColor="#777777" />
 
 
@@ -414,7 +416,7 @@
                         HorizontalOptions="Start"
                         HorizontalTextAlignment="Start"
                         LineBreakMode="WordWrap"
-                        Text="Age of member"
+                        Text="{loc:Localize Key=AddMember_AgeLabel}"
                         TextColor="#031926" />
 
                     <Label
@@ -427,7 +429,7 @@
                         HorizontalOptions="Start"
                         HorizontalTextAlignment="Start"
                         LineBreakMode="WordWrap"
-                        Text="Please select age of member"
+                        Text="{loc:Localize Key=AddMember_AgeHint}"
                         TextColor="#777777" />
 
 
@@ -539,7 +541,7 @@
                         FontSize="10"
                         HorizontalOptions="End"
                         IsVisible="False"
-                        Text="Select an option"
+                        Text="{loc:Localize Key=Common_SelectAnOption}"
                         TextColor="Red" />
 
 
@@ -554,7 +556,7 @@
                         HorizontalOptions="Start"
                         HorizontalTextAlignment="Start"
                         LineBreakMode="WordWrap"
-                        Text="Relation of member"
+                        Text="{loc:Localize Key=AddMember_RelationLabel}"
                         TextColor="#031926" />
 
                     <Label
@@ -567,7 +569,7 @@
                         HorizontalOptions="Start"
                         HorizontalTextAlignment="Start"
                         LineBreakMode="WordWrap"
-                        Text="Please select relation of member"
+                        Text="{loc:Localize Key=AddMember_RelationHint}"
                         TextColor="#777777" />
 
                     <syncfusion:SfListView
@@ -678,7 +680,7 @@
                         FontSize="10"
                         HorizontalOptions="End"
                         IsVisible="False"
-                        Text="Select an option"
+                        Text="{loc:Localize Key=Common_SelectAnOption}"
                         TextColor="Red" />
 
 
@@ -720,7 +722,7 @@
                                         <Span
                                             FontFamily="OpenSansRegular"
                                             FontSize="12"
-                                            Text="Please check the box to confirm you have permission to provide communication details for this member of your household"
+                                            Text="{loc:Localize Key=AddMember_PermissionCheck}"
                                             TextColor="#031926" />
                                     </FormattedString>
                                 </Label.FormattedText>
@@ -738,7 +740,7 @@
                         FontSize="10"
                         HorizontalOptions="End"
                         IsVisible="False"
-                        Text="Please agree to terms"
+                        Text="{loc:Localize Key=AddMember_AgreeTerms}"
                         TextColor="Red" />
 
                 </Grid>
@@ -755,10 +757,9 @@
                 Clicked="Button_Clicked"
                 FontAttributes="Bold"
                 FontFamily="OpenSansSemiBold"
-                FontSize="14"
+                FontSize="14" TextColor="White"
                 HorizontalOptions="FillAndExpand"
-                Text="Add New Member"
-                TextColor="White"
+                Text="{loc:Localize Key=Common_AddNewMember}"
                 VerticalOptions="Fill" />
 
         </VerticalStackLayout>
