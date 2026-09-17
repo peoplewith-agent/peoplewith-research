@@ -1,5 +1,4 @@
 using System.Globalization;
-using PeopleWithResearch.Resources.Strings;
 
 namespace PeopleWithResearch;
 

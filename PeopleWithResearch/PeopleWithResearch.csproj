@@ -3,14 +3,14 @@
 	<PropertyGroup>
 
 		<!-- Android Release FrameWork-->
-		<TargetFrameworks>net10.0-android</TargetFrameworks>
+		<!--<TargetFrameworks>net10.0-android</TargetFrameworks>
 		<TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('windows'))">
 			$(TargetFrameworks);net10.0-ios;net10.0-maccatalyst
-		</TargetFrameworks>
+		</TargetFrameworks>-->
 		
 		<!-- IOS Release FrameWork-->
 	 
-		<!--<TargetFrameworks>net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>-->
+		<TargetFrameworks>net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
 		
 		<!-- <RuntimeIdentifiers Condition="'$(Configuration)' == 'Release' AND $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">android-arm;android-arm64;android-x86;android-x64</RuntimeIdentifiers> -->
 

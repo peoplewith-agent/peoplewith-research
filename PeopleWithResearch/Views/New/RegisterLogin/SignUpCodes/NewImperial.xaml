@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="PeopleWithResearch.NewImperial"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:loc="clr-namespace:PeopleWithResearch"
     xmlns:converters="clr-namespace:PeopleWithResearch.Converters"
     xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
     xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
@@ -13,7 +12,6 @@
     xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     x:Name="RootPage"
     BackgroundColor="White"
     HideSoftInputOnTapped="True"
@@ -87,7 +85,6 @@
                 of OptionDetails and SelectedItem (TwoWay) to the matching Selected* property.
             -->
             <DataTemplate x:Key="OptionItemTemplate">
-                <ViewCell>
                     <Border
                         Margin="5,5,5,5"
                         Padding="20"
@@ -101,11 +98,9 @@
                             Text="{Binding Text}"
                             TextColor="Gray" />
                     </Border>
-                </ViewCell>
             </DataTemplate>
 
             <DataTemplate x:Key="OptionSelectedItemTemplate">
-                <ViewCell>
                     <Border
                         Margin="5,5,5,5"
                         Padding="20"
@@ -121,12 +116,10 @@
                             Text="{Binding Text}"
                             TextColor="#031926" />
                     </Border>
-                </ViewCell>
             </DataTemplate>
 
             <!--  Same idea for the postcode-result list, which binds line_1 instead of Text.  -->
             <DataTemplate x:Key="AddressItemTemplate">
-                <ViewCell>
                     <Border
                         Margin="0,5,5,5"
                         Padding="20"
@@ -140,11 +133,9 @@
                             Text="{Binding line_1}"
                             TextColor="Gray" />
                     </Border>
-                </ViewCell>
             </DataTemplate>
 
             <DataTemplate x:Key="AddressSelectedItemTemplate">
-                <ViewCell>
                     <Border
                         Margin="0,5,5,5"
                         Padding="20"
@@ -160,7 +151,6 @@
                             Text="{Binding line_1}"
                             TextColor="#031926" />
                     </Border>
-                </ViewCell>
             </DataTemplate>
 
             <!--
@@ -169,7 +159,6 @@
                 different binding path ("." instead of "Text").
             -->
             <DataTemplate x:Key="StringOptionItemTemplate">
-                <ViewCell>
                     <Border
                         Margin="0,5,5,5"
                         Padding="10,18"
@@ -185,11 +174,9 @@
                             TextColor="Gray"
                             VerticalOptions="Center" />
                     </Border>
-                </ViewCell>
             </DataTemplate>
 
             <DataTemplate x:Key="StringOptionSelectedItemTemplate">
-                <ViewCell>
                     <Border
                         Margin="0,5,5,5"
                         Padding="10"
@@ -207,12 +194,10 @@
                             TextColor="#031926"
                             VerticalOptions="Center" />
                     </Border>
-                </ViewCell>
             </DataTemplate>
 
             <!--  Same idea again for under10rolelist, whose items are SignoffOption (a "label" property, not "Text").  -->
             <DataTemplate x:Key="SignoffOptionItemTemplate">
-                <ViewCell>
                     <Border
                         Margin="5,5,5,5"
                         Padding="20"
@@ -226,11 +211,9 @@
                             Text="{Binding label}"
                             TextColor="Gray" />
                     </Border>
-                </ViewCell>
             </DataTemplate>
 
             <DataTemplate x:Key="SignoffOptionSelectedItemTemplate">
-                <ViewCell>
                     <Border
                         Margin="5,5,5,5"
                         Padding="20"
@@ -246,7 +229,6 @@
                             Text="{Binding label}"
                             TextColor="#031926" />
                     </Border>
-                </ViewCell>
             </DataTemplate>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -289,7 +271,7 @@
                     <Label
                         FontFamily="OpenSansSemiBold"
                         FontSize="18"
-                        Text="{loc:Localize Key=Common_Back}"
+                        Text="{local:Localize Key=Common_Back}"
                         VerticalOptions="Center" />
                     <HorizontalStackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding BackCommand}" />
@@ -508,11 +490,12 @@
                             Margin="0,10,0,0"
                             ErrorText="{Binding EmailError}"
                             HasError="{Binding EmailError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Register_EmailHelperText}"
                             Hint="Email Address"
                             HintLabelStyle="{StaticResource SharedHintLabelStyle}"
                             IsVisible="{Binding IsEmailFieldVisible}"
-                            ShowHint="False">
+                            ShowHint="False"
+                            HelperText="{local:Localize Key=Register_EmailHelperText}"
+                            ShowHelperText="True">
                             <Entry
                                 FontFamily="OpenSansRegular"
                                 FontSize="14"
@@ -550,7 +533,7 @@
                             FontSize="12"
                             HorizontalOptions="Start"
                             IsVisible="{Binding IsPasswordFieldVisible}"
-                            Text="{loc:Localize Key=Register_PasswordMustContain}"
+                            Text="{local:Localize Key=Register_PasswordMustContain}"
                             TextColor="#777777"
                             VerticalOptions="Center" />
 
@@ -573,7 +556,7 @@
                                 FontSize="12"
                                 HorizontalOptions="Start"
                                 Opacity="{Binding PasswordHasMinLength, Converter={StaticResource BoolToOpacityConverter}}"
-                                Text="{loc:Localize Key=Register_PwMinChars}"
+                                Text="{local:Localize Key=Register_PwMinChars}"
                                 TextColor="#031926"
                                 VerticalOptions="Center" />
 
@@ -592,7 +575,7 @@
                                 FontSize="12"
                                 HorizontalOptions="Start"
                                 Opacity="{Binding PasswordHasSpecialChar, Converter={StaticResource BoolToOpacityConverter}}"
-                                Text="{loc:Localize Key=Register_PwSpecialChar}"
+                                Text="{local:Localize Key=Register_PwSpecialChar}"
                                 TextColor="#031926"
                                 VerticalOptions="Center" />
 
@@ -611,7 +594,7 @@
                                 FontSize="12"
                                 HorizontalOptions="Start"
                                 Opacity="{Binding PasswordHasCapital, Converter={StaticResource BoolToOpacityConverter}}"
-                                Text="{loc:Localize Key=Register_PwCapital}"
+                                Text="{local:Localize Key=Register_PwCapital}"
                                 TextColor="#031926"
                                 VerticalOptions="Center" />
 
@@ -630,7 +613,7 @@
                                 FontSize="12"
                                 HorizontalOptions="Start"
                                 Opacity="{Binding PasswordHasNumber, Converter={StaticResource BoolToOpacityConverter}}"
-                                Text="{loc:Localize Key=Register_PwNumber}"
+                                Text="{local:Localize Key=Register_PwNumber}"
                                 TextColor="#031926"
                                 VerticalOptions="Center" />
                         </Grid>
@@ -695,7 +678,7 @@
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             HorizontalOptions="Fill"
-                            Text="{loc:Localize Key=Register_CheckPostcode}"
+                            Text="{local:Localize Key=Register_CheckPostcode}"
                             TextColor="#031926" />
 
                         <VerticalStackLayout
@@ -721,7 +704,7 @@
                                 FontAttributes="Bold"
                                 FontSize="18"
                                 HorizontalTextAlignment="Center"
-                                Text="{loc:Localize Key=Register_PostcodeNoResults}"
+                                Text="{local:Localize Key=Register_PostcodeNoResults}"
                                 TextColor="#031926" />
                             <Label
                                 FontFamily="OpenSansRegular"
@@ -729,7 +712,7 @@
                                 HorizontalTextAlignment="Center"
                                 LineBreakMode="WordWrap"
                                 MaximumWidthRequest="250"
-                                Text="{loc:Localize Key=Register_PostcodeNoResultsMsg}"
+                                Text="{local:Localize Key=Register_PostcodeNoResultsMsg}"
                                 TextColor="#62727B" />
                         </VerticalStackLayout>
 
@@ -784,7 +767,7 @@
                             FontFamily="OpenSansSemiBold"
                             HorizontalOptions="Fill"
                             IsVisible="{Binding IsClearAddressButtonVisible}"
-                            Text="{loc:Localize Key=Register_ClearAddress}"
+                            Text="{local:Localize Key=Register_ClearAddress}"
                             TextColor="Red" />
 
                         <syncfusion:SfListView
@@ -910,7 +893,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding GenderListError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <inputLayout:SfTextInputLayout
@@ -966,7 +949,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding GenderMatchListError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -990,7 +973,7 @@
                             TextColor="#009fe3"
                             TextDecorations="Underline">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding SexHelpText}" CommandParameter="{Binding GenderIdentityHelpText}" />
+                                <TapGestureRecognizer Command="{Binding ShowInfoCommand}" CommandParameter="{Binding GenderIdentityHelpText}" />
                             </Label.GestureRecognizers>
                         </Label>
 
@@ -1020,7 +1003,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding GenderIdentityError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -1077,7 +1060,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding BornInUkError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -1116,7 +1099,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding MoveToUkError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -1159,7 +1142,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding CountryOfOriginError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -1232,7 +1215,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding EthnicityListError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -1250,7 +1233,7 @@
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"
                             LineBreakMode="WordWrap"
-                            Text="{loc:Localize Key=Register_SkipQuestion}"
+                            Text="{local:Localize Key=Register_SkipQuestion}"
                             TextColor="#777777" />
 
                         <inputLayout:SfTextInputLayout Margin="0,0,0,0">
@@ -1303,12 +1286,12 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding WeightListError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <inputLayout:SfTextInputLayout
                             Margin="5,0,5,0"
-                            ErrorText="{loc:Localize Key=Register_AddValue}"
+                            ErrorText="{local:Localize Key=Register_AddValue}"
                             HasError="{Binding WeightHasError}"
                             IsVisible="{Binding IsWeightEntryVisible}">
                             <Grid ColumnDefinitions="*,Auto">
@@ -1370,12 +1353,12 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding HeightListError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <inputLayout:SfTextInputLayout
                             Margin="5,0,5,0"
-                            ErrorText="{loc:Localize Key=Register_AddValue}"
+                            ErrorText="{local:Localize Key=Register_AddValue}"
                             HasError="{Binding HeightHasError}"
                             IsVisible="{Binding IsFeetInchesVisible}">
                             <Grid ColumnDefinitions="*,Auto,*,Auto" ColumnSpacing="5">
@@ -1396,7 +1379,7 @@
                                     FontFamily="OpenSansSemiBold"
                                     FontSize="20"
                                     HorizontalOptions="End"
-                                    Text="{loc:Localize Key=Register_HeightFt}"
+                                    Text="{local:Localize Key=Register_HeightFt}"
                                     TextColor="#031926"
                                     VerticalOptions="Center" />
                                 <Entry
@@ -1416,7 +1399,7 @@
                                     FontFamily="OpenSansSemiBold"
                                     FontSize="20"
                                     HorizontalOptions="End"
-                                    Text="{loc:Localize Key=Register_HeightIn}"
+                                    Text="{local:Localize Key=Register_HeightIn}"
                                     TextColor="#031926"
                                     VerticalOptions="Center" />
                             </Grid>
@@ -1424,7 +1407,7 @@
 
                         <inputLayout:SfTextInputLayout
                             Margin="5,0,5,0"
-                            ErrorText="{loc:Localize Key=Register_AddValue}"
+                            ErrorText="{local:Localize Key=Register_AddValue}"
                             HasError="{Binding HeightCmHasError}"
                             IsVisible="{Binding IsHeightCmVisible}">
                             <Grid ColumnDefinitions="*,Auto">
@@ -1446,7 +1429,7 @@
                                     FontFamily="OpenSansSemiBold"
                                     FontSize="20"
                                     HorizontalOptions="End"
-                                    Text="{loc:Localize Key=Register_HeightCm}"
+                                    Text="{local:Localize Key=Register_HeightCm}"
                                     TextColor="#031926"
                                     VerticalOptions="Center" />
                             </Grid>
@@ -1488,7 +1471,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding StepsError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -1541,7 +1524,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding GymError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -1570,12 +1553,12 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="15"
-                                            Text="{loc:Localize Key=Register_AddHouseholdMember}"
+                                            Text="{local:Localize Key=Register_AddHouseholdMember}"
                                             TextColor="#031926" />
                                         <Label
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="14"
-                                            Text="{loc:Localize Key=Register_AddHouseholdMemberSub}"
+                                            Text="{local:Localize Key=Register_AddHouseholdMemberSub}"
                                             TextColor="#777777" />
                                     </StackLayout>
                                 </Grid>
@@ -1583,7 +1566,7 @@
                                 <BoxView
                                     BackgroundColor="#009FE3"
                                     HeightRequest="2"
-                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalOptions="Fill"
                                     IsVisible="True" />
 
                                 <StackLayout Spacing="2">
@@ -1591,18 +1574,18 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="15"
-                                        Text="{loc:Localize Key=AddMember_MemberNameLabel}"
+                                        Text="{local:Localize Key=AddMember_MemberNameLabel}"
                                         TextColor="#031926" />
                                     <Label
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{loc:Localize Key=AddMember_MemberNameHint}"
+                                        Text="{local:Localize Key=AddMember_MemberNameHint}"
                                         TextColor="#777777" />
                                     <Grid ColumnDefinitions="50*,50*">
                                         <inputLayout:SfTextInputLayout
                                             Grid.Column="0"
                                             Margin="0,0,10,0"
-                                            ErrorText="{loc:Localize Key=Register_Required}"
+                                            ErrorText="{local:Localize Key=Register_Required}"
                                             HasError="{Binding FirstNameError, Converter={StaticResource StringNotEmptyToBoolConverter}}">
                                             <Entry
                                                 FontFamily="OpenSansRegular"
@@ -1617,7 +1600,7 @@
                                         <inputLayout:SfTextInputLayout
                                             Grid.Column="1"
                                             Margin="10,0,0,0"
-                                            ErrorText="{loc:Localize Key=Register_Required}"
+                                            ErrorText="{local:Localize Key=Register_Required}"
                                             HasError="{Binding SurnameError, Converter={StaticResource StringNotEmptyToBoolConverter}}">
                                             <Entry
                                                 FontFamily="OpenSansRegular"
@@ -1638,13 +1621,13 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="15"
                                         LineBreakMode="WordWrap"
-                                        Text="{loc:Localize Key=AddMember_OwnPhoneQuestion}"
+                                        Text="{local:Localize Key=AddMember_OwnPhoneQuestion}"
                                         TextColor="#031926" />
                                     <Label
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
                                         LineBreakMode="WordWrap"
-                                        Text="{loc:Localize Key=AddMember_OwnPhoneSubtitle}"
+                                        Text="{local:Localize Key=AddMember_OwnPhoneSubtitle}"
                                         TextColor="#777777" />
 
                                     <Label
@@ -1658,12 +1641,12 @@
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
                                                     FontSize="14"
-                                                    Text="{loc:Localize Key=Register_IfYes}"
+                                                    Text="{local:Localize Key=Register_IfYes}"
                                                     TextColor="#009FE3" />
                                                 <Span
                                                     FontFamily="OpenSansRegular"
                                                     FontSize="12"
-                                                    Text="{loc:Localize Key=Register_IfYesDetail}"
+                                                    Text="{local:Localize Key=Register_IfYesDetail}"
                                                     TextColor="#031926" />
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -1678,12 +1661,12 @@
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
                                                     FontSize="14"
-                                                    Text="{loc:Localize Key=Register_IfNo}"
+                                                    Text="{local:Localize Key=Register_IfNo}"
                                                     TextColor="#009FE3" />
                                                 <Span
                                                     FontFamily="OpenSansRegular"
                                                     FontSize="12"
-                                                    Text="{loc:Localize Key=Register_IfNoDetail}"
+                                                    Text="{local:Localize Key=Register_IfNoDetail}"
                                                     TextColor="#031926" />
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -1693,14 +1676,14 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="13"
-                                            Text="{loc:Localize Key=AddMember_YesOwnAccount}"
+                                            Text="{local:Localize Key=AddMember_YesOwnAccount}"
                                             TextColor="#009FE3" />
                                         <Label
                                             FontFamily="OpenSansRegular"
                                             FontSize="11"
                                             LineBreakMode="WordWrap"
                                             LineHeight="1.3"
-                                            Text="{loc:Localize Key=AddMember_YesOwnAccountDetail}"
+                                            Text="{local:Localize Key=AddMember_YesOwnAccountDetail}"
                                             TextColor="#031926" />
                                     </VerticalStackLayout>
                                     <VerticalStackLayout Spacing="2">
@@ -1708,14 +1691,14 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="13"
-                                            Text="{loc:Localize Key=AddMember_NoManageProfile}"
+                                            Text="{local:Localize Key=AddMember_NoManageProfile}"
                                             TextColor="#009FE3" />
                                         <Label
                                             FontFamily="OpenSansRegular"
                                             FontSize="11"
                                             LineBreakMode="WordWrap"
                                             LineHeight="1.3"
-                                            Text="{loc:Localize Key=AddMember_NoManageProfileDetail}"
+                                            Text="{local:Localize Key=AddMember_NoManageProfileDetail}"
                                             TextColor="#031926" />
                                     </VerticalStackLayout>-->
                                     <syncfusion:SfListView
@@ -1741,7 +1724,7 @@
                                         FontSize="10"
                                         HorizontalOptions="End"
                                         IsVisible="{Binding PhoneError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                                        Text="{loc:Localize Key=Common_SelectAnOption}"
+                                        Text="{local:Localize Key=Common_SelectAnOption}"
                                         TextColor="Red" />
                                 </StackLayout>
 
@@ -1753,14 +1736,14 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="15"
-                                        Text="{loc:Localize Key=AddMember_EmailLabel}"
+                                        Text="{local:Localize Key=AddMember_EmailLabel}"
                                         TextColor="#031926" />
                                     <Label
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{loc:Localize Key=AddMember_EmailHint}"
+                                        Text="{local:Localize Key=AddMember_EmailHint}"
                                         TextColor="#777777" />
-                                    <inputLayout:SfTextInputLayout ErrorText="{loc:Localize Key=Register_Required}" HasError="{Binding EmailError, Converter={StaticResource StringNotEmptyToBoolConverter}}">
+                                    <inputLayout:SfTextInputLayout ErrorText="{local:Localize Key=Register_Required}" HasError="{Binding EmailError, Converter={StaticResource StringNotEmptyToBoolConverter}}">
                                         <Entry
                                             FontFamily="OpenSansRegular"
                                             FontSize="14"
@@ -1777,12 +1760,12 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="15"
-                                        Text="{loc:Localize Key=AddMember_AgeLabel}"
+                                        Text="{local:Localize Key=AddMember_AgeLabel}"
                                         TextColor="#031926" />
                                     <Label
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{loc:Localize Key=AddMember_AgeHint}"
+                                        Text="{local:Localize Key=AddMember_AgeHint}"
                                         TextColor="#777777" />
                                     <syncfusion:SfListView
                                         AutoFitMode="Height"
@@ -1806,7 +1789,7 @@
                                         FontSize="10"
                                         HorizontalOptions="End"
                                         IsVisible="{Binding AgeError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                                        Text="{loc:Localize Key=Common_SelectAnOption}"
+                                        Text="{local:Localize Key=Common_SelectAnOption}"
                                         TextColor="Red" />
                                 </StackLayout>
 
@@ -1815,12 +1798,12 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="15"
-                                        Text="{loc:Localize Key=AddMember_RelationLabel}"
+                                        Text="{local:Localize Key=AddMember_RelationLabel}"
                                         TextColor="#031926" />
                                     <Label
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{loc:Localize Key=AddMember_RelationHint}"
+                                        Text="{local:Localize Key=AddMember_RelationHint}"
                                         TextColor="#777777" />
                                     <!--  First Member  -->
                                     <syncfusion:SfListView
@@ -1845,15 +1828,15 @@
                                         FontSize="10"
                                         HorizontalOptions="End"
                                         IsVisible="{Binding RelationshipError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                                        Text="{loc:Localize Key=Common_SelectAnOption}"
+                                        Text="{local:Localize Key=Common_SelectAnOption}"
                                         TextColor="Red" />
                                 </StackLayout>
 
-                                <Image
+                                <!-- <Image
                                     HeightRequest="25"
                                     HorizontalOptions="End"
                                     Source="newprofileicon.png"
-                                    WidthRequest="25" />
+                                    WidthRequest="25" /> -->
 
                                 <Border
                                     Padding="10,4"
@@ -1868,7 +1851,7 @@
                                             Grid.Column="0"
                                             FontSize="12"
                                             LineBreakMode="WordWrap"
-                                            Text="{loc:Localize Key=AddMember_PermissionCheck}"
+                                            Text="{local:Localize Key=AddMember_PermissionCheck}"
                                             TextColor="#031926"
                                             VerticalOptions="Center" />
                                         <CheckBox
@@ -1884,7 +1867,7 @@
                                     FontSize="10"
                                     HorizontalOptions="End"
                                     IsVisible="{Binding ConsentError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                                    Text="{loc:Localize Key=AddMember_AgreeTerms}"
+                                    Text="{local:Localize Key=AddMember_AgreeTerms}"
                                     TextColor="Red" />
                             </StackLayout>
                         </Border>
@@ -1910,37 +1893,37 @@
                                             FontAttributes="Bold"
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="15"
-                                            Text="{loc:Localize Key=Register_AddHouseholdMember}"
+                                            Text="{local:Localize Key=Register_AddHouseholdMember}"
                                             TextColor="#031926" />
                                         <Label
                                             FontFamily="OpenSansSemiBold"
                                             FontSize="14"
-                                            Text="{loc:Localize Key=Register_AddHouseholdMemberSub}"
+                                            Text="{local:Localize Key=Register_AddHouseholdMemberSub}"
                                             TextColor="#777777" />
                                     </StackLayout>
                                 </Grid>
                                 <BoxView
                                     BackgroundColor="#009FE3"
                                     HeightRequest="2"
-                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalOptions="Fill"
                                     IsVisible="True" />
                                 <StackLayout Spacing="2">
                                     <Label
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="15"
-                                        Text="{loc:Localize Key=AddMember_MemberNameLabel}"
+                                        Text="{local:Localize Key=AddMember_MemberNameLabel}"
                                         TextColor="#031926" />
                                     <Label
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{loc:Localize Key=AddMember_MemberNameHint}"
+                                        Text="{local:Localize Key=AddMember_MemberNameHint}"
                                         TextColor="#777777" />
                                     <Grid ColumnDefinitions="50*,50*">
                                         <inputLayout:SfTextInputLayout
                                             Grid.Column="0"
                                             Margin="0,0,10,0"
-                                            ErrorText="{loc:Localize Key=Register_Required}"
+                                            ErrorText="{local:Localize Key=Register_Required}"
                                             HasError="{Binding FirstNameError, Converter={StaticResource StringNotEmptyToBoolConverter}}">
                                             <Entry
                                                 FontFamily="OpenSansRegular"
@@ -1955,7 +1938,7 @@
                                         <inputLayout:SfTextInputLayout
                                             Grid.Column="1"
                                             Margin="10,0,0,0"
-                                            ErrorText="{loc:Localize Key=Register_Required}"
+                                            ErrorText="{local:Localize Key=Register_Required}"
                                             HasError="{Binding SurnameError, Converter={StaticResource StringNotEmptyToBoolConverter}}">
                                             <Entry
                                                 FontFamily="OpenSansRegular"
@@ -1975,13 +1958,13 @@
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="15"
                                         LineBreakMode="WordWrap"
-                                        Text="{loc:Localize Key=AddMember_OwnPhoneQuestion}"
+                                        Text="{local:Localize Key=AddMember_OwnPhoneQuestion}"
                                         TextColor="#031926" />
                                     <Label
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
                                         LineBreakMode="WordWrap"
-                                        Text="{loc:Localize Key=AddMember_OwnPhoneSubtitle}"
+                                        Text="{local:Localize Key=AddMember_OwnPhoneSubtitle}"
                                         TextColor="#777777" />
                                     <Label
                                         Margin="0,10,0,0"
@@ -1994,12 +1977,12 @@
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
                                                     FontSize="14"
-                                                    Text="{loc:Localize Key=Register_IfYes}"
+                                                    Text="{local:Localize Key=Register_IfYes}"
                                                     TextColor="#009FE3" />
                                                 <Span
                                                     FontFamily="OpenSansRegular"
                                                     FontSize="12"
-                                                    Text="{loc:Localize Key=Register_IfYesDetail}"
+                                                    Text="{local:Localize Key=Register_IfYesDetail}"
                                                     TextColor="#031926" />
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -2014,12 +1997,12 @@
                                                     FontAttributes="Bold"
                                                     FontFamily="OpenSansSemiBold"
                                                     FontSize="14"
-                                                    Text="{loc:Localize Key=Register_IfNo}"
+                                                    Text="{local:Localize Key=Register_IfNo}"
                                                     TextColor="#009FE3" />
                                                 <Span
                                                     FontFamily="OpenSansRegular"
                                                     FontSize="12"
-                                                    Text="{loc:Localize Key=Register_IfNoDetail}"
+                                                    Text="{local:Localize Key=Register_IfNoDetail}"
                                                     TextColor="#031926" />
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -2047,7 +2030,7 @@
                                         FontSize="10"
                                         HorizontalOptions="End"
                                         IsVisible="{Binding PhoneError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                                        Text="{loc:Localize Key=Common_SelectAnOption}"
+                                        Text="{local:Localize Key=Common_SelectAnOption}"
                                         TextColor="Red" />
                                 </StackLayout>
                                 <StackLayout
@@ -2058,14 +2041,14 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="15"
-                                        Text="{loc:Localize Key=AddMember_EmailLabel}"
+                                        Text="{local:Localize Key=AddMember_EmailLabel}"
                                         TextColor="#031926" />
                                     <Label
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{loc:Localize Key=AddMember_EmailHint}"
+                                        Text="{local:Localize Key=AddMember_EmailHint}"
                                         TextColor="#777777" />
-                                    <inputLayout:SfTextInputLayout ErrorText="{loc:Localize Key=Register_Required}" HasError="{Binding EmailError, Converter={StaticResource StringNotEmptyToBoolConverter}}">
+                                    <inputLayout:SfTextInputLayout ErrorText="{local:Localize Key=Register_Required}" HasError="{Binding EmailError, Converter={StaticResource StringNotEmptyToBoolConverter}}">
                                         <Entry
                                             FontFamily="OpenSansRegular"
                                             FontSize="14"
@@ -2081,12 +2064,12 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="15"
-                                        Text="{loc:Localize Key=AddMember_AgeLabel}"
+                                        Text="{local:Localize Key=AddMember_AgeLabel}"
                                         TextColor="#031926" />
                                     <Label
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{loc:Localize Key=AddMember_AgeHint}"
+                                        Text="{local:Localize Key=AddMember_AgeHint}"
                                         TextColor="#777777" />
                                     <syncfusion:SfListView
                                         AutoFitMode="Height"
@@ -2110,7 +2093,7 @@
                                         FontSize="10"
                                         HorizontalOptions="End"
                                         IsVisible="{Binding AgeError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                                        Text="{loc:Localize Key=Common_SelectAnOption}"
+                                        Text="{local:Localize Key=Common_SelectAnOption}"
                                         TextColor="Red" />
                                 </StackLayout>
                                 <StackLayout Spacing="2">
@@ -2118,12 +2101,12 @@
                                         FontAttributes="Bold"
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="15"
-                                        Text="{loc:Localize Key=AddMember_RelationLabel}"
+                                        Text="{local:Localize Key=AddMember_RelationLabel}"
                                         TextColor="#031926" />
                                     <Label
                                         FontFamily="OpenSansSemiBold"
                                         FontSize="12"
-                                        Text="{loc:Localize Key=AddMember_RelationHint}"
+                                        Text="{local:Localize Key=AddMember_RelationHint}"
                                         TextColor="#777777" />
                                     <syncfusion:SfListView
                                         AutoFitMode="Height"
@@ -2147,14 +2130,14 @@
                                         FontSize="10"
                                         HorizontalOptions="End"
                                         IsVisible="{Binding RelationshipError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                                        Text="{loc:Localize Key=Common_SelectAnOption}"
+                                        Text="{local:Localize Key=Common_SelectAnOption}"
                                         TextColor="Red" />
                                 </StackLayout>
-                                <Image
+                                <!-- <Image
                                     HeightRequest="25"
                                     HorizontalOptions="End"
                                     Source="newprofileicon.png"
-                                    WidthRequest="25" />
+                                    WidthRequest="25" /> -->
                                 <Border
                                     Padding="10,4"
                                     IsVisible="{Binding IsConsentVisible}"
@@ -2168,7 +2151,7 @@
                                             Grid.Column="0"
                                             FontSize="12"
                                             LineBreakMode="WordWrap"
-                                            Text="{loc:Localize Key=AddMember_PermissionCheck}"
+                                            Text="{local:Localize Key=AddMember_PermissionCheck}"
                                             TextColor="#031926"
                                             VerticalOptions="Center" />
                                         <CheckBox
@@ -2184,7 +2167,7 @@
                                     FontSize="10"
                                     HorizontalOptions="End"
                                     IsVisible="{Binding ConsentError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                                    Text="{loc:Localize Key=AddMember_AgreeTerms}"
+                                    Text="{local:Localize Key=AddMember_AgreeTerms}"
                                     TextColor="Red" />
                             </StackLayout>
                         </Border>
@@ -2241,7 +2224,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding EducationError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -2291,7 +2274,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding SituationError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -2331,7 +2314,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding WorkTypeError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -2354,7 +2337,7 @@
                             LineBreakMode="WordWrap"
                             Text="{Binding PeopleSubLabel}"
                             TextColor="#777777" />
-                        <inputLayout:SfTextInputLayout ErrorText="{loc:Localize Key=Register_EnterValue}" HasError="{Binding PeopleError}">
+                        <inputLayout:SfTextInputLayout ErrorText="{local:Localize Key=Register_EnterValue}" HasError="{Binding PeopleError}">
                             <Entry
                                 FontFamily="OpenSansRegular"
                                 FontSize="14"
@@ -2386,7 +2369,7 @@
                             LineBreakMode="WordWrap"
                             Text="{Binding RoomsSubLabel}"
                             TextColor="#777777" />
-                        <inputLayout:SfTextInputLayout ErrorText="{loc:Localize Key=Register_EnterValue}" HasError="{Binding RoomsError}">
+                        <inputLayout:SfTextInputLayout ErrorText="{local:Localize Key=Register_EnterValue}" HasError="{Binding RoomsError}">
                             <Entry
                                 FontFamily="OpenSansRegular"
                                 FontSize="14"
@@ -2418,7 +2401,7 @@
                             LineBreakMode="WordWrap"
                             Text="{Binding SharedBathroomsSubLabel}"
                             TextColor="#777777" />
-                        <inputLayout:SfTextInputLayout ErrorText="{loc:Localize Key=Register_EnterValue}" HasError="{Binding BathroomsError}">
+                        <inputLayout:SfTextInputLayout ErrorText="{local:Localize Key=Register_EnterValue}" HasError="{Binding BathroomsError}">
                             <Entry
                                 FontFamily="OpenSansRegular"
                                 FontSize="14"
@@ -2466,7 +2449,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding VentilationError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -2501,7 +2484,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding MouldError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -2610,7 +2593,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding GpRegisteredError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -2727,7 +2710,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding GpAddressError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -2766,7 +2749,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding CoughError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -2821,7 +2804,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding HospitalError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -2844,7 +2827,7 @@
                             TextColor="#777777" />
                         <inputLayout:SfTextInputLayout
                             Margin="0,10,0,0"
-                            ErrorText="{loc:Localize Key=Register_EnterValue}"
+                            ErrorText="{local:Localize Key=Register_EnterValue}"
                             HasError="{Binding InfectionYearError}"
                             IsVisible="{Binding IsInfectionDetailVisible}">
                             <Entry
@@ -2896,7 +2879,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding VentilatorError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -2942,7 +2925,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding HcGateError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -3098,7 +3081,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding OtherHcError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -3135,7 +3118,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding BodyPartError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -3205,7 +3188,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding CancerError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -3242,7 +3225,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding CancerNowError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -3288,7 +3271,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding MedynGateError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -3444,7 +3427,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding OtherMedError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -3527,7 +3510,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding FluGateError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -3689,7 +3672,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding DietError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -3726,7 +3709,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding DietLengthError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -3770,7 +3753,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding SupplementsError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -3816,7 +3799,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding TakeError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -3863,7 +3846,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding ExtraError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -3902,7 +3885,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding MenstrualError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -3941,7 +3924,7 @@
                             TextColor="#031926" />
                         <inputLayout:SfTextInputLayout
                             Margin="0,10,0,0"
-                            ErrorText="{loc:Localize Key=Register_EnterValue}"
+                            ErrorText="{local:Localize Key=Register_EnterValue}"
                             HasError="{Binding DeliveryDateError}"
                             IsVisible="{Binding IsDeliveryDateVisible}">
                             <Entry
@@ -4004,7 +3987,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding MobilityError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4048,7 +4031,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding SelfCareError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4092,7 +4075,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding UsualActivitiesError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4136,7 +4119,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding PainError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4180,7 +4163,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding AnxietyDepressionError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4266,7 +4249,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding SliderError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -4314,7 +4297,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding AdditionalQError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -4362,7 +4345,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding AntiviralHeardError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4399,7 +4382,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding AntiviralPrescribedError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4434,7 +4417,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding AntiviralHospitalError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4469,7 +4452,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding AntiviralDurationError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4504,7 +4487,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding AntiviralPreventionError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4539,7 +4522,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding AntiviralSideEffectsError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -4586,7 +4569,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding SmokeError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4624,7 +4607,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding SmokeTypesError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4638,7 +4621,7 @@
                             TextColor="#031926" />
                         <inputLayout:SfTextInputLayout
                             Margin="0,10,0,0"
-                            ErrorText="{loc:Localize Key=Register_EnterValue}"
+                            ErrorText="{local:Localize Key=Register_EnterValue}"
                             HasError="{Binding SmokeStartAgeError}"
                             IsVisible="{Binding IsSmokeDetailVisible}">
                             <Entry
@@ -4690,7 +4673,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding SmokeCurrentError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4704,7 +4687,7 @@
                             TextColor="#031926" />
                         <inputLayout:SfTextInputLayout
                             Margin="0,10,0,0"
-                            ErrorText="{loc:Localize Key=Register_EnterValue}"
+                            ErrorText="{local:Localize Key=Register_EnterValue}"
                             HasError="{Binding SmokeStopAgeError}"
                             IsVisible="{Binding IsSmokeStopAgeVisible}">
                             <Entry
@@ -4756,7 +4739,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding SmokeFreqError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -4794,7 +4777,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding AlcoholFreqError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4831,7 +4814,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding AlcoholUnitsError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Image
@@ -4888,7 +4871,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding DrugsError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4926,7 +4909,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding WhatDrugsError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -4963,7 +4946,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding DrugsOftenError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -5000,7 +4983,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding BreathingError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -5038,7 +5021,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding SleepOnsetError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -5073,7 +5056,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding WakeError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -5108,7 +5091,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding NightsError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -5143,7 +5126,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding QualityError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -5178,7 +5161,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding MoodError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -5213,7 +5196,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding ProdError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -5248,7 +5231,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding PoorSleepError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
                         <Label
@@ -5283,7 +5266,7 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding SleepProbError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
-                            Text="{loc:Localize Key=Common_SelectAnOption}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
                     </StackLayout>
 
@@ -5368,7 +5351,7 @@
                                                                     InputTransparent="True"
                                                                     IsChecked="{Binding ChckedState, Mode=TwoWay}"
                                                                     VerticalOptions="Center"
-                                                                    Color="{StaticResource Primary}" />
+                                                                    Color="#031926" />
                                                                 <Label
                                                                     Grid.Row="0"
                                                                     Grid.Column="1"
@@ -5414,7 +5397,7 @@
                                 FontAttributes="Bold"
                                 FontFamily="OpenSansSemiBold"
                                 FontSize="16"
-                                Text="{loc:Localize Key=Register_TermsTitle}"
+                                Text="{local:Localize Key=Register_TermsTitle}"
                                 TextColor="#031926" />
 
                             <Border
@@ -5465,12 +5448,12 @@
                                                 <Span
                                                     FontFamily="OpenSansRegular"
                                                     FontSize="14"
-                                                    Text="{loc:Localize Key=Register_AgreeTerms}"
+                                                    Text="{local:Localize Key=Register_AgreeTerms}"
                                                     TextColor="#031926" />
                                                 <Span
                                                     FontFamily="OpenSansRegular"
                                                     FontSize="14"
-                                                    Text="{loc:Localize Key=Register_AgreeTermsLink}"
+                                                    Text="{local:Localize Key=Register_AgreeTermsLink}"
                                                     TextColor="#031926" />
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -5483,7 +5466,7 @@
                                 FontFamily="OpenSansSemiBold"
                                 FontSize="8"
                                 HorizontalOptions="End"
-                                Text="{loc:Localize Key=Register_Required}"
+                                Text="{local:Localize Key=Register_Required}"
                                 TextColor="#009fe3" />
 
                             <Border
@@ -5517,12 +5500,12 @@
                                                 <Span
                                                     FontFamily="OpenSansRegular"
                                                     FontSize="14"
-                                                    Text="{loc:Localize Key=Register_AgreeEmail}"
+                                                    Text="{local:Localize Key=Register_AgreeEmail}"
                                                     TextColor="#031926" />
                                                 <Span
                                                     FontFamily="OpenSansRegular"
                                                     FontSize="14"
-                                                    Text="{loc:Localize Key=Register_AgreeEmailLink}"
+                                                    Text="{local:Localize Key=Register_AgreeEmailLink}"
                                                     TextColor="#031926" />
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -5543,7 +5526,7 @@
                                 TextColor="#031926" />
                             <inputLayout:SfTextInputLayout
                                 Margin="0,10,0,0"
-                                ErrorText="{loc:Localize Key=Register_EnterFullName}"
+                                ErrorText="{local:Localize Key=Register_EnterFullName}"
                                 HasError="{Binding Under10NameError}">
                                 <Entry
                                     FontFamily="OpenSansRegular"
@@ -5588,12 +5571,12 @@
                                 FontSize="10"
                                 HorizontalOptions="End"
                                 IsVisible="{Binding Under10RoleError}"
-                                Text="{loc:Localize Key=Common_SelectAnOption}"
+                                Text="{local:Localize Key=Common_SelectAnOption}"
                                 TextColor="Red" />
 
                             <inputLayout:SfTextInputLayout
                                 Margin="0,10,0,0"
-                                ErrorText="{loc:Localize Key=Register_EnterRole}"
+                                ErrorText="{local:Localize Key=Register_EnterRole}"
                                 HasError="{Binding Under10OtherRoleError}"
                                 IsVisible="{Binding IsUnder10OtherRoleVisible}">
                                 <Entry
@@ -5619,7 +5602,7 @@
                                 TextColor="#031926" />
                             <inputLayout:SfTextInputLayout
                                 Margin="0,10,0,0"
-                                ErrorText="{loc:Localize Key=Register_EnterFullName}"
+                                ErrorText="{local:Localize Key=Register_EnterFullName}"
                                 HasError="{Binding Over16NameError}">
                                 <Entry
                                     FontFamily="OpenSansRegular"
@@ -5818,7 +5801,7 @@
                     FontFamily="OpenSansRegular"
                     FontSize="10"
                     HorizontalOptions="Center"
-                    Text="{loc:Localize Key=Common_PrivacyPolicy}"
+                    Text="{local:Localize Key=Common_PrivacyPolicy}"
                     TextColor="#031926"
                     VerticalOptions="Center">
                     <Label.GestureRecognizers>

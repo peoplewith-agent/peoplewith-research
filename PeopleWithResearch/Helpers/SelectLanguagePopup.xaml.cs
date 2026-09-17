@@ -3,7 +3,6 @@ using System.Globalization;
 using CommunityToolkit.Mvvm.Messaging;
 using Mopups.Pages;
 using Mopups.Services;
-using PeopleWithResearch.Resources.Strings;
 
 namespace PeopleWithResearch;
 
