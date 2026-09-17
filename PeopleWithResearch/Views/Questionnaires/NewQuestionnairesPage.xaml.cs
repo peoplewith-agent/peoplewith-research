@@ -124,11 +124,14 @@ public partial class NewQuestionnairesPage : ContentPage
             ShowHideData(true);
             return;
         }
-        QuestionTitle.Text = questionnaire?.title;
-        Questiontitle.Text = questionnaire?.title;
-        QuestionDescription.Text = questionnaire?.description;
+        questionnaire?.ApplyTranslations();
+        var qid = questionnaire?.questionnaireid ?? string.Empty;
+        QuestionTitle.Text    = LocalisedTitle(qid);
+        Questiontitle.Text    = LocalisedTitle(qid);
+        QuestionDescription.Text = LocalisedDescription(qid);
         IsPrimaryUser = isPrimaryUser;
         DateTimeandCompelted.IsVisible = false;
+        ApplyButtonTranslations();
         LoadQuestionnaire();
         BindingContext = this;
     }
@@ -161,6 +164,9 @@ public partial class NewQuestionnairesPage : ContentPage
 
             foreach (var question in questionnaire.QuestionAnswerJson)
             {
+                // Apply language translations to labels, placeholders and option text
+                question.ApplyTranslations();
+
                 if (targetTypes.Contains(question.type) && (question.options == null || question.options.Length == 0))
                 {
                     question.HasAnswered = question.type == "slider";
@@ -220,12 +226,21 @@ public partial class NewQuestionnairesPage : ContentPage
                 };
             }
 
-           var Title = !string.IsNullOrEmpty(questionnaire?.title)
-                ? questionnaire?.title
+            // Apply questionnaire-level translations (title / description) before any UI assignment
+            questionnaire?.ApplyTranslations();
+
+            var rawId = !string.IsNullOrEmpty(questionnaire?.questionnaireid)
+                ? questionnaire.questionnaireid
                 : completeuserquestionnaire.questionnaireid;
 
+            // Apply language translations before rendering the completed view
+            if (questionnaire?.QuestionAnswerJson != null)
+            {
+                foreach (var question in questionnaire.QuestionAnswerJson)
+                    question.ApplyTranslations();
+            }
 
-            QuestionTitle.Text = TitleToDisplay(Title);
+            QuestionTitle.Text = LocalisedTitle(rawId);
 
             //QuestionTitle.Text = !string.IsNullOrEmpty(questionnaire?.title)
             //    ? questionnaire?.title
@@ -343,22 +358,48 @@ public partial class NewQuestionnairesPage : ContentPage
         }
     }
 
-     private string TitleToDisplay(string currentTitle)
+    private static string LocalisedTitle(string questionnaireId)
     {
-        if (string.IsNullOrEmpty(currentTitle))
+        if (string.IsNullOrEmpty(questionnaireId))
             return string.Empty;
 
-        var match = Regex.Match(currentTitle, @"^t([1-9]|1[0-9]|2[0-8])_form$");
+        var match = Regex.Match(questionnaireId, @"^t([1-9]|1[0-9]|2[0-8])_form$", RegexOptions.IgnoreCase);
+        if (match.Success)
+            return string.Format(LocalizationManager.Get("Questionnaire_DailySymptoms_Title"), match.Groups[1].Value);
 
-        return currentTitle switch
+        var key = questionnaireId.ToUpperInvariant() switch
         {
-            "b1_samples" => "Baseline Sampling Form",
-            "b1_individual_questionnaire" => "Baseline Sampling Form",
-            "70530492-D1B8-42F5-A851-1C8769288995" => "Withdraw Form",
-            "DDD843CF-021B-4557-8824-13C5B4E2EA85" => "B1 Samples List",
-            _ when match.Success => $"Day {match.Groups[1].Value} Daily Symptoms and Samples",
-            _ => currentTitle
+            "B1_SAMPLES"                             => "Questionnaire_Baseline_Title",
+            "B1_INDIVIDUAL_QUESTIONNAIRE"            => "Questionnaire_Baseline_Title",
+            "70530492-D1B8-42F5-A851-1C8769288995"  => "Questionnaire_Withdraw_Title",
+            "DDD843CF-021B-4557-8824-13C5B4E2EA85"  => "Questionnaire_B1Samples_Title",
+            "B627DF59-7AD8-4832-A407-BF5F85BDE8E0"  => "Questionnaire_EndOfStudy_Title",
+            _ => null
         };
+
+        return key != null ? LocalizationManager.Get(key) : questionnaireId;
+    }
+
+    private static string LocalisedDescription(string questionnaireId)
+    {
+        if (string.IsNullOrEmpty(questionnaireId))
+            return string.Empty;
+
+        var match = Regex.Match(questionnaireId, @"^t([1-9]|1[0-9]|2[0-8])_form$", RegexOptions.IgnoreCase);
+        if (match.Success)
+            return LocalizationManager.Get("Questionnaire_DailySymptoms_Description");
+
+        var key = questionnaireId.ToUpperInvariant() switch
+        {
+            "B1_SAMPLES"                             => "Questionnaire_Baseline_Description",
+            "B1_INDIVIDUAL_QUESTIONNAIRE"            => "Questionnaire_Baseline_Description",
+            "70530492-D1B8-42F5-A851-1C8769288995"  => "Questionnaire_Withdraw_Description",
+            "DDD843CF-021B-4557-8824-13C5B4E2EA85"  => "Questionnaire_B1Samples_Description",
+            "B627DF59-7AD8-4832-A407-BF5F85BDE8E0"  => "Questionnaire_EndOfStudy_Description",
+            _ => null
+        };
+
+        return key != null ? LocalizationManager.Get(key) : string.Empty;
     }
 
     //private static string FixTPrefix(string id)
@@ -392,6 +433,19 @@ public partial class NewQuestionnairesPage : ContentPage
         {
             CrashDetected.LogCrash(Ex, Navigation, "ShowHideData");
         }
+    }
+
+    /// <summary>
+    /// Sets all hardcoded button and intro-popup texts to their localised equivalents.
+    /// Safe to call before <see cref="LoadQuestionnaire"/> because it only touches
+    /// named UI elements that are guaranteed to exist after <see cref="InitializeComponent"/>.
+    /// </summary>
+    private void ApplyButtonTranslations()
+    {
+        FooterBackBtn.Text       = LocalizationManager.Get("Common_Back");
+        FooterNextBtn.Text       = LocalizationManager.Get("Common_Next");
+        FooterSubmitBtn.Text     = LocalizationManager.Get("Common_SubmitQuestionnaire");
+        StartQuestionnaireBtn.Text = LocalizationManager.Get("Common_StartQuestionnaire");
     }
 
     private async Task<QuestionAnswerJson> T1QuestionnaireItemOptimized(QuestionAnswerJson symptom)

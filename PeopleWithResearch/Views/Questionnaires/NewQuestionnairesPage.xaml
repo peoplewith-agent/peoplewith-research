@@ -1034,6 +1034,7 @@
                             Text="This questionnaire helps us understand your needs. Please ensure you have a quiet environment."
                             TextColor="#5D6D7E" />
                         <Button
+                            x:Name="StartQuestionnaireBtn"
                             Margin="0,20,0,0"
                             Background="#009FE3"
                             Clicked="Button_Clicked"

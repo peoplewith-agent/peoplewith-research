@@ -133,6 +133,45 @@
   <data name="Common_Back" xml:space="preserve">
     <value>Back</value>
   </data>
+  <data name="Common_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Common_SubmitQuestionnaire" xml:space="preserve">
+    <value>Submit Questionnaire</value>
+  </data>
+  <data name="Common_StartQuestionnaire" xml:space="preserve">
+    <value>Start Questionnaire</value>
+  </data>
+  <data name="Questionnaire_Baseline_Title" xml:space="preserve">
+    <value>Baseline Sampling Form</value>
+  </data>
+  <data name="Questionnaire_Baseline_Description" xml:space="preserve">
+    <value>This questionnaire helps us understand your health at the start of the study. Please ensure you have a quiet environment.</value>
+  </data>
+  <data name="Questionnaire_Withdraw_Title" xml:space="preserve">
+    <value>Withdraw Form</value>
+  </data>
+  <data name="Questionnaire_Withdraw_Description" xml:space="preserve">
+    <value>Please complete this form to withdraw from the study.</value>
+  </data>
+  <data name="Questionnaire_B1Samples_Title" xml:space="preserve">
+    <value>B1 Samples List</value>
+  </data>
+  <data name="Questionnaire_B1Samples_Description" xml:space="preserve">
+    <value>Please follow the instructions to complete your baseline samples.</value>
+  </data>
+  <data name="Questionnaire_EndOfStudy_Title" xml:space="preserve">
+    <value>End of Study Form</value>
+  </data>
+  <data name="Questionnaire_EndOfStudy_Description" xml:space="preserve">
+    <value>Thank you for participating. Please complete this final form to conclude your involvement in the study.</value>
+  </data>
+  <data name="Questionnaire_DailySymptoms_Title" xml:space="preserve">
+    <value>Day {0} Daily Symptoms and Samples</value>
+  </data>
+  <data name="Questionnaire_DailySymptoms_Description" xml:space="preserve">
+    <value>Please record your symptoms and samples for today.</value>
+  </data>
   <data name="Common_AddNewMember" xml:space="preserve">
     <value>Add New Member</value>
   </data>

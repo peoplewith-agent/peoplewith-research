@@ -124,6 +124,45 @@
   <data name="Common_Back" xml:space="preserve">
     <value>[RO] Back</value>
   </data>
+  <data name="Common_Next" xml:space="preserve">
+    <value>Următorul</value>
+  </data>
+  <data name="Common_SubmitQuestionnaire" xml:space="preserve">
+    <value>Trimiteți chestionarul</value>
+  </data>
+  <data name="Common_StartQuestionnaire" xml:space="preserve">
+    <value>Începeți chestionarul</value>
+  </data>
+  <data name="Questionnaire_Baseline_Title" xml:space="preserve">
+    <value>Formular de prelevare de bază</value>
+  </data>
+  <data name="Questionnaire_Baseline_Description" xml:space="preserve">
+    <value>Acest chestionar ne ajută să înțelegem starea dumneavoastră de sănătate la începutul studiului. Asigurați-vă că vă aflați într-un mediu liniștit.</value>
+  </data>
+  <data name="Questionnaire_Withdraw_Title" xml:space="preserve">
+    <value>Formular de retragere</value>
+  </data>
+  <data name="Questionnaire_Withdraw_Description" xml:space="preserve">
+    <value>Completați acest formular pentru a vă retrage din studiu.</value>
+  </data>
+  <data name="Questionnaire_B1Samples_Title" xml:space="preserve">
+    <value>Lista de probe B1</value>
+  </data>
+  <data name="Questionnaire_B1Samples_Description" xml:space="preserve">
+    <value>Urmați instrucțiunile pentru a finaliza probele de bază.</value>
+  </data>
+  <data name="Questionnaire_EndOfStudy_Title" xml:space="preserve">
+    <value>Formular de sfârșit al studiului</value>
+  </data>
+  <data name="Questionnaire_EndOfStudy_Description" xml:space="preserve">
+    <value>Vă mulțumim pentru participare. Completați acest formular final pentru a încheia participarea dumneavoastră la studiu.</value>
+  </data>
+  <data name="Questionnaire_DailySymptoms_Title" xml:space="preserve">
+    <value>Ziua {0} Simptome și probe zilnice</value>
+  </data>
+  <data name="Questionnaire_DailySymptoms_Description" xml:space="preserve">
+    <value>Înregistrați simptomele și probele de astăzi.</value>
+  </data>
   <data name="Common_AddNewMember" xml:space="preserve">
     <value>[RO] Add New Member</value>
   </data>

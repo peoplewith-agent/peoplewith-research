@@ -52,6 +52,13 @@ namespace PeopleWithResearch
     }
 
 
+    public class InformationTranslation
+    {
+        public string? title { get; set; }
+        public string? description { get; set; }
+        public string? link { get; set; }
+    }
+
     public class InformationDetails
     {
         public string? title { get; set; }
@@ -62,9 +69,43 @@ namespace PeopleWithResearch
 
         public string? img { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("translations")]
+        public Dictionary<string, InformationTranslation>? translations { get; set; }
 
         [System.Text.Json.Serialization.JsonIgnore]
         public string ColorTheme { get; set; }
+
+        /// <summary>
+        /// Returns the localised title, falling back to the base title.
+        /// </summary>
+        [System.Text.Json.Serialization.JsonIgnore]
+        [Newtonsoft.Json.JsonIgnore]
+        public string? LocalisedTitle => GetLocalised(t => t.title) ?? title;
+
+        /// <summary>
+        /// Returns the localised description, falling back to the base description.
+        /// </summary>
+        [System.Text.Json.Serialization.JsonIgnore]
+        [Newtonsoft.Json.JsonIgnore]
+        public string? LocalisedDescription => GetLocalised(t => t.description) ?? description;
+
+        /// <summary>
+        /// Returns the localised link, falling back to the base link.
+        /// </summary>
+        [System.Text.Json.Serialization.JsonIgnore]
+        [Newtonsoft.Json.JsonIgnore]
+        public string? LocalisedLink => GetLocalised(t => t.link) ?? link;
+
+        private string? GetLocalised(Func<InformationTranslation, string?> selector)
+        {
+            var lang = Helpers.Settings.SelectedLanguage;
+            if (string.IsNullOrEmpty(lang) || translations == null) return null;
+            if (translations.TryGetValue(lang, out var t)) return selector(t);
+            // Try two-letter prefix (e.g. "en-GB" → "en")
+            var prefix = lang.Length >= 2 ? lang[..2] : lang;
+            if (translations.TryGetValue(prefix, out var t2)) return selector(t2);
+            return null;
+        }
     }
 
 

@@ -31,6 +31,33 @@ namespace PeopleWithResearch
 
         public string redcapid { get; set; }
 
+        /// <summary>
+        /// Per-language overrides for <see cref="title"/> and <see cref="description"/>.
+        /// Key is a BCP-47 language code (e.g. "pl", "ro", "gu", "es").
+        /// </summary>
+        public Dictionary<string, QuestionnaireTranslation>? translations { get; set; }
+
+        /// <summary>
+        /// Overwrites <see cref="title"/> and <see cref="description"/> with the
+        /// best available translation for the user's current language, with a
+        /// two-letter prefix fallback (e.g. "en-GB" → "en").
+        /// </summary>
+        public void ApplyTranslations()
+        {
+            var lang = Helpers.Settings.SelectedLanguage;
+            if (string.IsNullOrEmpty(lang) || translations == null) return;
+
+            QuestionnaireTranslation? t = null;
+            if (!translations.TryGetValue(lang, out t))
+            {
+                var prefix = lang.Length >= 2 ? lang[..2] : lang;
+                translations.TryGetValue(prefix, out t);
+            }
+
+            if (t?.title != null)       title       = t.title;
+            if (t?.description != null) description = t.description;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -70,6 +97,40 @@ namespace PeopleWithResearch
         public string branchinglogic { get; set; }
         public string usertype { get; set; }
         public string sublabel { get; set; }
+
+        /// <summary>
+        /// Per-language overrides for <see cref="label"/> and <see cref="placeholder"/>.
+        /// Key is a BCP-47 language code (e.g. "pl", "ro", "gu", "es").
+        /// </summary>
+        public Dictionary<string, QuestionTranslation>? translations { get; set; }
+
+        /// <summary>
+        /// Overwrites <see cref="label"/> and <see cref="placeholder"/> with the
+        /// localised values for the user's current language (with a two-letter
+        /// prefix fallback), then forwards the call to every child option.
+        /// </summary>
+        public void ApplyTranslations()
+        {
+            var lang = Helpers.Settings.SelectedLanguage;
+            if (!string.IsNullOrEmpty(lang) && translations != null)
+            {
+                QuestionTranslation? t = null;
+                if (!translations.TryGetValue(lang, out t))
+                {
+                    var prefix = lang.Length >= 2 ? lang[..2] : lang;
+                    translations.TryGetValue(prefix, out t);
+                }
+
+                if (t?.label != null)       label       = t.label;
+                if (t?.placeholder != null) placeholder = t.placeholder;
+            }
+
+            if (options != null)
+            {
+                foreach (var opt in options)
+                    opt.ApplyTranslations();
+            }
+        }
 
         [JsonIgnore]
         public bool notcomplete { get; set; } = true;
@@ -202,6 +263,31 @@ namespace PeopleWithResearch
         public string answerid { get; set; }
         public string value { get; set; }
         public string text { get; set; }
+
+        /// <summary>
+        /// Per-language overrides for <see cref="text"/>.
+        /// Key is a BCP-47 language code (e.g. "pl", "ro", "gu", "es").
+        /// </summary>
+        public Dictionary<string, OptionTranslation>? translations { get; set; }
+
+        /// <summary>
+        /// Overwrites <see cref="text"/> with the localised value for the
+        /// user's current language, falling back to the original text.
+        /// </summary>
+        public void ApplyTranslations()
+        {
+            var lang = Helpers.Settings.SelectedLanguage;
+            if (string.IsNullOrEmpty(lang) || translations == null) return;
+
+            OptionTranslation? t = null;
+            if (!translations.TryGetValue(lang, out t))
+            {
+                var prefix = lang.Length >= 2 ? lang[..2] : lang;
+                translations.TryGetValue(prefix, out t);
+            }
+
+            if (t?.text != null) text = t.text;
+        }
 
         [System.Text.Json.Serialization.JsonIgnore]
         private int _slidervalue { get; set; }
@@ -463,5 +549,25 @@ namespace PeopleWithResearch
     {
         [JsonPropertyName("value")]
         public List<questionnaires> Value { get; set; }
+    }
+
+    /// <summary>Translation block for a <see cref="questionnaires"/> record.</summary>
+    public class QuestionnaireTranslation
+    {
+        public string? title { get; set; }
+        public string? description { get; set; }
+    }
+
+    /// <summary>Translation block for a single <see cref="QuestionAnswerJson"/> question.</summary>
+    public class QuestionTranslation
+    {
+        public string? label { get; set; }
+        public string? placeholder { get; set; }
+    }
+
+    /// <summary>Translation block for a single <see cref="Option"/>.</summary>
+    public class OptionTranslation
+    {
+        public string? text { get; set; }
     }
 }
