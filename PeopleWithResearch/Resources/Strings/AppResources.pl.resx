@@ -124,6 +124,45 @@
   <data name="Common_Back" xml:space="preserve">
     <value>Wstecz</value>
   </data>
+  <data name="Common_Next" xml:space="preserve">
+    <value>Dalej</value>
+  </data>
+  <data name="Common_SubmitQuestionnaire" xml:space="preserve">
+    <value>Prześlij kwestionariusz</value>
+  </data>
+  <data name="Common_StartQuestionnaire" xml:space="preserve">
+    <value>Rozpocznij kwestionariusz</value>
+  </data>
+  <data name="Questionnaire_Baseline_Title" xml:space="preserve">
+    <value>Formularz próbek bazowych</value>
+  </data>
+  <data name="Questionnaire_Baseline_Description" xml:space="preserve">
+    <value>Ten kwestionariusz pomaga nam zrozumieć Twój stan zdrowia na początku badania. Upewnij się, że jesteś w cichym miejscu.</value>
+  </data>
+  <data name="Questionnaire_Withdraw_Title" xml:space="preserve">
+    <value>Formularz wycofania</value>
+  </data>
+  <data name="Questionnaire_Withdraw_Description" xml:space="preserve">
+    <value>Wypełnij ten formularz, aby wycofać się z badania.</value>
+  </data>
+  <data name="Questionnaire_B1Samples_Title" xml:space="preserve">
+    <value>Lista próbek B1</value>
+  </data>
+  <data name="Questionnaire_B1Samples_Description" xml:space="preserve">
+    <value>Postępuj zgodnie z instrukcjami, aby uzupełnić próbki bazowe.</value>
+  </data>
+  <data name="Questionnaire_EndOfStudy_Title" xml:space="preserve">
+    <value>Formularz zakończenia badania</value>
+  </data>
+  <data name="Questionnaire_EndOfStudy_Description" xml:space="preserve">
+    <value>Dziękujemy za udział. Wypełnij ten ostatni formularz, aby zakończyć swój udział w badaniu.</value>
+  </data>
+  <data name="Questionnaire_DailySymptoms_Title" xml:space="preserve">
+    <value>Dzień {0} Codzienne objawy i próbki</value>
+  </data>
+  <data name="Questionnaire_DailySymptoms_Description" xml:space="preserve">
+    <value>Zapisz swoje objawy i próbki na dzisiaj.</value>
+  </data>
   <data name="Common_AddNewMember" xml:space="preserve">
     <value>Dodaj nowego członka</value>
   </data>

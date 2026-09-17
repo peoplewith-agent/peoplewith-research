@@ -124,6 +124,45 @@
   <data name="Common_Back" xml:space="preserve">
     <value>[GU] Back</value>
   </data>
+  <data name="Common_Next" xml:space="preserve">
+    <value>આગળ</value>
+  </data>
+  <data name="Common_SubmitQuestionnaire" xml:space="preserve">
+    <value>પ્રશ્નાવલી સબમિટ કરો</value>
+  </data>
+  <data name="Common_StartQuestionnaire" xml:space="preserve">
+    <value>પ્રશ્નાવલી શરૂ કરો</value>
+  </data>
+  <data name="Questionnaire_Baseline_Title" xml:space="preserve">
+    <value>બેઝલાઇન સેમ્પલિંગ ફોર્મ</value>
+  </data>
+  <data name="Questionnaire_Baseline_Description" xml:space="preserve">
+    <value>આ પ્રશ્નાવલી અભ્યાસની શરૂઆતમાં તમારા સ્વાસ્થ્યને સમજવામાં મદદ કરે છે. કૃપા કરી શાંત વાતાવરણ સુનિશ્ચિત કરો.</value>
+  </data>
+  <data name="Questionnaire_Withdraw_Title" xml:space="preserve">
+    <value>ઉપાડ ફોર્મ</value>
+  </data>
+  <data name="Questionnaire_Withdraw_Description" xml:space="preserve">
+    <value>અભ્યાસમાંથી ઉપાડ કરવા માટે આ ફોર્મ ભરો.</value>
+  </data>
+  <data name="Questionnaire_B1Samples_Title" xml:space="preserve">
+    <value>B1 નમૂનાઓની સૂચિ</value>
+  </data>
+  <data name="Questionnaire_B1Samples_Description" xml:space="preserve">
+    <value>તમારા બેઝલાઇન નમૂનાઓ પૂર્ણ કરવા માટે સૂચનાઓ અનુસરો.</value>
+  </data>
+  <data name="Questionnaire_EndOfStudy_Title" xml:space="preserve">
+    <value>અભ્યાસ સમાપ્તિ ફોર્મ</value>
+  </data>
+  <data name="Questionnaire_EndOfStudy_Description" xml:space="preserve">
+    <value>ભાગ લેવા બદલ આભાર. અભ્યાસમાં તમારી ભાગીદારી સમાપ્ત કરવા આ અંતિમ ફોર્મ ભરો.</value>
+  </data>
+  <data name="Questionnaire_DailySymptoms_Title" xml:space="preserve">
+    <value>દિવસ {0} દૈનિક લક્ષણો અને નમૂનાઓ</value>
+  </data>
+  <data name="Questionnaire_DailySymptoms_Description" xml:space="preserve">
+    <value>આજ માટે તમારા લક્ષણો અને નમૂનાઓ નોંધો.</value>
+  </data>
   <data name="Common_AddNewMember" xml:space="preserve">
     <value>[GU] Add New Member</value>
   </data>

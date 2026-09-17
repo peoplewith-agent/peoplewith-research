@@ -26,6 +26,9 @@ namespace PeopleWithResearch
         {
             try
             {
+                // Preserve language so NewMainPage renders in the chosen language.
+                var savedLanguage = Helpers.Settings.SelectedLanguage;
+
                 Preferences.Set("usertitle", string.Empty);
                 Preferences.Set("firstname", string.Empty);
                 Preferences.Set("surname", string.Empty);
@@ -53,6 +56,11 @@ namespace PeopleWithResearch
                 Preferences.Set("additionalconsent", string.Empty);
                 Preferences.Set("createdat", string.Empty);
                 Preferences.Set("usergpid", string.Empty);
+
+                // Restore language before constructing NewMainPage so the page
+                // is built with the correct culture already active.
+                if (!string.IsNullOrEmpty(savedLanguage))
+                    LocalizationManager.SetLanguage(savedLanguage);
 
                 var mainPage = new NewMainPage();
                 NavigationPage.SetHasNavigationBar(mainPage, false);

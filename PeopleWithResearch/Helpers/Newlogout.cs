@@ -74,8 +74,17 @@ namespace PeopleWithResearch
         {
             try
             {
+                // Preserve the user's chosen language so the login/home page
+                // is shown in the correct language after logout.
+                var savedLanguage = Helpers.Settings.SelectedLanguage;
+
                 //Clear Everything use this
-                Preferences.Clear(); 
+                Preferences.Clear();
+
+                // Restore language preference so NewMainPage and LoginPage
+                // can render in the previously selected language.
+                if (!string.IsNullOrEmpty(savedLanguage))
+                    LocalizationManager.SetLanguage(savedLanguage);
             }
             catch (Exception ex) when (
          ex is HttpRequestException ||

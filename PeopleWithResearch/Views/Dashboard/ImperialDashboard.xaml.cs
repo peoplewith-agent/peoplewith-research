@@ -1904,6 +1904,11 @@ public partial class ImperialDashboard : ContentPage
 
             foreach (var item in sourceList)
             {
+                // Apply translation overrides first so the localised values are
+                // in place before any further title/type checks run.
+                ApplyInformationTranslation(item);
+
+                // Detect FAQ entries by the (possibly already-translated) title
                 if (item.title != null && item.title.Contains("Frequently", StringComparison.OrdinalIgnoreCase))
                 {
                     item.type = "FAQ's";
@@ -1911,8 +1916,9 @@ public partial class ImperialDashboard : ContentPage
                     item.ColorTheme = "#868F96";
                 }
 
+                // Phone/email titles are driven by localisation strings regardless of language
                 if (item.type == "phone") item.title = LocalizationManager.Get("Info_CallUs");
-                if (item.type == "email") item.title = item.description.Contains("imperial") ? LocalizationManager.Get("Info_GeneralEnquiries") : LocalizationManager.Get("Info_TechnicalSupport");
+                if (item.type == "email") item.title = item.description != null && item.description.Contains("imperial") ? LocalizationManager.Get("Info_GeneralEnquiries") : LocalizationManager.Get("Info_TechnicalSupport");
             }
 
 
@@ -1926,6 +1932,20 @@ public partial class ImperialDashboard : ContentPage
         {
             CrashDetected.LogCrash(Ex, Navigation, "GetInformationDetails");
         }
+    }
+
+    /// <summary>
+    /// Overwrites the mutable title, description and link fields on an
+    /// <see cref="InformationDetails"/> item with the best available
+    /// translation for the user's currently selected language.
+    /// Falls back to the base (English) value when no translation exists.
+    /// </summary>
+    private static void ApplyInformationTranslation(InformationDetails item)
+    {
+        // LocalisedTitle/Description/Link already contain the fallback logic.
+        if (item.LocalisedTitle != null)       item.title       = item.LocalisedTitle;
+        if (item.LocalisedDescription != null) item.description = item.LocalisedDescription;
+        if (item.LocalisedLink != null)        item.link        = item.LocalisedLink;
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e) 

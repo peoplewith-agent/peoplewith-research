@@ -121,6 +121,45 @@
   <data name="Common_Back" xml:space="preserve">
     <value>Atrás</value>
   </data>
+  <data name="Common_Next" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="Common_SubmitQuestionnaire" xml:space="preserve">
+    <value>Enviar cuestionario</value>
+  </data>
+  <data name="Common_StartQuestionnaire" xml:space="preserve">
+    <value>Iniciar cuestionario</value>
+  </data>
+  <data name="Questionnaire_Baseline_Title" xml:space="preserve">
+    <value>Formulario de muestras iniciales</value>
+  </data>
+  <data name="Questionnaire_Baseline_Description" xml:space="preserve">
+    <value>Este cuestionario nos ayuda a entender su salud al inicio del estudio. Asegúrese de estar en un entorno tranquilo.</value>
+  </data>
+  <data name="Questionnaire_Withdraw_Title" xml:space="preserve">
+    <value>Formulario de retirada</value>
+  </data>
+  <data name="Questionnaire_Withdraw_Description" xml:space="preserve">
+    <value>Complete este formulario para retirarse del estudio.</value>
+  </data>
+  <data name="Questionnaire_B1Samples_Title" xml:space="preserve">
+    <value>Lista de muestras B1</value>
+  </data>
+  <data name="Questionnaire_B1Samples_Description" xml:space="preserve">
+    <value>Siga las instrucciones para completar sus muestras iniciales.</value>
+  </data>
+  <data name="Questionnaire_EndOfStudy_Title" xml:space="preserve">
+    <value>Formulario de fin del estudio</value>
+  </data>
+  <data name="Questionnaire_EndOfStudy_Description" xml:space="preserve">
+    <value>Gracias por participar. Complete este formulario final para concluir su participación en el estudio.</value>
+  </data>
+  <data name="Questionnaire_DailySymptoms_Title" xml:space="preserve">
+    <value>Día {0} Síntomas y muestras diarios</value>
+  </data>
+  <data name="Questionnaire_DailySymptoms_Description" xml:space="preserve">
+    <value>Registre sus síntomas y muestras de hoy.</value>
+  </data>
   <data name="Common_AddNewMember" xml:space="preserve">
     <value>Añadir nuevo miembro</value>
   </data>
