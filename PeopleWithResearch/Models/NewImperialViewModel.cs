@@ -409,7 +409,7 @@ public partial class NewImperialViewModel : ObservableObject
             // These two lists were set once, hard-coded, in the original's
             // LoadRegistrationConfigAsync — not server-config-driven like everything else,
             // so they're not read from `config` and don't need re-setting per section display.
-            var phoneOptions = new ObservableCollection<string> { "Yes, they own their own phone", "No, I'll take part for them" };
+            var phoneOptions = new ObservableCollection<string> { "Yes, they own their own phone", "I will complete the forms for them, or on their behalf" };
             Member1.PhoneOptions = phoneOptions;
             Member2.PhoneOptions = new ObservableCollection<string>(phoneOptions);
 
@@ -3388,6 +3388,7 @@ public partial class NewImperialViewModel : ObservableObject
     [ObservableProperty] private string _weightListError = string.Empty;
 
     [ObservableProperty] private bool _isWeightEntryVisible;
+    [ObservableProperty] private string _weightErrorText = string.Empty;
     [ObservableProperty] private string _weightUnitSuffix = string.Empty; // "kg" or "st"
     [ObservableProperty] private string _weightText = string.Empty;
     [ObservableProperty] private bool _weightHasError;
@@ -3401,10 +3402,12 @@ public partial class NewImperialViewModel : ObservableObject
     [ObservableProperty] private string _feetText = string.Empty;
     [ObservableProperty] private string _inchesText = string.Empty;
     [ObservableProperty] private bool _heightHasError;
+    [ObservableProperty] private string _heightErrorText = string.Empty;
 
     [ObservableProperty] private bool _isHeightCmVisible;
     [ObservableProperty] private string _heightCmText = string.Empty;
     [ObservableProperty] private bool _heightCmHasError;
+    [ObservableProperty] private string _heightCmErrorText = string.Empty;
 
     [ObservableProperty] private bool _isStepsVisible;
     [ObservableProperty] private string _stepsLabel = string.Empty;
@@ -3486,8 +3489,39 @@ public partial class NewImperialViewModel : ObservableObject
 
         if (IsWeightEntryVisible && string.IsNullOrEmpty(WeightText))
         {
+            WeightErrorText = LocalizationManager.Get("Register_EnterValue");
             WeightHasError = true;
             isValid = false;
+        }
+        else if (IsWeightEntryVisible)
+        {
+            if (decimal.TryParse(WeightText, out decimal weight))
+            {
+                if (weight <= 0)
+                {
+                    WeightErrorText = LocalizationManager.Get("Register_InvalidWeight");
+                    WeightHasError = true;
+                    isValid = false;
+                }
+                if(WeightUnitSuffix == "kg")
+                {
+                    if (weight > 500)
+                    {
+                        WeightErrorText = LocalizationManager.Get("Register_InvalidWeight");
+                        WeightHasError = true;
+                        isValid = false;
+                    }
+                }
+                if(WeightUnitSuffix == "st")
+                {
+                    if (weight > 100)
+                    {
+                        WeightErrorText = LocalizationManager.Get("Register_InvalidWeight");
+                        WeightHasError = true;
+                        isValid = false;
+                    }
+                }
+            }
         }
 
         if (SelectedHeightUnitOption is null)
@@ -3497,23 +3531,74 @@ public partial class NewImperialViewModel : ObservableObject
         }
 
         if (IsFeetInchesVisible)
+{
+    int feet = 0;
+    int inches = 0;
+
+    if (string.IsNullOrEmpty(FeetText))
+    {
+        HeightErrorText = LocalizationManager.Get("Register_EnterValue");
+        HeightHasError = true;
+        isValid = false;
+    }
+    else
+    {
+        if (int.TryParse(FeetText, out feet))
         {
-            if (string.IsNullOrEmpty(FeetText))
+            if (feet < 0 || feet > 8)
             {
-                HeightHasError = true;
-                isValid = false;
-            }
-            if (string.IsNullOrEmpty(InchesText))
-            {
+                HeightErrorText = LocalizationManager.Get("Register_InvalidHeight");
                 HeightHasError = true;
                 isValid = false;
             }
         }
+    }
+
+    if (string.IsNullOrEmpty(InchesText))
+    {
+        HeightErrorText = LocalizationManager.Get("Register_EnterValue");
+        HeightHasError = true;
+        isValid = false;
+    }
+    else
+    {
+        if (int.TryParse(InchesText, out inches))
+        {
+            if (inches < 0 || inches >= 12)
+            {
+                HeightErrorText = LocalizationManager.Get("Register_InvalidHeight");
+                HeightHasError = true;
+                isValid = false;
+            }
+        }
+    }
+
+    // at least 1 foor or 1 inch
+    if (isValid && feet == 0 && inches == 0)
+    {
+        HeightErrorText = LocalizationManager.Get("Register_InvalidHeight");
+        HeightHasError = true;
+        isValid = false;
+    }
+}
 
         if (IsHeightCmVisible && string.IsNullOrEmpty(HeightCmText))
         {
+            HeightCmErrorText = LocalizationManager.Get("Register_EnterValue");
             HeightCmHasError = true;
             isValid = false;
+        }
+        else
+        {
+            if(int.TryParse(HeightCmText, out int heightCm))
+                {
+                    if (heightCm <= 0 || heightCm > 250)
+                    {
+                        HeightCmErrorText = LocalizationManager.Get("Register_InvalidHeight");
+                        HeightCmHasError = true;
+                        isValid = false;
+                    }
+                }
         }
 
         if (IsStepsVisible && SelectedStepsOption is null)
@@ -3724,16 +3809,19 @@ public partial class NewImperialViewModel : ObservableObject
     [ObservableProperty] private string _peopleSubLabel = string.Empty;
     [ObservableProperty] private string _peopleCount = string.Empty;
     [ObservableProperty] private bool _peopleError;
+    [ObservableProperty] private string _peopleErrorText = string.Empty;
 
     [ObservableProperty] private string _roomsLabel = string.Empty;
     [ObservableProperty] private string _roomsSubLabel = string.Empty;
     [ObservableProperty] private string _roomsCount = string.Empty;
     [ObservableProperty] private bool _roomsError;
+    [ObservableProperty] private string _roomsErrorText = string.Empty;
 
     [ObservableProperty] private string _sharedBathroomsLabel = string.Empty;
     [ObservableProperty] private string _sharedBathroomsSubLabel = string.Empty;
     [ObservableProperty] private string _sharedBathroomsCount = string.Empty;
     [ObservableProperty] private bool _bathroomsError;
+    [ObservableProperty] private string _bathroomsErrorText = string.Empty;
 
     [ObservableProperty] private string _ventilationLabel = string.Empty;
     [ObservableProperty] private ObservableCollection<OptionDetails> _ventilationOptions = new();
@@ -3755,9 +3843,45 @@ public partial class NewImperialViewModel : ObservableObject
     {
         bool isValid = true;
 
-        if (string.IsNullOrEmpty(PeopleCount)) { PeopleError = true; isValid = false; }
-        if (string.IsNullOrEmpty(RoomsCount)) { RoomsError = true; isValid = false; }
-        if (string.IsNullOrEmpty(SharedBathroomsCount)) { BathroomsError = true; isValid = false; }
+        if (string.IsNullOrEmpty(PeopleCount)) { PeopleErrorText = LocalizationManager.Get("Register_EnterValue"); PeopleError = true; isValid = false; }
+        else
+        {
+            if(int.TryParse(PeopleCount, out int PC))
+            {
+                if(PC < 0 || PC> 20)
+                {
+                    PeopleErrorText = LocalizationManager.Get("Register_TooManyValue");
+                    PeopleError = true;
+                    isValid = false;
+                }
+            }
+        }
+        if (string.IsNullOrEmpty(RoomsCount)) { RoomsErrorText = LocalizationManager.Get("Register_EnterValue"); RoomsError = true; isValid = false; }
+        else
+        {
+            if(int.TryParse(RoomsCount, out int RC))
+            {
+                if(RC < 0 || RC> 20)
+                {
+                    RoomsErrorText = LocalizationManager.Get("Register_TooManyValue");
+                    RoomsError = true;
+                    isValid = false;
+                }
+            }
+        }
+        if (string.IsNullOrEmpty(SharedBathroomsCount)) { BathroomsErrorText = LocalizationManager.Get("Register_EnterValue"); BathroomsError = true; isValid = false; }
+        else
+        {
+            if(int.TryParse(SharedBathroomsCount, out int SBC))
+            {
+                if(SBC < 0 || SBC> 20)
+                {
+                    BathroomsErrorText = LocalizationManager.Get("Register_TooManyValue");
+                    BathroomsError = true;
+                    isValid = false;
+                }
+            }
+        }
 
         if (SelectedVentilationOption is null)
         {
@@ -3828,6 +3952,8 @@ public partial class NewImperialViewModel : ObservableObject
     [ObservableProperty] private bool _isGpInfoVisible;
     [ObservableProperty] private string _gpPracticeLabel = string.Empty;
     [ObservableProperty] private string _gpPracticeSubLabel = string.Empty;
+    [ObservableProperty] private string _gpPracticeSubLabelText = string.Empty;
+    [ObservableProperty] private string _gpPracticeSubLabelUrl = string.Empty;
     [ObservableProperty] private ObservableCollection<OptionDetails> _gpPracticeOptions = new();
     [ObservableProperty] private OptionDetails? _selectedGpOption;
     [ObservableProperty] private bool _isGpSelected;
@@ -3839,6 +3965,32 @@ public partial class NewImperialViewModel : ObservableObject
     private CancellationTokenSource? _londonCheckCts;
 
     public sealed class DismissGpKeyboardMessage { }
+
+    partial void OnGpPracticeSubLabelChanged(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value)) return;
+        var urlMatch = Regex.Match(value, @"https?://\S+");
+        if (urlMatch.Success)
+        {
+            GpPracticeSubLabelUrl = urlMatch.Value.TrimEnd('.');
+            GpPracticeSubLabelText = value[..urlMatch.Index].TrimEnd();
+        }
+        else
+        {
+            GpPracticeSubLabelText = value;
+            GpPracticeSubLabelUrl = string.Empty;
+        }
+    }
+
+    [RelayCommand]
+    private async Task OpenGpPracticeUrlAsync()
+    {
+        if (!string.IsNullOrEmpty(GpPracticeSubLabelUrl) &&
+            Uri.TryCreate(GpPracticeSubLabelUrl, UriKind.Absolute, out var uri))
+        {
+            await Launcher.Default.OpenAsync(uri);
+        }
+    }
 
     partial void OnNhsNumberChanged(string value)
     {
@@ -3956,25 +4108,30 @@ public partial class NewImperialViewModel : ObservableObject
     // Same Modulus 11 check digit algorithm as the original's IsValidNhsNumber — no I/O
     // happens in it despite the original declaring it `async Task<bool>`, so it's a plain
     // synchronous method here.
-    private static bool IsValidNhsNumber(string nhsNumber)
+   private static bool IsValidNhsNumber(string nhsNumber)
+{
+    if (string.IsNullOrWhiteSpace(nhsNumber) || nhsNumber.Length != 10 || !nhsNumber.All(char.IsDigit))
+        return false;
+
+    // Reject obviously-fake numbers that pass the checksum arithmetically
+    // but were never allocated (all zeros is the classic example).
+    if (nhsNumber.All(c => c == '0'))
+        return false;
+
+    int[] weights = { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+    int sum = 0;
+    for (int i = 0; i < 9; i++)
     {
-        if (string.IsNullOrWhiteSpace(nhsNumber) || nhsNumber.Length != 10 || !nhsNumber.All(char.IsDigit))
-            return false;
-
-        int[] weights = { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
-        int sum = 0;
-        for (int i = 0; i < 9; i++)
-        {
-            sum += (nhsNumber[i] - '0') * weights[i];
-        }
-
-        int remainder = sum % 11;
-        int checkDigit = 11 - remainder;
-        if (checkDigit == 11) checkDigit = 0;
-        if (checkDigit == 10) return false;
-
-        return checkDigit == (nhsNumber[9] - '0');
+        sum += (nhsNumber[i] - '0') * weights[i];
     }
+
+    int remainder = sum % 11;
+    int checkDigit = 11 - remainder;
+    if (checkDigit == 11) checkDigit = 0;
+    if (checkDigit == 10) return false;
+
+    return checkDigit == (nhsNumber[9] - '0');
+}
 
     private Task<bool> ValidateNhsNumSectionAsync()
     {

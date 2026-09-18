@@ -1837,7 +1837,7 @@
                                                 FontFamily="OpenSansSemiBold"
                                                 FontSize="13"
                                                 LineBreakMode="WordWrap"
-                                                Text="If yes — they set up their own account"
+                                                Text="If yes - they set up their own account"
                                                 TextColor="#009FE3" />
                                             <Label
                                                 FontFamily="OpenSansRegular"
@@ -1856,7 +1856,7 @@
                                                 FontFamily="OpenSansSemiBold"
                                                 FontSize="13"
                                                 LineBreakMode="WordWrap"
-                                                Text="If no — you manage this profile for them"
+                                                Text="If no - you manage this profile for them"
                                                 TextColor="#009FE3" />
                                             <Label
                                                 FontFamily="OpenSansRegular"
@@ -2235,7 +2235,7 @@
                                                         <Span
                                                             FontFamily="OpenSansRegular"
                                                             FontSize="12"
-                                                            Text="Please check the box to confirm you have permission to provide communication details for this member of your household"
+                                                            Text="Please check the box to confirm you have permission to provide contact details for this member of your household"
                                                             TextColor="#031926" />
                                                     </FormattedString>
                                                 </Label.FormattedText>
@@ -2851,7 +2851,7 @@
                                                         <Span
                                                             FontFamily="OpenSansRegular"
                                                             FontSize="12"
-                                                            Text="Please check the box to confirm you have permission to provide communication details for this member of your household"
+                                                            Text="Please check the box to confirm you have permission to provide contact details for this member of your household"
                                                             TextColor="#031926" />
                                                     </FormattedString>
                                                 </Label.FormattedText>

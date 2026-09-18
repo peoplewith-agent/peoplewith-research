@@ -608,4 +608,69 @@ public partial class NewImperial : ContentPage
         keyWindow?.EndEditing(true);
 #endif
     }
+
+  private bool _isReverting;
+
+// private void WeightEntry_TextChanged(object sender, TextChangedEventArgs e)
+// {
+//     if (_isReverting) return;
+
+//     var entry = (Entry)sender;
+
+//     try
+//     {
+//         var weight = e.NewTextValue;
+//         if (string.IsNullOrWhiteSpace(weight)) return;
+
+//         var getSelectedunit = viewmodel.WeightUnitSuffix;
+//         if (getSelectedunit == null) return;
+
+//         // Allow partial numeric input (e.g. "12.") to pass through untouched,
+//         // otherwise the user can never type a decimal point.
+//         if (!double.TryParse(weight, out double weightValue))
+//         {
+//             if (IsPartialNumeric(weight)) return;
+//             RevertText(entry, e.OldTextValue);
+//             return;
+//         }
+
+//         bool isValid;
+
+//         if (getSelectedunit.Contains("kg", StringComparison.OrdinalIgnoreCase))
+//         {
+//             isValid = weightValue >= 0.1 && weightValue <= 128.0;
+//         }
+//         else if (getSelectedunit.Equals("st", StringComparison.OrdinalIgnoreCase))
+//         {
+//             isValid = weightValue >= 0.0157 && weightValue <= 20.1565;
+//         }
+//         else
+//         {
+//             isValid = true; 
+//         }
+
+//         if (!isValid)
+//         {
+//             RevertText(entry, e.OldTextValue);
+//         }
+//     }
+//     catch (Exception ex)
+//     {
+//         // consider logging ex here
+//     }
+// }
+
+// private void RevertText(Entry entry, string oldValue)
+// {
+//     _isReverting = true;
+//     entry.Text = oldValue;
+//     entry.CursorPosition = oldValue?.Length ?? 0;
+//     _isReverting = false;
+// }
+
+// private static bool IsPartialNumeric(string text)
+// {
+//     return text.Count(c => c == '.') <= 1 &&
+//            text.All(c => char.IsDigit(c) || c == '.');
+// }
 }

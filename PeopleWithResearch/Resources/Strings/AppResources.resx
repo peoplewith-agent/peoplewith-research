@@ -713,13 +713,13 @@
     <value>This helps us set up the right kind of profile for them</value>
   </data>
   <data name="AddMember_YesOwnAccount" xml:space="preserve">
-    <value>If yes — they set up their own account</value>
+    <value>If yes - they set up their own account</value>
   </data>
   <data name="AddMember_YesOwnAccountDetail" xml:space="preserve">
     <value>We'll need an email address so they can download the app, verify their identity, and complete their own daily questionnaires and samples.</value>
   </data>
   <data name="AddMember_NoManageProfile" xml:space="preserve">
-    <value>If no — you manage this profile for them</value>
+    <value>If no - you manage this profile for them</value>
   </data>
   <data name="AddMember_NoManageProfileDetail" xml:space="preserve">
     <value>You'll complete their daily questionnaires and update their details on their behalf. No email address is needed — you can switch to their profile at any time.</value>
@@ -743,7 +743,7 @@
     <value>Please select relation of member</value>
   </data>
   <data name="AddMember_PermissionCheck" xml:space="preserve">
-    <value>Please check the box to confirm you have permission to provide communication details for this member of your household</value>
+    <value>Please check the box to confirm you have permission to provide contact details for this member of your household</value>
   </data>
   <data name="AddMember_AgreeTerms" xml:space="preserve">
     <value>Please agree to terms</value>
@@ -826,7 +826,7 @@
     <value>Permission granted at account creation</value>
   </data>
   <data name="Manage_PermissionCheck" xml:space="preserve">
-    <value>Please check the box to confirm you have permission to provide communication details for this member of your household</value>
+    <value>Please check the box to confirm you have permission to provide contact details for this member of your household</value>
   </data>
   <data name="Manage_HouseholdDetails" xml:space="preserve">
     <value>Household Details</value>
@@ -1083,10 +1083,16 @@
     <value>This helps us set up the right kind of profile for them</value>
   </data>
   <data name="Register_IfYes" xml:space="preserve">
-    <value>If yes —</value>
+    <value>If yes - </value>
   </data>
   <data name="Register_IfYesDetail" xml:space="preserve">
     <value>they'll need their own email to download the app, verify their identity, and complete their own daily questionnaires and samples.</value>
+  </data>
+  <data name="Register_IfNo" xml:space="preserve">
+    <value>If no - </value>
+  </data>
+  <data name="Register_IfNoDetail" xml:space="preserve">
+    <value>you manage this profile for them</value>
   </data>
   <data name="Register_TermsTitle" xml:space="preserve">
     <value>PeopleWith Terms and Conditions</value>
@@ -1115,8 +1121,17 @@
   <data name="Register_EnterValue" xml:space="preserve">
     <value>Enter Value</value>
   </data>
+    <data name="Register_TooManyValue" xml:space="preserve">
+    <value>Please enter a smaller value</value>
+  </data>
   <data name="Register_AddValue" xml:space="preserve">
     <value>Add Value</value>
+  </data>
+  <data name="Register_InvalidWeight" xml:space="preserve">
+    <value>Invalid Weight</value>
+  </data>
+  <data name="Register_InvalidHeight" xml:space="preserve">
+    <value>Invalid Height</value>
   </data>
 
   <!-- Tab headers -->
