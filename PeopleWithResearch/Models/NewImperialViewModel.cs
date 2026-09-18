@@ -167,6 +167,9 @@ public partial class NewImperialViewModel : ObservableObject
             var SetEmail = matchingUser?.household_individual_email;
             Email = string.IsNullOrEmpty(SetEmail) ? string.Empty : SetEmail;
             IsEmailEditable = string.IsNullOrEmpty(Email) ? true : false; 
+            Over16Name = FirstName + " " + Surname;
+            IsOver16NameEditable = string.IsNullOrEmpty(Over16Name) ? true : false;
+
         }
         catch (Exception ex)
         {
@@ -2333,6 +2336,18 @@ public partial class NewImperialViewModel : ObservableObject
                         {
                             Under10RoleOptions = new ObservableCollection<SignoffOption>(listOfRoles.options ?? new List<SignoffOption>());
                         }
+
+                        // Pre-populate child name from household member record and lock it
+                        Under10Name = _userInfoForBaseline?.household_individual_name ?? string.Empty;
+                        IsUnder10NameEditable = false;
+
+                        // Pre-populate main user (parent/guardian) name from device settings and lock it
+                        var mainUserFirstName = Helpers.Settings.FirstName?.Trim() ?? string.Empty;
+                        var mainUserSurname = Helpers.Settings.Surname?.Trim() ?? string.Empty;
+                        Over16Name = string.IsNullOrWhiteSpace(mainUserSurname)
+                            ? mainUserFirstName
+                            : $"{mainUserFirstName} {mainUserSurname}".Trim();
+                        IsOver16NameEditable = false;
 
                         IsUnder10StackVisible = true;
                     }
@@ -5729,6 +5744,7 @@ public partial class NewImperialViewModel : ObservableObject
     [ObservableProperty] private string _under10NameLabel = string.Empty;
     [ObservableProperty] private string _under10Name = string.Empty;
     [ObservableProperty] private bool _under10NameError;
+    [ObservableProperty] private bool _isUnder10NameEditable = true;
 
     [ObservableProperty] private string _under10RoleLabel = string.Empty;
     [ObservableProperty] private ObservableCollection<SignoffOption> _under10RoleOptions = new();
@@ -5742,6 +5758,7 @@ public partial class NewImperialViewModel : ObservableObject
     [ObservableProperty] private string _over16NameLabel = string.Empty;
     [ObservableProperty] private string _over16Name = string.Empty;
     [ObservableProperty] private bool _over16NameError;
+    [ObservableProperty] private bool _isOver16NameEditable = true;
 
     [ObservableProperty] private string _over16SignatureLabel = string.Empty;
     [ObservableProperty] private bool _isSignatureCaptured;
@@ -5768,12 +5785,18 @@ public partial class NewImperialViewModel : ObservableObject
     [RelayCommand]
     private void ToggleEmailOptIn() => IsEmailOptInChecked = !IsEmailOptInChecked;
 
-    /// <summary>Was: TapGestureRecognizer_Tapped_3 — tapping a consent row's border toggles
-    /// that item's own ChckedState, same as tapping the checkbox itself.</summary>
+    /// <summary>Sets ConsentGiven = true ("I consent") on the tapped item.</summary>
     [RelayCommand]
-    private void ToggleConsentItem(ConsentItem item)
+    private void SetConsentGiven(ConsentItem item)
     {
-        if (item is not null) item.ChckedState = !item.ChckedState;
+        if (item is not null) item.ConsentGiven = true;
+    }
+
+    /// <summary>Sets ConsentGiven = false ("I do not consent") on the tapped item.</summary>
+    [RelayCommand]
+    private void SetConsentNotGiven(ConsentItem item)
+    {
+        if (item is not null) item.ConsentGiven = false;
     }
 
     [RelayCommand]
@@ -5813,7 +5836,9 @@ public partial class NewImperialViewModel : ObservableObject
                 foreach (var item in section.sectioncontent)
                 {
                     item.ShowValidation = true;
-                    if (item.required && !item.ChckedState) isValid = false;
+                    // Required items are invalid when unanswered (null) OR actively declined (false).
+                    // Optional items never block progression regardless of selection.
+                    if (item.required && item.ConsentGiven != true) isValid = false;
                 }
             }
         }
@@ -5857,7 +5882,7 @@ public partial class NewImperialViewModel : ObservableObject
         {
             var selectedIds = AllConsentDetails.consentcontent
                 .SelectMany(section => section.sectioncontent ?? new ObservableCollection<ConsentItem>())
-                .Where(item => item.ChckedState && !item.required)
+                .Where(item => item.ConsentGiven == true && !item.required)
                 .Select(item => item.consentitemid)
                 .ToList();
 

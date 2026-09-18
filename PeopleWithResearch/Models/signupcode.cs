@@ -186,6 +186,35 @@ namespace PeopleWithResearch
             }
         }
 
+        /// <summary>
+        /// Tri-state consent selection: null = unanswered, true = "I consent", false = "I do not consent".
+        /// </summary>
+        private bool? _consentGiven;
+        public bool? ConsentGiven
+        {
+            get => _consentGiven;
+            set
+            {
+                if (_consentGiven != value)
+                {
+                    _consentGiven = value;
+                    // Keep legacy ChckedState in sync so submission logic still works
+                    _isChecked = value == true;
+                    OnPropertyChanged(nameof(ConsentGiven));
+                    OnPropertyChanged(nameof(ChckedState));
+                    OnPropertyChanged(nameof(IsConsentGiven));
+                    OnPropertyChanged(nameof(IsConsentNotGiven));
+                    OnPropertyChanged(nameof(HasError));
+                    OnPropertyChanged(nameof(IsBlockingError));
+                }
+            }
+        }
+
+        /// <summary>True when the participant explicitly chose "I consent" — used for button highlight binding.</summary>
+        public bool IsConsentGiven => ConsentGiven == true;
+        /// <summary>True when the participant explicitly chose "I do not consent" — used for button highlight binding.</summary>
+        public bool IsConsentNotGiven => ConsentGiven == false;
+
         private bool _showValidation;
         public bool ShowValidation
         {
@@ -193,12 +222,16 @@ namespace PeopleWithResearch
             set
             {
                 _showValidation = value;
-               // OnPropertyChanged();
                 OnPropertyChanged(nameof(HasError));
+                OnPropertyChanged(nameof(IsBlockingError));
             }
         }
 
-        public bool HasError => ShowValidation && required && !ChckedState;
+        /// <summary>True when validation has run and this required item is unanswered (null) — drives border/label error styling.</summary>
+        public bool HasError => ShowValidation && required && ConsentGiven is null;
+
+        /// <summary>True when a required item has been actively declined — drives the blocking warning message.</summary>
+        public bool IsBlockingError => required && ConsentGiven == false;
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name) =>

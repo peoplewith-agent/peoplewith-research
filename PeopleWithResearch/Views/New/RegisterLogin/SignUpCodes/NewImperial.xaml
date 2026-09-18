@@ -5285,9 +5285,9 @@
                         <CollectionView
                             x:Name="MainConsentCollection"
                             Margin="0,0,0,10"
-                            Background="Transparent"
+                            Background="transparent"
                             CanReorderItems="False"
-                            HeightRequest="{OnPlatform iOS='2250'}"
+                            HeightRequest="{OnPlatform iOS='2650'}"
                             HorizontalScrollBarVisibility="Never"
                             ItemSizingStrategy="MeasureAllItems"
                             ItemsSource="{Binding AllConsentDetails.consentcontent}"
@@ -5314,10 +5314,11 @@
                                         <VerticalStackLayout BindableLayout.ItemsSource="{Binding sectioncontent}">
                                             <BindableLayout.ItemTemplate>
                                                 <DataTemplate>
-                                                    <VerticalStackLayout Spacing="2">
+                                                    <VerticalStackLayout Margin="0,4,0,16" Spacing="6">
+
+                                                        <!--  Consent item text  -->
                                                         <Border
-                                                            Margin="0,4"
-                                                            Padding="10,4"
+                                                            Padding="12,10"
                                                             Background="Transparent"
                                                             StrokeThickness="1">
                                                             <Border.StrokeShape>
@@ -5337,39 +5338,158 @@
                                                                     <Setter Property="Stroke" Value="#D1E8FF" />
                                                                 </DataTrigger>
                                                             </Border.Triggers>
-                                                            <Border.GestureRecognizers>
-                                                                <TapGestureRecognizer Command="{Binding Source={x:Reference RootPage}, Path=BindingContext.ToggleConsentItemCommand}" CommandParameter="{Binding .}" />
-                                                            </Border.GestureRecognizers>
-                                                            <Grid
-                                                                Padding="0,8"
-                                                                ColumnDefinitions="*, 9*"
-                                                                ColumnSpacing="10"
-                                                                RowDefinitions="Auto">
-                                                                <CheckBox
-                                                                    Grid.Row="0"
-                                                                    Grid.Column="0"
-                                                                    InputTransparent="True"
-                                                                    IsChecked="{Binding ChckedState, Mode=TwoWay}"
-                                                                    VerticalOptions="Center"
-                                                                    Color="#031926" />
-                                                                <Label
-                                                                    Grid.Row="0"
-                                                                    Grid.Column="1"
-                                                                    FontFamily="OpenSansRegular"
-                                                                    FontSize="14"
-                                                                    HorizontalOptions="Fill"
-                                                                    InputTransparent="True"
-                                                                    LineBreakMode="WordWrap"
-                                                                    Text="{Binding consentitem}"
-                                                                    TextColor="#031926"
-                                                                    VerticalOptions="Center" />
-                                                            </Grid>
+                                                            <Label
+                                                                FontFamily="OpenSansRegular"
+                                                                FontSize="14"
+                                                                HorizontalOptions="Fill"
+                                                                LineBreakMode="WordWrap"
+                                                                Text="{Binding consentitem}"
+                                                                TextColor="#031926" />
                                                         </Border>
+
+                                                        <!--  Two-button consent choice  -->
+                                                        <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+
+                                                            <!--  I consent  -->
+                                                            <Border
+                                                                Grid.Column="0"
+                                                                Padding="10,10"
+                                                                Background="Transparent"
+                                                                Stroke="#D1E8FF"
+                                                                StrokeThickness="1.5">
+                                                                <Border.StrokeShape>
+                                                                    <RoundRectangle CornerRadius="8" />
+                                                                </Border.StrokeShape>
+                                                                <Border.Triggers>
+                                                                    <DataTrigger
+                                                                        Binding="{Binding IsConsentGiven}"
+                                                                        TargetType="Border"
+                                                                        Value="True">
+                                                                        <Setter Property="Background" Value="#031926" />
+                                                                        <Setter Property="Stroke" Value="#031926" />
+                                                                    </DataTrigger>
+                                                                    <DataTrigger
+                                                                        Binding="{Binding IsConsentGiven}"
+                                                                        TargetType="Border"
+                                                                        Value="False">
+                                                                        <Setter Property="Background" Value="Transparent" />
+                                                                        <Setter Property="Stroke" Value="#D1E8FF" />
+                                                                    </DataTrigger>
+                                                                </Border.Triggers>
+                                                                <Border.GestureRecognizers>
+                                                                    <TapGestureRecognizer
+                                                                        Command="{Binding Source={x:Reference RootPage}, Path=BindingContext.SetConsentGivenCommand}"
+                                                                        CommandParameter="{Binding .}" />
+                                                                </Border.GestureRecognizers>
+                                                                <Label
+                                                                    FontAttributes="Bold"
+                                                                    FontFamily="OpenSansSemiBold"
+                                                                    FontSize="13"
+                                                                    HorizontalOptions="Center"
+                                                                    InputTransparent="True"
+                                                                    Text="I consent"
+                                                                    VerticalOptions="Center">
+                                                                    <Label.Triggers>
+                                                                        <DataTrigger
+                                                                            Binding="{Binding IsConsentGiven}"
+                                                                            TargetType="Label"
+                                                                            Value="True">
+                                                                            <Setter Property="TextColor" Value="White" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger
+                                                                            Binding="{Binding IsConsentGiven}"
+                                                                            TargetType="Label"
+                                                                            Value="False">
+                                                                            <Setter Property="TextColor" Value="#031926" />
+                                                                        </DataTrigger>
+                                                                    </Label.Triggers>
+                                                                </Label>
+                                                            </Border>
+
+                                                            <!--  I do not consent  -->
+                                                            <Border
+                                                                Grid.Column="1"
+                                                                Padding="10,10"
+                                                                Background="Transparent"
+                                                                Stroke="#D1E8FF"
+                                                                StrokeThickness="1.5">
+                                                                <Border.StrokeShape>
+                                                                    <RoundRectangle CornerRadius="8" />
+                                                                </Border.StrokeShape>
+                                                                <Border.Triggers>
+                                                                    <DataTrigger
+                                                                        Binding="{Binding IsConsentNotGiven}"
+                                                                        TargetType="Border"
+                                                                        Value="True">
+                                                                        <Setter Property="Background" Value="#CC0000" />
+                                                                        <Setter Property="Stroke" Value="#CC0000" />
+                                                                    </DataTrigger>
+                                                                    <DataTrigger
+                                                                        Binding="{Binding IsConsentNotGiven}"
+                                                                        TargetType="Border"
+                                                                        Value="False">
+                                                                        <Setter Property="Background" Value="Transparent" />
+                                                                        <Setter Property="Stroke" Value="#D1E8FF" />
+                                                                    </DataTrigger>
+                                                                </Border.Triggers>
+                                                                <Border.GestureRecognizers>
+                                                                    <TapGestureRecognizer
+                                                                        Command="{Binding Source={x:Reference RootPage}, Path=BindingContext.SetConsentNotGivenCommand}"
+                                                                        CommandParameter="{Binding .}" />
+                                                                </Border.GestureRecognizers>
+                                                                <Label
+                                                                    FontAttributes="Bold"
+                                                                    FontFamily="OpenSansSemiBold"
+                                                                    FontSize="13"
+                                                                    HorizontalOptions="Center"
+                                                                    InputTransparent="True"
+                                                                    Text="I do not consent"
+                                                                    VerticalOptions="Center">
+                                                                    <Label.Triggers>
+                                                                        <DataTrigger
+                                                                            Binding="{Binding IsConsentNotGiven}"
+                                                                            TargetType="Label"
+                                                                            Value="True">
+                                                                            <Setter Property="TextColor" Value="White" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger
+                                                                            Binding="{Binding IsConsentNotGiven}"
+                                                                            TargetType="Label"
+                                                                            Value="False">
+                                                                            <Setter Property="TextColor" Value="#031926" />
+                                                                        </DataTrigger>
+                                                                    </Label.Triggers>
+                                                                </Label>
+                                                            </Border>
+                                                        </Grid>
+
+                                                        <!--  Unanswered required item error (shown after Next is tapped)  -->
                                                         <Label
-                                                            Margin="0,0,5,5"
+                                                            Margin="0,0,5,0"
                                                             FontAttributes="Bold"
                                                             FontFamily="OpenSansSemiBold"
-                                                            FontSize="8"
+                                                            FontSize="10"
+                                                            HorizontalOptions="End"
+                                                            IsVisible="{Binding HasError}"
+                                                            Text="Please make a selection"
+                                                            TextColor="Red" />
+
+                                                        <!--  Required item declined — subtle inline warning  -->
+                                                        <Label
+                                                            Margin="2,0"
+                                                            FontFamily="OpenSansSemiBold"
+                                                            FontSize="11"
+                                                            IsVisible="{Binding IsBlockingError}"
+                                                            LineBreakMode="WordWrap" HorizontalOptions="End"
+                                                            Text="This consent is required to continue."
+                                                            TextColor="#CC0000" />
+
+                                                        <!--  Required label (shown when not in error)  -->
+                                                        <Label
+                                                            Margin="0,0,5,4"
+                                                            FontAttributes="Bold"
+                                                            FontFamily="OpenSansSemiBold"
+                                                            FontSize="8" IsVisible="false"
                                                             HorizontalOptions="End"
                                                             Text="{Binding requiredlbl}"
                                                             TextColor="#009fe3">
@@ -5382,6 +5502,7 @@
                                                                 </DataTrigger>
                                                             </Label.Triggers>
                                                         </Label>
+
                                                     </VerticalStackLayout>
                                                 </DataTemplate>
                                             </BindableLayout.ItemTemplate>
@@ -5531,6 +5652,7 @@
                                 <Entry
                                     FontFamily="OpenSansRegular"
                                     FontSize="14"
+                                    IsEnabled="{Binding IsUnder10NameEditable}"
                                     IsTextPredictionEnabled="False"
                                     Placeholder="Name"
                                     PlaceholderColor="Gray"
@@ -5607,6 +5729,7 @@
                                 <Entry
                                     FontFamily="OpenSansRegular"
                                     FontSize="14"
+                                    IsEnabled="{Binding IsOver16NameEditable}"
                                     IsTextPredictionEnabled="False"
                                     Placeholder="Name"
                                     PlaceholderColor="Gray"
