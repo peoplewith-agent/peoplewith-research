@@ -19,21 +19,21 @@
     Shell.NavBarIsVisible="False">
 
     <!--
-        COMPLETE port of Imperial.xaml — page chrome plus every section: Name/Account, Address,
+        COMPLETE port of Imperial.xaml � page chrome plus every section: Name/Account, Address,
         Gender, Ethnicity, Body Metrics, mainuserstack, Education/Work, Household Structure,
         NHS Number, Respiratory Illness, Health Conditions, Medications, Recent Vaccinations,
         Diet, Menstrual, Health Status, Additional Questions, Antiviral, Tobacco, Alcohol,
         Drug, Sleep, Terms & Consent (incl. signature capture), and the Finish screen.
-        SubmitAsync (was CreateAccount) is ported too — see NewImperialViewModel.cs for the
+        SubmitAsync (was CreateAccount) is ported too � see NewImperialViewModel.cs for the
         handful of small, explicitly-flagged behavioral notes accumulated along the way (a
         couple of confirmed original bugs fixed, a couple of ambiguous spots preserved as-is
         with the reasoning written out).
         
-        Every control below binds to NewImperialViewModel — nothing here has a Clicked/Tapped/
+        Every control below binds to NewImperialViewModel � nothing here has a Clicked/Tapped/
         TextChanged/ItemTapped handler or an x:Name the code-behind reaches into, except the
         two SfAutocomplete SelectionChanged handlers and the two signature-pad drawing-completed
         handlers, which are genuine platform/control concerns forwarded straight into ViewModel
-        commands/methods — see NewImperial.xaml.cs.
+        commands/methods � see NewImperial.xaml.cs.
     -->
 
     <ContentPage.Resources>
@@ -155,7 +155,7 @@
 
             <!--
                 A handful of lists (mainuserstack's phone-access and age-bracket pickers) are
-                populated from a plain List<string> rather than OptionDetails — same visual,
+                populated from a plain List<string> rather than OptionDetails � same visual,
                 different binding path ("." instead of "Text").
             -->
             <DataTemplate x:Key="StringOptionItemTemplate">
@@ -264,10 +264,10 @@
                     <Image
                         Margin="0,0,-2,0"
                         Aspect="AspectFit"
-                        HeightRequest="12"
+                        HeightRequest="18"
                         Source="back.png"
                         VerticalOptions="Center"
-                        WidthRequest="15" />
+                        WidthRequest="18" />
                     <Label
                         FontFamily="OpenSansSemiBold"
                         FontSize="18"
@@ -301,7 +301,7 @@
                 TrackHeight="9"
                 VerticalOptions="Center" />
             <!--
-                topprogress2 (the nested questionnaire sub-progress bar) isn't included yet —
+                topprogress2 (the nested questionnaire sub-progress bar) isn't included yet �
                 it only matters once a "Questionnaire"-type section is ported.
             -->
 
@@ -637,7 +637,7 @@
                             Not carried over: the original's usinglist/relationlist/studyreplist
                             controls in this section. ShowCurrentStack()'s "namestack" branch
                             that would have populated them was entirely commented out in the
-                            source file, so they never showed real data — see the ViewModel's
+                            source file, so they never showed real data � see the ViewModel's
                             class-level comment.
                         -->
                     </StackLayout>
@@ -1291,7 +1291,7 @@
 
                         <inputLayout:SfTextInputLayout
                             Margin="5,0,5,0"
-                            ErrorText="{local:Localize Key=Register_AddValue}"
+                            ErrorText="{Binding WeightErrorText}"
                             HasError="{Binding WeightHasError}"
                             IsVisible="{Binding IsWeightEntryVisible}">
                             <Grid ColumnDefinitions="*,Auto">
@@ -1305,7 +1305,8 @@
                                     PlaceholderColor="Gray"
                                     Text="{Binding WeightText}"
                                     TextColor="#031926"
-                                    VerticalOptions="Center" />
+                                    VerticalOptions="Center" >
+                                </Entry>
                                 <Label
                                     Grid.Column="1"
                                     Margin="5,0,0,0"
@@ -1358,7 +1359,7 @@
 
                         <inputLayout:SfTextInputLayout
                             Margin="5,0,5,0"
-                            ErrorText="{local:Localize Key=Register_AddValue}"
+                            ErrorText="{Binding HeightErrorText}"
                             HasError="{Binding HeightHasError}"
                             IsVisible="{Binding IsFeetInchesVisible}">
                             <Grid ColumnDefinitions="*,Auto,*,Auto" ColumnSpacing="5">
@@ -1372,7 +1373,11 @@
                                     PlaceholderColor="Gray"
                                     Text="{Binding FeetText}"
                                     TextColor="#031926"
-                                    VerticalOptions="Center" />
+                                    VerticalOptions="Center" >
+                                    <Entry.Behaviors>
+                                        <toolkit:MaskedBehavior Mask="XX" />
+                                    </Entry.Behaviors>
+                                    </Entry>
                                 <Label
                                     Grid.Column="1"
                                     FontAttributes="Bold"
@@ -1392,7 +1397,11 @@
                                     PlaceholderColor="Gray"
                                     Text="{Binding InchesText}"
                                     TextColor="#031926"
-                                    VerticalOptions="Center" />
+                                    VerticalOptions="Center" >
+                                       <Entry.Behaviors>
+                                        <toolkit:MaskedBehavior Mask="XX" />
+                                    </Entry.Behaviors>
+                                    </Entry>
                                 <Label
                                     Grid.Column="3"
                                     FontAttributes="Bold"
@@ -1407,7 +1416,7 @@
 
                         <inputLayout:SfTextInputLayout
                             Margin="5,0,5,0"
-                            ErrorText="{local:Localize Key=Register_AddValue}"
+                            ErrorText="{Binding HeightCmErrorText}"
                             HasError="{Binding HeightCmHasError}"
                             IsVisible="{Binding IsHeightCmVisible}">
                             <Grid ColumnDefinitions="*,Auto">
@@ -1421,7 +1430,11 @@
                                     PlaceholderColor="Gray"
                                     Text="{Binding HeightCmText}"
                                     TextColor="#031926"
-                                    VerticalOptions="Center" />
+                                    VerticalOptions="Center" >
+                                    <Entry.Behaviors>
+                                        <toolkit:MaskedBehavior Mask="XXX" />
+                                    </Entry.Behaviors>
+                                </Entry>
                                 <Label
                                     Grid.Column="1"
                                     Margin="5,0,0,0"
@@ -1872,8 +1885,8 @@
                             </StackLayout>
                         </Border>
 
-                        <!--  Member 2 — identical shape to Member 1 above, bound to Member2 instead  -->
-                        <!--  Member 2 — identical shape to Member 1 above, bound to Member2 instead  -->
+                        <!--  Member 2 � identical shape to Member 1 above, bound to Member2 instead  -->
+                        <!--  Member 2 � identical shape to Member 1 above, bound to Member2 instead  -->
                         <Border
                             Margin="0,10,0,0"
                             Padding="10"
@@ -2337,7 +2350,7 @@
                             LineBreakMode="WordWrap"
                             Text="{Binding PeopleSubLabel}"
                             TextColor="#777777" />
-                        <inputLayout:SfTextInputLayout ErrorText="{local:Localize Key=Register_EnterValue}" HasError="{Binding PeopleError}">
+                        <inputLayout:SfTextInputLayout ErrorText="{Binding PeopleErrorText}" HasError="{Binding PeopleError}">
                             <Entry
                                 FontFamily="OpenSansRegular"
                                 FontSize="14"
@@ -2369,7 +2382,7 @@
                             LineBreakMode="WordWrap"
                             Text="{Binding RoomsSubLabel}"
                             TextColor="#777777" />
-                        <inputLayout:SfTextInputLayout ErrorText="{local:Localize Key=Register_EnterValue}" HasError="{Binding RoomsError}">
+                        <inputLayout:SfTextInputLayout ErrorText="{Binding RoomsErrorText}" HasError="{Binding RoomsError}">
                             <Entry
                                 FontFamily="OpenSansRegular"
                                 FontSize="14"
@@ -2401,7 +2414,7 @@
                             LineBreakMode="WordWrap"
                             Text="{Binding SharedBathroomsSubLabel}"
                             TextColor="#777777" />
-                        <inputLayout:SfTextInputLayout ErrorText="{local:Localize Key=Register_EnterValue}" HasError="{Binding BathroomsError}">
+                        <inputLayout:SfTextInputLayout ErrorText="{Binding BathroomsErrorText}" HasError="{Binding BathroomsError}">
                             <Entry
                                 FontFamily="OpenSansRegular"
                                 FontSize="14"
@@ -2612,8 +2625,23 @@
                             HorizontalOptions="Start"
                             IsVisible="{Binding IsGpInfoVisible}"
                             LineBreakMode="WordWrap"
-                            Text="{Binding GpPracticeSubLabel}"
+                            Text="{Binding GpPracticeSubLabelText}"
                             TextColor="#777777" />
+                        <Label
+                            Margin="0,2,0,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12"
+                            HorizontalOptions="Start"
+                            LineBreakMode="WordWrap"
+                            Text="{Binding GpPracticeSubLabelUrl}"
+                            IsVisible="{Binding IsGpInfoVisible}"
+                            TextColor="#009fe3"
+                            TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenGpPracticeUrlCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
 
                         <editors:SfAutocomplete
                             x:Name="GpPracticeAutocomplete"
@@ -5281,7 +5309,7 @@
                             VerticalOptions="Center"
                             WidthRequest="80" />
 
-                        <!--  Dynamic, server-driven consent sections. Each item's checkbox binds straight to its own ChckedState — no page-level property needed for the checkbox itself.  -->
+                        <!--  Dynamic, server-driven consent sections. Each item's checkbox binds straight to its own ChckedState � no page-level property needed for the checkbox itself.  -->
                         <CollectionView
                             x:Name="MainConsentCollection"
                             Margin="0,0,0,10"

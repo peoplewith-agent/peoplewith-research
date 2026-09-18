@@ -1104,6 +1104,9 @@
   <data name="Register_EnterValue" xml:space="preserve">
     <value>Introduce el valor</value>
   </data>
+      <data name="Register_TooManyValue" xml:space="preserve">
+    <value>Por favor, introduce un valor menor</value>
+  </data>
   <data name="Register_AddValue" xml:space="preserve">
     <value>Añadir valor</value>
   </data>

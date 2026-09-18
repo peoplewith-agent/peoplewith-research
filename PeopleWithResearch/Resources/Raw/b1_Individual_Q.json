@@ -4918,7 +4918,7 @@
           "order": 1,
           "active": true,
           "id": "diaaddstack",
-          "sublabel": "You will be able to add more health conditions after this question.\n\nIf you have more than one condition and one of them is not listed, first select the conditions that are listed.\n• If your only condition is not listed, leave this blank.",
+          "sublabel": "You will be able to add more health conditions after this question.\n\n• If you have more than one condition and one of them is not listed, first select the conditions that are listed.\n• If your only condition is not listed, leave this blank.",
           "directions": "Includes conditions expected to last 12+ months, require regular medication/check-ups, or affect how your body responds to illness. Examples: asthma, diagnosed depression. Excludes temporary illnesses or mild short-term mental health issues.",
           "options": [
             {

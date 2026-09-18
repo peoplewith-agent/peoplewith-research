@@ -705,13 +705,13 @@
     <value>[GU] This helps us set up the right kind of profile for them</value>
   </data>
   <data name="AddMember_YesOwnAccount" xml:space="preserve">
-    <value>[GU] If yes — they set up their own account</value>
+    <value>[GU] If yes - they set up their own account</value>
   </data>
   <data name="AddMember_YesOwnAccountDetail" xml:space="preserve">
     <value>[GU] We'll need an email address so they can download the app, verify their identity, and complete their own daily questionnaires and samples.</value>
   </data>
   <data name="AddMember_NoManageProfile" xml:space="preserve">
-    <value>[GU] If no — you manage this profile for them</value>
+    <value>[GU] If no - you manage this profile for them</value>
   </data>
   <data name="AddMember_NoManageProfileDetail" xml:space="preserve">
     <value>[GU] You'll complete their daily questionnaires and update their details on their behalf. No email address is needed — you can switch to their profile at any time.</value>
@@ -735,7 +735,7 @@
     <value>[GU] Please select relation of member</value>
   </data>
   <data name="AddMember_PermissionCheck" xml:space="preserve">
-    <value>[GU] Please check the box to confirm you have permission to provide communication details for this member of your household</value>
+    <value>[GU] Please check the box to confirm you have permission to provide contact details for this member of your household</value>
   </data>
   <data name="AddMember_AgreeTerms" xml:space="preserve">
     <value>[GU] Please agree to terms</value>
@@ -818,7 +818,7 @@
     <value>[GU] Permission granted at account creation</value>
   </data>
   <data name="Manage_PermissionCheck" xml:space="preserve">
-    <value>[GU] Please check the box to confirm you have permission to provide communication details for this member of your household</value>
+    <value>[GU] Please check the box to confirm you have permission to provide contact details for this member of your household</value>
   </data>
   <data name="Manage_HouseholdDetails" xml:space="preserve">
     <value>[GU] Household Details</value>
@@ -1080,6 +1080,12 @@
   <data name="Register_IfYesDetail" xml:space="preserve">
     <value>[GU] they'll need their own email to download the app, verify their identity, and complete their own daily questionnaires and samples.</value>
   </data>
+  <data name="Register_IfNo" xml:space="preserve">
+    <value>[GU] If no - </value>
+  </data>
+  <data name="Register_IfNoDetail" xml:space="preserve">
+    <value>[GU] you manage this profile for them</value>
+  </data>
   <data name="Register_TermsTitle" xml:space="preserve">
     <value>[GU] PeopleWith Terms and Conditions</value>
   </data>
@@ -1106,6 +1112,9 @@
   </data>
   <data name="Register_EnterValue" xml:space="preserve">
     <value>[GU] Enter Value</value>
+  </data>
+      <data name="Register_TooManyValue" xml:space="preserve">
+    <value>[GU] Please enter a smaller value</value>
   </data>
   <data name="Register_AddValue" xml:space="preserve">
     <value>[GU] Add Value</value>
