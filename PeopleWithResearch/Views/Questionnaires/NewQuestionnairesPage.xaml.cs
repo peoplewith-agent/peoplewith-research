@@ -1449,7 +1449,17 @@ public partial class NewQuestionnairesPage : ContentPage
 
             if (photo == null) return;
 
-            var localPath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+            // On Android, photo.FileName can be a full content-URI path or null.
+            // Use Path.GetFileName to strip any directory components, and fall back
+            // to a timestamped name to avoid an invalid path crash.
+            var safeFileName = string.IsNullOrWhiteSpace(photo.FileName)
+                ? $"photo_{DateTime.Now:yyyyMMddHHmmss}.jpg"
+                : Path.GetFileName(photo.FileName);
+
+            var cacheDir = FileSystem.CacheDirectory;
+            Directory.CreateDirectory(cacheDir); // no-op if it already exists (safe on iOS too)
+            var localPath = Path.Combine(cacheDir, safeFileName);
+
             using (var sourceStream = await photo.OpenReadAsync())
             using (var localFileStream = File.OpenWrite(localPath))
             {

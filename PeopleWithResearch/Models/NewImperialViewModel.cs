@@ -465,8 +465,8 @@ public partial class NewImperialViewModel : ObservableObject
             //IsBackButtonVisible = true;
             if (NextButtonText == "Finish")
             {
-                await SubmitAsync();
-                //IsBackButtonVisible = false;
+                IsBackButtonVisible = false;
+                await SubmitAsync();         
                 return;
             }
             if (NextButtonText == "Get Started")
@@ -478,7 +478,7 @@ public partial class NewImperialViewModel : ObservableObject
             if (CurrentFieldIndex >= RegistrationSections.Count)
             {
                 NextButtonText = "Finish";
-                IsBackButtonVisible = false;
+                //IsBackButtonVisible = false;
                 return;
             }
             var currentField = RegistrationSections[CurrentFieldIndex];
@@ -504,7 +504,7 @@ public partial class NewImperialViewModel : ObservableObject
             else
             {
                 NextButtonText = "Finish";
-                IsBackButtonVisible = false;
+                //IsBackButtonVisible = false;
             }
             RefreshProgress();
             if (ScrollResetRequested is not null)
@@ -546,7 +546,7 @@ public partial class NewImperialViewModel : ObservableObject
             CurrentSectionKey = RegistrationSections[CurrentFieldIndex].XamlNameArea;
             ApplyCurrentSectionText();
             NextButtonText = "Next";
-            IsBackButtonVisible = true;
+            //IsBackButtonVisible = true;
             IsProgressBarVisible = true;
             RefreshProgress();
             if (ScrollResetRequested is not null)
@@ -2244,7 +2244,7 @@ public partial class NewImperialViewModel : ObservableObject
             // to "Finish" and hides back/progress — it isn't waiting for a Next tap on this
             // screen itself the way every other section's "Next" label is.
             NextButtonText = "Finish";
-            IsBackButtonVisible = false;
+            //IsBackButtonVisible = false;
             IsProgressBarVisible = false;
 
             var completionField = (field.subFields ?? new List<RegField>()).FirstOrDefault(f => f.Id == "completionText");
@@ -2290,12 +2290,13 @@ public partial class NewImperialViewModel : ObservableObject
             }
             else if (_userInfoForBaseline?.household_individual_age == "11 - 15")
             {
+                IsUnder10StackVisible = true;
                 AllConsentDetails = config.FirstOrDefault(x => x.age == "11 - 15");
                 if (AllConsentDetails is not null)
                 {
                     Over16NameLabel = AllConsentDetails.signoffparameters[0].label;
                     Over16SignatureLabel = AllConsentDetails.signoffparameters[1].label;
-                }
+                }       
             }
             else
             {
@@ -2309,19 +2310,20 @@ public partial class NewImperialViewModel : ObservableObject
                         Over16SignatureLabel = AllConsentDetails.signoffparameters[1].label;
                     }
                 }
-                else if (_userInfoForBaseline?.household_individual_age == "11 - 15")
+                // else if (_userInfoForBaseline?.household_individual_age == "11 - 15")
+                // {
+                //     IsUnder10StackVisible = true;
+                //     AllConsentDetails = config.FirstOrDefault(x => x.age == "11 - 15");
+                //     if (AllConsentDetails is not null)
+                //     {
+                //         Over16NameLabel = AllConsentDetails.signoffparameters[0].label;
+                //         Over16SignatureLabel = AllConsentDetails.signoffparameters[1].label;
+                //     }
+                // }
+                else if(_userInfoForBaseline?.household_individual_age == "11 - 15"|| _userInfoForBaseline?.household_individual_age == "5 - 10" || _userInfoForBaseline?.household_individual_age == "0 - 5")
                 {
-                    AllConsentDetails = config.FirstOrDefault(x => x.age == "11 - 15");
-                    if (AllConsentDetails is not null)
-                    {
-                        Over16NameLabel = AllConsentDetails.signoffparameters[0].label;
-                        Over16SignatureLabel = AllConsentDetails.signoffparameters[1].label;
-                    }
-                }
-                else if(_userInfoForBaseline?.household_individual_age == "5 - 10" || _userInfoForBaseline?.household_individual_age == "0 - 5")
-                {
-                    // 5 - 10
-                    var ageBands = new[] { "5 - 10", "0 - 5" };
+                    // 11 - 15, 5 - 10, 0 - 5
+                    var ageBands = new[] { "11 - 15", "5 - 10", "0 - 5" };
                     AllConsentDetails = config.FirstOrDefault(x => ageBands.Contains(x.age));
                     if (AllConsentDetails is not null)
                     {
@@ -2339,6 +2341,7 @@ public partial class NewImperialViewModel : ObservableObject
 
                         // Pre-populate child name from household member record and lock it
                         Under10Name = _userInfoForBaseline?.household_individual_name ?? string.Empty;
+                        //Lock Editing name of child/young person          
                         IsUnder10NameEditable = false;
 
                         // Pre-populate main user (parent/guardian) name from device settings and lock it
@@ -2347,8 +2350,7 @@ public partial class NewImperialViewModel : ObservableObject
                         Over16Name = string.IsNullOrWhiteSpace(mainUserSurname)
                             ? mainUserFirstName
                             : $"{mainUserFirstName} {mainUserSurname}".Trim();
-                        IsOver16NameEditable = false;
-
+                        IsOver16NameEditable = true;
                         IsUnder10StackVisible = true;
                     }
                 }
@@ -3040,6 +3042,7 @@ public partial class NewImperialViewModel : ObservableObject
     [ObservableProperty] private string _dobLabel = string.Empty;
     [ObservableProperty] private string _dobHelpText = string.Empty;
     [ObservableProperty] private string _dateOfBirthText = string.Empty;
+    [ObservableProperty] private string _dobError = string.Empty;
     [ObservableProperty] private bool _dobHasError;
 
     [ObservableProperty] private string _sexLabel = string.Empty;
@@ -3128,16 +3131,19 @@ public partial class NewImperialViewModel : ObservableObject
 
         if (string.IsNullOrWhiteSpace(DateOfBirthText))
         {
+            DobError = "Please enter a valid date of birth";
             DobHasError = true;
             isValid = false;
         }
         else if (!DateTime.TryParseExact(DateOfBirthText, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dob))
         {
+            DobError = "Please enter a valid date of birth";
             DobHasError = true;
             isValid = false;
         }
         else if (dob > DateTime.Today)
         {
+            DobError = "Date of birth cannot be in the future";
             DobHasError = true;
             isValid = false;
         }
@@ -3150,8 +3156,16 @@ public partial class NewImperialViewModel : ObservableObject
                 age--;
             }
 
-            if (age > 120)
+            //Ensure the primary user is older than 16
+            if (_householdRepFromReg && age < 16)
             {
+                DobError = "Household Representative must be older than 16";
+                DobHasError = true;
+                isValid = false;
+            }
+            else if (age > 120)
+            {
+                DobError = "Age cannot be greater than 120";
                 DobHasError = true;
                 isValid = false;
             }

@@ -503,6 +503,9 @@
   <data name="Dashboard_ContactMsg" xml:space="preserve">
     <value>Nie wahaj się z nami skontaktować — czy masz sugestię, skargę czy problem do rozwiązania.</value>
   </data>
+  <data name="Dashboard_ContactSwipe" xml:space="preserve">
+    <value>Przesuń w prawo, aby zobaczyć dane kontaktowe &#x2192;</value>
+  </data>
   <data name="Dashboard_NoContactFound" xml:space="preserve">
     <value>Nie znaleziono danych kontaktowych</value>
   </data>
@@ -1100,6 +1103,9 @@
   </data>
   <data name="Register_EnterFullName" xml:space="preserve">
     <value>Wprowadź pełne imię i nazwisko</value>
+  </data>
+  <data name="Register_SignatureDescription" xml:space="preserve">
+    <value>Twój podpis elektroniczny może wyglądać inaczej niż Twój zwykły podpis odręczny, gdy jest wprowadzany elektronicznie</value>
   </data>
   <data name="Register_EnterRole" xml:space="preserve">
     <value>Wprowadź rolę</value>

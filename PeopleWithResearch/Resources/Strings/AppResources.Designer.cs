@@ -855,6 +855,13 @@ namespace PeopleWithResearch
             get { return ResourceManager.GetString("Dashboard_ContactMsg", resourceCulture); }
         }
 
+          /// <summary>Dashboard_ContactSwipe</summary>
+        public static string Dashboard_ContactSwipe
+        {
+            get { return ResourceManager.GetString("Dashboard_ContactSwipe", resourceCulture); }
+        }
+
+
         /// <summary>Dashboard_NoContactFound</summary>
         public static string Dashboard_NoContactFound
         {
@@ -2029,6 +2036,12 @@ namespace PeopleWithResearch
         public static string Register_EnterFullName
         {
             get { return ResourceManager.GetString("Register_EnterFullName", resourceCulture); }
+        }
+
+        /// <summary>Register_SignatureDescription</summary>
+        public static string Register_SignatureDescription
+        {
+            get { return ResourceManager.GetString("Register_SignatureDescription", resourceCulture); }
         }
 
         /// <summary>Register_EnterRole</summary>

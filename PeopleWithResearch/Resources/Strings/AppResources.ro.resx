@@ -441,7 +441,7 @@
     <value>[RO] PROGRESS SO FAR</value>
   </data>
   <data name="Dashboard_CompletedQuestionnaires" xml:space="preserve">
-    <value>[RO] Completed Questionnaire's</value>
+    <value>[RO] Completed Forms</value>
   </data>
   <data name="Dashboard_ReviewQsSubmitted" xml:space="preserve">
     <value>[RO] Tap here to review the questionnaires you've submitted so far.</value>
@@ -506,6 +506,9 @@
   <data name="Dashboard_NoContactFound" xml:space="preserve">
     <value>[RO] No Contact Information Found</value>
   </data>
+  <data name="Dashboard_ContactSwipe" xml:space="preserve">
+    <value>[RO] Swipe right for contact details &#x2192;</value>
+  </data>
   <data name="Dashboard_ContactOffline" xml:space="preserve">
     <value>[RO] Contact methods are currently offline.</value>
   </data>
@@ -564,7 +567,7 @@
     <value>[RO] Day 28</value>
   </data>
   <data name="Dashboard_SamplingSymptoms" xml:space="preserve">
-    <value>[RO] Start sampling with the kits in your house if, in the past 24 hours, you or anyone in your household has developed any of the following NEW symptoms:</value>
+    <value>[RO] Start sampling with the kits in your home if, in the past 24 hours, you or anyone in your household has developed any of the following NEW symptoms:</value>
   </data>
   <data name="Dashboard_SamplingPeriodSuffix" xml:space="preserve">
     <value>[RO] of your triggered survey period</value>
@@ -827,7 +830,7 @@
     <value>[RO] Status</value>
   </data>
   <data name="Manage_GroupId" xml:space="preserve">
-    <value>[RO] Group Id</value>
+    <value>[RO] Household ID</value>
   </data>
   <data name="Manage_AgeLabel" xml:space="preserve">
     <value>[RO] Age of member</value>
@@ -1106,6 +1109,9 @@
   </data>
   <data name="Register_EnterFullName" xml:space="preserve">
     <value>[RO] Please enter full name</value>
+  </data>
+  <data name="Register_SignatureDescription" xml:space="preserve">
+    <value>[RO] Your electronic signature may look different from your usual handwritten signature when entered electronically</value>
   </data>
   <data name="Register_EnterRole" xml:space="preserve">
     <value>[RO] Please enter role</value>

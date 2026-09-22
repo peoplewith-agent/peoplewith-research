@@ -1966,7 +1966,7 @@ public partial class ImperialDashboard : ContentPage
                 await DisplayAlert(
     LocalizationManager.Get("Dashboard_BaselineSamplesFormTitle"),
     LocalizationManager.Get("Dashboard_BaselineSamplesFormMsg"),
-    LocalizationManager.Get("Common_Ok"));
+    LocalizationManager.Get("Common_OK"));
             }
             else
             {
@@ -2012,6 +2012,8 @@ public partial class ImperialDashboard : ContentPage
         catch (Exception Ex)
         {
             CrashDetected.LogCrash(Ex, Navigation, "WithdrawfromStudy");
+            CrashDetected.LogCrash(Ex, Navigation, "WithdrawfromStudy");
+            CrashDetected.LogCrash(Ex, Navigation, "WithdrawfromStudy");
         }
     }
 
@@ -2019,7 +2021,8 @@ public partial class ImperialDashboard : ContentPage
     {
         try
         {
-
+            bool Question = await DisplayAlert("Start Sampling", "Are you sure you want to start triggered sampling in your household now?", "Yes", "No");
+            if (!Question) return;
             await Navigation.PushAsync(new T1Questionnaire(AllUserQuestionnaires.ToObservable(), Allhouseholdgroupinfo[0]), false);
          //   var questionnaireid = "CBDA3207-C3BE-4FCB-9633-FED8FE58DAA2";
          //   await Navigation.PushAsync(new NewQuestionnairesPage(questionnaireid, AllUserQuestionnaires), false);
@@ -2041,8 +2044,11 @@ public partial class ImperialDashboard : ContentPage
             //welcomelbl.Text = string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(surname)
             //    ? "Welcome back!"
             //    : $"Hi {firstName} {surname}".Trim();
-
-            profiledetailslist.ItemsSource = Genericlist.GetProfileItems();
+            var ProfileData = Genericlist.GetProfileItems(); 
+            profiledetailslist.ItemsSource = ProfileData;
+            //Set Content to visible or Empty Stack
+            profiledetailslist.IsVisible = ProfileData.Any();
+            PersonalInfoEmpty.IsVisible = !ProfileData.Any();
 
             bool Set = (dayNumber == 0) ? false : true; 
             var settingItems = await Genericlist.GetSettingItems(Set);
@@ -2059,6 +2065,8 @@ public partial class ImperialDashboard : ContentPage
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
                     Settingslist.ItemsSource = settingItems;
+                    Settingslist.IsVisible = settingItems.Any();
+                    SettingsInfoEmpty.IsVisible = !settingItems.Any();
                 });
             }
         }
@@ -2199,6 +2207,7 @@ public partial class ImperialDashboard : ContentPage
         {
             var Item = e.DataItem as user;
             if (Item == null) return;
+            if(Item.Id == "Name") return; 
             await Navigation.PushAsync(new NewProfileEdit(Item), false);
         }
         catch (Exception Ex)
@@ -2218,6 +2227,9 @@ public partial class ImperialDashboard : ContentPage
             if (Item == null) return;
 
             var itemId = Item.Id ?? Item.Title; // fall back to Title for any item without an Id
+
+            if (itemId == "Sign-up Code") return;
+            if(itemId == "HouseHold ID") return;
 
             if (itemId == "Notifications")
             {
@@ -2264,12 +2276,6 @@ public partial class ImperialDashboard : ContentPage
                 }
                 return;
             }
-
-            if (itemId == "Sign-up Code")
-            {
-                return;
-            }
-
             await Navigation.PushAsync(new NewProfileEdit(Item), false);
         }
         catch (Exception Ex)
@@ -2508,6 +2514,19 @@ public partial class ImperialDashboard : ContentPage
 
             try
             {
+                //TODO: Get Harry to Review
+                if(item.household_individual_email.Contains("N/A"))
+                {
+                    await DisplayAlert("No Email Sent", "Cannot send a notification to the account you are acting on behalf of", "OK");                    return;
+                    return;
+                }
+
+                if(item.household_individual_age == "0 - 5")
+                {
+                    await DisplayAlert("No Notification Sent", "Cannot send notification to individuals aged 5 or below", "OK");
+                    return;
+                }
+                
                 var url = $"{APICalls.SendNudgeNotification}{item.household_individual_userid}";
                 var response = await APICalls.Instance.GetClient().GetAsync(url);
                 string responseContent = await response.Content.ReadAsStringAsync();
@@ -2561,6 +2580,9 @@ public partial class ImperialDashboard : ContentPage
     {
         try
         {
+
+           bool Question = await DisplayAlert("Daily Symptoms & Sampling", "Would you like to complete today's symptom and sampling questionnaire?", "Yes", "No");
+           if (!Question) return;
 
             if (dayNumber == 1)
             {
@@ -2660,6 +2682,9 @@ public partial class ImperialDashboard : ContentPage
             var Tapped = e.DataItem as string;
             if (Tapped == null) return;
 
+           bool Question = await DisplayAlert("Missed Symptoms & Sampling", "Would you like to complete the following missed symptom and sampling questionnaire?", "Yes", "No");
+           if (!Question) return;
+           
             var stringday = Tapped.Replace("T", "");
             if (int.TryParse(stringday, out int day))
             {
@@ -2781,7 +2806,7 @@ public partial class ImperialDashboard : ContentPage
             else
             {
                 houserepaccessborder.IsVisible = false;
-                await DisplayAlert(LocalizationManager.Get("Dashboard_AccessGrantedTitle"), LocalizationManager.Get("Dashboard_AccessGrantedMsg"), LocalizationManager.Get("Common_Ok"));
+                await DisplayAlert(LocalizationManager.Get("Dashboard_AccessGrantedTitle"), LocalizationManager.Get("Dashboard_AccessGrantedMsg"), LocalizationManager.Get("Common_OK"));
             }
         }
         catch (Exception ex)
