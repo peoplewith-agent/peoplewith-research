@@ -4056,8 +4056,84 @@ VerticalOptions="Fill">
 
         </tabView:SfTabView>
 
+        <!--  Dashboard Loading Overlay  -->
+        <Grid
+            x:Name="dashboardLoadingOverlay"
+            HorizontalOptions="Center"
+            IsVisible="True"
+            VerticalOptions="Center"
+            ZIndex="999">
 
+            <Border
+                Padding="32,28"
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 20"
+                StrokeThickness="2" Stroke="#009fe3"
+                VerticalOptions="Center"
+                WidthRequest="240">
+                <Border.Shadow>
+                    <Shadow
+                        Brush="#000000"
+                        Opacity="0.10"
+                        Radius="20"
+                        Offset="0,6" />
+                </Border.Shadow>
 
+            <VerticalStackLayout
+                HorizontalOptions="Center"
+                Spacing="24"
+                VerticalOptions="Center">
+
+                <!--  Animated Spinner  -->
+                <Border
+                    BackgroundColor="White"
+                    HeightRequest="80"
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 40"
+                    StrokeThickness="0"
+                    WidthRequest="80">
+                    <Border.Shadow>
+                        <Shadow
+                            Brush="#009FE3"
+                            Opacity="0.18"
+                            Radius="16"
+                            Offset="0,4" />
+                    </Border.Shadow>
+                    <ActivityIndicator
+                        x:Name="dashboardActivityIndicator"
+                        Color="#009FE3"
+                        HeightRequest="36"
+                        HorizontalOptions="Center"
+                        IsRunning="True"
+                        VerticalOptions="Center"
+                        WidthRequest="36" />
+                </Border>
+
+                <!--  Loading Text  -->
+                <VerticalStackLayout HorizontalOptions="Center" Spacing="6">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="OpenSansSemiBold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="Loading Dashboard"
+                        TextColor="#031926" />
+                    <Label
+                        FontFamily="OpenSansRegular"
+                        FontSize="13"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="Please wait while we fetch your data…"
+                        TextColor="#64748B" />
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+
+            </Border>
+
+        </Grid>
 
     </Grid>
 
