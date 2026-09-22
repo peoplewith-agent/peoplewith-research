@@ -500,6 +500,9 @@
   <data name="Dashboard_ContactMsg" xml:space="preserve">
     <value>No dudes en contactarnos, ya sea con una sugerencia, una queja o un problema que resolver.</value>
   </data>
+  <data name="Dashboard_ContactSwipe" xml:space="preserve">
+    <value>Desliza a la derecha para ver los detalles de contacto &#x2192;</value>
+  </data>
   <data name="Dashboard_NoContactFound" xml:space="preserve">
     <value>No se encontró información de contacto</value>
   </data>
@@ -1097,6 +1100,9 @@
   </data>
   <data name="Register_EnterFullName" xml:space="preserve">
     <value>Introduce el nombre completo</value>
+  </data>
+  <data name="Register_SignatureDescription" xml:space="preserve">
+    <value>Tu firma electrónica puede verse diferente de tu firma manuscrita habitual cuando se introduce electrónicamente</value>
   </data>
   <data name="Register_EnterRole" xml:space="preserve">
     <value>Introduce el rol</value>

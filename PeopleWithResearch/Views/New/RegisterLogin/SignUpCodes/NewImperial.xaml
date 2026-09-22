@@ -233,7 +233,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="Auto,*,Auto">
+    <Grid RowDefinitions="Auto,*,Auto" ColumnDefinitions="*">
 
         <!--  Top Navigation Bar  -->
         <Grid
@@ -245,61 +245,77 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
 
             <!--  Back Button  -->
             <Border
                 Grid.Column="0"
                 Padding="5"
+                IsVisible="{Binding IsBackButtonVisible}"
                 BackgroundColor="Transparent"
                 HorizontalOptions="Start"
-                IsVisible="{Binding IsBackButtonVisible}"
                 Stroke="Transparent"
                 StrokeShape="RoundRectangle 8"
                 VerticalOptions="Center">
-                <HorizontalStackLayout Spacing="4" VerticalOptions="Center">
-                    <Image
-                        Margin="0,0,-2,0"
+                <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="4" VerticalOptions="Center">                    <Image
+                        Grid.Row="0" 
+                        Grid.Column="0"
                         Aspect="AspectFit"
-                        HeightRequest="18"
-                        Source="back.png"
-                        VerticalOptions="Center"
-                        WidthRequest="18" />
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center" />
+                        <Image Source="back.png" 
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Aspect="AspectFit"
+                               WidthRequest="16"
+                               HeightRequest="16"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center" />
                     <Label
+                        Grid.Row="0"
+                        Grid.Column="1"                       
                         FontFamily="OpenSansSemiBold"
-                        FontSize="18"
+                        FontAttributes="None"
+                        FontSize="16"
+                        TextColor="#031926"
+                        HorizontalOptions="Start"
                         Text="{local:Localize Key=Common_Back}"
                         VerticalOptions="Center" />
-                    <HorizontalStackLayout.GestureRecognizers>
+                    <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding BackCommand}" />
-                    </HorizontalStackLayout.GestureRecognizers>
-                </HorizontalStackLayout>
+                    </Grid.GestureRecognizers>
+                </Grid>
             </Border>
 
             <!--  Progress Bar  -->
-            <progressBar:SfLinearProgressBar
-                Grid.Column="1"
-                Margin="10,0,10,0"
-                AnimationEasing="{x:Static Easing.CubicInOut}"
-                BackgroundColor="Transparent"
-                HorizontalOptions="Fill"
-                IsVisible="{Binding IsProgressBarVisible}"
-                Maximum="{Binding ProgressMaximum}"
-                Minimum="0"
-                Progress="{Binding ProgressValue}"
-                ProgressCornerRadius="4"
-                ProgressFill="#031926"
-                ProgressHeight="8"
-                SecondaryProgressFill="#BFDBF7"
-                SegmentCount="{Binding ProgressSegmentCount}"
-                SegmentGapWidth="4"
-                TrackCornerRadius="4"
-                TrackFill="#BFDBF7"
-                TrackHeight="9"
-                VerticalOptions="Center" />
+           <Grid
+        Grid.Row="0"
+        Grid.Column="1"
+        Margin="20,0,10,0"
+        HorizontalOptions="Fill"
+        VerticalOptions="Center">
+        <progressBar:SfLinearProgressBar
+            AnimationEasing="{x:Static Easing.CubicInOut}"
+            BackgroundColor="Transparent"
+            HorizontalOptions="Fill"
+            IsVisible="{Binding IsProgressBarVisible}"
+            Maximum="{Binding ProgressMaximum}"
+            Minimum="0"
+            Progress="{Binding ProgressValue}"
+            ProgressCornerRadius="4"
+            ProgressFill="#031926"
+            ProgressHeight="8"
+            SecondaryProgressFill="#BFDBF7"
+            SegmentCount="{Binding ProgressSegmentCount}"
+            SegmentGapWidth="4"
+            TrackCornerRadius="4"
+            TrackFill="#BFDBF7"
+            TrackHeight="9"
+            VerticalOptions="Center" />
+    </Grid>
             <!--
                 topprogress2 (the nested questionnaire sub-progress bar) isn't included yet �
                 it only matters once a "Questionnaire"-type section is ported.
@@ -821,7 +837,7 @@
                             </Label.GestureRecognizers>
                         </Label>
 
-                        <inputLayout:SfTextInputLayout ErrorText="Please enter a valid date of birth" HasError="{Binding DobHasError}">
+                        <inputLayout:SfTextInputLayout ErrorText="{Binding DobError}" HelperText="Use DD/MM/YYYY format (e.g., 25/12/2026)" HasError="{Binding DobHasError}">
                             <Entry
                                 FontFamily="OpenSansRegular"
                                 FontSize="14"
@@ -5878,6 +5894,17 @@
                                     Text="X"
                                     TextColor="#031926"
                                     VerticalOptions="Start" />
+
+                                    <Label
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="3"
+                                        Margin="0"
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="14"
+                                        LineBreakMode="WordWrap"
+                                        Text="{local:Localize Key=Register_SignatureDescription}"
+                                        TextColor="#475569" />
                             </Grid>
                         </StackLayout>
                     </VerticalStackLayout>

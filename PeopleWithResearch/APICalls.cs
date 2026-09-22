@@ -301,7 +301,7 @@ namespace PeopleWithResearch
 
                                 switch (item.type)
                                 {
-                                    case "pdf":
+                                    case "PDF":
                                         item.img = "pdf.png";
                                         item.ColorTheme = "#EF4444";
                                         break;

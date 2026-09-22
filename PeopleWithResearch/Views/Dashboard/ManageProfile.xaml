@@ -9,7 +9,7 @@
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
     xmlns:strings="clr-namespace:PeopleWithResearch.Resources.Strings;assembly=PeopleWithResearch"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    ios:Page.UseSafeArea="True"
+    SafeAreaEdges="Container"
     BackgroundColor="White">
     <ContentPage.Resources>
 
@@ -350,7 +350,7 @@
                                 x:Name="GroupIDHelper"
                                 Grid.Row="1"
                                 Grid.Column="1"
-                                Hint="Group ID"
+                                Hint="Household ID"
                                 Style="{StaticResource InputLayoutstyle}">
                                 <Entry
                                     x:Name="GroupIDEntry"

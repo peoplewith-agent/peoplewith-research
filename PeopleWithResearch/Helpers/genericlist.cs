@@ -295,11 +295,11 @@ namespace PeopleWithResearch
                            : "--", Image = "nameicon.png"
                 },
                 new user { Id = "Email",              Title = LocalizationManager.Get("Profile_Email"),       Role = !string.IsNullOrEmpty(Helpers.Settings.Email)       ? Helpers.Settings.Email       : "--", Image = "emailicon.png" },
-                new user { Id = "Date of Birth",      Title = LocalizationManager.Get("Profile_DateOfBirth"), Role = !string.IsNullOrEmpty(Helpers.Settings.Age)         ? Helpers.Settings.Age         : "--", Image = "birthdateicon.png"  },
-                new user { Id = "Gender",             Title = LocalizationManager.Get("Profile_Gender"),      Role = !string.IsNullOrEmpty(Helpers.Settings.Gender)      ? GenderLocalizedForEnglishValue(Helpers.Settings.Gender)           : "--", Image = "newgendericon.png"  },
-                new user { Id = "Ethnicity",          Title = LocalizationManager.Get("Profile_Ethnicity"),   Role = !string.IsNullOrEmpty(Helpers.Settings.Ethnicity)   ? EthnicityLocalizedForEnglishValue(Helpers.Settings.Ethnicity)     : "--", Image = "ethnicityicon.png" },
+                //new user { Id = "Date of Birth",      Title = LocalizationManager.Get("Profile_DateOfBirth"), Role = !string.IsNullOrEmpty(Helpers.Settings.Age)         ? Helpers.Settings.Age         : "--", Image = "birthdateicon.png"  },
+                //new user { Id = "Gender",             Title = LocalizationManager.Get("Profile_Gender"),      Role = !string.IsNullOrEmpty(Helpers.Settings.Gender)      ? GenderLocalizedForEnglishValue(Helpers.Settings.Gender)           : "--", Image = "newgendericon.png"  },
+                //new user { Id = "Ethnicity",          Title = LocalizationManager.Get("Profile_Ethnicity"),   Role = !string.IsNullOrEmpty(Helpers.Settings.Ethnicity)   ? EthnicityLocalizedForEnglishValue(Helpers.Settings.Ethnicity)     : "--", Image = "ethnicityicon.png" },
                 new user { Id = "Phone Number",       Title = LocalizationManager.Get("Profile_PhoneNumber"), Role = !string.IsNullOrEmpty(Helpers.Settings.PhoneNumber) ? Helpers.Settings.PhoneNumber : "--", Image = "numbericon.png" },
-                new user { Id = "Town/City",          Title = LocalizationManager.Get("Profile_TownCity"),    Role = !string.IsNullOrEmpty(Helpers.Settings.Town)        ? Helpers.Settings.Town        : "--", Image = "townicon.png" }
+                //new user { Id = "Town/City",          Title = LocalizationManager.Get("Profile_TownCity"),    Role = !string.IsNullOrEmpty(Helpers.Settings.Town)        ? Helpers.Settings.Town        : "--", Image = "townicon.png" }
             };
 
             if (Helpers.Settings.Validityconfirmed == "false")
@@ -338,6 +338,7 @@ namespace PeopleWithResearch
             {
                 new user { Id = "Reset Password",        Title = LocalizationManager.Get("Settings_ResetPassword"),        Role = "**********",                                                        Image = "passwordicon.png"  },
                 new user { Id = "Notifications",         Title = LocalizationManager.Get("Settings_Notifications"),        Role = isEnabled ? LocalizationManager.Get("Settings_Enabled") : LocalizationManager.Get("Settings_Disabled"), Image = "bellicon.png" },
+                new user { Id = "HouseHold ID",          Title = LocalizationManager.Get("Manage_GroupId"),                Role = !string.IsNullOrEmpty(Helpers.Settings.HouseholdGrouping) ? Helpers.Settings.HouseholdGrouping : "--", Image = "family.png"},
                 new user { Id = "Sign-up Code",          Title = LocalizationManager.Get("Settings_SignupCode"),           Role = !string.IsNullOrEmpty(Helpers.Settings.SignUp) ? Helpers.Settings.SignUp : "--", Image = "keyicon.png"},
                 newuser,        
             };
