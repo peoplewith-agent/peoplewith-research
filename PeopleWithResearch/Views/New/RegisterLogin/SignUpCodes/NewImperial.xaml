@@ -5309,7 +5309,17 @@
                             VerticalOptions="Center"
                             WidthRequest="80" />
 
-                        <!--  Dynamic, server-driven consent sections. Each item's checkbox binds straight to its own ChckedState � no page-level property needed for the checkbox itself.  -->
+                        <!--  Consent description from server  -->
+                        <Label
+                            Margin="20,16,20,4"
+                            FontFamily="OpenSansRegular"
+                            FontSize="14"
+                            IsVisible="{Binding AllConsentDetails.description, Converter={StaticResource StringNotEmptyToBoolConverter}}"
+                            LineBreakMode="WordWrap"
+                            Text="{Binding AllConsentDetails.description}"
+                            TextColor="#64748B" />
+
+                        <!--  Dynamic, server-driven consent sections. Each item's checkbox binds straight to its own ChckedState – no page-level property needed for the checkbox itself.  -->
                         <CollectionView
                             x:Name="MainConsentCollection"
                             Margin="0,0,0,10"

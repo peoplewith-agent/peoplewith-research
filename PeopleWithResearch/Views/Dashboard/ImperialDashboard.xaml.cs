@@ -259,13 +259,13 @@ public partial class ImperialDashboard : ContentPage
             var householdGroupList = await APICalls.Instance.GetUserHouseholdInfo(Helpers.Settings.HouseholdGrouping);
             var HouseHoldGroup = householdGroupList?.FirstOrDefault();
 
-            if (HouseHoldGroup == null) return;
+            if (HouseHoldGroup == null) { HideDashboardLoader(); return; }
 
             Allhouseholdgroupinfo = householdGroupList;
             Allhouseholdgroupinfodetails = HouseHoldGroup.userdetailslist ?? new ObservableCollection<householdgroupjsondetails>();
 
             var mainUserId = Allhouseholdgroupinfo?.FirstOrDefault()?.primaryuserid;
-            if (string.IsNullOrEmpty(mainUserId)) return;
+            if (string.IsNullOrEmpty(mainUserId)) { HideDashboardLoader(); return; }
             ismainuser = (mainUserId == Helpers.Settings.UsersID) ? true : false;
 
             var mainUser = new householdgroupjsondetails();
@@ -335,6 +335,7 @@ public partial class ImperialDashboard : ContentPage
             if (UserDetailsKey.Count == 0)
             {
                 AllUserQuestionnaires = new List<newuserquestionnaire>();
+                HideDashboardLoader();
                 return;
             }
 
@@ -412,6 +413,9 @@ public partial class ImperialDashboard : ContentPage
             await GetProfileData();
             await SelectNotificationTime(Member, T1Start);
 
+            // Hide the loading overlay — all data has been loaded
+            HideDashboardLoader();
+
 
             //Test Local Notification
             //var Notification = new NotificationRequest()
@@ -441,8 +445,19 @@ public partial class ImperialDashboard : ContentPage
         }
         catch (Exception Ex)
         {
+            // Hide loader on error so the user is never stuck on the loading screen
+            HideDashboardLoader();
             CrashDetected.LogCrash(Ex, Navigation, "GetHouseholdData");
         }
+    }
+
+    private void HideDashboardLoader()
+    {
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            dashboardActivityIndicator.IsRunning = false;
+            dashboardLoadingOverlay.IsVisible = false;
+        });
     }
 
     private static string TranslateHouseholdStatus(string englishStatus)
