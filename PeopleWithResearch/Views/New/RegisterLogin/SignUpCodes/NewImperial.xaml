@@ -3512,6 +3512,63 @@
                     <!--  ================= Recent Vaccinations =================  -->
                     <StackLayout Margin="0,10,0,100" IsVisible="{Binding IsRvStackVisible}">
 
+                        <!--  ynflu gate: Yes/No — must be answered first  -->
+                        <Label
+                            Margin="0,10,0,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="15"
+                            HorizontalOptions="Start"
+                            Text="{Binding YnFluLabel}"
+                            TextColor="#031926" />
+                        <Label
+                            Margin="0,5,0,0"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12"
+                            HorizontalOptions="Start"
+                            LineBreakMode="WordWrap"
+                            Text="{Binding YnFluSubLabel}"
+                            TextColor="#777777" />
+                        <Label
+                            Margin="0,5,0,0"
+                            FontFamily="OpenSansRegular"
+                            FontSize="12"
+                            HorizontalOptions="Start"
+                            IsVisible="False"
+                            LineBreakMode="WordWrap"
+                            Text="{Binding YnFluDirections}"
+                            TextColor="#031926" />
+
+                        <syncfusion:SfListView
+                            Margin="0,10,0,0"
+                            AutoFitMode="Height"
+                            BackgroundColor="Transparent"
+                            ItemTemplate="{StaticResource OptionItemTemplate}"
+                            ItemsSource="{Binding YnFluOptions}"
+                            Orientation="Vertical"
+                            ScrollBarVisibility="Never"
+                            SelectedItem="{Binding SelectedYnFluOption, Mode=TwoWay}"
+                            SelectedItemTemplate="{StaticResource OptionSelectedItemTemplate}"
+                            SelectionBackground="Transparent"
+                            SelectionGesture="Tap"
+                            SelectionMode="Single">
+                            <syncfusion:SfListView.ItemsLayout>
+                                <syncfusion:GridLayout SpanCount="2" />
+                            </syncfusion:SfListView.ItemsLayout>
+                        </syncfusion:SfListView>
+                        <Label
+                            Margin="0,0,10,10"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="10"
+                            HorizontalOptions="End"
+                            IsVisible="{Binding YnFluGateError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
+                            TextColor="Red" />
+
+                        <!--  flufield multi-select — only shown when user answered Yes above  -->
+                        <StackLayout IsVisible="{Binding IsFluSectionVisible}">
+
                         <Label
                             Margin="0,10,0,0"
                             FontAttributes="Bold"
@@ -3670,6 +3727,8 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </inputLayout:SfTextInputLayout>
+                        </StackLayout>
+                        <!--  end IsFluSectionVisible  -->
                     </StackLayout>
 
                     <!--  ================= Diet =================  -->
@@ -3753,6 +3812,44 @@
                             FontSize="10"
                             HorizontalOptions="End"
                             IsVisible="{Binding DietLengthError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
+                            Text="{local:Localize Key=Common_SelectAnOption}"
+                            TextColor="Red" />
+
+                        <!--  prevdietfield: previous diet — only visible when diet length is "Less than 6 months"  -->
+                        <Label
+                            Margin="0,20,0,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="15"
+                            HorizontalOptions="Start"
+                            IsVisible="{Binding IsPrevDietVisible}"
+                            Text="{Binding PrevDietLabel}"
+                            TextColor="#031926" />
+                        <syncfusion:SfListView
+                            Margin="0,10,0,0"
+                            AutoFitMode="Height"
+                            BackgroundColor="Transparent"
+                            IsVisible="{Binding IsPrevDietVisible}"
+                            ItemTemplate="{StaticResource OptionItemTemplate}"
+                            ItemsSource="{Binding PrevDietOptions}"
+                            Orientation="Vertical"
+                            ScrollBarVisibility="Never"
+                            SelectedItem="{Binding SelectedPrevDietOption, Mode=TwoWay}"
+                            SelectedItemTemplate="{StaticResource OptionSelectedItemTemplate}"
+                            SelectionBackground="Transparent"
+                            SelectionGesture="Tap"
+                            SelectionMode="Single">
+                            <syncfusion:SfListView.ItemsLayout>
+                                <syncfusion:GridLayout SpanCount="1" />
+                            </syncfusion:SfListView.ItemsLayout>
+                        </syncfusion:SfListView>
+                        <Label
+                            Margin="0,0,10,10"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="10"
+                            HorizontalOptions="End"
+                            IsVisible="{Binding PrevDietError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
                             Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
@@ -4428,6 +4525,63 @@
                             IsVisible="{Binding AntiviralPrescribedError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
                             Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
+
+                        <!--  antiviralstartedfield + antiviralfinishfield: shown only when prescribed = Yes  -->
+                        <Label
+                            Margin="0,20,0,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="15"
+                            HorizontalOptions="Start"
+                            IsVisible="{Binding IsAntiviralStartedVisible}"
+                            Text="{Binding AntiviralStartedLabel}"
+                            TextColor="#031926" />
+                        <syncfusion:SfListView
+                            Margin="0,10,0,0"
+                            AutoFitMode="Height"
+                            BackgroundColor="Transparent"
+                            IsVisible="{Binding IsAntiviralStartedVisible}"
+                            ItemTemplate="{StaticResource OptionItemTemplate}"
+                            ItemsSource="{Binding AntiviralStartedOptions}"
+                            Orientation="Vertical"
+                            ScrollBarVisibility="Never"
+                            SelectedItem="{Binding SelectedAntiviralStartedOption, Mode=TwoWay}"
+                            SelectedItemTemplate="{StaticResource OptionSelectedItemTemplate}"
+                            SelectionBackground="Transparent"
+                            SelectionGesture="Tap"
+                            SelectionMode="Single">
+                            <syncfusion:SfListView.ItemsLayout>
+                                <syncfusion:GridLayout SpanCount="2" />
+                            </syncfusion:SfListView.ItemsLayout>
+                        </syncfusion:SfListView>
+
+                        <Label
+                            Margin="0,20,0,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="15"
+                            HorizontalOptions="Start"
+                            IsVisible="{Binding IsAntiviralStartedVisible}"
+                            Text="{Binding AntiviralFinishLabel}"
+                            TextColor="#031926" />
+                        <syncfusion:SfListView
+                            Margin="0,10,0,0"
+                            AutoFitMode="Height"
+                            BackgroundColor="Transparent"
+                            IsVisible="{Binding IsAntiviralStartedVisible}"
+                            ItemTemplate="{StaticResource OptionItemTemplate}"
+                            ItemsSource="{Binding AntiviralFinishOptions}"
+                            Orientation="Vertical"
+                            ScrollBarVisibility="Never"
+                            SelectedItem="{Binding SelectedAntiviralFinishOption, Mode=TwoWay}"
+                            SelectedItemTemplate="{StaticResource OptionSelectedItemTemplate}"
+                            SelectionBackground="Transparent"
+                            SelectionGesture="Tap"
+                            SelectionMode="Single">
+                            <syncfusion:SfListView.ItemsLayout>
+                                <syncfusion:GridLayout SpanCount="2" />
+                            </syncfusion:SfListView.ItemsLayout>
+                        </syncfusion:SfListView>
 
                         <Label
                             Margin="0,20,0,0"
@@ -5327,13 +5481,14 @@
 
                         <!--  Consent description from server  -->
                         <Label
-                            Margin="20,16,20,4"
-                            FontFamily="OpenSansRegular"
-                            FontSize="14"
+                            Margin="0,16,0,4"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="15"
+                            FontAttributes="Bold"
                             IsVisible="{Binding AllConsentDetails.description, Converter={StaticResource StringNotEmptyToBoolConverter}}"
                             LineBreakMode="WordWrap"
                             Text="{Binding AllConsentDetails.description}"
-                            TextColor="#64748B" />
+                            TextColor="#031926" />
 
                         <!--  Dynamic, server-driven consent sections. Each item's checkbox binds straight to its own ChckedState – no page-level property needed for the checkbox itself.  -->
                         <CollectionView
