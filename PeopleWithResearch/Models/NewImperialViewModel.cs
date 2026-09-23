@@ -1590,6 +1590,21 @@ public partial class NewImperialViewModel : ObservableObject
         {
             var subFields = field.subFields ?? new List<RegField>();
 
+            var ynFluField = subFields.FirstOrDefault(f => f.Id == "ynflu");
+            if (ynFluField is not null)
+            {
+                YnFluLabel = ynFluField.Label;
+                YnFluSubLabel = ynFluField.SubLabel;
+                YnFluDirections = ynFluField.Directions;
+                var prevYnFlu = SelectedYnFluOption;
+                YnFluOptions = new ObservableCollection<OptionDetails>(ynFluField.Options ?? new List<OptionDetails>());
+                if (prevYnFlu is not null) { SelectedYnFluOption = prevYnFlu; }
+                if (!QuestionnaireResults.Any(a => a.InternalName == "ynflu"))
+                {
+                    QuestionnaireResults.Add(new QuestionnaireResult { InternalName = "ynflu", QuestionId = ynFluField.questionid, AnswerId = "" });
+                }
+            }
+
             var fluField = subFields.FirstOrDefault(f => f.Id == "flufield");
             if (fluField is not null)
             {
@@ -1667,6 +1682,20 @@ public partial class NewImperialViewModel : ObservableObject
                 if (!QuestionnaireResults.Any(a => a.InternalName == "dietlengthfield"))
                 {
                     QuestionnaireResults.Add(new QuestionnaireResult { InternalName = "dietlengthfield", QuestionId = dietLengthField.questionid, AnswerId = "" });
+                }
+            }
+
+            // prevdietfield: the "previous diet" question, only shown when diet length is < 6 months (b_diet_type_length_1)
+            var prevDietField = subFields.FirstOrDefault(f => f.Id == "dietfield" && f.questionid == "b_diet_type_2");
+            if (prevDietField is not null)
+            {
+                PrevDietLabel = prevDietField.Label;
+                var selected = SelectedPrevDietOption;
+                PrevDietOptions = new ObservableCollection<OptionDetails>(prevDietField.Options ?? new List<OptionDetails>());
+                if (selected is not null) { SelectedPrevDietOption = selected; }
+                if (!QuestionnaireResults.Any(a => a.InternalName == "prevdietfield"))
+                {
+                    QuestionnaireResults.Add(new QuestionnaireResult { InternalName = "prevdietfield", QuestionId = prevDietField.questionid, AnswerId = "" });
                 }
             }
 
@@ -1950,6 +1979,32 @@ public partial class NewImperialViewModel : ObservableObject
                 if (!QuestionnaireResults.Any(a => a.InternalName == "antiviralsideeffectsfield"))
                 {
                     QuestionnaireResults.Add(new QuestionnaireResult { InternalName = "antiviralsideeffectsfield", QuestionId = sideEffectsField.questionid, AnswerId = "" });
+                }
+            }
+
+            var startedField = subFields.FirstOrDefault(f => f.Id == "antiviralstartedfield");
+            if (startedField is not null)
+            {
+                AntiviralStartedLabel = startedField.Label;
+                var selected = SelectedAntiviralStartedOption;
+                AntiviralStartedOptions = new ObservableCollection<OptionDetails>(startedField.Options ?? new List<OptionDetails>());
+                if (selected is not null) { SelectedAntiviralStartedOption = selected; }
+                if (!QuestionnaireResults.Any(a => a.InternalName == "antiviralstartedfield"))
+                {
+                    QuestionnaireResults.Add(new QuestionnaireResult { InternalName = "antiviralstartedfield", QuestionId = startedField.questionid, AnswerId = "" });
+                }
+            }
+
+            var finishField = subFields.FirstOrDefault(f => f.Id == "antiviralfinishfield");
+            if (finishField is not null)
+            {
+                AntiviralFinishLabel = finishField.Label;
+                var selected = SelectedAntiviralFinishOption;
+                AntiviralFinishOptions = new ObservableCollection<OptionDetails>(finishField.Options ?? new List<OptionDetails>());
+                if (selected is not null) { SelectedAntiviralFinishOption = selected; }
+                if (!QuestionnaireResults.Any(a => a.InternalName == "antiviralfinishfield"))
+                {
+                    QuestionnaireResults.Add(new QuestionnaireResult { InternalName = "antiviralfinishfield", QuestionId = finishField.questionid, AnswerId = "" });
                 }
             }
         }
@@ -4748,6 +4803,11 @@ public partial class NewImperialViewModel : ObservableObject
     #region Recent Vaccinations section (rvstack)
     // Was: ValidateRVStack() / AddRVInfo() / flulist_SelectionChanged() / SetError()
     //
+    // ynflu (order 1) is a Yes/No gate: only it is shown initially. Selecting "Yes" reveals
+    // the flufield multi-select (and its conditional date fields). Selecting "No" skips the
+    // flu detail questions entirely. The gate must have a selection before the user can
+    // proceed.
+    //
     // flulist is a multi-select list ("which vaccines have you had: Flu / COVID / RSV") —
     // selecting any one of those three options reveals its own date field. The separate
     // covidlist/rsvlist controls and their _ItemTapped handlers in the original are leftover
@@ -4755,6 +4815,33 @@ public partial class NewImperialViewModel : ObservableObject
     // inside commented-out code, so they render with no items and can never actually be
     // interacted with — not carried over, same as the other confirmed-dead controls noted
     // elsewhere in this file.
+
+    // --- ynflu gate (new Yes/No question, shown first) ---
+    [ObservableProperty] private string _ynFluLabel = string.Empty;
+    [ObservableProperty] private string _ynFluSubLabel = string.Empty;
+    [ObservableProperty] private string _ynFluDirections = string.Empty;
+    [ObservableProperty] private ObservableCollection<OptionDetails> _ynFluOptions = new();
+    [ObservableProperty] private OptionDetails? _selectedYnFluOption;
+    [ObservableProperty] private string _ynFluGateError = string.Empty;
+
+    /// <summary>True only when the user has selected "Yes" on the ynflu gate question,
+    /// revealing the flufield multi-select and its downstream date fields.</summary>
+    public bool IsFluSectionVisible => SelectedYnFluOption?.Text == "Yes";
+
+    partial void OnSelectedYnFluOptionChanged(OptionDetails? value)
+    {
+        YnFluGateError = string.Empty;
+        OnPropertyChanged(nameof(IsFluSectionVisible));
+        // Clear flu selection + errors when user switches back to "No"
+        if (value?.Text != "Yes")
+        {
+            SelectedFluOptions.Clear();
+            FluGateError = string.Empty;
+            FluDateError = string.Empty;
+            CovidDateError = string.Empty;
+            RsvDateError = string.Empty;
+        }
+    }
 
     [ObservableProperty] private string _fluLabel = string.Empty;
     [ObservableProperty] private string _fluSubLabel = string.Empty;
@@ -4825,6 +4912,18 @@ public partial class NewImperialViewModel : ObservableObject
 
     private bool ValidateRvSection()
     {
+        // ynflu gate must be answered before anything else
+        if (SelectedYnFluOption is null)
+        {
+            YnFluGateError = "Select an option";
+            return false;
+        }
+
+        // "No" → user has confirmed no recent vaccines; skip all flu detail validation
+        if (SelectedYnFluOption.Text == "No")
+            return true;
+
+        // "Yes" → validate the flufield multi-select and any visible date fields
         bool isValid = true;
 
         if (SelectedFluOptions.Count == 0)
@@ -4872,6 +4971,17 @@ public partial class NewImperialViewModel : ObservableObject
 
     private Task AddRvSectionInfoAsync()
     {
+        // Record the ynflu gate answer
+        var ynFluRecord = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "ynflu");
+        if (ynFluRecord is not null && SelectedYnFluOption is not null)
+        {
+            ynFluRecord.AnswerId = SelectedYnFluOption.AnswerId;
+        }
+
+        // If user said "No" there are no vaccine details to record
+        if (SelectedYnFluOption?.Text != "Yes")
+            return Task.CompletedTask;
+
         // NOTE: ported as-is from AddRVInfo() — it reads a single "SelectedItem" from what's
         // now a multi-select list, an inconsistency already present in the original (the
         // selection handler correctly treats this as multi-select; the commit step doesn't).
@@ -4929,6 +5039,13 @@ public partial class NewImperialViewModel : ObservableObject
     [ObservableProperty] private OptionDetails? _selectedDietLengthOption;
     [ObservableProperty] private string _dietLengthError = string.Empty;
 
+    // prevdietfield: previous diet question, visible only when diet length answer is b_diet_type_length_1 ("Less than 6 months")
+    [ObservableProperty] private bool _isPrevDietVisible;
+    [ObservableProperty] private string _prevDietLabel = string.Empty;
+    [ObservableProperty] private ObservableCollection<OptionDetails> _prevDietOptions = new();
+    [ObservableProperty] private OptionDetails? _selectedPrevDietOption;
+    [ObservableProperty] private string _prevDietError = string.Empty;
+
     [ObservableProperty] private string _supplementsLabel = string.Empty;
     [ObservableProperty] private string _supplementsSubLabel = string.Empty;
     [ObservableProperty] private bool _isSupplementsSubLabelVisible;
@@ -4975,6 +5092,18 @@ public partial class NewImperialViewModel : ObservableObject
     partial void OnSelectedDietLengthOptionChanged(OptionDetails? value)
     {
         if (value is not null) DietLengthError = string.Empty;
+
+        IsPrevDietVisible = value?.AnswerId == "b_diet_type_length_1";
+        if (!IsPrevDietVisible)
+        {
+            SelectedPrevDietOption = null;
+            PrevDietError = string.Empty;
+        }
+    }
+
+    partial void OnSelectedPrevDietOptionChanged(OptionDetails? value)
+    {
+        if (value is not null) PrevDietError = string.Empty;
     }
 
     partial void OnSelectedSupplementsOptionChanged(OptionDetails? value)
@@ -5018,6 +5147,12 @@ public partial class NewImperialViewModel : ObservableObject
             isValid = false;
         }
 
+        if (IsPrevDietVisible && SelectedPrevDietOption is null)
+        {
+            PrevDietError = "Select an option";
+            isValid = false;
+        }
+
         if (SelectedSupplementsOption is null)
         {
             SupplementsError = "Select an option";
@@ -5054,6 +5189,12 @@ public partial class NewImperialViewModel : ObservableObject
         {
             var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "dietlengthfield");
             if (record is not null) record.AnswerId = SelectedDietLengthOption.AnswerId;
+        }
+
+        if (IsPrevDietVisible && SelectedPrevDietOption is not null)
+        {
+            var record = QuestionnaireResults.FirstOrDefault(a => a.InternalName == "prevdietfield");
+            if (record is not null) record.AnswerId = SelectedPrevDietOption.AnswerId;
         }
 
         if (SelectedSupplementsOption is not null)
@@ -5429,6 +5570,16 @@ public partial class NewImperialViewModel : ObservableObject
     [ObservableProperty] private OptionDetails? _selectedAntiviralSideEffectsOption;
     [ObservableProperty] private string _antiviralSideEffectsError = string.Empty;
 
+    // antiviralstartedfield / antiviralfinishfield: shown only when prescribed answer is Yes (b_antiviral_2_1)
+    [ObservableProperty] private bool _isAntiviralStartedVisible;
+    [ObservableProperty] private string _antiviralStartedLabel = string.Empty;
+    [ObservableProperty] private ObservableCollection<OptionDetails> _antiviralStartedOptions = new();
+    [ObservableProperty] private OptionDetails? _selectedAntiviralStartedOption;
+
+    [ObservableProperty] private string _antiviralFinishLabel = string.Empty;
+    [ObservableProperty] private ObservableCollection<OptionDetails> _antiviralFinishOptions = new();
+    [ObservableProperty] private OptionDetails? _selectedAntiviralFinishOption;
+
     partial void OnSelectedAntiviralHeardOptionChanged(OptionDetails? value)
     {
         if (value is null) return;
@@ -5442,7 +5593,17 @@ public partial class NewImperialViewModel : ObservableObject
         }
     }
 
-    partial void OnSelectedAntiviralPrescribedOptionChanged(OptionDetails? value) { if (value is not null) AntiviralPrescribedError = string.Empty; }
+    partial void OnSelectedAntiviralPrescribedOptionChanged(OptionDetails? value)
+    {
+        if (value is not null) AntiviralPrescribedError = string.Empty;
+
+        IsAntiviralStartedVisible = value?.AnswerId == "b_antiviral_2_1";
+        if (!IsAntiviralStartedVisible)
+        {
+            SelectedAntiviralStartedOption = null;
+            SelectedAntiviralFinishOption = null;
+        }
+    }
     partial void OnSelectedAntiviralHospitalOptionChanged(OptionDetails? value) { if (value is not null) AntiviralHospitalError = string.Empty; }
     partial void OnSelectedAntiviralDurationOptionChanged(OptionDetails? value) { if (value is not null) AntiviralDurationError = string.Empty; }
     partial void OnSelectedAntiviralPreventionOptionChanged(OptionDetails? value) { if (value is not null) AntiviralPreventionError = string.Empty; }
@@ -5477,6 +5638,12 @@ public partial class NewImperialViewModel : ObservableObject
         SetAnswer("antiviraldurationfield", SelectedAntiviralDurationOption);
         SetAnswer("antiviralpreventionfield", SelectedAntiviralPreventionOption);
         SetAnswer("antiviralsideeffectsfield", SelectedAntiviralSideEffectsOption);
+        // not required — only record if answered
+        if (IsAntiviralStartedVisible)
+        {
+            SetAnswer("antiviralstartedfield", SelectedAntiviralStartedOption);
+            SetAnswer("antiviralfinishfield", SelectedAntiviralFinishOption);
+        }
 
         return Task.CompletedTask;
     }

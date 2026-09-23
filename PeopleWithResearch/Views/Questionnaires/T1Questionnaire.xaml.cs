@@ -72,8 +72,18 @@ public partial class T1Questionnaire : ContentPage
         try
         {
             SetLoading(true);
-            var json = await FetchJsonAsync();
-            _model = T1FormModel.FromJson(json);
+          string questionnaireId = dayform  ?  "9CDC5614-B984-4842-8F17-8665994EB4E8": "CBDA3207-C3BE-4FCB-9633-FED8FE58DAA2";
+            var jsonList = await APICalls.Instance.GetSingleQuestionnaire(questionnaireId);
+
+            var QuestionnaireItem = jsonList?.FirstOrDefault();
+            if (QuestionnaireItem?.QuestionAnswerJsonRaw != null)
+            {
+                _model = T1FormModel.FromJson(QuestionnaireItem.QuestionAnswerJsonRaw);
+            }
+
+            //Locally Stored Version (Obselete)
+            //var json = await FetchJsonAsync();
+            // _model = T1FormModel.FromJson(json.FirstOrDefault().QuestionAnswerJsonRaw);
             SetLoading(false);
 
             if (dayform)
@@ -2007,7 +2017,7 @@ public partial class T1Questionnaire : ContentPage
 
             if(member == null)
             {
-                // Member joined after the event was created � add them now
+                // Member joined after the event was created � add them now
                 member = new TEventMember
                 {
                     user_id = Helpers.Settings.UsersID,

@@ -32,6 +32,7 @@ namespace PeopleWithResearch
         public string Label { get; set; }
 
         public string SubLabel { get; set; }
+        public string Directions { get; set; }
         public string Type { get; set; }
         public bool Required { get; set; }
         public List<OptionDetails> Options { get; set; }
