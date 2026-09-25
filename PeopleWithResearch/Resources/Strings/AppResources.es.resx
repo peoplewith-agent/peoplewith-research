@@ -1468,6 +1468,12 @@
   <data name="Settings_SignupCodeId" xml:space="preserve">
     <value>Código de registro</value>
   </data>
+  <data name="Settings_Consent" xml:space="preserve">
+    <value>Consentimiento</value>
+  </data>
+  <data name="Settings_ConsentStudy" xml:space="preserve">
+    <value>Ver consentimiento del estudio</value>
+  </data>
 
   <!-- AddMember placeholders and popup -->
   <data name="AddMember_FirstNamePlaceholder" xml:space="preserve">

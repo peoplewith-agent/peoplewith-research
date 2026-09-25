@@ -75,6 +75,15 @@
                 <Setter Property="OutlineCornerRadius" Value="5" />
                 <Setter Property="Stroke" Value="LightGray" />
                 <Setter Property="ErrorLabelStyle" Value="{StaticResource SharedErrorLabelStyle}" />
+                <Setter Property="HelperLabelStyle">
+                    <Setter.Value>
+                        <inputLayout:LabelStyle 
+                            TextColor="#666666" 
+                            FontSize="10"
+                            FontFamily="OpenSansRegular"
+                            FontAttributes="Italic" />
+                    </Setter.Value>
+                </Setter>
             </Style>
 
 
@@ -416,7 +425,7 @@
                     <Label
                         Margin="0,5,0,0"
                         FontFamily="OpenSansSemiBold"
-                        FontSize="14"
+                        FontSize="14" 
                         HorizontalOptions="Start"
                         LineBreakMode="WordWrap"
                         Text="{Binding SectionSubtitle}"
@@ -1123,10 +1132,21 @@
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             FontSize="15"
-                            HorizontalOptions="Start"
+                            HorizontalOptions="Start" 
                             IsVisible="{Binding IsCountryOfOriginVisible}"
                             Text="{Binding CountryOfOriginLabel}"
                             TextColor="#031926" />
+
+                        <Label
+                            Margin="0,5,0,0"
+                            FontFamily="OpenSansRegular"
+                            FontSize="12" 
+                            IsVisible="{Binding IsCountryOfOriginVisible}"
+                            HorizontalOptions="Start"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="WordWrap"
+                            Text="{Binding CountryOfOriginSubLabel}"
+                            TextColor="#777777" />
 
                         <editors:SfAutocomplete
                             Margin="5,10,5,0"
@@ -1172,7 +1192,7 @@
                         <Label
                             Margin="0,5,0,0"
                             FontFamily="OpenSansRegular"
-                            FontSize="12"
+                            FontSize="12" 
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"
                             LineBreakMode="WordWrap"
@@ -2873,12 +2893,13 @@
                             Margin="0,10,0,0"
                             ErrorText="{local:Localize Key=Register_EnterValue}"
                             HasError="{Binding InfectionYearError}"
+                            HelperText="Enter the year of infection (e.g., 2020)"
                             IsVisible="{Binding IsInfectionDetailVisible}">
                             <Entry
                                 FontFamily="OpenSansRegular"
                                 FontSize="14"
                                 Keyboard="Numeric"
-                                Placeholder="Year"
+                                Placeholder="Year"                    
                                 PlaceholderColor="Gray"
                                 Text="{Binding InfectionYear}"
                                 TextColor="#031926"
@@ -3236,7 +3257,7 @@
                             TextColor="Red" />
 
                         <Label
-                            Margin="0,20,0,0"
+                            Margin="0,20,0,0" 
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             FontSize="15"
@@ -3244,6 +3265,20 @@
                             IsVisible="{Binding IsCancerVisible}"
                             Text="{Binding CancerNowLabel}"
                             TextColor="#031926" />
+
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12"
+                            HorizontalOptions="Start"
+                            IsVisible="{Binding IsCancerVisible}"
+                            Text="{Binding CancerNowHelpText}"
+                            TextColor="#009fe3"
+                            TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ShowInfoCommand}" CommandParameter="{Binding CancerNowHelpText}" />
+                            </Label.GestureRecognizers>
+                        </Label>
                         <syncfusion:SfListView
                             Margin="0,10,0,0"
                             AutoFitMode="Height"
@@ -3283,13 +3318,27 @@
                             HorizontalOptions="Start"
                             Text="{Binding MedynLabel}"
                             TextColor="#031926" />
-                        <Label
+                        <Label 
                             Margin="0,10,0,0"
                             FontFamily="OpenSansRegular"
-                            FontSize="13"
+                            FontSize="13" 
                             HorizontalOptions="Start"
                             Text="{Binding MedynDirections}"
                             TextColor="#031926" />
+
+                              <Label
+                            Margin="0,10,10,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12"
+                            HorizontalOptions="Start"
+                            Text="{Binding MedHelpText}"
+                            TextColor="#009fe3"
+                            TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ShowInfoCommand}" CommandParameter="{Binding MedHelpText}" />
+                            </Label.GestureRecognizers>
+                        </Label>
 
                         <syncfusion:SfListView
                             Margin="0,10,0,0"
@@ -3636,6 +3685,7 @@
                             Margin="0,10,0,0"
                             ErrorText="{Binding FluDateError}"
                             HasError="{Binding FluDateError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
+                            HelperText="Enter recent flu vaccine date (DD/MM/YYYY)"
                             IsVisible="{Binding IsFluDateVisible}">
                             <Entry
                                 FontFamily="OpenSansRegular"
@@ -3674,6 +3724,7 @@
                             Margin="0,10,0,0"
                             ErrorText="{Binding CovidDateError}"
                             HasError="{Binding CovidDateError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
+                            HelperText="Enter the date of COVID-19 vaccination (DD/MM/YYYY)"
                             IsVisible="{Binding IsCovidDateVisible}">
                             <Entry
                                 FontFamily="OpenSansRegular"
@@ -3712,6 +3763,7 @@
                             Margin="0,10,0,0"
                             ErrorText="{Binding RsvDateError}"
                             HasError="{Binding RsvDateError, Converter={StaticResource StringNotEmptyToBoolConverter}}"
+                            HelperText="Enter the date of RSV vaccination (DD/MM/YYYY)"
                             IsVisible="{Binding IsRsvDateVisible}">
                             <Entry
                                 FontFamily="OpenSansRegular"
@@ -3738,10 +3790,25 @@
                             Margin="0,10,0,0"
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
-                            FontSize="15"
+                            FontSize="15" 
                             HorizontalOptions="Start"
                             Text="{Binding DietLabel}"
                             TextColor="#031926" />
+
+                        <Label
+                            Margin="0,10,10,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12"
+                            HorizontalOptions="Start"
+                            Text="{Binding DietHelpText}"
+                            TextColor="#009fe3"
+                            TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ShowInfoCommand}" CommandParameter="{Binding DietHelpText}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
                         <Label
                             Margin="0,5,0,0"
                             FontFamily="OpenSansSemiBold"
@@ -3782,7 +3849,7 @@
                             Margin="0,20,0,0"
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
-                            FontSize="15"
+                            FontSize="15" 
                             HorizontalOptions="Start"
                             IsVisible="{Binding IsDietLengthVisible}"
                             Text="{Binding DietLengthLabel}"
@@ -3806,7 +3873,7 @@
                             </syncfusion:SfListView.ItemsLayout>
                         </syncfusion:SfListView>
                         <Label
-                            Margin="0,0,10,10"
+                            Margin="0,0,10,10" 
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             FontSize="10"
@@ -3817,7 +3884,7 @@
 
                         <!--  prevdietfield: previous diet — only visible when diet length is "Less than 6 months"  -->
                         <Label
-                            Margin="0,20,0,0"
+                            Margin="0,20,0,0" 
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             FontSize="15"
@@ -3825,6 +3892,23 @@
                             IsVisible="{Binding IsPrevDietVisible}"
                             Text="{Binding PrevDietLabel}"
                             TextColor="#031926" />
+
+                        <Label
+                            Margin="0,10,10,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12"
+                            HorizontalOptions="Start"
+                            IsVisible="{Binding IsPrevDietVisible}"
+                            Text="{Binding PrevDietHelpText}"
+                            TextColor="#009fe3"
+                            TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ShowInfoCommand}" CommandParameter="{Binding PrevDietHelpText}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+
                         <syncfusion:SfListView
                             Margin="0,10,0,0"
                             AutoFitMode="Height"
@@ -4002,6 +4086,21 @@
                             HorizontalOptions="Start"
                             Text="{Binding MenstrualLabel}"
                             TextColor="#031926" />
+
+    <Label
+                            Margin="0,10,10,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12"
+                            HorizontalOptions="Start"
+                            Text="{Binding MenstrualHelpText}"
+                            TextColor="#009fe3"
+                            TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ShowInfoCommand}" CommandParameter="{Binding MenstrualHelpText}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
                         <syncfusion:SfListView
                             Margin="0,10,0,0"
                             AutoFitMode="Height"
@@ -4051,7 +4150,11 @@
                                 PlaceholderColor="Gray"
                                 Text="{Binding PregnancyWeeksText}"
                                 TextColor="#031926"
-                                VerticalOptions="Center" />
+                                VerticalOptions="Center" >
+                                <Entry.Behaviors>
+                                    <toolkit:MaskedBehavior Mask="XX" />
+                                </Entry.Behaviors>
+                            </Entry>
                         </inputLayout:SfTextInputLayout>
 
                         <Label
@@ -4065,8 +4168,9 @@
                             TextColor="#031926" />
                         <inputLayout:SfTextInputLayout
                             Margin="0,10,0,0"
-                            ErrorText="{local:Localize Key=Register_EnterValue}"
+                            ErrorText="{Binding DeliveryDateErrorText}"
                             HasError="{Binding DeliveryDateError}"
+                            HelperText="Enter the date of birth (DD/MM/YYYY)"
                             IsVisible="{Binding IsDeliveryDateVisible}">
                             <Entry
                                 FontFamily="OpenSansRegular"
@@ -4085,10 +4189,10 @@
                     </StackLayout>
 
                     <!--  ================= Health Status (EQ-5D) =================  -->
-                    <StackLayout Margin="0,10,0,100" IsVisible="{Binding IsHtStackVisible}">
+                    <StackLayout Margin="0,10,0,100"  IsVisible="{Binding IsHtStackVisible}">
 
                         <Label
-                            Margin="0,10,0,0"
+                            Margin="0,10,0,0" 
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             FontSize="15"
@@ -4448,8 +4552,8 @@
                         <Label
                             Margin="0,10,0,0"
                             FontAttributes="Bold"
-                            FontFamily="OpenSansRegular"
-                            FontSize="14"
+                            FontFamily="OpenSansBold"
+                            FontSize="14" 
                             HorizontalOptions="Start"
                             Text="{Binding AntiviralInfoText}"
                             TextColor="#031926" />
@@ -4458,10 +4562,20 @@
                             Margin="0,20,0,0"
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
-                            FontSize="15"
+                            FontSize="15" 
                             HorizontalOptions="Start"
                             Text="{Binding AntiviralHeardLabel}"
                             TextColor="#031926" />
+
+                             <Label 
+                            Margin="0,5,0,0"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12"
+                            HorizontalOptions="Start"
+                            LineBreakMode="WordWrap"
+                            Text="{Binding AntiviralHeardSubLabel}"
+                            TextColor="#777777" />
+
                         <syncfusion:SfListView
                             Margin="0,10,0,0"
                             AutoFitMode="Height"
@@ -4489,7 +4603,7 @@
                             Text="{local:Localize Key=Common_SelectAnOption}"
                             TextColor="Red" />
 
-                        <Label
+                        <Label 
                             Margin="0,20,0,0"
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
@@ -4498,6 +4612,17 @@
                             IsVisible="{Binding IsAntiviralPrescribedVisible}"
                             Text="{Binding AntiviralPrescribedLabel}"
                             TextColor="#031926" />
+
+                   <Label
+                            Margin="0,5,0,0"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12" 
+                            HorizontalOptions="Start" 
+                            LineBreakMode="WordWrap"
+                            IsVisible="{Binding IsAntiviralPrescribedVisible}"
+                            Text="{Binding AntiviralPrescribedSubLabel}"
+                            TextColor="#777777" />
+
                         <syncfusion:SfListView
                             Margin="0,10,0,0"
                             AutoFitMode="Height"
@@ -4527,11 +4652,11 @@
                             TextColor="Red" />
 
                         <!--  antiviralstartedfield + antiviralfinishfield: shown only when prescribed = Yes  -->
-                        <Label
+                        <Label 
                             Margin="0,20,0,0"
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
-                            FontSize="15"
+                            FontSize="15" 
                             HorizontalOptions="Start"
                             IsVisible="{Binding IsAntiviralStartedVisible}"
                             Text="{Binding AntiviralStartedLabel}"
@@ -4774,7 +4899,7 @@
                             Margin="0,20,0,0"
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
-                            FontSize="15"
+                            FontSize="15" 
                             HorizontalOptions="Start"
                             IsVisible="{Binding IsSmokeDetailVisible}"
                             Text="{Binding SmokeTypesLabel}"
@@ -4810,7 +4935,7 @@
 
                         <Label
                             Margin="0,20,0,0"
-                            FontAttributes="Bold"
+                            FontAttributes="Bold" 
                             FontFamily="OpenSansSemiBold"
                             FontSize="15"
                             HorizontalOptions="Start"
@@ -4819,7 +4944,7 @@
                             TextColor="#031926" />
                         <inputLayout:SfTextInputLayout
                             Margin="0,10,0,0"
-                            ErrorText="{local:Localize Key=Register_EnterValue}"
+                            ErrorText="{Binding SmokeStartAgeErrorText}"
                             HasError="{Binding SmokeStartAgeError}"
                             IsVisible="{Binding IsSmokeDetailVisible}">
                             <Entry
@@ -4838,7 +4963,7 @@
                         </inputLayout:SfTextInputLayout>
 
                         <Label
-                            Margin="0,20,0,0"
+                            Margin="0,20,0,0" 
                             FontAttributes="Bold"
                             FontFamily="OpenSansSemiBold"
                             FontSize="15"
@@ -4885,7 +5010,7 @@
                             TextColor="#031926" />
                         <inputLayout:SfTextInputLayout
                             Margin="0,10,0,0"
-                            ErrorText="{local:Localize Key=Register_EnterValue}"
+                            ErrorText="{Binding SmokeStopAgeErrorText}"
                             HasError="{Binding SmokeStopAgeError}"
                             IsVisible="{Binding IsSmokeStopAgeVisible}">
                             <Entry
@@ -5492,7 +5617,6 @@
 
                         <!--  Dynamic, server-driven consent sections. Each item's checkbox binds straight to its own ChckedState – no page-level property needed for the checkbox itself.  -->
                         <CollectionView
-                            x:Name="MainConsentCollection"
                             Margin="0,0,0,10"
                             Background="transparent"
                             CanReorderItems="False"
@@ -5690,7 +5814,7 @@
                                                             FontSize="11"
                                                             IsVisible="{Binding IsBlockingError}"
                                                             LineBreakMode="WordWrap" HorizontalOptions="End"
-                                                            Text="This consent is required to continue."
+                                                            Text="You will not be able to continue with enrolment."
                                                             TextColor="#CC0000" />
 
                                                         <!--  Required label (shown when not in error)  -->

@@ -2445,7 +2445,7 @@
                                                         </Border>
 
                                                         <!--  Secondary Action: Manage Profile  -->
-                                                        <Border
+                                                        <Border IsVisible="False"
                                                             Grid.Column="2"
                                                             Padding="8,10"
                                                             BackgroundColor="Transparent"

@@ -1477,6 +1477,12 @@
   <data name="Settings_SignupCodeId" xml:space="preserve">
     <value>સાઇન-અપ કોડ</value>
   </data>
+  <data name="Settings_Consent" xml:space="preserve">
+    <value>સંમતિ</value>
+  </data>
+  <data name="Settings_ConsentStudy" xml:space="preserve">
+    <value>અધ્યયન સંમતિ જુઓ</value>
+  </data>
 
   <!-- AddMember placeholders and popup -->
   <data name="AddMember_FirstNamePlaceholder" xml:space="preserve">

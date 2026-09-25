@@ -37,6 +37,7 @@
 
 		<AndroidMinSdkVersion>26</AndroidMinSdkVersion>
 		<AndroidTargetSdkVersion>34</AndroidTargetSdkVersion>
+    <!-- <NuGetAuditSuppress>https://github.com/advisories/GHSA-2m69-gcr7-jv3q</NuGetAuditSuppress> -->
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)'=='net10.0-ios'">

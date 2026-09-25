@@ -24,6 +24,7 @@ namespace PeopleWithResearch
 
         // Use a single static client
         public static string CheckSignUpCode => $"{ApplicationURL}signupcode?$filter=signupcodeid%20eq%20";
+        public static string ReturnConsent => $"{ApplicationURL}signupcode?$select=consent&$filter=signupcodeid%20eq%20";
         public static string Checkuseremail => $"{ApplicationURL}user?$filter=email%20eq%20";
 
         public static string CheckPostcode => $"{ApplicationURL}user?$filter=postcode%20eq%20";
@@ -260,6 +261,34 @@ namespace PeopleWithResearch
                 return new ObservableCollection<newuser>();
             });
         }
+
+        
+        // public async Task<string> GetConsent()
+        // {
+        //     var signup = Helpers.Settings.SignUp;
+        //     if (string.IsNullOrEmpty(signup))
+        //     {
+        //         return string.Empty;
+        //     }
+
+        //     return await ExecuteWithRetry(async () =>
+        //     {
+        //         var url = $"{CheckSignUpCode}%27{signup}%27";
+        //         var response = await GetClient().GetAsync(url);
+
+        //         if (response.IsSuccessStatusCode)
+        //         {
+        //             string content = await response.Content.ReadAsStringAsync();
+        //             var userResponse = JsonConvert.DeserializeObject<ApiResponseSignUpCode>(content);
+
+        //             // Returns the consent string from the first matching object
+        //             return userResponse?.Value?.FirstOrDefault()?.consent ?? string.Empty;
+        //         }
+
+        //         return string.Empty;
+        //     });
+        // }
+
 
         public async Task<ObservableCollection<signupcode>> GetSingupCode()
         {
@@ -526,6 +555,42 @@ namespace PeopleWithResearch
             {
                 //  await NotasyncMethod(ex);
                 return new ObservableCollection<householdgroup>();
+            }
+        }
+
+
+        public async Task<List<userconsent>> GetUserConsent()
+        {
+            try
+            {
+                var userid = Helpers.Settings.UsersID;
+                string urlWithQuery = $"{UserConsent}?$filter=userid eq '{userid}'and deleted eq false";
+                var configuredClient = GetClient();
+                HttpResponseMessage response = await configuredClient.GetAsync(urlWithQuery);
+
+                if (!response.IsSuccessStatusCode) return null;
+
+                string content = await response.Content.ReadAsStringAsync();
+                var apiResponse = JsonConvert.DeserializeObject<ApiResponeUserConsent>(content);
+                var consentItem = apiResponse?.Value;
+                foreach (var item in consentItem)
+                {
+                    item.DateCreated = item.createdAt.ToLocalTime();
+                }
+
+                return consentItem;
+
+            }
+            catch (Exception ex) when (
+            ex is HttpRequestException ||
+            ex is WebException ||
+            ex is TaskCanceledException)
+            {
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
 

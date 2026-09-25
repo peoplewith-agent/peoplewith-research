@@ -378,8 +378,14 @@ public partial class NewImperialViewModel : ObservableObject
             RegistrationSectionsNotRequired = new ObservableCollection<RegField>(allFields.Where(x => !x.Required));
             RegistrationSections = new ObservableCollection<RegField>(allFields.Where(x => x.Required));
 
-            _over16MainSections = RegistrationSections.Where(x => x.Type == "over16").ToList();
-            RegistrationSections.RemoveAll(x => x.Type == "over16");
+
+            //Add Additional to List 
+            _over16MainSections = RegistrationSections
+            .Where(x => string.Equals(x.Type, "over16main", StringComparison.OrdinalIgnoreCase))
+            .ToList();
+
+            //Remove from RegistrationSections
+            RegistrationSections.RemoveAll(x => string.Equals(x.Type, "over16main", StringComparison.OrdinalIgnoreCase));
             // NOTE: the original stores this same filtered list in Over16regfields, but the
             // only place that later re-adds items (AddGenderInfo) reads Over16regfieldsmain
             // (Type == "over16main") instead — so this "over16" removal looks effectively
@@ -1090,6 +1096,7 @@ public partial class NewImperialViewModel : ObservableObject
             if (countryField is not null)
             {
                 CountryOfOriginLabel = countryField.Label;
+                CountryOfOriginSubLabel = countryField.SubLabel;
                 var selected = SelectedCountryOfOriginOption;
                 CountryOfOriginOptions = new ObservableCollection<OptionDetails>(countryField.Options ?? new List<OptionDetails>());
                 if (selected is not null) { SelectedCountryOfOriginOption = selected; }
@@ -1525,6 +1532,7 @@ public partial class NewImperialViewModel : ObservableObject
             {
                 CancerNowLabel = cancerNowField.Label;
                 var selected = SelectedCancerNowOption;
+                CancerNowHelpText = cancerNowField.HelpText;
                 CancerNowOptions = new ObservableCollection<OptionDetails>(cancerNowField.Options ?? new List<OptionDetails>());
                 if (selected is not null) { SelectedCancerNowOption = selected; }
                 if (!QuestionnaireResults.Any(a => a.InternalName == "cancerremissionstatus"))
@@ -1540,6 +1548,7 @@ public partial class NewImperialViewModel : ObservableObject
             {
                 MedynLabel = medynField.Label;
                 MedynDirections = medynField.SubLabel;
+                MedHelpText = medynField.HelpText;
                 if (!QuestionnaireResults.Any(a => a.InternalName == "firstmedstack"))
                 {
                     QuestionnaireResults.Add(new QuestionnaireResult { InternalName = "firstmedstack", QuestionId = medynField.questionid, AnswerId = "" });
@@ -1662,6 +1671,7 @@ public partial class NewImperialViewModel : ObservableObject
             {
                 DietLabel = dietField.Label;
                 DietSubLabel = dietField.SubLabel;
+                DietHelpText = dietField.HelpText;
                 IsDietSubLabelVisible = !string.IsNullOrEmpty(dietField.SubLabel);
                 var selected = SelectedDietOption;
                 DietOptions = new ObservableCollection<OptionDetails>(dietField.Options ?? new List<OptionDetails>());
@@ -1691,6 +1701,7 @@ public partial class NewImperialViewModel : ObservableObject
             {
                 PrevDietLabel = prevDietField.Label;
                 var selected = SelectedPrevDietOption;
+                PrevDietHelpText = prevDietField.HelpText;
                 PrevDietOptions = new ObservableCollection<OptionDetails>(prevDietField.Options ?? new List<OptionDetails>());
                 if (selected is not null) { SelectedPrevDietOption = selected; }
                 if (!QuestionnaireResults.Any(a => a.InternalName == "prevdietfield"))
@@ -1754,6 +1765,7 @@ public partial class NewImperialViewModel : ObservableObject
             if (mcField is not null)
             {
                 MenstrualLabel = mcField.Label;
+                MenstrualHelpText = mcField.HelpText;
                 var selected = SelectedMenstrualOption;
                 MenstrualOptions = new ObservableCollection<OptionDetails>(mcField.Options ?? new List<OptionDetails>());
                 if (selected is not null) { SelectedMenstrualOption = selected; }
@@ -1908,6 +1920,7 @@ public partial class NewImperialViewModel : ObservableObject
             if (heardField is not null)
             {
                 AntiviralHeardLabel = heardField.Label;
+                AntiviralHeardSubLabel = heardField.SubLabel;
                 var selected = SelectedAntiviralHeardOption;
                 AntiviralHeardOptions = new ObservableCollection<OptionDetails>(heardField.Options ?? new List<OptionDetails>());
                 if (selected is not null) { SelectedAntiviralHeardOption = selected; }
@@ -1921,6 +1934,7 @@ public partial class NewImperialViewModel : ObservableObject
             if (prescribedField is not null)
             {
                 AntiviralPrescribedLabel = prescribedField.Label;
+                AntiviralPrescribedSubLabel = prescribedField.SubLabel;
                 var selected = SelectedAntiviralPrescribedOption;
                 AntiviralPrescribedOptions = new ObservableCollection<OptionDetails>(prescribedField.Options ?? new List<OptionDetails>());
                 if (selected is not null) { SelectedAntiviralPrescribedOption = selected; }
@@ -2343,16 +2357,16 @@ public partial class NewImperialViewModel : ObservableObject
                     Over16SignatureLabel = AllConsentDetails.signoffparameters[1].label;
                 }
             }
-            else if (_userInfoForBaseline?.household_individual_age == "11 - 15")
-            {
-                IsUnder10StackVisible = true;
-                AllConsentDetails = config.FirstOrDefault(x => x.age == "11 - 15");
-                if (AllConsentDetails is not null)
-                {
-                    Over16NameLabel = AllConsentDetails.signoffparameters[0].label;
-                    Over16SignatureLabel = AllConsentDetails.signoffparameters[1].label;
-                }       
-            }
+            // else if (_userInfoForBaseline?.household_individual_age == "11 - 15")
+            // {
+            //     IsUnder10StackVisible = true;
+            //     AllConsentDetails = config.FirstOrDefault(x => x.age == "11 - 15");
+            //     if (AllConsentDetails is not null)
+            //     {
+            //         Over16NameLabel = AllConsentDetails.signoffparameters[0].label;
+            //         Over16SignatureLabel = AllConsentDetails.signoffparameters[1].label;
+            //     }       
+            // }
             else
             {
 
@@ -3297,19 +3311,32 @@ public partial class NewImperialViewModel : ObservableObject
                 if (getMenstrual is not null) RegistrationSections.Remove(getMenstrual);
             }
 
-            if (age < 16)
+            if(age >= 16)
             {
-                var over16Main = RegistrationSections.Where(x => x.Type == "over16main").ToList();
-                _over16MainSections = over16Main;
-                foreach (var item in over16Main) RegistrationSections.Remove(item);
-            }
-            else if (_over16MainSections.Count > 0)
-            {
-                foreach (var item in _over16MainSections)
+                //Add Back in Additional Sections for over16main
+                if(_over16MainSections.Count > 0)
                 {
-                    if (!RegistrationSections.Contains(item)) RegistrationSections.Add(item);
+                    foreach (var item in _over16MainSections)
+                    {
+                        if (!RegistrationSections.Contains(item)) RegistrationSections.Add(item);
+                    }
                 }
             }
+
+
+            // if (age < 16)
+            // {
+            //     var over16Main = RegistrationSections.Where(x => x.Type == "over16main").ToList();
+            //     _over16MainSections = over16Main;
+            //     foreach (var item in over16Main) RegistrationSections.Remove(item);
+            // }
+            // else if (_over16MainSections.Count > 0)
+            // {
+            //     foreach (var item in _over16MainSections)
+            //     {
+            //         if (!RegistrationSections.Contains(item)) RegistrationSections.Add(item);
+            //     }
+            // }
 
             RefreshProgress();
         }
@@ -3342,6 +3369,7 @@ public partial class NewImperialViewModel : ObservableObject
 
     [ObservableProperty] private bool _isCountryOfOriginVisible;
     [ObservableProperty] private string _countryOfOriginLabel = string.Empty;
+      [ObservableProperty] private string _countryOfOriginSubLabel = string.Empty;
     [ObservableProperty] private ObservableCollection<OptionDetails> _countryOfOriginOptions = new();
     [ObservableProperty] private OptionDetails? _selectedCountryOfOriginOption;
     [ObservableProperty] private string _countryOfOriginError = string.Empty;
@@ -3420,11 +3448,13 @@ public partial class NewImperialViewModel : ObservableObject
                 MoveToUkError = "Select an option";
                 isValid = false;
             }
-            if (SelectedCountryOfOriginOption is null)
-            {
-                CountryOfOriginError = "Select an option";
-                isValid = false;
-            }
+
+            //Not required option
+            // if (SelectedCountryOfOriginOption is null)
+            // {
+            //     CountryOfOriginError = "Select an option";
+            //     isValid = false;
+            // }
         }
 
         if (SelectedEthnicityOption is null)
@@ -4429,6 +4459,7 @@ public partial class NewImperialViewModel : ObservableObject
     [ObservableProperty] private OptionDetails? _selectedCancerOption;
     [ObservableProperty] private string _cancerError = string.Empty;
     [ObservableProperty] private string _cancerNowLabel = string.Empty;
+    [ObservableProperty] private string _cancerNowHelpText = string.Empty;
     [ObservableProperty] private ObservableCollection<OptionDetails> _cancerNowOptions = new();
     [ObservableProperty] private OptionDetails? _selectedCancerNowOption;
     [ObservableProperty] private string _cancerNowError = string.Empty;
@@ -4661,6 +4692,7 @@ public partial class NewImperialViewModel : ObservableObject
 
     [ObservableProperty] private string _medLabel = string.Empty;
     [ObservableProperty] private string _medDirections = string.Empty;
+    [ObservableProperty] private string _medHelpText = string.Empty;
     [ObservableProperty] private ObservableCollection<OptionDetails> _medicationOptions = new();
     public ObservableCollection<OptionDetails> SelectedMedications { get; } = new();
     [ObservableProperty] private string _medicationAddError = string.Empty;
@@ -5028,6 +5060,7 @@ public partial class NewImperialViewModel : ObservableObject
 
     [ObservableProperty] private string _dietLabel = string.Empty;
     [ObservableProperty] private string _dietSubLabel = string.Empty;
+    [ObservableProperty] private string _dietHelpText = string.Empty;
     [ObservableProperty] private bool _isDietSubLabelVisible;
     [ObservableProperty] private ObservableCollection<OptionDetails> _dietOptions = new();
     [ObservableProperty] private OptionDetails? _selectedDietOption;
@@ -5042,6 +5075,7 @@ public partial class NewImperialViewModel : ObservableObject
     // prevdietfield: previous diet question, visible only when diet length answer is b_diet_type_length_1 ("Less than 6 months")
     [ObservableProperty] private bool _isPrevDietVisible;
     [ObservableProperty] private string _prevDietLabel = string.Empty;
+    [ObservableProperty] private string _prevDietHelpText = string.Empty;
     [ObservableProperty] private ObservableCollection<OptionDetails> _prevDietOptions = new();
     [ObservableProperty] private OptionDetails? _selectedPrevDietOption;
     [ObservableProperty] private string _prevDietError = string.Empty;
@@ -5096,7 +5130,7 @@ public partial class NewImperialViewModel : ObservableObject
         IsPrevDietVisible = value?.AnswerId == "b_diet_type_length_1";
         if (!IsPrevDietVisible)
         {
-            SelectedPrevDietOption = null;
+            //SelectedPrevDietOption = null;
             PrevDietError = string.Empty;
         }
     }
@@ -5232,6 +5266,8 @@ public partial class NewImperialViewModel : ObservableObject
     // check rather than guessing at option text.
 
     [ObservableProperty] private string _menstrualLabel = string.Empty;
+    [ObservableProperty] private string _menstrualHelpText = string.Empty;
+    [ObservableProperty] private string _deliveryDateErrorText = string.Empty;
     [ObservableProperty] private ObservableCollection<OptionDetails> _menstrualOptions = new();
     [ObservableProperty] private OptionDetails? _selectedMenstrualOption;
     [ObservableProperty] private string _menstrualError = string.Empty;
@@ -5288,10 +5324,35 @@ public partial class NewImperialViewModel : ObservableObject
 
         // Matches the original exactly: a length check (>= 10 chars, e.g. "31/01/2026"),
         // not an actual date parse.
-        if (IsDeliveryDateVisible && (string.IsNullOrWhiteSpace(DeliveryDateText) || DeliveryDateText.Length < 10))
+        if (IsDeliveryDateVisible)
         {
-            DeliveryDateError = true;
-            isValid = false;
+            if (string.IsNullOrWhiteSpace(DeliveryDateText))
+            {
+                DeliveryDateError = true;
+                DeliveryDateErrorText = "Enter Value";
+                isValid = false;
+            }
+            else
+            {
+                if(!DateTime.TryParseExact(DeliveryDateText, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var deliveryDate))
+                {
+                    DeliveryDateError = true;
+                    DeliveryDateErrorText = "Enter a valid date";
+                    isValid = false;
+                }
+                else if (deliveryDate > DateTime.Today)
+                {
+                    DeliveryDateError = true;
+                    DeliveryDateErrorText = "Delivery date cannot be in the future";
+                    isValid = false;
+                }
+                else
+                {
+                    DeliveryDateError = false;
+                    DeliveryDateErrorText = string.Empty;
+                }
+
+            }
         }
 
         return isValid;
@@ -5540,12 +5601,16 @@ public partial class NewImperialViewModel : ObservableObject
     [ObservableProperty] private string _antiviralInfoText = string.Empty;
 
     [ObservableProperty] private string _antiviralHeardLabel = string.Empty;
+
+    [ObservableProperty] private string _antiviralHeardSubLabel = string.Empty;
     [ObservableProperty] private ObservableCollection<OptionDetails> _antiviralHeardOptions = new();
     [ObservableProperty] private OptionDetails? _selectedAntiviralHeardOption;
     [ObservableProperty] private string _antiviralHeardError = string.Empty;
 
     [ObservableProperty] private bool _isAntiviralPrescribedVisible;
     [ObservableProperty] private string _antiviralPrescribedLabel = string.Empty;
+
+    [ObservableProperty] private string _antiviralPrescribedSubLabel = string.Empty;
     [ObservableProperty] private ObservableCollection<OptionDetails> _antiviralPrescribedOptions = new();
     [ObservableProperty] private OptionDetails? _selectedAntiviralPrescribedOption;
     [ObservableProperty] private string _antiviralPrescribedError = string.Empty;
@@ -5600,8 +5665,8 @@ public partial class NewImperialViewModel : ObservableObject
         IsAntiviralStartedVisible = value?.AnswerId == "b_antiviral_2_1";
         if (!IsAntiviralStartedVisible)
         {
-            SelectedAntiviralStartedOption = null;
-            SelectedAntiviralFinishOption = null;
+            //SelectedAntiviralStartedOption = null;
+            //SelectedAntiviralFinishOption = null;
         }
     }
     partial void OnSelectedAntiviralHospitalOptionChanged(OptionDetails? value) { if (value is not null) AntiviralHospitalError = string.Empty; }
@@ -5675,6 +5740,7 @@ public partial class NewImperialViewModel : ObservableObject
 
     [ObservableProperty] private string _smokeStartAgeLabel = string.Empty;
     [ObservableProperty] private string _smokeStartAgeText = string.Empty;
+    [ObservableProperty] private string _smokeStartAgeErrorText = string.Empty;
     [ObservableProperty] private bool _smokeStartAgeError;
 
     [ObservableProperty] private string _smokeCurrentLabel = string.Empty;
@@ -5684,6 +5750,8 @@ public partial class NewImperialViewModel : ObservableObject
 
     [ObservableProperty] private bool _isSmokeStopAgeVisible;
     [ObservableProperty] private string _smokeStopAgeLabel = string.Empty;
+
+    [ObservableProperty] private string _smokeStopAgeErrorText = string.Empty;
     [ObservableProperty] private string _smokeStopAgeText = string.Empty;
     [ObservableProperty] private bool _smokeStopAgeError;
 
@@ -5701,7 +5769,7 @@ public partial class NewImperialViewModel : ObservableObject
         if (!IsSmokeDetailVisible)
         {
             IsSmokeStopAgeVisible = false;
-            SelectedSmokeTypesOption = null;
+            //SelectedSmokeTypesOption = null;
             SmokeStartAgeText = string.Empty;
             SelectedSmokeCurrentOption = null;
             SmokeStopAgeText = string.Empty;
@@ -5735,10 +5803,26 @@ public partial class NewImperialViewModel : ObservableObject
 
         if (IsSmokeDetailVisible)
         {
-            if (SelectedSmokeTypesOption is null) { SmokeTypesError = "Select an option"; isValid = false; }
-            if (string.IsNullOrWhiteSpace(SmokeStartAgeText)) { SmokeStartAgeError = true; isValid = false; }
+            if (SelectedSmokeTypesOption.Count == 0) { SmokeTypesError = "Select an option"; isValid = false; }
+            if (string.IsNullOrWhiteSpace(SmokeStartAgeText)) {SmokeStartAgeErrorText = "Enter a value"; SmokeStartAgeError = true; isValid = false; }
+            else
+            {
+                if(int.TryParse(SmokeStartAgeText, out var startAge))
+                {
+                    if(startAge <= 0 || startAge > 120) { SmokeStartAgeErrorText = "Enter a valid age"; SmokeStartAgeError = true; isValid = false; }
+                }
+                else { SmokeStartAgeErrorText = "Enter a valid age"; SmokeStartAgeError = true; isValid = false; }
+            }
             if (SelectedSmokeCurrentOption is null) { SmokeCurrentError = "Select an option"; isValid = false; }
-            if (IsSmokeStopAgeVisible && string.IsNullOrWhiteSpace(SmokeStopAgeText)) { SmokeStopAgeError = true; isValid = false; }
+            if (IsSmokeStopAgeVisible && string.IsNullOrWhiteSpace(SmokeStopAgeText)) {SmokeStopAgeErrorText = "Enter a value"; SmokeStopAgeError = true; isValid = false; }
+             else
+            {
+                if(int.TryParse(SmokeStopAgeText, out var stopAge))
+                {
+                    if(stopAge <= 0 || stopAge > 120) { SmokeStopAgeErrorText = "Enter a valid age"; SmokeStopAgeError = true; isValid = false; }
+                }
+                else { SmokeStopAgeErrorText = "Enter a valid age"; SmokeStopAgeError = true; isValid = false; }
+            }
             if (SelectedSmokeFreqOption is null) { SmokeFreqError = "Select an option"; isValid = false; }
         }
 

@@ -1,0 +1,377 @@
+[
+    {
+    "age": "5 - 10",
+       "title": "HOPPER Study - Parent/Legal Guardian Consent Form for Children/Young people Ages 5 – 10",
+    "description": "Please read each statement carefully. If you agree, please tick the box next to it. If you don’t understand something, ask your parent/guardian or the study team for help. You may leave any optional statements blank.",
+    "author": "© Imperial College of Science, Technology and Medicine",
+    "supportingdocumentfilename": "https://hopper.peoplewith.com/assets/HOPPER-PatientInformationSheet-5-10.pdf",
+ "consentcontent": [
+      {
+        "section": "Voluntary Informed Consent",
+        "sectioncontent": [
+          {
+            "consentitem": "I confirm that I have read and understood the Participant Information Sheet for the Pandemic cohort/Peacetime cohort Trigger Pre-emptive for Household Observation for Pandemic Preparedness and Emerging Respiratory Viruses Study (HOPPER) Version V1.0 - 01/05/2026.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand that this child/young person’s participation in this study is voluntary and that I am free to withdraw them at any time, without giving any reason and without my future medical care or legal rights being affected.",
+            "required": true
+          },
+          {
+            "consentitem": "I agree that my child’s GP will be informed of their participation in this study and that any incidental findings relevant to their health will also be communicated to their GP.",
+            "required": true
+          }
+        ] 
+      },
+      {
+        "section": "Donation of samples",
+        "sectioncontent": [
+          {
+            "consentitem": "I agree to my child taking part in and donating samples for this research study, as detailed in the Participant Information Sheet. It has been made clear to me what samples will be required from my child, and I understand my role in collecting and sending samples from my child back to the study team.",
+            "required": true
+          },
+          {
+            "consentitem": "I agree that the research study team may contact me to ask whether my child would be interested in taking part in optional household study visits, particularly if their samples are considered of specific interest. I understand that participation in these visits is entirely voluntary and not required to take part in the main study.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand the instructions for self-collecting samples and feel confident that my child, under my supervision, or I could do so safely.",
+            "required": true
+          }
+        ] 
+      },
+      {
+        "section": "Data, sample analysis and monitoring",
+        "sectioncontent": [
+          {
+            "consentitem": "I agree to complete or help my child complete questionnaires, as detailed in the Participant Information Sheet via the HOPPER Study app, provided by “PeopleWith” or with relevant members of the study team where applicable.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand and agree that clinical data relevant to this study will be collected from my child’s GP medical records. Additionally, sections of these records may be looked at by responsible individuals from Imperial, UKHSA or regulatory authorities as relevant to my child’s participation in this research study or for monitoring purposes.",
+            "required": true
+          }
+        ] 
+      },
+      {
+        "section": "Optional",
+        "sectioncontent": [
+          {
+            "consentitem": "I give consent for information collected about my child to be used to support other research by an academic institution or commercial company in the future, including those outside of the United Kingdom (which Imperial has ensured will keep this information secure).",
+            "required": false,
+            "consentitemid": "OPTIONAL-1"
+          },
+          {
+            "consentitem": "I understand that tissue samples and/or data collected from my child are a gift donated to Imperial College and that I will not personally benefit financially if this research leads to an invention and/or the successful development of a new test, medication, treatment, product or service.",
+            "required": false,
+            "consentitemid": "OPTIONAL-2"
+          },
+          {
+            "consentitem": "I agree to my child’s tissue samples being used for genetic research*, which may have the potential to generate data that can be traced back to my child.\n\n*Genetic research: Genetic research refers to the study of the DNA (the instructions inside your cells) in your samples to understand how your body responds to infections and why people may be affected differently.",
+            "required": false,
+            "consentitemid": "OPTIONAL-3"
+          }
+        ] 
+      },
+      {
+        "section": "Additional information",
+        "sectioncontent": [
+          {
+            "consentitem": "I agree that, at the end of this study, my residual samples will be stored and may be used in future research studies approved by an Ethics Committee, without further consent from my child or me.",
+            "required": true
+          },
+          {
+            "consentitem": "I give consent to being contacted in the future about the possibility of my child participating in other research studies.",
+            "required": true
+          },
+          {
+            "consentitem": "I have the contact details for the research team if I need them.",
+            "required": true
+          },
+          {
+            "consentitem": "I agree for my child to participating in the study.",
+            "required": true
+          }
+        ] 
+      }
+    ],
+    "area": "registration",
+    "signaturepad": true,
+  "consentid": "HOPPERCTPE-5-10",
+    "signoffparameters": [
+      {
+        "label": "Name of child/young person",
+        "type": "text",
+        "options": null
+      },
+      {
+        "label": "Name of person taking consent",
+        "type": "text",
+        "options": null
+      },
+      {
+        "label": "Signature of person taking consent",
+        "type": "signaturepad",
+        "options": null
+      },
+      {
+        "label": "Role/Relationship",
+        "type": "dropdown",
+        "options": [
+          {
+            "optionid": "HOPPERCTPE-5-10-1",
+            "label": "Parent"
+          },
+          {
+            "optionid": "HOPPERCTPE-5-10-2",
+            "label": "Legal Guardian"
+          },
+          {
+            "optionid": "HOPPERCTPE-5-10-3",
+            "label": "Research nurse/study team member"
+          },
+          {
+            "optionid": "HOPPERCTPE-5-10-4",
+            "label": "Other (Please specify)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "age": "16+",
+   "title": "HOPPER Study - Consent Form for Adults",
+    "description": "Please read each statement carefully. If you agree, please tick the box next to it. If you don’t understand something, ask your parent/guardian or the study team for help. You may leave any optional statements blank.",
+    "author": "© Imperial College of Science, Technology and Medicine",
+    "supportingdocumentfilename": "https://hopper.peoplewith.com/assets/HOPPER-PatientInformationSheet-Adult.pdf",
+    "consentcontent": [
+      {
+        "section": "Voluntary Informed Consent",
+        "sectioncontent": [
+          {
+            "consentitem": "I confirm that I have read and understood the Participant Information Sheet for the Pandemic cohort/Peacetime cohort Trigger Pre-emptive for Household Observation for Pandemic Preparedness and Emerging Respiratory Viruses Study (HOPPER) Version V1.0 - 01/05/2026.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand that my participation in this study is voluntary and that I am free to withdraw at any time, without giving any reason, and without my future medical care or legal rights being affected.",
+            "required": true
+          },
+          {
+            "consentitem": "I agree that my GP be informed of my participation in this study and that any incidental findings relevant to my health will also be communicated to my GP.",
+            "required": true
+          }
+        ] 
+      },
+      {
+        "section": "Donation of samples",
+        "sectioncontent": [
+          {
+            "consentitem": "I agree to donate samples for this research study, as detailed in the Participant Information Sheet.",
+            "required": true
+          },
+          {
+            "consentitem": "I agree that the research study team may contact me to ask whether I would be interested in taking part in optional household study visits, particularly if my samples are considered of specific interest. I understand that participation in these visits is entirely voluntary and not required to take part in the main study.",
+            "required": true
+          },
+          {
+            "consentitem": "I agree to provide samples, as detailed in the Participant Information Sheet. It has been made clear to me what samples will be required, and I understand my role in collecting and sending them back to the study team.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand the instructions for self-collecting my own samples and feel confident to do so safely.",
+            "required": true
+          }
+        ] 
+      },
+      {
+        "section": "Data, sample analysis and monitoring",
+        "sectioncontent": [
+          {
+            "consentitem": "I agree to complete questionnaires as detailed in the Participant Information Sheet via the HOPPER Study app, provided by “PeopleWith” or with relevant members of the study team where applicable.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand and agree that clinical data relevant to this study will be collected from my GP medical records. Additionally, sections of my GP medical records may be looked at by responsible individuals from Imperial or UKHSA, as relevant to my participation in this research study or for monitoring purposes.",
+            "required": true
+          }
+        ] 
+      },
+      {
+        "section": "Optional",
+        "sectioncontent": [
+          {
+            "consentitem": "I give consent for information collected about me to be used to support other research by an academic institution or commercial company in the future, including those outside of the United Kingdom (which Imperial has ensured will keep this information secure).",
+            "required": false,
+            "consentitemid": "OPTIONAL-1"
+          },
+          {
+            "consentitem": "I understand that tissue samples and/or data collected from me are a gift donated to Imperial College and that I will not personally benefit financially if this research leads to an invention and/or the successful development of a new test, medication treatment, product or service.",
+            "required": false,
+            "consentitemid": "OPTIONAL-2"
+          },
+          {
+            "consentitem": "I agree to my tissue samples being used to undertake genetic research* which may have the potential to generate data that can be tracked back to me.\n\n*Genetic research: Genetic research refers to the study of the DNA (the instructions inside your cells) in your samples to understand how your body responds to infections and why people may be affected differently.",
+            "required": false,
+            "consentitemid": "OPTIONAL-3"
+          }
+        ] 
+      },
+      {
+        "section": "Additional information",
+        "sectioncontent": [
+          {
+            "consentitem": "I agree that at the end of this study, my residual samples to be stored indefinitely and that they may be used in future studies approved by an Ethics Committee without gaining specific consent from me.",
+            "required": true
+          },
+          {
+            "consentitem": "I give consent to being contacted in the future about the possibility of participating in other research studies.",
+            "required": true
+          },
+          {
+            "consentitem": "I have details to contact the research team if I need them.",
+            "required": true
+          },
+          {
+            "consentitem": "I agree to take part in this study.",
+            "required": true
+          }
+        ] 
+      }
+    ],
+    "area": "registration",
+    "signaturepad": true,
+        "consentid": "HOPPERCTPE-O16",
+    "signoffparameters": [
+      {
+        "label": "Your Name",
+        "type": "text",
+        "options": null
+      },
+      {
+        "label": "Your Signature",
+        "type": "signaturepad",
+        "options": null
+      }     
+    ]
+  },
+  {
+    "age": "11 - 15",
+    "title": "HOPPER Study - Young Person Consent Form (Ages 11 - 15)",
+    "description": "Please read each statement carefully. If you agree, please tick the box next to it. If you don’t understand something, ask your parent/guardian or the study team for help. You may leave any optional statements blank.",
+    "author": "© Imperial College of Science, Technology and Medicine",
+    "supportingdocumentfilename": "https://hopper.peoplewith.com/assets/HOPPER-PatientInformationSheet-11-15.pdf",
+    "consentcontent": [
+      {
+        "section": "Voluntary Informed Consent",
+        "sectioncontent": [
+          {
+            "consentitem": "I confirm that I have read and understood the Participant Information Sheet for the Pandemic cohort/Peacetime cohort Trigger Pre-emptive for Household Observation for Pandemic Preparedness and Emerging Respiratory Viruses Study (HOPPER) Version V1.0 - 01/05/2026.",
+            "required": true
+          },
+          {
+            "consentitem": "I have had the chance to ask questions and feel that they have been answered clearly, and I understand my participation in this study is voluntary.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand that my parent /guardian will explain to me important information about this study, that my GP will be told that I am taking part, and if I stop taking part later, this will not affect my medical care.",
+            "required": true
+          }
+        ] 
+      },
+      {
+        "section": "Donation of samples",
+        "sectioncontent": [
+          {
+            "consentitem": "I understand that if I take part in this study, I will be asked to donate samples, as detailed in Participation Information Sheet.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand what types of samples I may be asked to give and that my parent/guardian will help me to collect and send these samples to the study team.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand that the research study team may contact my parent/guardian to ask whether I would be interested in taking part in optional household study visits, particularly if my samples are considered of specific interest. I understand that participation in these visits is entirely voluntary and not required to take part in the main study.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand the instructions for self-collecting samples and feel confident that I can do this safely, with help from my parent/guardian if needed.",
+            "required": true
+          }
+        ] 
+      },
+      {
+        "section": "Data, sample analysis and monitoring",
+        "sectioncontent": [
+          {
+            "consentitem": "I understand that I may be asked to complete or help to complete questionnaires as detailed in the Participant Information Sheet via the HOPPER Study app, provided by “PeopleWith” or with relevant members of the study team where applicable.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand that information about my health that is relevant to this study may be collected from my GP's medical records, if my parent/guardian agrees.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand that responsible individuals from the research team – Imperial, UKHSA, or other organisations - may look at information collected about me for this study or monitoring purposes.",
+            "required": true
+          }
+        ] 
+      },
+      {
+        "section": "Optional",
+        "sectioncontent": [
+          {
+            "consentitem": "I understand the information collected about me may be used to support other research in the future, if my parent/legal guardian agrees.",
+            "required": false,
+            "consentitemid": "OPTIONAL-1"
+          },
+          {
+            "consentitem": "I understand that my samples and information are being given for research, and that I will not receive money if the research helps develop a new test, treatment, medicine, product or service.",
+            "required": false,
+            "consentitemid": "OPTIONAL-2"
+          },
+          {
+            "consentitem": "I understand that some of my samples may be used for specific analysis, such as genetic research*, if my parent/legal guardian agrees\n\n*Genetic research: Genetic research refers to the study of the DNA (the instructions inside your cells) in your samples to understand how your body responds to infections and why people may be affected differently.",
+            "required": false,
+            "consentitemid": "OPTIONAL-3"
+          }
+        ] 
+      },
+      {
+        "section": "Additional information",
+        "sectioncontent": [
+          {
+            "consentitem": "I understand that, at the end of this study, some of my leftover samples may be stored and used in future research studies approved by the Ethics Committee, if my parent/legal guardian agrees.",
+            "required": true
+          },
+          {
+            "consentitem": "I understand that my parent/legal guardian may be contacted in the future about the possibility of me taking part in other research studies.",
+            "required": true
+          },
+          {
+            "consentitem": "I know that I can ask questions that my parent/legal guardian has the contact details for the research team if needed.",
+            "required": true
+          },
+          {
+            "consentitem": "I agree to take part in this study.",
+            "required": true
+          }
+        ] 
+      }
+    ],
+    "area": "registration",
+    "signaturepad": true,
+    "consentid": "HOPPERCTPE-11-15",
+    "signoffparameters": [
+      {
+        "label": "Young Person’s (Aged 11 – 15) Name",
+        "type": "text",
+        "options": null
+      },
+      {
+        "label": "Young Person’s (Aged 11 – 15) Signature",
+        "type": "signaturepad",
+        "options": null
+      }
+    ]
+  }
+]

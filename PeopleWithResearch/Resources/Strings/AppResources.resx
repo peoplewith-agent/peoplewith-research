@@ -1503,7 +1503,12 @@
   <data name="Settings_SignupCodeId" xml:space="preserve">
     <value>Sign-up Code</value>
   </data>
-
+  <data name="Settings_Consent" xml:space="preserve">
+    <value>Consent</value>
+  </data>
+  <data name="Settings_ConsentStudy" xml:space="preserve">
+    <value>View Study Consent</value>
+  </data>
   <!-- AddMember placeholders and popup -->
   <data name="AddMember_FirstNamePlaceholder" xml:space="preserve">
     <value>First Name</value>
