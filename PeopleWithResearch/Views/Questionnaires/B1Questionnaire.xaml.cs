@@ -48,8 +48,18 @@ public partial class B1Questionnaire : ContentPage
             loadingstack.IsVisible = true;
             datastack.IsVisible = false;
 
-            var json = await FetchJsonAsync();
-            _allQuestions = JsonSerializer.Deserialize<List<B1Question>>(json) ?? new List<B1Question>();
+ string questionnaireId = "DDD843CF-021B-4557-8824-13C5B4E2EA85";
+            var jsonList = await APICalls.Instance.GetSingleQuestionnaire(questionnaireId);
+
+            var QuestionnaireItem = jsonList?.FirstOrDefault();
+            if (QuestionnaireItem?.QuestionAnswerJsonRaw != null)
+            {
+                _allQuestions = JsonSerializer.Deserialize<List<B1Question>>(QuestionnaireItem.QuestionAnswerJsonRaw) ?? new List<B1Question>();   
+            }
+
+
+            // var json = await FetchJsonAsync();
+            // _allQuestions = JsonSerializer.Deserialize<List<B1Question>>(json) ?? new List<B1Question>();
 
             rownumber = 0;
             await UpdateQuestionUI();
@@ -69,6 +79,8 @@ public partial class B1Questionnaire : ContentPage
     {
         if (_allQuestions == null) return new List<B1Question>();
 
+        IsPrimaryUser = !string.IsNullOrWhiteSpace(Helpers.Settings.PrimaryUserID);
+               
         var usertypeFiltered = _allQuestions
             .Where(q => q.usertype == "all" || (q.usertype == "primaryuser" && IsPrimaryUser))
             .ToList();

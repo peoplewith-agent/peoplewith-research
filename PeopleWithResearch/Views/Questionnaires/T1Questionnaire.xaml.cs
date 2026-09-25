@@ -82,16 +82,30 @@ public partial class T1Questionnaire : ContentPage
             }
 
             //Locally Stored Version (Obselete)
-            //var json = await FetchJsonAsync();
-            // _model = T1FormModel.FromJson(json.FirstOrDefault().QuestionAnswerJsonRaw);
+//            var json = await FetchJsonAsync();
+//               _model = T1FormModel.FromJson(json.FirstOrDefault().QuestionAnswerJsonRaw);
+
+
+            // var json = await FetchJsonAsync();
+            // _model = T1FormModel.FromJson(json);
+
+            // HOPPERCTPE: pre-seed enrolment route as '1' (pre-emptive pathway)
+            // so all downstream show_if conditions that gate on t1_enrolment_route
+            // evaluate correctly even though the question itself is hidden.
+            if (!dayform && Helpers.Settings.SignUp == "HOPPERCTPE")
+            {
+                _state.Set("t1_enrolment_route", "1");
+            }
+
             SetLoading(false);
 
             if (dayform)
             {
+                var welcome = _model.Questions.FirstOrDefault(q => q.Type == "info");
                 string ordinal = GetOrdinal(_dayNumber);
                 string title = $"{ordinal} Day of Daily Symptoms and Samples";
                 Questiontitle.Text = title;
-                QuestionDescription.Text = "Please complete today's symptoms and sample questionnaire. This should take less than 5 minutes.";
+                QuestionDescription.Text = welcome.Label;
                 QuestionnaireTitleLabel.Text = title;
             }
             else
@@ -104,6 +118,10 @@ public partial class T1Questionnaire : ContentPage
                     QuestionnaireTitleLabel.Text = welcome.SectionLabel;
                 }
             }
+
+            // Pre-populate the section title label so it is correct as soon as
+            // the header becomes visible (before the user taps Start)
+            QuestionnaireSectionTitleLabel.Text = GetSectionTitle(0);
 
             InitialPage.IsVisible = true;
         }
@@ -131,7 +149,7 @@ public partial class T1Questionnaire : ContentPage
 
     private async Task<string> FetchJsonAsync()
     {
-        string fileName = dayform ? "tform.json" : "t1formjson.json";
+        string fileName = dayform ? "newtformjson.json" : "t1formjson.json";
         using var stream = await FileSystem.OpenAppPackageFileAsync(fileName);
         using var reader = new StreamReader(stream);
         return await reader.ReadToEndAsync();
@@ -278,14 +296,13 @@ public partial class T1Questionnaire : ContentPage
 
         if (dayform)
         {
-            Seg3.IsVisible = false;
             Seg4.IsVisible = false;
             Seg5.IsVisible = false;
             Seg1.IsVisible = true;
             Seg2.IsVisible = true;
+            Seg3.IsVisible = true;
 
-            // 3 steps: gate question (1) -> symptom grid (4) -> samples (2)
-            // Map to 2 progress segments
+            // 3 steps: gate question (1) -> symptom grid (4) -> samples (3)
             int progressStep = _section switch
             {
                 1 => 1,
@@ -295,7 +312,8 @@ public partial class T1Questionnaire : ContentPage
             };
 
             Seg1.Progress = progressStep >= 1 ? 100 : 0;
-            Seg2.Progress = progressStep >= 3 ? 100 : 0;
+            Seg2.Progress = progressStep >= 2 ? 100 : 0;
+            Seg3.Progress = progressStep >= 3 ? 100 : 0;
         }
         else
         {
@@ -309,6 +327,8 @@ public partial class T1Questionnaire : ContentPage
 
     private void UpdateNavButtons()
     {
+        QuestionnaireSectionTitleLabel.Text = GetSectionTitle(_section);
+
         if (dayform)
         {
             bool isSymptomGrid = _section == 4;
@@ -336,7 +356,23 @@ public partial class T1Questionnaire : ContentPage
         NextSectionBtn.Text = _model.NavLabels.Next;
         SubmitBtn.Text = _model.NavLabels.Submit;
         PrevDayBtn.Text = _model.NavLabels.PrevDay;
+        // Hide back on section 1 (no previous section); show from section 2 onwards
         backbuttonstack.IsVisible = true;
+    }
+
+    private string GetSectionTitle(int section)
+    {
+        // Section 4 is the symptom grid — use a fixed heading
+        if (section == 4)
+            return "Symptoms by Day";
+
+        // For all other sections, take the SectionLabel from the first question
+        // that has one (info cards carry the section heading)
+        var label = _model.QuestionsForSection(section)
+                          .Select(q => q.SectionLabel)
+                          .FirstOrDefault(l => !string.IsNullOrWhiteSpace(l));
+
+        return label ?? $"Section {section}";
     }
 
     // -- Section 4 - Symptoms by Day ------------------------------------------
@@ -441,6 +477,8 @@ public partial class T1Questionnaire : ContentPage
 
             PrevDayBtn.IsVisible = _activeDays.Count > 1 && _dayIdx > 0;
             PrevDayBtn.IsEnabled = _activeDays.Count > 1 && _dayIdx > 0;
+            // Show back-to-section button only on the first day tab
+            Sec4BackBtn.IsVisible = _dayIdx == 0;
             bool isLastDay = _dayIdx == _activeDays.Count - 1;
             NextDayBtn.Text = isLastDay ? _model.NavLabels.LastDay : _model.NavLabels.NextDay;
 
@@ -875,6 +913,7 @@ public partial class T1Questionnaire : ContentPage
     private void BuildImpactQuestions(StackLayout container, string dayId, T1SymptomGrid grid)
     {
         var actKey = $"{dayId}_activities_impact_y_n";
+        var act2Key = $"{dayId}_activities_impact_y_n_2";
         var careKey = $"{dayId}_care_impact_y_n";
         var careTypeKey = $"{dayId}_care_impact_type";
         var otcKey = $"{dayId}_otc_drugs_y_n";
@@ -882,7 +921,7 @@ public partial class T1Questionnaire : ContentPage
 
         var qMap = grid.DailyImpact.Questions.ToDictionary(q => q.Id);
 
-        View BuildYesNoCard(string key, string label, StackLayout? followUp = null)
+        View BuildYesNoCard(string key, string label, List<T1Option>? options = null, StackLayout? followUp = null)
         {
             var card = new Border
             {
@@ -908,7 +947,11 @@ public partial class T1Questionnaire : ContentPage
 
             var rows = new List<(Border border, Label lbl, string value)>();
 
-            foreach (var opt in new[] { ("1", "Yes"), ("0", "No") })
+            var resolvedOptions = options?.Count > 0
+                ? options.Select(o => (o.Value, o.Text)).ToList()
+                : new List<(string, string)> { ("1", "Yes"), ("0", "No") };
+
+            foreach (var opt in resolvedOptions)
             {
                 bool isSel = _state.Get(key) == opt.Item1;
                 var innerLbl = new Label
@@ -1046,7 +1089,14 @@ public partial class T1Questionnaire : ContentPage
 
         var actQ = qMap.GetValueOrDefault("activities_impact_y_n");
         container.Children.Add(BuildYesNoCard(actKey,
-            actQ?.Label ?? "Did you take any time off school or work, or skip your usual activities?"));
+            actQ?.Label ?? "Did you take any time off school or work, or skip your usual activities?",
+            actQ?.Options));
+
+        var act2Q = qMap.GetValueOrDefault("activities_impact_y_n_2");
+        if (act2Q != null)
+            container.Children.Add(BuildYesNoCard(act2Key,
+                act2Q.Label,
+                act2Q.Options));
 
         var careQ = qMap.GetValueOrDefault("care_impact_y_n");
         var careTypeQ = qMap.GetValueOrDefault("care_impact_type");
@@ -1055,7 +1105,7 @@ public partial class T1Questionnaire : ContentPage
             careTypeQ?.Options ?? new List<T1Option>());
         careFollowUp.IsVisible = _state.Get(careKey) == "1";
         container.Children.Add(BuildYesNoCard(careKey,
-            careQ?.Label ?? "Did you seek any medical or healthcare support?", careFollowUp));
+            careQ?.Label ?? "Did you seek any medical or healthcare support?", null, careFollowUp));
 
         var otcQ = qMap.GetValueOrDefault("otc_drugs_y_n");
         var otcListQ = qMap.GetValueOrDefault("otc_drugs_list");
@@ -1064,7 +1114,7 @@ public partial class T1Questionnaire : ContentPage
             otcListQ?.Options ?? new List<T1Option>());
         otcFollowUp.IsVisible = _state.Get(otcKey) == "1";
         container.Children.Add(BuildYesNoCard(otcKey,
-            otcQ?.Label ?? "Did you take any over-the-counter medicines?", otcFollowUp));
+            otcQ?.Label ?? "Did you take any over-the-counter medicines?", null, otcFollowUp));
     }
 
     // -- Generic question builder ----------------------------------------------
@@ -1763,6 +1813,18 @@ public partial class T1Questionnaire : ContentPage
 
     private bool IsVisible(T1Question q)
     {
+        // HOPPERCTPE: hide the enrolment route question entirely — the pathway
+        // is always pre-emptive (route == '1'), so t1_index_y_n_preemptive is
+        // shown directly by pre-seeding the state below.
+        if (!dayform && Helpers.Settings.SignUp == "HOPPERCTPE")
+        {
+            if (q.Id == "t1_enrolment_route") return false;
+
+            // Treat t1_index_y_n_preemptive as always visible (its show_if
+            // depends on t1_enrolment_route which is hidden/pre-seeded).
+            if (q.Id == "t1_index_y_n_preemptive") return true;
+        }
+
         if (string.IsNullOrEmpty(q.ShowIf)) return true;
         return EvalCondition(q.ShowIf);
     }
@@ -1856,7 +1918,7 @@ public partial class T1Questionnaire : ContentPage
         if (nextSection <= _model.TotalSections) GoToSection(nextSection);
     }
 
-    private void BackButtonTapped_Tapped(object sender, TappedEventArgs e)
+    private void BackButtonTapped_Tapped(object sender, EventArgs e)
     {
         if (dayform)
         {
@@ -1920,7 +1982,7 @@ public partial class T1Questionnaire : ContentPage
                     if (v >= 0) _state.SetSev($"{nextDay.Id}_{sym.Id}", v);
                 }
 
-            foreach (var suffix in new[] { "_activities_impact_y_n", "_care_impact_y_n", "_otc_drugs_y_n" })
+            foreach (var suffix in new[] { "_activities_impact_y_n", "_activities_impact_y_n_2", "_care_impact_y_n", "_otc_drugs_y_n" })
             {
                 var v = _state.Get($"{currentDay.Id}{suffix}");
                 if (v != null) _state.Set($"{nextDay.Id}{suffix}", v);
@@ -1942,15 +2004,22 @@ public partial class T1Questionnaire : ContentPage
         }
         else
         {
-            // Daily form: after last day go to section 2 (samples)
+            // Daily form: after last day go to section 3 (samples)
             // T1 form: go to section 5
-            GoToSection(dayform ? 2 : 5);
+            GoToSection(dayform ? 3 : 5);
         }
     }
 
     private void OnPrevDayClicked(object sender, EventArgs e)
     {
         if (_dayIdx > 0) { _dayIdx--; RenderDayStrip(); RenderCurrentDay(); MainScroll.ScrollToAsync(0, 0, false); }
+    }
+
+    private void OnSec4BackClicked(object sender, EventArgs e)
+    {
+        // Daily form: back from symptom grid goes to section 1 (gate question)
+        // T1 form: back from symptom grid goes to section 3
+        GoToSection(dayform ? 1 : 3);
     }
 
     private async void OnSubmitClicked(object sender, EventArgs e)
@@ -2044,7 +2113,7 @@ public partial class T1Questionnaire : ContentPage
                 member.questionnaires.Add(new TQuestionnaire
                 {
                     questionnaire_type = questionnaireType,
-                    date_completed = DateTime.UtcNow.ToString("g"),
+                    date_completed = DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm"),
                     has_symptoms = _state.HasAtLeastOneSymptom,
                     lfd_result = _state.IsLfdPositiveForScenarioA,
                     latesubmission = missedquestionnaire
@@ -2390,9 +2459,9 @@ public class T1FormModel
             Back = "Back",
             Next = "Continue",
             Submit = model.Questions.FirstOrDefault(q => q.Id == "t1_submit")?.Label ?? "Submit Questionnaire",
-            PrevDay = "Prev",
+            PrevDay = "Prev Day",
             NextDay = "Next Day",
-            LastDay = "Done"
+            LastDay = "Continue"
         };
 
         return model;

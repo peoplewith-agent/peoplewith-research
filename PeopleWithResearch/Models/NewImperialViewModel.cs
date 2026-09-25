@@ -422,7 +422,7 @@ public partial class NewImperialViewModel : ObservableObject
             Member1.PhoneOptions = phoneOptions;
             Member2.PhoneOptions = new ObservableCollection<string>(phoneOptions);
 
-            var ageOptions = new ObservableCollection<string> { "0 - 5","5 - 10", "11 - 15", "16+" };
+            var ageOptions = new ObservableCollection<string> { "0 - 4","5 - 12", "13 - 15", "16+" };
             Member1.AgeOptions = ageOptions;
             Member2.AgeOptions = new ObservableCollection<string>(ageOptions);
 
@@ -635,8 +635,25 @@ public partial class NewImperialViewModel : ObservableObject
             }
 
             await SubmitQuestionnaireAsync();
-            string signatureFileName = await UploadSignatureAsync();
-            await SubmitConsentAsync(signatureFileName);
+  // Parent/guardian (or 16+) consent, unchanged
+string? signatureFileName = await UploadSignatureAsync(RequestSignatureImageStream, NewUser.userid);
+await SubmitConsentAsync(signatureFileName);
+
+// 13 - 15 assent: named after the child's household record
+if (IsAssentSectionVisible && AssentConsentDetails is not null)
+{
+    string? childUserId = _userInfoForBaseline?.household_individual_userid;
+
+    if (string.IsNullOrEmpty(childUserId))
+    {
+        CrashDetected.LogCrash(new InvalidOperationException("Assent: child userid missing"), "SubmitAsync.Assent");
+    }
+    else
+    {
+        string? assentFileName = await UploadSignatureAsync(RequestAssentSignatureImageStream, childUserId, "assent");
+        await SubmitAssentConsentAsync(childUserId, assentFileName);
+    }
+}
 
             //Only save if not Householdrep
             if (!HHRepFromDash)
@@ -652,6 +669,21 @@ public partial class NewImperialViewModel : ObservableObject
             IsBusy = false;
         }
     }
+
+    private async Task SubmitAssentConsentAsync(string childUserId, string? signatureFileName)
+{
+    var assentConsent = new userconsent
+    {
+        userid = childUserId,
+        consentid = NewUser.signupcodeid,
+        signaturefilename = signatureFileName,
+        consentselection = _assentSelection,
+        additionaldetails = $"{AssentName?.Trim()}|Young person (assent)",
+        consentinput = Helpers.Settings.UsersID
+    };
+
+    await APICalls.Instance.PostUserConsentAsync(assentConsent);
+}
 
     private async Task PatchUserAsync()
     {
@@ -850,30 +882,56 @@ public partial class NewImperialViewModel : ObservableObject
     /// blob filename, matching the original's naming scheme, for SubmitConsentAsync to
     /// reference. The connection string is a placeholder here exactly as it was in the
     /// original file as supplied — fill in your own before shipping.</summary>
-    private async Task<string> UploadSignatureAsync()
+    // private async Task<string> UploadSignatureAsync()
+    // {
+    //     const string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=peoplewithappiamges;AccountKey=9maBMGnjWp6KfOnOuXWHqveV4LPKyOnlCgtkiKQOeA+d+cr/trKApvPTdQ+piyQJlicOE6dpeAWA56uD39YJhg==;EndpointSuffix=core.windows.net";
+
+    //     var random = new Random();
+    //     string imageName = $"{NewUser.userid}-{DateTime.Now:HHmmssfff}-{random.Next(1000, 10000000)}.png";
+
+    //     if (RequestSignatureImageStream is null) return imageName;
+
+    //     using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+    //     var signatureStream = await RequestSignatureImageStream(cts.Token);
+
+    //     if (signatureStream is not null)
+    //     {
+    //         var blobServiceClient = new BlobServiceClient(storageConnectionString);
+    //         var containerClient = blobServiceClient.GetBlobContainerClient("consentsignatures");
+    //         var blobClient = containerClient.GetBlobClient(imageName);
+    //         await blobClient.UploadAsync(signatureStream);
+    //         await signatureStream.DisposeAsync();
+    //     }
+
+    //     return imageName;
+    // }
+
+private async Task<string?> UploadSignatureAsync(
+    Func<CancellationToken, Task<Stream?>>? streamProvider,
+    string? userId,
+    string? suffix = null)
+{
+    const string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=peoplewithappiamges;AccountKey=9maBMGnjWp6KfOnOuXWHqveV4LPKyOnlCgtkiKQOeA+d+cr/trKApvPTdQ+piyQJlicOE6dpeAWA56uD39YJhg==;EndpointSuffix=core.windows.net";
+
+    if (streamProvider is null || string.IsNullOrEmpty(userId)) return null;
+
+    using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+    var signatureStream = await streamProvider(cts.Token);
+    if (signatureStream is null) return null;
+
+    string tag = string.IsNullOrEmpty(suffix) ? string.Empty : $"-{suffix}";
+    string imageName = $"{userId}{tag}-{DateTime.Now:HHmmssfff}-{Random.Shared.Next(1000, 10000000)}.png";
+
+    await using (signatureStream)
     {
-        const string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=peoplewithappiamges;AccountKey=9maBMGnjWp6KfOnOuXWHqveV4LPKyOnlCgtkiKQOeA+d+cr/trKApvPTdQ+piyQJlicOE6dpeAWA56uD39YJhg==;EndpointSuffix=core.windows.net";
-
-        var random = new Random();
-        string imageName = $"{NewUser.userid}-{DateTime.Now:HHmmssfff}-{random.Next(1000, 10000000)}.png";
-
-        if (RequestSignatureImageStream is null) return imageName;
-
-        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
-        var signatureStream = await RequestSignatureImageStream(cts.Token);
-
-        if (signatureStream is not null)
-        {
-            var blobServiceClient = new BlobServiceClient(storageConnectionString);
-            var containerClient = blobServiceClient.GetBlobContainerClient("consentsignatures");
-            var blobClient = containerClient.GetBlobClient(imageName);
-            await blobClient.UploadAsync(signatureStream);
-            await signatureStream.DisposeAsync();
-        }
-
-        return imageName;
+        if (signatureStream.CanSeek) signatureStream.Position = 0;
+        var containerClient = new BlobServiceClient(storageConnectionString)
+            .GetBlobContainerClient("consentsignatures");
+        await containerClient.GetBlobClient(imageName).UploadAsync(signatureStream);
     }
 
+    return imageName;
+}
     private async Task SubmitConsentAsync(string signatureFileName)
     {
         var userConsent = new userconsent
@@ -2357,10 +2415,10 @@ public partial class NewImperialViewModel : ObservableObject
                     Over16SignatureLabel = AllConsentDetails.signoffparameters[1].label;
                 }
             }
-            // else if (_userInfoForBaseline?.household_individual_age == "11 - 15")
+            // else if (_userInfoForBaseline?.household_individual_age == "13 - 15")
             // {
             //     IsUnder10StackVisible = true;
-            //     AllConsentDetails = config.FirstOrDefault(x => x.age == "11 - 15");
+            //     AllConsentDetails = config.FirstOrDefault(x => x.age == "13 - 15");
             //     if (AllConsentDetails is not null)
             //     {
             //         Over16NameLabel = AllConsentDetails.signoffparameters[0].label;
@@ -2389,19 +2447,19 @@ public partial class NewImperialViewModel : ObservableObject
                 //         Over16SignatureLabel = AllConsentDetails.signoffparameters[1].label;
                 //     }
                 // }
-                else if(_userInfoForBaseline?.household_individual_age == "11 - 15"|| _userInfoForBaseline?.household_individual_age == "5 - 10" || _userInfoForBaseline?.household_individual_age == "0 - 5")
+                else if(_userInfoForBaseline?.household_individual_age == "13 - 15"|| _userInfoForBaseline?.household_individual_age == "5 - 12" || _userInfoForBaseline?.household_individual_age == "0 - 4")
                 {
-                    // 11 - 15, 5 - 10, 0 - 5
-                    var ageBands = new[] { "11 - 15", "5 - 10", "0 - 5" };
+                    // 13 - 15, 5 - 12, 0 - 4
+                    var ageBands = new[] { "13 - 15", "5 - 12", "0 - 4" };
                     AllConsentDetails = config.FirstOrDefault(x => ageBands.Contains(x.age));
                     if (AllConsentDetails is not null)
                     {
                         var listOfRoles = AllConsentDetails.signoffparameters.FirstOrDefault(x => x.type == "dropdown");
 
-                        Under10NameLabel = AllConsentDetails.signoffparameters[0].label;
-                        Over16NameLabel = AllConsentDetails.signoffparameters[1].label;
-                        Over16SignatureLabel = AllConsentDetails.signoffparameters[2].label;
-                        Under10RoleLabel = AllConsentDetails.signoffparameters[3].label;
+                        //Under10NameLabel = AllConsentDetails.signoffparameters[0].label;
+                        Over16NameLabel = AllConsentDetails.signoffparameters[0].label;
+                        Over16SignatureLabel = AllConsentDetails.signoffparameters[1].label;
+                       // Under10RoleLabel = AllConsentDetails.signoffparameters[3].label;
 
                         if (listOfRoles is not null)
                         {
@@ -2434,6 +2492,53 @@ public partial class NewImperialViewModel : ObservableObject
                     {
                         if (item.required) item.requiredlbl = "Required";
                     }
+                }
+            }
+
+            // ── Assent Form (13 - 15 only) ──────────────────────────────────────────────────
+            // Look for a ConsentDetails entry whose title contains "Assent Form" and is
+            // targeted at the 13-15 age band. Only show the section when the participant is
+            // actually in that age group so other cohorts are unaffected.
+            bool is1315 = _userInfoForBaseline?.household_individual_age == "13 - 15";
+            if (is1315)
+            {
+
+                
+
+                var assentEntry = config.FirstOrDefault(x =>
+                    x.title != null &&
+                    x.title.Contains("Assent Form", StringComparison.OrdinalIgnoreCase));
+
+                if (assentEntry is not null)
+                {
+                    AssentConsentDetails = assentEntry;
+
+                    // Derive labels from signoffparameters when present, fall back to defaults.
+                    if (assentEntry.signoffparameters?.Count >= 1)
+                        AssentNameLabel = assentEntry.signoffparameters[0].label;
+                    else
+                        AssentNameLabel = "Young person's name";
+
+                    if (assentEntry.signoffparameters?.Count >= 2)
+                        AssentSignatureLabel = assentEntry.signoffparameters[1].label;
+                    else
+                        AssentSignatureLabel = "Young person's signature";
+
+                    // Pre-populate the child name from the household member record.
+                    AssentName = _userInfoForBaseline?.household_individual_name ?? string.Empty;
+                    IsAssentNameEditable = string.IsNullOrEmpty(AssentName);
+
+                    // Mark required items so the "Required" label shows.
+                    foreach (var section in assentEntry.consentcontent ?? new List<ConsentSection>())
+                    {
+                        if (section.sectioncontent is null) continue;
+                        foreach (var item in section.sectioncontent)
+                        {
+                            if (item.required) item.requiredlbl = "Required";
+                        }
+                    }
+
+                    IsAssentSectionVisible = true;
                 }
             }
         }
@@ -6157,6 +6262,56 @@ public partial class NewImperialViewModel : ObservableObject
     // rather than "empty": the underlying ItemsSource was frozen at null forever, not at [].
     [ObservableProperty] private ConsentDetails? _allConsentDetails;
     private string _tandCNonRequired = string.Empty;
+    private string _assentSelection = string.Empty;
+
+    // ── Assent (13-15 age group only) ─────────────────────────────────────────────────────────
+    // A separate ConsentDetails entry whose title contains "Assent Form" is loaded alongside the
+    // main consent block when the participant is 13-15. It gets its own CollectionView, name
+    // entry and signature pad so the young person's assent is captured independently.
+    [ObservableProperty] private ConsentDetails? _assentConsentDetails;
+
+    /// <summary>True only when the registered age band is "13 - 15" and an Assent Form entry
+    /// was found in the consent JSON — drives the entire assent sub-section's IsVisible.</summary>
+    [ObservableProperty] private bool _isAssentSectionVisible;
+
+    [ObservableProperty] private string _assentNameLabel = string.Empty;
+    [ObservableProperty] private string _assentName = string.Empty;
+    [ObservableProperty] private bool _assentNameError;
+    [ObservableProperty] private bool _isAssentNameEditable = true;
+
+    [ObservableProperty] private string _assentSignatureLabel = string.Empty;
+    [ObservableProperty] private bool _isAssentSignatureCaptured;
+    [ObservableProperty] private bool _isAssentSignatureError;
+
+    public event Action? AssentSignatureClearRequested;
+    public Func<CancellationToken, Task<Stream?>>? RequestAssentSignatureImageStream { get; set; }
+
+    [RelayCommand]
+    private void SetAssentConsentGiven(ConsentItem item)
+    {
+        if (item is not null) item.ConsentGiven = true;
+    }
+
+    [RelayCommand]
+    private void SetAssentConsentNotGiven(ConsentItem item)
+    {
+        if (item is not null) item.ConsentGiven = false;
+    }
+
+    [RelayCommand]
+    private void ClearAssentSignature()
+    {
+        AssentSignatureClearRequested?.Invoke();
+        IsAssentSignatureCaptured = false;
+    }
+
+    public void SetAssentSignatureCaptured(bool hasData)
+    {
+        IsAssentSignatureCaptured = hasData;
+        if (hasData) IsAssentSignatureError = false;
+    }
+
+    partial void OnAssentNameChanged(string value) => AssentNameError = false;
 
     [ObservableProperty] private bool _isTcChecked;
     [ObservableProperty] private bool _isTcError;
@@ -6265,6 +6420,33 @@ public partial class NewImperialViewModel : ObservableObject
             }
         }
 
+        // ── Assent validation (13-15 only) ──────────────────────────────────────────────────
+        if (IsAssentSectionVisible && AssentConsentDetails is not null)
+        {
+            foreach (var section in AssentConsentDetails.consentcontent ?? new List<ConsentSection>())
+            {
+                if (section.sectioncontent is null) continue;
+                foreach (var item in section.sectioncontent)
+                {
+                    item.ShowValidation = true;
+                    // Required assent items must be explicitly given (true).
+                    if (item.required && item.ConsentGiven != true) isValid = false;
+                }
+            }
+
+            if (string.IsNullOrEmpty(AssentName))
+            {
+                AssentNameError = true;
+                isValid = false;
+            }
+
+            if (!IsAssentSignatureCaptured)
+            {
+                IsAssentSignatureError = true;
+                isValid = false;
+            }
+        }
+
         if (!IsTcChecked)
         {
             IsTcError = true;
@@ -6274,8 +6456,8 @@ public partial class NewImperialViewModel : ObservableObject
         if (IsUnder10StackVisible)
         {
             if (string.IsNullOrEmpty(Under10Name)) { Under10NameError = true; isValid = false; }
-            if (SelectedUnder10RoleOption is null) { Under10RoleError = true; isValid = false; }
-            if (IsUnder10OtherRoleVisible && string.IsNullOrEmpty(Under10OtherRole)) { Under10OtherRoleError = true; isValid = false; }
+            //if (SelectedUnder10RoleOption is null) { Under10RoleError = true; isValid = false; }
+            //if (IsUnder10OtherRoleVisible && string.IsNullOrEmpty(Under10OtherRole)) { Under10OtherRoleError = true; isValid = false; }
         }
 
         // Matches the original: checked unconditionally, not gated on any "visible" flag.
@@ -6310,6 +6492,19 @@ public partial class NewImperialViewModel : ObservableObject
 
             _tandCNonRequired = string.Join("|", selectedIds);
         }
+
+
+           // Assent (13 - 15): record every item the young person agreed to
+    if (IsAssentSectionVisible && AssentConsentDetails is not null)
+    {
+        var selectedAssentIds = AssentConsentDetails.consentcontent
+        .SelectMany(section => section.sectioncontent ?? new ObservableCollection<ConsentItem>())
+        .Where(item => item.ConsentGiven == true && !item.required)
+        .Select(item => item.consentitemid)
+        .ToList();
+
+    _assentSelection = string.Join("|", selectedAssentIds);
+    }
 
         return Task.CompletedTask;
     }

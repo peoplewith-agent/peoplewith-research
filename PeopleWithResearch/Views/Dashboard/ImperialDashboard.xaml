@@ -3375,76 +3375,77 @@ VerticalOptions="Fill">
                                     TextColor="Gray" />
 
                                 <Grid RowDefinitions="Auto,Auto">
-                                    <syncfusion:SfListView
-                                        x:Name="Contactlist"
-                                        Margin="10"
-                                        Padding="20,0"
-                                        AutoFitMode="Height"
-                                        BackgroundColor="Transparent"
-                                        HeightRequest="160"
-                                        IsScrollingEnabled="True"
-                                        ItemSpacing="5"
-                                        ItemTapped="Contactlist_ItemTapped"
-                                        Orientation="Horizontal"
-                                        ScrollBarVisibility="Never"
-                                        SelectionBackground="Transparent">
-                                        <syncfusion:SfListView.ItemTemplate>
-                                            <DataTemplate>
-                                                <Border
-                                                    Padding="16,20"
-                                                    BackgroundColor="White"
-                                                    Stroke="#E2E8F0"
-                                                    StrokeShape="RoundRectangle 16"
-                                                    StrokeThickness="1">
-                                                    <!--<Border.Shadow>
-                                                        <Shadow
-                                                            Brush="#000000"
-                                                            Opacity="0.06"
-                                                            Radius="8"
-                                                            Offset="0,4" />
-                                                    </Border.Shadow>-->
-                                                    <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="10">
-                                                        <Border
-                                                            Grid.Row="0"
-                                                            BackgroundColor="#1F009FE3"
-                                                            HeightRequest="50"
-                                                            HorizontalOptions="Center"
-                                                            StrokeShape="RoundRectangle 12"
-                                                            StrokeThickness="0"
-                                                            WidthRequest="50">
-                                                            <Image
-                                                                HeightRequest="22"
-                                                                HorizontalOptions="Center"
-                                                                Source="{Binding img}"
-                                                                VerticalOptions="Center"
-                                                                WidthRequest="22">
-                                                                <Image.Behaviors>
-                                                                    <toolkit:IconTintColorBehavior TintColor="#009fe3" />
-                                                                </Image.Behaviors>
-                                                            </Image>
-                                                        </Border>
-                                                        <Label
-                                                            Grid.Row="1"
-                                                            FontAttributes="Bold"
-                                                            FontFamily="OpenSansSemiBold"
-                                                            FontSize="12"
-                                                            HorizontalOptions="Center"
-                                                            Text="{Binding title}"
-                                                            TextColor="#009fe3" />
-                                                        <Label
-                                                            Grid.Row="2"
-                                                            FontAttributes="Bold"
-                                                            FontFamily="OpenSansSemiBold"
-                                                            FontSize="13"
-                                                            HorizontalOptions="Center"
-                                                            HorizontalTextAlignment="Center"
-                                                            LineBreakMode="WordWrap"
-                                                            Text="{Binding description}"
-                                                            TextColor="#031926" />
-                                                    </Grid>
-                                                </Border>
-                                            </DataTemplate>
-                                        </syncfusion:SfListView.ItemTemplate>
+                                  <syncfusion:SfListView
+    x:Name="Contactlist"
+    Margin="16,10"
+    AutoFitMode="Height"
+    BackgroundColor="Transparent"
+    IsScrollingEnabled="False"
+    ItemSpacing="0,5"
+    ItemTapped="Contactlist_ItemTapped"
+    Orientation="Vertical"
+    ScrollBarVisibility="Never"
+    SelectionBackground="Transparent">
+    <syncfusion:SfListView.ItemTemplate>
+        <DataTemplate>
+            <Border
+                Padding="16,14"
+                BackgroundColor="White"
+                Stroke="#1F009FE3"
+                StrokeShape="RoundRectangle 16"
+                StrokeThickness="1">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14">
+
+                    <!-- Icon tile -->
+                    <Border
+                        Grid.Column="0"
+                        BackgroundColor="#1F009FE3"
+                        HeightRequest="46"
+                        StrokeShape="RoundRectangle 12"
+                        StrokeThickness="0"
+                        VerticalOptions="Center"
+                        WidthRequest="46">
+                        <Image
+                            HeightRequest="22"
+                            HorizontalOptions="Center"
+                            Source="{Binding img}"
+                            VerticalOptions="Center"
+                            WidthRequest="22">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#009fe3" />
+                            </Image.Behaviors>
+                        </Image>
+                    </Border>
+
+                    <!-- Title + description -->
+                    <VerticalStackLayout
+                        Grid.Column="1"
+                        Spacing="2"
+                        VerticalOptions="Center">
+                        <Label
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="12" FontAttributes="Bold"
+                            Text="{Binding title}"
+                            TextColor="#009fe3" />
+                        <Label
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="16" Margin="0,0,0,0"
+                            LineBreakMode="WordWrap" FontAttributes="Bold"
+                            Text="{Binding description}"
+                            TextColor="#031926" />
+                    </VerticalStackLayout>
+
+                    <!-- Chevron -->
+                    <Label
+                        Grid.Column="2"
+                        FontSize="22"
+                        Text=""
+                        TextColor="#94A3B8"
+                        VerticalOptions="Center" />
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </syncfusion:SfListView.ItemTemplate>
 
 
                                         <syncfusion:SfListView.EmptyView>
@@ -3486,12 +3487,12 @@ VerticalOptions="Fill">
                                         </syncfusion:SfListView.EmptyView>
                                     </syncfusion:SfListView>
 
-                                        <Label Grid.Row="1"
+                                        <!-- <Label Grid.Row="1"
                                     Margin="20,5" HorizontalOptions="End"
                                     FontFamily="OpenSansRegular"
                                     FontSize="12"
                                     Text="{loc:Localize Key=Dashboard_ContactSwipe}"
-                                    TextColor="Gray" />
+                                    TextColor="Gray" /> -->
                                 </Grid>
 
                                 <Label

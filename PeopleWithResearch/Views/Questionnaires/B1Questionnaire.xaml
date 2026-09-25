@@ -223,25 +223,27 @@
                     <Button
                         x:Name="FooterBackBtn"
                         Grid.Column="0"
-                        BackgroundColor="#009FE3"
+                             BackgroundColor="#8A9BAB"
+                         WidthRequest="100"
                         Clicked="Backbtn_Clicked"
-                        CornerRadius="8"
-                        HeightRequest="44"
+                        CornerRadius="8" HorizontalOptions="Start"
+                        HeightRequest="48"
                         Text="Back"
                         TextColor="White" />
                     <Button
                         x:Name="FooterNextBtn"
-                        Grid.Column="1"
+                        Grid.Column="1" HorizontalOptions="End"
                         BackgroundColor="#009FE3"
                         Clicked="Nextbtn_Clicked"
                         CornerRadius="8"
-                        HeightRequest="44"
+                        HeightRequest="48"
+                        WidthRequest="120"
                         Text="Next"
                         TextColor="White" />
                 </Grid>
                 <Button
                     x:Name="FooterSubmitBtn"
-                    BackgroundColor="#0D4A87"
+                    BackgroundColor="#031926"
                     Clicked="Submitbtn_Clicked"
                     CornerRadius="8"
                     HeightRequest="50"

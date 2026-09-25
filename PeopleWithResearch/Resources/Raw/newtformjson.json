@@ -1,7 +1,7 @@
 [
     {
         "id": "t1_welcome",
-        "label": "Welcome to the 1st day of triggered surveying and sampling. You are now ready to begin your individual questionnaire. \n\n There are 5 sections to complete:\n\nSection 1 - Exposure: How you have been in contact with the index case.\nSection 2 - Enrolment: Tell us who you are in relation to the household illness.\n3 - Symptom Onset: When your symptoms first began.\n4 - Symptoms by Day: Rate each symptom for every day since onset.\n5 - Samples: Confirm the samples you collected today.\n\nSome of the questions you see will depend on your responses to previous questions.\n\nThe questionnaire typically takes less than 10 minutes to complete.\n\nIf you want to access previous questions to check your answers, use the \u0027Back\u0027 button at the top of the screen below the title.\n\nOnce you\u0027ve submitted the questionnaire, please note that you won't\u0027t be to change any of the answers you\u0027ve already provided.\n\nIf you need additional help or support, please email our Support Team at hopper-study@imperial.ac.uk or call us on freephone 07889952491.\n\nThe Support Team is available Monday to Friday, between 10am to 4pm.",
+        "label": "Welcome to today's daily questionnaire. There are 3 sections to complete:\n\n1 - Your Symptoms\n2 - Symptom Details\n3 - Your Samples from Today\n\nThe questionnaire typically takes less than 5 minutes to complete.",
         "type": "info",
         "required": false,
         "options": [],
@@ -10,556 +10,46 @@
         "order": 1,
         "questionid": "t1_welcome",
         "section": 0,
-        "section_label": "T1 Samples, Symptoms and Changes"
+        "section_label": "Daily Symptoms and Samples"
     },
     {
-        "id": "t1_enrolment_route",
-        "label": "Has anyone in your household been told by a healthcare worker (e.g., GP or nurse) that they tested positive from a nose or throat swab within the past 2 weeks?",
-        "type": "radio",
-        "required": true,
-        "options": [
-            {
-                "answerid": "t1_enrolment_route_1",
-                "value": "1",
-                "text": "No"
-            },
-            {
-                "answerid": "t1_enrolment_route_2",
-                "value": "2",
-                "text": "Yes"
-            }
-        ],
-        "default": null,
-        "placeholder": null,
-        "order": 2,
-        "questionid": "t1_enrolment_route",
-        "section": 1,
-        "section_label": "Section 1 - Exposure",
-        "show_if": null
-    },
-    {
-        "id": "t1_index_y_n_reactive",
-        "label": "Were you the person in your household who tested positive from a nose or throat swab?",
-        "type": "radio",
-        "required": true,
-        "options": [
-            {
-                "answerid": "t1_index_y_n_reactive_1",
-                "value": "1",
-                "text": "No, I have not had a positive swab"
-            },
-            {
-                "answerid": "t1_index_y_n_reactive_2",
-                "value": "2",
-                "text": "Yes, I have had a positive swab (I am the index case)"
-            }
-        ],
-        "default": null,
-        "placeholder": null,
-        "order": 3,
-        "questionid": "t1_index_y_n_reactive",
-        "section": 1,
-        "section_label": "Section 1 - Exposure",
-        "show_if": "t1_enrolment_route == '2'",
-        "sublabel": "From here on, the person who tested positive will be referred to as the index case.\n\nWhat this means:\n\n• If yes, you will be called the index case (the person who tested positive).\n• If no, you will be called a contact (someone who lives with or has been around the person who tested positive).\n\nThere should only be one person in the household who answers \"yes\" to this question."
-    },
-    {
-        "id": "t1_index_y_n_preemptive",
-        "label": "Were you the first person in your household to feel unwell from an illness recently?",
-        "type": "radio",
-        "required": true,
-        "options": [
-            {
-                "answerid": "t1_index_y_n_preemptive_1",
-                "value": "1",
-                "text": "No, I was not the first person in the household to feel unwell"
-            },
-            {
-                "answerid": "t1_index_y_n_preemptive_2",
-                "value": "2",
-                "text": "Yes, I was the first person in the household to feel unwell recently (I am the index case)"
-            }
-        ],
-        "default": null,
-        "placeholder": null,
-        "order": 4,
-        "questionid": "t1_index_y_n_preemptive",
-        "section": 1,
-        "section_label": "Section 1 - Welcome & Enrolment",
-        "show_if": "t1_enrolment_route == '1'",
-        "sublabel": "From here on, the person who first felt unwell will be referred to as the index case.\n\nWhat this means:\n\n• If yes, you will be called the index case (the person who first felt unwell).\n• If no, you will be called a contact (someone who lives with or has been around the person who first fell unwell).\n\nThere should only be one person in the household who answers \"yes\" to this question."
-    },
-    {
-        "id": "t1_ex_relationship",
-        "label": "What is your relationship to the index case?",
-        "type": "radio",
-        "required": true,
-        "options": [
-            {
-                "answerid": "t1_ex_relationship_1",
-                "value": "1",
-                "text": "I'm their spouse, partner, or significant other"
-            },
-            {
-                "answerid": "t1_ex_relationship_2",
-                "value": "2",
-                "text": "I'm their parent, step-parent, or guardian"
-            },
-            {
-                "answerid": "t1_ex_relationship_3",
-                "value": "3",
-                "text": "I'm their child or step-child"
-            },
-            {
-                "answerid": "t1_ex_relationship_4",
-                "value": "4",
-                "text": "I'm their sibling (brother or sister)"
-            },
-            {
-                "answerid": "t1_ex_relationship_5",
-                "value": "5",
-                "text": "I'm their grandparent or step-grandparent"
-            },
-            {
-                "answerid": "t1_ex_relationship_6",
-                "value": "6",
-                "text": "I'm their grandchild or step-grandchild"
-            },
-            {
-                "answerid": "t1_ex_relationship_7",
-                "value": "7",
-                "text": "I'm their aunt or uncle"
-            },
-            {
-                "answerid": "t1_ex_relationship_8",
-                "value": "8",
-                "text": "I'm their niece or nephew"
-            },
-            {
-                "answerid": "t1_ex_relationship_9",
-                "value": "9",
-                "text": "I'm their cousin"
-            },
-            {
-                "answerid": "t1_ex_relationship_10",
-                "value": "10",
-                "text": "I'm their in-law (mother-, father-, brother-, or sister-in-law)"
-            },
-            {
-                "answerid": "t1_ex_relationship_11",
-                "value": "11",
-                "text": "I'm their other family member (not listed above)"
-            },
-            {
-                "answerid": "t1_ex_relationship_12",
-                "value": "12",
-                "text": "I'm their domestic helper, caregiver, or nanny"
-            },
-            {
-                "answerid": "t1_ex_relationship_13",
-                "value": "13",
-                "text": "I'm their housemate, lodger, tenant, boarder, or live-in landlord"
-            }
-        ],
-        "default": null,
-        "placeholder": null,
-        "order": 5,
-        "questionid": "t1_ex_relationship",
-        "section": 2,
-        "section_label": "Section 2 - Enrolment",
-        "show_if": "t1_index_y_n_reactive == '1' OR t1_index_y_n_preemptive == '1'",
-        "note": "Contacts only. Index case sees t1_ex_contact_time and t1_ex_food instead."
-    },
-    {
-        "id": "t1_ex_rooms",
-        "label": "Which of the following living spaces do you normally share with the index case?",
-        "type": "checkbox",
-        "required": true,
-        "options": [
-            {
-                "answerid": "t1_ex_rooms_1",
-                "value": "1",
-                "text": "Bedroom"
-            },
-            {
-                "answerid": "t1_ex_rooms_2",
-                "value": "2",
-                "text": "Bathroom(s)"
-            },
-            {
-                "answerid": "t1_ex_rooms_3",
-                "value": "3",
-                "text": "Kitchen(s)"
-            },
-            {
-                "answerid": "t1_ex_rooms_4",
-                "value": "4",
-                "text": "Living room(s)"
-            },
-            {
-                "answerid": "t1_ex_rooms_5",
-                "value": "5",
-                "text": "Hallways / entrances"
-            }
-        ],
-        "default": null,
-        "placeholder": "Select all that apply",
-        "order": 6,
-        "questionid": "t1_ex_rooms",
-        "section": 2,
-        "section_label": "Section 2 - Enrolment",
-        "show_if": "t1_index_y_n_reactive == '1' OR t1_index_y_n_preemptive == '1'"
-    },
-    {
-        "id": "t1_ex_bedshare_split",
-        "label": "Have you shared a bed with the index case whilst they have been feeling ill?",
-        "type": "yesno",
-        "required": true,
-        "options": [
-            {
-                "answerid": "t1_ex_bedshare_split_1",
-                "value": "1",
-                "text": "Yes"
-            },
-            {
-                "answerid": "t1_ex_bedshare_split_0",
-                "value": "0",
-                "text": "No"
-            }
-        ],
-        "default": null,
-        "placeholder": null,
-        "order": 7,
-        "questionid": "t1_ex_bedshare_split",
-        "section": 2,
-        "section_label": "Section 2 - Enrolment",
-        "show_if": "t1_ex_rooms includes '1'"
-    },
-    {
-        "id": "t1_ex_contact_time",
-        "label": "Since feeling ill, did you try to spend less time in the same room as the people you live with?",
-        "type": "radio",
-        "required": true,
-        "options": [
-            {
-                "answerid": "t1_ex_contact_time_1",
-                "value": "1",
-                "text": "Yes, a lot"
-            },
-            {
-                "answerid": "t1_ex_contact_time_2",
-                "value": "2",
-                "text": "Yes, a little"
-            },
-            {
-                "answerid": "t1_ex_contact_time_3",
-                "value": "3",
-                "text": "No, it was difficult to avoid being in the same room"
-            },
-            {
-                "answerid": "t1_ex_contact_time_4",
-                "value": "4",
-                "text": "No, I did not try"
-            }
-        ],
-        "default": null,
-        "placeholder": null,
-        "order": 8,
-        "questionid": "t1_ex_contact_time",
-        "section": 2,
-        "section_label": "Section 2 - Enrolment",
-        "show_if": "t1_index_y_n_reactive == '2' OR t1_index_y_n_preemptive == '2'",
-        "note": "Index case only - their own isolation behaviour since falling ill"
-    },
-    {
-        "id": "t1_ex_food",
-        "label": "Since feeling ill, did you eat meals together with the people you live with?",
-        "type": "radio",
-        "required": true,
-        "options": [
-            {
-                "answerid": "t1_ex_food_1",
-                "value": "1",
-                "text": "Not at all"
-            },
-            {
-                "answerid": "t1_ex_food_2",
-                "value": "2",
-                "text": "Less often"
-            },
-            {
-                "answerid": "t1_ex_food_3",
-                "value": "3",
-                "text": "Yes, as usual"
-            }
-        ],
-        "default": null,
-        "placeholder": null,
-        "order": 9,
-        "questionid": "t1_ex_food",
-        "section": 2,
-        "section_label": "Section 2 - Enrolment",
-        "show_if": "t1_index_y_n_reactive == '2' OR t1_index_y_n_preemptive == '2'",
-        "note": "Index case only - their own isolation behaviour since falling ill"
-    },
-    {
-        "id": "t1_symptoms_y_n_preemptive",
+        "id": "t11_symptoms_y_n",
         "label": "Today, or within the past week, have you had any symptoms of an illness?",
         "type": "yesno",
         "required": true,
         "options": [
             {
-                "answerid": "t1_symptoms_y_n_preemptive_1",
+                "answerid": "t11_symptoms_y_n_1",
                 "value": "1",
                 "text": "Yes"
             },
             {
-                "answerid": "t1_symptoms_y_n_preemptive_0",
+                "answerid": "t11_symptoms_y_n_0",
                 "value": "0",
                 "text": "No"
             }
         ],
         "default": null,
         "placeholder": null,
-        "order": 10,
-        "questionid": "t1_symptoms_y_n_preemptive",
-        "section": 3,
-        "section_label": "Section 3 - Symptom Onset",
-        "show_if": "t1_index_y_n_reactive == '1' OR t1_index_y_n_preemptive == '1'",
+        "order": 1,
+        "questionid": "t11_symptoms_y_n",
+        "section": 1,
+        "section_label": "Your Symptoms",
         "note": "Contacts only - gates whether they enter the symptom grid at all"
     },
     {
-        "id": "t1_symptom_onset_preemptive",
-        "label": "When did you first develop symptoms of illness?",
-        "type": "radio",
-        "required": true,
-        "options": [
-            {
-                "answerid": "t1_symptom_onset_preemptive_1",
-                "value": "1",
-                "text": "Today"
-            },
-            {
-                "answerid": "t1_symptom_onset_preemptive_2",
-                "value": "2",
-                "text": "Yesterday"
-            },
-            {
-                "answerid": "t1_symptom_onset_preemptive_3",
-                "value": "3",
-                "text": "2 days ago"
-            },
-            {
-                "answerid": "t1_symptom_onset_preemptive_4",
-                "value": "4",
-                "text": "3 days ago"
-            },
-            {
-                "answerid": "t1_symptom_onset_preemptive_5",
-                "value": "5",
-                "text": "4 days ago"
-            },
-            {
-                "answerid": "t1_symptom_onset_preemptive_6",
-                "value": "6",
-                "text": "5 days ago"
-            },
-            {
-                "answerid": "t1_symptom_onset_preemptive_7",
-                "value": "7",
-                "text": "6 days ago"
-            },
-            {
-                "answerid": "t1_symptom_onset_preemptive_8",
-                "value": "8",
-                "text": "7 days ago"
-            }
-        ],
-        "default": null,
-        "placeholder": null,
-        "order": 11,
-        "questionid": "t1_symptom_onset_preemptive",
-        "section": 3,
-        "section_label": "Section 3 - Symptom Onset",
-        "show_if": "t1_index_y_n_preemptive == '2' OR t1_symptoms_y_n_preemptive == '1'",
-        "note": "Determines number of day-tabs shown in Section 4"
-    },
-    {
-        "id": "t1_symptom_onset_reactive",
-        "label": "When did you first develop symptoms of illness?",
-        "type": "radio",
-        "required": true,
-        "options": [
-            {
-                "answerid": "t1_symptom_onset_reactive_1",
-                "value": "1",
-                "text": "Today"
-            },
-            {
-                "answerid": "t1_symptom_onset_reactive_2",
-                "value": "2",
-                "text": "Yesterday"
-            },
-            {
-                "answerid": "t1_symptom_onset_reactive_3",
-                "value": "3",
-                "text": "2 days ago"
-            },
-            {
-                "answerid": "t1_symptom_onset_reactive_4",
-                "value": "4",
-                "text": "3 days ago"
-            },
-            {
-                "answerid": "t1_symptom_onset_reactive_5",
-                "value": "5",
-                "text": "4 days ago"
-            },
-            {
-                "answerid": "t1_symptom_onset_reactive_6",
-                "value": "6",
-                "text": "5 days ago"
-            },
-            {
-                "answerid": "t1_symptom_onset_reactive_7",
-                "value": "7",
-                "text": "6 days ago"
-            },
-            {
-                "answerid": "t1_symptom_onset_reactive_8",
-                "value": "8",
-                "text": "7 days ago"
-            },
-            {
-                "answerid": "t1_symptom_onset_reactive_9",
-                "value": "9",
-                "text": "More than a week ago"
-            }
-        ],
-        "default": null,
-        "placeholder": null,
-        "order": 12,
-        "questionid": "t1_symptom_onset_reactive",
-        "section": 3,
-        "section_label": "Section 3 - Symptom Onset",
-        "show_if": "t1_enrolment_route == '2' AND t1_index_y_n_reactive == '2'",
-        "note": "Index case reactive path. Selecting 'More than a week ago' triggers date picker and extra day-tabs."
-    },
-    {
-        "id": "t1_symptom_onset_reactive_date",
-        "label": "On which date did you first notice having symptoms?",
-        "type": "date",
-        "required": true,
-        "options": [],
-        "default": null,
-        "placeholder": "DD/MM/YYYY",
-        "order": 13,
-        "questionid": "t1_symptom_onset_reactive_date",
-        "section": 3,
-        "section_label": "Section 3 - Symptom Onset",
-        "show_if": "t1_symptom_onset_reactive == '9'"
-    },
-    {
-        "id": "tminusx_linger_y_n",
-        "label": "Do you still have any symptoms related to your illness?",
-        "type": "yesno",
-        "required": true,
-        "options": [
-            {
-                "answerid": "tminusx_linger_y_n_1",
-                "value": "1",
-                "text": "Yes"
-            },
-            {
-                "answerid": "tminusx_linger_y_n_0",
-                "value": "0",
-                "text": "No"
-            }
-        ],
-        "default": null,
-        "placeholder": null,
-        "order": 15,
-        "questionid": "tminusx_linger_y_n",
-        "section": 3,
-        "section_label": "Section 3 - Symptom Onset",
-        "show_if": "t1_symptom_onset_reactive == '9'"
-    },
-    {
-        "id": "t1_symptom_end",
-        "label": "When was the first day you felt completely better and had no symptoms?",
-        "type": "radio",
-        "required": true,
-        "options": [
-            {
-                "answerid": "t1_symptom_end_1",
-                "value": "1",
-                "text": "Today"
-            },
-            {
-                "answerid": "t1_symptom_end_2",
-                "value": "2",
-                "text": "Yesterday"
-            },
-            {
-                "answerid": "t1_symptom_end_3",
-                "value": "3",
-                "text": "2 days ago"
-            },
-            {
-                "answerid": "t1_symptom_end_4",
-                "value": "4",
-                "text": "More than 2 days ago"
-            }
-        ],
-        "default": null,
-        "placeholder": null,
-        "order": 16,
-        "questionid": "t1_symptom_end",
-        "section": 3,
-        "section_label": "Section 3 - Symptom Onset",
-        "show_if": "tminusx_linger_y_n == '0'"
-    },
-    {
-        "id": "t1_symptom_end_date",
-        "label": "On which date did you stop having any symptoms?",
-        "type": "date",
-        "required": true,
-        "options": [],
-        "default": null,
-        "placeholder": "DD/MM/YYYY",
-        "order": 17,
-        "questionid": "t1_symptom_end_date",
-        "section": 3,
-        "section_label": "Section 3 - Symptom Onset",
-        "show_if": "t1_symptom_end == '4'"
-    },
-    {
-        "id": "t1_symptom_worst_date",
-        "label": "On which date did you feel your worst because of your symptoms?",
-        "type": "date",
-        "required": true,
-        "options": [],
-        "default": null,
-        "placeholder": "DD/MM/YYYY",
-        "order": 18,
-        "questionid": "t1_symptom_worst_date",
-        "section": 3,
-        "section_label": "Section 3 - Symptom Onset",
-        "show_if": "t1_symptom_end == '4'"
-    },
-    {
-        "id": "t1_samples_y_n",
+        "id": "t11_samples_y_n",
         "label": "Did you collect samples from yourself today?",
         "type": "yesno",
         "required": true,
         "options": [
             {
-                "answerid": "t1_samples_y_n_1",
+                "answerid": "t11_samples_y_n_1",
                 "value": "1",
                 "text": "Yes"
             },
             {
-                "answerid": "t1_samples_y_n_0",
+                "answerid": "t11_samples_y_n_0",
                 "value": "0",
                 "text": "No"
             }
@@ -568,33 +58,33 @@
         "placeholder": null,
         "order": 19,
         "questionid": "t1_samples_y_n",
-        "section": 5,
-        "section_label": "Section 5 - Samples from Today",
+        "section": 3,
+        "section_label": "Your Samples from Today",
         "show_if": null
     },
     {
-        "id": "t1_samples_list",
+        "id": "t11_samples_list",
         "label": "Please select the samples you collected from yourself today.",
         "type": "checkbox",
         "required": true,
         "options": [
             {
-                "answerid": "t1_samples_list_1",
+                "answerid": "t11_samples_list_1",
                 "value": "1",
                 "text": "Nose swab"
             },
             {
-                "answerid": "t1_samples_list_2",
+                "answerid": "t11_samples_list_2",
                 "value": "2",
                 "text": "Hand swab"
             },
             {
-                "answerid": "t1_samples_list_3",
+                "answerid": "t11_samples_list_3",
                 "value": "3",
                 "text": "Gum sponge"
             },
             {
-                "answerid": "t1_samples_list_4",
+                "answerid": "t11_samples_list_4",
                 "value": "4",
                 "text": "Nose strip"
             }
@@ -602,24 +92,24 @@
         "default": null,
         "placeholder": "Select all that apply",
         "order": 20,
-        "questionid": "t1_samples_list",
-        "section": 5,
-        "section_label": "Section 5 - Samples from Today",
-        "show_if": "t1_samples_y_n == '1'"
+        "questionid": "t11_samples_list",
+        "section": 3,
+        "section_label": "Your Samples from Today",
+        "show_if": "t11_samples_y_n == '1'"
     },
     {
-        "id": "t1_samples_enviro_y_n",
+        "id": "t11_samples_enviro_y_n",
         "label": "Did you collect samples from your home environment today?",
         "type": "yesno",
         "required": true,
         "options": [
             {
-                "answerid": "t1_samples_enviro_y_n_1",
+                "answerid": "t11_samples_enviro_y_n_1",
                 "value": "1",
                 "text": "Yes"
             },
             {
-                "answerid": "t1_samples_enviro_y_n_0",
+                "answerid": "t11_samples_enviro_y_n_0",
                 "value": "0",
                 "text": "No"
             }
@@ -627,29 +117,29 @@
         "default": null,
         "placeholder": null,
         "order": 21,
-        "questionid": "t1_samples_enviro_y_n",
-        "section": 5,
-        "section_label": "Section 5 - Samples from Today",
+        "questionid": "t11_samples_enviro_y_n",
+        "section": 3,
+        "section_label": "Your Samples from Today",
         "show_if": null
     },
     {
-        "id": "t1_samples_enviro_list",
+        "id": "t11_samples_enviro_list",
         "label": "Please select the samples you collected from your home.",
         "type": "checkbox",
         "required": true,
         "options": [
             {
-                "answerid": "t1_samples_enviro_list_1",
+                "answerid": "t11_samples_enviro_list_1",
                 "value": "1",
                 "text": "Swab of the kitchen tap"
             },
             {
-                "answerid": "t1_samples_enviro_list_2",
+                "answerid": "t11_samples_enviro_list_2",
                 "value": "2",
                 "text": "Swab of the toilet flush handle"
             },
             {
-                "answerid": "t1_samples_enviro_list_3",
+                "answerid": "t11_samples_enviro_list_3",
                 "value": "3",
                 "text": "Swab of the index case bedside table / bedframe"
             }
@@ -657,13 +147,13 @@
         "default": null,
         "placeholder": "Select all that apply",
         "order": 22,
-        "questionid": "t1_samples_enviro_list",
-        "section": 5,
-        "section_label": "Section 5 - Samples from Today",
-        "show_if": "t1_samples_enviro_y_n == '1'"
+        "questionid": "t11_samples_enviro_list",
+        "section": 3,
+        "section_label": "Your Samples from Today",
+        "show_if": "t11_samples_enviro_y_n == '1'"
     },
     {
-        "id": "t1_lfd_y_n",
+        "id": "t11_lfd_y_n",
         "label": "Did you carry out a lateral flow device (LFD) test?",
         "type": "yesno",
         "required": true,
@@ -674,7 +164,7 @@
                 "text": "Yes"
             },
             {
-                "answerid": "t1_lfd_y_n_0",
+                "answerid": "t11_lfd_y_n_0",
                 "value": "0",
                 "text": "No"
             }
@@ -682,29 +172,29 @@
         "default": null,
         "placeholder": null,
         "order": 23,
-        "questionid": "t1_lfd_y_n",
-        "section": 5,
-        "section_label": "Section 5 - Samples from Today",
+        "questionid": "t11_lfd_y_n",
+        "section": 3,
+        "section_label": "Your Samples from Today",
         "show_if": null
     },
     {
-        "id": "t1_lfd_pos_neg",
+        "id": "t11_lfd_pos_neg",
         "label": "Do you think your LFD result is positive?",
         "type": "yesno",
         "required": true,
         "options": [
             {
-                "answerid": "t1_lfd_pos_neg_1",
+                "answerid": "t11_lfd_pos_neg_1",
                 "value": "1",
                 "text": "Yes"
             },
             {
-                "answerid": "t1_lfd_pos_neg_0",
+                "answerid": "t11_lfd_pos_neg_0",
                 "value": "0",
                 "text": "No"
             },
-                {
-                "answerid": "t1_lfd_pos_neg_xx",
+            {
+                "answerid": "t11_lfd_pos_neg_xx",
                 "value": "2",
                 "text": "Unsure / My LFD did not work"
             }
@@ -712,59 +202,59 @@
         "default": null,
         "placeholder": null,
         "order": 24,
-        "questionid": "t1_lfd_pos_neg",
-        "section": 5,
-        "section_label": "Section 5 - Samples from Today",
-        "show_if": "t1_lfd_y_n == '1'"
+        "questionid": "t11_lfd_pos_neg",
+        "section": 3,
+        "section_label": "Your Samples from Today",
+        "show_if": "t11_lfd_y_n == '1'"
     },
     {
-        "id": "t1_lfd_pos_virus",
+        "id": "t11_lfd_pos_virus",
         "label": "What is your LFD positive for?",
         "type": "checkbox",
         "required": true,
         "options": [
             {
-                "answerid": "t1_lfd_pos_virus_1",
+                "answerid": "t11_lfd_pos_virus_1",
                 "value": "1",
                 "text": "SARS-CoV-2 (COVID-19)"
             },
             {
-                "answerid": "t1_lfd_pos_virus_2",
+                "answerid": "t11_lfd_pos_virus_2",
                 "value": "2",
                 "text": "Influenza A"
             },
             {
-                "answerid": "t1_lfd_pos_virus_3",
+                "answerid": "t11_lfd_pos_virus_3",
                 "value": "3",
                 "text": "Influenza B"
             },
             {
-                "answerid": "t1_lfd_pos_virus_4",
+                "answerid": "t11_lfd_pos_virus_4",
                 "value": "4",
                 "text": "RSV (Respiratory Syncytial Virus)"
             },
             {
-                "answerid": "t1_lfd_pos_virus_5",
+                "answerid": "t11_lfd_pos_virus_5",
                 "value": "5",
                 "text": "ADV (Adenovirus)"
             },
             {
-                "answerid": "t1_lfd_pos_virus_6",
+                "answerid": "t11_lfd_pos_virus_6",
                 "value": "6",
                 "text": "hMPV (Human Metapneumovirus)"
             },
             {
-                "answerid": "t1_lfd_pos_virus_7",
+                "answerid": "t11_lfd_pos_virus_7",
                 "value": "7",
                 "text": "RhV (Rhinovirus)"
             },
             {
-                "answerid": "t1_lfd_pos_virus_8",
+                "answerid": "t11_lfd_pos_virus_8",
                 "value": "8",
                 "text": "PIV (Parainfluenza Virus)"
             },
             {
-                "answerid": "t1_lfd_pos_virus_9",
+                "answerid": "t11_lfd_pos_virus_9",
                 "value": "9",
                 "text": "Not sure"
             }
@@ -772,34 +262,34 @@
         "default": null,
         "placeholder": "Select all that apply",
         "order": 25,
-        "questionid": "t1_lfd_pos_virus",
-        "section": 5,
-        "section_label": "Section 5 - Samples from Today",
-        "show_if": "t1_lfd_y_n == '1'"
+        "questionid": "t11_lfd_pos_virus",
+        "section": 3,
+        "section_label": "Your Samples from Today",
+        "show_if": "t11_lfd_y_n == '1'"
     },
     {
-        "id": "t1_lfd_pos_social",
+        "id": "t11_lfd_pos_social",
         "label": "Did you cancel or avoid any planned social activities after your positive result?",
         "type": "radio",
         "required": true,
         "options": [
             {
-                "answerid": "t1_lfd_pos_social_1",
+                "answerid": "t11_lfd_pos_social_1",
                 "value": "1",
                 "text": "I cancelled all planned social activities"
             },
             {
-                "answerid": "t1_lfd_pos_social_2",
+                "answerid": "t11_lfd_pos_social_2",
                 "value": "2",
                 "text": "I only avoided high-risk settings"
             },
             {
-                "answerid": "t1_lfd_pos_social_3",
+                "answerid": "t11_lfd_pos_social_3",
                 "value": "3",
                 "text": "I did not cancel or avoid any social activities"
             },
             {
-                "answerid": "t1_lfd_pos_social_4",
+                "answerid": "t11_lfd_pos_social_4",
                 "value": "4",
                 "text": "I had no social activities planned"
             }
@@ -807,13 +297,13 @@
         "default": null,
         "placeholder": null,
         "order": 26,
-        "questionid": "t1_lfd_pos_social",
-        "section": 5,
-        "section_label": "Section 5 - Samples from Today",
-        "show_if": "t1_lfd_y_n == '1'"
+        "questionid": "t11_lfd_pos_social",
+        "section": 3,
+        "section_label": "Your Samples from Today",
+        "show_if": "t11_lfd_y_n == '1'"
     },
     {
-        "id": "t1_lfd_picture",
+        "id": "t11_lfd_picture",
         "label": "Please upload an image of the lateral flow device you carried out.",
         "type": "file_upload",
         "required": false,
@@ -821,10 +311,10 @@
         "default": null,
         "placeholder": null,
         "order": 27,
-        "questionid": "t1_lfd_picture",
-        "section": 5,
-        "section_label": "Section 5 - Samples from Today",
-        "show_if": "t1_lfd_y_n == '1'"
+        "questionid": "t11_lfd_picture",
+        "section": 3,
+        "section_label": "Your Samples from Today",
+        "show_if": "t11_lfd_y_n == '1'"
     },
     {
         "id": "symptom_grid",
@@ -834,58 +324,13 @@
         "order": 18,
         "questionid": "symptom_grid",
         "section": 4,
-        "section_label": "Section 4 - Symptoms by Day",
+        "section_label": "Section 2 - Symptoms",
         "note": "One reusable component rendered per applicable day-tab. Number of tabs is determined by symptom onset in Section 3. Each day pre-fills from the previous day via REDCap @DEFAULT annotations. Special day-tabs: tminusx (day symptoms first appeared, when onset > 7 days ago) and tminusx_worst (worst day, when symptoms ended more than 2 days ago). Regular tabs: tminus7 through t1 (today). REDCap field IDs follow pattern: {day_prefix}_{symptom_id} e.g. tminus3_dry_cough.",
         "day_tabs": [
             {
-                "id": "tminusx",
-                "label": "Day symptoms started",
-                "show_if": "t1_symptom_onset_reactive == '9'"
-            },
-            {
-                "id": "tminusx_worst",
-                "label": "Day felt worst",
-                "show_if": "t1_symptom_end == '4'"
-            },
-            {
-                "id": "tminus7",
-                "label": "7 days ago",
-                "show_if": "t1_symptom_onset_reactive IN ['8','9'] OR t1_symptom_onset_preemptive == '8' OR tminusx_linger_y_n == '1' OR t1_symptom_end IN ['1','2','3']"
-            },
-            {
-                "id": "tminus6",
-                "label": "6 days ago",
-                "show_if": "t1_symptom_onset_reactive IN ['7','8','9'] OR t1_symptom_onset_preemptive IN ['7','8'] OR t1_symptom_end IN ['1','2','3']"
-            },
-            {
-                "id": "tminus5",
-                "label": "5 days ago",
-                "show_if": "t1_symptom_onset_reactive IN ['6','7','8','9'] OR t1_symptom_onset_preemptive IN ['6','7','8'] OR t1_symptom_end IN ['1','2','3']"
-            },
-            {
-                "id": "tminus4",
-                "label": "4 days ago",
-                "show_if": "t1_symptom_onset_reactive IN ['5','6','7','8','9'] OR t1_symptom_onset_preemptive IN ['5','6','7','8'] OR t1_symptom_end IN ['1','2','3']"
-            },
-            {
-                "id": "tminus3",
-                "label": "3 days ago",
-                "show_if": "t1_symptom_onset_reactive IN ['4','5','6','7','8','9'] OR t1_symptom_onset_preemptive IN ['4','5','6','7','8'] OR t1_symptom_end IN ['1','2','3']"
-            },
-            {
-                "id": "tminus2",
-                "label": "2 days ago",
-                "show_if": "t1_symptom_onset_reactive IN ['3','4','5','6','7','8','9'] OR t1_symptom_onset_preemptive IN ['3','4','5','6','7','8'] OR t1_symptom_end IN ['1','2']"
-            },
-            {
-                "id": "tminus1",
-                "label": "Yesterday",
-                "show_if": "t1_symptom_onset_reactive IN ['2','3','4','5','6','7','8','9'] OR t1_symptom_onset_preemptive IN ['2','3','4','5','6','7','8'] OR t1_symptom_end == '1'"
-            },
-            {
-                "id": "t1",
+                "id": "t11",
                 "label": "Today",
-                "show_if": "any onset value set - today is always shown if user has symptoms"
+                "show_if": ""
             }
         ],
         "severity_options": [
@@ -1141,94 +586,94 @@
         "rash_followup": {
             "note": "Shown inline below the rash row only when severity is Mild, Moderate, or Severe. REDCap field IDs follow pattern: {day_prefix}_rash_location and {day_prefix}_rash_location_2.",
             "questions": [
-              {
-                "id": "rash_location_y_n",
-                "label": "Was your itch or rash in a specific region?",
-                "type": "radio",
-                "required": true,
-                "options": [
-                  {
-                    "answerid": "rash_location_y_n_1",
-                    "value": "1",
-                    "text": "Yes"
-                  },
-                  {
-                    "answerid": "rash_location_y_n_2",
-                    "value": "2",
-                    "text": "No, it is all over"
-                  }
-                ],
-                "show_if": "rash severity is Mild, Moderate, or Severe"
-              },
-              {
-                "id": "rash_location_1",
-                "label": "Where was your rash or itch? Tick all that apply.",
-                "type": "checkbox",
-                "required": true,
-                "show_if": "rash_location_y_n == '1'",
-                "options": [
-                  {
-                    "answerid": "rash_location_1_1",
-                    "value": "1",
-                    "text": "Face"
-                  },
-                  {
-                    "answerid": "rash_location_1_2",
-                    "value": "2",
-                    "text": "Scalp"
-                  },
-                  {
-                    "answerid": "rash_location_1_3",
-                    "value": "3",
-                    "text": "Neck"
-                  },
-                  {
-                    "answerid": "rash_location_1_4",
-                    "value": "4",
-                    "text": "Chest"
-                  },
-                  {
-                    "answerid": "rash_location_1_5",
-                    "value": "5",
-                    "text": "Back"
-                  },
-                  {
-                    "answerid": "rash_location_1_6",
-                    "value": "6",
-                    "text": "Stomach"
-                  },
-                  {
-                    "answerid": "rash_location_1_7",
-                    "value": "7",
-                    "text": "Arms"
-                  },
-                  {
-                    "answerid": "rash_location_1_8",
-                    "value": "8",
-                    "text": "Hands"
-                  },
-                  {
-                    "answerid": "rash_location_1_9",
-                    "value": "9",
-                    "text": "Legs"
-                  },
-                  {
-                    "answerid": "rash_location_1_10",
-                    "value": "10",
-                    "text": "Feet"
-                  },
-                  {
-                    "answerid": "rash_location_1_11",
-                    "value": "11",
-                    "text": "Groin / genital area"
-                  },
-                  {
-                    "answerid": "rash_location_2_12",
-                    "value": "12",
-                    "text": "Buttocks"
-                  }
-                ]
-              }
+                {
+                    "id": "rash_location_y_n",
+                    "label": "Was your itch or rash in a specific region?",
+                    "type": "radio",
+                    "required": true,
+                    "options": [
+                        {
+                            "answerid": "rash_location_y_n_1",
+                            "value": "1",
+                            "text": "Yes"
+                        },
+                        {
+                            "answerid": "rash_location_y_n_2",
+                            "value": "2",
+                            "text": "No, it is all over"
+                        }
+                    ],
+                    "show_if": "rash severity is Mild, Moderate, or Severe"
+                },
+                {
+                    "id": "rash_location_1",
+                    "label": "Where was your rash or itch? Tick all that apply.",
+                    "type": "checkbox",
+                    "required": true,
+                    "show_if": "rash_location_y_n == '1'",
+                    "options": [
+                        {
+                            "answerid": "rash_location_1_1",
+                            "value": "1",
+                            "text": "Face"
+                        },
+                        {
+                            "answerid": "rash_location_1_2",
+                            "value": "2",
+                            "text": "Scalp"
+                        },
+                        {
+                            "answerid": "rash_location_1_3",
+                            "value": "3",
+                            "text": "Neck"
+                        },
+                        {
+                            "answerid": "rash_location_1_4",
+                            "value": "4",
+                            "text": "Chest"
+                        },
+                        {
+                            "answerid": "rash_location_1_5",
+                            "value": "5",
+                            "text": "Back"
+                        },
+                        {
+                            "answerid": "rash_location_1_6",
+                            "value": "6",
+                            "text": "Stomach"
+                        },
+                        {
+                            "answerid": "rash_location_1_7",
+                            "value": "7",
+                            "text": "Arms"
+                        },
+                        {
+                            "answerid": "rash_location_1_8",
+                            "value": "8",
+                            "text": "Hands"
+                        },
+                        {
+                            "answerid": "rash_location_1_9",
+                            "value": "9",
+                            "text": "Legs"
+                        },
+                        {
+                            "answerid": "rash_location_1_10",
+                            "value": "10",
+                            "text": "Feet"
+                        },
+                        {
+                            "answerid": "rash_location_1_11",
+                            "value": "11",
+                            "text": "Groin / genital area"
+                        },
+                        {
+                            "answerid": "rash_location_2_12",
+                            "value": "12",
+                            "text": "Buttocks"
+                        }
+                    ]
+                }
             ]
         },
         "daily_impact": {
@@ -1250,7 +695,7 @@
                             "value": "0",
                             "text": "No"
                         },
-                          {
+                        {
                             "answerid": "activities_impact_y_n_xx",
                             "value": "2",
                             "text": "Not applicable (e.g. I do not attend school or work, or I was not due to attend)"
@@ -1258,28 +703,28 @@
                     ]
                 },
                 {
-    "id": "activities_impact_y_n_2",
-    "label": "Apart from school or work, did you skip or reduce any of your usual activities because of your symptoms?\n\nFor example, exercise or sport, socialising, hobbies, shopping, household tasks, or other activities you would normally do.",
-    "type": "yesno",
-    "required": true,
-    "options": [
-        {
-            "answerid": "activities_impact_y_n_2_1",
-            "value": "1",
-            "text": "Yes"
-        },
-        {
-            "answerid": "activities_impact_y_n_2_0",
-            "value": "0",
-            "text": "No"
-        },
-        {
-            "answerid": "activities_impact_y_n_2_xx",
-            "value": "2",
-            "text": "Not applicable (e.g. I had no activities planned)"
-        }
-    ]
-},
+                    "id": "activities_impact_y_n_2",
+                    "label": "Apart from school or work, did you skip or reduce any of your usual activities because of your symptoms?\n\nFor example, exercise or sport, socialising, hobbies, shopping, household tasks, or other activities you would normally do.",
+                    "type": "yesno",
+                    "required": true,
+                    "options": [
+                        {
+                            "answerid": "activities_impact_y_n_2_1",
+                            "value": "1",
+                            "text": "Yes"
+                        },
+                        {
+                            "answerid": "activities_impact_y_n_2_0",
+                            "value": "0",
+                            "text": "No"
+                        },
+                        {
+                            "answerid": "activities_impact_y_n_2_xx",
+                            "value": "2",
+                            "text": "Not applicable (e.g. I had no activities planned)"
+                        }
+                    ]
+                },
                 {
                     "id": "care_impact_y_n",
                     "label": "Because of your symptoms on this day, did you seek any medical or healthcare support?",
@@ -1305,22 +750,22 @@
                     "required": true,
                     "show_if": "care_impact_y_n == '1'",
                     "options": [
-                          {
+                        {
                             "answerid": "care_impact_type_1",
                             "value": "1",
                             "text": "Used an AI assistant or chatbot to ask about my symptoms or health"
                         },
-                          {
+                        {
                             "answerid": "care_impact_type_2",
                             "value": "1",
                             "text": "Asked a family member or friend who is a healthcare professional for advice"
                         },
-                          {
+                        {
                             "answerid": "care_impact_type_3",
                             "value": "1",
                             "text": "Used an online health or symptom checker (e.g. the NHS website/ NHS 111 online)"
                         },
-                          {
+                        {
                             "answerid": "care_impact_type_4",
                             "value": "5",
                             "text": "Called NHS 111"
@@ -1344,7 +789,7 @@
                             "answerid": "care_impact_type_8",
                             "value": "4",
                             "text": "Visited a Walk-in Centre / Minor Injuries Unit or out-of-hours GP service"
-                        }, 
+                        },
                         {
                             "answerid": "care_impact_type_9",
                             "value": "6",
