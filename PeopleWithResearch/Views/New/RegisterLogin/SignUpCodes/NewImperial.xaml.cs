@@ -261,7 +261,7 @@ public partial class NewImperial : ContentPage
         UpdateSelectedItems(viewmodel.SelectedExtraOptions, e);
     }
 
-    private void TobaccoTypesListview_Selectionnewimhanged(object sender, Syncfusion.Maui.ListView.ItemSelectionChangedEventArgs e)
+    private void TobaccoTypesListview_SelectionChanged(object sender, Syncfusion.Maui.ListView.ItemSelectionChangedEventArgs e)
     {
         if (_isRestoringTobaccoSelection) return;
         if (viewmodel?.SelectedSmokeTypesOption == null) return;

@@ -17,12 +17,12 @@ namespace PeopleWithResearch
         public static string ApplicationURL = @"https://peoplewithresearch-sqlserver.database.windows.net";
 
         //Dev
-        public const string ListenConnectionString = "Endpoint=sb://PeopleWithResearch.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=2F2G+P+4U3y0kA9mm32VitVkjlc6w5yP6VI69p2C+z4=";
-        public const string NotificationHubName = "PWRessearchDev";
+        // public const string ListenConnectionString = "Endpoint=sb://PeopleWithResearch.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=2F2G+P+4U3y0kA9mm32VitVkjlc6w5yP6VI69p2C+z4=";
+        // public const string NotificationHubName = "PWRessearchDev";
 
         //Production 
-        //public const string ListenConnectionString = "Endpoint=sb://PeopleWithResearchNotifcations.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=nXmDTTvexWnioeLhjXNP5BG/wAWblKdInnrpIVFNtZA=";
-        //public const string NotificationHubName = "PWResearch";
+        public const string ListenConnectionString = "Endpoint=sb://PeopleWithResearchNotifcations.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=nXmDTTvexWnioeLhjXNP5BG/wAWblKdInnrpIVFNtZA=";
+        public const string NotificationHubName = "PWResearch";
          
         //public const string ListenConnectionString = "Endpoint=sb://PeopleWithResearch.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=2F2G+P+4U3y0kA9mm32VitVkjlc6w5yP6VI69p2C+z4=";
         //public const string NotificationHubName = "PWRessearchDev";
