@@ -1000,7 +1000,7 @@ public partial class ImperialDashboard : ContentPage
                             t_event_status = "active",
                             scenario = null,
                             trigger_type = "HOPPERCR",
-                            t1_start_date = DateTime.UtcNow.ToString("g"),
+                            t1_start_date = DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm"),
                             members = Allhouseholdgroupinfo[0].userdetailslist?
                                 .Select(m => new TEventMember
                                 {
@@ -1153,13 +1153,14 @@ public partial class ImperialDashboard : ContentPage
             var activeEvent = studyDetails.t_events?
       .FirstOrDefault(x => x.t_event_status == "active");
 
-            if (activeEvent == null || Helpers.Settings.SignUp == "HOPPERCTPE")
+            if (activeEvent == null && Helpers.Settings.SignUp == "HOPPERCTPE")
             {
                 //has not started t forms so still at waiting stage
                 t1questionnairebordermain.IsVisible = true;
                 return;
             }
 
+        System.Diagnostics.Debug.WriteLine($"t1_start_date raw value: '{activeEvent.t1_start_date}'");
 
             // Work out what day they are on
             if (!DateTime.TryParseExact(activeEvent.t1_start_date, "dd/MM/yyyy HH:mm",
@@ -1216,7 +1217,7 @@ public partial class ImperialDashboard : ContentPage
                 dayNumber = 28;
             }
 
-            daylbl.Text = $"Day {dayNumber}";
+            daylbl.Text = $"Day {dayNumber} ";
             tdayinfotext.Text = GetDashboardText(activeEvent, dayNumber);
 
 

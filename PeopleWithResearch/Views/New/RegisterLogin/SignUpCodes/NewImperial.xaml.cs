@@ -120,6 +120,19 @@ public partial class NewImperial : ContentPage
             }
         };
 
+        // Assent signature clear (13-15 age group).
+        viewmodel.AssentSignatureClearRequested += () =>
+        {
+            if (DeviceInfo.Current.Platform == DevicePlatform.Android)
+            {
+                assentSignpad.Clear();
+            }
+            else if (DeviceInfo.Current.Platform == DevicePlatform.iOS)
+            {
+                assentDrawingpad.Clear();
+            }
+        };
+
         // Used by SubmitAsync (once it's ported) to pull the captured signature image bytes
         // for upload, without the viewmodel needing to hold a reference to either pad.
         viewmodel.RequestSignatureImageStream = async (cancellationToken) =>
@@ -132,6 +145,22 @@ public partial class NewImperial : ContentPage
             if (DeviceInfo.Current.Platform == DevicePlatform.iOS)
             {
                 return await drawingpad.GetImageStream(150, 150, cancellationToken);
+            }
+
+            return null;
+        };
+
+        // Assent signature stream (13-15 age group).
+        viewmodel.RequestAssentSignatureImageStream = async (cancellationToken) =>
+        {
+            if (DeviceInfo.Current.Platform == DevicePlatform.Android)
+            {
+                return await assentSignpad.GetStreamAsync(Syncfusion.Maui.Core.ImageFileFormat.Png);
+            }
+
+            if (DeviceInfo.Current.Platform == DevicePlatform.iOS)
+            {
+                return await assentDrawingpad.GetImageStream(150, 150, cancellationToken);
             }
 
             return null;
@@ -479,6 +508,45 @@ public partial class NewImperial : ContentPage
         }
 
         viewmodel.SetSignatureCaptured(!isSignatureBlank);
+    }
+
+    /// <summary>Assent DrawingView completed (iOS, 13-15 age group).</summary>
+    private async void AssentDrawingPad_DrawingLineCompleted(object sender, CommunityToolkit.Maui.Core.DrawingLineCompletedEventArgs e)
+    {
+        if (assentDrawingpad.Lines is null || assentDrawingpad.Lines.Count == 0)
+        {
+            viewmodel.SetAssentSignatureCaptured(false);
+            return;
+        }
+
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+        using var drawingStream = await assentDrawingpad.GetImageStream(150, 150, cts.Token);
+
+        bool isSignatureBlank = drawingStream is null;
+        if (!isSignatureBlank)
+        {
+            using var ms = new MemoryStream();
+            await drawingStream!.CopyToAsync(ms);
+            isSignatureBlank = ms.Length == 0;
+        }
+
+        viewmodel.SetAssentSignatureCaptured(!isSignatureBlank);
+    }
+
+    /// <summary>Assent SfSignaturePad completed (Android, 13-15 age group).</summary>
+    private async void AssentSignPad_DrawCompleted(object sender, EventArgs e)
+    {
+        using var signatureStream = await assentSignpad.GetStreamAsync(Syncfusion.Maui.Core.ImageFileFormat.Png);
+
+        bool isSignatureBlank = signatureStream is null;
+        if (!isSignatureBlank)
+        {
+            using var ms = new MemoryStream();
+            await signatureStream!.CopyToAsync(ms);
+            isSignatureBlank = ms.Length == 0;
+        }
+
+        viewmodel.SetAssentSignatureCaptured(!isSignatureBlank);
     }
 
     /// <summary>Was: disautocomplete_SelectionChanged's add-to-list half (the "clear the field

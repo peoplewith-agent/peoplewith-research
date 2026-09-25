@@ -24,9 +24,9 @@ public partial class Addnewmember : ContentPage
 
         var stringlist = new List<string>
         {
-            "0 - 5",
-            "5 - 10",
-            "11 - 15",
+            "0 - 4",
+            "5 - 12",
+            "13 - 15",
             "16+"
         };
 
