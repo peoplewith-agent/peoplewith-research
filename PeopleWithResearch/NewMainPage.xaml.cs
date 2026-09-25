@@ -143,6 +143,12 @@ public partial class NewMainPage : ContentPage
                 return;
             }
 
+            if (checkuser?.Email is string email && email.StartsWith("N/A-", StringComparison.OrdinalIgnoreCase))
+            {
+                ShowInvalidCodeResult("Only the Household Representative can access this account");
+                return;
+            }
+
             if (checkuser.Signupcodegrouping == "IMPHOPPER")
             {
                 var url = APICalls.CheckSignUpCode + "%27" + checkuser.Signupid + "%27";
@@ -167,6 +173,7 @@ public partial class NewMainPage : ContentPage
                     return;
                 }
 
+            
                 checkingstack.IsVisible = false;
                 Successshow.IsVisible = true;
                 if (DeviceInfo.Platform == DevicePlatform.Android)

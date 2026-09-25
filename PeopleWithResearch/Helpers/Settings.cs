@@ -9,8 +9,7 @@ namespace PeopleWithResearch.Helpers
 {
     public static class Settings
     {
-
-
+        public static bool ShowConsentScreen => UsersID == "HP-367";
         public static string SelectedLanguage
         {
             get => Preferences.Get(nameof(SelectedLanguage), string.Empty);
@@ -22,6 +21,7 @@ namespace PeopleWithResearch.Helpers
             get => Preferences.Get(nameof(FirstRun), true);
             set => Preferences.Set(nameof(FirstRun), value);
         }
+
         public static bool LaunchVideo
         {
             get => Preferences.Get(nameof(LaunchVideo), true);

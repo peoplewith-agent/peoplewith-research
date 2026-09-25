@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="PeopleWithResearch.InitialConsentPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Mopups.Pages;assembly=Mopups"
+    xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+    xmlns:local="clr-namespace:PeopleWithResearch"
+    BackgroundColor="#66000000"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    CloseWhenBackgroundIsClicked="True"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False">
+
+    <pages:PopupPage.Resources>
+    <Color x:Key="PrimaryDark">#031926</Color>
+    <Color x:Key="PrimaryLight">#4A5568</Color>
+
+        <ResourceDictionary>
+            <local:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+
+            <!-- Shared colours: set explicitly on every Span below, since
+                 FormattedString Spans don't reliably inherit the parent
+                 Label's TextColor on all platforms if even one sibling Span
+                 sets its own colour (that's what was showing as white). -->
+            <Color x:Key="BodyTextColor">#031926</Color>
+            <Color x:Key="EmphasisTextColor">#1C1C1E</Color>
+
+            <!-- Shared text styles -->
+            <Style x:Key="SectionTitleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="OpenSansBold" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+            </Style>
+
+            <Style x:Key="BodyStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="OpenSansRegular" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+            </Style>
+
+            <Style x:Key="BulletStyle" TargetType="Label" BasedOn="{StaticResource BodyStyle}">
+                <Setter Property="Margin" Value="10,0,0,0" />
+            </Style>
+        </ResourceDictionary>
+
+         <Style TargetType="Label" x:Key="DescriptionStyle">
+        <Setter Property="FontFamily" Value="HankenGroteskRegular" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{StaticResource PrimaryLight}" />
+    </Style>
+
+    <DataTemplate x:Key="ConsentItemTemplate" x:DataType="local:ConsentItem">
+        <VerticalStackLayout Margin="0,4,0,16" Spacing="8">
+
+            <Border Padding="12,10"
+                    Background="Transparent"
+                    StrokeThickness="1">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+
+                <Label Text="{Binding consentitem}"
+                       FontSize="14"
+                       TextColor="#031926"
+                       LineBreakMode="WordWrap" />
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+
+                <Border Grid.Column="0" Padding="10" StrokeThickness="1.5">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8" />
+                    </Border.StrokeShape>
+                    <Border.Triggers>
+                        <DataTrigger TargetType="Border" Binding="{Binding ChckedState}" Value="True">
+                            <Setter Property="Background" Value="#031926" />
+                            <Setter Property="Stroke" Value="#031926" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Border" Binding="{Binding ChckedState}" Value="False">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Stroke" Value="#D1E8FF" />
+                        </DataTrigger>
+                    </Border.Triggers>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding Source={x:Reference ConsentPage}, Path=BindingContext.SetConsentGivenCommand}"
+                            CommandParameter="{Binding .}" />
+                    </Border.GestureRecognizers>
+
+                    <Label Text="I consent"
+                           FontAttributes="Bold"
+                           FontSize="13"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           InputTransparent="True">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding ChckedState}" Value="True">
+                                <Setter Property="TextColor" Value="White" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Label" Binding="{Binding ChckedState}" Value="False">
+                                <Setter Property="TextColor" Value="#031926" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </Border>
+
+                <Border Grid.Column="1" Padding="10" StrokeThickness="1.5">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8" />
+                    </Border.StrokeShape>
+                    <Border.Triggers>
+                        <DataTrigger TargetType="Border" Binding="{Binding IsConsentNotGiven}" Value="True">
+                            <Setter Property="Background" Value="#CC0000" />
+                            <Setter Property="Stroke" Value="#CC0000" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Border" Binding="{Binding IsConsentNotGiven}" Value="False">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Stroke" Value="#D1E8FF" />
+                        </DataTrigger>
+                    </Border.Triggers>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding Source={x:Reference ConsentPage}, Path=BindingContext.SetConsentNotGivenCommand}"
+                            CommandParameter="{Binding .}" />
+                    </Border.GestureRecognizers>
+
+                    <Label Text="I do not consent"
+                           FontAttributes="Bold"
+                           FontSize="13"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           InputTransparent="True">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding IsConsentNotGiven}" Value="True">
+                                <Setter Property="TextColor" Value="White" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Label" Binding="{Binding IsConsentNotGiven}" Value="False">
+                                <Setter Property="TextColor" Value="#031926" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </Border>
+
+            </Grid>
+        </VerticalStackLayout>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ConsentSectionTemplate" x:DataType="local:ConsentSection">
+        <VerticalStackLayout Padding="0,8">
+
+            <Label Text="{Binding section}"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="#031926"
+                   Margin="0,12,0,8" />
+
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding sectioncontent}"
+                                  BindableLayout.ItemTemplate="{StaticResource ConsentItemTemplate}" />
+
+        </VerticalStackLayout>
+    </DataTemplate>
+
+      <DataTemplate x:Key="SignoffOptionItemTemplate">
+                    <Border
+                        Margin="5,5,5,5"
+                        Padding="20"
+                        BackgroundColor="Transparent"
+                        Stroke="LightGray"
+                        StrokeShape="RoundRectangle 10">
+                        <Label
+                            FontFamily="OpenSansRegular"
+                            FontSize="12"
+                            InputTransparent="True"
+                            Text="{Binding label}"
+                            TextColor="Gray" />
+                    </Border>
+            </DataTemplate>
+
+
+    </pages:PopupPage.Resources>
+
+    <pages:PopupPage.Animation>
+        <animations:MoveAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+            DurationIn="300"
+            DurationOut="200" />
+    </pages:PopupPage.Animation>
+
+    <Border
+        Margin="10,40"
+        BackgroundColor="White"
+        StrokeThickness="0"
+        VerticalOptions="Fill">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="20" />
+        </Border.StrokeShape>
+
+        <Grid RowDefinitions="*,Auto" Padding="0" RowSpacing="0">
+            <ScrollView Grid.Row="0" Padding="20,20,20,12">
+                <VerticalStackLayout Spacing="14">
+
+                    <Label
+                        x:Name="Titlelbl"
+                        Text="HOPPER Study: Your Consent and Study Details"
+                        FontFamily="OpenSansBold"
+                        FontAttributes="Bold"
+                        FontSize="22"
+                        TextColor="{StaticResource EmphasisTextColor}" />
+
+                    <Label Style="{StaticResource BodyStyle}"
+                           Text="Thank you for completing the consent form to take part in the HOPPER Study. Please see below a summary of the consent provided and details about the study." />
+
+                    <Label Style="{StaticResource BodyStyle}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="The Household Observation for Pandemic Preparedness and Emerging Respiratory Viruses Study - The HOPPER Study" TextColor="{StaticResource BodyTextColor}" />
+                                <Span Text=", is an ethically approved study with Research Ethics Committee Reference Number: " TextColor="{StaticResource BodyTextColor}" />
+                                <Span Text="26/PR/1077" FontFamily="OpenSansBold" FontAttributes="Bold" TextColor="{StaticResource EmphasisTextColor}" />
+                                <Span Text=" and IRAS (Integrated Research Application System in the UK) Project ID: " TextColor="{StaticResource BodyTextColor}" />
+                                <Span Text="371988" FontFamily="OpenSansBold" FontAttributes="Bold" TextColor="{StaticResource EmphasisTextColor}" />
+                                <Span Text=" whose Main Sponsor is " TextColor="{StaticResource BodyTextColor}" />
+                                <Span Text="Imperial College London" FontFamily="OpenSansBold" FontAttributes="Bold" TextColor="{StaticResource EmphasisTextColor}" />
+                                <Span Text="." TextColor="{StaticResource BodyTextColor}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Style="{StaticResource BodyStyle}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="The study is being coordinated with the " TextColor="{StaticResource BodyTextColor}" />
+                                <Span Text="NIHR Health Protection Research Unit (HPRU) in Respiratory Infections &amp; Imperial College London" FontFamily="OpenSansBold" FontAttributes="Bold" TextColor="{StaticResource EmphasisTextColor}" />
+                                <Span Text="." TextColor="{StaticResource BodyTextColor}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Style="{StaticResource SectionTitleStyle}" Text="Study Participant Information" />
+
+                    <Label Style="{StaticResource BodyStyle}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Below is a summary of the Participant Information Sheet for the study. You can access the full Participant Information Sheet at anytime from the " TextColor="{StaticResource BodyTextColor}" />
+                                <Span Text="&quot;Information&quot;" FontFamily="OpenSansBold" FontAttributes="Bold" TextColor="{StaticResource EmphasisTextColor}" />
+                                <Span Text=" tab on the dashboard." TextColor="{StaticResource BodyTextColor}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Style="{StaticResource SectionTitleStyle}" Text="What is the HOPPER study?" />
+                    <Label Style="{StaticResource BodyStyle}"
+                           Text="HOPPER (Household Observation for Pandemic Preparedness and Emerging Respiratory Viruses) is a household research study looking at how respiratory viruses, such as flu, spread between people." />
+                    <Label Style="{StaticResource BodyStyle}"
+                           Text="This will help us learn how to better protect people from these diseases and ensure we are better prepared to tackle future pandemics." />
+
+                    <Label Style="{StaticResource SectionTitleStyle}" Text="What is a 'household'?" />
+                    <Label Style="{StaticResource BodyStyle}"
+                           Text="A household is a group of people who live together, such as a family or a group of flatmates." />
+                    <Label Style="{StaticResource BodyStyle}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="For HOPPER, we ask that at least " TextColor="{StaticResource BodyTextColor}" />
+                                <Span Text="three people" FontFamily="OpenSansBold" FontAttributes="Bold" TextColor="{StaticResource EmphasisTextColor}" />
+                                <Span Text=" from one household takes part." TextColor="{StaticResource BodyTextColor}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Style="{StaticResource SectionTitleStyle}" Text="What are we trying to find out?" />
+                    <Label Style="{StaticResource BodyStyle}"
+                           Text="People spend more time in close contact with members of their household than almost anywhere else. This makes it one of the best places to understand how viruses spread and, importantly, how best to stop them spreading." />
+                    <Label Style="{StaticResource BodyStyle}"
+                           Text="By following households like yours, we can answer important questions such as:" />
+
+                    <Label Style="{StaticResource BulletStyle}" Text="•  How long can someone pass an infection to others?" />
+                    <Label Style="{StaticResource BulletStyle}" Text="•  Why do some infections spread through a household while others do not?" />
+                    <Label Style="{StaticResource BulletStyle}" Text="•  Why do some people remain well even when others around them are ill?" />
+
+                    <Label Style="{StaticResource BodyStyle}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Research like this has helped improve public health guidance during previous outbreaks, including " TextColor="{StaticResource BodyTextColor}" />
+                                <Span Text="COVID-19" FontFamily="OpenSansBold" FontAttributes="Bold" TextColor="{StaticResource EmphasisTextColor}" />
+                                <Span Text=", so we know it's important." TextColor="{StaticResource BodyTextColor}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Style="{StaticResource SectionTitleStyle}" Text="What will I be asked to do in the HOPPER study?" />
+                    <Label Style="{StaticResource BodyStyle}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="You and at least " TextColor="{StaticResource BodyTextColor}" />
+                                <Span Text="two other people" FontFamily="OpenSansBold" FontAttributes="Bold" TextColor="{StaticResource EmphasisTextColor}" />
+                                <Span Text=" you live with will need to agree to take part in the HOPPER study." TextColor="{StaticResource BodyTextColor}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Style="{StaticResource BodyStyle}"
+                           Text="As part of the study we'll ask you to share information via our secure, dedicated app, and to collect samples such as nose swabs. Those samples will be sent back to us via a courier we'll arrange for you." />
+
+                    <Label Style="{StaticResource SectionTitleStyle}" Text="Your Medical Care" />
+                    <Label Style="{StaticResource BodyStyle}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="HOPPER is an observational study. " TextColor="{StaticResource BodyTextColor}" />
+                                <Span Text="Taking part will not affect your usual medical care or treatment." FontFamily="OpenSansBold" FontAttributes="Bold" TextColor="{StaticResource EmphasisTextColor}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Style="{StaticResource SectionTitleStyle}" Text="Your Choice" />
+                    <Label Style="{StaticResource BodyStyle}"
+                           Text="Joining the study is completely voluntary. If you do decide to take part, you will be asked to sign a consent form. Even after signing this, you are free to withdraw at any time without giving a reason." />
+
+                    <Label Style="{StaticResource SectionTitleStyle}" Text="Your Privacy" />
+                    <Label Style="{StaticResource BodyStyle}"
+                           Text="All your samples and information will be stored securely in line with UK data protection laws, with personal details only accessible to authorised team members." />
+
+                    <Label Style="{StaticResource SectionTitleStyle}" Text="A Summary of Your Consent" Margin="0,6,0,0" />
+
+  <Grid
+                        Margin="5,0"
+                        ColumnDefinitions="Auto,*"
+                        ColumnSpacing="10"
+                        RowDefinitions="*">
+                        <Image
+                            Grid.Column="0"
+                            HeightRequest="20"
+                            Source="clock.png"
+                            WidthRequest="20">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#7A7A7A" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Label x:Name="datelbl" Grid.Column="1" Style="{StaticResource DescriptionStyle}" />
+                    </Grid>
+
+       
+            <!-- Description -->
+            <Label x:Name="DescriptionLabel" Style="{StaticResource DescriptionStyle}" />
+
+
+                    <CollectionView x:Name="ConsentCollectionView"
+                ItemSizingStrategy="MeasureAllItems"
+                SelectionMode="None" 
+                ItemTemplate="{StaticResource ConsentSectionTemplate}"
+                CanReorderItems="False" 
+                            Margin="0,0,0,10"
+                            Background="transparent"
+                            HeightRequest="{OnPlatform iOS='2650'}"
+                            HorizontalScrollBarVisibility="Never"
+                            ItemsUpdatingScrollMode="KeepItemsInView"
+                            VerticalOptions="Fill"
+                            VerticalScrollBarVisibility="Never">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout
+                                    ItemSpacing="0"
+                                    Orientation="Vertical"
+                                    SnapPointsType="None" />
+                            </CollectionView.ItemsLayout>
+                            </CollectionView>
+
+
+                <VerticalStackLayout>
+                            <Label
+                            Margin="0,10,0,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="18"
+                            HorizontalOptions="Start"
+                            x:Name="Over16SignatureLabel"
+                            TextColor="#031926" />
+
+                        <StackLayout Margin="0,0,0,50">
+                            <Grid RowDefinitions="Auto,Auto,100">
+                                <Label
+                                    Grid.Row="0"
+                                    Margin="0,10,0,10"
+                                    FontFamily="OpenSansSemiBold"
+                                    FontSize="14"
+                                    Text="Electronic signature"
+                                    HorizontalOptions="Start"
+                                    TextColor="#031926">
+                                </Label>
+
+                                <Border
+                                    Grid.Row="1"
+                                    Margin="0,0,0,20"
+                                    Padding="2"
+                                    HeightRequest="200"
+                                    Stroke="#BFDBF7"
+                                    StrokeShape="RoundRectangle 10">
+                                    <Image
+                                x:Name="SignatureImage"
+                                Aspect="{OnPlatform iOS=AspectFit,
+                                                    Android=AspectFill}"
+                                Background="Transparent"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill" />
+                                </Border>
+
+
+
+                                    <Label
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="3"
+                                        Margin="0"
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="14"
+                                        LineBreakMode="WordWrap"
+                                        Text="{local:Localize Key=Register_SignatureDescription}"
+                                        TextColor="#475569" />
+                            </Grid>
+                        </StackLayout>
+                    </VerticalStackLayout>         
+
+                    <!-- ConsentID -->
+<Label FontFamily="OpenSansSemiBold"
+       FontSize="14" TextColor="{StaticResource PrimaryDark}"
+       Style="{StaticResource DescriptionStyle}">
+    <Label.FormattedText>
+        <FormattedString>
+            <Span Text="Consent ID: " TextColor="{StaticResource PrimaryDark}" />
+            <Span x:Name="ConsentIDLabel" Style="{StaticResource DescriptionStyle}" />
+        </FormattedString>
+    </Label.FormattedText>
+</Label>   
+
+
+                    <Label Style="{StaticResource SectionTitleStyle}" Text="Withdrawing / Leaving the Study" Margin="0,6,0,0" />
+                    <Label Style="{StaticResource BodyStyle}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="If you wish to leave the study at anytime you can do so from your " TextColor="{StaticResource BodyTextColor}" />
+                                <Span Text="&quot;Profile&quot;" FontFamily="OpenSansBold" FontAttributes="Bold" TextColor="{StaticResource EmphasisTextColor}" />
+                                <Span Text=" and click on " TextColor="{StaticResource BodyTextColor}" />
+                                <Span Text="&quot;Withdraw from Study&quot;" FontFamily="OpenSansBold" FontAttributes="Bold" TextColor="{StaticResource EmphasisTextColor}" />
+                                <Span Text=", alternatively you can contact the Study Team via email at " TextColor="{StaticResource BodyTextColor}" />
+                                <Span x:Name="EmailLinkSpan"
+                                      Text="hopper-study@imperial.ac.uk"
+                                      FontFamily="OpenSansBold" FontAttributes="Bold"
+                                      TextColor="#0A84FF"
+                                      TextDecorations="Underline">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnEmailTapped" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                                <Span Text=" or via phone: " TextColor="{StaticResource BodyTextColor}" />
+                                <Span x:Name="PhoneLinkSpan"
+                                      Text="+44 7889 952491"
+                                      FontFamily="OpenSansBold" FontAttributes="Bold"
+                                      TextColor="#0A84FF"
+                                      TextDecorations="Underline">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnPhoneTapped" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                </VerticalStackLayout>
+            </ScrollView>
+
+            <Button
+                Grid.Row="1"
+                Text="Close"
+                BackgroundColor="Transparent"
+                BorderColor="#C7C7CC"
+                BorderWidth="1"
+                TextColor="#666666"
+                CornerRadius="10"
+                HeightRequest="44"
+                Margin="24,12,24,16"
+                FontFamily="OpenSansRegular"
+                FontSize="14"
+                Clicked="OnCancelTapped" />
+        </Grid>
+    </Border>
+</pages:PopupPage>

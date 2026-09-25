@@ -153,7 +153,13 @@ public partial class ImperialDashboard : ContentPage
 
         if (string.IsNullOrEmpty(Helpers.Settings.SelectedLanguage))
         {
-            SelectedLangugage();
+            //Commented out for now 
+            //SelectedLangugage();
+        }
+
+        if(Helpers.Settings.ShowConsentScreen)
+        {
+            InitialConsentScreen();
         }
     }
 
@@ -178,6 +184,18 @@ public partial class ImperialDashboard : ContentPage
         {
             await Task.Delay(5000); 
             await MopupService.Instance.PushAsync(new SelectLanguagePopup());
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+    private async Task InitialConsentScreen()
+    {
+        try
+        {
+            await Task.Delay(5000); 
+            await MopupService.Instance.PushAsync(new InitialConsentPopup());
         }
         catch (Exception ex)
         {
@@ -2222,7 +2240,7 @@ public partial class ImperialDashboard : ContentPage
         {
             var Item = e.DataItem as user;
             if (Item == null) return;
-            if(Item.Id == "Name") return; 
+            //if(Item.Id == "Name") return; 
             await Navigation.PushAsync(new NewProfileEdit(Item), false);
         }
         catch (Exception Ex)
@@ -2241,11 +2259,10 @@ public partial class ImperialDashboard : ContentPage
             var Item = e.DataItem as user;
             if (Item == null) return;
 
-            var itemId = Item.Id ?? Item.Title; // fall back to Title for any item without an Id
+            var itemId = Item.Id ?? Item.Title; 
 
-            if (itemId == "Sign-up Code") return;
+            if(itemId == "Sign-up Code") return;
             if(itemId == "HouseHold ID") return;
-
             if (itemId == "Notifications")
             {
                 if (Item.Role == LocalizationManager.Get("Settings_Disabled") || Item.Role == "Disabled")
@@ -2263,7 +2280,6 @@ public partial class ImperialDashboard : ContentPage
                 await Navigation.PushAsync(new ForgotPassword("Reset"), false);
                 return;
             }
-
             if (itemId == "Notification Schedule")
             {
                 try
@@ -2275,6 +2291,13 @@ public partial class ImperialDashboard : ContentPage
                     CrashDetected.LogCrash(popupEx, Navigation, "Settingslist_ItemTapped_NotifSchedule");
                 }
                 return; 
+            }
+            if(itemId == "Consent")
+            {
+                var primaryHousehold = Allhouseholdgroupinfo?.FirstOrDefault();
+                if (primaryHousehold == null)  return;
+                await Navigation.PushAsync(new ViewConsent(primaryHousehold.primaryuserid, primaryHousehold), false);
+                return;
             }
 
             if (itemId == "Select Language")

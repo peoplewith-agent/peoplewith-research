@@ -340,6 +340,7 @@ namespace PeopleWithResearch
                 new user { Id = "Notifications",         Title = LocalizationManager.Get("Settings_Notifications"),        Role = isEnabled ? LocalizationManager.Get("Settings_Enabled") : LocalizationManager.Get("Settings_Disabled"), Image = "bellicon.png" },
                 new user { Id = "HouseHold ID",          Title = LocalizationManager.Get("Manage_GroupId"),                Role = !string.IsNullOrEmpty(Helpers.Settings.HouseholdGrouping) ? Helpers.Settings.HouseholdGrouping : "--", Image = "family.png"},
                 new user { Id = "Sign-up Code",          Title = LocalizationManager.Get("Settings_SignupCode"),           Role = !string.IsNullOrEmpty(Helpers.Settings.SignUp) ? Helpers.Settings.SignUp : "--", Image = "keyicon.png"},
+                new user { Id = "Consent",               Title = LocalizationManager.Get("Settings_Consent"),             Role = LocalizationManager.Get("Settings_ConsentStudy"), Image = "consenticon.png" },
                 newuser,        
             };
             //var notificationTime = Preferences.Get("notificationtime", string.Empty);

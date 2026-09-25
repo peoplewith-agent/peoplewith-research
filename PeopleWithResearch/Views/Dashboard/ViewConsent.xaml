@@ -1,0 +1,553 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PeopleWithResearch"
+             x:Class="PeopleWithResearch.ViewConsent"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             BackgroundColor="#FFFFFF"
+             x:Name="ConsentPage">
+
+<ContentPage.Resources>
+    <Color x:Key="PrimaryDark">#031926</Color>
+    <Color x:Key="PrimaryLight">#4A5568</Color>
+
+    <Style TargetType="Label" x:Key="TitleStyle">
+        <Setter Property="FontFamily" Value="OpenSansSemiBold" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextColor" Value="{StaticResource PrimaryDark}" />
+    </Style>
+
+      <Style x:Key="CardBorder" TargetType="Border">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="Stroke" Value="#E8ECF0" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 12" />
+            <Setter Property="StrokeThickness" Value="1" />
+            <Setter Property="Margin" Value="0,0,0,12" />
+        </Style>
+
+    <Style TargetType="Label" x:Key="DescriptionStyle">
+        <Setter Property="FontFamily" Value="HankenGroteskRegular" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{StaticResource PrimaryLight}" />
+    </Style>
+
+      <Style TargetType="inputLayout:SfTextInputLayout">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="ContainerBackground" Value="Transparent" />
+                <Setter Property="ContainerType" Value="None" />
+                <Setter Property="InputViewPadding" Value="10" />
+                <Setter Property="IsHintAlwaysFloated" Value="True" />
+                <Setter Property="OutlineCornerRadius" Value="5" />
+                <Setter Property="Stroke" Value="LightGray" />
+                <Setter Property="ErrorLabelStyle" Value="{StaticResource SharedErrorLabelStyle}" />
+                <Setter Property="HelperLabelStyle">
+                    <Setter.Value>
+                        <inputLayout:LabelStyle 
+                            TextColor="#666666" 
+                            FontSize="10"
+                            FontFamily="OpenSansRegular"
+                            FontAttributes="Italic" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+    <DataTemplate x:Key="ConsentItemTemplate" x:DataType="local:ConsentItem">
+        <VerticalStackLayout Margin="0,4,0,16" Spacing="8">
+
+            <Border Padding="12,10"
+                    Background="Transparent"
+                    StrokeThickness="1">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+
+                <Label Text="{Binding consentitem}"
+                       FontSize="14"
+                       TextColor="#031926"
+                       LineBreakMode="WordWrap" />
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+
+                <Border Grid.Column="0" Padding="10" StrokeThickness="1.5">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8" />
+                    </Border.StrokeShape>
+                    <Border.Triggers>
+                        <DataTrigger TargetType="Border" Binding="{Binding ChckedState}" Value="True">
+                            <Setter Property="Background" Value="#031926" />
+                            <Setter Property="Stroke" Value="#031926" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Border" Binding="{Binding ChckedState}" Value="False">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Stroke" Value="#D1E8FF" />
+                        </DataTrigger>
+                    </Border.Triggers>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding Source={x:Reference ConsentPage}, Path=BindingContext.SetConsentGivenCommand}"
+                            CommandParameter="{Binding .}" />
+                    </Border.GestureRecognizers>
+
+                    <Label Text="I consent"
+                           FontAttributes="Bold"
+                           FontSize="13"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           InputTransparent="True">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding ChckedState}" Value="True">
+                                <Setter Property="TextColor" Value="White" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Label" Binding="{Binding ChckedState}" Value="False">
+                                <Setter Property="TextColor" Value="#031926" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </Border>
+
+                <Border Grid.Column="1" Padding="10" StrokeThickness="1.5">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8" />
+                    </Border.StrokeShape>
+                    <Border.Triggers>
+                        <DataTrigger TargetType="Border" Binding="{Binding IsConsentNotGiven}" Value="True">
+                            <Setter Property="Background" Value="#CC0000" />
+                            <Setter Property="Stroke" Value="#CC0000" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Border" Binding="{Binding IsConsentNotGiven}" Value="False">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Stroke" Value="#D1E8FF" />
+                        </DataTrigger>
+                    </Border.Triggers>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding Source={x:Reference ConsentPage}, Path=BindingContext.SetConsentNotGivenCommand}"
+                            CommandParameter="{Binding .}" />
+                    </Border.GestureRecognizers>
+
+                    <Label Text="I do not consent"
+                           FontAttributes="Bold"
+                           FontSize="13"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           InputTransparent="True">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding IsConsentNotGiven}" Value="True">
+                                <Setter Property="TextColor" Value="White" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Label" Binding="{Binding IsConsentNotGiven}" Value="False">
+                                <Setter Property="TextColor" Value="#031926" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </Border>
+
+            </Grid>
+        </VerticalStackLayout>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ConsentSectionTemplate" x:DataType="local:ConsentSection">
+        <VerticalStackLayout Padding="0,8">
+
+            <Label Text="{Binding section}"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="#031926"
+                   Margin="0,12,0,8" />
+
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding sectioncontent}"
+                                  BindableLayout.ItemTemplate="{StaticResource ConsentItemTemplate}" />
+
+        </VerticalStackLayout>
+    </DataTemplate>
+
+      <DataTemplate x:Key="SignoffOptionItemTemplate">
+                    <Border
+                        Margin="5,5,5,5"
+                        Padding="20"
+                        BackgroundColor="Transparent"
+                        Stroke="LightGray"
+                        StrokeShape="RoundRectangle 10">
+                        <Label
+                            FontFamily="OpenSansRegular"
+                            FontSize="12"
+                            InputTransparent="True"
+                            Text="{Binding label}"
+                            TextColor="Gray" />
+                    </Border>
+            </DataTemplate>
+
+</ContentPage.Resources>
+
+
+             
+
+<Grid RowDefinitions="*" ColumnDefinitions="*">
+
+<!--Failed to load -->
+<VerticalStackLayout   x:Name="FailedView" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0">
+  <Border
+                  
+                    Margin="20"
+                    Style="{StaticResource CardBorder}">
+                    <StackLayout Padding="30" Spacing="12">
+                        <Label
+                            FontSize="36"
+                            HorizontalOptions="Center"
+                            Text="(!)" />
+                        <Label
+                            x:Name="FailedTitle"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="15"
+                            HorizontalTextAlignment="Center"
+                            Text="We couldn't load your Consent"
+                            TextColor="#031926" />
+                        <Label
+                            x:Name="FailedBody"
+                            FontSize="13"
+                            HorizontalTextAlignment="Center"
+                            LineBreakMode="WordWrap"
+                            Text="Please try again. If the problem persists contact support."
+                            TextColor="#62727B" />
+                    </StackLayout>
+                </Border>
+
+</VerticalStackLayout>
+
+<!-- Loading Indicator --> 
+    <VerticalStackLayout VerticalOptions="Center" IsVisible="True" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" Spacing="10" x:Name="Loading">
+             <ActivityIndicator x:Name="LoadingIndicator" Color="{StaticResource PrimaryDark}" IsRunning="True"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+
+<Label Text="Loading Consent..." TextColor ="{StaticResource PrimaryDark}"
+       HorizontalOptions="Center"
+       VerticalOptions="Center"
+       FontAttributes="Bold"
+       FontSize="16" />
+  
+       
+    </VerticalStackLayout>
+
+<!-- Main Content-->
+    <ScrollView Grid.Row="0" Grid.Column="0" x:Name="Content" IsVisible="False" VerticalScrollBarVisibility="Never">
+        <VerticalStackLayout Padding="24,20" Spacing="20">
+           <VerticalStackLayout Spacing="4">
+     <!-- Title -->
+            <Label Text="Terms and Conditions" Style="{StaticResource TitleStyle}" />
+  <Grid
+                        Margin="5,0"
+                        ColumnDefinitions="Auto,*"
+                        ColumnSpacing="10"
+                        RowDefinitions="*">
+                        <Image
+                            Grid.Column="0"
+                            HeightRequest="20"
+                            Source="clock.png"
+                            WidthRequest="20">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#7A7A7A" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Label x:Name="datelbl" Grid.Column="1" Style="{StaticResource DescriptionStyle}" />
+                    </Grid>
+
+              <Image
+                    Aspect="AspectFit"
+                    HeightRequest="120"
+                    HorizontalOptions="Center"
+                    Source="agreement.png" />
+
+       
+            <!-- Description -->
+            <Label x:Name="DescriptionLabel" Style="{StaticResource DescriptionStyle}" />
+                   
+         
+</VerticalStackLayout>  
+
+<!-- Consent Selection -->
+<CollectionView x:Name="ConsentCollectionView"
+                ItemSizingStrategy="MeasureAllItems"
+                SelectionMode="None" 
+                ItemTemplate="{StaticResource ConsentSectionTemplate}"
+                CanReorderItems="False" 
+                            Margin="0,0,0,10"
+                            Background="transparent"
+                            HeightRequest="{OnPlatform iOS='2650'}"
+                            HorizontalScrollBarVisibility="Never"
+                            ItemsUpdatingScrollMode="KeepItemsInView"
+                            VerticalOptions="Fill"
+                            VerticalScrollBarVisibility="Never">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout
+                                    ItemSpacing="0"
+                                    Orientation="Vertical"
+                                    SnapPointsType="None" />
+                            </CollectionView.ItemsLayout>
+                            </CollectionView>
+
+                            <!--PeropleWith Terms -->
+<VerticalStackLayout>
+                            <Label
+                                Margin="0,20,0,10"
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="16"
+                                Text="{local:Localize Key=Register_TermsTitle}"
+                                TextColor="#031926" />
+
+                            <Border
+                                Margin="0,4"
+                                Padding="10,4"
+                                Background="Transparent"
+                                Stroke="#D1E8FF"
+                                StrokeThickness="1">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="8" />
+                                </Border.StrokeShape>                            
+                                <Grid
+                                    Padding="0,8"
+                                    ColumnDefinitions="*, 9*"
+                                    ColumnSpacing="10">
+                                    <CheckBox
+                                        Grid.Column="0"
+                                        InputTransparent="True"
+                                        IsChecked="True"
+                                        VerticalOptions="Center"
+                                        Color="#031926" />
+                                    <Label
+                                        Grid.Column="1"
+                                        FontSize="14"
+                                        HorizontalOptions="Start"
+                                        InputTransparent="True"
+                                        LineBreakMode="WordWrap"
+                                        VerticalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontFamily="OpenSansRegular"
+                                                    FontSize="14"
+                                                    Text="{local:Localize Key=Register_AgreeTerms}"
+                                                    TextColor="#031926" />
+                                                <Span
+                                                    FontFamily="OpenSansRegular"
+                                                    FontSize="14"
+                                                    Text="{local:Localize Key=Register_AgreeTermsLink}"
+                                                    TextColor="#031926" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </Border>
+
+                            <!-- Don't save Email Notifications Preference (so hide for now)-->
+
+                            <Border
+                                IsVisible="False"
+                                Margin="0,10,0,20"
+                                Padding="10,4"
+                                BackgroundColor="Transparent"
+                                Stroke="#D1E8FF"
+                                StrokeShape="RoundRectangle 10"
+                                StrokeThickness="1">
+                                <Grid
+                                    Padding="0,8"
+                                    ColumnDefinitions="*, 9*"
+                                    ColumnSpacing="10">
+                                    <CheckBox
+                                        Grid.Column="0"
+                                        InputTransparent="True"
+                                        IsChecked="True"
+                                        VerticalOptions="Center"
+                                        Color="#031926" />
+                                    <Label
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        InputTransparent="True"
+                                        LineBreakMode="WordWrap"
+                                        VerticalOptions="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontFamily="OpenSansRegular"
+                                                    FontSize="14"
+                                                    Text="{local:Localize Key=Register_AgreeEmail}"
+                                                    TextColor="#031926" />
+                                                <Span
+                                                    FontFamily="OpenSansRegular"
+                                                    FontSize="14"
+                                                    Text="{local:Localize Key=Register_AgreeEmailLink}"
+                                                    TextColor="#031926" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!--  5-10 age tier only  -->
+                        <VerticalStackLayout Margin="0,0,0,20" IsVisible="False" x:Name="Under10StackLayout">
+                            <Label
+                                Margin="0,10,0,0"
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="18"
+                                HorizontalOptions="Start"
+                                Text="{Binding Under10NameLabel}"
+                                TextColor="#031926" />
+                            <inputLayout:SfTextInputLayout Margin="0,10,0,0">
+                                <Entry x:Name="Under10NameEntry"
+                                    FontFamily="OpenSansRegular"
+                                    FontSize="14"
+                                    IsEnabled="False"
+                                    IsTextPredictionEnabled="False"
+                                    Placeholder="Name"
+                                    PlaceholderColor="Gray"
+                                    TextColor="#031926"
+                                    VerticalOptions="Center" />
+                            </inputLayout:SfTextInputLayout>
+
+                            <Label
+                                Margin="0,10,0,0"
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="18"
+                                HorizontalOptions="Start"
+                                Text="{Binding Under10RoleLabel}"
+                                TextColor="#031926" />
+                            <syncfusion:SfListView x:Name="Under10RoleListView"
+                                Margin="0,10,0,0"
+                                AutoFitMode="Height"
+                                BackgroundColor="Transparent"
+                                ItemTemplate="{StaticResource SignoffOptionItemTemplate}"
+                                Orientation="Vertical"
+                                ScrollBarVisibility="Never"
+                                SelectionBackground="Transparent"
+                                SelectionGesture="Tap"
+                                SelectionMode="Single">
+                                <syncfusion:SfListView.ItemsLayout>
+                                    <syncfusion:GridLayout SpanCount="2" />
+                                </syncfusion:SfListView.ItemsLayout>
+                            </syncfusion:SfListView>
+
+                            <inputLayout:SfTextInputLayout
+                                Margin="0,10,0,0" >
+                                <Entry x:Name="Under10OtherRoleEntry"
+                                    IsEnabled="False"
+                                    FontFamily="OpenSansRegular"
+                                    FontSize="14"
+                                    IsTextPredictionEnabled="False"
+                                    Placeholder="Other Role"
+                                    PlaceholderColor="Gray"
+                                    TextColor="#031926"
+                                    VerticalOptions="Center" />
+                            </inputLayout:SfTextInputLayout>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Label
+                                Margin="0,10,0,0" x:Name="Over16NameLabel"
+                                FontAttributes="Bold"
+                                FontFamily="OpenSansSemiBold"
+                                FontSize="18"
+                                HorizontalOptions="Start"
+                                TextColor="#031926" />
+                            <inputLayout:SfTextInputLayout
+                                Margin="0,10,0,0" >
+                                <Entry
+                                    x:Name="Over16NameEntry"
+                                    IsEnabled="False"
+                                    FontFamily="OpenSansRegular"
+                                    FontSize="14"
+                                    IsTextPredictionEnabled="False"
+                                    Placeholder="Name"
+                                    PlaceholderColor="Gray"
+                                    TextColor="#031926"
+                                    VerticalOptions="Center" />
+                            </inputLayout:SfTextInputLayout>
+                        </VerticalStackLayout>
+
+                        <!-- Signature Section -->
+
+                        <Label
+                            Margin="0,10,0,0"
+                            FontAttributes="Bold"
+                            FontFamily="OpenSansSemiBold"
+                            FontSize="18"
+                            HorizontalOptions="Start"
+                            x:Name="Over16SignatureLabel"
+                            TextColor="#031926" />
+
+                        <StackLayout Margin="0,0,0,50">
+                            <Grid RowDefinitions="Auto,Auto,100">
+                                <Label
+                                    Grid.Row="0"
+                                    Margin="0,10,0,10"
+                                    FontFamily="OpenSansSemiBold"
+                                    FontSize="14"
+                                    Text="Electronic signature"
+                                    HorizontalOptions="Start"
+                                    TextColor="#031926">
+                                </Label>
+
+                                <Border
+                                    Grid.Row="1"
+                                    Margin="0,0,0,20"
+                                    Padding="2"
+                                    HeightRequest="200"
+                                    Stroke="#BFDBF7"
+                                    StrokeShape="RoundRectangle 10">
+                                    <Image
+                                x:Name="SignatureImage"
+                                Aspect="{OnPlatform iOS=AspectFit,
+                                                    Android=AspectFill}"
+                                Background="Transparent"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill" />
+                                </Border>
+
+
+
+                                    <Label
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="3"
+                                        Margin="0"
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="14"
+                                        LineBreakMode="WordWrap"
+                                        Text="{local:Localize Key=Register_SignatureDescription}"
+                                        TextColor="#475569" />
+                            </Grid>
+                        </StackLayout>
+
+
+
+
+
+<!-- ConsentID -->
+<Label FontFamily="OpenSansSemiBold"
+       FontSize="14" TextColor="{StaticResource PrimaryDark}"
+       Style="{StaticResource DescriptionStyle}">
+    <Label.FormattedText>
+        <FormattedString>
+            <Span Text="Consent ID: " TextColor="{StaticResource PrimaryDark}" />
+            <Span x:Name="ConsentIDLabel" Style="{StaticResource DescriptionStyle}" />
+        </FormattedString>
+    </Label.FormattedText>
+</Label>
+
+<!-- <Label Style="{StaticResource DescriptionStyle}" x:Name="ConsentIDLabel" 
+       Text="Consent ID" /> -->
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+    </Grid>
+</ContentPage>

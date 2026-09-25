@@ -1153,6 +1153,9 @@
   <data name="Settings_SignupCode" xml:space="preserve">
     <value>Kod rejestracji</value>
   </data>
+  <data name="Settings_Consent" xml:space="preserve">
+    <value>Zgoda</value>
+  </data>
   <data name="Settings_NotificationSchedule" xml:space="preserve">
     <value>Harmonogram powiadomień</value>
   </data>
@@ -1468,8 +1471,14 @@
   <data name="Settings_NotifScheduleId" xml:space="preserve">
     <value>Harmonogram powiadomień</value>
   </data>
-  <data name="Settings_SignupCodeId" xml:space="preserve">
+  <data name="Settings_SignupCode" xml:space="preserve">
     <value>Kod rejestracji</value>
+  </data>
+  <data name="Settings_Consent" xml:space="preserve">
+    <value>Zgoda</value>
+  </data>
+  <data name="Settings_ConsentStudy" xml:space="preserve">
+    <value>Wyświetl zgodę na udział w badaniu</value>
   </data>
 
   <!-- AddMember placeholders and popup -->
