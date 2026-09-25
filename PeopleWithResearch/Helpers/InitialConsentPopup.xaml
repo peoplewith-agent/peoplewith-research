@@ -19,10 +19,6 @@
         <ResourceDictionary>
             <local:InvertedBoolConverter x:Key="InvertedBoolConverter" />
 
-            <!-- Shared colours: set explicitly on every Span below, since
-                 FormattedString Spans don't reliably inherit the parent
-                 Label's TextColor on all platforms if even one sibling Span
-                 sets its own colour (that's what was showing as white). -->
             <Color x:Key="BodyTextColor">#031926</Color>
             <Color x:Key="EmphasisTextColor">#1C1C1E</Color>
 
@@ -83,11 +79,6 @@
                             <Setter Property="Stroke" Value="#D1E8FF" />
                         </DataTrigger>
                     </Border.Triggers>
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer
-                            Command="{Binding Source={x:Reference ConsentPage}, Path=BindingContext.SetConsentGivenCommand}"
-                            CommandParameter="{Binding .}" />
-                    </Border.GestureRecognizers>
 
                     <Label Text="I consent"
                            FontAttributes="Bold"
@@ -120,11 +111,6 @@
                             <Setter Property="Stroke" Value="#D1E8FF" />
                         </DataTrigger>
                     </Border.Triggers>
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer
-                            Command="{Binding Source={x:Reference ConsentPage}, Path=BindingContext.SetConsentNotGivenCommand}"
-                            CommandParameter="{Binding .}" />
-                    </Border.GestureRecognizers>
 
                     <Label Text="I do not consent"
                            FontAttributes="Bold"

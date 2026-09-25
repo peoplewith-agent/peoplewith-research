@@ -41,6 +41,9 @@ public partial class ImperialDashboard : ContentPage
     public bool TempHideNotif = false;
     public DateTime T1Start = new();
 
+    public void NotasyncMethod(Exception Ex, string Method) { CrashDetected.LogCrash(Ex, Method); }
+
+
   //  public ObservableCollection<newuserquestionnaire> allQuestionnairesOrdered = new();
 
 
@@ -60,6 +63,9 @@ public partial class ImperialDashboard : ContentPage
     { "#F8F4E3", "#E6A8AD", "#F3C096" , "#F1E09F", "#B7CEB0", "#A8D1DF", "#C7B9D6"};
     public ImperialDashboard()
     {
+        try
+        {
+            
         InitializeComponent();
 
         BindingContext = this;
@@ -151,16 +157,31 @@ public partial class ImperialDashboard : ContentPage
         // });
 
 
-        if (string.IsNullOrEmpty(Helpers.Settings.SelectedLanguage))
-        {
-            //Commented out for now 
-            //SelectedLangugage();
-        }
+        // if (string.IsNullOrEmpty(Helpers.Settings.SelectedLanguage))
+        // {
+        //     //Commented out for now 
+        //     //SelectedLangugage();
+        // }
 
-        if(Helpers.Settings.ShowConsentScreen)
+         if(Helpers.Settings.ShowConsentScreen)
         {
             InitialConsentScreen();
         }
+
+        
+        }
+        catch (Exception Ex)
+        {
+            CrashDetected.LogCrash(Ex, Navigation, "ImperialDashboard");
+        }
+        // finally
+        // {
+        //     if(Helpers.Settings.ShowConsentScreen)
+        //     {
+        //         InitialConsentScreen();
+        //     }
+        // }
+        
     }
 
     private void ApplyDashboardLocalization()
@@ -187,6 +208,7 @@ public partial class ImperialDashboard : ContentPage
         }
         catch (Exception ex)
         {
+            CrashDetected.LogCrash(ex, Navigation, "SelectedLangugage");
         }
     }
 
@@ -199,6 +221,7 @@ public partial class ImperialDashboard : ContentPage
         }
         catch (Exception ex)
         {
+            CrashDetected.LogCrash(ex, Navigation, "InitialConsentScreen");
         }
     }
 
@@ -210,9 +233,27 @@ public partial class ImperialDashboard : ContentPage
         if (reload)
         {
             reload = false;
-            await GetHouseholdData(); 
-            //await gethouseholddata();
-            //await RecentComeplted();
+            try
+            {
+                await GetHouseholdData(); 
+            }
+            catch (Exception Ex)
+            {
+                CrashDetected.LogCrash(Ex, Navigation, "OnAppearing");
+            }
+        }
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        try
+        {
+            WeakReferenceMessenger.Default.UnregisterAll(this);
+        }
+        catch (Exception Ex)
+        {
+             CrashDetected.LogCrash(Ex, Navigation, "OnDisappearing");
         }
     }
 

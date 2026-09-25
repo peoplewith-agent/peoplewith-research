@@ -84,11 +84,6 @@
                             <Setter Property="Stroke" Value="#D1E8FF" />
                         </DataTrigger>
                     </Border.Triggers>
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer
-                            Command="{Binding Source={x:Reference ConsentPage}, Path=BindingContext.SetConsentGivenCommand}"
-                            CommandParameter="{Binding .}" />
-                    </Border.GestureRecognizers>
 
                     <Label Text="I consent"
                            FontAttributes="Bold"
@@ -121,11 +116,6 @@
                             <Setter Property="Stroke" Value="#D1E8FF" />
                         </DataTrigger>
                     </Border.Triggers>
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer
-                            Command="{Binding Source={x:Reference ConsentPage}, Path=BindingContext.SetConsentNotGivenCommand}"
-                            CommandParameter="{Binding .}" />
-                    </Border.GestureRecognizers>
 
                     <Label Text="I do not consent"
                            FontAttributes="Bold"
