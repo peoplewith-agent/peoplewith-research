@@ -41,7 +41,6 @@
                 <Setter Property="IsHintAlwaysFloated" Value="True" />
                 <Setter Property="OutlineCornerRadius" Value="5" />
                 <Setter Property="Stroke" Value="LightGray" />
-                <Setter Property="ErrorLabelStyle" Value="{StaticResource SharedErrorLabelStyle}" />
                 <Setter Property="HelperLabelStyle">
                     <Setter.Value>
                         <inputLayout:LabelStyle 
